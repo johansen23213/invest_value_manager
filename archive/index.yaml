@@ -1,0 +1,108 @@
+# =============================================================================
+# ÍNDICE DE ARCHIVO - Value Investor
+# =============================================================================
+# Índice ligero para buscar en histórico sin cargar todos los archivos.
+# Claude consulta este índice primero, luego carga solo lo necesario.
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# RESÚMENES ANUALES
+# -----------------------------------------------------------------------------
+years: {}
+  # 2026:
+  #   summary_path: archive/years/2026/summary.md
+  #   return_pct: 15
+  #   positions_opened: 8
+  #   positions_closed: 5
+  #   win_rate: 60
+  #   best_trade: {ticker: SHEL, return: 28}
+  #   worst_trade: {ticker: BABA, return: -25}
+  #   key_lessons: ["china_risk", "dividend_contrarian"]
+  #   macro_context: "Fed bajó tipos, China débil, Europa value"
+
+# -----------------------------------------------------------------------------
+# THESIS ARCHIVADAS (posiciones cerradas)
+# -----------------------------------------------------------------------------
+archived_thesis:
+  ENEL.MI:
+    company: "Enel SpA"
+    entry_date: 2026-01-26
+    exit_date: 2026-01-31
+    holding_period_days: 5
+    entry_price: 9.225
+    exit_price: 9.225
+    return_pct: 0.00
+    return_eur: 0.00
+    thesis_location: thesis/archive/ENEL/
+    reason_exit: "Comprada sin margen seguridad (0% vs >25% requerido). Precio entrada €9.225 = fair value €9-10. Thesis correcta (buena empresa) PERO precio incorrecto. Movida a watchlist con triggers re-entrada €7.00-7.50 (margen 25-30%)."
+    lesson_id: "verify_entry_price_001"
+    tags: [utilities, europe, italy, defensive, breakeven, margin_of_safety_violation]
+    notes: "Lección crítica: Verificar precio REAL mercado cumple margen >25% ANTES ejecutar. Thesis quality ≠ price correctness."
+
+# -----------------------------------------------------------------------------
+# LECCIONES HISTÓRICAS (ya aplicadas, archivadas)
+# -----------------------------------------------------------------------------
+archived_lessons:
+  verify_entry_price_001:
+    date: 2026-01-31
+    trigger: "Venta Enel breakeven - comprada sin margen"
+    lesson: "SIEMPRE verificar precio REAL de compra vs precio de thesis. Thesis correcta (Enel buena empresa) ≠ precio correcto. A €7.41 era value, a €9.225 no."
+    rule_created: "Nueva regla: Confirmar precio mercado actual cumple margen >25% ANTES de ejecutar orden."
+    still_active: true
+    impact: "CRÍTICO - Previene compras breakeven futuras, forza disciplina margen seguridad"
+    applied_to: "Todos los flujos de compra investment-committee"
+
+# -----------------------------------------------------------------------------
+# COMPACTACIONES (log mantenimiento)
+# -----------------------------------------------------------------------------
+compactions:
+  - date: 2026-01-31
+    type: preventive
+    trigger: "Memoria activa 56KB > umbral 50KB WARNING"
+    files_compacted:
+      - state/system.yaml
+    size_before_kb: 56
+    size_after_kb: 30
+    reduction_pct: 46
+    log_path: journal/log/compaction_2026-01-31.md
+    notes: "Primera compactación sistema. Reducido verbosidad watchlist (-65.8% state/system.yaml). 0% pérdida información crítica."
+
+# -----------------------------------------------------------------------------
+# BÚSQUEDA POR TAGS
+# -----------------------------------------------------------------------------
+tags_index:
+  utilities: [ENEL.MI]
+  europe: [ENEL.MI]
+  italy: [ENEL.MI]
+  defensive: [ENEL.MI]
+  breakeven: [ENEL.MI]
+  margin_of_safety_violation: [ENEL.MI]
+
+# -----------------------------------------------------------------------------
+# ESTADÍSTICAS GLOBALES
+# -----------------------------------------------------------------------------
+global_stats:
+  total_years_active: 0
+  total_positions_closed: 1
+  total_positions_breakeven: 1
+  total_positions_win: 0
+  total_positions_loss: 0
+  overall_win_rate: 0.0  # 0/1 (breakeven no cuenta win/loss)
+  overall_return_pct: 0.0
+  overall_return_eur: 0.0
+  best_year: null
+  worst_year: null
+  largest_win: null
+  largest_loss: null
+  avg_holding_period_days: 5
+
+# -----------------------------------------------------------------------------
+# METADATA
+# -----------------------------------------------------------------------------
+metadata:
+  last_updated: 2026-01-31
+  total_archive_size_kb: 15  # 1 thesis ENEL ~10KB + compaction log ~5KB
+  years_archived: []
+  positions_archived: 1
+  lessons_archived: 1
+  compactions_total: 1

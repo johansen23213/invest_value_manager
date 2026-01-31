@@ -1,0 +1,14 @@
+# =============================================================================
+# FILE MOVES LOG - Managed by File System Manager
+# =============================================================================
+# Tracks all file movements for auditability and recovery.
+# =============================================================================
+
+moves: []
+# Format:
+#   - date: 2026-01-31
+#     file: thesis/research/SHEL/thesis.md
+#     from: thesis/research/SHEL/
+#     to: thesis/active/SHEL/
+#     reason: "Position opened by user"
+#     triggered_by: "investment-committee BUY decision"

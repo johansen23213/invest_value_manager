@@ -1,0 +1,123 @@
+# =============================================================================
+# REGLAS DE INVERSIÓN - VALUE INVESTOR
+# =============================================================================
+# 
+# ⚠️  NO MODIFICAR sin reflexión profunda
+#     Estas reglas existen por una razón. Romperlas lleva a pérdidas.
+#
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# LÍMITES DE POSICIÓN
+# -----------------------------------------------------------------------------
+position_limits:
+  max_single_position_pct: 7      # Máximo 7% en una sola empresa
+  max_sector_exposure_pct: 25     # Máximo 25% en un solo sector
+  min_cash_reserve_pct: 5         # Siempre mantener mínimo 5% en cash
+  max_cash_reserve_pct: 30        # No acumular más del 30% en cash (salvo crisis)
+
+# -----------------------------------------------------------------------------
+# CRITERIOS DE COMPRA
+# -----------------------------------------------------------------------------
+buy_criteria:
+  # Todos deben cumplirse
+  min_margin_of_safety_pct: 25    # Precio < 75% del valor intrínseco
+  require_written_thesis: true     # Obligatorio tener thesis documentada
+  require_moat_identified: true    # Debe tener ventaja competitiva clara
+  require_understand_business: true # Poder explicarlo en 2 minutos
+  require_know_risks: true         # Conocer los 3 principales riesgos
+
+# -----------------------------------------------------------------------------
+# CRITERIOS DE VENTA
+# -----------------------------------------------------------------------------
+sell_criteria:
+  # Al menos uno debe cumplirse para vender
+  thesis_invalidated: true         # Algo fundamental cambió
+  price_at_intrinsic_value: true   # Ya no hay margen de seguridad
+  better_opportunity: true         # Capital rinde más en otra parte
+  
+  # Estas NO son razones para vender
+  not_reasons_to_sell:
+    - "El precio bajó"
+    - "Llevamos X tiempo sin ganancias"
+    - "El mercado está bajando"
+    - "Hay miedo/incertidumbre"
+    - "Un analista dijo que vendamos"
+
+# -----------------------------------------------------------------------------
+# RESTRICCIONES ABSOLUTAS
+# -----------------------------------------------------------------------------
+never_do:
+  - "Usar apalancamiento"
+  - "Operar derivados especulativos"
+  - "Hacer más de 3 operaciones por semana"
+  - "Comprar sin thesis escrita"
+  - "Invertir en lo que no entiendo"
+  - "Seguir hot tips sin análisis"
+  - "Promediar a la baja sin revisar thesis"
+  - "Vender en pánico"
+  - "Comprar por FOMO"
+
+# -----------------------------------------------------------------------------
+# HORIZONTE TEMPORAL
+# -----------------------------------------------------------------------------
+time_horizon:
+  minimum_holding_period_years: 2  # Pensar en años, no meses
+  ideal_holding_period: "forever"  # Si el negocio sigue siendo bueno
+  review_frequency_weeks: 4        # Revisar thesis cada mes aprox
+
+# -----------------------------------------------------------------------------
+# DIVERSIFICACIÓN
+# -----------------------------------------------------------------------------
+diversification:
+  min_positions: 5                 # Mínimo para diversificar
+  max_positions: 15                # Máximo para no diluir convicción
+  ideal_positions: 8               # Suficiente diversificación, suficiente concentración
+
+# -----------------------------------------------------------------------------
+# VALUACIÓN
+# -----------------------------------------------------------------------------
+valuation:
+  preferred_metrics:
+    - "EV/EBITDA"
+    - "P/FCF"
+    - "P/E (con ajustes)"
+    - "P/B (para financieras)"
+  
+  always_compare_to:
+    - "Histórico propio 5-10 años"
+    - "Peers del sector"
+    - "Coste de oportunidad (bonos, índices)"
+
+# -----------------------------------------------------------------------------
+# SECTORES DE INTERÉS
+# -----------------------------------------------------------------------------
+sectors_of_interest:
+  favorable:
+    - "Energía (tradicional + transición)"
+    - "Automoción europea"
+    - "Financiero europeo"
+    - "Infraestructura"
+    - "Empresas con dividendos sostenibles"
+  
+  cautious:
+    - "Tech de alto crecimiento sin beneficios"
+    - "Meme stocks"
+    - "SPACs"
+    - "Crypto (fuera de scope)"
+
+# -----------------------------------------------------------------------------
+# GEOGRAFÍA
+# -----------------------------------------------------------------------------
+geography:
+  preferred:
+    - "Europa (conocemos mejor)"
+    - "US (mercado líquido)"
+  
+  selective:
+    - "Japón (oportunidades value)"
+    - "UK (post-Brexit descuento)"
+  
+  cautious:
+    - "China (riesgo regulatorio/geopolítico)"
+    - "Emergentes (caso por caso)"

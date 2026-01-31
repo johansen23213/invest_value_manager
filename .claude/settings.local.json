@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "Bash(wc:*)",
+      "Bash(tree:*)",
+      "Bash(ls:*)",
+      "WebFetch(domain:docs.claude.com)",
+      "Bash(chmod:*)",
+      "Bash(pip install:*)",
+      "Bash(python3:*)",
+      "Bash(grep:*)"
+    ]
+  }
+}

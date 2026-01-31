@@ -1,0 +1,268 @@
+# =============================================================================
+# GESTIÓN DE CONTEXTO Y MEMORIA A LARGO PLAZO
+# =============================================================================
+# Este archivo define cómo el sistema gestiona el crecimiento de información
+# para mantenerse operativo durante años sin exceder límites de tokens.
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# ESTRATEGIA DE CAPAS DE MEMORIA
+# -----------------------------------------------------------------------------
+#
+# CAPA 1: MEMORIA ACTIVA (siempre se carga)
+#   - state/system.yaml (estado actual, calendario próximo, watchlist activa)
+#   - portfolio/current.yaml (posiciones actuales)
+#   - learning/system_config.yaml (parámetros actuales del sistema)
+#   - world/current_view.md (visión macro actual - resumen)
+#   - thesis/active/* (solo empresas con posición actual)
+#   
+#   Tamaño objetivo: <50KB total
+#
+# CAPA 2: MEMORIA RECIENTE (se carga bajo demanda)
+#   - journal/decisions/ últimos 3 meses
+#   - journal/reviews/ últimos 3 meses
+#   - thesis/watchlist/* (empresas en radar activo)
+#   - world/updates/ últimos 3 meses
+#   
+#   Tamaño objetivo: <100KB
+#
+# CAPA 3: ARCHIVO HISTÓRICO (compactado, raramente accedido)
+#   - archive/decisions/{year}/ - decisiones antiguas compactadas
+#   - archive/reviews/{year}/ - reviews antiguos compactados
+#   - archive/thesis/ - thesis de empresas vendidas/descartadas
+#   - archive/world/{year}/ - histórico macro compactado
+#   - learning/lessons.yaml - se compacta periódicamente
+#
+# -----------------------------------------------------------------------------
+
+# -----------------------------------------------------------------------------
+# POLÍTICA DE COMPACTACIÓN
+# -----------------------------------------------------------------------------
+
+compaction_policy:
+  
+  # Cada cuánto ejecutar compactación
+  frequency: monthly
+  next_scheduled: null
+  last_executed: null
+  
+  # Reglas por tipo de archivo
+  rules:
+    
+    # DECISIONES: Mantener detalle 3 meses, luego compactar
+    decisions:
+      keep_detailed_months: 3
+      archive_format: yearly_summary
+      what_to_keep:
+        - ticker
+        - date
+        - action (buy/sell)
+        - amount
+        - result (if closed)
+        - lesson_extracted (if any)
+      what_to_discard:
+        - full_analysis
+        - detailed_rationale
+        - intermediate_calculations
+    
+    # REVIEWS: Mantener detalle 3 meses, luego solo métricas
+    reviews:
+      keep_detailed_months: 3
+      archive_format: quarterly_metrics
+      what_to_keep:
+        - date
+        - portfolio_value
+        - positions_snapshot
+        - key_alerts
+      what_to_discard:
+        - detailed_position_analysis
+        - full_news_summaries
+    
+    # THESIS: Activas siempre, vendidas → archivo compacto
+    thesis:
+      active: always_keep_full
+      watchlist: keep_full
+      sold_positions:
+        archive_after_months: 1
+        what_to_keep:
+          - ticker
+          - buy_date
+          - sell_date
+          - return_pct
+          - thesis_summary (5 líneas max)
+          - lesson_learned
+    
+    # MACRO UPDATES: Solo el actual + resúmenes históricos
+    world_updates:
+      keep_detailed_months: 3
+      archive_format: quarterly_summary
+      current_view: always_one_file_max_2000_words
+    
+    # LECCIONES: Compactar pero nunca borrar
+    lessons:
+      max_detailed_lessons: 20
+      older_lessons: summarize_to_patterns
+      patterns: always_keep
+
+# -----------------------------------------------------------------------------
+# ESTRUCTURA DE ARCHIVOS COMPACTADOS
+# -----------------------------------------------------------------------------
+
+archive_structure:
+  
+  # archive/decisions/2026_summary.yaml
+  decisions_yearly:
+    format: |
+      year: 2026
+      total_decisions: 15
+      buys: 8
+      sells: 7
+      
+      by_ticker:
+        - ticker: VOW3.DE
+          actions: [{date: 2026-01-25, action: BUY, amount: 1500}, ...]
+          result: +12%
+          lesson: "..."
+      
+      key_learnings:
+        - "..."
+  
+  # archive/reviews/2026_Q1.yaml
+  reviews_quarterly:
+    format: |
+      quarter: 2026-Q1
+      start_value: 10000
+      end_value: 11200
+      return_pct: 12
+      
+      positions_at_end:
+        - {ticker: VOW3.DE, pct: 15}
+        - ...
+      
+      key_events:
+        - "2026-02: Añadido SHEL"
+        - ...
+  
+  # archive/thesis/closed/VOW3.yaml
+  thesis_closed:
+    format: |
+      ticker: VOW3.DE
+      name: Volkswagen
+      
+      holding_period:
+        bought: 2026-01-25
+        sold: 2027-06-15
+        months: 17
+      
+      result:
+        entry_price: 95
+        exit_price: 135
+        return_pct: 42
+        
+      thesis_summary: |
+        Comprado por infravaloración extrema (P/B 0.25x).
+        Vendido al alcanzar valor intrínseco estimado.
+        
+      lesson: |
+        La paciencia con automoción EU funcionó.
+        El turnaround tardó más de lo esperado pero llegó.
+
+# -----------------------------------------------------------------------------
+# RESÚMENES EJECUTIVOS (generados en compactación)
+# -----------------------------------------------------------------------------
+
+executive_summaries:
+  
+  # Se regenera en cada compactación
+  investment_history:
+    file: archive/investment_history.md
+    content:
+      - total_return_since_inception
+      - win_rate
+      - best_worst_investments
+      - key_lessons_summary
+      - patterns_that_work
+    max_length_words: 1000
+  
+  # Resumen de lecciones más importantes
+  key_learnings:
+    file: learning/key_learnings.md
+    content:
+      - top_10_lessons
+      - active_rules
+      - patterns_identified
+    max_length_words: 500
+
+# -----------------------------------------------------------------------------
+# LÍMITES DE TAMAÑO
+# -----------------------------------------------------------------------------
+
+size_limits:
+  
+  # Archivos individuales
+  max_thesis_size_kb: 15
+  max_decision_size_kb: 5
+  max_review_size_kb: 10
+  max_world_view_words: 2000
+  
+  # Carpetas
+  max_active_thesis: 15          # Máximo posiciones simultáneas
+  max_watchlist_thesis: 20       # Máximo en watchlist
+  max_recent_decisions: 30       # ~3 meses
+  max_recent_reviews: 12         # ~3 meses semanales
+  
+  # Cuando se excede → trigger compactación automática
+  trigger_compaction_when:
+    decisions_count_above: 40
+    reviews_count_above: 15
+    lessons_count_above: 30
+
+# -----------------------------------------------------------------------------
+# PROTOCOLO DE CARGA DE CONTEXTO
+# -----------------------------------------------------------------------------
+
+context_loading_protocol:
+  
+  # SIEMPRE cargar (inicio de sesión)
+  always_load:
+    - state/system.yaml
+    - portfolio/current.yaml
+    - learning/system_config.yaml
+    - world/current_view.md
+    - learning/key_learnings.md    # Resumen de lecciones
+  
+  # Cargar si hay posiciones
+  load_if_positions:
+    - thesis/active/*              # Solo las que tenemos
+  
+  # Cargar bajo demanda
+  load_on_demand:
+    when_analyzing_ticker:
+      - thesis/watchlist/{ticker}/
+      - archive/thesis/closed/{ticker}.yaml  # Si existió antes
+    
+    when_reviewing:
+      - journal/reviews/ (últimos 3)
+      - journal/decisions/ (últimos 10)
+    
+    when_macro_update:
+      - world/updates/ (últimos 2)
+    
+    when_learning:
+      - learning/lessons.yaml
+      - archive/investment_history.md
+
+# -----------------------------------------------------------------------------
+# COMANDO DE MANTENIMIENTO
+# -----------------------------------------------------------------------------
+# /maintain - Ejecuta compactación y limpieza
+# -----------------------------------------------------------------------------
+
+maintenance_tasks:
+  - compact_old_decisions
+  - compact_old_reviews
+  - archive_closed_thesis
+  - summarize_old_lessons
+  - regenerate_executive_summaries
+  - verify_size_limits
+  - cleanup_empty_folders

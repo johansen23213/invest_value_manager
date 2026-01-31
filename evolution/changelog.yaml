@@ -1,0 +1,691 @@
+# =============================================================================
+# CHANGELOG DE EVOLUCIÓN DEL SISTEMA
+# =============================================================================
+# Registro de todos los cambios que Claude hace a sí mismo.
+# Permite auditoría, reversión, y aprendizaje sobre qué cambios funcionan.
+# =============================================================================
+
+# Versión actual del sistema
+system_version: "2.0.0"
+last_evolution: 2026-01-31
+
+# -----------------------------------------------------------------------------
+# HISTORIAL DE CAMBIOS
+# -----------------------------------------------------------------------------
+changes:
+  - id: "evo_001"
+    date: 2026-01-26
+    type: modify_core
+    file: "CLAUDE.md"
+    section: "Flujo de Decisión de Inversión"
+
+    reason: |
+      Usuario feedback: "Por qué has tirado por Sanofi directamente sin explorar más?"
+      Patrón identificado: Fui directo a análisis profundo sin comparar opciones.
+      Falta fase de EXPLORACIÓN en el workflow.
+
+    change_summary: |
+      Modificado flujo de inversión:
+      - ANTES: IDENTIFICAR → ANALIZAR → DECIDIR
+      - AHORA: IDENTIFICAR → EXPLORAR → ANALIZAR → DECIDIR
+
+      Añadida fase obligatoria de exploración de 2-3 opciones antes de deep dive.
+      Añadida regla de oro: "EXPLORAR → /analyze → /decide. Nunca saltarse pasos."
+
+    backup_file: "evolution/backups/2026-01-26/CLAUDE.md.backup"
+
+    impact:
+      - "Fuerza comparación de opciones antes de análisis profundo"
+      - "Previene ir directo a una empresa sin contexto"
+      - "Mejora transparencia de decisiones"
+
+    status: applied
+    confirmed_by_user: true
+    effectiveness: null
+    evaluation_date: null
+
+  - id: "evo_002"
+    date: 2026-01-26
+    type: modify_core
+    file: "CLAUDE.md"
+    section: "Uso Obligatorio de Skills"
+
+    reason: |
+      Usuario feedback: "Veo que tienes otras tools y macros, ¿las estás usando?"
+      Patrón identificado: NO usé /analyze para DTE ni Sanofi (búsquedas web manuales).
+      NO usé /decide para ninguna recomendación.
+
+    change_summary: |
+      Añadida sección nueva "Uso Obligatorio de Skills" que prohibe:
+      - Búsquedas web manuales en lugar de /analyze
+      - Presentar recomendaciones sin /decide
+      - Ir directo a análisis sin explorar
+
+      Explicación de por qué importa: consistencia, completitud, trazabilidad.
+
+    backup_file: "evolution/backups/2026-01-26/CLAUDE.md.backup"
+
+    impact:
+      - "Fuerza uso consistente de skills"
+      - "Elimina atajos que reducen calidad"
+      - "Aumenta transparencia (usuario ve qué skill se usa)"
+
+    status: applied
+    confirmed_by_user: true
+    effectiveness: null
+    evaluation_date: null
+
+  - id: "evo_003"
+    date: 2026-01-26
+    type: create_command
+    file: ".claude/commands/explore.md"
+
+    reason: |
+      Workflow necesitaba fase de exploración que no existía.
+      Sin esta fase, Claude va directo a análisis profundo sin comparar.
+
+    change_summary: |
+      Creado nuevo skill /explore que:
+      - Busca 2-3 opciones comparables en un sector
+      - Presenta tabla comparativa con métricas rápidas (P/E, yield, debt)
+      - Recomienda cuál analizar primero
+      - Procede automáticamente con /analyze en mejor opción
+
+    backup_file: null  # Archivo nuevo
+
+    impact:
+      - "Añade fase de exploración al workflow"
+      - "Mejora calidad de decisiones (contexto comparativo)"
+      - "Previene error de ir directo a análisis sin comparar"
+
+    status: applied
+    confirmed_by_user: true
+    effectiveness: null
+    evaluation_date: null
+
+  - id: "evo_004"
+    date: 2026-01-26
+    type: modify_command
+    file: ".claude/commands/analyze.md"
+    section: "Comportamiento Proactivo"
+
+    reason: |
+      Usuario feedback implícito: No usé /decide después de análisis.
+      Presenté recomendaciones sin validar con Investment Committee.
+
+    change_summary: |
+      Modificado "Comportamiento Proactivo" para añadir:
+      - PASO 1 OBLIGATORIO: Ejecutar /decide después de análisis
+      - Prohibido presentar recomendación sin /decide
+      - Advertencia: "CRÍTICO: No presentar recomendación sin pasar por /decide"
+
+    backup_file: "evolution/backups/2026-01-26/analyze.md.backup"
+
+    impact:
+      - "Fuerza validación de Investment Committee"
+      - "Aumenta rigurosidad de recomendaciones"
+      - "Previene presentar ideas sin validar checks (margen, moat, etc)"
+
+    status: applied
+    confirmed_by_user: true
+    effectiveness: null
+    evaluation_date: null
+
+  - id: "evo_005"
+    date: 2026-01-26
+    type: modify_core
+    file: "CLAUDE.md"
+    section: "Reglas de Inversión Value - Sizing Framework"
+
+    reason: |
+      En self-critique reconocí: "Sizing inconsistente sin framework claro"
+      Shell 15%, DTE 12%, Sanofi 10-12% - sin criterio explícito.
+
+    change_summary: |
+      Añadido "Sizing Framework" con tabla de riesgo:
+      - Alta Confianza: 12-15% (moat fuerte, margen >30%)
+      - Confianza Media: 8-12% (moat moderado, margen 25-30%)
+      - Baja Confianza: 5-8% (turnaround, margen 20-25%)
+
+      Ajustes: -30% país riesgo, -20% sector cíclico, -25% execution risk
+      Límites: 15% individual, 30% sector, 15% región
+
+    backup_file: "evolution/backups/2026-01-26/CLAUDE.md.backup"
+
+    impact:
+      - "Sizing ahora tiene framework explícito"
+      - "Decisiones de tamaño justificadas y consistentes"
+      - "Límites claros de concentración"
+
+    status: applied
+    confirmed_by_user: true
+    effectiveness: null
+    evaluation_date: null
+
+  - id: "evo_006"
+    date: 2026-01-26
+    type: modify_core
+    file: "CLAUDE.md"
+    section: "Principios de Comportamiento - Pensamiento Crítico"
+
+    reason: |
+      Usuario feedback crítico: "Te dejas guiar por lo que lees en internet porque lo dice alguien.
+      Tu eres el experto y tienes tu propio criterio. El humano confía en ti."
+
+      Patrón identificado: En DTE y Sanofi repetí claims de analistas/management sin cuestionar:
+      - DTE: "T-Mobile stake vale €84B" → No cuestioné por qué mercado no lo refleja
+      - Sanofi: "Pipeline 12 blockbusters" → Acepté marketing sin escepticismo
+      - Guidance: Tomé proyecciones como hechos, no opiniones optimistas
+
+    change_summary: |
+      Añadida nueva sección "3. PENSAR CRÍTICAMENTE, NO REPETIR" que establece:
+
+      Principios:
+      - Claude es experto, no papagayo de analistas internet
+      - Distinguir HECHOS (históricos) vs OPINIONES (proyecciones)
+      - Cuestionar management guidance (descuento 20-30%)
+      - Cuestionar analistas sell-side (incentivados a optimismo)
+      - Cuestionar "blockbusters futuros" (80% fallan)
+      - Cuestionar suma de partes (¿por qué mercado no ve "infravaloración"?)
+
+      Tabla HECHOS vs OPINIONES con ejemplos concretos.
+
+      Regla de oro:
+      "Usa internet para HECHOS. Usa tu criterio value para VALORACIÓN.
+      El humano confía en TU análisis, no en copy-paste de analistas."
+
+    backup_file: "evolution/backups/2026-01-26/CLAUDE.md.backup"
+
+    impact:
+      - "Fuerza pensamiento crítico independiente"
+      - "Previene copy-paste de opiniones como si fueran hechos"
+      - "Aumenta calidad: análisis propio vs repetir internet"
+      - "El humano confía en criterio de Claude, no de analistas random"
+
+    status: applied
+    confirmed_by_user: true
+    effectiveness: null
+    evaluation_date: null
+
+  - id: "evo_007"
+    date: 2026-01-26
+    type: modify_command
+    file: ".claude/commands/analyze.md"
+    section: "Análisis Cualitativo"
+
+    reason: |
+      Mismo feedback de evo_006: necesario reforzar pensamiento crítico
+      en el proceso de análisis, no solo en principios generales.
+
+    change_summary: |
+      Añadida subsección "Pensamiento Crítico OBLIGATORIO" después de "Búsqueda web":
+
+      Obliga a cuestionar:
+      - Guidance management: descuento 20-30% automático
+      - Claims blockbusters: 80% fallan, ¿qué pasa si solo 1-2 funcionan?
+      - Proyecciones analistas: inútiles >3 años
+      - Suma de partes: ¿por qué mercado no lo ve?
+
+      Tabla "Usar para valorar" vs "Cuestionar fuertemente"
+      - ✅ FCF últimos 5 años vs ❌ "FCF crecerá 15%/año"
+
+      Regla: Solo confía en HECHOS históricos para valorar.
+
+    backup_file: "evolution/backups/2026-01-26/analyze.md.backup"
+
+    impact:
+      - "Integra pensamiento crítico en workflow de análisis"
+      - "Previene tomar guidance/proyecciones como hechos"
+      - "Mejora calidad de thesis: conservadora, no optimista"
+
+    status: applied
+    confirmed_by_user: true
+    effectiveness: null
+    evaluation_date: null
+
+  - id: "evo_008"
+    date: 2026-01-26
+    type: modify_core
+    file: "CLAUDE.md"
+    section: "Nuevas secciones: Validación de Información + Búsqueda Global"
+
+    reason: |
+      Usuario feedback crítico: "¿Por qué solo te centras en europeas? ¿Tienes pensamiento crítico?"
+
+      Patrones identificados:
+      1. SESGO GEOGRÁFICO: Exploré solo Europa sin justificar por qué vs otras regiones
+         - Pharma EU: 2/5 caras, solo Sanofi value con riesgos
+         - Consumer Staples EU: 4/4 caras P/E 17-23x
+         - NO consideré US, Japón, UK, Canada
+
+      2. FALTA VALIDACIÓN: Datos web contradictorios (Enel P/E 9.6x vs 14.6x) sin resolver
+
+      3. NO AUTOCRÍTICA: No cuestioné "¿Por qué Europa?" antes de empezar
+
+    change_summary: |
+      Añadidas 2 secciones principales a CLAUDE.md:
+
+      **SECCIÓN 4: VALIDAR INFORMACIÓN Y SER AUTOCRÍTICO**
+      - Validación 3 capas: datos web, memoria propia, decisiones
+      - Protocolo validación: 2+ fuentes, explicitar discrepancias
+      - Cuestionar memoria: cutoff, generalizaciones, contexto limitado
+      - Autocrítica obligatoria: preguntas antes de decidir
+      - Sesgos comunes: geográfico, confirmación, disponibilidad, inercia
+      - Protocolo autocrítica: explicitar asunciones, sesgos, alternativas
+
+      **NUEVA SECCIÓN: BÚSQUEDA GLOBAL DE VALUE**
+      - Principio: "Value NO tiene geografía"
+      - Tabla regiones: Europa, US, UK, Japón, Canada, EM
+      - Protocolo anti-sesgo: comparar 2+ regiones, validar, diversificar
+      - Regla de oro: "Si 3+ sectores región X caros → cambiar región Y"
+      - Ejemplos pensamiento global vs sesgo regional
+
+    backup_file: "evolution/backups/2026-01-26/CLAUDE.md.backup"
+
+    impact:
+      - "Fuerza validación rigurosa de información (web + memoria)"
+      - "Previene sesgo geográfico (focalizarse región sin justificar)"
+      - "Obliga autocrítica antes de cada decisión"
+      - "Amplía universo inversión: global, no solo Europa"
+      - "Mejora calidad: detecta asunciones, cuestiona datos, busca mejor opción mundial"
+
+    status: applied
+    confirmed_by_user: true
+    effectiveness: null
+    evaluation_date: null
+
+  - id: "evo_009"
+    date: 2026-01-30
+    type: create_command
+    file: ".claude/commands/health-check.md"
+
+    reason: |
+      Usuario feedback: "Creo que deberías generar según las buenas prácticas de Claude
+      un skill nueva para verificación de consistencia que se ejecute cada X tiempo.
+      Además me gustaría que tu mismo me propusieras esto sin tenerlo que pedir."
+
+      Patrón identificado:
+      1. Detecté problemas de consistencia (thesis mal organizadas, duplicados)
+      2. Los corregí PERO solo cuando usuario pidió
+      3. DEBERÍA haberlo propuesto proactivamente
+      4. NO existía skill para auto-verificación periódica
+
+    change_summary: |
+      Creado nuevo skill /health-check que:
+      - Verifica estructura archivos vs CLAUDE.md
+      - Verifica consistencia datos (system.yaml vs portfolio vs thesis)
+      - Verifica memoria management (tamaños archivos, thresholds)
+      - Detecta problemas (duplicados, paths rotos, archivos obsoletos)
+      - Genera reporte con score + warnings + críticos
+      - Propone correcciones automáticas vs manuales
+      - Trigger automático: >14 días desde último check
+
+      Añadido a CLAUDE.md en "Protocolo de Inicio de Sesión":
+      - Verificar si >14 días desde último health-check
+      - Si sí → ejecutar automáticamente
+
+    backup_file: null  # Archivo nuevo
+
+    impact:
+      - "Previene degradación sistema a largo plazo"
+      - "Detecta problemas antes que se agraven"
+      - "Auto-verificación periódica sin intervención usuario"
+      - "Documenta estado salud sistema con score"
+
+    status: applied
+    confirmed_by_user: true
+    effectiveness: null
+    evaluation_date: null
+
+  - id: "evo_010"
+    date: 2026-01-30
+    type: modify_core
+    file: "CLAUDE.md"
+    section: "Protocolo de Inicio de Sesión + Auto-Evolución"
+
+    reason: |
+      Usuario feedback crítico: "Me gustaría que tu mismo me propusieras esto
+      sin tenerlo que pedir. ¿Puedes auto-evolucionarte con esto?"
+
+      Problema identificado:
+      - NO soy suficientemente proactivo en proponer mejoras
+      - Espero a que usuario pida en vez de anticipar
+      - health-check debí proponerlo yo, no esperar que lo pida
+
+    change_summary: |
+      Modificado CLAUDE.md para añadir triggers de auto-evolución proactiva:
+
+      **PROTOCOLO DE INICIO DE SESIÓN actualizado:**
+      - Paso nuevo: Verificar si >14 días desde último health-check
+      - Si sí → ejecutar /health-check automático ANTES de otras tareas
+      - Presentar resultado + proponer correcciones si necesario
+
+      **REGLA DE AUTO-EVOLUCIÓN PROACTIVA:**
+      "Cuando detectes patrón que requiere cambio (>3 ocurrencias), NO esperes
+      que usuario lo pida. PROPÓN la mejora proactivamente con justificación."
+
+      Ejemplos de cuándo proponer:
+      - Detectas problema estructural 3+ veces → proponer skill/fix
+      - Usuario pregunta lo mismo 3+ veces → proponer skill o mejora docs
+      - Proceso manual repetitivo → proponer automatización
+      - Sistema growing >threshold → proponer compactación
+
+    backup_file: "evolution/backups/2026-01-30/CLAUDE.md.backup"
+
+    impact:
+      - "Claude más proactivo en proponer mejoras"
+      - "NO espera que usuario pida lo obvio"
+      - "Auto-evolución continua sin requerir dirección constante"
+      - "Sistema se mejora a sí mismo cuando detecta patrones"
+
+    status: applied
+    confirmed_by_user: true
+    effectiveness: null
+    evaluation_date: null
+
+  - id: "evo_011"
+    date: 2026-01-31
+    type: modify_core
+    file: "CLAUDE.md"
+    section: "Nueva sección: Protocolo de Screening Sistemático"
+
+    reason: |
+      Usuario feedback CRÍTICO: "Me parece raro que con el universo de acciones mundial
+      solo haya 5 oportunidades solidas y solo 10 watchlist. Esto tienes que arreglarte
+      y auto evolucionarte para que no vuelva a pasar, porque sino estamos perdiendo el tiempo."
+
+      PROBLEMA GRAVE identificado:
+      1. SESGO DE DISPONIBILIDAD MASIVO: Solo busco empresas "famosas" que conozco
+         - Tobacco → busqué PM, BTI, MO (las 3 grandes)
+         - Pharma → busqué Pfizer, Sanofi, GSK (las big pharma)
+         - Industrials → busqué CAT, Deere (las líderes)
+
+      2. NO SCREENING SISTEMÁTICO: No busco UNIVERSO completo de empresas en sector
+         - Con 10,000+ empresas públicas globalmente, encontrar solo 5 es señal de metodología defectuosa
+         - Estoy ignorando 90-95% del universo (empresas pequeñas/medias donde está el VERDADERO value)
+
+      3. NO AÑADO VALOR: Si solo analizo empresas obvias que usuario también conoce,
+         NO hago el trabajo sistemático que usuario espera. Perdemos tiempo.
+
+      4. METHODOLOGÍA INCORRECTA:
+         ANTES: Sector → pienso empresas conocidas → busco métricas → analizo
+         DEBERÍA: Sector → screening universo completo → filtros cuantitativos → top matches → analizo
+
+    change_summary: |
+      Añadida NUEVA SECCIÓN COMPLETA "Protocolo de Screening Sistemático" en CLAUDE.md
+      (después de "Búsqueda Global de Value", antes de "Flujo de Decisión"):
+
+      **CONTENIDO:**
+      1. Problema del sesgo de disponibilidad explicado con ejemplos
+
+      2. Protocolo OBLIGATORIO de 5 pasos:
+         - PASO 1: Screening universo completo (búsquedas "[sector] stocks screening P/E yield")
+         - PASO 2: Aplicar filtros cuantitativos (P/E <15, yield >3%, debt/eq <2x, etc.)
+         - PASO 3: Identificar top 5-10 matches por mejor margen/moat/riesgo
+         - PASO 4: Comparar top matches en tabla
+         - PASO 5: Analizar 2-3 MEJORES (no solo la primera conocida)
+
+      3. Herramientas de screening (búsquedas web útiles, fuentes, ETF holdings)
+
+      4. Ejemplos MAL vs BIEN:
+         - MAL: Tobacco → PM, BTI, MO (3 que conozco)
+         - BIEN: Tobacco → screening completo → IMBBY, MO, JT, BTI, PM → top 3 por valuación
+
+      5. Frecuencia: SIEMPRE que explore sector NUEVO
+
+      6. Validación: ¿Encontré >10 empresas? ¿Alguna NO conocía? ¿Analicé mejores valuaciones?
+
+      7. Regla de oro: "Si encuentro solo 3-5 empresas en sector global, screening defectuoso"
+
+      **FILOSOFÍA CLAVE:**
+      "El humano me usa para hacer el trabajo sistemático que él no tiene tiempo de hacer.
+      Si solo busco empresas obvias, NO añado valor. Estamos perdiendo tiempo."
+
+    backup_file: "evolution/backups/2026-01-31/CLAUDE.md.backup"
+
+    impact:
+      - "CRÍTICO: Elimina sesgo de disponibilidad que limitaba universo a 5% de empresas"
+      - "Fuerza screening sistemático OBLIGATORIO de TODO el sector"
+      - "Aumenta probabilidad encontrar value real en empresas pequeñas ignoradas"
+      - "Añade valor real: Claude encuentra oportunidades que usuario no conocía"
+      - "Previene perder tiempo analizando solo lo obvio"
+      - "Portfolio debería expandirse significativamente (de 5+10 a 20-50+ oportunidades viables)"
+
+    status: applied
+    confirmed_by_user: true
+    effectiveness: null
+    evaluation_date: null
+
+  - id: "evo_012"
+    date: 2026-01-31
+    type: modify_core
+    file: "CLAUDE.md + entire agent architecture"
+    section: "Full system restructure"
+
+    reason: |
+      Usuario pidió rediseño completo basado en best practices Anthropic.
+      CLAUDE.md monolítico (1206 líneas) → Orchestrator (67 líneas).
+      10 commands en .claude/commands/ → 4 domain agents, 13 sub-agents,
+      3 micro-agents, 10 skills, 7 sub-skills.
+      Arquitectura de 5 niveles con coordinación inter-agente.
+
+    change_summary: |
+      RESTRUCTURA COMPLETA v2.0.0:
+      - CLAUDE.md: 1206 → 67 líneas (orchestrator-only)
+      - Eliminados: 10 ficheros .claude/commands/ (legacy)
+      - Creados: 4 domain agents (.claude/agents/domains/)
+      - Creados: 9 sub-agents (.claude/agents/investment/, research/, portfolio/)
+      - Creados: 4 system sub-agents (.claude/agents/system/)
+      - Creados: 3 micro-agents (.claude/agents/investment/micro/)
+      - Creados: 10 skills (.claude/skills/)
+      - Creados: 7 sub-skills (.claude/skills/sub-skills/)
+      - Creados: state/agent_coordination.yaml, state/file_moves.yaml
+      - Total: ~37 nuevos ficheros, 10 eliminados
+
+    backup_file: "evolution/backups/2026-01-31/CLAUDE.md.backup"
+
+    impact:
+      - "CLAUDE.md reducido 95% (1206→67 líneas), contexto base <3KB"
+      - "Arquitectura modular: cada agente tiene rol claro y delimitado"
+      - "Skills compartidas eliminan duplicación de conocimiento"
+      - "File System Manager como autoridad única de ficheros"
+      - "Memory Manager para gestión memoria largo plazo"
+      - "Coordinación inter-agente via shared blackboard"
+      - "Sistema escalable y mantenible a largo plazo"
+
+    status: applied
+    confirmed_by_user: true
+    effectiveness: null
+    evaluation_date: null
+
+  - id: "evo_013"
+    date: 2026-01-31
+    type: create_agent
+    file: "tools/price_checker.py + 6 agents updated + CLAUDE.md"
+    section: "Reliable pricing via yfinance"
+
+    reason: |
+      PROBLEMA RECURRENTE: Web searches para precios dan datos inconsistentes,
+      delayed y erróneos. Precios de TTE, LGEN, SAN.PA obtenidos via web search
+      no coincidían entre sesiones. Conversiones EUR manuales erróneas.
+      Esto socava cálculos de margen de seguridad y decisiones de compra/venta.
+
+    change_summary: |
+      1. Creado tools/price_checker.py (yfinance API, batch tickers, EUR conversion)
+      2. Actualizado watchlist-manager: WebSearch → price_checker.py
+      3. Actualizado performance-tracker: añadida regla yfinance
+      4. Actualizado fundamental-analyst: precios via price_checker.py
+      5. Actualizado valuation-specialist: precios via price_checker.py
+      6. Actualizado sector-screener: precios via price_checker.py
+      7. Actualizado investment-committee: verificar precio real antes de decidir
+      8. Añadida regla inmutable en CLAUDE.md: precios SIEMPRE via yfinance
+      9. Actualizado state/system.yaml: session_startup_tasks usa price_checker.py
+      10. Añadida regla inicio sesión: NUNCA terminar con pregunta al humano
+
+    backup_file: null
+
+    impact:
+      - "Elimina inconsistencia de precios (fuente única: yfinance API)"
+      - "Conversión EUR automática y fiable"
+      - "Todos los agentes alineados con misma fuente de datos"
+      - "Previene errores en cálculos de margen de seguridad"
+
+    status: applied
+    confirmed_by_user: true
+    effectiveness: null
+    evaluation_date: null
+
+  # Ejemplo de entrada:
+  # - id: "evo_001"
+  #   date: 2026-02-15
+  #   type: modify_command        # modify_command / create_command / delete_command / modify_core
+  #   file: ".claude/commands/analyze.md"
+  #   section: "Output format"    # Sección específica si aplica
+  #   
+  #   reason: |
+  #     Usuario expresó 3 veces que los análisis son muy largos.
+  #     Feedback: "prefiero análisis más concisos"
+  #   
+  #   change_summary: |
+  #     Reducido tamaño máximo de thesis de 15KB a 5KB.
+  #     Añadido formato conciso con TL;DR obligatorio.
+  #   
+  #   backup_file: "evolution/history/20260215_143022_analyze.md"
+  #   
+  #   impact:
+  #     - "Thesis más cortas"
+  #     - "Información más directa"
+  #   
+  #   status: applied              # proposed / applied / reverted
+  #   confirmed_by_user: true
+  #   
+  #   # Para evaluación posterior
+  #   effectiveness: null          # Se evalúa después: positive / neutral / negative
+  #   evaluation_date: null
+  #   evaluation_notes: null
+
+# -----------------------------------------------------------------------------
+# PROPUESTAS PENDIENTES
+# -----------------------------------------------------------------------------
+pending_proposals: []
+  # - id: "prop_001"
+  #   date: 2026-03-01
+  #   type: create_command
+  #   proposed_file: ".claude/commands/dividends.md"
+  #   reason: "Usuario pregunta frecuentemente por dividendos"
+  #   status: pending_confirmation
+
+# -----------------------------------------------------------------------------
+# ESTADÍSTICAS DE EVOLUCIÓN
+# -----------------------------------------------------------------------------
+stats:
+  total_evolutions: 13
+  successful_evolutions: 13
+  reverted_evolutions: 0
+
+  by_type:
+    modify_command: 2     # analyze.md (2 changes: /decide + pensamiento crítico)
+    create_command: 2     # explore.md, health-check.md
+    delete_command: 0
+    modify_core: 8        # CLAUDE.md (8 changes: workflow, skills, sizing, pensamiento crítico, validación+global, auto-evolución proactiva, screening sistemático, v2.0 restructure)
+
+  by_trigger:
+    user_feedback: 11     # Todo triggered por feedback del usuario
+    error_pattern: 0
+    efficiency_improvement: 0
+    new_capability: 2     # explore.md + health-check.md añaden capacidades nuevas
+
+# -----------------------------------------------------------------------------
+# OBSERVACIONES DEL SISTEMA (para proponer evoluciones)
+# -----------------------------------------------------------------------------
+observations:
+  # Claude registra aquí patrones que podrían justificar evolución
+
+  user_feedback:
+    - date: 2026-01-26
+      feedback: "Por qué has tirado por Sanofi directamente sin explorar más?"
+      related_command: analyze
+      count: 1
+      action_taken: "evo_001, evo_003 - Añadida fase exploración + skill /explore"
+
+    - date: 2026-01-26
+      feedback: "¿Las tools y macros las estás usando realmente?"
+      related_command: analyze
+      count: 1
+      action_taken: "evo_002, evo_004 - Forzado uso obligatorio skills"
+
+    - date: 2026-01-26
+      feedback: "Sizing inconsistente sin framework claro (self-critique)"
+      related_command: decide
+      count: 1
+      action_taken: "evo_005 - Añadido sizing framework con tabla riesgo"
+
+    - date: 2026-01-26
+      feedback: "Te dejas guiar por internet. Tu eres el experto. El humano confía en ti."
+      related_command: analyze
+      count: 1
+      action_taken: "evo_006, evo_007 - Añadido pensamiento crítico obligatorio, distinguir hechos vs opiniones"
+
+    - date: 2026-01-26
+      feedback: "¿Por qué solo te centras en europeas? ¿Es por criterio o falta pensamiento crítico?"
+      related_command: core
+      count: 1
+      action_taken: "evo_008 - Añadidas secciones Validación + Búsqueda Global, protocolo anti-sesgo geográfico"
+
+    - date: 2026-01-31
+      feedback: "Me parece raro que con el universo de acciones mundial solo haya 5 oportunidades. Estamos perdiendo el tiempo. Las acciones que analizas, ¿de donde las sacas? de tu memoria o de noticias?"
+      related_command: core
+      count: 1
+      action_taken: "evo_011 - Añadido Protocolo de Screening Sistemático OBLIGATORIO. Elimina sesgo disponibilidad, fuerza búsqueda universo completo empresas sector."
+    # - date: 2026-02-10
+    #   feedback: "Los análisis son muy largos"
+    #   related_command: analyze
+    #   count: 1  # Se incrementa si se repite
+  
+  usage_patterns: {}
+    # analyze:
+    #   total_uses: 45
+    #   avg_satisfaction: null  # Si el usuario da feedback
+    #   common_followups: ["más corto", "dame el resumen"]
+  
+  error_patterns: []
+    # - type: "timeout en búsqueda"
+    #   count: 3
+    #   affected_command: macro
+    #   potential_fix: "Reducir número de búsquedas paralelas"
+  
+  capability_requests: []
+    # - date: 2026-02-20
+    #   request: "¿Puedes analizar opciones?"
+    #   count: 2
+    #   potential_command: "options"
+
+  proactivity_feedback:
+    - date: 2026-01-30
+      feedback: "Sistema debe ser proactivo siempre. Claude tiene capacidad para ejecutar plan completo autónomamente: world update + monitoreo posiciones + exploración sectores + documentación. No esperar instrucciones paso a paso. Tener pipeline de trabajo activo en todo momento. Usuario confía en capacidad Claude para gestionar múltiples tareas en paralelo."
+      count: 1
+      action_taken: "Registrado. Si patrón se repite (usuario nota falta proactividad 3+ veces), proponer evolución core para reforzar autonomía."
+
+# -----------------------------------------------------------------------------
+# CONFIGURACIÓN DE EVOLUCIÓN
+# -----------------------------------------------------------------------------
+evolution_config:
+  # Cuántas instancias de un patrón antes de proponer cambio
+  threshold_for_proposal:
+    user_feedback_count: 3
+    error_pattern_count: 3
+    capability_request_count: 2
+  
+  # Requiere confirmación del usuario
+  requires_confirmation:
+    modify_core: true
+    delete_command: true
+    modify_command: true      # Cambios significativos
+    create_command: false     # Puede crear y luego informar
+  
+  # Auto-evolución permitida (sin confirmar, solo notificar)
+  auto_evolve_allowed:
+    - "fix_typos"
+    - "add_examples"
+    - "clarify_instructions"
+    - "minor_formatting"

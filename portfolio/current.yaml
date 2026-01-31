@@ -1,0 +1,130 @@
+# =============================================================================
+# PORTFOLIO - Solo el humano edita este archivo
+# =============================================================================
+# Actualizar después de cada operación en eToro
+# Última actualización: 2026-01-31
+# =============================================================================
+
+cash:
+  amount: 5664.00  # 6547 - 383 (TEP.PA) - 500 (LIGHT.NV) = 5664
+  currency: EUR
+
+positions:
+  # DATOS SINCRONIZADOS CON eToro 2026-01-31
+  # eToro muestra todo en USD. Avg cost = invested / shares.
+  - ticker: SHEL
+    name: "Shell plc"
+    shares: 40.848578
+    invested_usd: 1500.00
+    avg_cost_usd: 36.72  # $1500 / 40.848578
+    date_opened: 2026-01-26
+    thesis: thesis/active/SHEL/thesis.md
+
+  - ticker: DTE.DE
+    name: "Deutsche Telekom AG"
+    shares: 37.624621
+    invested_usd: 1198.22
+    avg_cost_usd: 31.85  # $1198.22 / 37.624621
+    date_opened: 2026-01-26
+    thesis: thesis/active/DTE/thesis.md
+
+  - ticker: PFE
+    name: "Pfizer Inc."
+    shares: 18.66368
+    invested_usd: 499.25
+    avg_cost_usd: 26.75  # $499.25 / 18.66368
+    date_opened: 2026-01-27
+    thesis: thesis/active/PFE/thesis.md
+
+  - ticker: ALL
+    name: "Allstate Corporation"
+    shares: 2.03874
+    invested_usd: 399.59
+    avg_cost_usd: 196.00  # $399.59 / 2.03874
+    date_opened: 2026-01-27
+    thesis: thesis/active/ALL/thesis.md
+
+  - ticker: TEP.PA
+    name: "Teleperformance SE"
+    shares: 7.01
+    invested_eur: 383.00
+    avg_cost_eur: 54.60  # €383 / 7.01
+    date_opened: 2026-01-31
+    thesis: thesis/research/TEP_analysis.md
+
+  - ticker: LIGHT.NV
+    name: "Signify NV"
+    shares: 27.94
+    invested_eur: 500.00
+    avg_cost_eur: 17.91  # €500 / 27.94
+    date_opened: 2026-01-31
+    thesis: thesis/research/LIGHT_analysis.md
+
+transactions:
+  - date: 2026-01-26
+    action: BUY
+    ticker: SHEL.L
+    shares: 40.8
+    price_gbp: 26.89  # Precio en Londres (GBX: 2689p)
+    price_eur: 36.76  # Equivalente EUR
+    total_eur: 1500.00
+    notes: "Primera posición - energía tradicional, hedge geopolítico"
+
+  - date: 2026-01-26
+    action: BUY
+    ticker: DTE.DE
+    shares: 37.62
+    price_eur: 26.88
+    total_eur: 1200.00  # Aprox 37.62 × 26.88 = 1011 + fees
+    notes: "Segunda posición - telecom líder EU, T-Mobile US hidden value"
+
+  - date: 2026-01-27
+    action: BUY
+    ticker: ENEL.MI
+    shares: 81
+    price_eur: 9.225  # Precio REAL de compra (corregido)
+    total_eur: 747.00  # 81 × 9.225
+    notes: "Tercera posición - utility #1 EU. NOTA: comprada a fair value sin margen seguridad (error)"
+
+  - date: 2026-01-27
+    action: BUY
+    ticker: PFE
+    shares: 20
+    price_usd: 25.65  # Precio en NYSE
+    price_eur: 25.00  # Equivalente EUR (aprox)
+    total_eur: 500.00
+    notes: "Cuarta posición - big pharma US, yield 6.84% defensive, P/E 14.8x barata, earnings feb 3"
+
+  - date: 2026-01-27
+    action: BUY
+    ticker: ALL
+    shares: 2
+    price_usd: 197.65  # Precio en NYSE
+    price_eur: 200.00  # Equivalente EUR (aprox)
+    total_eur: 400.00
+    notes: "Quinta posición - P&C insurance US, P/E 6.3x exceptional value, ROE 37%, combined ratio 80%, earnings Q4 5-feb-2026"
+
+  - date: 2026-01-31
+    action: SELL
+    ticker: ENEL.MI
+    shares: 81
+    price_eur: 9.225
+    total_eur: 747.00
+    pnl_eur: 0.00  # Breakeven
+    notes: "Vendida - comprada sin margen seguridad (0% vs >25% requerido). P/E ~15x = fair value. Watchlist re-entrada €7.00-7.50."
+
+  - date: 2026-01-31
+    action: BUY
+    ticker: TEP.PA
+    shares: 7.01
+    price_eur: 54.60
+    total_eur: 383.00
+    notes: "BPO global leader, 86% drawdown from peak. AI disruption fears overdone. P/E 6.8x, FCF yield 34%, div yield 7.9%. FV €115 = 53% MoS. Smaller position (3.5%) due to AI risk."
+
+  - date: 2026-01-31
+    action: BUY
+    ticker: LIGHT.NV
+    shares: 27.94
+    price_eur: 17.91
+    total_eur: 500.00
+    notes: "Signify (ex-Philips Lighting), global #1. P/E 7.3x, FCF yield 18.6%, div yield 8.8%. FV €26.73 = 33% MoS. Cyclical trough + connected lighting optionality. Small position (3-4%)."

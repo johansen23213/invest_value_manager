@@ -1,0 +1,27 @@
+# =============================================================================
+# AGENT COORDINATION - Shared Blackboard for Multi-Agent System
+# =============================================================================
+# All agents read/write this file to coordinate workflows.
+# Orchestrator manages workflow lifecycle.
+# =============================================================================
+
+current_workflow:
+  id: null
+  status: idle  # idle | in_progress | completed
+  goal: null
+  started: null
+  steps_completed: []
+  next_step: null
+
+cross_agent_data: []
+# Format:
+#   - from: agent-name
+#     to: [agent-1, agent-2]
+#     data: "Key information"
+#     timestamp: YYYY-MM-DDTHH:MM:SSZ
+
+pending_validations: []
+# Format:
+#   - ticker: SHEL
+#     analyst: fundamental-analyst
+#     awaiting: investment-committee

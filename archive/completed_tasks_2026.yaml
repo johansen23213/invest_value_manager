@@ -1,0 +1,165 @@
+# =============================================================================
+# COMPLETED TASKS ARCHIVE - 2026
+# =============================================================================
+# This file contains all completed tasks archived from state/system.yaml
+# To keep the main system file compact and focused on active work.
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# COMPLETED TASKS (from work_in_progress section)
+# -----------------------------------------------------------------------------
+completed_tasks:
+  - type: sector_exploration
+    sector: "Materials/Mining Cyclical"
+    reason: "Explorar cyclical materials como alternativa gap defensive agotado"
+    status: completed
+    date: 2026-01-30
+    outcome: "SECTOR DESCARTADO - Commodity timing pésimo (iron ore $100/ton peak, copper $4.20/lb peak). Rio Tinto watchlist (margen 25% threshold), BHP descartado (margen 3%). Esperar corrección iron ore $80-85, copper $3.50-3.80 para re-evaluar."
+    lesson: "Timing > Quality en commodities. Copper secular growth (EV, electrificación) NO salva mal timing entry peak. Premium BHP 10% vs RIO por copper quality YA reflejado precio, sin margen adicional = trampa. Yield matters: BHP 3.6% vs RIO 4.5% = -€90/año, crítico cuando sin capital gain upside."
+
+  - type: analysis_decision
+    ticker: RIO
+    reason: "Materials cyclical, iron ore 70% + copper/aluminium 30%"
+    status: completed
+    date: 2026-01-30
+    outcome: "WATCHLIST - Margen 25% threshold ✅ PERO timing pésimo (iron ore $100/ton peak, forecast $85-90 2026). China 60% iron ore clients + inmobiliario roto + Simandou supply overhang = headwinds estructurales. P/E 13x barato, yield 4.5%, moat narrow cost leadership Pilbara $22/ton. Triggers: precio $50-52 (margen 35%), iron ore $80-85 sostenido, China stimulus concreto."
+    lesson: "Margen 25% threshold OK PERO NO compensa timing commodity peak + China concentration 60%. Comprar commodity en peak local (antes corrección) = value trap risk. Esperar entry mejor timing (después sell-off) reduce riesgo significativo."
+
+  - type: analysis_decision
+    ticker: BHP
+    reason: "Alternativa Rio Tinto, diversificación copper 44% vs iron ore puro"
+    status: completed
+    date: 2026-01-30
+    outcome: "DESCARTADO - Margen 3% <<25% threshold ❌. Petroleum vendido 2022 (tesis inicial incorrecta), diversificación real = copper 44% (vs RIO 15%). Copper secular growth válido PERO timing peak $4.20/lb idéntico iron ore. Premium 10% vs RIO (P/E 14.8x vs 13x) YA refleja copper quality, sin margen adicional injustificado. Yield 3.6% < RIO 4.5%. Quality mejor RIO PERO value peor."
+    lesson: "SIEMPRE validar asunciones business actual (petroleum asumido sin verificar = error). Premium requiere margen adicional: BHP premium 10% + margen 3% = 13% total insuficiente. Yield crítico cuando sin capital gain upside (margen bajo = return es dividend). Portfolio discipline: gap defensive 20-25% prioritario, NO añadir cyclical viola plan."
+
+  - type: sector_exploration
+    sector: "REITs Defensive US"
+    reason: "Cerrar gap defensive 20-25% con REITs infrastructure/data centers/healthcare"
+    status: completed
+    date: 2026-01-30
+    outcome: "SECTOR DESCARTADO - Todos REITs caros post-AI hype rally. Data centers (EQIX P/FFO 25-28x, DLR P/E 40x), Healthcare (WELL P/FFO 36x), Towers (AMT margen 19%, CCI dividend cut). Sector average P/FFO 13.7x, opciones exploradas 15-36x = premium 2-2.6x. Yields 1.5-3% bajos vs target >4%."
+    lesson: "REITs rally fuerte 2023-25, AI hype data centers, valuations priced for perfection. No forzar compras sector caro solo 'cerrar gap'. Value investing = comprar DONDE está value, NO forzar balance."
+
+  - type: sector_exploration
+    sector: "Medtech/Hospitals Defensive US"
+    reason: "Backup REITs para cerrar gap defensive 20-25%"
+    status: completed
+    date: 2026-01-30
+    outcome: "SECTOR DESCARTADO - Medtech caros (Medtronic P/E 18x yield 2.8% mejor opción, Stryker P/E 47x yield 0.97%, BDX ROIC <WACC). Hospitals peor (HCA yield 0.6%, debt $46B). Incluso mejores opciones (MDT, ABT) yields 2-2.8% bajos, P/E 15-22x sin margen >25%."
+    lesson: "Defensive developed markets globalmente caro. Mejores opciones defensive ya en portfolio (Enel yield 5%, Pfizer 6.84%). Forzar compras yields 2% = inconsistente rechazar Sanofi/Admiral margen <25%. Timing matters: esperar corrección Q2 2026 mejor que comprar fair value ahora."
+
+  - type: system_evolution
+    change_id: evo_011
+    reason: "Usuario feedback CRÍTICO: Con 10,000+ empresas mundiales, solo 5 oportunidades sugiere sesgo metodológico"
+    status: completed
+    date: 2026-01-31
+    outcome: "PROTOCOLO SCREENING SISTEMÁTICO implementado en CLAUDE.md. Screening OBLIGATORIO universo completo cada sector nuevo (vs buscar solo empresas famosas). 5 pasos: búsqueda lista completa → filtros cuantitativos → top matches → comparar → analizar mejores. System version 1.3.0 → 1.4.0"
+    lesson: "Sesgo de disponibilidad masivo corregido. Solo buscaba PM/BTI/MO (tobacco), CAT/Deere (industrials), etc. = 5% del universo. Screening sistemático descubre empresas desconocidas donde está value real. Validado con tobacco: encontró Imperial Brands (mejor opción sector) que NO habría descubierto antes."
+
+  - type: sector_exploration
+    sector: "Tobacco Defensive Global"
+    reason: "Validar protocolo screening sistemático + cerrar gap defensive 20-25%"
+    status: completed
+    date: 2026-01-31
+    outcome: "SECTOR DESCARTADO (completo) - Screening sistemático encontró 6 tobacco (vs 3 conocidas): PM, BTI, MO, Imperial Brands, Japan Tobacco, Universal. Imperial Brands (IMBBY) mejor opción: P/E 8.87x forward (mejor sector), yield 5.6%, ROE 38.74%, volume decline -2% mejorando (vs Altria -10%), Strong Buy rating. PERO Imperial NO compite con portfolio: yield 5.6% < Pfizer 6.84%, secular decline -2% come equity value, moat inferior vs Pfizer Wide."
+    lesson: "SCREENING SISTEMÁTICO FUNCIONA: Descubrió Imperial (P/E 8.87x mejor que todas). ANÁLISIS CRÍTICO TAMBIÉN FUNCIONA: Descartó sector entero porque mejor opción (Imperial) NO supera lo que ya tenemos (Pfizer). Protocolo validado: screening encuentra oportunidades, análisis crítico decide si añaden valor real vs portfolio actual."
+
+  - type: sector_exploration
+    sector: "Industrials Machinery Cyclical"
+    reason: "Cerrar gap cyclical 18-23% con industrials moat narrow"
+    status: completed
+    date: 2026-01-31
+    outcome: "SECTOR DESCARTADO - Caterpillar P/E 31.6x yield 0.97%, Deere P/E 25-27x yield 1.3%, CNH P/E 22.6x yield 2.3%. TODOS caros (P/E 22-32x vs portfolio 9-15x), yields bajos (1-2% vs portfolio 4.5-7%). NO compiten con portfolio actual."
+    lesson: "Post-rally 2023-25 afecta también cyclicals. Industrials machinery P/E 22-32x sin margen seguridad. Yields 1-2% NO cierran gaps portfolio (requiere yields >4% defensive, >3% cyclical mínimo). Confirma patrón: mercado globalmente caro mayoría sectores."
+
+# -----------------------------------------------------------------------------
+# COMPLETED TASKS LEGACY (older completed tasks)
+# -----------------------------------------------------------------------------
+completed_tasks_legacy:
+  - type: decision
+    ticker: SAN.PA
+    reason: "RECHAZADO - watchlist"
+    status: completed
+    date: 2026-01-26
+    outcome: "NO comprar - margen 20-25% insuficiente, execution risk pipeline, moat temporal"
+
+  - type: analysis_decision
+    ticker: IBE.MC
+    reason: "Utilities EU comparison vs Enel"
+    status: completed
+    date: 2026-01-27
+    outcome: "WATCHLIST - quality excelente PERO margen -19%, P/E 21-24x vs Enel 9-15x (50-100% más cara)"
+    lesson: "Quality NO justifica premium sin margen seguridad. Enel mejor value."
+
+  - type: purchase
+    ticker: ENEL.MI
+    reason: "Utilities EU defensive"
+    status: completed
+    date: 2026-01-27
+    outcome: "COMPRADO €600 (6%) - P/E 9.6x, yield 5%, mejor que Iberdrola"
+    lesson: "Comparar opciones antes de elegir. Enel 50-100% más barata que IBE."
+
+  - type: analysis_decision
+    ticker: PFE
+    reason: "Pharma US defensive, screening global pharma post-Sanofi"
+    status: completed
+    date: 2026-01-27
+    outcome: "COMPRADO €500 (5%) - yield 6.84% highest big pharma, margen 25-36%, menos execution risk que Sanofi"
+    lesson: "Yield cushion + margen OK + moat pharma > execution risk. Timing earnings no crítico para value."
+
+  - type: sector_exploration
+    sector: "Consumer Staples Global"
+    reason: "Completar defensive trifecta (utilities, pharma, staples)"
+    status: completed
+    date: 2026-01-27
+    outcome: "SECTOR DESCARTADO - EU caras (P/E 17-23x), US value traps (GIS P/E 9.6x PERO ROIC 8.25%, secular decline)"
+    lesson: "ROIC <10% en staples = moat erosionando. Yield alto puede ser trampa si FCF cae. Secular decline ≠ cyclical."
+
+  - type: analysis_decision
+    ticker: GIS
+    reason: "Consumer Staples US, mejor opción global screening"
+    status: completed
+    date: 2026-01-27
+    outcome: "WATCHLIST - margen 20% < 25%, ROIC 8.25% bajo, secular decline packaged food, value trap risk ALTO"
+    lesson: "ROIC revela moat real (vs ROE artificial por leverage). Comparar across sectors (pharma mejor ROIC que staples)."
+
+  - type: sector_exploration
+    sector: "Utilities UK/Canada"
+    reason: "Diversificación geográfica defensive"
+    status: completed
+    date: 2026-01-27
+    outcome: "SECTOR DESCARTADO - National Grid, SSE, Fortis, Emera todas 50-100% más caras que Enel (P/E 15-22x vs 9.6x), yields inferiores"
+    lesson: "Value NO tiene geografía. No pagar premium por 'diversificación geográfica' sin value. Enel mejor opción global utilities."
+
+  - type: sector_exploration
+    sector: "Auto EU"
+    reason: "Cyclical value, pesimismo extremo (P/E 5-7x)"
+    status: completed
+    date: 2026-01-27
+    outcome: "SECTOR DESCARTADO - VW FCF -€1.7B, Stellantis FCF -€5-10B guidance + CEO resigned + losses. FCF negativo = value trap risk."
+    lesson: "FCF negativo en cyclical es red flag seria. Capex transition EV puede durar años. Evitar hasta FCF positivo validado."
+
+  - type: analysis_decision
+    ticker: ALL
+    reason: "Insurance P&C US defensive"
+    status: completed
+    date: 2026-01-27
+    outcome: "COMPRADO €400 (4%) - P/E 6.3x, ROE 37%, combined ratio 80%, 51-72% más barata que peers"
+    lesson: "Margen 21% aceptable si execution exceptional. Narrow moat puede funcionar con ROE 37%. Consistency con Enel margen 21%."
+
+  - type: sector_exploration
+    sector: "Healthcare Defensive - Insurance"
+    reason: "Cerrar gap defensive 20-25% con healthcare subsectors (hospitals, medtech, insurance)"
+    status: completed
+    date: 2026-01-28
+    outcome: "CVS Health WATCHLIST - margen 35% excelente PERO clasificado OPPORTUNISTIC (turnaround ROE 7%, CEO 4 meses, Medicare shock), NO cierra gap defensive. Esperar Q4 earnings 11-feb."
+    lesson: "Clasificación ANTES de análisis profundo: CVS identificado opportunistic (turnaround) desde comparativa inicial. Inconsistencia añadir opportunistic cuando prioridad cerrar gap defensive. ROE 7% bajo + margins recovery mode + execution risk alto = drawdown -30-50% si falla vs defensive -15-20%. Gap defensive requiere defensive PURO."
+
+  - type: analysis_decision
+    ticker: CVS
+    reason: "Healthcare insurance, P/E 10.3x cheapest subsector"
+    status: completed
+    date: 2026-01-28
+    outcome: "WATCHLIST - Margen 35% > 25% ✅ PERO opportunistic (turnaround), NO defensive. Q4 earnings 11-feb (11 días) valida turnaround. Si BEAT (EPS >$6.70, Aetna margin >8%) → ready_to_buy €300 (3% opportunistic). Si MISS → descartar."
+    lesson: "Timing earnings consideration: Q4 earnings 11 días → esperar es obvio, reduce riesgo. Risk/reward esperar: Downside limitado (tiempo corto), upside validación thesis. Decisión correcta vs compra inmediata."
