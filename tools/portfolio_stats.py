@@ -52,13 +52,24 @@ def main():
     for p in positions:
         ticker = p['ticker']
         shares = p['shares']
-        invested = p['invested_usd']
+        # Support both USD and EUR invested amounts
+        if 'invested_usd' in p:
+            invested = p['invested_usd']
+        elif 'invested_eur' in p:
+            invested = p['invested_eur'] * eurusd  # Convert EUR to USD
+        else:
+            print(f"  WARN: {ticker} missing invested amount, skipping")
+            continue
 
-        # Get current price
-        yf_ticker = ticker
+        # Ticker mapping (portfolio ticker → yfinance ticker)
+        TICKER_MAP = {'LIGHT.NV': 'LIGHT.AS'}
+        yf_ticker = TICKER_MAP.get(ticker, ticker)
         info = yf.Ticker(yf_ticker).info
         price = info.get('currentPrice') or info.get('regularMarketPrice') or info.get('previousClose')
         currency = info.get('currency', 'USD')
+        if price is None:
+            print(f"  WARN: {ticker} ({yf_ticker}) - no price data, skipping")
+            continue
 
         price_usd = to_usd(price, currency, eurusd, gbpusd)
         value = price_usd * shares

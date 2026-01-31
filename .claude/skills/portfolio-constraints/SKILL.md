@@ -38,6 +38,16 @@ disable-model-invocation: false
 - Mínimo sectores: 5
 - Mínimo geografías: 4
 
+## Cash Urgency Protocol (v2 - 2026-01-31)
+| Cash % | Nivel | Acción |
+|--------|-------|--------|
+| >50% | EMERGENCY | Screen diario, Tier A agresivo, considerar ETF placeholder |
+| 30-50% | HIGH URGENCY | Screen semanal, Tier A activo |
+| 15-30% | NORMAL | Screening mensual, thresholds estándar |
+| 10-15% | TARGET ZONE | Deploy selectivo |
+| 5-10% | CONSERVATIVE | Solo oportunidades excepcionales |
+| <5% | STOP | No comprar nada |
+
 ## Rebalanceo triggers
 - Posición >target × 1.3 → TRIM
 - Posición <target × 0.7 + thesis intacta → ADD

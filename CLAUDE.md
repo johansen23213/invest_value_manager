@@ -296,7 +296,7 @@ python3 tools/dcf_calculator.py TICKER --growth 5 --terminal 2.5 --wacc 8
 - portfolio/current.yaml: Claude puede modificar SOLO tras confirmación del humano
 - NUNCA operar sin thesis documentada
 - NUNCA apalancamiento
-- Margen seguridad >25% para comprar
+- Margen seguridad TIERED: Tier A (wide moat defensivos) >=15%, Tier B (ciclicos calidad) >=25%, Tier C (turnarounds) >=35%. Ver investment-rules skill para Quality Score gate.
 - Posición máx 7%, sector máx 25%, geografía máx 35%
 - Cash mínimo 5%
 - **PRECIOS: SIEMPRE via `python3 tools/price_checker.py TICKER`. NUNCA WebSearch para precios de acciones. NUNCA hardcodear precios en scripts. yfinance es la ÚNICA fuente de precios fiable. Esta regla aplica a TODOS los agentes sin excepción.**

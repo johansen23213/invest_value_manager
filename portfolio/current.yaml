@@ -6,7 +6,7 @@
 # =============================================================================
 
 cash:
-  amount: 5664.00  # 6547 - 383 (TEP.PA) - 500 (LIGHT.NV) = 5664
+  amount: 4766.00  # 5267 - 501 (VICI)
   currency: EUR
 
 positions:
@@ -14,9 +14,9 @@ positions:
   # eToro muestra todo en USD. Avg cost = invested / shares.
   - ticker: SHEL
     name: "Shell plc"
-    shares: 40.848578
-    invested_usd: 1500.00
-    avg_cost_usd: 36.72  # $1500 / 40.848578
+    shares: 20.848578
+    invested_usd: 765.54  # Prorated: 1500 * (20.85/40.85)
+    avg_cost_usd: 36.72  # Unchanged
     date_opened: 2026-01-26
     thesis: thesis/active/SHEL/thesis.md
 
@@ -51,6 +51,30 @@ positions:
     avg_cost_eur: 54.60  # €383 / 7.01
     date_opened: 2026-01-31
     thesis: thesis/research/TEP_analysis.md
+
+  - ticker: SAN.PA
+    name: "Sanofi SA"
+    shares: 6.52
+    invested_eur: 516.00
+    avg_cost_eur: 79.20
+    date_opened: 2026-01-31
+    thesis: thesis/research/other_opportunities_screening.md
+
+  - ticker: VICI
+    name: "VICI Properties Inc."
+    shares: 21.37
+    invested_usd: 600.00
+    avg_cost_usd: 28.08
+    date_opened: 2026-01-31
+    thesis: thesis/research/VICI_analysis.md
+
+  - ticker: IMB.L
+    name: "Imperial Brands plc"
+    shares: 14.17
+    invested_usd: 600.00
+    avg_cost_usd: 42.34
+    date_opened: 2026-01-31
+    thesis: thesis/research/IMB_analysis.md
 
   - ticker: LIGHT.NV
     name: "Signify NV"
@@ -128,3 +152,38 @@ transactions:
     price_eur: 17.91
     total_eur: 500.00
     notes: "Signify (ex-Philips Lighting), global #1. P/E 7.3x, FCF yield 18.6%, div yield 8.8%. FV €26.73 = 33% MoS. Cyclical trough + connected lighting optionality. Small position (3-4%)."
+
+  - date: 2026-01-31
+    action: SELL
+    ticker: SHEL
+    shares: 20
+    price_gbx: 2689  # £26.89
+    total_eur: 620.24  # £537.80 × 1.1533
+    pnl_approx: "+€285"  # Cost basis ~€335 (20 shares × avg $36.72 / 1.197 EURUSD)
+    notes: "TRIM - Position 23.9% >> 7% max. Sold 20/40.85 shares. +110% gain. Reducing concentration risk."
+
+  - date: 2026-01-31
+    action: BUY
+    ticker: SAN.PA
+    shares: 6.52
+    price_eur: 79.20
+    total_eur: 516.00
+    notes: "Sanofi. Quality Score 9/10 Tier A. MoS 19-23% > 15% Tier A threshold. P/E fwd 8.9x, yield 5.1%, 26yr dividend. 25 pipeline readouts 2026."
+
+  - date: 2026-01-31
+    action: BUY
+    ticker: IMB.L
+    shares: 14.17
+    price_usd: 42.34
+    total_usd: 600.00
+    total_eur: 501.00
+    notes: "Imperial Brands. Quality Score 9.5/10 Tier A. MoS 19% > 15%. Fwd P/E 8.1x, yield 5.3%, buyback £1.45B (11% mcap). Total return ~16%/yr."
+
+  - date: 2026-01-31
+    action: BUY
+    ticker: VICI
+    shares: 21.37
+    price_usd: 28.08
+    total_usd: 600.00
+    total_eur: 501.00
+    notes: "VICI Properties REIT. Quality Score 8/10 Tier A. MoS 18% > 15%. Triple-net casino leases, yield 6.3%, wide moat. First REIT position."

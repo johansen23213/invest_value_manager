@@ -12,15 +12,38 @@ system:
   system_version: "2.0.0"
   last_session: 2026-01-31
   last_session_summary: |
-    Sesión 11 - ANTI-POPULARITY MID-CAP DEPLOYMENT
+    Sesión 12 - STRATEGIC EVOLUTION + TRIPLE DEPLOYMENT
 
-    PORTFOLIO ACTIONS (2 COMPRAS EJECUTADAS):
-    - TEP.PA (Teleperformance): 7.01 shares @ €54.60 = €383 (3.5% portfolio)
-      → BPO global leader. AI disruption fears = 86% drawdown. P/E 6.8x, FCF yield 34%, div 7.9%
-      → FV €115 (53% MoS). Smaller position due AI risk, pero valuation extraordinaria
-    - LIGHT.NV (Signify): 27.94 shares @ €17.91 = €500 (4% portfolio)
-      → Ex-Philips Lighting, global #1. P/E 7.3x, FCF yield 18.6%, div 8.8%
-      → FV €26.73 (33% MoS). Cyclical trough + connected lighting optionality
+    EVOLUCIÓN ESTRATÉGICA:
+    - MoS Tiered implementado: Tier A >=15% (wide moat), Tier B >=25% (cyclical), Tier C >=35% (speculative)
+    - Quality Score Gate: 10 criterios, >=7/10 para Tier A
+    - Cash Urgency Protocol: >50% = emergencia
+    - Ficheros modificados: investment-rules/SKILL.md, portfolio-constraints/SKILL.md, CLAUDE.md
+
+    OPERACIONES (4 en total):
+    - TRIM SHEL: Vendidas 20 shares @ £26.89 = €620. Position 23.9% → 13%
+    - BUY SAN.PA: 6.52 shares @ €79.20 = €516 (5%). Quality 9/10 Tier A. MoS 19-23%
+    - BUY IMB.L: 14.17 shares @ $42.34 = $600 (5%). Quality 9.5/10 Tier A. MoS 19%
+    - BUY VICI: 21.37 shares @ $28.08 = $600 (5%). Quality 8/10 Tier A. MoS 18%
+
+    RESEARCH:
+    - Deep dive Proximus (PROX.BR): AVOID - value trap, FCF colapsando
+    - Deep dive Aegon (AGN.NV): WATCHLIST €5.90 - borderline MoS, earnings 19-feb
+    - Screening midcap + general: 25+ stocks evaluados
+
+    PORTFOLIO POST-SESIÓN:
+    - 9 posiciones: SHEL, DTE, PFE, ALL, TEP, SAN, VICI, IMB, LIGHT
+    - Cash: €4,766 (46%) - de 61% a 46%
+    - 7 sectores, 5 geografías
+    - Total invested: $5,737 | Total value: $6,650 | P&L: +$912 (+15.9%)
+
+    THESIS: 9/9 posiciones con thesis formal en thesis/active/
+    BUGS FIXED: portfolio_stats.py (EUR positions + null prices + LIGHT.NV ticker)
+    ENEL movida de active/ a archive/
+
+    EARNINGS PRÓXIMA SEMANA:
+    - Lun 3 Feb: PFE Q4 - brief preparado
+    - Mie 5 Feb: ALL Q4 + SHEL Q4 - briefs preparados
 
     PORTFOLIO POST-COMPRAS:
     - Total positions: 6 (SHEL, DTE, PFE, ALL, TEP.PA, LIGHT.NV)
@@ -186,6 +209,13 @@ calendar:
       action: "ANTES DE COMPRAR: Validar 8.5% yield sustainability, capital return FY2026. Si confirma → COMPRAR €1,170."
       context: "RECOMENDADO #3 - BofA 17.5% capital return thesis"
 
+    - date: 2026-02-19
+      type: earnings
+      ticker: AGN.NV
+      event: "Aegon FY2025 results"
+      priority: high
+      action: "Validar OCG €1.2B, solvency >180%, dividend growth. Si precio cae a €5.90 post-earnings → BUY."
+
     - date: 2026-02-23
       type: strategy
       ticker: ENEL.MI
@@ -269,27 +299,7 @@ watchlist:
       classification: "CYCLICAL - Energy"
       etoro_available: YES
 
-    - ticker: SAN.PA
-      name: "Sanofi SA"
-      target_price: 71-75
-      current_price: 80.78
-      fair_value: 95-105
-      margin_of_safety: 19-23%
-      trigger: "Entry €71-75 OR major pipeline readout"
-      sizing: "€1,170 (7%)"
-      status: "ON WATCH - price monitoring"
-      current_thesis: thesis/research/other_opportunities_screening.md
-      added_date: 2026-01-31
-      notes: |
-        SCREENING TOP #2 - Pharma Francia
-        P/E 15.6x vs fair 23.5x = 19-23% current margin
-        Div yield 4.9%, 25 pipeline readouts 2026 = catalysts
-        Jan 29 earnings: high-single-digit growth guidance 2026
-        STRATEGY: Wait for price drop to €71-75 (25%+ margin) OR major pipeline win
-        eToro: SAN.PA confirmed
-      priority: HIGH
-      classification: "DEFENSIVE - Pharma"
-      etoro_available: YES
+    # SAN.PA - MOVED TO ACTIVE (purchased 2026-01-31)
 
     - ticker: LGEN.L
       name: "Legal & General Group plc"
@@ -381,6 +391,20 @@ watchlist:
       etoro_available: YES
       notes: "PASS - AXA superior value. Only consider if AXA unavailable."
 
+    - ticker: AGN.NV
+      name: "Aegon NV"
+      target_price: 5.90-6.10
+      current_price: 6.58
+      fair_value: 8.90
+      margin_of_safety: 22-27%
+      reason: "Insurance NL, P/E 7.4x, yield 5.8%, OCG €1.2B. Borderline MoS. Wait for €5.90."
+      priority: high
+      sizing: "€300-500 (2.5-4%)"
+      classification: "DEFENSIVE - Insurance"
+      etoro_available: YES
+      added_date: 2026-01-31
+      notes: "Entry €5.90-6.10 for 30%+ MoS. Earnings 19-Feb. Relocating HQ to US (Transamerica). Compare vs LGEN.L."
+
     - ticker: EQNR
       name: "Equinor ASA"
       target_price: 239 NOK
@@ -432,6 +456,36 @@ watchlist:
       fair_value: 115.00
       position_size: 3.5%
       notes: "POSITION OPENED. Monitor FCF stability, AI impact on revenue. Kill trigger: FCF <€600M or revenue decline >5% organic."
+      priority: high
+
+    - ticker: SAN.PA
+      name: "Sanofi SA"
+      entry_price: 79.20
+      entry_date: 2026-01-31
+      fair_value: 95-105
+      position_size: 5%
+      quality_score: "9/10 Tier A"
+      notes: "POSITION OPENED. Monitor pipeline readouts 2026 (25 trials). Kill trigger: dividend cut or 2+ major trial failures."
+      priority: high
+
+    - ticker: VICI
+      name: "VICI Properties Inc."
+      entry_price: 28.08
+      entry_date: 2026-01-31
+      fair_value: 34-35
+      position_size: 5%
+      quality_score: "8/10 Tier A"
+      notes: "POSITION OPENED. Monitor AFFO growth, lease escalators, tenant health (Caesars, MGM). Kill trigger: dividend cut or tenant bankruptcy."
+      priority: high
+
+    - ticker: IMB.L
+      name: "Imperial Brands plc"
+      entry_price: 42.34
+      entry_date: 2026-01-31
+      fair_value: 44-52
+      position_size: 5%
+      quality_score: "9.5/10 Tier A"
+      notes: "POSITION OPENED. Monitor NGP growth, buyback execution, regulatory changes. Kill trigger: dividend cut or buyback suspension."
       priority: high
 
     - ticker: LIGHT.NV
@@ -552,6 +606,10 @@ alerts:
       target_entry: 78.00
       max_position_eur: 770
       note: "BNP Paribas. FV ~€103. CET1 12.5%, ROTE 12%+. A €78 MoS 25%."
+    - ticker: AGN.NV
+      target_entry: 5.90
+      max_position_eur: 500
+      note: "Aegon. FV €8.90. Entry €5.90 for 30%+ MoS. Earnings 19-Feb."
     - ticker: ENGI.PA
       target_entry: 22.00
       max_position_eur: 770
