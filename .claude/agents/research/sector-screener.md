@@ -16,13 +16,14 @@ Screening sistemático de sectores completos. Encuentra TODAS las empresas de un
 
 ## Tools disponibles en tools/
 - `python3 tools/price_checker.py TICKER1 TICKER2` — Precios fiables (yfinance)
-- `python3 tools/screener.py --sector SECTOR` — Screening cuantitativo con filtros
-- `python3 tools/screener.py --pe-max 12 --yield-min 4 --near-low` — Filtros custom
-- Sectores disponibles: eu_banks, eu_utilities, eu_insurance, us_pharma, us_telecom, us_value, uk_value, oil_gas, japan, canada, reits, china, all
+- `python3 tools/dynamic_screener.py --index europe_all` — Screening cuantitativo programático
+- `python3 tools/dynamic_screener.py --index stoxx600 --pe-max 12 --yield-min 4 --near-low 15` — Filtros custom
+- `python3 tools/dynamic_screener.py --index europe_all --undiscovered` — Anti-popularity bias
+- Índices: sp500, dax40, cac40, ibex35, aex25, ftse100, ftse250, mib40, omx_stockholm, bel20, stoxx600, europe_all, nordic, all
 
 ## Proceso OBLIGATORIO
-1. Web search para descubrir universo del sector + añadir tickers a screener.py si faltan
-2. `python3 tools/screener.py --sector X --pe-max 15 --yield-min 3` para filtrar
+1. `python3 tools/dynamic_screener.py --index {relevant_index}` para screening programático
+2. Web search para complementar con info cualitativa del sector
 3. Encontrar >10 empresas (si <10, screening incompleto)
 4. Crear tabla comparativa top 5-10
 5. Seleccionar 2-3 mejores para análisis profundo

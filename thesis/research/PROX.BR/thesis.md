@@ -1,208 +1,222 @@
-# Proximus (PROX.BR) - Investment Thesis
-**Date:** 2026-01-31
+# Proximus (PROX.BR) - Investment Thesis v2
+
+**Date:** 2026-02-01 (updated from 2026-01-31)
 **Analyst:** Claude Fundamental Analyst
-**Decision: AVOID (at current price)**
+**Previous Decision:** AVOID (2026-01-31)
+**Current Decision: CONDITIONAL BUY -- wait for Feb 27 strategic plan**
 
 ---
 
 ## 1. Executive Summary
 
-Proximus is Belgium's incumbent telecom operator (53% state-owned), trading at EUR 7.68 with optically cheap metrics (P/E 5.2x, EV/EBITDA 4.7x, yield 5.2%). However, deeper analysis reveals this is a **value trap**, not a value opportunity. The low P/E is driven by depressed earnings quality, massive capex cycle (fiber), heavy debt (net debt/EBITDA ~2.8x), declining FCF, and a troubled international segment (Proximus Global). DCF valuation yields EUR 6.43 weighted fair value -- **the stock is overvalued by ~19% vs intrinsic value**. No margin of safety exists for a value fund requiring >25% MoS.
+Proximus is Belgium's largest telecom incumbent (53% state-owned), trading at EUR 7.68 with extreme valuation discount (EV/EBITDA 3.1x vs 6-7x sector). The previous thesis (Jan 31) concluded AVOID based on value trap concerns. This update refines the analysis with deeper capex normalization modeling and peer comparisons. The core question is: **is the market pricing permanent impairment, or temporary capex-driven FCF depression?**
+
+**My conclusion: somewhere in between.** The stock is likely undervalued, but the magnitude depends heavily on capex normalization speed and DIGI's competitive impact. Fair value range: EUR 8-14/share. At EUR 7.68, there IS margin of safety on the base case, but it is thin on the pessimistic scenario. The Feb 27, 2026 strategic plan is the key near-term catalyst that will clarify the trajectory.
 
 ---
 
-## 2. Business Overview
+## 2. Key Metrics (2026-02-01, via yfinance)
 
-**What Proximus does:**
-- **Domestic (~70% revenue):** Fixed/mobile telecom, broadband, TV, ICT services in Belgium. Market leader with ~43% revenue share. #1 in broadband (~45% share), strong in converged bundles.
-- **Proximus Global (~30% revenue):** International carrier services (BICS), digital identity (Telesign), CPaaS (Route Mobile). Restructured under single brand Dec 2024.
-
-**Ownership:** Belgian state 53.3%, free float 46.7%. This limits strategic optionality (M&A, delisting, aggressive restructuring).
-
-**Competitive position in Belgium:**
-- #1 operator, incumbent advantage in fixed infrastructure
-- Fiber rollout: 2.3M homes passed (43% coverage by Q1 2025), EUR 3B total program
-- Key competitors: Telenet (#2, ~32% share, owned by Liberty Global), Orange Belgium (#3, ~22.5%, acquired VOO)
-- **NEW THREAT: Digi Belgium** entered Dec 2024 with disruptive pricing (EUR 10/month fiber, EUR 5/month mobile) -- this is a material risk to ARPU
+| Metric | Value |
+|--------|-------|
+| Price | EUR 7.68 |
+| Market Cap | EUR 2.5B |
+| P/E (TTM) | 5.2x |
+| Forward P/E | 7.2x |
+| Dividend Yield | 7.8% (EUR 0.60/share) |
+| EV/EBITDA | 3.1x |
+| Net Debt | ~EUR 3.5B |
+| Net Debt/EBITDA | ~2.8x (improving) |
+| D/E | 1.09 |
+| 52w Range | EUR 4.98 - 8.77 |
 
 ---
 
-## 3. Moat Assessment: NARROW (weakening)
+## 3. Moat Assessment: NARROW (stable, not weakening)
 
-| Factor | Assessment |
-|--------|-----------|
-| Switching costs | Moderate -- converged bundles create stickiness but Digi disrupts this |
-| Network infrastructure | Strong -- fiber + mobile network, but Orange/Proximus JV under regulatory scrutiny |
-| Scale | Moderate -- #1 in small market (11.5M population) |
-| Brand/incumbent | Moderate -- state backing, trusted brand, but commoditizing |
-| Regulatory | Mixed -- state ownership protects but limits flexibility |
+| Factor | Score | Notes |
+|--------|-------|-------|
+| Infrastructure (fiber+mobile) | 8/10 | EUR 3B fiber program, 41% coverage, 2.5M premises. Irreplaceable. |
+| Incumbency/Scale | 6/10 | 43% national share, 60%+ in Brussels. #1 in broadband. |
+| Switching costs (bundles) | 5/10 | Converged TV+internet+mobile creates friction, but DIGI tests this. |
+| Regulatory position | 4/10 | State backing protects but limits flexibility. |
+| **Overall** | **NARROW** | Infrastructure is the core moat. DIGI threatens pricing but not the physical network advantage. |
 
-**Moat trend: Deteriorating.** Digi entry, Orange/VOO consolidation, and regulatory pressure on the Proximus-Orange network sharing JV are all eroding competitive advantages. Morningstar recently downgraded multiple European telecoms' moat ratings.
+**Key nuance vs previous thesis**: The previous thesis said moat is "weakening." I disagree -- DIGI threatens PRICING, not the moat itself. The fiber network is a 30-year asset that DIGI cannot replicate. Proximus's moat is the infrastructure, not the pricing power. Pricing power was never the moat -- it was oligopoly rent. Losing that rent is painful but the underlying infrastructure moat remains intact.
 
 ---
 
 ## 4. Financial Analysis
 
-### Revenue Trend (yfinance)
-| Year | Revenue (EUR B) | EBITDA (EUR B) | Net Income (EUR M) | FCF (EUR M) |
-|------|----------------|----------------|-------------------|-------------|
-| 2021 | 5.54 | 1.82 | 443 | 484 |
-| 2022 | 5.85 | 1.81 | 450 | 276 |
-| 2023 | 5.99 | 1.77 | 357 | 167 |
-| 2024 | 6.38 | 1.96 | 447 | 128 |
+### Historical (from yfinance via previous thesis)
+| Year | Revenue | EBITDA | Net Income | FCF |
+|------|---------|--------|------------|-----|
+| 2021 | EUR 5.54B | EUR 1.82B | EUR 443M | EUR 484M |
+| 2022 | EUR 5.85B | EUR 1.81B | EUR 450M | EUR 276M |
+| 2023 | EUR 5.99B | EUR 1.77B | EUR 357M | EUR 167M |
+| 2024 | EUR 6.38B | EUR 1.96B | EUR 447M | EUR 128M |
 
-**Key observations:**
-- Revenue growing but driven by Route Mobile consolidation (acquired 2023), not organic
-- EBITDA flat to slightly up -- Domestic +1.8% YoY offset by Global decline
-- **FCF collapsing:** EUR 484M (2021) -> EUR 128M (2024). Capex eating all cash generation.
-- OCF stable ~EUR 1.6B but capex jumped from EUR 1.1B to EUR 1.47B (fiber build)
-- **Dividend not covered by FCF:** Paid EUR 360M dividends on EUR 128M FCF in 2024
+### 2025 Guidance (from Proximus IR, Q3 2025)
+- Domestic revenue: stable
+- Domestic EBITDA: up to +2%
+- Group EBITDA: up to +1%
+- Capex: ~EUR 1.25B (revised DOWN from ~1.35B)
+- Organic FCF: ~EUR 100M (revised UP)
+- Net debt/EBITDA: improving to ~2.8x
+- **Management confirmed 2024 was PEAK CAPEX**
 
-### Debt Profile
-- Net financial debt (ex-leases): EUR 3,593M (Q3 2025)
-- Net debt/EBITDA: ~2.8x (improved from 3.0x)
-- Rating: BBB+ (S&P), A2 (Moody's) -- investment grade
-- Recent bond: EUR 750M at 3.75% maturing 2035 (April 2025)
-- Debt well-laddered, no near-term cliff
-- BUT: leverage is high for a company with declining FCF
+### FCF Collapse Context
+The FCF collapse (EUR 484M -> EUR 128M) is driven ENTIRELY by capex growth (EUR 1.1B -> EUR 1.47B), NOT by EBITDA decline. EBITDA is actually stable to growing. This is the critical distinction between a "value trap" and a "capex cycle opportunity."
 
-### Dividend Sustainability
-- EUR 0.60/share guided for 2025 (two tranches of EUR 0.30)
+### Dividend
+- EUR 0.60/share (rebased from EUR 1.20 in 2023)
 - Total cost: ~EUR 195M
-- Organic FCF guided: ~EUR 100M
-- **Dividend payout ratio >100% of FCF.** Funded partially by debt. Unsustainable long-term unless capex normalizes.
+- Current FCF: ~EUR 100M (not covering dividend)
+- BUT: as capex normalizes, FCF expands. At maintenance capex of EUR 700-800M, FCF would be EUR 800-900M -- dividend easily covered 4-5x.
 
 ---
 
-## 5. Valuation
+## 5. Valuation (Revised)
 
-### Method 1: DCF (3 scenarios, 10-year horizon)
+### Critical Assumption: What is Maintenance Capex?
 
-Key assumption: capex peak ends 2025-2026, FCF normalizes toward EUR 400-500M as fiber build completes.
+This is the single most important variable. The entire thesis hinges on it.
 
-| Scenario | Weight | WACC | Terminal g | Fair Value |
-|----------|--------|------|-----------|------------|
-| Conservative | 30% | 9.0% | 1.5% | EUR 2.50 |
-| Base case | 50% | 8.5% | 2.0% | EUR 6.63 |
-| Optimistic | 20% | 8.0% | 2.0% | EUR 11.83 |
-| **Weighted** | | | | **EUR 6.43** |
+| Capex Level | Implied FCF | Fair Value Range |
+|-------------|-------------|-----------------|
+| EUR 1.2B (current) | EUR 100-200M | EUR 5-8 (value trap) |
+| EUR 900M (moderate decline) | EUR 500-600M | EUR 10-14 |
+| EUR 700M (full normalization) | EUR 800-900M | EUR 18-23 |
 
-The DCF is highly sensitive to the capex normalization timeline. If fiber build extends or Global deteriorates further, the conservative scenario dominates.
+**My estimate**: Maintenance capex for a full-service telecom with fiber network is EUR 750-900M. The fiber build will complete ~2028, but some ongoing expansion + 5G + IT refresh is needed. I use EUR 850M as my central case.
 
-### Method 2: EV/EBITDA Comparables
+### Method 1: DCF (Central Case)
+- EBITDA: EUR 1.9B (flat -- conservative, no growth assumed)
+- Normalized capex (post-2028): EUR 850M
+- Tax + interest + WC: EUR 300M
+- Normalized FCF: EUR 750M
+- WACC: 9%, Terminal growth: 1.5%
+- 10-year DCF with capex declining from EUR 1.25B (2025) to EUR 850M (2029+)
+- **Fair value: ~EUR 14-16/share**
 
-| Peer | EV/EBITDA |
-|------|-----------|
-| KPN | 8.6x |
-| Swisscom | 11.7x |
-| Telia | 8.6x |
-| Telefonica | 6.5x |
-| Orange | 6.8x |
-| Deutsche Telekom | 7.3x |
-| **Peer median** | **7.9x** |
-| **Proximus** | **4.7x** |
+### Method 2: DCF (Pessimistic -- DIGI + Global drag)
+- EBITDA declines to EUR 1.7B (-10% from DIGI pricing pressure)
+- Capex stays at EUR 950M (slower decline)
+- **Fair value: ~EUR 8-10/share**
 
-Applying a justified discount (leverage, Global issues, Digi threat, small market): 5.5-6.5x range -> EUR 22-28/share implied.
+### Method 3: DDM
+- EUR 0.60 dividend, 10% cost of equity, 0-1.5% growth
+- **Fair value: EUR 6.00-7.06** (floor valuation, assumes zero FCF expansion)
 
-**BUT this is misleading.** The EV/EBITDA comparables produce inflated equity values because Proximus has disproportionately high debt relative to its market cap. At 4.7x EV/EBITDA, the market is saying the EBITDA quality is poor (and it is -- high capex, declining Global segment, dividend not covered).
+### Method 4: EV/EBITDA Comparables
 
-### Method 3: Dividend Discount Model
+| Peer | P/E | Yield | EV/EBITDA (est) |
+|------|-----|-------|-----------------|
+| Deutsche Telekom | 11.4x | 3.3% | ~7x |
+| KPN | 18.7x | 5.3% | ~8x |
+| Swisscom | 26.3x | 3.5% | ~11x |
+| Telefonica | N/A | 8.8% | ~6x |
+| Telia | 31.4x | 5.1% | ~8x |
+| **Proximus** | **5.2x** | **7.8%** | **3.1x** |
 
-| Growth | Fair Value |
-|--------|-----------|
-| 0.0% | EUR 6.00 |
-| 1.0% | EUR 6.67 |
-| 1.5% | EUR 7.06 |
-
-At 10% cost of equity and current EUR 0.60 dividend, DDM gives EUR 6.00-7.06.
+Proximus trades at a massive discount to every peer. Even applying a 30% "DIGI + small market + leverage" discount to the cheapest peer (Telefonica 6x), implied fair value at 4.2x EBITDA = EUR ~14/share.
 
 ### Valuation Summary
 
-| Method | Fair Value Range |
-|--------|-----------------|
-| DCF (weighted) | EUR 6.43 |
-| DDM | EUR 6.00 - 7.06 |
-| EV/EBITDA (discounted) | Misleading due to leverage |
-| **Consensus** | **EUR 6.00 - 7.00** |
+| Method | Bear | Base | Bull |
+|--------|------|------|------|
+| DCF | EUR 8 | EUR 14 | EUR 20+ |
+| DDM | EUR 6 | EUR 7 | EUR 7 |
+| EV/EBITDA comp | EUR 10 | EUR 14 | EUR 25 |
+| **Weighted** | **EUR 8** | **EUR 12** | **EUR 18** |
 
-**Current price EUR 7.68 is ABOVE fair value.** No margin of safety.
-
-Morningstar fair value estimate: EUR 8.60 (they are more optimistic on Global turnaround).
+**At EUR 7.68:**
+- Bear case MoS: 4% (insufficient)
+- Base case MoS: 36% (exceeds Tier B 25% requirement)
+- Bull case MoS: 57%
 
 ---
 
 ## 6. Risk Assessment
 
-| # | Risk | Probability | Impact | Score | Mitigation |
-|---|------|------------|--------|-------|------------|
-| 1 | **Digi disruption** -- aggressive pricing compresses ARPU across Belgian market | HIGH (75%) | HIGH | 5.6 | No clear mitigation; structural market change |
-| 2 | **Proximus Global fails to recover** -- EBITDA dropping to EUR 100-130M in 2026, growth inflection delayed beyond 2027 | MEDIUM-HIGH (60%) | HIGH | 4.8 | New strategic plan Feb 27, 2026 |
-| 3 | **Dividend cut** -- FCF doesn't cover dividend, leverage constrains payout | MEDIUM (50%) | MEDIUM | 3.0 | Capex normalization post-fiber could help |
-| 4 | **Fiber overbuild / low take-up** -- EUR 3B invested but insufficient monetization | MEDIUM (40%) | HIGH | 3.2 | 43% coverage achieved, take-up data pending |
-| 5 | **Regulatory risk** -- Proximus-Orange network JV blocked or restricted by competition authority | MEDIUM (45%) | MEDIUM | 2.7 | Can operate independently |
-| 6 | **Correlation with DTE.DE** -- adding another European telecom to portfolio increases sector concentration | LOW-MEDIUM (30%) | LOW | 0.9 | Different geographies, but same macro drivers |
+| Risk | Probability | Impact | Notes |
+|------|------------|--------|-------|
+| DIGI disruption compresses ARPU | HIGH (70%) | HIGH | EUR 5/month mobile, EUR 10/month fiber. Will force industry response. |
+| Capex does not normalize as expected | MEDIUM (40%) | HIGH | Rural fiber, 5G, IT refresh could keep capex elevated. |
+| Global segment continues declining | MEDIUM-HIGH (55%) | MEDIUM | EBITDA dropping to EUR 100-130M. Feb 27 plan critical. |
+| Dividend cut | MEDIUM (35%) | MEDIUM | Already rebased. Further cut possible if FCF stays depressed. |
+| Regulatory (network sharing JV) | MEDIUM (40%) | MEDIUM | Belgian/EU regulators may impose conditions. |
+| State ownership limits value creation | STRUCTURAL | LOW-MED | No LBO, no activist, no aggressive restructuring. |
 
 ---
 
-## 7. Correlation with Existing Portfolio (DTE.DE)
+## 7. Quality Score: 4/10 => Tier B (with capex cycle adjustment)
 
-| Factor | DTE.DE | PROX.BR |
-|--------|--------|---------|
-| Market cap | EUR 140B | EUR 2.5B |
-| Primary market | US (T-Mobile) | Belgium |
-| Growth profile | Growing (T-Mobile US) | Stagnant/declining |
-| FCF trend | Strong, improving | Collapsing |
-| Leverage | Managed, deleveraging | High, not deleveraging |
-| Moat | Wide (T-Mobile US dominance) | Narrow, weakening |
-
-**Correlation is moderate.** Both are European telecoms exposed to same rate environment and sector sentiment. However, DTE is fundamentally superior (T-Mobile US growth engine). Adding PROX.BR would increase telecom sector weight without diversification benefit.
+Not Tier A (too many quality issues). Not Tier C (not a turnaround -- business is stable, just capex-heavy). Tier B requires 25% MoS.
 
 ---
 
-## 8. Investment Decision: AVOID
+## 8. Decision: CONDITIONAL BUY
 
-### Why AVOID (not BUY despite optically cheap metrics):
+### Recommended Action:
+**WAIT until after Feb 27, 2026 strategic plan announcement.** Then:
 
-1. **No margin of safety.** Fair value EUR 6.00-7.00 vs price EUR 7.68. The stock is 10-28% OVERVALUED on DCF and DDM.
-2. **FCF destruction.** From EUR 484M to EUR 128M in 3 years. Dividend not covered. This is not a "cheap cash cow."
-3. **Digi disruption is real.** EUR 10/month fiber and EUR 5/month mobile in a previously cozy 3-player market. This will compress margins across the industry.
-4. **Global segment is a drag.** EBITDA declining -10% YoY, heading to EUR 100-130M in 2026. The Route Mobile acquisition premium has yet to show returns.
-5. **Leverage limits flexibility.** Net debt/EBITDA 2.8x with declining FCF means limited capacity for dividends, buybacks, or strategic moves.
-6. **State ownership (53%) limits value creation.** No activist pressure, no LBO, no delisting, employment constraints.
-7. **Better alternatives exist.** DTE.DE already in portfolio offers superior telecom exposure. Cash should be deployed in opportunities with genuine >25% MoS.
+- If strategic plan confirms capex decline trajectory and credible Global turnaround: **BUY at EUR 7.50-7.70, position 3-4% (~EUR 300-400)**
+- If strategic plan disappoints (capex stays elevated, no Global clarity): **AVOID until EUR 5-6 range**
 
-### What would change my mind:
-- Price below EUR 5.00 (approaching conservative DCF)
-- Capex normalization to <EUR 1.1B demonstrating FCF recovery toward EUR 400M+
-- Strategic plan (Feb 27, 2026) showing credible Global turnaround
-- Digi's Belgian operations failing/exiting
+### Why upgrade from AVOID to CONDITIONAL BUY:
+1. The EV/EBITDA discount (3.1x vs 6-7x sector) is too extreme to ignore entirely
+2. Management confirmed 2024 was peak capex and revised 2025 capex DOWN
+3. Even the pessimistic DCF (EUR 8-10) is close to current price, limiting downside
+4. 7.8% yield provides income while waiting
+5. Feb 27 strategic plan is only 26 days away -- low opportunity cost to wait
 
-### Catalyst calendar:
-- **Feb 27, 2026**: New strategic plan + full-year 2025 results -- KEY EVENT
-- Q1 2026 results: first read on 2026 trajectory
-- Digi Belgium subscriber data: competitive impact visibility
+### Why not outright BUY today:
+1. Bear case MoS is only 4% -- insufficient
+2. DIGI impact is genuinely unknown and could be severe
+3. Previous thesis correctly identified that dividend is not covered by FCF
+4. Feb 27 event could provide much better visibility at similar price
 
----
+### Sizing rationale (if buying):
+- 3% position (EUR 300): lower than standard 4-5% due to narrow moat + DIGI risk + leverage
+- Not 5%+ because of quality concerns (Quality Score 4/10)
 
-## 9. Autocritique
-
-**Assumptions made:**
-- Capex normalization from EUR 1.45B to EUR 1.1-1.2B post-fiber (management has not confirmed timeline)
-- Net debt ex-leases of EUR 3,593M (Q3 2025 reported, used as-is)
-- Digi will maintain aggressive pricing (may moderate)
-
-**Biases checked:**
-- Contrarian temptation: "it's so cheap it must be good" -- NO, cheap for a reason
-- Yield trap: 5.2% yield is attractive but not sustainable from FCF
-- Confirmation bias: I actively sought bull case (Global recovery, fiber monetization) but data doesn't support it yet
-
-**Evidence potentially ignored:**
-- EV/EBITDA gap vs peers could close (mean reversion argument)
-- Fiber asset has real long-term value once capex normalizes
-- Feb 27 strategic plan could be a positive catalyst
-
-**Verdict:** The honest assessment is that Proximus is a capex-heavy, leveraged incumbent in a commoditizing market facing a new disruptor, with declining FCF and a dividend it cannot afford. The optically low P/E of 5.2x is a mirage created by one-time factors. AVOID.
+### Target price: EUR 10-12 (12-18 months)
+### Stop-loss thesis: EBITDA declines >10% AND capex does not decline per guidance
 
 ---
 
-*Sources: yfinance financial data, Proximus Q3 2025 report, Proximus investor relations, Investing.com earnings transcripts, Telecompaper market data, Morningstar.*
+## 9. Reconciliation with Previous Thesis (Jan 31)
+
+The previous thesis concluded AVOID with fair value EUR 6.00-7.00. This update arrives at EUR 8-14 range. The difference:
+
+1. **Previous used more conservative capex normalization** -- kept capex near EUR 1.1-1.2B as "new normal." I believe EUR 850M is more realistic once fiber completes.
+2. **Previous dismissed EV/EBITDA comparables** as misleading. I agree they are distorted by leverage but the 3.1x vs 6-7x gap is too large to dismiss entirely.
+3. **Previous focused more on DIGI threat.** I agree DIGI is real risk but believe it will compress margins 5-15%, not destroy the business.
+4. **Both agree**: Feb 27 is the key catalyst. Both agree DDM gives EUR 6-7 as floor.
+
+**Net assessment**: The truth is between the two theses. Previous was too bearish, my initial revised DCF too bullish. Fair value EUR 8-14 with central estimate EUR 12 is where I land.
+
+---
+
+## 10. Autocritique
+
+**Assumptions:**
+- Maintenance capex EUR 850M (could be EUR 950M+ if fiber rural build is more expensive)
+- EBITDA stays flat at EUR 1.9B (could decline with DIGI)
+- DIGI impact is 5-15% on ARPU (could be worse in a small market)
+
+**Biases detected:**
+- Anchoring bias: I may be anchoring to the screening data (P/E 5.2, FCF yield 20%) which looks compelling
+- Contrarian temptation: wanting to disagree with previous AVOID thesis
+- Yield trap: 7.8% yield is seductive
+
+**What Buffett/Klarman would do:**
+- Wait for the Feb 27 catalyst -- free option with minimal cost
+- Size very small if entering (2-3%)
+- Focus on whether DIGI truly disrupts or just takes marginal share
+- Would want to see 2-3 quarters of capex decline before committing
+
+---
+
+*Sources: [Proximus Q3 2025 Results](https://www.proximus.com/news/2025/20251107-financial-results-q3-2025.html), [Proximus Q2 2025 Results](https://www.proximus.com/news/2025/202507-financial-results-q2-2025.html), [Proximus FY2024 Results](https://www.proximus.com/news/2025/202502-financial-results-q4-2024.html), [ING Telecoms Outlook 2025](https://think.ing.com/uploads/reports/Telecoms_Outlook_2025.pdf), [Oliver Wyman Telecom Valuations](https://www.oliverwyman.com/our-expertise/insights/2025/mar/telecom-company-high-valuation-strategies.html), yfinance price data (2026-02-01).*

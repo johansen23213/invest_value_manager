@@ -25,9 +25,9 @@ Crear script en tools/, documentarlo, y que todos los agentes lo usen.
 
 ## Tools existentes (mantener actualizado)
 - `tools/price_checker.py` - Precios via yfinance. FUENTE ÚNICA de precios.
-- `tools/screener.py` - Screening cuantitativo multi-factor
+- `tools/dynamic_screener.py` - Screening cuantitativo programático (reemplaza screener.py y midcap_screener.py)
 - `tools/portfolio_stats.py` - P&L, allocation, performance vs benchmark
-- `tools/dcf_calculator.py` - DCF genérico parametrizable
+- `tools/correlation_matrix.py` - Correlaciones entre posiciones del portfolio
 
 ## Estándares de código
 1. Todos los scripts en tools/ con docstring y usage
@@ -45,4 +45,4 @@ Crear script en tools/, documentarlo, y que todos los agentes lo usen.
 
 ## Anti-patrón
 ❌ `python3 -c "import yfinance; ..."` inline en conversación
-✅ `python3 tools/screener.py --pe-max 15 --yield-min 3 --near-low`
+✅ `python3 tools/dynamic_screener.py --index europe_all --pe-max 15 --yield-min 3 --near-low 15`

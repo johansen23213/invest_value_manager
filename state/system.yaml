@@ -101,6 +101,13 @@ calendar:
       priority: high
       action: "Watch FCF, EBITDA, guidance 2026."
 
+    - date: 2026-02-27
+      type: earnings
+      ticker: PROX.BR
+      event: "Proximus FY2025 + Strategic Plan"
+      priority: high
+      action: "Si capex decline confirmado + plan Global creíble → BUY 3% (~€300) a €7.50-7.70. Si decepcionante → AVOID hasta €5-6."
+
     - date: 2026-02-28
       type: earnings
       ticker: ENGI.PA
@@ -185,6 +192,12 @@ watchlist:
     - ticker: GIS
       entry: "$34-38"
       notes: "DCF ~$41. D/E 147%, GLP-1 headwind."
+    - ticker: AZM.MI
+      entry: "€32-33"
+      notes: "Asset manager. P/E 9.8x, yield 4.9%, D/E 0.01. Narrow moat. FV €42-44. Strong buy €30."
+    - ticker: PROX.BR
+      entry: "€7.50-7.70"
+      notes: "Telecom belga. EV/EBITDA 3.1x. FV €12 base. WAIT strategic plan 27-feb. DIGI risk."
 
   on_watch:
     - ticker: ENEL.MI

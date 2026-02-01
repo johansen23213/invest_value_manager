@@ -32,7 +32,7 @@ Gestiona el portfolio existente: sizing, rebalanceo, tracking de performance.
 ## Tools disponibles en tools/
 - `python3 tools/portfolio_stats.py` — Estado portfolio completo con P&L real
 - `python3 tools/price_checker.py` — Precios fiables via yfinance
-- `python3 tools/screener.py` — Screening cuantitativo
+- `python3 tools/dynamic_screener.py --index europe_all` — Screening cuantitativo programático
 - NUNCA calcular nada a mano si existe un tool. NUNCA WebSearch para precios.
 
 ## Inputs

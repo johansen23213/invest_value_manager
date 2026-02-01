@@ -17,17 +17,16 @@ Gestiona exploración de sectores, screening de empresas, y análisis macro/geop
 
 ## Cuándo se activa
 - Usuario pide explorar sector → delega a sector-screener
-- Buscar empresas específicas → delega a company-finder
+- Buscar empresas específicas → delega a sector-screener (company-finder fue merged aquí)
 - Análisis macro/geopolítico → delega a macro-analyst
 
 ## Sub-Agents
-1. **sector-screener** (.claude/agents/research/sector-screener.md) - Screening sistemático de sectores
-2. **company-finder** (.claude/agents/research/company-finder.md) - Búsqueda de empresas por criterios
-3. **macro-analyst** (.claude/agents/research/macro-analyst.md) - Análisis macro y geopolítico
+1. **sector-screener** (.claude/agents/research/sector-screener.md) - Screening sistemático de sectores + búsqueda de empresas
+2. **macro-analyst** (.claude/agents/research/macro-analyst.md) - Análisis macro y geopolítico
 
 ## Tools disponibles en tools/
-- `python3 tools/screener.py --sector X` — Screening cuantitativo por sector
-- `python3 tools/screener.py --near-low --pe-max 12` — Beaten-down value
+- `python3 tools/dynamic_screener.py --index europe_all` — Screening cuantitativo programático
+- `python3 tools/dynamic_screener.py --index europe_all --near-low 15 --pe-max 12` — Beaten-down value
 - `python3 tools/price_checker.py TICKER` — Precios fiables via yfinance
 - SIEMPRE usar tools para datos cuantitativos. WebSearch solo para info cualitativa.
 
