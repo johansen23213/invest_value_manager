@@ -1,7 +1,22 @@
 #!/usr/bin/env python3
 """
-Value Stock Screener - Quantitative screening via yfinance
-Usage:
+[DEPRECATED] Value Stock Screener - Use tools/dynamic_screener.py instead.
+
+This tool uses HARDCODED ticker lists which introduces popularity bias.
+dynamic_screener.py fetches index components programmatically from Wikipedia
+and supports parallel fetching, caching, and anti-bias features.
+
+Migration examples:
+  OLD: python3 tools/screener.py --sector eu_banks
+  NEW: python3 tools/dynamic_screener.py --index stoxx600 --pe-max 15 --yield-min 3
+
+  OLD: python3 tools/screener.py --near-low
+  NEW: python3 tools/dynamic_screener.py --index stoxx600 --near-low 15
+
+  OLD: python3 tools/screener.py --tickers AAPL MSFT
+  NEW: python3 tools/dynamic_screener.py --index custom --file data/my_tickers.csv
+
+Legacy usage (still works but deprecated):
   python3 tools/screener.py                          # Default: P/E<15, Yield>3%
   python3 tools/screener.py --pe-max 12 --yield-min 4
   python3 tools/screener.py --near-low               # Only stocks >15% below 52w high
@@ -11,6 +26,13 @@ Usage:
 import sys
 import argparse
 import yfinance as yf
+
+# DEPRECATION WARNING
+print("\n" + "=" * 70, file=sys.stderr)
+print("DEPRECATED: Use tools/dynamic_screener.py instead.", file=sys.stderr)
+print("This tool uses hardcoded tickers (popularity bias).", file=sys.stderr)
+print("Example: python3 tools/dynamic_screener.py --index stoxx600", file=sys.stderr)
+print("=" * 70 + "\n", file=sys.stderr)
 
 SECTORS = {
     'eu_banks': ['BNP.PA', 'SAN.PA', 'ISP.MI', 'UCG.MI', 'BBVA.MC', 'SAN.MC', 'INGA.AS', 'DBK.DE', 'CSGN.SW', 'KBC.BR'],
@@ -123,7 +145,7 @@ def print_results(results, near_low=False):
     print(f"\n{len(results)} stocks passed filters")
 
 def main():
-    parser = argparse.ArgumentParser(description='Value Stock Screener')
+    parser = argparse.ArgumentParser(description='Value Stock Screener [DEPRECATED - use dynamic_screener.py]')
     parser.add_argument('--pe-max', type=float, default=15, help='Max trailing P/E (default: 15)')
     parser.add_argument('--pe-min', type=float, default=0, help='Min trailing P/E (default: 0)')
     parser.add_argument('--yield-min', type=float, default=3.0, help='Min dividend yield %% (default: 3)')

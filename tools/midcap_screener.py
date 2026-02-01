@@ -1,27 +1,41 @@
 #!/usr/bin/env python3
 """
-European Mid-Cap Value Screener - Focus on low-coverage, undervalued stocks
-Targets €1B-€15B market cap across European exchanges to find inefficiencies.
+[DEPRECATED] European Mid-Cap Value Screener - Use tools/dynamic_screener.py instead.
 
-Strategy: Low analyst coverage = less efficient pricing = potential alpha.
+This tool uses HARDCODED ticker lists which introduces popularity bias.
+dynamic_screener.py fetches index components programmatically from Wikipedia
+and supports parallel fetching, caching, and anti-bias features.
 
-Usage:
+Migration examples:
+  OLD: python3 tools/midcap_screener.py --max-pe 10 --min-yield 4
+  NEW: python3 tools/dynamic_screener.py --index stoxx600 --pe-max 10 --yield-min 4 --mcap-max 15
+
+  OLD: python3 tools/midcap_screener.py --exchange AS MI
+  NEW: python3 tools/dynamic_screener.py --index stoxx600 --mcap-max 15 --max-analysts 10
+
+  OLD: python3 tools/midcap_screener.py --sort fcf_yield
+  NEW: python3 tools/dynamic_screener.py --index stoxx600 --undiscovered --sort fcf_yield
+
+Legacy usage (still works but deprecated):
   python3 tools/midcap_screener.py                              # Default filters
   python3 tools/midcap_screener.py --max-pe 10 --min-yield 4.0
-  python3 tools/midcap_screener.py --min-mcap 2 --max-mcap 10   # Custom cap range
-  python3 tools/midcap_screener.py --sort fcf_yield             # Sort by FCF yield
-  python3 tools/midcap_screener.py --exchange AS                # Amsterdam only
-  python3 tools/midcap_screener.py --output results.csv         # Save to CSV
-
-Exchange suffixes:
-  AS=Amsterdam, BR=Brussels, MI=Milan, MC=Madrid, HE=Helsinki, ST=Stockholm,
-  OL=Oslo, CO=Copenhagen, DE=Frankfurt, PA=Paris, L=London
+  python3 tools/midcap_screener.py --min-mcap 2 --max-mcap 10
+  python3 tools/midcap_screener.py --sort fcf_yield
+  python3 tools/midcap_screener.py --exchange AS
+  python3 tools/midcap_screener.py --output results.csv
 """
 import sys
 import argparse
 import yfinance as yf
 import csv
 from datetime import datetime
+
+# DEPRECATION WARNING
+print("\n" + "=" * 70, file=sys.stderr)
+print("DEPRECATED: Use tools/dynamic_screener.py instead.", file=sys.stderr)
+print("This tool uses hardcoded tickers (popularity bias).", file=sys.stderr)
+print("Example: python3 tools/dynamic_screener.py --index stoxx600 --undiscovered", file=sys.stderr)
+print("=" * 70 + "\n", file=sys.stderr)
 
 # Curated list of European mid-cap tickers across exchanges
 # Focus on lesser-known names less likely to appear in popular searches
@@ -309,11 +323,11 @@ def save_csv(results, filename):
 
 def main():
     parser = argparse.ArgumentParser(
-        description='European Mid-Cap Value Screener - Focus on undervalued, low-coverage stocks',
+        description='[DEPRECATED] European Mid-Cap Value Screener - Use tools/dynamic_screener.py --undiscovered instead',
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  python3 tools/midcap_screener.py                           # Default: P/E<12, Yield>3%, €1B-€15B
+  python3 tools/midcap_screener.py                           # Default: P/E<12, Yield>3%, 1B-15B
   python3 tools/midcap_screener.py --max-pe 10 --min-yield 4
   python3 tools/midcap_screener.py --exchange AS MI          # Amsterdam & Milan only
   python3 tools/midcap_screener.py --sort fcf_yield          # Sort by FCF yield
@@ -323,8 +337,8 @@ Examples:
 
     parser.add_argument('--max-pe', type=float, default=12, help='Max trailing P/E (default: 12)')
     parser.add_argument('--min-yield', type=float, default=3.0, help='Min dividend yield %% (default: 3.0)')
-    parser.add_argument('--min-mcap', type=float, default=1.0, help='Min market cap €B (default: 1.0)')
-    parser.add_argument('--max-mcap', type=float, default=15.0, help='Max market cap €B (default: 15.0)')
+    parser.add_argument('--min-mcap', type=float, default=1.0, help='Min market cap B (default: 1.0)')
+    parser.add_argument('--max-mcap', type=float, default=15.0, help='Max market cap B (default: 15.0)')
     parser.add_argument('--max-debt-equity', type=float, default=1.5, help='Max debt/equity (default: 1.5)')
     parser.add_argument('--allow-negative-fcf', action='store_true', help='Allow negative free cash flow')
     parser.add_argument('--exchange', nargs='+', help='Filter by exchange (AS, MI, PA, L, etc.)')
@@ -335,7 +349,7 @@ Examples:
     args = parser.parse_args()
 
     print(f"European Mid-Cap Screener", file=sys.stderr)
-    print(f"Filters: P/E<{args.max_pe}, Yield>{args.min_yield}%, €{args.min_mcap}B-{args.max_mcap}B MCap, D/E<{args.max_debt_equity}", file=sys.stderr)
+    print(f"Filters: P/E<{args.max_pe}, Yield>{args.min_yield}%, {args.min_mcap}B-{args.max_mcap}B MCap, D/E<{args.max_debt_equity}", file=sys.stderr)
     if args.exchange:
         print(f"Exchanges: {', '.join(args.exchange)}", file=sys.stderr)
     print(f"", file=sys.stderr)

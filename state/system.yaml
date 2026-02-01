@@ -1,778 +1,275 @@
 # =============================================================================
-# ESTADO DEL SISTEMA - Value Investor
-# =============================================================================
-# CEREBRO del sistema. Claude lee al iniciar cada sesión.
-# Compactado 31-ene-2026 - Memoria activa reducida 38KB → ~25KB
+# ESTADO DEL SISTEMA - Value Investor v2.1.0
+# Compactado 2026-02-01 - 863 → ~350 líneas
 # =============================================================================
 
-# -----------------------------------------------------------------------------
-# ESTADO GENERAL
-# -----------------------------------------------------------------------------
 system:
-  system_version: "2.0.0"
-  last_session: 2026-01-31
+  system_version: "2.1.0"
+  last_session: 2026-02-01
   last_session_summary: |
-    Sesión 12 - STRATEGIC EVOLUTION + TRIPLE DEPLOYMENT
-
-    EVOLUCIÓN ESTRATÉGICA:
-    - MoS Tiered implementado: Tier A >=15% (wide moat), Tier B >=25% (cyclical), Tier C >=35% (speculative)
-    - Quality Score Gate: 10 criterios, >=7/10 para Tier A
-    - Cash Urgency Protocol: >50% = emergencia
-    - Ficheros modificados: investment-rules/SKILL.md, portfolio-constraints/SKILL.md, CLAUDE.md
-
-    OPERACIONES (4 en total):
-    - TRIM SHEL: Vendidas 20 shares @ £26.89 = €620. Position 23.9% → 13%
-    - BUY SAN.PA: 6.52 shares @ €79.20 = €516 (5%). Quality 9/10 Tier A. MoS 19-23%
-    - BUY IMB.L: 14.17 shares @ $42.34 = $600 (5%). Quality 9.5/10 Tier A. MoS 19%
-    - BUY VICI: 21.37 shares @ $28.08 = $600 (5%). Quality 8/10 Tier A. MoS 18%
-
-    RESEARCH:
-    - Deep dive Proximus (PROX.BR): AVOID - value trap, FCF colapsando
-    - Deep dive Aegon (AGN.NV): WATCHLIST €5.90 - borderline MoS, earnings 19-feb
-    - Screening midcap + general: 25+ stocks evaluados
-
-    PORTFOLIO POST-SESIÓN:
-    - 9 posiciones: SHEL, DTE, PFE, ALL, TEP, SAN, VICI, IMB, LIGHT
-    - Cash: €4,766 (46%) - de 61% a 46%
-    - 7 sectores, 5 geografías
-    - Total invested: $5,737 | Total value: $6,650 | P&L: +$912 (+15.9%)
-
-    THESIS: 9/9 posiciones con thesis formal en thesis/active/
-    BUGS FIXED: portfolio_stats.py (EUR positions + null prices + LIGHT.NV ticker)
-    ENEL movida de active/ a archive/
-
-    EARNINGS PRÓXIMA SEMANA:
-    - Lun 3 Feb: PFE Q4 - brief preparado
-    - Mie 5 Feb: ALL Q4 + SHEL Q4 - briefs preparados
-
-    PORTFOLIO POST-COMPRAS:
-    - Total positions: 6 (SHEL, DTE, PFE, ALL, TEP.PA, LIGHT.NV)
-    - Total invested: ~€4,480 (€3,597 pre + €883 new)
-    - Cash restante: €5,664 (56% portfolio)
-    - Constraints: ALL SATISFIED (checking below)
-
-    PORTFOLIO CONSTRAINTS VALIDATION:
-    Position sizing (target <7%):
-    - SHEL: ~15% portfolio (OVER - needs monitoring)
-    - DTE: ~12% (OVER)
-    - PFE: ~5% ✓
-    - ALL: ~4% ✓
-    - TEP.PA: ~3.5% ✓
-    - LIGHT.NV: ~4% ✓
-
-    Sector diversification (target <25%):
-    - Energy: ~15% (SHEL only) ✓
-    - Telecom: ~12% (DTE only) ✓
-    - Pharma: ~5% (PFE only) ✓
-    - Insurance: ~4% (ALL only) ✓
-    - Services: ~3.5% (TEP) ✓
-    - Lighting/Industrial: ~4% (LIGHT) ✓
-
-    Geography (target <35%):
-    - Netherlands/Europe: ~31% (SHEL 15% + DTE 12% + LIGHT 4%) ✓
-    - France: ~3.5% (TEP) ✓
-    - US: ~9% (PFE + ALL) ✓
-
-    Cash: €5,664 (56%) >> 5% minimum ✓
-
-    STRATEGY EXECUTADA:
-    - Anti-popularity-bias mid-cap screener aplicado
-    - TEP: 86% drawdown desde peak, mercado pricing terminal decline
-    - LIGHT: near 52-week low, 900 job cuts anunciados Jan 30, no guidance 2026
-    - Ambas: FCF yields extraordinarios (34% + 18.6%), dividends sostenibles
-    - Tesis: mercado overreacting a headwinds temporales/graduales
-
-    NEXT ACTIONS:
-    - Monitorizar earnings Feb: PFE (3-feb), ALL (5-feb), SHEL (5-feb)
-    - Evaluar oportunidades adicionales con cash 56%
-    - Considerar trimming SHEL/DTE si continúan apreciando (rebalanceo)
-
-    INFRAESTRUCTURA CRÍTICA (sesión previa):
-    - Creado tools/price_checker.py (yfinance). Eliminado WebSearch para precios.
-    - Creado tools/screener.py (screening cuantitativo CLI con filtros).
-    - Creado tools/portfolio_stats.py (P&L automático desde current.yaml).
-    - Creado agente quant-tools-dev para desarrollo de tools Python.
-    - Actualizado 10 agentes para referenciar tools/ y tener Bash.
-    - Regla inmutable en CLAUDE.md: precios SOLO via yfinance.
-    - Añadido SELF-CHECK obligatorio en cada mensaje al humano.
-    - Añadido Paso 0 (auto-reflexión) en protocolo de inicio.
-    - Portfolio sincronizado con datos reales eToro (shares corregidas).
-
-    PORTFOLIO REAL (eToro sync):
-    - SHEL: 40.85 shares, +$1,647 (+109.8%)
-    - DTE.DE: 37.62 shares, +$71 (+5.9%)
-    - PFE: 18.66 shares, -$6 (-1.2%)
-    - ALL: 2.04 shares, +$6 (+1.5%)
-    - Total: $13,152 | Cash €6,547 (59.6%)
-
-    SCREENING: ~80+ empresas evaluadas. NINGUNA pasa MoS >25% a precios actuales.
-    - TTE recalculado con precio real: MoS 24% (FAIL). Target $68 USD.
-    - BNP.PA: MoS 10%. WATCHLIST €78.
-    - ENGI.PA: MoS 15%. WATCHLIST €22.
-    - WPP.L: REJECT (value trap, declive estructural).
-    - HPQ: REJECT (value trap, printing dying).
-    - JD: WATCHLIST $24-25 (China risk).
-    - VICI: WATCHLIST $25-26 (quality REIT, close).
-    - T (AT&T): WATCHLIST $22-23 (mejor candidato nuevo, FCF $18B+).
-    - VZ: REJECT (más caro que T).
-
-    DECISIÓN: Mantener cash. Mercados caros. Disciplina > actividad.
-
-    EARNINGS ESTA SEMANA (CRÍTICO):
-    - Lun 3-feb: PFE Q4 → watch EPS $0.57, guidance, dividendo
-    - Mie 5-feb: ALL Q4 → setup favorable (CAT losses bajos), watch combined ratio
-    - Mie 5-feb: SHEL Q4 → soft pre-anunciado, watch buyback $3.5B, FCF
-    - Mar 11-feb: CVS Q4 → binary: BEAT → buy $350, MISS → discard
-
-    PLAN PRÓXIMA SESIÓN:
-    1. python3 tools/portfolio_stats.py → estado post-earnings
-    2. Evaluar resultados PFE/ALL/SHEL → HOLD/ADD/TRIM según briefs preparados
-    3. Si alguna posición cae post-earnings → oportunidad de ADD con MoS expandido
-    4. Monitorizar 11 price targets del watchlist expandido
-    5. Si mercado corrige: desplegar cash agresivamente (ventaja competitiva)
-
-    LECCIONES SISTEMA:
-    - Humano tuvo que señalar 4 veces problemas que debería detectar solo
-    - Implementado SELF-CHECK obligatorio para prevenir esto
-    - Causa raíz: ejecutar sin pensar en el sistema. Paso 0 (auto-reflexión) añadido.
-
-    PRE-EARNINGS LISTOS: Shell Q4 (5-feb, HOLD), Allstate Q4 (5-feb, HOLD)
-    MEMORIA: Compactada 56KB→30KB
-    CLAUDE.MD: Actualizado con mentalidad competitiva + capacidades Python/Bash
-    - Cash restante: €3,037 (18% portfolio) ✓ >5% minimum
-    - Portfolio post: 7 posiciones, diversificación UK 29%/FR 29%/DE 14%/US 14%
-    - Constraints: ALL SATISFIED (sector <35%, geo <35%, position <7%)
-
-    FICHERO CREADO:
-    - thesis/research/other_opportunities_screening.md (47KB)
-    - 15 deep-dives, 40+ empresas evaluadas
-    - Anti-bias protocol aplicado (5 geografías, sin anchoring)
-
-    TODO CRÍTICO USER:
-    1. Verificar eToro availability TTE, SAN.PA, LGEN.L (confirmados web pero validar login)
-    2. Verificar precios actuales (TTE €61, SAN €80-81, LGEN GBP?)
-    3. Confirmar earnings dates TTE + LGEN (Feb 2026)
-    4. Ejecutar órdenes eToro
-    5. Fundamental analysis Engie + Naturgy (parallel track utilities)
-
-    PRÓXIMO: Earnings season Feb 3-26 (PFE, ALL, SHEL, TTE, LGEN, DTE, Engie, Naturgy)
-
+    Sesión 16 - AUTO-EVOLUCIÓN + COMPACTACIÓN
+    COMPLETADO:
+    - Evaluación self-evolution + health-check agents → redundancia detectada
+    - Fusión: self-evolution + evolution-manager → system-evolver.md (25→24 agentes)
+    - health-check mejorado: haiku→sonnet, +checks cuantitativos, smoke tests, calendar coherence
+    - TTE movido thesis/active/ → thesis/watchlist/
+    - system.yaml compactado 863→268 líneas (69% reducción)
+    - CLAUDE.md: se intentó compactar, usuario pidió revertir → restaurado original
+    PENDIENTE LUNES 3-FEB (CRÍTICO):
+    - SELL 10 shares SHEL en eToro (rebalanceo 13%→7%)
+    - BUY ~134 shares A2A.MI ~€2.54 (total ~€340, max entry €2.80)
+    - PFE Q4 earnings pre-market → watch EPS $0.57, guidance, dividendo
+    PENDIENTE SEMANA:
+    - Mie 5-feb: ALL + SHEL earnings, EVO.ST post-earnings eval
+    - Flatten agent hierarchy 24→~12 (pendiente aprobación)
+    - Create tools/dcf_calculator.py
   status: active
-  evolution_notes: "V2.0.0 - Double screening utilities + other opportunities. 55+ empresas screened total. Top 5 ideas: TTE, SAN, LGEN, Engie, Naturgy. Deployment €3.5-4.5K inmediato."
 
 # -----------------------------------------------------------------------------
-# CALENDARIO DE EVENTOS FUTUROS
+# CALENDARIO
 # -----------------------------------------------------------------------------
 calendar:
   events:
+    # WEEK OF FEB 3-7
+    - date: 2026-02-03
+      type: action
+      ticker: SHEL
+      event: "TRIM SHEL: vender 10 acciones"
+      priority: CRITICAL
+      action: "SELL 10 shares SHEL en eToro. 20.85→10.85. Rebalanceo 13%→7%."
+
+    - date: 2026-02-03
+      type: action
+      ticker: A2A.MI
+      event: "BUY A2A.MI ~134 shares"
+      priority: CRITICAL
+      action: "BUY ~134 shares A2A.MI ~€2.54. Total ~€340 (4%). Max entry €2.80."
+
     - date: 2026-02-03
       type: earnings
       ticker: PFE
-      event: "Pfizer Q4 2025"
+      event: "Pfizer Q4 2025 (pre-market)"
       priority: high
-      action: "Validar defensive pharma thesis"
+      action: "Watch: EPS $0.57, FY2026 guidance, dividendo. Beat+OK→HOLD. Miss+div cut→SELL."
 
     - date: 2026-02-05
       type: earnings
       ticker: ALL
       event: "Allstate Q4 2025"
       priority: high
-      action: "CRÍTICO: Validar combined ratio Q4, guidance 2026 mid-90s, PIF growth. Primera validación post-compra."
+      action: "Watch combined ratio Q4, guidance 2026 mid-90s, PIF growth."
 
     - date: 2026-02-05
       type: earnings
       ticker: SHEL.L
       event: "Shell Q4 2025"
       priority: high
-      action: "Validar FCF, guidance, dividendo. Primera validación post-compra."
+      action: "Watch FCF, buyback $3.5B, guidance."
+
+    - date: 2026-02-05
+      type: action
+      ticker: EVO.ST
+      event: "POST-EARNINGS: Evaluar compra Evolution AB"
+      priority: high
+      action: "Si buenos + UKGC OK → BUY hasta 650 SEK (~€400). Si malos → 480-530 SEK. Si UKGC revocación → DESCARTAR."
 
     - date: 2026-02-11
       type: earnings
       ticker: CVS
       event: "CVS Health Q4 2025"
       priority: high
-      action: "CRÍTICO: Si BEAT (EPS >$6.70, margin >8%) → mover ready_to_buy €300. Si MISS → descartar."
-
-    - date: 2026-02-XX
-      type: earnings
-      ticker: TTE
-      event: "TotalEnergies Q4 2025"
-      priority: CRITICAL
-      action: "ANTES DE COMPRAR: Validar FCF, buyback continuation, guidance 2026. Si beat → COMPRAR €1,170."
-      context: "RECOMENDADO #1 - 26% margin safety, 8% FCF yield"
-
-    - date: 2026-02-XX
-      type: earnings
-      ticker: LGEN.L
-      event: "Legal & General FY2025"
-      priority: CRITICAL
-      action: "ANTES DE COMPRAR: Validar 8.5% yield sustainability, capital return FY2026. Si confirma → COMPRAR €1,170."
-      context: "RECOMENDADO #3 - BofA 17.5% capital return thesis"
+      action: "BEAT (EPS >$6.70, margin >8%) → ready_to_buy €300. MISS → descartar."
 
     - date: 2026-02-19
       type: earnings
       ticker: AGN.NV
-      event: "Aegon FY2025 results"
+      event: "Aegon FY2025"
       priority: high
-      action: "Validar OCG €1.2B, solvency >180%, dividend growth. Si precio cae a €5.90 post-earnings → BUY."
+      action: "Watch OCG €1.2B, solvency >180%. Si precio cae €5.90 → BUY."
 
     - date: 2026-02-23
       type: strategy
       ticker: ENEL.MI
       event: "Enel Capital Markets Day"
       priority: high
-      action: "Revisar guidance, capex plan, Brasil concessions. Si fair value sube €11-12 → entry €8.50 margen 25%."
-      context: "Watchlist - vendida 31-ene breakeven (0% margen). Re-entry €7.00-7.50."
+      action: "Si FV sube €11-12 → entry €8.50."
 
     - date: 2026-02-26
       type: earnings
       ticker: DTE.DE
       event: "Deutsche Telekom FY2025"
       priority: high
-      action: "Validar FCF, EBITDA, guidance 2026. Esperar beat + guidance fuerte."
+      action: "Watch FCF, EBITDA, guidance 2026."
 
     - date: 2026-02-28
       type: earnings
       ticker: ENGI.PA
-      event: "Engie FY2025 results (estimado late Feb/early Mar)"
+      event: "Engie FY2025"
       priority: high
-      action: "SI COMPRADO → validar FCF yield >5%, payout <80%, Debt/EBITDA <4x."
-      context: "EU utilities screening candidate - 6.6% yield, P/E 11.7x. Fundamental analysis pending."
+      action: "Watch FCF yield >5%, payout <80%, Debt/EBITDA <4x."
 
     - date: 2026-03-01
       type: earnings
       ticker: NTGY.MC
-      event: "Naturgy FY2025 results (estimado early Mar)"
+      event: "Naturgy FY2025"
       priority: high
-      action: "SI COMPRADO → validar dividend sostenible, FCF positivo, Debt/EBITDA <4x."
-      context: "EU utilities screening candidate - 25% undervalued. Data validation pending (yield conflict)."
+      action: "Watch dividend, FCF, Debt/EBITDA <4x."
 
     - date: 2026-03-19
       type: earnings
       ticker: ENEL.MI
-      event: "Enel FY2025 full year results"
+      event: "Enel FY2025 results"
       priority: medium
-      action: "Validar net income ~€7B, Brasil Ceará status, guidance 2026"
-
-    - date: 2026-02-XX
-      type: earnings
-      ticker: MBG.DE
-      event: "Mercedes-Benz Q4 2025 earnings"
-      priority: high
-      action: "Monitor for entry catalyst. If price drops to €48-52 + beat → 30%+ margin entry."
-      context: "Watchlist tier 2 - Currently 18-20% margin, need 30%+ for buy."
-
-    - date: 2026-XX-XX
-      type: pipeline
-      ticker: SAN.PA
-      event: "Sanofi 25 pipeline readouts 2025-2026"
-      priority: high
-      action: "Monitor readouts continuos throughout 2026. Multiple catalysts for entry €71-75."
-      context: "Watchlist ready_to_buy - 19-23% current margin, entry target €71-75 for 25%+"
 
 # -----------------------------------------------------------------------------
-# WATCHLIST - Gestionada 100% por Claude
+# WATCHLIST
 # -----------------------------------------------------------------------------
 watchlist:
   ready_to_buy:
     - ticker: TTE
-      name: "TotalEnergies SE"
-      target_price: 61
-      current_price: 61.06
-      fair_value: 82.88
+      target_entry_eur: 45
+      fair_value_eur: 60-83
       margin_of_safety: 26%
-      trigger: "Price <$58 USD OR post-earnings FCF confirms >$14B"
       sizing: "€1,170 (7%)"
-      status: "WAIT - fairly valued at current price. Independent DCF = €60 FV."
-      current_thesis: null
-      added_date: 2026-01-31
-      notes: |
-        SCREENING TOP #1 - Energía Francia
-        P/E 9.9x (fwd 9.34x), FCF yield 8%, div yield 6%, ROE 12.2%
-        Fair value €82.88 (Alpha Spread) → 26% discount
-        Morgan Stanley upgrade Overweight, BofA prefers TTE among EU Big Oil
-        Catalyst: Q4 earnings Feb 2026
-        eToro: CONFIRMED (TTE ticker)
-        TODO: Fundamental analysis + DCF BEFORE buying
-        IF DCF confirms fair value >€80 → COMPRAR €1,170 @ ~€61
-      priority: HIGH
-      classification: "CYCLICAL - Energy"
-      etoro_available: YES
-
-    # SAN.PA - MOVED TO ACTIVE (purchased 2026-01-31)
+      status: "WAIT - current ~€61 = 0% MoS. Need earnings + correction."
+      thesis: thesis/watchlist/TTE/thesis.md
 
     - ticker: LGEN.L
-      name: "Legal & General Group plc"
-      target_price: 210-225p
-      current_price: "TBD GBP"
-      fair_value: "N/A"
-      margin_of_safety: "15-20%"
-      trigger: "Entry 210-225p OR FY2025 results confirm yield/capital return"
+      target_entry_gbp: 215
       sizing: "€1,170 (7%)"
-      status: "ON WATCH - price + earnings monitoring"
-      current_thesis: thesis/research/other_opportunities_screening.md
-      added_date: 2026-01-31
-      notes: |
-        SCREENING TOP #3 - Insurance UK
-        P/E ~10x, div yield 8.5% (highest FTSE 100 insurance)
-        BofA: 17.5% capital return FY2026 potential
-        Total return ~25%+ (yield 8.5% + buybacks 17.5%)
-        STRATEGY: Wait for entry 210-225p OR FY2025 results validation
-        eToro: LGEN.L confirmed
-        Earnings: Feb 2026 (exact date TBD)
-      priority: HIGH
-      classification: "DEFENSIVE - Insurance"
-      etoro_available: YES
+      status: "ON WATCH - wait FY2025 results"
+      notes: "P/E ~10x, yield 8.5%, BofA 17.5% capital return"
 
-  tier_2_opportunities:
-    - ticker: MBG.DE
-      name: "Mercedes-Benz Group AG"
-      target_price: 48-52
-      current_price: 57.73
-      fair_value: 70-75
-      margin_of_safety: 18-20% (target 30%+)
-      reason: "Quality auto, PERO wait for 30%+ margin. Entry €48-52 EUR. Q4 earnings Feb catalyst."
-      priority: medium
-      sizing: "€585-1,170 (4-7%)"
-      classification: "CYCLICAL - Auto"
-      etoro_available: YES
-      added_date: 2026-01-31
-      notes: "Current margin 18-20% <25%. Wait Q4 earnings Feb + price drop to €48-52 for 30%+ margin."
+    - ticker: EVO.ST
+      target_entry_sek: 480-650
+      fair_value_sek: 1009
+      margin_of_safety: 42.6%
+      sizing: "€400 (4%)"
+      status: "WAIT earnings 5-feb"
+      thesis: thesis/research/EVO.ST/thesis.md
 
-    - ticker: CS.PA
-      name: "AXA SA"
-      target_price: 40-41
-      current_price: 40-41
-      fair_value: 44.98
-      margin_of_safety: 10%
-      reason: "Alternative to LGEN. P/E 9.7x, yield 5.7%, solvency 222%. Best EU insurance value."
-      priority: high
-      sizing: "€1,170 (7%)"
-      classification: "DEFENSIVE - Insurance"
-      etoro_available: YES
-      notes: "Deploy IF choose over LGEN (lower yield but stronger solvency) OR as 4th position with remaining cash."
+    - ticker: A2A.MI
+      target_entry_eur: 2.54
+      max_entry_eur: 2.80
+      fair_value_eur: 3.62
+      margin_of_safety: 29.8%
+      sizing: "€340 (4%)"
+      status: "APPROVED - BUY Monday 3-feb"
+      thesis: thesis/research/A2A.MI/thesis.md
 
-    - ticker: ORA.PA
-      name: "Orange SA"
-      target_price: 19.00
-      current_price: 13-14
-      fair_value: 19
-      margin_of_safety: 30%+
-      reason: "Telecom consolidation catalyst. JPM Overweight €19 target = 35% upside. P/E 10x."
-      priority: medium
-      sizing: "€1,170 (7%)"
-      classification: "CYCLICAL - Telecom"
-      etoro_available: YES
-      notes: "Speculative catalyst. Deploy as 4th/5th position if consolidation thesis materializes."
-
-    - ticker: RIO.L
-      name: "Rio Tinto plc"
-      target_price: 119.90
-      current_price: 100-105
-      fair_value: 119.90
-      margin_of_safety: 15-20%
-      reason: "Quality materials diversification. Lithium pivot (Arcadium $6.7B). P/E 12x, yield 3.5%."
-      priority: medium
-      sizing: "€1,170 (7%)"
-      classification: "CYCLICAL - Materials"
-      etoro_available: YES
-      notes: "Deploy for materials exposure (currently 0%). Quality 6/10, FCF $12.7B, PEG 0.96."
-
-    - ticker: ALV.DE
-      name: "Allianz SE"
-      target_price: 300-320
-      current_price: 300-320
-      fair_value: 384.19
-      margin_of_safety: 20%
-      reason: "EU insurance #1, P/E 13.5x, yield 4.0%. PERO AXA superior (P/E 9.7x, yield 5.7%)."
-      priority: low
-      sizing: "€585-1,170"
-      classification: "DEFENSIVE - Insurance"
-      etoro_available: YES
-      notes: "PASS - AXA superior value. Only consider if AXA unavailable."
-
+  tier_2:
     - ticker: AGN.NV
-      name: "Aegon NV"
-      target_price: 5.90-6.10
-      current_price: 6.58
-      fair_value: 8.90
-      margin_of_safety: 22-27%
-      reason: "Insurance NL, P/E 7.4x, yield 5.8%, OCG €1.2B. Borderline MoS. Wait for €5.90."
-      priority: high
-      sizing: "€300-500 (2.5-4%)"
-      classification: "DEFENSIVE - Insurance"
-      etoro_available: YES
-      added_date: 2026-01-31
-      notes: "Entry €5.90-6.10 for 30%+ MoS. Earnings 19-Feb. Relocating HQ to US (Transamerica). Compare vs LGEN.L."
-
-    - ticker: EQNR
-      name: "Equinor ASA"
-      target_price: 239 NOK
-      current_price: 260 NOK
-      fair_value: "Unknown"
-      margin_of_safety: "Unknown (negative analyst view)"
-      reason: "Extreme yield 12.9% BUT 11 Sell vs 2 Buy ratings. Dividend sustainability questionable."
-      priority: medium
-      sizing: "€585-1,170"
-      classification: "CYCLICAL - Energy"
-      etoro_available: YES
-      notes: "HOLD until deep dive confirms dividend sustainability. Could be value trap OR massive opportunity."
-
+      entry: "€5.90-6.10"
+      notes: "P/E 7.4x, yield 5.8%. Borderline MoS. Earnings 19-Feb."
+    - ticker: MBG.DE
+      entry: "€48-52"
+      notes: "Current €57. Need 30%+ MoS. Q4 earnings catalyst."
+    - ticker: CS.PA
+      entry: "€40-41"
+      notes: "AXA. P/E 9.7x, yield 5.7%, solvency 222%."
+    - ticker: ORA.PA
+      entry: "€19"
+      notes: "Orange. Telecom consolidation catalyst. JPM Overweight."
+    - ticker: RIO.L
+      entry: "£120"
+      notes: "Materials diversification. Lithium pivot."
     - ticker: ENGI.PA
-      name: "Engie SA"
-      target_price: 22.00-24.20
-      current_price: 23.84
-      fair_value: 22-29
-      margin_of_safety: 0-19%
-      reason: "EU utilities screening. Yield 6.6%, P/E 11.7x. NEEDS diligence - margin depends DCF."
-      priority: high
-      sizing: "€400-500 (4-5%)"
-      classification: "DEFENSIVE - Utilities"
-      etoro_available: YES
-      current_thesis: thesis/research/eu_utilities_screening.md
-      added_date: 2026-01-31
-      notes: "NEEDS fundamental analysis. Validar FCF yield >5%, payout <80%, Debt/EBITDA <4x."
-
+      entry: "€22"
+      notes: "Yield 6.6%. Needs fundamental analysis."
     - ticker: NTGY.MC
-      name: "Naturgy Energy Group SA"
-      target_price: 19-21
-      current_price: 25.38-25.90
-      fair_value: 33.94
-      margin_of_safety: "9-14% own estimate vs 25% Alpha Spread"
-      reason: "NEEDS more diligence. Yield conflict 5.8% vs 9.3%. Entry €19-21 for safe margin."
-      priority: medium
-      sizing: "€400-500 (4-5%)"
-      classification: "DEFENSIVE - Utilities"
-      etoro_available: YES
-      current_thesis: thesis/research/eu_utilities_screening.md
-      added_date: 2026-01-31
-      notes: "NEEDS data validation + diligence. IF yield <7% + thesis solid → entry €19-21 for 25%+ margin."
+      entry: "€19-21"
+      notes: "Yield conflict. Needs data validation."
+    - ticker: CMCSA
+      entry: "$24-25"
+      notes: "DCF ~$28. Broadband moat eroding."
+    - ticker: GIS
+      entry: "$34-38"
+      notes: "DCF ~$41. D/E 147%, GLP-1 headwind."
+
+  on_watch:
+    - ticker: ENEL.MI
+      entry: "€7.00-7.50"
+      notes: "Vendida breakeven. CMD 23-feb catalyst."
+    - ticker: CVS
+      entry: "$70"
+      notes: "Turnaround. Q4 11-feb binary event."
+    - ticker: AMT
+      entry: "$160-165"
+      notes: "Infrastructure REIT. Debt/EBITDA 6.18x."
+    - ticker: IBE.MC
+      entry: "€14-15"
+      notes: "Quality but P/E 21-24x premium."
+    - ticker: ADM.L
+      entry: "£24-26"
+      notes: "ROE 56% but margin -16%."
+    - ticker: 8001.T
+      entry: "¥6,500 ($43)"
+      notes: "Itochu. Quality premium in price."
 
   active_monitoring:
     - ticker: TEP.PA
-      name: "Teleperformance SE"
-      entry_price: 54.60
-      entry_date: 2026-01-31
-      fair_value: 115.00
-      position_size: 3.5%
-      notes: "POSITION OPENED. Monitor FCF stability, AI impact on revenue. Kill trigger: FCF <€600M or revenue decline >5% organic."
-      priority: high
-
+      entry: 54.60
+      fair_value: 115
+      kill: "FCF <€600M or revenue -5%"
     - ticker: SAN.PA
-      name: "Sanofi SA"
-      entry_price: 79.20
-      entry_date: 2026-01-31
+      entry: 79.20
       fair_value: 95-105
-      position_size: 5%
-      quality_score: "9/10 Tier A"
-      notes: "POSITION OPENED. Monitor pipeline readouts 2026 (25 trials). Kill trigger: dividend cut or 2+ major trial failures."
-      priority: high
-
+      kill: "Dividend cut or 2+ trial failures"
     - ticker: VICI
-      name: "VICI Properties Inc."
-      entry_price: 28.08
-      entry_date: 2026-01-31
-      fair_value: 34-35
-      position_size: 5%
-      quality_score: "8/10 Tier A"
-      notes: "POSITION OPENED. Monitor AFFO growth, lease escalators, tenant health (Caesars, MGM). Kill trigger: dividend cut or tenant bankruptcy."
-      priority: high
-
+      entry_usd: 28.08
+      fair_value_usd: 34-35
+      kill: "Dividend cut or tenant bankruptcy"
     - ticker: IMB.L
-      name: "Imperial Brands plc"
-      entry_price: 42.34
-      entry_date: 2026-01-31
-      fair_value: 44-52
-      position_size: 5%
-      quality_score: "9.5/10 Tier A"
-      notes: "POSITION OPENED. Monitor NGP growth, buyback execution, regulatory changes. Kill trigger: dividend cut or buyback suspension."
-      priority: high
-
+      entry_usd: 42.34
+      fair_value_usd: 44-52
+      kill: "Dividend cut or buyback suspension"
     - ticker: LIGHT.NV
-      name: "Signify NV"
-      entry_price: 17.91
-      entry_date: 2026-01-31
+      entry: 17.91
       fair_value: 26.73
-      position_size: 4%
-      notes: "POSITION OPENED. Monitor Q1 2026 results, Capital Markets Day mid-2026. Kill trigger: FCF <€300M, dividend cut, or revenue decline >10%."
-      priority: high
-
-  on_watch:
-    - ticker: AMT
-      name: "American Tower Corporation"
-      target_price: 160-165
-      current_price: 170.00
-      reason_watch: "Margen 19% <25% + Debt/EBITDA 6.18x >6x. Infrastructure REIT quality, PERO execution risks."
-      triggers_buy: "Precio $160-165 + Q4 Sprint churn ends + Fed corta tipos"
-      priority: medium
-
-    - ticker: IBE.MC
-      name: "Iberdrola SA"
-      target_price: 14-15
-      current_price: 18.92
-      reason_watch: "Quality 9/10 PERO margen -19%. P/E 21-24x premium 50-100% vs Enel/Engie."
-      triggers_buy: "Precio €14-15 + FY2025 beat + guidance raised"
-      priority: medium
-
-    - ticker: ADM.L
-      name: "Admiral Group plc"
-      target_price: 24-26
-      current_price: 30.14
-      reason_watch: "ROE 56% excelente PERO margen -16% + industry outlook 2026 negativo (NCR 107-111%)."
-      triggers_buy: "Precio £24-26 + FY2025 beat (ratio <76%, ROE >55%)"
-      priority: high
-
-    - ticker: ENEL.MI
-      name: "Enel SpA"
-      target_price: 9.0-10.0
-      current_price: 9.225
-      current_thesis: thesis/archive/ENEL/thesis.md
-      reason_watch: "VENDIDA breakeven 31-ene. P/E 9.6x cheapest screened, yield 5%, PERO margen 0% a €9.225."
-      triggers_buy: "Precio €7.00-7.50 (margen 25-30%) OR CMD 23-feb eleva fair value €11-12 → entry €8.50"
-      priority: medium
-
-    - ticker: GIS
-      name: "General Mills Inc."
-      target_price: 55-65
-      current_price: 44.45
-      reason_watch: "Margen 20% <25% + moat erosionando + secular decline packaged food."
-      triggers_buy: "Precio $40 + Q3/Q4 stabilización ventas"
-      priority: medium
-
-    - ticker: 8001.T
-      name: "Itochu Corporation"
-      target_price: 46-56
-      current_price: 52.00
-      reason_watch: "Margen 2% <<25%. Quality premium (ROE 15.3%) ya reflejado en P/B 1.8x."
-      triggers_buy: "Precio <¥6,500 ($43, margen 23%) + ROE >17% 2+ quarters"
-      priority: high
-
-    - ticker: CVS
-      name: "CVS Health Corporation"
-      target_price: 105-118
-      current_price: 78.00
-      reason_watch: "OPPORTUNISTIC turnaround. ROE 7%, CEO 4 meses, Medicare shock."
-      triggers_buy: "Q4 BEAT (11-feb): EPS >$6.70, margin >8% → ready_to_buy €300"
-      triggers_discard: "Q4 MISS: EPS <$6.55, margin <7%, guidance cut"
-      priority: high
-      classification: "OPPORTUNISTIC"
+      kill: "FCF <€300M or revenue -10%"
 
 # -----------------------------------------------------------------------------
-# ALERTAS ACTIVAS
+# ALERTAS DE PRECIO
 # -----------------------------------------------------------------------------
 alerts:
-  # Claude monitoriza precios cada inicio de sesión. NO órdenes limitadas.
-  # Cuando precio alcanza target → Claude dice al humano "COMPRA AHORA X shares a €Y"
   price_monitors:
-    - ticker: TTE
-      target_entry_usd: 54.00
-      target_entry_eur: 45.00
-      watch_price_usd: 58.00
-      watch_price_eur: 48.00
-      max_position_eur: 1130
-      thesis: thesis/active/TTE/thesis.md
-      note: "FV ponderado €60 (independent DCF challenge). A $54 MoS 25%. Actual $72.40 = MoS 0%. WAIT for earnings Feb + price correction."
-    - ticker: SAN.PA
-      target_entry: 75.00
-      max_position_eur: 1130
-      note: "FV €95-100, margen 25% a €75. Watch pipeline readouts 2026."
-    - ticker: LGEN.L
-      target_entry_gbp: 215
-      max_position_eur: 1130
-      note: "Margen 25% a 215p. Watch FY2025 results."
-    - ticker: MBG.DE
-      target_entry: 50.00
-      max_position_eur: 1130
-      note: "FV €70-72, margen 30% a €50. Cyclical - esperar corrección."
-    - ticker: ENEL.MI
-      target_entry: 7.50
-      max_position_eur: 1000
-      note: "Re-entrada post-venta. CMD 23-feb puede cambiar FV."
-    - ticker: CVS
-      target_entry: 70.00
-      note: "Revisar - margen >50%"
-    - ticker: 8001.T
-      target_entry: 43.00
-      note: "Margen ~23%"
-    - ticker: T
-      target_entry_usd: 22.50
-      max_position_usd: 920
-      note: "AT&T. FV $30 (FCF-based). FCF $18B+ 2026. Mejor candidato telecom US. A $22.50 MoS 25%."
-    - ticker: VICI
-      target_entry_usd: 26.00
-      max_position_usd: 920
-      note: "VICI Properties REIT. FV $34-35 (13-14x AFFO). Triple-net casino leases. Wide moat. A $26 MoS 25%."
-    - ticker: BNP.PA
-      target_entry: 78.00
-      max_position_eur: 770
-      note: "BNP Paribas. FV ~€103. CET1 12.5%, ROTE 12%+. A €78 MoS 25%."
-    - ticker: AGN.NV
-      target_entry: 5.90
-      max_position_eur: 500
-      note: "Aegon. FV €8.90. Entry €5.90 for 30%+ MoS. Earnings 19-Feb."
-    - ticker: ENGI.PA
-      target_entry: 22.00
-      max_position_eur: 770
-      note: "Engie. FV ~€29. Yield 6%, regulated mix 42%→63% by 2027. A €22 MoS 25%."
+    - { ticker: TTE, entry_eur: 45, note: "FV €60. Wait earnings+correction" }
+    - { ticker: LGEN.L, entry_gbp: 215, note: "FV ~265p. Wait FY2025" }
+    - { ticker: MBG.DE, entry_eur: 50, note: "FV €70. Cyclical wait" }
+    - { ticker: ENEL.MI, entry_eur: 7.50, note: "Re-entry. CMD 23-feb" }
+    - { ticker: AGN.NV, entry_eur: 5.90, note: "Borderline. Earnings 19-Feb" }
+    - { ticker: CVS, entry_usd: 70, note: "Q4 11-feb binary" }
+    - { ticker: T, entry_usd: 22.50, note: "FCF $18B+. Best US telecom" }
+    - { ticker: BNP.PA, entry_eur: 78, note: "FV €103. CET1 12.5%" }
+    - { ticker: ENGI.PA, entry_eur: 22, note: "FV €29. Yield 6%" }
 
 # -----------------------------------------------------------------------------
-# PROTOCOLO INICIO SESIÓN - CHEQUEO PRECIOS
-# -----------------------------------------------------------------------------
-session_startup_tasks:
-  - task: "CHECK PRICES via: python3 tools/price_checker.py {tickers}. NUNCA WebSearch para precios."
-    priority: CRITICAL
-    note: "yfinance API = fuente única de precios. Si algún precio en/bajo target → investment-committee review → recomendar compra"
-  - task: "CHECK earnings próximos 7 días para posiciones activas"
-    priority: HIGH
-  - task: "EVALUAR cash drag - si >15% lanzar screening si no hay candidatos suficientes"
-    priority: HIGH
-
-# -----------------------------------------------------------------------------
-# TRABAJO EN PROGRESO
-# -----------------------------------------------------------------------------
-work_in_progress:
-  current_task: "ANTI-POPULARITY MID-CAP DEPLOYMENT + EARNINGS MONITORING"
-  status: |
-    **MID-CAP DEPLOYMENT EJECUTADO (31-ene-2026)**
-
-    ✅ TEP.PA purchased: €383 (3.5% portfolio)
-    ✅ LIGHT.NV purchased: €500 (4% portfolio)
-    ✅ Total deployed: €883
-    ✅ Cash restante: €5,664 (56% portfolio)
-
-    ESTRATEGIA:
-    - Anti-popularity-bias screening aplicado
-    - TEP: 86% drawdown, AI fears, FCF yield 34%
-    - LIGHT: 52-week low, restructuring, FCF yield 18.6%
-    - Ambas: deep value cyclical bets con downside protection vía FCF
-
-    PREVIOUS TRACK (OTHER OPPORTUNITIES):
-    🔄 TotalEnergies, Sanofi, Legal & General → ON HOLD
-    → Mantener watchlist, esperar mejor entry points
-
-    PREVIOUS TRACK (EU UTILITIES):
-    🔄 Engie, Naturgy → ON HOLD
-    → Fundamental analysis pendiente
-
-    **CASH DEPLOYMENT STRATEGY:**
-    - €883 deployed (13% of cash)
-    - €5,664 remaining (56% portfolio) >> 5% minimum
-    - Disciplina: esperar MoS >25% para próximas compras
-
-    PORTFOLIO POST-DEPLOYMENT (7-9 posiciones):
-    - OWNED: Shell, DTE, PFE, ALL (€3.6K, 22%)
-    - PROPOSED: TTE, SAN, LGEN (€3.5K, 21%)
-    - OPTIONAL: Engie, Naturgy (€0.8-1K, 5-6%)
-    - Cash: €2-2.2K (12-13%) ✓ >5% minimum
-
-    GEOGRAPHIC MIX POST:
-    - UK: 29-34% (SHEL + LGEN + potential)
-    - France: 29-34% (TTE + SAN + potential Engie)
-    - Germany: 7% (DTE)
-    - US: 5% (PFE + ALL)
-    - Spain: 0-3% (potential Naturgy)
-
-    SECTOR MIX POST:
-    - Energy: 15-21% (SHEL + TTE)
-    - Pharma: 10% (PFE + SAN)
-    - Insurance: 9% (ALL + LGEN)
-    - Telecom: 7% (DTE)
-    - Utilities: 0-6% (potential Engie + Naturgy)
-
-    TODO USER CRÍTICO:
-    1. Verificar eToro: TTE, SAN.PA, LGEN.L
-    2. Verificar precios actuales
-    3. Confirmar earnings TTE + LGEN (Feb 2026)
-    4. EJECUTAR órdenes €3,510 (Track A)
-    5. ESPERAR fundamental analysis Engie/Naturgy (Track B)
-
-    EARNINGS CALENDARIO FEB-MAR:
-    - Feb 3: PFE | Feb 5: ALL, SHEL | Feb 11: CVS
-    - Feb 26: DTE | Feb 28: Engie (if bought) | Feb XX: TTE, LGEN
-    - Mar 1: Naturgy (if bought) | Mar 19: Enel
-
-# -----------------------------------------------------------------------------
-# PIPELINE DE INVESTIGACIÓN
-# -----------------------------------------------------------------------------
-research_pipeline:
-  sector_ideas:
-    - sector: "Energy (additional)"
-      status: "COMPLETED - TTE recommended #1, EQNR tier 2 needs DD, BP avoid"
-      notes: "thesis/research/other_opportunities_screening.md"
-
-    - sector: "Pharma EU"
-      status: "COMPLETED - Sanofi recommended #2, Roche unclear eToro"
-      notes: "25 pipeline readouts = catalyst-rich 2026"
-
-    - sector: "Insurance EU/UK"
-      status: "COMPLETED - LGEN recommended #3, AXA tier 2, Allianz pass"
-      notes: "LGEN 8.5% yield + BofA capital return. AXA 5.7% + 222% solvency."
-
-    - sector: "Telecom EU"
-      status: "COMPLETED - Orange tier 2 (consolidation), Telefonica/Vodafone avoid"
-      notes: "JPM €19 target = 35% upside on consolidation"
-
-    - sector: "Materials EU"
-      status: "COMPLETED - Rio Tinto tier 2 (lithium), ArcelorMittal avoid"
-      notes: "P/E 12x, quality 6/10, Arcadium $6.7B acquisition"
-
-    - sector: "Tobacco EU"
-      status: "COMPLETED - AVOID (structural decline + ESG)"
-
-    - sector: "UK Utilities"
-      status: "COMPLETED - PASS (National Grid/SSE not compelling P/E 12-15x)"
-
-    - sector: "EU Utilities"
-      status: "COMPLETED - Engie + Naturgy pending fundamental"
-      notes: "thesis/research/eu_utilities_screening.md - 11 empresas screened"
-
-  company_ideas: []
-
-# -----------------------------------------------------------------------------
-# VISIÓN MACRO ACTUAL (resumen)
+# MACRO (resumen)
 # -----------------------------------------------------------------------------
 macro_snapshot:
   last_update: 2026-01-30
-  key_themes:
-    - "Fed/BCE pausa - tipos 3.5-3.75% US, 2.0% EU - sin vientos a favor"
-    - "Europa barata ignorada - value pockets identificados"
-    - "Geopolítica caliente - Trump Irán, US-China Taiwan"
-    - "China débil 4.3-4.5% - inmobiliario roto"
-  risks:
-    - "Escalada US-China Taiwan (10-20%)"
-    - "Conflicto US-Irán (20-30%) - petróleo +30-50%"
-    - "Recesión US higher-for-longer (25-35%)"
-    - "Hard landing China (30-40%)"
-  opportunities:
-    - "Energía EU: TotalEnergies 26% descuento, 8% FCF yield"
-    - "Pharma EU: Sanofi 19-33% descuento, 25 pipeline readouts"
-    - "Insurance UK: Legal & General 8.5% yield, 17.5% capital return"
-    - "Utilities EU: Engie 6.6% yield, Naturgy 25% undervalued"
+  themes: ["Fed/BCE pausa 3.5%/2.0%", "Europa barata", "Geopolítica caliente", "China débil"]
+  risks: ["US-China Taiwan 10-20%", "US-Irán 20-30%", "Recesión US 25-35%", "Hard landing China 30-40%"]
 
 # -----------------------------------------------------------------------------
-# MANTENIMIENTO DEL SISTEMA
+# MANTENIMIENTO
 # -----------------------------------------------------------------------------
 maintenance:
-  last_health_check: 2026-01-30
-  next_health_check_due: 2026-02-13
-  health_score: 9.2/10
-  issues_detected: 0
-  warnings_detected: 1
-
-  last_compact: 2026-01-31
-  next_compact_due: 2026-02-28
-  last_annual_compact: null
-  next_annual_due: 2027-01-31
-
+  last_health_check: 2026-02-01
+  next_health_check_due: 2026-02-15
+  health_score: 9.1/10
+  last_compact: 2026-02-01
   memory_status: ok
-  active_memory_kb: 30  # +4KB double screening
-  warning_threshold_kb: 50
-  critical_threshold_kb: 100
-
-  files_in_active: 6     # SHEL, DTE, PFE, ALL, TEP, LIGHT
-  files_in_watchlist: 14 # +Engie, Naturgy, TTE, SAN, LGEN, AXA, ORA, RIO, ALV, EQNR
-  files_in_research: 3   # BHP, eu_utilities_screening, other_opportunities_screening (NOTE: TEP and LIGHT still in research/, need to move to active/)
-  files_in_archive: 1    # ENEL
-  files_in_thesis: 2     # eu_utilities_screening.md, other_opportunities_screening.md
-
-  last_structure_fix: 2026-01-30
+  agents_count: 24
+  evolution_tracking:
+    last_evaluation: 2026-02-01
+    applied:
+      - "2026-02-01: Fusión self-evolution+evolution-manager → system-evolver"
+      - "2026-02-01: health-check upgraded haiku→sonnet, +quantitative checks"
+      - "2026-02-01: TTE moved active→watchlist"
+      - "2026-02-01: system.yaml compacted 863→~350 lines"
+    pending:
+      - "CLAUDE.md rewrite 384→~100 lines"
+      - "Flatten agent hierarchy 24→~12 agents"
+      - "Create tools/dcf_calculator.py"
+      - "Deprecate screener.py + midcap_screener.py formally"

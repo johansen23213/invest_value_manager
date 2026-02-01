@@ -50,7 +50,7 @@ positions:
     invested_eur: 383.00
     avg_cost_eur: 54.60  # €383 / 7.01
     date_opened: 2026-01-31
-    thesis: thesis/research/TEP_analysis.md
+    thesis: thesis/active/TEP.PA/thesis.md
 
   - ticker: SAN.PA
     name: "Sanofi SA"
@@ -58,7 +58,7 @@ positions:
     invested_eur: 516.00
     avg_cost_eur: 79.20
     date_opened: 2026-01-31
-    thesis: thesis/research/other_opportunities_screening.md
+    thesis: thesis/active/SAN.PA/thesis.md
 
   - ticker: VICI
     name: "VICI Properties Inc."
@@ -66,7 +66,7 @@ positions:
     invested_usd: 600.00
     avg_cost_usd: 28.08
     date_opened: 2026-01-31
-    thesis: thesis/research/VICI_analysis.md
+    thesis: thesis/active/VICI/thesis.md
 
   - ticker: IMB.L
     name: "Imperial Brands plc"
@@ -74,7 +74,7 @@ positions:
     invested_usd: 600.00
     avg_cost_usd: 42.34
     date_opened: 2026-01-31
-    thesis: thesis/research/IMB_analysis.md
+    thesis: thesis/active/IMB.L/thesis.md
 
   - ticker: LIGHT.NV
     name: "Signify NV"
@@ -82,7 +82,7 @@ positions:
     invested_eur: 500.00
     avg_cost_eur: 17.91  # €500 / 27.94
     date_opened: 2026-01-31
-    thesis: thesis/research/LIGHT_analysis.md
+    thesis: thesis/active/LIGHT.NV/thesis.md
 
 transactions:
   - date: 2026-01-26

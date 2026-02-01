@@ -7,7 +7,12 @@ head -80 state/system.yaml 2>/dev/null | grep -A2 'last_session:\|status:\|syste
 
 echo ""
 echo "=== PORTFOLIO ==="
-head -55 portfolio/current.yaml 2>/dev/null
+python3 -c "
+import yaml
+with open('portfolio/current.yaml') as f:
+    d = yaml.safe_load(f)
+print(yaml.dump({'cash': d.get('cash'), 'positions': d.get('positions')}, default_flow_style=False, allow_unicode=True))
+" 2>/dev/null
 
 echo ""
 echo "=== CALENDAR NEXT 14 DAYS ==="
