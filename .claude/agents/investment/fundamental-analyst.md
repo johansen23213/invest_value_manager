@@ -16,7 +16,7 @@ skills:
 Análisis fundamental profundo de empresas. Es el analista principal del sistema.
 
 ## Cuándo se activa
-- Cuando investment-domain recibe petición de análisis
+- Cuando el orchestrator necesita análisis profundo de una empresa
 - Cuando se necesita thesis completa para una empresa
 
 ## Micro-Agents

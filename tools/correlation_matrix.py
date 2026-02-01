@@ -29,11 +29,15 @@ def load_portfolio_tickers(yaml_path='/home/angel/value_invest2/portfolio/curren
         with open(yaml_path, 'r') as f:
             portfolio = yaml.safe_load(f)
 
+        # Mapping for tickers that differ between portfolio and yfinance
+        TICKER_MAP = {'LIGHT.NV': 'LIGHT.AS'}
+
         tickers = []
         if 'positions' in portfolio:
             for pos in portfolio['positions']:
                 if 'ticker' in pos:
-                    tickers.append(pos['ticker'])
+                    t = pos['ticker']
+                    tickers.append(TICKER_MAP.get(t, t))
 
         return tickers
     except Exception as e:

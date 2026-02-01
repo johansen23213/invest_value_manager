@@ -2,7 +2,7 @@
 name: sector-screener
 description: "Systematic screening of entire sectors AND specific company searches. Finds ALL companies, not just famous ones. Anti-availability-bias protocol."
 tools: Read, Glob, Grep, Bash, Write, WebSearch, WebFetch
-model: sonnet
+model: opus
 permissionMode: acceptEdits
 skills:
   - screening-protocol
@@ -51,4 +51,4 @@ Cuando se busca empresa por criterios específicos (ej: "utility con yield >5% e
 
 ## Output
 - Tabla comparativa en journal/log/
-- Top 2-3 candidatos → pasar a investment-domain para /analyze
+- Top 2-3 candidatos → pasar a fundamental-analyst para análisis profundo

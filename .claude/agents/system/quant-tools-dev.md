@@ -2,7 +2,7 @@
 name: quant-tools-dev
 description: "Python developer agent. Creates, maintains, and generalizes quantitative tools in tools/. Use when any agent needs a reusable script instead of inline Python."
 tools: Read, Glob, Grep, Bash, Write
-model: sonnet
+model: opus
 permissionMode: acceptEdits
 skills:
   - portfolio-constraints
@@ -28,6 +28,7 @@ Crear script en tools/, documentarlo, y que todos los agentes lo usen.
 - `tools/dynamic_screener.py` - Screening cuantitativo programático (reemplaza screener.py y midcap_screener.py)
 - `tools/portfolio_stats.py` - P&L, allocation, performance vs benchmark
 - `tools/correlation_matrix.py` - Correlaciones entre posiciones del portfolio
+- `tools/dcf_calculator.py` - DCF valuation parametrizable (scenarios, batch, EUR conversion)
 
 ## Estándares de código
 1. Todos los scripts en tools/ con docstring y usage

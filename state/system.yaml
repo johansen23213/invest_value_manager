@@ -7,22 +7,29 @@ system:
   system_version: "2.1.0"
   last_session: 2026-02-01
   last_session_summary: |
-    Sesión 16 - AUTO-EVOLUCIÓN + COMPACTACIÓN
+    Sesión 17 - ANÁLISIS MASIVO + SISTEMA OVERHAUL
     COMPLETADO:
-    - Evaluación self-evolution + health-check agents → redundancia detectada
-    - Fusión: self-evolution + evolution-manager → system-evolver.md (25→24 agentes)
-    - health-check mejorado: haiku→sonnet, +checks cuantitativos, smoke tests, calendar coherence
-    - TTE movido thesis/active/ → thesis/watchlist/
-    - system.yaml compactado 863→268 líneas (69% reducción)
-    - CLAUDE.md: se intentó compactar, usuario pidió revertir → restaurado original
-    PENDIENTE LUNES 3-FEB (CRÍTICO):
-    - SELL 10 shares SHEL en eToro (rebalanceo 13%→7%)
-    - BUY ~134 shares A2A.MI ~€2.54 (total ~€340, max entry €2.80)
-    - PFE Q4 earnings pre-market → watch EPS $0.57, guidance, dividendo
+    - Portfolio: €10,320, +15.9%, cash 46%
+    - 6 análisis fundamentales: A2A (BUY), EDEN.PA (BUY), VNA.DE (BUY), PROX.BR (WAIT), AZM.MI (WAIT), AXA (WAIT)
+    - Investment committee aprobó EDEN.PA + VNA.DE
+    - Creado tools/dcf_calculator.py (scenarios, batch, warnings FCF volátil)
+    - Corregido bug correlation_matrix.py (LIGHT.NV→LIGHT.AS)
+    - Corregido refs deprecated en CLAUDE.md + 4 agentes → dynamic_screener.py
+    - Flatten agentes: 24→19 (eliminados 4 domain wrappers + company-finder)
+    - Todos agentes migrados a opus (antes mix haiku/sonnet/opus)
+    - Eliminados tools deprecated (screener.py, midcap_screener.py)
+    - health-check: corregido permisos (plan→acceptEdits, +Write)
+    - calendar-manager + performance-tracker: añadidos tools faltantes
+    - DCF sub-skill actualizado con ref a tool
+    - Macro view actualizada (tariffs Greenland pausadas, China-US deal extended)
+    - Watchlist: AZM.MI + PROX.BR tier_2, AXA entry corregido €34.50-35.50, ORA.PA flagged
+    - Calendar: +AXA earnings 26-feb, +PROX.BR 27-feb, +3 órdenes lunes
+    PENDIENTE LUNES 3-FEB (CONFIRMADO):
+    - SELL 10 SHEL, BUY ~134 A2A.MI, BUY ~22 EDEN.PA, BUY ~16 VNA.DE
+    - WATCH PFE earnings pre-market
     PENDIENTE SEMANA:
-    - Mie 5-feb: ALL + SHEL earnings, EVO.ST post-earnings eval
-    - Flatten agent hierarchy 24→~12 (pendiente aprobación)
-    - Create tools/dcf_calculator.py
+    - Mie 5-feb: ALL + SHEL earnings, EVO.ST post-earnings → posible BUY
+    - Cash post-ops ~41% → seguir desplegando
   status: active
 
 # -----------------------------------------------------------------------------
@@ -44,6 +51,20 @@ calendar:
       event: "BUY A2A.MI ~134 shares"
       priority: CRITICAL
       action: "BUY ~134 shares A2A.MI ~€2.54. Total ~€340 (4%). Max entry €2.80."
+
+    - date: 2026-02-03
+      type: action
+      ticker: EDEN.PA
+      event: "BUY EDEN.PA ~22 shares"
+      priority: CRITICAL
+      action: "BUY ~22 shares EDEN.PA ~€17.67. Total ~€400 (4%). FV €33-36."
+
+    - date: 2026-02-03
+      type: action
+      ticker: VNA.DE
+      event: "BUY VNA.DE ~16 shares"
+      priority: CRITICAL
+      action: "BUY ~16 shares VNA.DE ~€24.61. Total ~€400 (4%). FV €35-38."
 
     - date: 2026-02-03
       type: earnings
@@ -100,6 +121,13 @@ calendar:
       event: "Deutsche Telekom FY2025"
       priority: high
       action: "Watch FCF, EBITDA, guidance 2026."
+
+    - date: 2026-02-26
+      type: earnings
+      ticker: CS.PA
+      event: "AXA FY2025 results"
+      priority: high
+      action: "Si precio cae a €34.50-35.50 post-earnings → BUY 5% (~€500). Combined ratio <90% + guidance OK = compra."
 
     - date: 2026-02-27
       type: earnings
@@ -164,6 +192,22 @@ watchlist:
       status: "APPROVED - BUY Monday 3-feb"
       thesis: thesis/research/A2A.MI/thesis.md
 
+    - ticker: EDEN.PA
+      target_entry_eur: 17.67
+      fair_value_eur: 33-36
+      margin_of_safety: 46-51%
+      sizing: "€400 (4%)"
+      status: "APPROVED - BUY Monday 3-feb"
+      thesis: thesis/research/EDEN.PA/thesis.md
+
+    - ticker: VNA.DE
+      target_entry_eur: 24.61
+      fair_value_eur: 35-38
+      margin_of_safety: 31%
+      sizing: "€400 (4%)"
+      status: "APPROVED - BUY Monday 3-feb"
+      thesis: thesis/research/VNA.DE/thesis.md
+
   tier_2:
     - ticker: AGN.NV
       entry: "€5.90-6.10"
@@ -172,11 +216,11 @@ watchlist:
       entry: "€48-52"
       notes: "Current €57. Need 30%+ MoS. Q4 earnings catalyst."
     - ticker: CS.PA
-      entry: "€40-41"
-      notes: "AXA. P/E 9.7x, yield 5.7%, solvency 222%."
+      entry: "€34.50-35.50"
+      notes: "AXA. Tier A (8/10). FV €40.50. Wide moat. Solvency 222%. WAIT FY2025 earnings 26-feb."
     - ticker: ORA.PA
-      entry: "€19"
-      notes: "Orange. Telecom consolidation catalyst. JPM Overweight."
+      entry: "€13-14"
+      notes: "Orange. Current €15.62 above old target. P/E 41x = expensive. Needs re-evaluation or REMOVE."
     - ticker: RIO.L
       entry: "£120"
       notes: "Materials diversification. Lithium pivot."
@@ -255,6 +299,7 @@ alerts:
     - { ticker: T, entry_usd: 22.50, note: "FCF $18B+. Best US telecom" }
     - { ticker: BNP.PA, entry_eur: 78, note: "FV €103. CET1 12.5%" }
     - { ticker: ENGI.PA, entry_eur: 22, note: "FV €29. Yield 6%" }
+    - { ticker: CS.PA, entry_eur: 35.50, note: "AXA. FV €40.50. Tier A. Earnings 26-feb" }
 
 # -----------------------------------------------------------------------------
 # MACRO (resumen)
@@ -273,7 +318,7 @@ maintenance:
   health_score: 9.1/10
   last_compact: 2026-02-01
   memory_status: ok
-  agents_count: 24
+  agents_count: 19
   evolution_tracking:
     last_evaluation: 2026-02-01
     applied:

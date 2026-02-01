@@ -7,6 +7,10 @@ disable-model-invocation: false
 
 # DCF Template Sub-Skill
 
+## Tool automatizado
+**SIEMPRE usar `python3 tools/dcf_calculator.py TICKER --scenarios` en lugar de cálculos manuales.**
+El tool implementa todo lo descrito abajo automáticamente. Este skill es referencia teórica.
+
 ## Inputs requeridos
 - FCF actual (último año fiscal)
 - Growth rate años 1-5 (conservador: guidance -20-30%)

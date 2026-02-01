@@ -1,9 +1,9 @@
 ---
 name: health-check
 description: "Use proactively every 14 days. Verifies system health: file structure, data consistency, memory size, agent/skill integrity, tool functionality, file sizes."
-tools: Read, Glob, Grep, Bash
-model: sonnet
-permissionMode: plan
+tools: Read, Glob, Grep, Bash, Write
+model: opus
+permissionMode: acceptEdits
 skills:
   - system-context
   - file-system-rules

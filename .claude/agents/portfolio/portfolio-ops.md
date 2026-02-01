@@ -2,7 +2,7 @@
 name: portfolio-ops
 description: "Use when portfolio/current.yaml or state/system.yaml needs updating after user confirms a trade. Centralizes all state writes. Moves thesis files between directories."
 tools: Read, Glob, Grep, Write, Edit
-model: sonnet
+model: opus
 permissionMode: acceptEdits
 skills:
   - portfolio-constraints

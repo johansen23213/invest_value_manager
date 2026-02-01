@@ -2,7 +2,7 @@
 name: watchlist-manager
 description: "Use proactively to monitor watchlist entries, check price triggers, and recommend actions on watched stocks. Manages ready_to_buy, on_watch, to_analyze in state/system.yaml."
 tools: Read, Glob, Grep, Bash, Write, WebSearch, WebFetch
-model: sonnet
+model: opus
 permissionMode: acceptEdits
 skills:
   - investment-rules

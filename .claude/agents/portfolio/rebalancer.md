@@ -2,7 +2,7 @@
 name: rebalancer
 description: "Use proactively at session start to check rebalancing triggers. Executes scheduled monthly and trigger-based rebalancing. Position >1.3x target = TRIM, <0.7x = ADD."
 tools: Read, Glob, Grep, Bash, Write
-model: sonnet
+model: opus
 permissionMode: acceptEdits
 skills:
   - portfolio-constraints

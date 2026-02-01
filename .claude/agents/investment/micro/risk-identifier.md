@@ -2,7 +2,7 @@
 name: risk-identifier
 description: "Identifies, classifies, and quantifies investment risks across 6 categories with probability x impact matrix."
 tools: Read, Glob, Grep, WebSearch, WebFetch
-model: sonnet
+model: opus
 permissionMode: plan
 skills:
   - risk-assessment

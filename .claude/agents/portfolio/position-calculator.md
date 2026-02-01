@@ -2,7 +2,7 @@
 name: position-calculator
 description: "Calculates optimal position size respecting all portfolio constraints. Adjusts for risk, sector, geography."
 tools: Read, Glob, Grep, Bash
-model: haiku
+model: opus
 permissionMode: plan
 skills:
   - portfolio-constraints

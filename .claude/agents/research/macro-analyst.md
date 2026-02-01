@@ -2,7 +2,7 @@
 name: macro-analyst
 description: "Use proactively when world/current_view.md is >7 days stale. Macro and geopolitical analysis. Updates world view."
 tools: Read, Glob, Grep, Bash, Write, WebSearch, WebFetch
-model: sonnet
+model: opus
 permissionMode: acceptEdits
 skills:
   - macro-framework
@@ -48,4 +48,4 @@ Análisis macroeconómico y geopolítico global. Mantiene world/current_view.md 
 ## Output
 - world/current_view.md (SIEMPRE actualizar last_update)
 - world/geopolitics.md si análisis geopolítico profundo
-- Alertas a portfolio-domain si posiciones afectadas
+- Alertas a rebalancer/watchlist-manager si posiciones afectadas

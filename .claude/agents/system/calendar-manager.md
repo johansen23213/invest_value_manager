@@ -1,8 +1,8 @@
 ---
 name: calendar-manager
 description: "Use proactively at session start to check upcoming events in next 7 days. Manages earnings dates, price alerts, catalyst dates in state/system.yaml calendar section."
-tools: Read, Glob, Grep, Write, WebSearch
-model: haiku
+tools: Read, Glob, Grep, Bash, Write, WebSearch, WebFetch
+model: opus
 permissionMode: acceptEdits
 skills:
   - system-context

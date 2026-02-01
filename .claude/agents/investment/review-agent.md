@@ -2,7 +2,7 @@
 name: review-agent
 description: "Reviews active positions post-earnings or on schedule. Compares thesis vs reality and recommends HOLD/ADD/TRIM/SELL."
 tools: Read, Glob, Grep, Bash, Write, WebSearch, WebFetch
-model: sonnet
+model: opus
 permissionMode: acceptEdits
 skills:
   - investment-rules

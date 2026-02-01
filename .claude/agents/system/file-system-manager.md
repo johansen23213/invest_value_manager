@@ -2,7 +2,7 @@
 name: file-system-manager
 description: "Single authority on file locations. Manages thesis lifecycle (research -> watchlist -> active -> archive). Logs all moves."
 tools: Read, Glob, Grep, Bash, Write, Edit
-model: haiku
+model: opus
 permissionMode: acceptEdits
 skills:
   - file-system-rules

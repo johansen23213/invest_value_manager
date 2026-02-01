@@ -2,7 +2,7 @@
 name: moat-assessor
 description: "Evaluates sustainable competitive advantages. Classifies moat as Wide/Narrow/None with quantitative evidence."
 tools: Read, Glob, Grep, WebSearch, WebFetch
-model: sonnet
+model: opus
 permissionMode: plan
 skills:
   - moat-framework

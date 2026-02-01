@@ -2,7 +2,7 @@
 name: memory-manager
 description: "Manages 3-layer memory system. Compacts, summarizes, archives. Triggers when active memory >50KB."
 tools: Read, Glob, Grep, Bash, Write
-model: sonnet
+model: opus
 permissionMode: acceptEdits
 skills:
   - memory-management-rules

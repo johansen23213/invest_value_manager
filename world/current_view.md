@@ -1,11 +1,12 @@
 # Visión Macro y Geopolítica
 
-> Última actualización: 2026-01-30
+> Última actualización: 2026-02-01
 
-**Cambios desde último update (26-ene):**
-- ✅ Fed mantuvo tipos 3.5-3.75% el 28-ene (votación NO unánime: 2 disidentes pro-corte)
-- 🔴 Trump escaló retórica Irán: "massive armada" → Brent $70+ (max since Aug), luego diálogo reduce a ~$68
-- 🟡 US-Taiwan semiconductor trade deal firmado → China "firmly opposed"
+**Cambios desde último update (30-ene):**
+- ✅ Trump PAUSÓ Greenland tariffs (10% sobre 8 países EU) el 21-ene tras deal con NATO/Rutte
+- 🟡 EU congeló EU-US trade deal en respuesta. Riesgo latente si tariffs se reactivan
+- 🟢 China-US deal extendido a Nov 2026, tariffs reducidos 20%→10%. Positivo
+- 🟡 Canada: Trump amenaza 100% tariff si Ottawa hace deal con Beijing. Carney rechaza
 
 ## Resumen Ejecutivo
 

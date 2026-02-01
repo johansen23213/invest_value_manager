@@ -1,8 +1,8 @@
 ---
 name: performance-tracker
 description: "Tracks portfolio and position performance. Calculates total return, vs benchmark, attribution analysis. Monthly reports."
-tools: Read, Glob, Grep, Bash, Write, WebSearch
-model: sonnet
+tools: Read, Glob, Grep, Bash, Write, WebSearch, WebFetch
+model: opus
 permissionMode: acceptEdits
 skills:
   - portfolio-constraints

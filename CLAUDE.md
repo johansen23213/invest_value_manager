@@ -159,23 +159,36 @@ Claude debe:
 - Proponer acciones concretas.
 - Avanzar el sistema, aunque sea incrementalmente.
 
-## Arquitectura Multi-Agente
+## Arquitectura Multi-Agente (19 agentes, todos opus)
 
 ### Nivel 0: Orchestrator (este fichero)
-Delega a 4 Domain Agents según la tarea.
+Delega directamente a agentes especializados. Sin capas intermedias.
 
-### Nivel 1: Domain Agents (.claude/agents/domains/)
+### Agentes por dominio (invocación directa, sin domain wrappers)
+
 | Dominio | Agente | Cuándo |
 |---------|--------|--------|
-| Inversión | investment-domain | Analizar, decidir compra/venta, revisar posiciones |
-| Research | research-domain | Explorar sectores, screening, macro |
-| Portfolio | portfolio-domain | Sizing, rebalanceo, performance |
-| Sistema | system-domain | Ficheros, memoria, health, evolución |
+| **Inversión** | fundamental-analyst | Análisis profundo de empresa |
+| | investment-committee | Gate obligatorio antes de BUY/SELL |
+| | review-agent | Review post-earnings de posiciones activas |
+| | valuation-specialist (micro) | DCF, comparables, DDM (via fundamental-analyst) |
+| | moat-assessor (micro) | Evaluación de ventaja competitiva (via fundamental-analyst) |
+| | risk-identifier (micro) | Identificación de riesgos (via fundamental-analyst) |
+| **Research** | sector-screener | Screening sistemático de sectores |
+| | macro-analyst | Análisis macro/geopolítico, actualiza world view |
+| **Portfolio** | rebalancer | Rebalanceo mensual y por triggers |
+| | position-calculator | Sizing óptimo respetando límites |
+| | performance-tracker | P&L, attribution, vs benchmark |
+| | watchlist-manager | Monitoreo de candidatos y alertas de precio |
+| | portfolio-ops | Escritura centralizada de portfolio/current.yaml |
+| **Sistema** | calendar-manager | Gestión de calendario y earnings |
+| | file-system-manager | Autoridad sobre ubicación de ficheros |
+| | health-check | Auditoría del sistema cada 14 días |
+| | memory-manager | Compactación de memoria 3 capas |
+| | system-evolver | Auto-mejora del sistema |
+| | quant-tools-dev | Creación/mantenimiento de tools Python |
 
-### Nivel 2-3: Sub-Agents y Micro-Agents (.claude/agents/*/)
-Cada domain agent delega a sub-agents especializados. Ver cada domain agent para detalle.
-
-### Nivel 4-5: Skills y Sub-Skills (.claude/skills/)
+### Skills (.claude/skills/)
 Knowledge bases compartidas entre agentes. No son ejecutables, son referencia.
 
 ## Protocolo de Inicio de Sesión
@@ -342,6 +355,26 @@ python3 tools/dynamic_screener.py --index mib40 --min-fcf-yield 5
 - Cache de tickers con `--refresh` para forzar actualización
 - **REEMPLAZA screener.py y midcap_screener.py (ambos DEPRECATED)**
 
+#### dcf_calculator.py - DCF (Discounted Cash Flow) valuation
+```bash
+python3 tools/dcf_calculator.py AAPL                          # Default params (growth 5%, terminal 2.5%, WACC 9%)
+python3 tools/dcf_calculator.py AAPL --growth 8 --terminal 2 --wacc 10
+python3 tools/dcf_calculator.py AAPL --years 10               # 10-year projection (default: 5)
+python3 tools/dcf_calculator.py AAPL --scenarios              # Bear/Base/Bull scenarios
+python3 tools/dcf_calculator.py AAPL MSFT GOOGL               # Batch analysis
+python3 tools/dcf_calculator.py AAPL --output results.csv     # Save to CSV
+```
+- Descarga FCF histórico via yfinance (últimos 5 años)
+- Calcula CAGR histórico de FCF para comparar con growth rate proyectado
+- Proyecta FCF futuro (5-10 años configurable)
+- Terminal value via Gordon Growth Model
+- Calcula valor intrínseco por acción y Margin of Safety (MoS%)
+- **Flag `--scenarios`**: calcula Bear (growth -2pp, wacc +1pp), Base, Bull (growth +2pp, wacc -1pp)
+- Batch mode: múltiples tickers con tabla resumen
+- Waterfall detallado: muestra FCF histórico, proyección año a año, PV de cada flujo, terminal value
+- Conversión automática a EUR (consistente con otros tools)
+- **ADVERTENCIA**: DCF es sensible a inputs (GIGO). Siempre validar growth rate vs histórico y vs peers.
+
 #### correlation_matrix.py - Correlaciones entre posiciones
 ```bash
 python3 tools/correlation_matrix.py
@@ -349,18 +382,14 @@ python3 tools/correlation_matrix.py
 - Calcula matriz de correlación entre todas las posiciones del portfolio
 - Útil para diversificación y gestión de riesgo
 
-### Tools Pendientes de Crear
-
-#### dcf_calculator.py - DCF parametrizable (TODO)
-- Descarga FCF histórico via yfinance, proyecta 5-10 años, terminal value, WACC configurable
-
 ### Reglas de Tools
 1. **SIEMPRE usar tools existentes antes de hacer cálculos inline**
 2. **Si un cálculo se repite >1 vez → crear tool nuevo (delegar a quant-tools-dev agent)**
 3. **Precios SIEMPRE via price_checker.py (NUNCA WebSearch, NUNCA hardcodear)**
 4. **Portfolio stats SIEMPRE via portfolio_stats.py (NUNCA calcular a mano)**
 5. **Screening sistemático SIEMPRE via dynamic_screener.py (NUNCA screener.py/midcap_screener.py que están DEPRECATED, NUNCA WebSearch manual)**
-6. **Tools deben ser agnósticos - parametrizables, reutilizables, documentados**
+6. **DCF valuation SIEMPRE via dcf_calculator.py (NUNCA cálculos inline)**
+7. **Tools deben ser agnósticos - parametrizables, reutilizables, documentados**
 
 ## Reglas Inmutables
 - portfolio/current.yaml: Claude puede modificar SOLO tras confirmación del humano
