@@ -557,7 +557,31 @@ Si yield comprime a 5% (conservative, sigue alto):
 - Cash: 67% → 62%
 - Posiciones: 3 → 4
 
-**Check:** ✅ Dentro rangos, construyendo gradualmente
+**Check:** Dentro rangos, construyendo gradualmente
+
+---
+
+## Q4 2025 Earnings Framework (Feb 3, 2026)
+
+**Consenso:** EPS $0.57-0.58, Revenue ~$16.65B
+
+### Escenarios y acciones:
+
+| Escenario | Condiciones | Acción |
+|-----------|-------------|--------|
+| **BEAT + GOOD guidance** | EPS >$0.60, FY2026 guidance reafirmado $2.80-3.00, pipeline update positivo | **HOLD**. Thesis validada. Considerar ADD si precio no sube >$28. |
+| **INLINE** | EPS $0.55-0.60, guidance reafirmado sin sorpresas | **HOLD**. Sin cambio de thesis. |
+| **MISS LEVE** | EPS $0.50-0.55, guidance mantenido pero cautela en comentarios | **HOLD con alerta**. Monitorear Q1 2026 para confirmar no es tendencia. |
+| **MISS + GUIDANCE CUT** | EPS <$0.50 O FY2026 guidance rebajado a <$2.70 | **REVIEW urgente**. Si FCF guidance baja <$10B o dividendo amenazado → preparar SELL. |
+| **DIVIDEND CUT** | Cualquier reducción del dividendo $0.43/quarter | **SELL INMEDIATO**. Thesis invalidada. |
+
+### Métricas clave a vigilar en el call:
+1. **FY2026 EPS guidance**: debe mantenerse $2.80-3.00
+2. **FCF guidance**: debe mantenerse >$10B
+3. **Dividendo**: cualquier mención de "review" o "evaluate" = red flag
+4. **Pipeline**: Metsera Phase 3 enrollment, oncology ADC readouts timeline
+5. **Eliquis Medicare negotiation impact**: cuantificación del impacto 2026
+6. **COVID product revenue**: debe seguir declinando ordenadamente
 
 ---
 

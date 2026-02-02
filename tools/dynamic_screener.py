@@ -126,6 +126,14 @@ INDEX_SOURCES = {
         "table_min_rows": 15,
         "suffix": ".LS",
     },
+    "sp400": {
+        "url": "https://en.wikipedia.org/wiki/List_of_S%26P_400_companies",
+        "parser": "sp500",  # Same format: Symbol column
+    },
+    "russell1000": {
+        "url": "https://en.wikipedia.org/wiki/Russell_1000_Index",
+        "parser": "russell1000",
+    },
 }
 
 # Composite indices (combine multiple)
@@ -138,6 +146,8 @@ COMPOSITE_INDICES = {
                  "bel20", "psi20"],  # best approximation
     "ftse350": ["ftse100", "ftse250"],
     "nordic": ["omx_helsinki", "omx_stockholm", "obx25"],
+    "us_all": ["sp500", "sp400", "russell1000"],
+    "us_midcap": ["sp400"],
 }
 
 # Minimal hardcoded fallback (last resort only)
@@ -324,8 +334,23 @@ def _parse_nikkei225(tables, **kwargs) -> list:
     return []
 
 
+def _parse_russell1000(tables, **kwargs) -> list:
+    """Parse Russell 1000 from Wikipedia - large table with Ticker/Symbol column."""
+    for df in tables:
+        tc = _find_ticker_column(df)
+        if tc and len(df) >= 500:
+            return _clean_tickers(df[tc].dropna().astype(str).tolist())
+    # Fallback: try any table with >100 rows
+    for df in sorted(tables, key=len, reverse=True):
+        tc = _find_ticker_column(df)
+        if tc and len(df) > 100:
+            return _clean_tickers(df[tc].dropna().astype(str).tolist())
+    return []
+
+
 PARSERS = {
     "sp500": _parse_sp500,
+    "russell1000": _parse_russell1000,
     "generic_ticker_col": _parse_generic_ticker_col,
     "ftse": _parse_ftse,
     "ftse250": _parse_ftse250,
@@ -605,6 +630,45 @@ def screen(tickers: list, workers: int = 10, **filters) -> list:
 
 
 # ==============================================================================
+# Data Validation
+# ==============================================================================
+
+def validate_results(results: list) -> dict:
+    """
+    Validate screening results for likely data errors.
+    Returns dict mapping ticker -> list of warning strings.
+    Also sets a '_warnings' key on each result dict for use in display.
+    """
+    warnings = {}  # ticker -> [warning_str, ...]
+
+    for r in results:
+        ticker = r["ticker"]
+        issues = []
+
+        if r["div_yield"] > 15:
+            issues.append(f"Div yield {r['div_yield']:.1f}% (>15%, likely data error)")
+        if r["pe"] < 2:
+            issues.append(f"P/E {r['pe']:.1f} (<2, likely data error)")
+        if r["pe"] > 200:
+            issues.append(f"P/E {r['pe']:.1f} (>200, likely data error)")
+        if r["fcf_yield"] > 50:
+            issues.append(f"FCF yield {r['fcf_yield']:.1f}% (>50%, likely IFRS16 distortion or data error)")
+
+        if issues:
+            warnings[ticker] = issues
+            # Store flag set on the result for display
+            r["_warn_yield"] = r["div_yield"] > 15
+            r["_warn_pe"] = r["pe"] < 2 or r["pe"] > 200
+            r["_warn_fcf"] = r["fcf_yield"] > 50
+        else:
+            r["_warn_yield"] = False
+            r["_warn_pe"] = False
+            r["_warn_fcf"] = False
+
+    return warnings
+
+
+# ==============================================================================
 # Output
 # ==============================================================================
 
@@ -618,16 +682,19 @@ SORT_KEYS = {
 }
 
 
-def print_table(results: list, sort_by: str = "pe"):
+def print_table(results: list, sort_by: str = "pe", warnings: dict = None):
     if not results:
         print("\nNo stocks passed filters.")
         return
+
+    if warnings is None:
+        warnings = {}
 
     key_fn = SORT_KEYS.get(sort_by, SORT_KEYS["pe"])
     results.sort(key=key_fn)
 
     header = (f"{'Ticker':<14} {'Name':<30} {'Price':>8} {'EUR':>8} "
-              f"{'MCap€B':>7} {'P/E':>6} {'FwdPE':>7} {'Yld%':>5} "
+              f"{'MCap\u20acB':>7} {'P/E':>6} {'FwdPE':>7} {'Yld%':>5} "
               f"{'FCF%':>5} {'D/E':>5} {'%offHi':>7} {'Anlys':>6} {'Sector':<20}")
     print(f"\n{header}")
     print("-" * len(header))
@@ -638,10 +705,19 @@ def print_table(results: list, sort_by: str = "pe"):
         if r["num_analysts"] < 5:
             coverage += " *"  # flag low coverage
 
+        # Add warning markers to suspicious metrics
+        w_pe = "\u26a0" if r.get("_warn_pe") else ""
+        w_yld = "\u26a0" if r.get("_warn_yield") else ""
+        w_fcf = "\u26a0" if r.get("_warn_fcf") else ""
+
+        pe_str = f"{r['pe']:>5.1f}{w_pe}"
+        yld_str = f"{r['div_yield']:>4.1f}{w_yld}"
+        fcf_str = f"{r['fcf_yield']:>4.1f}{w_fcf}"
+
         print(f"{r['ticker']:<14} {r['name']:<30} {r['price']:>8.2f} "
               f"{r['price_eur']:>7.2f}e "
-              f"{r['mcap_eur_b']:>7.1f} {r['pe']:>6.1f} {fwd_pe:>7} "
-              f"{r['div_yield']:>5.1f} {r['fcf_yield']:>5.1f} "
+              f"{r['mcap_eur_b']:>7.1f} {pe_str:>6} {fwd_pe:>7} "
+              f"{yld_str:>5} {fcf_str:>5} "
               f"{r['debt_equity']:>5.2f} {r['dist_high']:>+6.1f}% "
               f"{coverage:>6} {r['sector']:<20}")
 
@@ -664,6 +740,16 @@ def print_table(results: list, sort_by: str = "pe"):
                         key=lambda x: x["num_analysts"]):
             print(f"  {r['ticker']:<14} {r['name']:<30} {r['num_analysts']} analysts | "
                   f"P/E={r['pe']:.1f} | Yield={r['div_yield']:.1f}% | MCap={r['mcap_eur_b']:.1f}B")
+
+    # Data validation warnings section
+    if warnings:
+        print(f"\n{'='*60}")
+        print(f"WARNING: {len(warnings)} stock(s) with suspicious data - verify before acting:")
+        print(f"{'='*60}")
+        for ticker, issues in sorted(warnings.items()):
+            for issue in issues:
+                print(f"  \u26a0 {ticker:<14} {issue}")
+        print(f"{'='*60}")
 
 
 def save_csv(results: list, filepath: str):
@@ -769,7 +855,10 @@ Examples:
         undiscovered=args.undiscovered,
     )
 
-    print_table(results, sort_by=args.sort)
+    # Validate data before display
+    warnings = validate_results(results)
+
+    print_table(results, sort_by=args.sort, warnings=warnings)
 
     if args.output:
         save_csv(results, args.output)

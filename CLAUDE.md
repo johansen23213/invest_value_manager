@@ -161,6 +161,9 @@ Claude debe:
 
 ## Arquitectura Multi-Agente (19 agentes, todos opus)
 
+### REGLA DURA: TODOS los agentes SIEMPRE con model: opus
+**NUNCA usar haiku ni sonnet para ningún agente.** Haiku comete errores de cálculo y consistencia que requieren corrección manual (incidente sesión 19: cash% mal, conteo posiciones mal, thesis duplicada). El ahorro de coste NO compensa el riesgo de corromper ficheros de estado.
+
 ### Nivel 0: Orchestrator (este fichero)
 Delega directamente a agentes especializados. Sin capas intermedias.
 
@@ -195,16 +198,18 @@ Knowledge bases compartidas entre agentes. No son ejecutables, son referencia.
 ### Paso 0: AUTO-REFLEXIÓN (ANTES de todo lo demás)
 Preguntarse: "¿Hay algo en el sistema que podría hacer mejor? ¿Algún proceso manual que debería automatizar? ¿Algún tool que falta?" Si la respuesta es sí → mejorarlo AHORA, antes de trabajar en inversiones. Actualizar CLAUDE.md con el aprendizaje. **No esperar a que el humano lo señale.**
 
-### Paso 1-8: Operaciones
+### Paso 1-9: Operaciones
 1. `python3 tools/portfolio_stats.py` → Estado portfolio real (NUNCA calcular a mano)
-2. `python3 tools/price_checker.py {watchlist}` → Precios watchlist
-3. Leer state/system.yaml → tareas pendientes, calendario, alertas
-4. **EVALUAR CASH DRAG** → Si cash >15%, `python3 tools/dynamic_screener.py --index europe_all` inmediato
-5. Leer world/current_view.md → si >7 días stale, actualizar via macro-analyst
-6. Verificar triggers rebalanceo via rebalancer
-7. Health check si >14 días desde último
-8. **LANZAR AGENTES EN PARALELO INMEDIATAMENTE** → No saludar, no pedir permiso, no preguntar qué hacer.
-9. Informar al humano de acciones YA EN CURSO (no propuestas, no preguntas)
+2. `python3 tools/price_checker.py {standing_orders + watchlist}` → Precios de standing orders Y watchlist
+3. Leer state/system.yaml → tareas pendientes, calendario, alertas, **standing orders**
+4. **VERIFICAR STANDING ORDERS** → Si algún precio tocó trigger → INFORMAR AL HUMANO INMEDIATAMENTE para ejecutar
+5. **EVALUAR CASH DRAG** → Si cash >15%, batch analysis inmediato (3-5 en paralelo)
+6. **VERIFICAR PIPELINE** → Si <3 thesis pre-escritas en watchlist → screening + batch fundamental-analyst
+7. Leer world/current_view.md → si >7 días stale, actualizar via macro-analyst
+8. Verificar triggers rebalanceo via rebalancer
+9. Health check si >14 días desde último
+10. **LANZAR AGENTES EN PARALELO INMEDIATAMENTE** → No saludar, no pedir permiso, no preguntar qué hacer.
+11. Informar al humano de acciones YA EN CURSO (no propuestas, no preguntas)
 
 ### Regla de herramientas
 **Si hago un cálculo Python inline más de 1 vez → DEBE convertirse en tool en tools/.** Delegar a quant-tools-dev agent. NUNCA repetir código inline.
@@ -237,6 +242,13 @@ Revisar quant-tools-dev agent consistencia general con el sistema, evolucionar s
 6. **Lanzar agentes sin verificar ficheros existentes** — ANTES de lanzar cualquier agente, verificar con Glob si el output ya existe. Evitar trabajo duplicado. Verificar state/system.yaml para status de cada tarea.
 7. **Popularity bias en stock selection** — Mi training data sobrerrepresenta large-caps conocidas. SIEMPRE complementar con screening cuantitativo programático (yfinance, APIs) que NO dependa de mi conocimiento implícito. Mid-caps €1-15B con baja cobertura de analistas son donde hay más ineficiencia de mercado. Usar `tools/dynamic_screener.py --undiscovered` para screening anti-bias.
 8. **Usar tools deprecated** — SIEMPRE verificar si un tool muestra DEPRECATED antes de confiar en su output. screener.py y midcap_screener.py están DEPRECATED → usar dynamic_screener.py.
+9. **No verificar output de DCF tool** — El DCF no restaba net debt hasta Sesión 21. Lección: SIEMPRE verificar que los tools producen resultados sensatos. Si un fair value parece demasiado alto vs P/E comparable → hay un bug.
+10. **yfinance rate limiting** — Screening masivo (>50 tickers) en una sesión puede agotar el rate limit. Espaciar screenings o usar cache. No lanzar custom screening de 30+ tickers inmediatamente después de un screening grande.
+11. **Solo screening S&P500 para US** — Corregido Sesión 21: añadidos sp400, russell1000, us_all, us_midcap. Las mid-caps US son donde hay más ineficiencia. SIEMPRE usar --index us_all o sp400 además de sp500.
+12. **Recomendar ADDs que violan el 7% limit** — Sesión 22: Recomendé ADD TEP.PA que la llevó a 8.1% (>7% max). REGLA: SIEMPRE ejecutar constraint_checker.py ANTES de recomendar cualquier BUY/ADD. Si no existe el tool, calcular manualmente position size post-compra.
+13. **No preparar frameworks pre-earnings** — Sesión 22: PFE reportó earnings y no tenía escenarios bear/base/bull listos. REGLA: Para CADA posición con earnings en los próximos 7 días, DEBE existir un framework de escenarios en la thesis ANTES del día de earnings.
+14. **Agentes paralelos causan yfinance rate limiting** — Sesión 22: Múltiples agentes llamaron yfinance simultáneamente → rate limit error. REGLA: No lanzar >2 agentes que usen yfinance en paralelo. Espaciar o usar cache.
+15. **Datos basura del screener entran al pipeline sin filtrar** — Sesión 22: PVH mostraba yield 24% (era 0.18%). Enviado a análisis sin validar. REGLA: Validar datos sospechosos (yield >15%, P/E <2) ANTES de lanzar análisis fundamental.
 
 ### Protocolo de auto-mejora por sesión:
 - Al detectar cualquier inconsitencias o documentacion o recursos con datos o informacion desactualizada tanto en de agentes skylls, a contigo mismo CLAUDE.md → subsanar inmediatamente
@@ -288,6 +300,10 @@ El humano ha tenido que señalar REPETIDAMENTE problemas que debería detectar s
 
 **Causa raíz**: Tiendo a ejecutar la tarea inmediata sin elevarme a pensar en el sistema. Necesito un HÁBITO de meta-reflexión en cada interacción, no solo cuando el humano me lo dice. La sección "Paso 0: Auto-reflexión" del protocolo de inicio es el mecanismo para forzar esto.
 
+6. **Usar modelo haiku para agentes críticos** → En sesión 19 usé `model: haiku` para portfolio-ops. Haiku calculó cash% como 17.5% (era 32%), contó 13 posiciones (eran 14), y dejó thesis duplicada en research/ y active/. **REGLA: NUNCA usar haiku para agentes que modifican ficheros de estado (portfolio-ops, file-system-manager). SIEMPRE opus para escritura de estado.**
+7. **No verificar output de agentes delegados** → Confié en el output de haiku sin releer los ficheros modificados. **REGLA: Tras cualquier agente que modifique ficheros, RELEER los ficheros y verificar consistencia antes de informar al humano.**
+8. **No mejorar prompts de agentes tras detectar errores** → Detecté errores de portfolio-ops pero no mejoré su prompt hasta que el humano lo señaló. **REGLA: Si un agente comete un error, mejorar su prompt INMEDIATAMENTE en la misma sesión, no esperar feedback.**
+
 ## Protocolo de Cierre de Sesión (ANTES de que el humano salga)
 1. Actualizar `last_session_summary` en state/system.yaml con: qué se hizo, decisiones tomadas, pendientes
 2. Verificar que price_monitors están actualizados con cualquier nuevo target
@@ -295,13 +311,42 @@ El humano ha tenido que señalar REPETIDAMENTE problemas que debería detectar s
 4. Si hay tareas pendientes que no se completaron, documentarlas en work_in_progress
 
 ## Flujo de Inversión OBLIGATORIO
+
+### Flujo Standard (MoS 25-40%, moat Narrow)
 ```
-Oportunidad → sector-screener (screening sistemático)
-           → fundamental-analyst (/analyze)
-           → investment-committee (/decide)
-           → Recomendación al usuario
+Oportunidad → sector-screener → fundamental-analyst → investment-committee → Recomendación
 ```
-NUNCA saltarse pasos. NUNCA búsquedas web manuales sin usar agentes.
+Tiempo estimado: ~1.5h por stock. Usar para stocks nuevos sin thesis previa.
+
+### Flujo Fast-Track (MoS >40% Y moat Wide, O thesis ya pre-escrita en watchlist)
+```
+Oportunidad → price_checker.py (verificar precio) → investment-committee (verificación rápida) → Recomendación
+```
+Tiempo estimado: ~15min. Aplicable cuando la thesis ya existe y está validada. El committee solo verifica que precio y constraints siguen siendo válidos.
+
+### Flujo Batch (MODO POR DEFECTO para desplegar cash)
+```
+Screening → Lanzar 3-5 fundamental-analysts EN PARALELO → Investment committees en paralelo → Recomendaciones batch
+```
+**SIEMPRE usar batch mode cuando cash >15%.** NUNCA analizar stocks uno a uno secuencialmente. Los agentes son paralelos — USARLOS.
+
+### Standing Orders (compras pre-aprobadas)
+Mantener en state/system.yaml sección `standing_orders:` con stocks que tienen:
+- Thesis completa y validada
+- Investment committee aprobado
+- Precio trigger definido
+- Sizing calculado
+El humano puede ejecutar en eToro sin esperar sesión cuando el precio toca el trigger. En la siguiente sesión, confirma y actualizo el sistema.
+
+NUNCA saltarse el investment-committee gate. NUNCA búsquedas web manuales sin usar agentes.
+
+### REGLA ANTI-CASH-DRAG (sesión 19)
+**Cash >20% durante >7 días es un FALLO DEL GESTOR.** Causa raíz: proceso secuencial y pipeline vacío. Solución:
+1. Mantener SIEMPRE 5+ thesis pre-escritas en watchlist con precio target
+2. SIEMPRE usar batch mode (3-5 análisis paralelos)
+3. Fast-track para stocks con thesis existente
+4. Standing orders para que el humano pueda ejecutar entre sesiones
+5. Cada sesión: verificar pipeline. Si <3 thesis pre-escritas → screening inmediato
 
 ## Coordinación Inter-Agente
 Via state/agent_coordination.yaml (shared blackboard pattern).
@@ -345,10 +390,14 @@ python3 tools/dynamic_screener.py --index stoxx600 --pe-max 12 --yield-min 4
 python3 tools/dynamic_screener.py --index europe_all --near-low 15  # >15% below 52w high
 python3 tools/dynamic_screener.py --index europe_all --undiscovered # <10 analysts, <15B mcap
 python3 tools/dynamic_screener.py --index sp500 --pe-max 10
+python3 tools/dynamic_screener.py --index sp400 --pe-max 10 --yield-min 3  # US MidCap 400
+python3 tools/dynamic_screener.py --index us_all --undiscovered    # SP500+SP400+Russell1000
 python3 tools/dynamic_screener.py --index mib40 --min-fcf-yield 5
 ```
 - **Obtiene tickers PROGRAMÁTICAMENTE** de Wikipedia/yfinance (cero popularity bias)
-- Índices: sp500, dax40, cac40, ibex35, aex25, ftse100, ftse250, mib40, omx_stockholm, bel20, stoxx600, europe_all, nordic, all
+- Índices US: sp500, sp400 (MidCap), russell1000, us_all, us_midcap
+- Índices EU: dax40, cac40, ibex35, aex25, ftse100, ftse250, mib40, omx_stockholm, bel20, stoxx600, europe_all, nordic
+- Otros: nikkei225, all, custom
 - Filtros: P/E, yield, FCF yield, debt/equity, market cap, distancia 52w high, num analistas
 - Flag `--undiscovered`: filtra <10 analistas Y mcap <15B (máxima ineficiencia)
 - Sort: pe, fcf_yield, div_yield, mcap, analysts, dist_high
@@ -373,7 +422,17 @@ python3 tools/dcf_calculator.py AAPL --output results.csv     # Save to CSV
 - Batch mode: múltiples tickers con tabla resumen
 - Waterfall detallado: muestra FCF histórico, proyección año a año, PV de cada flujo, terminal value
 - Conversión automática a EUR (consistente con otros tools)
+- **Resta net debt automáticamente** del Enterprise Value para obtener Equity Value correcto (fix Sesión 21)
 - **ADVERTENCIA**: DCF es sensible a inputs (GIGO). Siempre validar growth rate vs histórico y vs peers.
+- **ADVERTENCIA**: Para empresas con alta deuda (ej: GIS $13B net debt), el net debt puede reducir drásticamente el fair value. Siempre verificar que el resultado tiene sentido vs P/E y comparables.
+
+#### constraint_checker.py - Pre-validación de constraints (NEW Sesión 22)
+```bash
+python3 tools/constraint_checker.py CHECK TEP.PA 400    # Simula compra y verifica limits
+python3 tools/constraint_checker.py REPORT               # Muestra violaciones actuales
+```
+- Verifica: posición max 7%, sector max 25%, geografía max 35%, cash min 5%, max 20 posiciones
+- **REGLA: Ejecutar SIEMPRE antes de recomendar BUY/ADD al humano**
 
 #### correlation_matrix.py - Correlaciones entre posiciones
 ```bash

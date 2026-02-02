@@ -4,7 +4,34 @@
 # Tracks all file movements for auditability and recovery.
 # =============================================================================
 
-moves: []
+moves:
+  - date: 2026-02-02
+    file: thesis/research/DOM.L/thesis.md
+    from: thesis/research/DOM.L/
+    to: thesis/active/DOM.L/
+    reason: "Position opened by user (175 shares, $436.52)"
+    triggered_by: "portfolio-ops: BUY confirmation"
+
+  - date: 2026-02-02
+    file: thesis/research/UHS/thesis.md
+    from: thesis/research/UHS/
+    to: thesis/active/UHS/
+    reason: "Position opened by user (2 shares, $402.84)"
+    triggered_by: "portfolio-ops: BUY confirmation"
+
+  - date: 2026-02-03
+    file: thesis/research/GL/thesis.md
+    from: thesis/research/GL/
+    to: thesis/active/GL/
+    reason: "Position opened by user (3 shares, $423.18)"
+    triggered_by: "portfolio-ops: BUY confirmation"
+
+  - date: 2026-02-03
+    file: thesis/research/FUTR.L/thesis.md
+    from: thesis/research/FUTR.L/
+    to: thesis/active/FUTR.L/
+    reason: "Position opened by user (47 shares, $344.88)"
+    triggered_by: "portfolio-ops: BUY confirmation"
 # Format:
 #   - date: 2026-01-31
 #     file: thesis/research/SHEL/thesis.md
