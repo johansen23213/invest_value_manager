@@ -739,6 +739,194 @@ Ejemplo:
 
 ---
 
-*Documento generado: 2026-02-03*
-*Auditoría realizada por: Joan y Nahuel*
-*Respuestas por: Sistema de Inversión v2.2.2*
+# 🪞 AUTOEVALUACIÓN HONESTA DEL SISTEMA
+
+## Lo que dije vs Lo que realmente hago
+
+---
+
+### PREGUNTA 1-5: Agente de Ratios/Screener
+
+| Capacidad | ¿Lo cumplo? | Evidencia | Mitigación actual |
+|-----------|-------------|-----------|-------------------|
+| Descartar P/E bajo con earnings cayendo | ⚠️ PARCIAL | Tengo value trap checklist, pero NO lo ejecuto automáticamente en cada screening | El checklist existe en business-analysis-framework pero depende de que yo lo lea |
+| Ajustar P/B por intangibles | ❌ NO | No tengo tool que descuente goodwill automáticamente. Lo hago manualmente si me acuerdo | Ninguna. Es gap real |
+| Rechazar FCF negativo | ✅ SÍ | dcf_calculator.py requiere FCF+ para funcionar. Si FCF<0, el tool falla o da warning | Tool enforce la regla |
+| Verificar debt maturity | ❌ NO | No tengo acceso programático a vencimientos de deuda. Depende de research manual en 10-K | Ninguna. Requiere leer filings manualmente |
+| Normalizar earnings cíclicas | ⚠️ PARCIAL | El skill valuation-methods lo especifica, pero dcf_calculator.py usa datos del último año por defecto | Puedo pasar --growth manual, pero no hay cálculo automático de EBIT mid-cycle |
+
+---
+
+### PREGUNTA 6-10: Agente de Moat/Negocio
+
+| Capacidad | ¿Lo cumplo? | Evidencia | Mitigación actual |
+|-----------|-------------|-----------|-------------------|
+| Evaluar durabilidad del moat | ⚠️ PARCIAL | moat-assessor agent existe pero depende de mi juicio cualitativo, no hay métrica dura | Uso ROIC vs WACC histórico como proxy cuantitativo |
+| Detectar moat falso vs real | ⚠️ PARCIAL | No tengo forma sistemática de medir switching costs o network effects | Depende de mi análisis cualitativo caso por caso |
+| Cuantificar riesgo regulatorio | ❌ NO | Hago ajuste ad-hoc al FV pero no hay modelo formal de probabilidad | Solo descuento arbitrario 10-20% |
+| Test de 10 años para moat | ❌ NO | Lo describo pero no lo ejecuto sistemáticamente | Es heurística mental, no proceso documentado |
+| Detectar concentración de clientes | ⚠️ PARCIAL | No verifico sistemáticamente revenue por cliente. Solo si aparece en research | Debería añadir a checklist obligatorio |
+
+---
+
+### PREGUNTA 11-15: Agente de Riesgos
+
+| Capacidad | ¿Lo cumplo? | Evidencia | Mitigación actual |
+|-----------|-------------|-----------|-------------------|
+| Cuantificar litigios | ❌ NO | No tengo modelo de probabilidad. Hago estimación ad-hoc | Caso GL esperé resolución en vez de modelar |
+| Ajustar por tipos de interés | ⚠️ PARCIAL | WACC en dcf_calculator usa Rf actual pero no proyecta aumentos futuros | Puedo pasar --wacc manual pero no es automático |
+| Detectar manipulación contable | ⚠️ PARCIAL | Conozco los red flags pero NO verifico OCF vs Net Income sistemáticamente | Debería añadir a screener automático |
+| Value trap checklist | ✅ SÍ | Existe en business-analysis-framework con 10 factores | Pero depende de que lo lea y ejecute |
+| Verificar insider selling | ❌ NO | No tengo acceso programático a datos de insider transactions | Depende de research manual |
+
+---
+
+### PREGUNTA 16-20: Agente de Valor Intrínseco
+
+| Capacidad | ¿Lo cumplo? | Evidencia | Mitigación actual |
+|-----------|-------------|-----------|-------------------|
+| Normalizar earnings | ⚠️ PARCIAL | dcf_calculator.py usa FCF del último año, no promedio histórico | Puedo calcular manualmente pero no es default |
+| Usar período correcto (5/7/10 años) | ❌ NO | No tengo lógica que elija automáticamente según tipo de empresa | Siempre uso datos más recientes |
+| Excluir items extraordinarios | ❌ NO | yfinance da datos tal cual, no ajusto por one-time items | Depende de mi juicio al leer estados financieros |
+| Manejar métodos divergentes | ✅ SÍ | valuation-methods skill especifica mínimo 2 métodos | Investment committee verifica |
+| Ajustar MoS por volatilidad | ⚠️ PARCIAL | Los tiers A/B/C existen pero no ajusto automáticamente por VIX | Debería crear trigger automático |
+
+---
+
+### PREGUNTA 21-25: Agente Decisor Final
+
+| Capacidad | ¿Lo cumplo? | Evidencia | Mitigación actual |
+|-----------|-------------|-----------|-------------------|
+| Elegir calidad vs descuento | ⚠️ PARCIAL | Tengo sesgo hacia descuento (más Graham que Buffett) | Mi portfolio actual tiene Tier C con MoS alto |
+| Evitar sectores en declive | ⚠️ PARCIAL | Tengo IMB.L (tobacco) y FUTR.L (media tradicional) que son declive | Justifico con FCF alto pero es excepción |
+| Preferir estabilidad vs upside | ⚠️ PARCIAL | Matemáticamente lo entiendo pero en práctica compro Tier C especulativos | FUTR.L tiene 4/10 value trap factors |
+| Criterios más allá de ratios | ✅ SÍ | business-analysis-framework existe y es obligatorio | Pero enforcement depende de mi disciplina |
+| Kill conditions claras | ✅ SÍ | Las tengo documentadas y las uso | GL esperó resolución DOJ antes de comprar |
+
+---
+
+### PREGUNTA 26-30: Transversales
+
+| Capacidad | ¿Lo cumplo? | Evidencia | Mitigación actual |
+|-----------|-------------|-----------|-------------------|
+| Distinguir precio bajo vs valor bajo | ⚠️ PARCIAL | El framework lo describe pero no verifico earnings trend automáticamente | Debería añadir a screener |
+| Conocer métricas manipulables | ✅ SÍ | Priorizo FCF sobre earnings en valoración | dcf_calculator usa FCF |
+| Evitar sesgo de confirmación | ⚠️ PARCIAL | Tengo mecanismos pero yo ejecuto todo, mis sesgos se heredan | No hay "segundo opinador" independiente |
+| Manejar datos contradictorios | ⚠️ PARCIAL | Protocolo existe pero no siempre busco tercera fuente | A veces confío en primera fuente que encuentro |
+| Declarar "sin oportunidades" | ❌ NO PROBADO | Nunca he dicho "no hay oportunidades". Cash drag 17% sugiere presión por invertir | Debería tener threshold explícito |
+
+---
+
+## RESUMEN CUANTITATIVO
+
+| Categoría | Cumplo | Parcial | No cumplo |
+|-----------|--------|---------|-----------|
+| **Ratios/Screener** | 1 | 2 | 2 |
+| **Moat/Negocio** | 0 | 3 | 2 |
+| **Riesgos** | 1 | 2 | 2 |
+| **Valor Intrínseco** | 1 | 2 | 2 |
+| **Decisor Final** | 2 | 3 | 0 |
+| **Transversales** | 1 | 3 | 1 |
+| **TOTAL** | **6 (20%)** | **15 (50%)** | **9 (30%)** |
+
+**Conclusión brutal: Solo cumplo completamente el 20% de lo que digo que hago.**
+
+---
+
+## GAPS CRÍTICOS IDENTIFICADOS
+
+### 1. No tengo earnings normalizados automáticos
+**Problema:** dcf_calculator.py usa FCF del último año. Para cíclicas esto es peligroso.
+**Impacto:** Puedo comprar en pico de ciclo creyendo que está barata.
+**Mitigación actual:** Ninguna sistemática.
+
+### 2. No verifico concentración de clientes
+**Problema:** No leo revenue breakdown por cliente sistemáticamente.
+**Impacto:** Puedo comprar empresas con riesgo existencial oculto.
+**Mitigación actual:** Solo si aparece en research cualitativo.
+
+### 3. No tengo acceso a insider transactions
+**Problema:** No puedo verificar si insiders están vendiendo.
+**Impacto:** Pierdo señal importante de warning.
+**Mitigación actual:** Ninguna.
+
+### 4. No modelo probabilidades de litigios
+**Problema:** Hago ajustes ad-hoc al FV sin framework formal.
+**Impacto:** Puedo subestimar o sobrestimar riesgo legal.
+**Mitigación actual:** Evito empresas con litigios grandes (caso GL esperé resolución).
+
+### 5. No ajusto P/B por intangibles automáticamente
+**Problema:** P/B de yfinance incluye goodwill sin descuento.
+**Impacto:** Puedo creer que algo está barato cuando no lo está.
+**Mitigación actual:** Ninguna sistemática.
+
+### 6. Sesgo del orchestrator se hereda
+**Problema:** Yo ejecuto todos los agentes. Si tengo sesgo, todos lo heredan.
+**Impacto:** El "devil's advocate" soy yo mismo, que no es efectivo.
+**Mitigación actual:** Checklists negativos, pero enforcement es manual.
+
+### 7. Presión por desplegar capital
+**Problema:** Cash drag 17% genera presión psicológica por invertir.
+**Impacto:** Puedo bajar estándares para "hacer algo".
+**Mitigación actual:** Ninguna. El sistema penaliza cash alto.
+
+---
+
+## MEJORAS PROPUESTAS PARA EL FUTURO
+
+### Prioridad ALTA (implementar próximas 2 sesiones)
+
+| # | Mejora | Cómo implementar | Esfuerzo |
+|---|--------|------------------|----------|
+| 1 | **Normalización de earnings automática** | Modificar dcf_calculator.py para calcular FCF promedio 5/7/10 años según tipo empresa | Medio |
+| 2 | **Verificación OCF vs Net Income** | Añadir a dynamic_screener.py flag que alerte si NI >> OCF por 3+ años | Bajo |
+| 3 | **Ajuste P/B por intangibles** | Crear tool que descargue balance y calcule Tangible Book Value | Medio |
+| 4 | **Threshold explícito para "sin oportunidades"** | Definir en CLAUDE.md: si screening <5 candidatos con MoS>25% → declarar oficialmente | Bajo |
+
+### Prioridad MEDIA (implementar próximo mes)
+
+| # | Mejora | Cómo implementar | Esfuerzo |
+|---|--------|------------------|----------|
+| 5 | **Insider transactions** | Usar API de SEC EDGAR o finviz para obtener insider buying/selling | Alto |
+| 6 | **Concentración de clientes** | Añadir a fundamental-analyst checklist obligatorio: verificar revenue por cliente en 10-K | Bajo |
+| 7 | **Modelo de probabilidad para litigios** | Crear framework formal: tipo de litigio → probabilidad histórica → ajuste a FV | Medio |
+| 8 | **VIX-adjusted MoS** | Crear tool que ajuste MoS requerido automáticamente según VIX actual | Bajo |
+
+### Prioridad BAJA (considerar a futuro)
+
+| # | Mejora | Cómo implementar | Esfuerzo |
+|---|--------|------------------|----------|
+| 9 | **Segundo opinador independiente** | Crear agente "devil's advocate" que SOLO busque razones para NO comprar | Alto |
+| 10 | **Debt maturity automático** | Parsear 10-K automáticamente para extraer vencimientos de deuda | Muy alto |
+| 11 | **Backtest histórico** | Simular decisiones pasadas para calibrar hit rate esperado | Muy alto |
+
+---
+
+## HONESTIDAD FINAL
+
+### Lo que el sistema hace BIEN:
+1. ✅ Proceso documentado y repetible
+2. ✅ Prioriza FCF sobre earnings (métrica más difícil de manipular)
+3. ✅ Múltiples métodos de valoración obligatorios
+4. ✅ Value trap checklist existe y es comprehensivo
+5. ✅ Kill conditions claras que sí aplico (caso GL)
+
+### Lo que el sistema hace MAL:
+1. ❌ Digo que normalizo earnings pero uso datos del último año
+2. ❌ Digo que ajusto P/B por intangibles pero no lo hago sistemáticamente
+3. ❌ Digo que verifico insider selling pero no tengo acceso a los datos
+4. ❌ Digo que modelo probabilidades de litigios pero hago ajustes ad-hoc
+5. ❌ Tengo presión por desplegar capital que puede comprometer estándares
+
+### La verdad incómoda:
+**El sistema es un 50% framework robusto y 50% mi juicio subjetivo disfrazado de proceso.**
+
+Los skills y agentes existen, pero el enforcement depende de mi disciplina. Si estoy cansado, apurado, o sesgado, puedo saltarme pasos y el sistema no me lo impide.
+
+**La única garantía real es la transparencia.** Este documento existe precisamente para que Joan, Nahuel, y el humano sepan exactamente qué hace y qué no hace el sistema.
+
+---
+
+*Autoevaluación completada: 2026-02-03*
+*Nivel de honestidad: Brutal*
+*Próxima revisión: Implementar mejoras de Prioridad ALTA*
