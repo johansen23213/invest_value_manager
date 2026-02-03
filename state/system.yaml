@@ -1,35 +1,107 @@
 # =============================================================================
-# ESTADO DEL SISTEMA - Value Investor v2.1.0
-# Compactado 2026-02-01 - 863 → ~350 líneas
+# ESTADO DEL SISTEMA - Value Investor v2.2.0
+# Actualizado 2026-02-03 - Framework de inversion rediseñado
 # =============================================================================
 
 system:
-  system_version: "2.1.0"
+  system_version: "2.2.1"
   last_session: 2026-02-03
   last_session_summary: |
-    Sesión 23 - Research + HRB compra
-    COMPLETADO:
-    - BUY HRB 9 shares @ $38.72 ($348.48). Tax prep US, P/E 8.9x, MoS 30%, solo 2 analysts.
-    - HPQ deep analysis → REJECTED (no moat, negative equity, secular decline, MoS insuficiente)
-    - US/UK screening completado (yfinance rate limited UK). Candidatos: GIS, KMPR, BBWI.
-    - PFE earnings preview preparado (consenso $0.57, reporta mañana pre-market)
-    - Investment committee aprobó HRB con condiciones (size reducido a 2.7%)
-    VIOLATIONS PENDIENTES:
-    - TEP.PA 8.1% > 7% limit → TRIM 3 shares pendiente
-    - FUTR.L 7.2% > 7%, DTE.DE 7.1% > 7%
-    - EU geography ~36% > 35% limit
-    ESTADO:
-    - 18 posiciones, cash €1,647 (17%), P&L +0.8%
-    - US geo mejorado: 23% (era 20%)
-    PROXIMOS CATALISTAS:
-    - PFE Q4 earnings 3-feb pre-market (HOY)
-    - ALL Q4 earnings 5-feb
-    - SHEL.L Q4 earnings 5-feb
-    - EVO.ST earnings 5-feb (gate standing order)
-    PRIORIDAD NEXT SESSION:
-    - Analyze PFE actual Q4 results → HOLD/SELL decision
-    - TRIM TEP.PA 3 shares (arreglar violación 8.1%)
-    - Post-earnings review ALL + SHEL.L (5-feb)
+    Sesion 25 - RE-EVALUACION COMPLETA PORTFOLIO CON FRAMEWORK v2.0
+
+    **18/18 POSICIONES RE-EVALUADAS:**
+    | Posicion | FV Change | MoS v2.0 | Value Trap | Status |
+    |----------|-----------|----------|------------|--------|
+    | PFE | -20% | 3% | 2/10 | HOLD |
+    | ALL | = | 16% | N/A | HOLD |
+    | SHEL.L | -18% | -4% | 0/10 | HOLD |
+    | VICI | +2% | 17% | 0/10 | HOLD |
+    | VNA.DE | -10% | 25% | 0-1/10 | HOLD |
+    | IMB.L | = | 20% | 1/10 | HOLD |
+    | DTE.DE | +2% | 27-32% | 0/10 | HOLD |
+    | A2A.MI | -25% | 6% ⚠️ | 1-2/10 | HOLD |
+    | DOM.L | +9% | 38% | 0.5/10 | HOLD |
+    | SAN.PA | +20% | 34% | 0/10 | HOLD |
+    | HRB | +17% | 54% | 2-3/10 | HOLD |
+    | LIGHT.AS | +28% | 45% | 2.5/10 | HOLD |
+    | TATE.L | +10% | 31% | 2/10 | HOLD |
+    | EDEN.PA | +43% | 47% | 0-1/10 | HOLD |
+    | FUTR.L | -8% | 46-53% | 4/10 ⚠️ | HOLD |
+    | UHS | -9% | 29% | 1.5/10 | HOLD |
+    | TEP.PA | -4% | 49% | 1/10 | TRIM |
+    | GL | -19% | 18% | 0/10 | HOLD |
+
+    HALLAZGOS CLAVE:
+    - Framework v2.0 mas conservador en ~50% de posiciones
+    - 8 posiciones con FV mayor (SAN, HRB, LIGHT, TATE, EDEN, DOM, DTE, VICI)
+    - A2A.MI: MoS solo 6% (DCF inapropiado, FCF negativo temporal)
+    - FUTR.L: 4/10 value trap factors (alto riesgo, pero MoS compensa)
+
+    CONSTRAINT VIOLATIONS:
+    - TEP.PA: 8.1% > 7% max → TRIM 2 shares pendiente
+    - FUTR.L: 7.2% > 7% max → borderline
+    - EU geo: 36.7% > 35% max
+
+    PFE EARNINGS (3-Feb): FY2026 guidance $2.80-3.00 INLINE, dividend MAINTAINED.
+
+    MEJORAS SISTEMA:
+    - CLAUDE.md: errores #21, #22 documentados
+    - Creado skill: re-evaluation-protocol
+    - Actualizado review-agent a v2.0
+    - 18 thesis y 18 journal reviews creados
+
+    PROXIMA SESION (26) - CONTINUAR DESDE AQUI:
+    1. TRIM TEP.PA: Vender 2 shares (~€112) para bajar de 8.1% a 6.5%
+    2. Revisar standing orders con nuevo framework v2.0
+    3. Revision global portfolio y toma de decisiones
+    4. Probar framework v2.0 con nueva investigacion (screening fresco)
+
+    EARNINGS PROXIMOS (5-Feb-2026):
+    - ALL: Q4 2025 - watch combined ratio
+    - SHEL.L: Q4 2025 - watch FCF, buyback
+    - GL: Q4 2025 - watch EPS $3.44 consensus
+
+    Sesion 24 - REDISENO COMPLETO DEL FRAMEWORK DE INVERSION
+
+    CAMBIO MAYOR ESTRATEGICO:
+    El humano y yo identificamos que el sistema compraba "estadisticamente barato" sin:
+    - Entender el negocio profundamente (unit economics, modelo)
+    - Saber POR QUE esta barata (narrativa del mercado vs mi contra-tesis)
+    - Proyectar con logica (usabamos defaults 5% growth, 9% WACC)
+    - Usar multiples metodos de valoracion (solo DCF)
+    - Conectar macro con decisiones de compra
+
+    IMPLEMENTADO:
+    1. 3 NUEVOS SKILLS:
+       - business-analysis-framework: Unit economics, modelo negocio, por que barata, value trap checklist
+       - projection-framework: TAM/share/pricing → growth, WACC calculado, NO defaults
+       - valuation-methods: Multiples metodos segun tipo empresa (DCF, EV/EBIT, NAV, DDM, P/B vs ROE)
+
+    2. 4 SKILLS ACTUALIZADOS (v2.0):
+       - investment-rules: 7 gates obligatorios, reglas de venta claras, sizing dinamico
+       - thesis-template: Business understanding, proyecciones, escenarios Bear/Base/Bull
+       - decision-template: Checklist expandido con todos los gates
+       - moat-framework: Evidencia cuantitativa obligatoria
+
+    3. 4 AGENTES ACTUALIZADOS (v2.0):
+       - fundamental-analyst: 5 fases obligatorias
+       - valuation-specialist: Metodo segun tipo empresa
+       - investment-committee: 7 gates obligatorios
+       - macro-analyst: Output ACCIONABLE conectado con decisiones
+
+    4. CLAUDE.md actualizado con:
+       - Nueva seccion v2.2.0 explicando el cambio
+       - Flujo de inversion de 5 capas
+       - 4 nuevos errores recurrentes documentados (#16-19)
+
+    PORTFOLIO: Sin cambios operativos esta sesion (foco en framework)
+    - 18 posiciones, cash €1,647 (17%)
+
+    PROXIMA SESION (26):
+    - Continuar re-evaluacion portfolio restante (14 posiciones)
+    - GL: Monitorear Q4 2025 earnings Feb 5
+    - ALL + SHEL.L earnings Feb 5 tambien
+    - Ejecutar TRIMs pendientes si confirmados
   status: active
 
 # -----------------------------------------------------------------------------
@@ -75,6 +147,13 @@ calendar:
 
     - date: 2026-02-05
       type: earnings
+      ticker: GL
+      event: "Globe Life Q4 2025 (after market close)"
+      priority: high
+      action: "Watch: EPS $3.44 consensus, FY2026 guidance. If beat → may re-rate. If miss → evaluate position. MoS at $143 = 17.6%."
+
+    - date: 2026-02-05
+      type: earnings
       ticker: ALL
       event: "Allstate Q4 2025"
       priority: high
@@ -92,7 +171,7 @@ calendar:
       ticker: EVO.ST
       event: "POST-EARNINGS: Evaluar compra Evolution AB"
       priority: high
-      action: "Si buenos + UKGC OK → BUY hasta 650 SEK (~€400). Si malos → 480-530 SEK. Si UKGC revocación → DESCARTAR."
+      action: "Si buenos + UKGC OK → BUY hasta 650 SEK (~€400). Si malos → 480-530 SEK. Si UKGC revocacion → DESCARTAR."
 
     - date: 2026-02-03
       type: action_completed
@@ -132,7 +211,7 @@ calendar:
     - date: 2026-02-07
       type: action_completed
       ticker: DTE.DE
-      event: "TRIM DTE.DE ejecutado 2026-02-03: vendidas 14 shares, posición reducida a 7%"
+      event: "TRIM DTE.DE ejecutado 2026-02-03: vendidas 14 shares, posicion reducida a 7%"
 
     - date: 2026-02-11
       type: earnings
@@ -174,7 +253,7 @@ calendar:
       ticker: PROX.BR
       event: "Proximus FY2025 + Strategic Plan"
       priority: high
-      action: "Si capex decline confirmado + plan Global creíble → BUY 3% (~€300) a €7.50-7.70. Si decepcionante → AVOID hasta €5-6."
+      action: "Si capex decline confirmado + plan Global creible → BUY 3% (~€300) a €7.50-7.70. Si decepcionante → AVOID hasta €5-6."
 
     - date: 2026-02-28
       type: earnings
@@ -305,7 +384,7 @@ watchlist:
     - ticker: HPQ
       entry: "$17-18"
       fair_value: "$27"
-      notes: "HP Inc. FCF yield 13.2%, P/E 7.3x. Cash machine but printing in secular decline. MoS 28% borderline. Wait FY26 Q1 late-Feb. Baja convicción."
+      notes: "HP Inc. FCF yield 13.2%, P/E 7.3x. Cash machine but printing in secular decline. MoS 28% borderline. Wait FY26 Q1 late-Feb. Baja conviccion."
       kill: "Printing revenue decline >15% annual, dividend cut, FCF <$2B"
     - ticker: MEGP.L
       entry: "131 GBp"
@@ -358,7 +437,7 @@ watchlist:
       entry_usd: 42.34
       fair_value_usd: 44-52
       kill: "Dividend cut or buyback suspension"
-    - ticker: LIGHT.NV
+    - ticker: LIGHT.AS
       entry: 17.91
       fair_value: 26.73
       kill: "FCF <€300M or revenue -10%"
@@ -376,8 +455,13 @@ watchlist:
       kill: "ROIC < WACC 2 consecutive quarters, behavioral health volumes decline YoY, Medicaid cuts >$100M"
     - ticker: GL
       entry_usd: 141.06
-      fair_value_usd: 215
-      kill: "Operating EPS <$10, or class action reveals material new fraud evidence"
+      fair_value_usd: 174
+      fair_value_original: 215
+      fair_value_v2: 174
+      mos_v2: 17.6%
+      notes: "Framework v2.0 re-eval: P/B vs ROE + P/E normalized. 0/10 value trap. Beta 0.46. Quality 7/10 Tier B. MoS below 25% threshold → HOLD, no ADD."
+      kill: "Operating EPS <$12, or class action reveals material new fraud evidence"
+      buy_trigger: "$130 or below (MoS would be 25.3%)"
     - ticker: FUTR.L
       entry_gbp: 532
       fair_value_gbp: 1100-1200
@@ -405,11 +489,12 @@ alerts:
     - { ticker: TATE.L, entry_gbp: 350, note: "ADD to starter. FV 500p. Already own 66 shares." }
     - { ticker: DGE.L, entry_gbp: 2450, note: "Diageo. Wide moat. Wait earnings 25-feb." }
     - { ticker: EVO.ST, entry_sek: 530, note: "Evolution. If Q4 miss → buy 480-530 SEK." }
+    - { ticker: GL, entry_usd: 130, note: "Globe Life ADD trigger. At $130 MoS=25.3%. Do not add >$130." }
 
 # -----------------------------------------------------------------------------
 # STANDING ORDERS (pre-aprobadas, ejecutar cuando precio toque trigger)
-# El humano puede ejecutar en eToro sin esperar sesión.
-# En siguiente sesión confirma y se actualiza portfolio.
+# El humano puede ejecutar en eToro sin esperar sesion.
+# En siguiente sesion confirma y se actualiza portfolio.
 # -----------------------------------------------------------------------------
 standing_orders:
   # THESIS COMPLETA + COMMITTEE APROBADO — Solo falta que precio llegue
@@ -479,6 +564,18 @@ standing_orders:
     notes: "Zigup fleet management. 5 analysts, yield 6.9%, fwd P/E 7x. Ideal entry <=350p (30% MoS)."
     expiry: 2026-05-01
 
+  # GL ADD - CONDITIONAL on price pullback
+  - ticker: GL
+    action: ADD
+    trigger: "<=$130"
+    size_eur: 300
+    shares_approx: 2
+    thesis: thesis/active/GL/thesis.md
+    fair_value: "$174"
+    mos_at_trigger: "25.3%"
+    notes: "Globe Life. Framework v2.0 FV $174. At $130 reaches 25% MoS. Current $143 = 17.6% MoS (insufficient). Quality 7/10 Tier B."
+    expiry: 2026-06-01
+
   # PENDIENTE EARNINGS — Ejecutar SOLO si earnings cumplen condiciones
   - ticker: EVO.ST
     action: BUY
@@ -487,7 +584,7 @@ standing_orders:
     shares_approx: 7
     thesis: thesis/research/EVO.ST/thesis.md
     fair_value: "1009 SEK"
-    notes: "CONDICIONAL a earnings 5-feb. Si UKGC revocación → CANCELAR."
+    notes: "CONDICIONAL a earnings 5-feb. Si UKGC revocacion → CANCELAR."
     expiry: 2026-02-15
 
   - ticker: HPQ
@@ -534,17 +631,6 @@ standing_orders:
     notes: "Comcast. Tier B. Broadband declining, theme parks star. $95B net debt. P/E 5.5x misleading (fwd 7.5x). Watch broadband losses."
     expiry: 2026-06-01
 
-  - ticker: HRB
-    action: BUY
-    trigger: "<=$34"
-    size_eur: 400
-    shares_approx: 11
-    thesis: thesis/research/HRB/thesis.md
-    fair_value: "$51"
-    mos_at_trigger: "33%"
-    notes: "H&R Block. Tier C (quality 4-5/10). FCF erosion trend unresolved. Wait Q2 FY2026 or price $33-34. 2 analysts."
-    expiry: 2026-06-01
-
   - ticker: WPP.L
     action: BUY
     trigger: "<=200 GBp"
@@ -561,8 +647,8 @@ standing_orders:
 # -----------------------------------------------------------------------------
 macro_snapshot:
   last_update: 2026-02-02
-  themes: ["Fed/BCE pausa 3.5%/2.0%", "Europa barata", "Tariffs escalando (Corea 25%, Canadá amenaza)", "Irán tensión ↑", "China mejora IMF 4.5%", "Alemania sale recesión"]
-  risks: ["US-Irán guerra regional 30-40% (↑)", "US-China Taiwan 10-20%", "Tariff war global 40-50%", "Recesión US 25-35%", "Oil shock >$90 si Irán 15-25%"]
+  themes: ["Fed/BCE pausa 3.5%/2.0%", "Europa barata", "Tariffs escalando (Corea 25%, Canada amenaza)", "Iran tension ↑", "China mejora IMF 4.5%", "Alemania sale recesion"]
+  risks: ["US-Iran guerra regional 30-40% (↑)", "US-China Taiwan 10-20%", "Tariff war global 40-50%", "Recesion US 25-35%", "Oil shock >$90 si Iran 15-25%"]
 
 # -----------------------------------------------------------------------------
 # MANTENIMIENTO
@@ -577,12 +663,27 @@ maintenance:
   evolution_tracking:
     last_evaluation: 2026-02-01
     applied:
-      - "2026-02-01: Fusión self-evolution+evolution-manager → system-evolver"
+      - "2026-02-01: Fusion self-evolution+evolution-manager → system-evolver"
       - "2026-02-01: health-check upgraded haiku→sonnet, +quantitative checks"
       - "2026-02-01: TTE moved active→watchlist"
       - "2026-02-01: system.yaml compacted 863→~350 lines"
     pending:
-      - "CLAUDE.md rewrite 384→~100 lines"
+      - "Continuar re-evaluacion: 14 posiciones restantes"
+      - "Crear skill/protocolo de re-evaluacion v2.0"
+    applied_2026_02_03_session25:
+      - "Re-evaluacion PFE: FV $27.52 (era $32-35), MoS 3-10% (era 25-36%) → FAIRLY VALUED"
+      - "Re-evaluacion ALL: FV $240 (confirmado), MoS 16% (era 21%) → MODERATELY UNDERVALUED"
+      - "Re-evaluacion SHEL.L: FV £26.8 (era £32-35), MoS -4% (era 25-30%) → FAIRLY VALUED"
+      - "Re-evaluacion GL: FV $174 (era $215), MoS 17.6% (era 34%) → HOLD (was BUY). P/B vs ROE method."
+      - "Framework v2.0 es ~20pp mas conservador que analisis original"
+      - "3/4 posiciones no habrian pasado filtro inicial con v2.0"
+      - "Fixed: LIGHT.AS ticker, HRB standing order removed"
+      - "CLAUDE.md actualizado: errores #21 (current_view primero), #22 (usar agentes)"
+      - "Creado skill: re-evaluation-protocol"
+      - "Actualizado review-agent a v2.0 (anadidos skills framework)"
+      - "PFE earnings HOY: FY2026 guidance $2.80-3.00 EPS INLINE, div MANTENIDO"
+      - "15 review-agents lanzados en paralelo para re-evaluar posiciones restantes"
+      - "GL review: thesis updated v2.0, journal entry created"
     applied_2026_02_02:
       - "Fixed SHEL→SHEL.L ticker bug (+$427 phantom value)"
       - "Fixed dcf_calculator.py GBp/GBP mismatch for LSE stocks"

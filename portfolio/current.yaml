@@ -76,13 +76,13 @@ positions:
     date_opened: 2026-01-31
     thesis: thesis/active/IMB.L/thesis.md
 
-  - ticker: LIGHT.NV
+  - ticker: LIGHT.AS
     name: "Signify NV"
     shares: 28.753048
     invested_usd: 597.70  # eToro value at open
     avg_cost_usd: 20.79  # 597.70 / 28.753048
     date_opened: 2026-01-31
-    thesis: thesis/active/LIGHT.NV/thesis.md
+    thesis: thesis/active/LIGHT.AS/thesis.md
 
   - ticker: A2A.MI
     name: "A2A Group"

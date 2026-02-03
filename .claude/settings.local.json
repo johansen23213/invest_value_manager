@@ -11,7 +11,9 @@
       "Bash(python3:*)",
       "Bash(grep:*)",
       "Bash(bash:*)",
-      "Bash(git checkout:*)"
+      "Bash(git checkout:*)",
+      "WebFetch(domain:investors.pfizer.com)",
+      "WebFetch(domain:finance.yahoo.com)"
     ]
   }
 }

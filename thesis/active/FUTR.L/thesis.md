@@ -1,179 +1,466 @@
-# Future plc (FUTR.L) - Investment Thesis
+# Future plc (FUTR.L) - Investment Thesis v2.0
 
-**Date:** 2026-02-02
-**Analyst:** Fundamental Analyst Agent
-**Decision:** BUY - Pending Investment Committee approval
+**Date:** 2026-02-03 (Re-evaluation with Framework v2.0)
+**Original Date:** 2026-02-02
+**Analyst:** Review Agent (Re-evaluation)
+**Status:** HOLD - Thesis intact but VALUE TRAP RISK ELEVATED
 **Tier:** C (Turnaround/Structural risk) - MoS required >=35%
 
 ---
 
 ## Executive Summary
 
-Future plc is the global leader in specialist media with 200+ brands (TechRadar, PC Gamer, Tom's Guide, Marie Claire, GamesRadar+). The stock trades at an extreme discount to intrinsic value driven by legitimate fears about Google AI Overviews destroying organic search traffic. At 531 GBp, the company trades at 4.5x EV/FCF and 34% FCF yield -- pricing in a catastrophic scenario that the fundamentals do not support. Even our bear case (FCF declining 3% annually) implies 56% margin of safety. The company is aggressively returning capital to shareholders (19% of market cap in FY2025) while maintaining 28% operating margins and manageable leverage.
+Future plc is the global leader in specialist media with 200+ brands. The stock trades at extreme discount (EV/FCF 4.5x, FCF yield 34%). This re-evaluation using Framework v2.0 reveals:
 
-**Verdict:** Deeply undervalued. The market is pricing in terminal decline while the business generates enormous free cash flow and management is executing well. Buy with conviction at or below 600 GBp.
+**Key Finding:** The original thesis identified the opportunity correctly, BUT underestimated value trap risk. Value Trap Checklist shows **4 of 10 factors = SI** (threshold for caution is >3). The position remains a HOLD with elevated monitoring, but the margin of safety compensates for the risk.
+
+**Fair Value v2.0:** 1,000-1,150 GBp (vs original 1,100-1,200 GBp) - reduced ~8%
+**MoS at 541.50 GBp:** 46-53% (vs original 52-56%) - still exceeds Tier C requirement of 35%
 
 ---
 
-## Key Metrics (FY2025, year ended 30 Sep 2025)
+## SECTION 1: BUSINESS UNDERSTANDING (Framework v2.0)
 
+### 1.1 What Problem Does It Solve?
+- Provides trusted expert content for purchase decisions in specialist categories (tech, gaming, beauty, homes)
+- Aggregates audience attention for advertisers and affiliate commerce partners
+- **Must-have or nice-to-have?**: Nice-to-have for consumers, but advertisers NEED access to these audiences
+
+### 1.2 Revenue Model
+| Type | % of Revenue | Characteristics |
+|------|-------------|-----------------|
+| Digital Advertising | ~45% | Variable, depends on traffic |
+| Affiliate/E-commerce | ~35% | Variable, commission-based |
+| Magazine/Subscriptions | ~15% | Declining but stable |
+| Events | ~5% | Lumpy, event-dependent |
+
+**Recurring vs One-time:** Low recurring (subscriptions <15%), mostly transactional (advertising, affiliate clicks)
+
+### 1.3 Unit Economics (CRITICAL)
+```
+CAC (Customer Acquisition Cost) = ~LOW
+  -> Organic search (27% from Google) = effectively zero CAC
+  -> BUT this is the vulnerability: Google can cut this off
+
+LTV/CAC Ratio = HIGH for now
+  -> Readers acquired free via search generate ad/affiliate revenue
+  -> But LTV declining as traffic erodes
+
+Payback Period = Immediate (organic acquisition)
+  -> BUT: if forced to pay for traffic acquisition, model breaks
+```
+
+### 1.4 Margin Structure
+```
+Gross Margin: ~70% (digital = high margin)
+Operating Margin: 28% (maintained FY2024-FY2025)
+Net Margin: ~9% (depressed by goodwill amortization from acquisitions)
+FCF Margin: ~24% (177m FCF / 739m revenue)
+
+Trend 5 years:
+  - Operating margin STABLE at 28% despite revenue decline
+  - FCF conversion MID-90S% = excellent
+  - Management cutting costs to protect margins
+```
+
+### 1.5 Capital Requirements
 | Metric | Value | Comment |
 |--------|-------|---------|
-| Price | 531 GBp | Down ~50% from 52w high |
-| Market Cap | ~517m GBP | |
-| Enterprise Value | ~794m GBP | Net debt 276m |
-| Revenue | 739.2m GBP | -6% YoY (-3% organic) |
-| Adj. Operating Profit | ~205m GBP | 28% margin maintained |
-| Adj. Free Cash Flow | ~177m GBP | Mid-90s% cash conversion |
-| P/E | 8.6x | |
-| Forward P/E | 3.7x | If analyst EPS of 133p correct |
-| FCF Yield | 34.2% | Extraordinary |
-| EV/FCF | 4.5x | Deep value territory |
-| Dividend Yield | 3.2% | 17p (5x increase announced) |
-| Buyback Yield | ~18.5% | 95.8m in FY2025 |
-| Total Shareholder Return | ~19.2% | 99.5m returned |
-| Debt/Equity | 0.32 | Leverage 1.3x net debt/EBITDA |
-| Analyst Coverage | 9 analysts | Low coverage = potential inefficiency |
-| Consensus Target | 984-1,243 GBp | 85-134% upside |
+| Capex/Revenue | ~2% | Asset-light digital model |
+| Working Capital | Neutral | Not a significant use of cash |
+| Maintenance Capex | Low | Digital content, proprietary tech stack |
+| Growth Capex | Moderate | Acquisitions historically, now paused |
+
+**Verdict:** Asset-light model with excellent FCF conversion. The issue is TOP-LINE, not MARGIN or CAPEX.
 
 ---
 
-## Valuation
+## SECTION 2: WHY IS IT CHEAP? (CRITICAL)
 
-### DCF Analysis (7-year projection, Gordon Growth terminal value)
+### 2.1 Market Narrative (what the market believes)
+- [X] **Disrupcion tecnologica inminente** - Google AI Overviews destroying organic traffic
+- [X] **Industria en declive secular** - Digital publishing commoditizing, AI-generated content rising
+- [ ] Problemas de management/governance - NO, management executing well
+- [ ] Balance deteriorandose - NO, leverage only 1.3x, FCF strong
+- [X] **Margenes bajo presion** - Implied by market (but NOT happening yet)
+- [ ] Perdida de market share - NO, still #1 or #2 in niches
+- [ ] Riesgo regulatorio - LOW
+- [ ] Riesgo geopolitico - LOW (UK/US exposure)
+- [ ] Guidance decepcionante - NO, guidance for modest growth FY2026
+- [ ] Sector out-of-favor - YES, media sector broadly hated
 
-**Base FCF: 177m GBP (FY2025 actual)**
+### 2.2 My Counter-Thesis
+```
+Market believes: Google AI will destroy organic traffic, revenue will collapse
+I believe: Traffic will decline but not collapse; Future is adapting with "Google Zero" strategy
+My evidence:
+  - Only 27% of sessions from Google (not 100% dependent)
+  - Future brands cited in AI outputs (TechRadar, Tom's Guide)
+  - Proactive strategy: diversifying to direct traffic, social, newsletters
+  - 28% margin maintained despite -6% revenue decline
+Probability I am wrong: 30-40%
+```
 
-| Scenario | FCF Growth | WACC | Terminal Growth | Intrinsic Value | MoS vs 531 GBp |
-|----------|-----------|------|----------------|-----------------|-----------------|
-| Bear | -3% p.a. | 11.0% | 1.0% | 1,199 GBp | 56% |
-| Base | +1% p.a. | 9.5% | 2.0% | 2,052 GBp | 74% |
-| Bull | +4% p.a. | 8.5% | 2.5% | 3,100 GBp | 83% |
+### 2.3 VALUE TRAP CHECKLIST (v2.0 - CRITICAL)
 
-**Note:** Even the bear case assumes FCF DECLINES 3% per year for 7 years (cumulative ~20% decline) with a punitive 11% WACC, and still shows 56% MoS. This is an extraordinarily wide margin.
+| # | Factor | Status | Evidence |
+|---|--------|--------|----------|
+| 1 | Industria en declive secular | **SI** | Digital publishing under structural pressure from AI |
+| 2 | Disrupcion tecnologica inminente | **SI** | Google AI Overviews actively reducing traffic NOW |
+| 3 | Management destruyendo valor | NO | 19% of market cap returned to shareholders, 28% margins |
+| 4 | Balance deteriorandose | NO | Leverage 1.3x, net debt 276m, 600m facilities available |
+| 5 | Insider selling masivo (>5% in 12m) | NO | No evidence of insider selling; company is BUYING back shares |
+| 6 | Dividend cut reciente o probable | NO | 5x dividend INCREASE announced Dec 2025 |
+| 7 | Perdida market share >2pp in 3 years | NO | Still #1/#2 in niches (TechRadar, PC Gamer, etc.) |
+| 8 | ROIC < WACC ultimos 3 anos | **SI** | ROIC ~8% vs WACC ~11-14% (per GuruFocus) |
+| 9 | FCF negativo >2 anos consecutivos | NO | FCF strongly positive (177m in FY2025) |
+| 10 | Goodwill >50% equity | **SI** | High goodwill from acquisitions, impairment risk exists |
 
-### Comparables
+**RESULT: 4 of 10 factors = SI**
 
-| Metric | FUTR.L | Sector Median | Discount |
-|--------|--------|---------------|----------|
-| P/E | 8.6x | 15-20x | 50-57% |
-| EV/EBITDA | ~3.6x | 8-12x | 55-70% |
-| FCF Yield | 34.2% | 5-8% | 4-7x richer |
+**RULE: >3 factors SI = probable value trap = REJECT or Tier C (35% MoS minimum)**
 
-### Sanity Check
-- Analyst consensus 984-1,243 GBp (avg ~1,100 GBp) = ~2x current price
-- 8 of 9 analysts rate Strong Buy
-- Forward P/E of 3.7x implies market expects earnings to collapse, yet management guides for stable 28% margins and modest organic growth in FY2026
+**Assessment:** This IS a potential value trap. The 4 SI factors are serious:
+1. Industry decline is REAL (digital publishing disrupted by AI)
+2. Technology disruption is ACTIVE (Google AI Overviews)
+3. ROIC < WACC indicates value destruction on invested capital
+4. High goodwill creates impairment risk if revenue declines accelerate
 
-**Conservative Fair Value: 1,100-1,200 GBp (using bear-to-base midpoint)**
-**MoS at 531 GBp: 52-56%** -- EXCEEDS Tier C requirement of 35%
+**HOWEVER:** The 46-53% MoS provides significant buffer even for a value trap scenario. The question is: at what price does the FCF generation compensate for structural decline?
 
----
+### 2.4 My Informational Advantage
+- [X] Horizonte temporal mas largo (patient capital)
+- [ ] Entiendo el negocio mejor - NO clear edge here
+- [X] El mercado sobre-reacciona a corto plazo (behavioral)
+- [ ] Analisis cuantitativo que otros no hacen
+- [X] Informacion publica mal interpretada (FCF generation underappreciated)
 
-## Moat Assessment
-
-**Rating: Narrow Moat** (with caveats)
-
-### Strengths
-1. **Scale in specialist niches**: 200+ brands, #1 or #2 in most verticals (tech, gaming, music, lifestyle). Hard to replicate breadth + depth.
-2. **Proprietary technology stack**: Vanilla CMS, Hawk affiliate engine, GoDemand. Enables efficient cross-platform distribution and monetization. True competitive advantage.
-3. **Diversified revenue**: Advertising, affiliate/e-commerce, subscriptions, events. Not dependent on single revenue stream.
-4. **Expert content**: In an AI-generated content world, trusted expert reviews (TechRadar, Tom's Guide) become MORE valuable, not less. LLMs cite Future's brands.
-5. **Brand portfolio optimization**: Proactively closing underperforming brands (19 in FY2024, 4 in H1 2025). Capital discipline.
-
-### Weaknesses
-1. **Google dependency**: ~27% of sessions from Google search (per management). Industry-wide traffic decline from AI Overviews is real.
-2. **No switching costs**: Readers can easily switch to competitors or AI-generated content.
-3. **No network effects**: Content consumption is largely individual.
-
-### Moat Durability: 5-7 years
-The moat is real but under structural pressure from AI. The "Google Zero" strategy and brand authority in LLM citations provide partial insulation. The moat is narrowing but not collapsing.
-
----
-
-## Risk Assessment
-
-### Critical Risks (probability / impact)
-
-| Risk | Probability | Impact | Mitigation |
-|------|-------------|--------|------------|
-| Google AI Overviews destroy organic traffic | HIGH (70%) | HIGH | "Google Zero" strategy; only 27% from Google; brands cited in AI outputs |
-| Revenue secular decline accelerates | MEDIUM (40%) | HIGH | Diversification to non-search channels; portfolio pruning; cost discipline |
-| Leverage increases if FCF drops | LOW (20%) | MEDIUM | Leverage only 1.3x; £600m facilities available; buyback can be paused |
-| Management overreturns capital vs investing | MEDIUM (35%) | MEDIUM | 5x dividend increase + buybacks suggest confidence, but could limit investment |
-| Recession impacts advertising | MEDIUM (30%) | MEDIUM | 28% margins provide buffer; specialist audiences valuable to advertisers |
-
-### Bear Case Scenario
-- Google AI Overviews reduce traffic 30-40% over 3 years
-- Revenue declines 5-8% annually
-- Margins compress to 22-24%
-- FCF drops to 100-120m GBP
-- Fair value: ~700-900 GBp (still 30-70% upside from current)
-
-### Key Question: Is this a value trap?
-**No.** Three reasons:
-1. FCF is real and massive (34% yield). The company is not destroying cash.
-2. Management is returning capital aggressively (19% of market cap). Alignment with shareholders.
-3. The "Google Zero" strategy (diversifying away from search) is proactive, not reactive.
-
-The market is pricing this as if it were a newspaper company in 2008. But Future has 28% margins, 34% FCF yield, low leverage, and is the dominant player in specialist media. Even if revenue declines materially, the valuation provides enormous buffer.
+**WARNING:** No clear informational edge. The market may be RIGHT about structural decline. Proceed with caution.
 
 ---
 
-## Quality Score
+## SECTION 3: PROJECTION FRAMEWORK (v2.0)
 
-| Criterion | Score | Notes |
-|-----------|-------|-------|
-| ROE consistent >15% | 0/1 | ROE ~12% (depressed by goodwill from acquisitions) |
-| FCF positive each year (5+ yr) | 1/1 | Yes, consistently strong FCF |
-| Debt/Equity <1.0 | 1/1 | 0.32 |
-| Dividend 10+ years without cut | 0/1 | Dividend was minimal until 5x increase in Dec 2025 |
-| Wide moat | 0/1 | Narrow moat |
-| Revenue stability | 0/1 | Revenue declining (-6% FY2025) |
-| Management quality | 1/1 | Aggressive buybacks, margin discipline, proactive strategy |
-| Analyst coverage >10 | 0/1 | 9 analysts |
-| Market cap >10B EUR | 0/1 | ~600m EUR |
-| Defensive sector | 0/1 | Cyclical (advertising) |
+### 3.1 Revenue Projection (Bottom-Up)
 
-**Quality Score: 3/10 = Tier C** (requires >=35% MoS)
-**Actual MoS: 52-56%** -- PASSES with significant buffer
+**TAM Analysis:**
+```
+Global Digital Advertising + Affiliate Commerce TAM = ~$500B+
+Future's addressable TAM (specialist media) = ~$50B
+Future current revenue = ~$960M (£739M) = ~2% of specialist TAM
+
+TAM Growth Rate = +3-5% (digital ad spending still growing, but AI disruption is headwind)
+```
+
+**Market Share Analysis:**
+```
+Current Market Share = ~2% of specialist media TAM
+Trend: STABLE in niches, but overall industry shrinking
+Projection: -0.5pp per year as AI competes for attention
+```
+
+**Pricing Power:**
+```
+Pricing Power Score: WEAK
+  - CPMs under pressure from programmatic
+  - Affiliate commissions stable but competitive
+  - Cannot raise prices above market
+```
+
+**Revenue Projection Formula:**
+```
+Revenue Growth = TAM Growth + Delta Market Share + Pricing
+              = +3% + (-0.5%) + 0%
+              = +2.5% industry, BUT Future losing share to AI
+
+Bear case: -5% annually (AI destroys traffic faster)
+Base case: -2% annually (gradual erosion, mitigation works partially)
+Bull case: +2% annually (Google Zero works, AI fears overblown)
+```
+
+### 3.2 Margin Projection
+
+**Gross Margin:** 70% (stable, digital model)
+**Operating Margin:**
+```
+Historical: 28% (FY2024, FY2025)
+Projection:
+  Bear: 22-24% (cost-cutting cannot keep up with revenue decline)
+  Base: 26-28% (management maintains discipline)
+  Bull: 28-30% (operating leverage if revenue grows)
+```
+
+**FCF Conversion:** 90-95% (asset-light, no major capex needs)
+
+### 3.3 WACC Derivation (NOT DEFAULT)
+
+**Cost of Equity (Ke):**
+```
+Risk-Free Rate (Rf) = 4.5% (UK 10Y Gilt, Jan 2026)
+Equity Risk Premium (ERP) = 5.5% (UK market)
+Beta = 1.37 (Yahoo Finance, 5Y monthly)
+
+Ke = Rf + Beta x ERP
+   = 4.5% + 1.37 x 5.5%
+   = 4.5% + 7.5%
+   = 12.0%
+```
+
+**Cost of Debt (Kd):**
+```
+Interest Expense / Total Debt ~ 5.5% (estimated from facilities)
+Tax Rate = 25% (UK corporate)
+Kd after-tax = 5.5% x (1 - 0.25) = 4.1%
+```
+
+**Capital Structure:**
+```
+Market Cap = 517M GBP (at 541.50 GBp)
+Net Debt = 276M GBP
+Enterprise Value = 793M GBP
+
+E/V = 517 / 793 = 65%
+D/V = 276 / 793 = 35%
+```
+
+**WACC Calculation:**
+```
+WACC = (E/V x Ke) + (D/V x Kd after-tax)
+     = (65% x 12.0%) + (35% x 4.1%)
+     = 7.8% + 1.4%
+     = 9.2%
+
+Adjusted for small-cap premium (+1.5%): 10.7%
+Rounded: 11% (vs DCF tool default 9.5%)
+```
+
+**Sanity Check:**
+- Beta 1.37 makes sense for volatile small-cap media company
+- WACC 11% is appropriate for structural risk
+- This is HIGHER than original thesis assumed
 
 ---
 
-## Catalysts
+## SECTION 4: VALUATION (Multi-Method v2.0)
 
-1. **FY2026 organic revenue growth** (guided by management) -- would prove the bear thesis wrong
-2. **Continued aggressive buybacks** -- 30m new program announced, further reducing share count
-3. **AI citations driving brand value** -- Future brands increasingly cited by LLMs as authoritative sources
-4. **Multiple re-rating** -- if market recognizes FCF sustainability, re-rating from 4.5x EV/FCF to even 8x implies ~80% upside
-5. **Potential takeout target** -- at 517m GBP market cap with 177m FCF, a PE firm could buy this for <3 year payback
+### Method 1: DCF (50% weight)
+
+**Tool Output (with derived parameters):**
+```
+python3 tools/dcf_calculator.py FUTR.L --scenarios
+
+Results:
+  Bear: 1,180 GBp (FCF -3%, WACC 11%)
+  Base: 1,569 GBp (FCF +1%, WACC 9.5%)  -- tool default
+  Bull: 2,121 GBp (FCF +4%, WACC 8.5%)
+```
+
+**Adjusted with v2.0 WACC (11%):**
+```
+Using higher WACC and lower growth (v2.0 assumptions):
+  Bear: ~900 GBp (FCF -5%, WACC 12%, terminal 1%)
+  Base: ~1,100 GBp (FCF -2%, WACC 11%, terminal 1.5%)
+  Bull: ~1,500 GBp (FCF +2%, WACC 10%, terminal 2%)
+
+Expected Value DCF = (25% x 900) + (50% x 1,100) + (25% x 1,500)
+                   = 225 + 550 + 375
+                   = 1,150 GBp
+```
+
+### Method 2: EV/EBIT Normalizado (50% weight)
+
+**EBIT Normalizado:**
+```
+Adj. Operating Profit FY2025 = 205M GBP (28% margin on 739M revenue)
+5-year average margin = ~27-28%
+Use 205M as normalized EBIT (current = normalized, no cyclicality)
+```
+
+**Multiple Selection:**
+```
+Sector: Digital Media/Publishing
+Base multiple: 8-12x for media (Retail/competitive end)
+
+Adjustments:
+  - Below-average growth: -2x (revenue declining)
+  - High goodwill/impairment risk: -1x
+  - Strong FCF conversion: +1x
+  - Buyback discipline: +1x
+
+Final multiple: 7-9x EV/EBIT
+```
+
+**Calculation:**
+```
+EV = EBIT x Multiple
+   = 205M x 8x (midpoint)
+   = 1,640M GBP
+
+Equity Value = EV - Net Debt
+             = 1,640M - 276M
+             = 1,364M GBP
+
+Fair Value per Share = 1,364M / 95M shares
+                     = ~1,436 GBp
+
+Bear (7x): (205 x 7 - 276) / 95 = 1,220 GBp
+Base (8x): (205 x 8 - 276) / 95 = 1,436 GBp
+Bull (9x): (205 x 9 - 276) / 95 = 1,652 GBp
+
+Expected Value EV/EBIT = 1,436 GBp
+```
+
+### Method Reconciliation
+
+| Method | Fair Value | Weight | Weighted FV |
+|--------|-----------|--------|-------------|
+| DCF (adjusted) | 1,150 GBp | 50% | 575 GBp |
+| EV/EBIT | 1,436 GBp | 50% | 718 GBp |
+| **Weighted Average** | | 100% | **1,293 GBp** |
+
+**Divergence:** 25% (1,436 vs 1,150) - within 30% threshold, no reconciliation needed.
+
+**Conservative Fair Value (v2.0):** 1,000-1,150 GBp
+- Use lower end due to value trap risk and uncertainty
+- This is ~8% lower than original thesis (1,100-1,200 GBp)
+
+**MoS at 541.50 GBp:**
+- vs 1,000 GBp: 46%
+- vs 1,150 GBp: 53%
+- **PASSES Tier C requirement of 35%**
 
 ---
 
-## Decision
+## SECTION 5: SCENARIOS (v2.0)
 
-| | |
-|---|---|
-| **Recommendation** | BUY |
-| **Entry Price** | <=600 GBp (current 531 GBp -- WITHIN range) |
-| **Fair Value (Conservative)** | 1,100-1,200 GBp |
-| **MoS at Current Price** | 52-56% |
-| **Target Position Size** | 3-4% (Tier C = moderate conviction due to structural risks) |
-| **Stop-Loss Thesis** | Revenue declines >10% annually for 2+ years; margins compress below 20%; management stops buybacks |
-| **Review Trigger** | H1 FY2026 results (expected May 2026) |
+### Bear Case (30% probability)
+```
+Revenue: -5% annually for 5 years
+Operating Margin: compresses to 22%
+FCF: drops to 100-120M GBP
+Multiple: 6x EV/EBIT (distressed)
 
-### Autocritica
-- **Assumptions**: FCF of 177m is sustainable. Margins stay at 28%. Revenue decline moderates.
-- **Biases detected**: Anchoring on extreme cheapness could blind me to structural decline. Counter: even with significant FCF erosion, the math works.
-- **Evidence ignored**: Some publishers have seen 90% traffic drops. Counter: Future only gets 27% from Google and has diversified strategy.
-- **Alternatives considered**: Could wait for FY2026 H1 to confirm organic growth recovery. But at 34% FCF yield, waiting costs significant opportunity.
+Fair Value Bear: ~700-800 GBp
+MoS at 541.50: 23-32% -- DOES NOT MEET 35% threshold
+```
+
+### Base Case (50% probability)
+```
+Revenue: -2% annually for 3 years, then flat
+Operating Margin: 26-28%
+FCF: 140-160M GBP (normalized)
+Multiple: 8x EV/EBIT
+
+Fair Value Base: ~1,100 GBp
+MoS at 541.50: 51%
+```
+
+### Bull Case (20% probability)
+```
+Revenue: +2% annually (Google Zero works)
+Operating Margin: 28-30%
+FCF: 180-200M GBP
+Multiple: 10x EV/EBIT
+
+Fair Value Bull: ~1,700 GBp
+MoS at 541.50: 68%
+```
+
+**Expected Value (probability-weighted):**
+```
+EV = (30% x 750) + (50% x 1,100) + (20% x 1,700)
+   = 225 + 550 + 340
+   = 1,115 GBp
+
+MoS at 541.50 GBp vs EV: 51%
+```
+
+---
+
+## SECTION 6: DECISION (Investment Committee Gates v2.0)
+
+### 7 Gates Checklist
+
+| Gate | Status | Evidence |
+|------|--------|----------|
+| 1. Business Understanding | PASS | Model de negocio claro, unit economics understood |
+| 2. Proyeccion Fundamentada | PASS | WACC 11% derivado, growth from TAM analysis |
+| 3. Valoracion Multi-Metodo | PASS | DCF + EV/EBIT, 25% divergence acceptable |
+| 4. Margen Seguridad (Tier C 35%) | PASS | MoS 46-53% > 35% threshold |
+| 5. Contexto Macro | PASS | UK/US exposure neutral, no major headwinds |
+| 6. Portfolio Fit | PASS | Small position, no constraint violations |
+| 7. Autocritica Explicita | PASS | See below |
+
+### Autocritica Explicita
+
+**Assumptions:**
+1. FCF ~150-180M is sustainable for 3-5 years
+2. Margins can be defended at 26-28%
+3. "Google Zero" strategy partially mitigates traffic decline
+4. Management continues buybacks and dividends
+
+**Biases Detected:**
+1. Anchoring on extreme cheapness (34% FCF yield)
+2. Potential confirmation bias on "AI fears overblown"
+3. Small-cap UK = low coverage = less scrutiny
+
+**Evidence Ignored:**
+1. Some publishers have seen 90% traffic drops (could happen to Future)
+2. ROIC < WACC for multiple years = value destruction
+3. Goodwill impairment could wipe out equity if revenue decline accelerates
+
+**Validation:**
+- Used derived WACC (11%) not default
+- Used value trap checklist (4/10 = elevated risk)
+- Cross-checked with 2 valuation methods
+- Adjusted probabilities: Bear 30% (up from 25%), Bull 20% (down from 25%)
+
+---
+
+## SUMMARY: Original vs v2.0
+
+| Metric | Original Thesis | v2.0 Re-evaluation | Change |
+|--------|-----------------|-------------------|--------|
+| Fair Value Range | 1,100-1,200 GBp | 1,000-1,150 GBp | -8% |
+| MoS at current price | 52-56% | 46-53% | -4pp |
+| Tier | C (35% required) | C (35% required) | No change |
+| WACC | 9.5% (default) | 11% (derived) | +1.5pp |
+| Value Trap Factors | Not evaluated | 4/10 (elevated) | NEW |
+| Recommendation | BUY | **HOLD** | Downgrade |
+
+### Status: HOLD
+
+**Rationale:**
+1. MoS still exceeds Tier C requirement (46-53% vs 35%)
+2. BUT value trap risk is elevated (4/10 factors)
+3. The position was entered at a good price, so HOLD is appropriate
+4. Would NOT initiate new position at current levels without stronger evidence of turnaround
+5. If price falls to <450 GBp (MoS >60%), could ADD
+
+### Kill Conditions (sell immediately if any occur)
+1. Revenue decline accelerates to >10% YoY for 2 consecutive quarters
+2. Operating margin falls below 22%
+3. Dividend is cut
+4. Management stops buybacks and pivots to "cash preservation mode"
+5. Goodwill impairment charge >30% of equity
+
+### Review Triggers
+1. H1 FY2026 results (expected May 2026)
+2. Any major Google algorithm/AI update
+3. Quarterly traffic data (if disclosed)
 
 ---
 
 ## Sources
+
+### Original Thesis Sources
 - [Future plc Investor Results](https://futureplc.com/investor-results/)
 - [Future plc FY2025 Results PDF](https://futureplc.com/wp-content/uploads/2025/12/FINAL-FY-2025-results-for-upload.pdf)
 - [TipRanks FUTR Forecast](https://www.tipranks.com/stocks/gb:futr/forecast)
-- [Press Gazette - Google Traffic Down 2025](https://pressgazette.co.uk/media-audience-and-business-data/google-traffic-down-2025-trends-report-2026/)
-- [MarketScreener FUTR Consensus](https://www.marketscreener.com/quote/stock/FUTURE-PLC-33684370/consensus/)
-- [StockAnalysis FUTR Statistics](https://stockanalysis.com/quote/lon/FUTR/statistics/)
+
+### v2.0 Re-evaluation Sources
+- [Yahoo Finance FUTR.L](https://finance.yahoo.com/quote/FUTR.L/) - Beta 1.37
+- [GuruFocus WACC](https://www.gurufocus.com/term/wacc/FRA:FNWA/WACC-/Future-PLC) - ROIC vs WACC analysis
+- [Trading Economics UK Gilts](https://tradingeconomics.com/united-kingdom/government-bond-yield) - Risk-free rate 4.5%
+- [Simply Wall St Insider Activity](https://simplywall.st/stocks/us/media/otc-frnw.f/future/ownership) - Insider transactions
+- [InPublishing FY2025 Results](https://www.inpublishing.co.uk/articles/future-publishes-full-year-financial-results-26070) - Financial details

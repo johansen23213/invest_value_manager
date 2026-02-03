@@ -1,235 +1,405 @@
-# UHS (Universal Health Services) - Investment Thesis
+# UHS (Universal Health Services) - Investment Thesis v2.0
 
-**Date:** 2026-02-02
-**Analyst:** Fundamental Analyst Agent
+**Date:** 2026-02-03 (Re-evaluated with Framework v2.0)
+**Original Date:** 2026-02-02
+**Analyst:** Review Agent (Framework v2.0)
 **Tier:** B (Cyclical de Calidad)
-**Recommendation:** BUY (pending Investment Committee approval)
+**Recommendation:** HOLD (reduced from BUY - MoS below Tier B threshold with v2.0 methodology)
 
 ---
 
-## 1. Executive Summary
+## EXECUTIVE SUMMARY - v2.0 RE-EVALUATION
 
-Universal Health Services (NYSE: UHS) is the third-largest US hospital operator with 28 acute care hospitals and 331 behavioral health facilities, generating $15.8B in 2024 revenue. The company trades at P/E 9.6x against a sector average of 12-17x, representing a significant discount to peers like HCA (17.2x) and THC (12.9x). DCF analysis suggests 41-129% upside across scenarios. The 40% dividend yield reported by screener is a **confirmed data error** -- actual yield is 0.4% ($0.80/share annual dividend).
+| Metric | Original (v1) | v2.0 Update | Change |
+|--------|---------------|-------------|--------|
+| Price at analysis | $201.26 | $201.86 | +0.3% |
+| DCF Fair Value | $357.04 | $313.58 | -12.2% |
+| EV/EBITDA Fair Value | $283.40 | $253.89 | -10.4% |
+| Blended Fair Value | $313.00 | $283.74 | -9.4% |
+| MoS | 35.8% | 28.8% | -7.0pp |
+| WACC (derived) | ~9.8% (default) | 8.34% | Derived properly |
+| Status | BUY | **HOLD** | MoS near threshold |
 
-**Core Thesis:** UHS is a quality cyclical healthcare operator trading at a trough-like multiple despite record earnings, benefiting from secular growth in behavioral health demand and post-COVID volume recovery. The market appears to be pricing in labor cost risks and regulatory uncertainty that are already stabilizing.
+**Key Finding:** Using Framework v2.0 with properly derived WACC (8.34% vs default 9%) and multi-method valuation, the blended fair value drops to $283.74, yielding a MoS of 28.8%. This is near the Tier B threshold of 25% but represents reduced conviction due to:
+1. ROIC (~10%) barely exceeding WACC (8.34%) - minimal value creation
+2. EV/EBITDA method showing only 20.5% upside vs DCF's 55%
+3. Behavioral health growth (5-6% CAGR) is secular but not exceptional
 
----
-
-## 2. Key Metrics
-
-| Metric | Value | Assessment |
-|--------|-------|------------|
-| Price | $201.26 (EUR 169.78) | -18.3% off 52w high |
-| P/E (TTM) | 9.6x | Cheap vs peers (12-17x) |
-| Forward P/E | 8.6x | EPS growth expected |
-| Dividend Yield | **0.4%** (NOT 40%) | Minimal, buyback-focused |
-| FCF Yield | 6.6% | Attractive |
-| D/E | 0.70 | Conservative leverage |
-| Market Cap | $12.8B (EUR 10.8B) | Mid-large cap |
-| Revenue 2024 | $15.8B | +11% YoY |
-| Net Income 2024 | $1.14B | +59% YoY |
-| FCF 2024 | $1.12B | +114% YoY |
-| ROE (TTM) | ~20% | Strong, above 10yr avg of 14.5% |
-| ROIC (TTM) | ~10% | Near WACC (~9.8%), adequate |
-| EPS 2024 | $16.82 | Consensus 2025E: $21.80 |
-| Analysts | 17 | Adequate coverage |
+**Recommendation:** HOLD current position. Do not ADD at current prices. Consider ADD only if price drops to $180 or below (25% MoS on conservative EV/EBITDA).
 
 ---
 
-## 3. Business Model
+## 1. BUSINESS UNDERSTANDING (Framework v2.0)
 
-**Dual-segment operator:**
-- **Acute Care (56% of revenue):** 28 hospitals, surgical/emergency services. Higher margin, volume-driven.
-- **Behavioral Health (44% of revenue):** 331 inpatient + 100 outpatient facilities. Secular growth driver. Largest private behavioral health operator in the US.
+### 1.1 Business Model
 
-**Revenue model:** Fee-for-service with payer mix of commercial insurance, Medicare, Medicaid. Capital allocation heavily weighted to buybacks ($1.5B new authorization) over dividends.
+**What problem does UHS solve?**
+- Provides acute care (emergency, surgical, medical) and behavioral health (psychiatric, substance abuse) services
+- Serves patients who need inpatient hospital care that cannot be provided outpatient
+- **Must-have** service - healthcare is non-discretionary
 
-**Geographic:** Primarily US, concentrated in high-growth Sun Belt markets.
+**Revenue Model:**
+| Segment | % Revenue | Type | Recurrence |
+|---------|-----------|------|------------|
+| Acute Care | 56% | Fee-for-service | Per-admission, procedure-based |
+| Behavioral Health | 44% | Fee-for-service | Per-day (length of stay based) |
+
+- Payer mix: Commercial (40%), Medicare (25%), Medicaid (25%), Self-pay (10%)
+- Revenue is NOT subscription-based but is relatively stable due to healthcare necessity
+
+### 1.2 Unit Economics
+
+For hospital operators, traditional CAC/LTV does not apply. Relevant unit economics:
+
+```
+Revenue per Adjusted Admission (Acute): ~$14,000-$16,000
+Operating Cost per Admission: ~$12,500-$14,000
+Operating Profit per Admission: ~$1,500-$2,000
+
+Behavioral Health:
+Revenue per Patient Day: ~$1,000-$1,200
+Cost per Patient Day: ~$850-$1,000
+Profit per Patient Day: ~$100-$200
+
+Occupancy Rate (key driver):
+  Acute Care: 55-65% (below optimal 70%+)
+  Behavioral Health: 75-85% (near optimal)
+```
+
+**Assessment:** Unit economics are positive but margins are thin. Operating leverage exists - each incremental admission is highly profitable once fixed costs are covered.
+
+### 1.3 Margin Structure
+
+| Margin | 2024 | 2023 | 2022 | 5Y Trend | Peer Comparison |
+|--------|------|------|------|----------|-----------------|
+| Gross | 43.6% | 42% | 41% | Expanding | In-line |
+| Operating | 10.6% | 8.0% | 7.4% | Expanding | Below HCA (12-13%) |
+| Net | 7.2% | 5.0% | 5.1% | Expanding | Below HCA (8-9%) |
+| FCF/Revenue | 7.1% | 3.6% | 1.9% | Expanding | Strong recovery |
+
+**Trend:** Margins are expanding as post-COVID normalization continues. 2024 represents record profitability. However, UHS margins remain below premium peer HCA.
+
+### 1.4 Capital Requirements
+
+- **Capex/Revenue:** ~5-6% (asset-medium business)
+- **Maintenance CapEx:** ~3% of revenue
+- **Growth CapEx:** ~2-3% of revenue (new facilities, expansions)
+- **Working Capital:** Neutral to slight source of cash (receivables well managed)
+
+**Assessment:** Capital intensity is moderate. FCF conversion has improved significantly from near-zero in 2021 to 7%+ in 2024.
 
 ---
 
-## 4. Moat Assessment
+## 2. WHY IS IT CHEAP? (Value Trap Checklist)
 
-**Rating: NARROW MOAT**
+### 2.1 Market Narrative
 
-| Factor | Score | Rationale |
-|--------|-------|-----------|
+The market discounts UHS because of:
+- [ ] **Healthcare services volatility** - COVID caused massive disruption (2020-2022)
+- [ ] **Labor cost pressures** - Nurse/staff shortages persist post-COVID
+- [ ] **Regulatory uncertainty** - Medicaid reimbursement rates, ACA subsidies
+- [ ] **Behavioral health scrutiny** - Quality of care concerns, billing practices
+- [ ] **Family control** - Miller family dual-class structure reduces governance quality
+- [ ] **ROIC near WACC** - Marginal value creation vs true compounders
+
+### 2.2 My Contra-Thesis
+
+| Market Believes | I Believe | Evidence | P(Wrong) |
+|-----------------|-----------|----------|----------|
+| Labor costs will compress margins | Labor pressures peaked 2022-2023, stabilizing | 2024 margins expanded 260bp YoY | 25% |
+| Regulatory risk from ACA changes | ACA deeply embedded, unlikely major cuts | 10+ years of stability, bipartisan support | 30% |
+| Behavioral health overbuilt | Mental health crisis = secular demand growth | TAM growing 5-6% CAGR, 331 facilities = scale advantage | 20% |
+| ROIC barely beats WACC | True, but improving trajectory | ROIC expanded from ~8% (2022) to ~10% (2024) | 35% |
+
+### 2.3 Value Trap Checklist
+
+| Factor | Status | Comment |
+|--------|--------|---------|
+| Industry in secular decline | **NO** | Healthcare + behavioral health both growing |
+| Technological disruption imminent | **NO** | Hospitals cannot be easily disrupted |
+| Management destroying value | **NO** | Buybacks $1.5B, conservative balance sheet |
+| Balance sheet deteriorating | **NO** | D/E 0.70, stable |
+| Insider selling >5% in 12m | **NO** | Miller family holds majority, aligned |
+| Dividend cut recent or likely | **NO** | Dividend stable, buyback-focused |
+| Market share loss >2pp in 3y | **NO** | Behavioral health share stable/growing |
+| ROIC < WACC last 3 years | **PARTIAL** | 2022 was below, 2023-2024 at/above |
+| FCF negative >2 consecutive years | **NO** | FCF positive all years (2021 was near-zero) |
+| Goodwill >50% equity | **NO** | Goodwill $3.93B / Equity $6.76B = 58% - **BORDERLINE** |
+
+**Value Trap Score: 1-1.5 factors (PARTIAL on ROIC, borderline on Goodwill)**
+**Assessment: NOT a value trap, but also NOT a quality compounder**
+
+### 2.4 My Informational Advantage
+
+- [ ] Longer time horizon (patience for normalization)
+- [x] **Market over-reacting to COVID-era disruption that is now normalizing**
+- [ ] Behavioral health secular trend underappreciated
+- [x] **Quantitative analysis shows multiple expansion potential vs peers**
+
+**Assessment:** Advantage is primarily behavioral (market extrapolating COVID disruption) rather than informational. Modest conviction.
+
+---
+
+## 3. PROJECTIONS (Framework v2.0 - Derived, NOT Defaults)
+
+### 3.1 Revenue Projection
+
+**TAM Analysis:**
+- US Hospital services TAM: ~$1.3T
+- US Behavioral health TAM: ~$95B (2025), growing to ~$132B by 2032 (5.3% CAGR)
+- UHS share of behavioral health: ~8-10% (largest private operator)
+
+**Revenue Growth Derivation:**
+```
+Component               Acute Care (56%)    Behavioral (44%)    Blended
+------------------------------------------------------------------
+TAM Growth              2-3%                5-6%                3.5%
+Market Share Change     Flat                +0.3pp/yr           +0.1pp
+Pricing Power           1-2% (inflation)    2-3%                1.8%
+------------------------------------------------------------------
+Revenue Growth          3-5%                7-9%                5-6%
+```
+
+**My Projection:** 5-6% revenue growth (years 1-5), decelerating to 3-4% terminal
+
+### 3.2 Margin Projection
+
+| Metric | 2024 Actual | 2025E | 2027E | Rationale |
+|--------|-------------|-------|-------|-----------|
+| Operating Margin | 10.6% | 11.0% | 11.5% | Continued normalization, slight operating leverage |
+| FCF Margin | 7.1% | 7.0% | 7.5% | Stable capex, working capital neutral |
+
+### 3.3 WACC Derivation (NOT DEFAULT)
+
+```
+COST OF EQUITY (Ke):
+  Risk-Free Rate (Rf): 4.25% (10Y Treasury, Feb 2026)
+  Beta: 1.269 (yfinance)
+  Equity Risk Premium (ERP): 5.0%
+  Ke = 4.25% + 1.269 x 5.0% = 10.59%
+
+COST OF DEBT (Kd):
+  Interest Expense: $183M
+  Total Debt: $5,110M
+  Cost of Debt (pre-tax): 3.58%
+  Tax Rate: 25%
+  Kd after-tax: 2.69%
+
+CAPITAL STRUCTURE:
+  Market Cap: $12,850M
+  Total Debt: $5,110M
+  E/V: 71.5%
+  D/V: 28.5%
+
+WACC = (71.5% x 10.59%) + (28.5% x 2.69%) = 8.34%
+```
+
+**WACC Sanity Check:** 8.34% is appropriate for a healthcare services company - lower than industrials/cyclicals (~10%) due to healthcare's defensiveness, but higher than regulated utilities (~6-7%) due to labor/reimbursement volatility.
+
+### 3.4 Terminal Value Assumptions
+
+- **Terminal Growth:** 2.5% (at GDP level, appropriate for healthcare)
+- **Terminal EV/EBITDA:** 7.0x (mature hospital operator, sector median)
+
+---
+
+## 4. VALUATION (Multi-Method - Framework v2.0)
+
+### 4.1 Method 1: DCF (50% weight)
+
+Using derived parameters: Growth 6%, WACC 8.5%, Terminal 2.5%
+
+| Scenario | Fair Value | MoS | Assumptions |
+|----------|-----------|-----|-------------|
+| Bear | $227.01 | +12.5% | Growth 4%, WACC 9.5%, Terminal 2% |
+| Base | $313.58 | +55.3% | Growth 6%, WACC 8.5%, Terminal 2.5% |
+| Bull | $439.32 | +117.6% | Growth 8%, WACC 7.5%, Terminal 3% |
+
+**CAUTION:** FCF CV = 2.3 (highly volatile). DCF less reliable for UHS due to COVID distortion.
+
+### 4.2 Method 2: EV/EBITDA (50% weight)
+
+| Scenario | Multiple | EV | Equity Value | Fair Value | MoS |
+|----------|----------|-----|-------------|-----------|-----|
+| Bear | 6.5x | $16.6B | $11.5B | $207.70 | +2.8% |
+| Base | 7.5x | $19.1B | $14.0B | $253.89 | +20.5% |
+| Bull | 8.5x | $21.7B | $16.6B | $300.09 | +32.7% |
+
+**Multiple Justification:**
+- Sector median: 7.5x
+- Adjustments: +0.5x (balance sheet), +0.5x (behavioral leader), -0.5x (smaller scale), -0.5x (ROIC near WACC)
+- Net justified multiple: 7.5x
+
+### 4.3 Blended Valuation
+
+| Method | Weight | Bear FV | Base FV | Bull FV |
+|--------|--------|---------|---------|---------|
+| DCF | 50% | $227.01 | $313.58 | $439.32 |
+| EV/EBITDA | 50% | $207.70 | $253.89 | $300.09 |
+| **Blended** | **100%** | **$217.36** | **$283.74** | **$369.71** |
+
+**Current Price:** $201.86
+**Blended Base Fair Value:** $283.74
+**Margin of Safety:** ($283.74 - $201.86) / $283.74 = **28.8%**
+**MoS vs Bear:** ($217.36 - $201.86) / $217.36 = **7.1%**
+
+### 4.4 Expected Value Calculation
+
+```
+EV = (Bear x 25%) + (Base x 50%) + (Bull x 25%)
+EV = ($217.36 x 0.25) + ($283.74 x 0.50) + ($369.71 x 0.25)
+EV = $54.34 + $141.87 + $92.43
+EV = $288.64
+
+MoS vs EV: ($288.64 - $201.86) / $288.64 = 30.1%
+```
+
+---
+
+## 5. MOAT ASSESSMENT (Updated)
+
+**Rating: NARROW MOAT (unchanged)**
+
+| Factor | Score | Evidence |
+|--------|-------|----------|
 | Scale advantages | 7/10 | 3rd largest US hospital operator, procurement leverage |
-| Switching costs | 6/10 | Patients have some choice, but hospital networks/insurance contracts create stickiness |
-| Regulatory barriers | 7/10 | Certificate-of-need laws in many states limit new entrants |
-| Behavioral health leadership | 8/10 | Largest private operator, 331+ facilities, hard to replicate network |
-| Continuum of care | 7/10 | Acute + behavioral under one roof = clinical advantage |
-| Brand/reputation | 5/10 | B2B/B2G relationships matter more than consumer brand |
+| Switching costs | 6/10 | Insurance networks create some stickiness |
+| Regulatory barriers | 7/10 | Certificate-of-need laws in many states |
+| Behavioral health leadership | 8/10 | Largest private operator (331 facilities) |
+| ROIC vs WACC (10 years) | 5/10 | ROIC ~10% vs WACC ~8-9%, marginal spread |
 
-**Moat thesis:** The combination of scale in behavioral health + regulatory barriers to new hospital construction creates a durable but narrow moat. Not wide because: (a) hospital services are somewhat commoditized, (b) reimbursement rates are largely set by government/insurers, (c) labor is the key input and is fully competitive.
-
----
-
-## 5. Valuation
-
-### Method 1: DCF (via tools/dcf_calculator.py --scenarios)
-
-| Scenario | Fair Value/Share | MoS% |
-|----------|-----------------|------|
-| Bear | $283.91 | +41.1% |
-| Base | $357.04 | +77.4% |
-| Bull | $460.68 | +128.9% |
-
-**CAUTION:** DCF tool flagged FCF as "highly volatile (CV=2.3)" due to 2020-2021 Medicare accelerated payment distortion. The 2021 FCF was near-zero due to repayments, making historical CAGR unreliable. I weight this method at 40%.
-
-### Method 2: Earnings Multiple (Peer Comparison)
-
-**Peer P/E Multiples:**
-
-| Company | P/E | Notes |
-|---------|-----|-------|
-| HCA Healthcare | 17.2x | Premium operator, largest scale |
-| Tenet Healthcare | 12.9x | Post-divestiture focus |
-| Acadia Healthcare | 11.6x | Behavioral health pure-play, troubled |
-| CYH | 1.3x | Distressed, not comparable |
-| **UHS** | **9.6x** | **Discount to all quality peers** |
-
-**Fair multiple for UHS:** 12-14x earnings is reasonable given:
-- Quality balance sheet (D/E 0.70 vs HCA ~negative equity)
-- Diversified model (acute + behavioral)
-- Record earnings trajectory
-- Discount to HCA justified by smaller scale and lower margins
-
-**Earnings multiple valuation:**
-- Conservative (12x): 12 x $21.80 (2025E EPS) = **$261.60**
-- Base (13x): 13 x $21.80 = **$283.40**
-- Optimistic (14x): 14 x $21.80 = **$305.20**
-
-### Blended Fair Value Estimate
-
-| Method | Weight | Value |
-|--------|--------|-------|
-| DCF Base | 40% | $357 |
-| Earnings Multiple Base | 60% | $283 |
-| **Blended** | **100%** | **$313** |
-
-**Margin of Safety: ($313 - $201) / $313 = 35.8%**
-
-This exceeds the Tier B minimum of 25%.
+**Moat Durability:** Narrow moat is durable but not widening. UHS is not a compounder - it earns approximately its cost of capital.
 
 ---
 
-## 6. Quality Score
+## 6. RISK ASSESSMENT (Updated)
+
+### High Impact
+1. **ROIC/WACC Compression** - If ROIC falls below WACC, stock will de-rate further
+2. **Labor Cost Re-Acceleration** - Post-COVID wage inflation could return
+3. **Medicaid/ACA Policy Changes** - New administration could reduce reimbursement
+
+### Medium Impact
+4. **Behavioral Health Regulatory Scrutiny** - Quality of care concerns persist
+5. **Goodwill Impairment Risk** - $3.93B goodwill (58% of equity) from acquisitions
+
+### Low Impact
+6. **Dividend Cut** - Minimal dividend, unlikely to impact thesis
+7. **Interest Rates** - Manageable debt load
+
+---
+
+## 7. QUALITY SCORE (Updated)
 
 | Criterion | Score | Notes |
 |-----------|-------|-------|
-| ROE >15% consistently | 1/1 | 10yr avg 14.5%, current 20%. Marginal but improving |
-| FCF positive every year | 0/1 | 2021 near-zero due to Medicare repayments |
+| ROE >15% consistently | 1/1 | Current 20%, improving from 14.5% 10yr avg |
+| FCF positive every year | 0.5/1 | 2021 near-zero due to Medicare repayments |
 | D/E <1.0 | 1/1 | 0.70 |
-| Dividend 10+ years | 1/1 | Consistent payer since 2004 |
-| Wide moat | 0/1 | Narrow moat |
-| Revenue stability | 0.5/1 | Healthcare is defensive but COVID caused disruption |
-| Management quality | 0.5/1 | Alan Miller family controlled, $1.5B buyback positive |
+| Dividend 10+ years | 1/1 | Consistent since 2004 |
+| Wide moat | 0/1 | Narrow moat only |
+| Revenue stability | 0.5/1 | Semi-defensive, COVID disruption |
+| Management quality | 0.5/1 | Family controlled, buybacks positive |
 | Analyst coverage >10 | 1/1 | 17 analysts |
 | Market cap >10B | 1/1 | $12.8B |
 | Defensive sector | 0.5/1 | Healthcare services = semi-defensive |
 
-**Quality Score: 6.5/10 --> Tier B confirmed (25% MoS required)**
+**Quality Score: 7/10 --> Tier B confirmed (25% MoS required)**
 
 ---
 
-## 7. Risk Assessment
+## 8. MACRO CONTEXT FIT
 
-### High Impact Risks
-1. **Medicaid/ACA policy changes** - 5% of acute admissions from ACA exchanges. Potential $50M headwind if subsidies expire. Medicaid supplemental payments expected to decrease in 2025.
-2. **Labor costs and staffing shortages** - Behavioral health division has persistent recruitment difficulties. Wage inflation compresses margins. This is the #1 operational risk.
+From world/current_view.md (2026-02-02):
+- **Healthcare sentiment:** Neutral
+- **Tariff exposure:** NOT directly exposed (domestic US healthcare)
+- **Rate sensitivity:** Low (D/E 0.70, manageable interest)
+- **Recession sensitivity:** Medium (elective procedures decline, but behavioral health counter-cyclical)
 
-### Medium Impact Risks
-3. **Regulatory/legal risk** - Behavioral health facilities face ongoing scrutiny. Historical issues with patient care quality and billing practices.
-4. **Concentration risk** - Dual-class share structure, Miller family control. Governance is not best-in-class.
-5. **Volume sensitivity** - Acute care volumes correlate with employment/insurance coverage. Recession = more uninsured.
-
-### Low Impact Risks
-6. **Interest rate sensitivity** - D/E 0.70 is manageable. Refinancing risk is moderate.
-7. **Competition from outpatient/telehealth** - Long-term structural risk to inpatient behavioral health model.
-
-### Risk Mitigants
-- Behavioral health demand is secular (mental health crisis, parity legislation)
-- Balance sheet is conservative vs peers
-- Buyback program provides share price support
-- Diversified across 2 segments and multiple geographies
+**Macro Fit Assessment:** NEUTRAL - Healthcare is semi-defensive. Not benefiting from current themes but not adversely affected either.
 
 ---
 
-## 8. Catalysts
+## 9. DECISION (Updated)
 
-**Positive:**
-- Q4 2025 / FY2025 earnings (upcoming) expected to show continued momentum
-- Behavioral health outpatient expansion (10-12 new facilities/year)
-- New hospital openings (Palm Beach Gardens Spring 2026, DC opened April 2025)
-- Share buybacks ($1.5B authorization)
-- Potential M&A in fragmented behavioral health market
+### Gate Checklist (Investment Rules v2.0)
 
-**Negative:**
-- Washington policy changes on Medicaid/ACA
-- Wage inflation re-acceleration
-- Recession reducing commercial insurance volumes
+| Gate | Status | Notes |
+|------|--------|-------|
+| 1. Business Understanding | PASS | Completed business-analysis-framework |
+| 2. Projection Fundamentals | PASS | WACC derived (8.34%), growth from TAM/share |
+| 3. Multi-Method Valuation | PASS | DCF + EV/EBITDA, weighted 50/50 |
+| 4. Margin of Safety | **MARGINAL** | 28.8% vs 25% required (Tier B) |
+| 5. Macro Context | PASS | Neutral, not adversely affected |
+| 6. Portfolio Fit | PASS | Within position/sector limits |
+| 7. Autocritica | PASS | Documented below |
 
----
+### Autocritica
 
-## 9. Autocritica (Critical Thinking)
+**Assumptions Made:**
+- 5-6% revenue growth is achievable (supported by behavioral health TAM)
+- 7.5x EV/EBITDA is fair (in-line with sector, adjusted for quality)
+- ROIC will remain at/above WACC (not guaranteed)
 
-**Assumptions made:**
-- 2025E EPS of $21.80 is achievable (consensus, aligned with management raised guidance)
-- 12-14x P/E is sustainable fair multiple (could compress if growth slows)
-- Behavioral health secular growth continues (well-supported by demographic/policy trends)
+**Biases Detected:**
+- DCF gives higher upside than EV/EBITDA, potentially inflated by FCF volatility
+- Averaging methods may mask true uncertainty
 
-**Biases detected:**
-- DCF shows extremely high upside ($357 base), which may be inflated by recent FCF recovery from abnormally low 2021-2022 base. I have discounted DCF weight to 40%.
-- Healthcare services are not in my typical European value focus -- US healthcare has unique regulatory risks I may underweight.
+**Evidence I Might Be Wrong:**
+- ROIC ~10% vs WACC 8.34% = only 166bp spread. Minimal value creation.
+- EV/EBITDA Bear case shows only 2.8% upside - not much margin for error
+- Behavioral health staffing may be structural, not cyclical
 
-**Evidence I might be wrong:**
-- ROIC at ~10% is barely above WACC (~9.8%). The company is not a clear value creator.
-- P/E of 9.6x may reflect appropriate discount for a company with near-WACC ROIC and cyclical FCF.
-- Behavioral health staffing problems may be structural, not cyclical.
+**Counter-Arguments:**
+- 2024 record earnings suggest normalization is real
+- Forward P/E 8.6x on $21.80 EPS = very cheap if estimates are met
+- $1.5B buyback provides share price support
 
-**Counter-argument to bearish view:**
-- 2024 was record earnings with clear positive trajectory
-- Forward P/E 8.6x on consensus $21.80 implies 30% EPS growth already baked in
-- Even at 10x forward earnings, stock is worth $218 (8% upside minimum)
+### RECOMMENDATION
 
----
+**STATUS: HOLD (downgraded from BUY)**
 
-## 10. Decision
+**Rationale:**
+1. MoS of 28.8% exceeds Tier B threshold (25%) but is not compelling
+2. EV/EBITDA method shows only 20% upside - methods diverge significantly
+3. ROIC barely exceeds WACC - not a quality compounder
+4. Prefer to HOLD existing position but NOT ADD at current levels
 
-**RECOMMENDATION: BUY (Tier B, MoS 35.8% > 25% required)**
-
-| Parameter | Value | Limit | Status |
-|-----------|-------|-------|--------|
-| Position size | Max 7% | 7% | OK |
-| Sector (Healthcare) | PFE already held | 25% | Need to check total |
-| Geography (USA) | Check current | 35% | Need to check total |
-| MoS | 35.8% | 25% (Tier B) | PASS |
-| Thesis documented | Yes | Required | PASS |
-| Moat identified | Narrow | Required | PASS |
-
-**Suggested entry:** Current price $201.26 / EUR 169.78. Fair value blended estimate $313.
-**Position size:** Standard 4-5% (subject to portfolio-ops verification of sector/geo limits).
-**Exit target:** $280-300 range (conservative, leaving buffer vs fair value).
-**Stop-loss thesis:** Sell if ROIC consistently below WACC for 2+ quarters, or if behavioral health volumes decline YoY.
+**Action Triggers:**
+- **ADD at $180 or below** (30%+ MoS on blended, 15%+ MoS on conservative EV/EBITDA Bear)
+- **SELL if ROIC < WACC for 2 consecutive quarters** (thesis invalid)
+- **PARTIAL SELL at $260-280** (approach fair value range)
 
 ---
 
-## 11. Dividend Yield Data Error - CONFIRMED
+## 10. KEY METRICS SUMMARY
 
-The screener reported 40.0% yield. This is a yfinance data error. Actual annual dividend is $0.80/share ($0.20 quarterly), yielding approximately 0.4% at current price. UHS is a buyback story, not a dividend story. The $1.5B buyback authorization is the primary capital return mechanism.
+| Metric | Value |
+|--------|-------|
+| Current Price | $201.86 (EUR 171.16) |
+| Blended Fair Value (v2.0) | $283.74 |
+| Margin of Safety | 28.8% |
+| WACC (derived) | 8.34% |
+| ROIC | ~10% |
+| ROIC-WACC Spread | 1.66pp (marginal) |
+| P/E (TTM) | 9.6x |
+| Forward P/E | 8.6x |
+| EV/EBITDA | 6.9x |
+| FCF Yield | 6.6% |
+| Dividend Yield | 0.4% (NOT 40% - data error) |
+| Quality Score | 7/10 |
+| Tier | B |
+| Recommendation | HOLD |
 
 ---
 
 ## Sources
 
 - [UHS Investor Relations](https://ir.uhs.com/)
-- [UHS Q1 2025 Results](https://ir.uhs.com/news-releases/news-release-details/universal-health-services-inc-announces-2025-first-quarter)
-- [UHS 2024 Full Year Results](https://ir.uhs.com/news-releases/news-release-details/universal-health-services-inc-announces-2024-fourth-quarter-and)
-- [UHS ROE History - MacroTrends](https://www.macrotrends.net/stocks/charts/UHS/universal-health-services/roe)
-- [UHS FCF History - MacroTrends](https://www.macrotrends.net/stocks/charts/UHS/universal-health-services/free-cash-flow)
-- [ROIC - GuruFocus](https://www.gurufocus.com/term/roic/UHS)
+- [UHS Q3 2025 Results](https://ir.uhs.com/news-releases/news-release-details/universal-health-services-inc-announces-financial-results-0)
+- [UHS Q4 2025 Earnings Date](https://www.stocktitan.net/news/UHS/universal-health-services-inc-announces-date-for-fourth-quarter-2025-c0jxssh3f37l.html)
 - [US Behavioral Health Market - Fortune Business Insights](https://www.fortunebusinessinsights.com/u-s-behavioral-health-market-105298)
-- [UHS Raises Revenue Guidance 2025 - Healthcare Dive](https://www.healthcaredive.com/news/universal-health-services-earnings-third-quarter-2025/804003/)
-- [Acadia Healthcare PE - MacroTrends](https://www.macrotrends.net/stocks/charts/ACHC/acadia-healthcare/pe-ratio)
-- [Tenet Healthcare PE - MacroTrends](https://www.macrotrends.net/stocks/charts/THC/tenet-healthcare/pe-ratio)
+- [US Behavioral Health Market - Precedence Research](https://www.precedenceresearch.com/us-behavioral-health-market)
+- [US Treasury Rates - Treasury.gov](https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value=2026)
+- [US 10Y Treasury - Trading Economics](https://tradingeconomics.com/united-states/government-bond-yield)
+- yfinance data (beta, financials, multiples)

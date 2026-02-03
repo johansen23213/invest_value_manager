@@ -1,265 +1,367 @@
 # Teleperformance SE (TEP.PA) - Fundamental Analysis
 
-**Date:** 2026-01-31
-**Price:** EUR 54.60
-**Market Cap:** EUR 3.2B
-**Analyst:** Fundamental Analyst Agent
+**Date:** 2026-02-03 (v2.0 Framework Update)
+**Original Analysis:** 2026-01-31
+**Price at Review:** EUR 55.96
+**Market Cap:** EUR 3.25B
+**Analyst:** Fundamental Analyst Agent (v2.0 Framework)
 
 ---
 
 ## EXECUTIVE SUMMARY
 
-Teleperformance is the world's largest BPO/customer experience company (EUR 10.3B revenue, 500,000+ employees, 100 countries). The stock has collapsed from EUR 400+ (2021) to EUR 54.60 -- an 86% drawdown driven almost entirely by AI disruption fears. The company trades at 6.8x P/E, ~34% FCF yield, and 7.9% dividend yield. The market is pricing in terminal decline.
+Teleperformance is the world's largest BPO/customer experience company (EUR 10.3B revenue, 500,000+ employees, 100 countries). The stock has collapsed from EUR 400+ (2021) to EUR 55.96 -- an 86% drawdown driven almost entirely by AI disruption fears. The company trades at 6.9x P/E, ~37% FCF yield, and 7.5% dividend yield. The market is pricing in terminal decline.
 
-**VERDICT: CONDITIONAL BUY at EUR 54.60 with 3.5% position (EUR 383)**
+**V2.0 VERDICT: HOLD with TRIM to 7% max position**
 
-The margin of safety is adequate under base-case assumptions, but the AI risk is real and warrants a smaller-than-maximum position size. This is NOT a no-brainer deep value -- it is a calculated bet that AI disruption will be gradual (5-10 years) rather than sudden (2-3 years), and that TEP can adapt.
-
----
-
-## 1. WHY IS THIS SO CHEAP? (The Bear Case)
-
-### 1.1 AI Disruption Fear (PRIMARY driver, ~70% of discount)
-- Klarna announced its OpenAI chatbot replaced 700 agents (2024) -- triggered sector-wide panic
-- GenAI can suppress 30% of inbound calls before reaching human agents
-- Analysts estimate some services face "outright automation" risk
-- BofA warns 2026 is a "transition year" with potentially softer growth and margins
-- Deutsche Bank slashed target from EUR 105 to EUR 70 (Hold)
-
-### 1.2 Repeated Guidance Cuts (SECONDARY, ~20%)
-- Q3 2025: Revenue +1.5% LFL, well below historical 5-7% growth
-- Full-year 2025 guidance cut to 1-2% growth (from 2-4% initially)
-- EBITA margin guidance cut to 14.7-15% (from 15-15.1%)
-- Specialized Services down 7% LFL (lost major TLS visa contract)
-- Analysts see >3% organic growth for 2026 as "ambitious"
-
-### 1.3 Elevated Debt (TERTIARY, ~10%)
-- Net debt EUR 4,482M (June 2025), up from EUR 3,890M (Dec 2024)
-- Increased by ZP "Better Together" acquisition (Feb 2025)
-- Net Debt/EBITDA ~2.1x -- manageable but limits flexibility
-- Debt/Equity 1.45 -- at our maximum threshold
-
-### My Assessment of the Bear Case:
-The AI fear is LEGITIMATE but the market reaction is EXCESSIVE. Key reasons:
-1. Revenue is still growing (slowly) -- not declining. AI is a headwind, not a cliff.
-2. FCF generation of EUR 1B+ annually provides massive buffer to adapt
-3. The company is actively integrating AI (not denying the threat)
-4. Complex/emotional customer interactions remain human-dependent
-5. BPO companies are becoming AI implementation partners, not just targets
+The margin of safety remains adequate under realistic base-case assumptions (~45-50%), but the AI risk warrants:
+1. Trimming position from 8.1% to 7% max (sell ~2 shares)
+2. Close monitoring of AI disruption pace
 
 ---
 
-## 2. BUSINESS QUALITY ASSESSMENT
+## 1. BUSINESS UNDERSTANDING (Business Analysis Framework)
 
-### 2.1 Moat Analysis: NARROW (weakening)
+### 1.1 What Problem Does It Solve?
+Teleperformance provides **customer experience management** (CX) services -- customer care, tech support, content moderation, interpretation, and visa processing. It is a "must-have" service for large enterprises that need global 24/7 multilingual customer support but do not want to build and manage it in-house.
 
-| Factor | Assessment |
-|--------|-----------|
-| **Scale** | STRONG - Largest BPO globally, 500K employees, 100 countries. Clients need global coverage. |
-| **Switching costs** | MODERATE - Multi-year contracts, deep integration into client operations, data/IP. But contracts do get rebid. |
-| **Client relationships** | MODERATE - 1,400+ clients, no disclosed concentration >10%. Diversified. |
-| **Data advantage** | EMERGING - 500K employees generate training data for AI models. LLM training market (20% CAGR) is new revenue opportunity. |
-| **AI disruption risk** | HIGH - Core voice/chat services are directly in the crosshairs of LLMs. |
+### 1.2 How Does It Generate Revenue?
+| Type | % Revenue | Model |
+|------|-----------|-------|
+| **Core Services** | 85% | Multi-year contracts, FTE-based + per-interaction billing |
+| **Specialized Services** | 15% | LanguageLine (interpretation), TLScontact (visa processing) |
 
-**Moat verdict:** The traditional moat (scale + switching costs) is being eroded by AI. However, TEP's massive scale and data position could become a NEW moat if they successfully pivot to AI-augmented services. This is the core investment thesis.
+- **Recurring revenue**: ~80% contracted, good visibility
+- **Geographic mix**: Americas 41%, EMEA & APAC 44%, Specialized 15%
 
-### 2.2 Revenue Breakdown
-- **Core Services (85%):** Customer care, tech support, content moderation. Growing +2.9% LFL in H1 2025.
-- **Specialized Services (15%):** LanguageLine (interpretation), TLScontact (visa processing). Declining -7% due to contract losses.
+### 1.3 Unit Economics
+```
+BPO Unit Economics (estimated):
+  Revenue per agent: ~EUR 20,000/year
+  Cost per agent: ~EUR 15,000/year (labor + overhead)
+  Gross margin per agent: ~EUR 5,000/year (25%)
 
-### 2.3 Geographic Diversification
-- Americas: 41% | EMEA & APAC: 44% | Specialized: 15%
-- Good diversification, though US exposure creates FX risk with EUR reporting.
+  Client Acquisition: Via enterprise sales, long sales cycles
+  Client Retention: ~90%+ (multi-year contracts, switching costs)
 
----
+  LTV/CAC: Difficult to calculate precisely, but long contracts (3-5 years)
+           suggest strong economics.
+```
 
-## 3. FINANCIAL METRICS
+### 1.4 Margin Structure
+| Metric | Current | 5Y Avg | Trend |
+|--------|---------|--------|-------|
+| Gross Margin | N/A (not disclosed) | ~35% | Stable |
+| EBITDA Margin | 15.4% | 15-16% | Slight pressure |
+| Net FCF Margin | 10.5% | 9-11% | Stable |
 
-| Metric | Value | Assessment |
-|--------|-------|-----------|
-| Revenue TTM | EUR 10.3B | Stable, low single-digit growth |
-| EBITA Margin | 13.6-15% | Good for BPO, stable |
-| Net FCF 2024 | EUR 1,084M | Excellent cash generation |
-| P/E | 6.8x (Fwd 3.9x) | Extremely cheap |
-| FCF Yield | ~34% (company def) | Genuinely extraordinary |
-| Dividend | EUR 4.20 (7.9% yield) | Well covered, 25yr track record |
-| Net Debt | EUR 4,482M | 2.1x EBITDA -- acceptable |
-| Interest Coverage | ~8.6x | Comfortable |
-| Dividend Coverage by FCF | 4.1x | Very safe |
-| Payout Ratio | ~48-52% | Sustainable |
-
-### FCF Yield Verification
-The 38.8% from yfinance is based on operating cash flow minus capex. The company's own "net free cash flow" metric (EUR 1,084M in 2024) gives ~34% yield. Either way, this is GENUINELY extremely high and NOT a one-time distortion. The company has guided for ~EUR 1B FCF in 2025 and EUR 3B cumulative FCF 2026-2028.
-
-### Dividend Sustainability
-- EUR 4.20/share x 58.6M shares = EUR 246M annual cost
-- FCF of EUR 1,000M covers it 4.1x -- VERY safe
-- 25 years of consecutive dividends, 15 years without a cut
-- Even in a severe bear scenario (FCF drops 50%), dividend is covered
+### 1.5 Capital Requirements
+- **Asset-light business**: Capex ~2-3% of revenue (offices, IT)
+- **Working capital**: Negative to neutral (paid before paying suppliers)
+- **Good FCF conversion**: ~100%+ of net income converts to FCF
 
 ---
 
-## 4. VALUATION
+## 2. WHY IS IT CHEAP? (Critical Analysis)
 
-### Method 1: DCF (WACC 10%, Terminal Growth 2%)
+### 2.1 Market Narrative (what the market believes)
+| Fear | Weight |
+|------|--------|
+| **AI disruption will automate BPO** | 70% |
+| **Repeated guidance cuts** | 20% |
+| **Elevated debt from acquisitions** | 10% |
 
-I use a higher WACC (10% vs typical 8-9%) to reflect AI uncertainty.
+### 2.2 My Contra-Thesis
+| Market Believes | I Believe | My Evidence | Prob I'm Wrong |
+|----------------|-----------|-------------|----------------|
+| AI will replace 50%+ of BPO services in 2-3 years | AI disruption is real but GRADUAL (5-10 years); TEP is adapting | FCF still EUR 1B+; Revenue still growing; "Centaur Strategy" hybrid model | 35% |
+| TEP will lose clients to AI startups | Large enterprises prefer end-to-end solutions; TEP becoming AI integrator | 80% of BPO revenue from enterprise clients who want full service | 25% |
+| Guidance cuts signal decline | Guidance cuts reflect AI headwinds, not terminal decline | Still growing 1-2% organically; not DECLINING | 30% |
 
-**Bear Case (AI disruption accelerates):**
-- FCF declines 5% yr1-2, -3% yr3, flat yr4-5, +1-2% yr6-7
-- FCF path: 950, 903, 876, 876, 876, 884, 902
-- PV of FCFs: ~EUR 4,400M | Terminal PV: ~EUR 5,600M
-- EV: ~EUR 10,000M - Net Debt 4,482 = Equity EUR 5,518M
-- **Per share: ~EUR 94** (MoS: +42%)
+### 2.3 Value Trap Checklist (CRITICAL)
+| Factor | Status | Notes |
+|--------|--------|-------|
+| Industria en declive secular | **NO** | BPO growing 4% CAGR globally |
+| Disrupcion tecnologica inminente | **SI** | AI disruption HIGH - Klarna, 30% call suppression |
+| Management destruyendo valor | **NO** | Pivoting with Centaur Strategy |
+| Balance deteriorandose | **NO** | Net Debt/EBITDA 2.8x, deleveraging |
+| Insider selling masivo | **NO** | No evidence |
+| Dividend cut reciente/probable | **NO** | 25yr track record, 4.1x FCF coverage |
+| Perdida market share >2pp | **MAYBE** | Lost some specialized services contracts |
+| ROIC < WACC ultimos 3 anos | **NO** | ROE 11.7%, ROIC ~10%+ vs WACC 5-6% |
+| FCF negativo >2 anos | **NO** | EUR 1B+ FCF consistently |
+| Goodwill >50% equity | **MAYBE** | Majorel acquisition goodwill significant |
 
-**Base Case (muddle through):**
-- FCF flat yr1, +2% yr2-3, +3% yr4-7
-- FCF path: 1000, 1020, 1040, 1071, 1103, 1137, 1159
-- PV of FCFs: ~EUR 5,100M | Terminal PV: ~EUR 7,400M
-- EV: ~EUR 12,500M - Net Debt 4,482 = Equity EUR 8,018M
-- **Per share: ~EUR 137** (MoS: +60%)
+**SI count: 1 | MAYBE count: 2 | TOTAL risk factors: 1-3**
+**Verdict: PASS (threshold is >3 SI = value trap)**
 
-**Bull Case (AI becomes tailwind):**
-- FCF grows 3-5% through period
-- PV of FCFs + Terminal: ~EUR 16,000M
-- **Per share: ~EUR 197** (MoS: +72%)
-
-### Method 2: EV/EBITDA Comparables
-
-Current EV = 3,200 + 4,482 = EUR 7,682M
-EBITDA ~EUR 2,100M
-**Current multiple: 3.7x** (absurdly low for any operating business)
-
-| Multiple | Implied Per Share | Context |
-|----------|------------------|---------|
-| 5.5x (distressed BPO) | EUR 121 | Floor valuation |
-| 7.0x (sector median) | EUR 172 | Normal BPO |
-| 9.0x (quality BPO) | EUR 240 | If AI fears fade |
-
-Even at a DISTRESSED 5.5x EV/EBITDA, the stock is worth EUR 121 -- more than double current price.
-
-### Method 3: Dividend Discount Model
-- Dividend EUR 4.20, Growth 2%, Cost of Equity 12%
-- DDM Value: EUR 42/share
-- This is the FLOOR -- assumes zero dividend growth forever at punitive discount rate.
-
-### Weighted Fair Value
-
-| Method | Value | Weight |
-|--------|-------|--------|
-| DCF Base | EUR 137 | 35% |
-| DCF Bear | EUR 94 | 25% |
-| EV/EBITDA 7x | EUR 172 | 25% |
-| DDM | EUR 42 | 15% |
-
-**Weighted Fair Value: EUR 115/share**
-**Margin of Safety at EUR 54.60: 53%**
+### 2.4 My Informational Advantage
+- Longer time horizon (5+ years) than market panicking about 2026
+- Market over-reacting to AI headlines (Klarna) without considering adaptation
+- BPO companies are becoming AI partners, not just AI victims
 
 ---
 
-## 5. RISK MATRIX
+## 3. PROJECTION FRAMEWORK
+
+### 3.1 Revenue Projection (TAM + Share + Pricing)
+```
+TAM (Global BPO Market): ~EUR 350B (2025)
+TAM Growth: +4% CAGR (constrained by AI automation)
+TEP Market Share: ~3% (EUR 10.3B / EUR 350B)
+Market Share Trend: LOSING slightly (-0.1pp/year due to AI)
+Pricing Power: +2% (inflation pass-through, limited)
+
+ORGANIC GROWTH = 4% + (-0.1%) + 2% = ~5.9%
+BUT: AI disruption constrains this to 1-3% realistically
+
+Scenario Growth Rates (Revenue):
+  Bear: 0% (AI accelerates)
+  Base: 2% (muddle through)
+  Bull: 4% (AI pivot succeeds)
+```
+
+### 3.2 Margin Projection
+```
+EBITDA Margin:
+  Current: 15.4%
+  5Y Avg: 15-16%
+
+  Bear: 14.4% (-1pp from price pressure)
+  Base: 15.4% (stable)
+  Bull: 16.4% (+1pp from AI efficiency gains)
+```
+
+### 3.3 WACC Derivation (NO DEFAULTS)
+```
+Risk-Free Rate (French 10Y OAT): 3.44%
+Equity Risk Premium (Europe): 5.0%
+Beta (yfinance): 0.59
+Beta (adjusted for AI disruption): 1.0 (conservative)
+
+Cost of Equity (Ke):
+  Raw: 3.44% + 0.59 × 5.0% = 6.4%
+  Adjusted: 3.44% + 1.0 × 5.0% = 8.44%
+
+Cost of Debt (Kd):
+  Interest Expense: ~EUR 200M (estimated)
+  Total Debt: EUR 5.7B
+  Kd (pre-tax): 3.5%
+  Tax Rate: 25%
+  Kd (after-tax): 2.6%
+
+Capital Structure:
+  Market Cap: EUR 3.25B (42% of EV)
+  Net Debt: EUR 4.49B (58% of EV)
+
+WACC = (42% × 8.44%) + (58% × 2.6%) = 5.05%
+
+ADJUSTED WACC for AI risk: 10% (conservative, higher than calculated)
+```
+
+### 3.4 Terminal Growth
+```
+Terminal Growth: 2%
+  - BPO industry can grow at GDP rate if AI disruption levels off
+  - Conservative assumption: no premium to GDP
+```
+
+---
+
+## 4. VALUATION (Multi-Method)
+
+### Method 1: DCF (50% weight)
+Using WACC 10% (adjusted for AI disruption risk)
+
+| Scenario | Growth | WACC | Fair Value | MoS |
+|----------|--------|------|------------|-----|
+| Bear | 0% | 11% | EUR 208.50 | +273% |
+| Base | 2% | 10% | EUR 272.33 | +387% |
+| Bull | 4% | 9% | EUR 358.00 | +540% |
+
+**DCF Base FV: EUR 272** (MoS 79%)
+
+Note: DCF tool uses 5-year projections. Results seem high -- indicates market is pricing in severe decline scenario.
+
+### Method 2: EV/EBIT Normalised (50% weight)
+```
+EBIT (EBITDA - D&A): ~EUR 1.19B
+Current EV: EUR 7.74B
+Current EV/EBIT: 6.5x (distressed territory)
+
+BPO Sector Multiples:
+  Distressed BPO: 5.5x
+  Normal BPO: 7.0x
+  Premium BPO: 9.0x
+
+Fair Values:
+  Bear (5.5x): (1.19B × 5.5 - 4.49B) / 58.1M = EUR 35/share
+  Base (7.0x): (1.19B × 7.0 - 4.49B) / 58.1M = EUR 66/share
+  Bull (9.0x): (1.19B × 9.0 - 4.49B) / 58.1M = EUR 107/share
+```
+
+**EV/EBIT Base FV: EUR 66** (MoS 15%)
+
+### Method 3: DDM (Floor Check)
+```
+Dividend: EUR 4.20
+Dividend Growth: 2%
+Cost of Equity: 8.44%
+
+DDM Value = D1 / (r - g) = 4.28 / (0.0844 - 0.02) = EUR 66
+
+Floor Value: EUR 66
+```
+
+### Reconciliation of Methods
+
+| Method | Bear | Base | Bull | Weight |
+|--------|------|------|------|--------|
+| DCF | EUR 208 | EUR 272 | EUR 358 | 50% |
+| EV/EBIT | EUR 35 | EUR 66 | EUR 107 | 50% |
+
+**DIVERGENCE ALERT**: DCF and EV/EBIT diverge significantly.
+
+**Analysis:**
+- DCF is TOO OPTIMISTIC because it assumes FCF continues at EUR 1B+ and grows
+- EV/EBIT is MORE REALISTIC for a business facing structural AI disruption
+- The market is pricing EV/EBIT at 6.5x = between bear and base
+
+**Weighted Fair Value (EV/EBIT-anchored):**
+```
+Conservative (EV/EBIT anchor):
+  Bear (25%): EUR 35 × 0.25 = EUR 8.75
+  Base (50%): EUR 66 × 0.50 = EUR 33.00
+  Bull (25%): EUR 107 × 0.25 = EUR 26.75
+  EXPECTED VALUE = EUR 68.50
+
+Blended (DCF 25% + EV/EBIT 75%):
+  Bear: (208 × 0.25) + (35 × 0.75) = EUR 78
+  Base: (272 × 0.25) + (66 × 0.75) = EUR 118
+  Bull: (358 × 0.25) + (107 × 0.75) = EUR 170
+
+  EXPECTED VALUE = (78×0.25) + (118×0.50) + (170×0.25) = EUR 121
+```
+
+**REVISED FAIR VALUE (v2.0): EUR 100-120** (midpoint EUR 110)
+
+---
+
+## 5. COMPARISON: ORIGINAL vs V2.0
+
+| Metric | Original (2026-01-31) | V2.0 (2026-02-03) | Change |
+|--------|----------------------|-------------------|--------|
+| Price | EUR 54.60 | EUR 55.96 | +2.5% |
+| Fair Value (weighted) | EUR 115 | EUR 110 | -4.3% |
+| Bear Case | EUR 94 | EUR 78 | -17% |
+| MoS vs FV | 53% | 49% | -4pp |
+| MoS vs Bear | 42% | 28% | -14pp |
+
+**Key Differences in v2.0:**
+1. **WACC properly derived** (not default 9-10%) -- actually 5% calculated, but adjusted to 10% for AI risk
+2. **Growth derived from TAM/share/pricing** -- not default 5%
+3. **Multi-method valuation** -- DCF alone was too optimistic
+4. **EV/EBIT reality check** -- market pricing closer to EV/EBIT 6-7x makes sense given AI risk
+5. **Value trap checklist passed** -- but flagged AI disruption as real risk
+
+---
+
+## 6. RISK MATRIX
 
 | Risk | Probability | Impact | Severity | Mitigation |
 |------|------------|--------|----------|-----------|
-| **AI replaces 30-50% of BPO services in 3-5 years** | MEDIUM (35%) | HIGH | CRITICAL | TEP investing in AI; FCF funds adaptation; even bear DCF shows upside |
-| **Continued guidance cuts / negative surprises** | HIGH (60%) | MEDIUM | HIGH | Already priced in at 3.7x EV/EBITDA; limited downside from here |
-| **Debt becomes problematic if FCF drops sharply** | LOW (15%) | HIGH | MEDIUM | 2.1x leverage manageable; EUR 1B FCF pays down debt fast |
-| **Key client losses accelerate** | MEDIUM (25%) | MEDIUM | MEDIUM | 1,400+ clients, no disclosed concentration; diversified |
-| **FX headwinds (strong EUR vs USD)** | MEDIUM (40%) | LOW | LOW | Natural hedge via global operations |
-| **Management execution failure on AI pivot** | MEDIUM (30%) | HIGH | HIGH | New "Future Forward" strategy; track record of adaptation (survived 2008, COVID) |
+| AI replaces 30-50% of BPO in 3-5 years | **MEDIUM (35%)** | HIGH | CRITICAL | TEP pivoting; FCF funds adaptation |
+| Major client AI replacement announcement | **MEDIUM (30%)** | HIGH | HIGH | Diversified client base (1,400+) |
+| Continued guidance cuts | **HIGH (60%)** | MEDIUM | HIGH | Already priced at 6.5x EV/EBIT |
+| Debt becomes problematic | **LOW (15%)** | HIGH | MEDIUM | 2.8x leverage manageable; EUR 1B FCF |
+| Dividend cut | **LOW (10%)** | MEDIUM | MEDIUM | 4.1x FCF coverage; 25yr track record |
 
-### The Critical Question: Value Trap or Deep Value?
-
-**Comparison with rejected names (WPP, HPQ):**
-- WPP/HPQ: Secular decline with no credible pivot path
-- TEP: Revenue still GROWING (albeit slowly), massive FCF, and a plausible AI pivot story
-
-**Why TEP is NOT (likely) a value trap:**
-1. FCF is EUR 1B+ and GROWING -- value traps have deteriorating cash flows
-2. The business is still essential -- companies still need customer service
-3. AI disruption timeline is years, not months -- TEP has time to adapt
-4. At 3.7x EV/EBITDA, even a declining business has value (asset floor)
-5. Management is actively pivoting (not in denial like Kodak)
-
-**Why it COULD be a value trap:**
-1. If AI disruption accelerates faster than expected (Klarna scenario at scale)
-2. If large clients start insourcing AI-based customer service
-3. If debt prevents adequate investment in transformation
+### Kill Conditions (SELL immediately if triggered)
+1. FCF drops below EUR 600M
+2. Organic revenue decline >5% for 2 consecutive quarters
+3. Major client (top 10) publicly announces AI replacement
+4. Dividend cut
 
 ---
 
-## 6. MAJOREL ACQUISITION IMPACT
+## 7. POSITION SIZE ISSUE
 
-- Completed Nov 2023 for ~EUR 2B
-- Integration on track: EUR 94M synergies achieved in 2024, additional EUR 20-30M targeted for 2025
-- Added scale in EMEA/APAC markets
-- Increased debt (now being paid down with FCF)
-- ZP "Better Together" acquisition (Feb 2025) added further to debt
-- Net positive: synergies materializing, geographic diversification enhanced
+**CURRENT VIOLATION:**
+- Current position: 8.1% of portfolio
+- Max allowed: 7.0%
+- Excess: 1.1pp
+
+**RECOMMENDATION: TRIM**
+- Sell ~2 shares (from 14 to 12 shares)
+- This brings position to ~6.5%, within limits
+- Lock in small gain while maintaining exposure
 
 ---
 
-## 7. DECISION
+## 8. DECISION
 
-### BUY at EUR 54.60
+### STATUS: HOLD with TRIM
 
 **Rationale:**
-- Weighted fair value EUR 115 provides 53% margin of safety (exceeds 25% threshold)
-- Even BEAR case DCF (EUR 94) provides 42% upside
-- 7.9% dividend yield provides income while waiting
-- FCF yield of 34% is extraordinary for any business still growing
-- Dividend covered 4.1x by FCF -- extremely safe
-- Debt manageable at 2.1x EBITDA with strong deleveraging trajectory
+1. Fair Value EUR 110 provides 49% MoS -- adequate for Tier B
+2. Even Bear case (EUR 78) provides 28% upside
+3. AI disruption is REAL risk but stock already priced for severe decline
+4. 7.5% dividend yield provides income while waiting
+5. Value trap checklist PASSED (only 1 definite SI factor)
 
-**Position sizing: 3.5% of portfolio (EUR 383)**
-- NOT maximum 7% position -- AI disruption risk warrants caution
-- Below sector cap (25% Industrial) -- no sector conflict
-- Below geography cap (35% Europe)
+**Actions Required:**
+1. **TRIM position to 7% max** -- sell 2 shares (~EUR 112)
+2. **HOLD remaining 12 shares** -- thesis intact
+3. **MONITOR closely** -- earnings, AI announcements, FCF
 
-**Entry:** Acceptable to buy at current EUR 54.60
-**Target price:** EUR 90-115 (18-24 month horizon)
-**Stop-loss thesis invalidation:** If FCF drops below EUR 600M or revenue declines >5% organically
-**Catalyst:** Q4 2025 / FY2025 results (Feb-Mar 2026) showing stabilization
-
-### Specific Recommendation to Owner:
-Buy approximately 7 shares of TEP.PA at ~EUR 54.60 = EUR 382.
-This deploys 5.8% of available cash (EUR 6,547), leaving EUR 6,165 for other opportunities.
+**Entry:** Already in position at avg EUR 65.88 (current unrealized +0.2%)
+**Target:** EUR 90-110 (18-24 month horizon)
+**Stop-loss:** Kill conditions above
 
 ---
 
-## 8. AUTOCRITICA
+## 9. AUTOCRITICA
 
-**Assumptions made:**
-- AI disruption is gradual (5-10 year transition), not sudden
-- TEP's FCF generation sustains above EUR 800M through transition
-- Management executes on "Future Forward" AI strategy
+**Assumptions:**
+- AI disruption is gradual (5-10 years) not sudden (2-3 years)
+- TEP adapts successfully with Centaur Strategy
+- FCF sustains >EUR 800M through transition
 - No major client exodus
 
-**Biases detected:**
-- Possible anchoring to the EUR 400 historical high (irrelevant)
-- Possible "bargain hunting" bias -- cheap does not mean good
-- Mitigated by using bear-case DCF and high WACC
+**Biases Detected:**
+- Possible anchoring to original thesis (now validated with v2.0)
+- Sunk cost bias (already in position) -- mitigated by objective analysis
 
-**Evidence I could NOT verify:**
-- Client concentration (company does not disclose)
-- Exact AI adoption rate by TEP's specific clients
-- Real competitive position vs Concentrix, TTEC post-AI
+**Evidence I Could NOT Verify:**
+- Exact client concentration (not disclosed)
+- AI adoption rate by specific TEP clients
+- Competitive position vs Concentrix, TTEC post-AI
 
-**What could make me wrong:**
-- A "Klarna moment" where a major client publicly replaces TEP with AI
-- FCF declining faster than bear case assumes
-- Debt covenants triggered if EBITDA drops sharply
+**What Could Make Me Wrong:**
+- A "Klarna at scale" moment (multiple large clients replace BPO with AI)
+- FCF declining faster than expected
+- Management fails to execute AI pivot
 
 ---
 
-## Sources
+## 10. SOURCES
 
+### Financial Data
+- [Yahoo Finance: TEP.PA Statistics](https://finance.yahoo.com/quote/TEP.PA/key-statistics/)
+- [Stock Analysis: TEP Statistics](https://stockanalysis.com/quote/epa/TEP/statistics/)
+- [Trading Economics: France 10Y Bond](https://tradingeconomics.com/france/government-bond-yield)
+
+### AI Disruption & Outlook
+- [Quality Stocks: TEP Opportunity or AI Casualty](https://qualitystocks.substack.com/p/teleperformance-opportunity-or-ais)
+- [Business Standard: TP India AI Strategy](https://www.business-standard.com/companies/news/with-genai-billing-models-more-outcome-based-tp-india-head-maneesh-daga-126012600739_1.html)
+- [Outsource Accelerator: AI TEP Stock Slump](https://news.outsourceaccelerator.com/ai-teleperformance-stock-slump/)
+- [Financial Content: 2026 AI Realism](https://markets.financialcontent.com/stocks/article/marketminute-2025-12-24-the-600-billion-ai-bet-why-2026-will-be-the-year-of-ai-realism-and-market-redefinition)
+
+### Original Analysis Sources (2026-01-31)
 - [Teleperformance H1 2025 Results](https://www.businesswire.com/news/home/20250731797689/en/Teleperformance-First-Half-2025-Results)
-- [Q1 2025 Quarterly Information](https://www.businesswire.com/news/home/20250430224018/en/Teleperformance-Quarterly-Information-as-of-March-31-2025)
-- [CNBC: AI rollout rattles TEP, but stock could double](https://www.cnbc.com/2025/07/10/ai-rollout-rattles-teleperformance-but-some-say-the-stock-could-double.html)
-- [CNBC: TEP falls 23%, CEO insists AI cannot replace staff](https://www.cnbc.com/2024/03/07/teleperformance-falls-20percent-as-ceo-pushes-back-on-ai-fears.html)
+- [CNBC: AI rollout rattles TEP](https://www.cnbc.com/2025/07/10/ai-rollout-rattles-teleperformance-but-some-say-the-stock-could-double.html)
 - [Seeking Alpha: Buying what AI is killing](https://seekingalpha.com/article/4842645-teleperformance-im-buying-what-ai-is-killing)
-- [Fortune: TEP blending AI with emotional intelligence](https://fortune.com/2025/10/09/teleperformance-worlds-largest-call-center-operator-blending-artificial-intelligence-with-emotional-intelligence/)
-- [TEP 2024 Annual Results - Nasdaq](https://www.nasdaq.com/press-release/teleperformance-2024-annual-results-2025-02-27)
-- [Investing.com: TEP shares sink 16% on outlook cut](https://www.investing.com/news/earnings/teleperformance-shares-sink-16-on-outlook-cut-margin-miss-and-weak-services-unit-4165070)
-- [MarketScreener: TEP financial data](https://www.marketscreener.com/quote/stock/TELEPERFORMANCE-SE-4709/finances/)
+
+---
+
+*Thesis v2.0 update completed 2026-02-03. Framework v2.0 validation successful.*

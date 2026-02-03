@@ -1,14 +1,84 @@
 # Allstate Corporation (ALL)
 
-> Actualizado: 2026-01-27
-> Status: ANÁLISIS COMPLETADO - Pendiente Investment Committee
-> Confianza: ALTA
+> Actualizado: 2026-02-03 (Re-evaluación Framework v2.0)
+> Status: HOLD - MODERATELY UNDERVALUED
+> Confianza: MEDIA-ALTA
 
 ## TL;DR
 
-Allstate es el #2 en seguros de hogar US (8.9% cuota) y #4 en auto (10.4% cuota), cotizando a P/E 6.3x con ROE 37% y combined ratio 80% (Q3 2025). Oportunidad value excepcional: trading 72% más barato que Admiral UK (P/E 22.8x) con quality comparable. Turnaround completado: de pérdidas 2022 a $3.7B net income Q3 2025. Management retorna capital agresivamente ($42.8B buybacks desde 1995). Margen seguridad 20-30% conservador.
+Allstate es el #2 en seguros de hogar US y #4 en auto, cotizando a P/E 6.5x con ROE 37% y combined ratio 80% (Q3 2025). **Re-evaluación v2.0:** Fair value $240, MoS 16% (bajó de 21% por subida de precio). Value trap checklist: 0-1 factores (OK). Valoración P/B vs ROE confirma thesis. HOLD posición actual, esperar earnings 5-feb antes de añadir.
 
-**RECOMENDACIÓN PRELIMINAR:** COMPRAR - Validar con /decide.
+**STATUS:** HOLD - Earnings Q4 en 2 días (5-feb-2026)
+
+---
+
+## Re-Evaluación Framework v2.0 (2026-02-03)
+
+### Value Trap Checklist
+
+| Factor | Status | Evidencia |
+|--------|--------|-----------|
+| Industria en declive secular | NO | P&C insurance estable |
+| Disrupción tecnológica | NO | InsurTech threat pero incumbents adaptando |
+| Management destruyendo valor | NO | Turnaround exitoso 2022→2025 |
+| Balance deteriorándose | NO | BV creciendo +20% YoY |
+| Insider selling masivo | ⚠️ MIXTO | CEO vendiendo bajo 10b5-1 plan (pre-planificado) |
+| Dividend cut probable | NO | 33 años consecutivos |
+| Pérdida market share | NO | Estable #2 home, #4 auto |
+| ROIC < WACC | NO | ROE 37% >> WACC ~10% |
+| FCF negativo | NO | Net income $3.7B Q3 |
+| Goodwill >50% equity | NO | Insurance tangible business |
+
+**Resultado:** 0-1/10 factores → NO es value trap
+
+### WACC Derivado
+
+```
+Risk-Free Rate (Rf): 4.5%
+Beta: 1.0 (insurance is market-like)
+Equity Risk Premium: 5.5%
+Cost of Equity (Ke) = 4.5% + 1.0 × 5.5% = 10.0%
+```
+
+### Valoración Multi-Método
+
+**Método 1: P/B vs ROE (60% peso)** - Apropiado para financieras
+```
+P/B Justified = (ROE - g) / (Ke - g)
+Base Case (ROE 22%): P/B = 3.0x → FV = $80 × 3.0 = $240
+Bear (ROE 15%): P/B = 1.83x → FV = $147
+Bull (ROE 30%): P/B = 4.33x → FV = $347
+```
+
+**Método 2: P/E Comparativo (40% peso)**
+```
+EPS 2026E: $24 (consensus normalizado)
+P/E Target: 10x (conservative vs sector 12.9x)
+Fair Value: $240
+```
+
+**Reconciliación:**
+| Método | Fair Value | Peso | Weighted |
+|--------|-----------|------|----------|
+| P/B vs ROE | $240 | 60% | $144 |
+| P/E (10x) | $240 | 40% | $96 |
+| **WEIGHTED** | | 100% | **$240** |
+
+**Precio actual:** $200.76
+**Margen de Seguridad:** **16.4%**
+
+### Comparación: Thesis Original vs v2.0
+
+| Métrica | Original | Framework v2.0 |
+|---------|----------|----------------|
+| Fair Value | $240 | $240 |
+| MoS | 21% | 16.4% |
+| Método | P/E informal | P/B + P/E derivados |
+| Veredicto | "Barata" | Moderadamente undervalued |
+
+**Causa diferencia MoS:** Precio subió de $197.65 → $200.76 (+1.6%)
+
+---
 
 ---
 

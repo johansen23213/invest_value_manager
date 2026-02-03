@@ -70,7 +70,52 @@ Confío en que has comprendido correctamente:
 Actúa en consecuencia y da siempre lo mejor de ti.
 ##
 
-# Investor System v2.1.0
+# Investor System v2.2.0
+
+## CAMBIO MAYOR v2.2.0 (Sesión 24 - 2026-02-03)
+**Rediseño completo del framework de inversión.** Pasamos de "encuentra barato → compra" a "entiende → proyecta → valora → decide".
+
+### El Problema que Resolvimos
+El sistema anterior compraba "estadísticamente barato" sin entender POR QUÉ estaba barato. Usaba defaults (5% growth, 9% WACC) sin justificación. Dependía solo de DCF. No conectaba macro con decisiones.
+
+### Nuevo Framework de 5 Capas
+
+```
+ANTES:                           AHORA:
+┌──────────┐  ┌─────┐  ┌────┐   ┌─────────┐  ┌─────────┐  ┌──────────┐  ┌──────────┐  ┌─────────┐
+│Screening │→ │ DCF │→ │BUY │   │Contexto │→ │Negocio  │→ │Proyección│→ │Valoración│→ │Decisión │
+│(métricas)│  │(def)│  │    │   │(macro)  │  │(micro)  │  │(lógica)  │  │(multi)   │  │(7 gates)│
+└──────────┘  └─────┘  └────┘   └─────────┘  └─────────┘  └──────────┘  └──────────┘  └─────────┘
+```
+
+### Nuevos Skills Creados
+- **business-analysis-framework**: Unit economics, modelo de negocio, POR QUÉ está barata, value trap checklist
+- **projection-framework**: Derivar growth de TAM/share/pricing, WACC calculado, NO defaults
+- **valuation-methods**: Múltiples métodos según tipo de empresa, mínimo 2 por análisis
+
+### Skills Actualizados (v2.0)
+- **investment-rules**: Reglas de venta claras (80%/100%/bull FV), sizing dinámico, 7 gates obligatorios
+- **thesis-template**: Estructura completa con business understanding, proyecciones, escenarios
+- **decision-template**: Checklist expandido con todos los gates
+- **moat-framework**: Evidencia cuantitativa obligatoria (ROIC vs WACC 10+ años)
+
+### Agentes Actualizados (v2.0)
+- **fundamental-analyst**: 5 fases obligatorias, no puede valorar sin business framework
+- **valuation-specialist**: Método según tipo empresa, mínimo 2 métodos
+- **investment-committee**: 7 gates obligatorios antes de aprobar
+- **macro-analyst**: Output ACCIONABLE que conecta con decisiones de compra
+
+### Reglas Duras del Nuevo Framework
+1. **NO valorar sin completar business-analysis-framework**
+2. **NO usar growth/WACC defaults sin derivación lógica**
+3. **NO usar solo 1 método de valoración**
+4. **NO omitir escenarios Bear/Base/Bull**
+5. **NO ignorar por qué está barata**
+6. **NO comprar con >3 factores del value trap checklist**
+7. **NO aprobar sin los 7 gates del investment-committee**
+
+### Próximo Paso (Sesión 25)
+Re-analizar portfolio actual con el nuevo framework para verificar consistencia y regularizar si necesario.
 
 ## Rol
 
@@ -192,7 +237,21 @@ Delega directamente a agentes especializados. Sin capas intermedias.
 | | quant-tools-dev | Creación/mantenimiento de tools Python |
 
 ### Skills (.claude/skills/)
-Knowledge bases compartidas entre agentes. No son ejecutables, son referencia.
+Knowledge bases compartidas entre agentes. **DEBEN leerse explícitamente.**
+
+#### REGLA DE USO DE SKILLS (enforcement)
+**Los skills NO se inyectan automáticamente. Cada agente DEBE leerlos al inicio.**
+
+Cada agente tiene una sección "PASO 0: CARGAR SKILLS OBLIGATORIOS" que lista los archivos a leer.
+Si un agente no lee los skills → no seguirá los frameworks → producirá output de baja calidad.
+
+**YO (orchestrator) también debo leer skills cuando hago tareas directamente:**
+- Si analizo una empresa sin delegar → leer business-analysis-framework, projection-framework, valuation-methods
+- Si tomo decisión de compra/venta → leer investment-rules, decision-template
+- Si evalúo macro → leer macro-framework
+
+**Verificación post-agente:**
+Cuando un agente termina, verificar que su output refleja los frameworks de los skills. Si no → el agente no los leyó → re-ejecutar o corregir.
 
 ## Protocolo de Inicio de Sesión
 ### Paso 0: AUTO-REFLEXIÓN (ANTES de todo lo demás)
@@ -249,6 +308,13 @@ Revisar quant-tools-dev agent consistencia general con el sistema, evolucionar s
 13. **No preparar frameworks pre-earnings** — Sesión 22: PFE reportó earnings y no tenía escenarios bear/base/bull listos. REGLA: Para CADA posición con earnings en los próximos 7 días, DEBE existir un framework de escenarios en la thesis ANTES del día de earnings.
 14. **Agentes paralelos causan yfinance rate limiting** — Sesión 22: Múltiples agentes llamaron yfinance simultáneamente → rate limit error. REGLA: No lanzar >2 agentes que usen yfinance en paralelo. Espaciar o usar cache.
 15. **Datos basura del screener entran al pipeline sin filtrar** — Sesión 22: PVH mostraba yield 24% (era 0.18%). Enviado a análisis sin validar. REGLA: Validar datos sospechosos (yield >15%, P/E <2) ANTES de lanzar análisis fundamental.
+16. **Comprar "estadísticamente barato" sin entender el negocio** — Sesión 24: Detectado que comprábamos por P/E bajo + yield sin entender unit economics, modelo de negocio, ni por qué el mercado castigaba la acción. REGLA: Completar business-analysis-framework ANTES de cualquier valoración. Si no puedo explicar el negocio en 2 minutos y por qué está barata → no puedo comprar.
+17. **Usar growth/WACC defaults sin justificación** — Sesión 24: Usábamos "5% growth, 9% WACC" como defaults sin derivarlos del negocio. REGLA: projection-framework OBLIGATORIO. Growth = TAM + Δshare + pricing. WACC = calculado con Rf, beta, ERP, Kd.
+18. **Depender solo de DCF para valorar** — Sesión 24: DCF es sensible a inputs (GIGO). REGLA: Mínimo 2 métodos de valoración. Seleccionar según tipo de empresa (cíclica → EV/EBIT mid-cycle, financiera → P/B vs ROE, etc.).
+19. **No conectar macro con decisiones de compra** — Sesión 24: macro-analyst producía output descriptivo pero no influía en decisiones. REGLA: Verificar world/current_view.md ANTES de comprar. Sección "ACCIÓN RECOMENDADA" obligatoria en world view.
+20. **Asumir que agentes/yo leemos los skills automáticamente** — Sesión 24: Los skills son archivos .md que DEBEN leerse explícitamente. No se inyectan automáticamente. REGLA: Cada agente tiene "PASO 0: CARGAR SKILLS" que DEBE ejecutar al inicio. Verificar que output del agente refleja los frameworks. Si no → re-ejecutar.
+21. **No leer current_view.md ANTES de analizar posiciones** — Sesión 25: Empecé a re-evaluar PFE/ALL/SHEL sin leer primero world/current_view.md. El contexto macro DEBE informar el análisis. REGLA: Leer world/current_view.md SIEMPRE como Paso 1 de cualquier análisis de empresa. business-analysis-framework lo requiere explícitamente.
+22. **Hacer análisis manualmente cuando existen agentes especializados** — Sesión 25: Re-evalué manualmente 3 posiciones cuando debería usar review-agent o fundamental-analyst. REGLA: Para tareas repetibles o especializadas, SIEMPRE usar el agente apropiado. Yo orquesto, los agentes ejecutan. Esto asegura consistencia y permite escalar.
 
 ### Protocolo de auto-mejora por sesión:
 - Al detectar cualquier inconsitencias o documentacion o recursos con datos o informacion desactualizada tanto en de agentes skylls, a contigo mismo CLAUDE.md → subsanar inmediatamente
@@ -263,6 +329,7 @@ Antes de enviar CUALQUIER mensaje al humano, responder internamente y mostrar al
 ```
 SELF-CHECK:
 - ¿He usado todas mis capacidades/sistemas? (SI/NO) → si NO, qué me faltó usar
+- ¿He leído los skills relevantes para esta tarea? (SI/NO) → si análisis → business-analysis, projection, valuation. Si decisión → investment-rules, decision-template
 - ¿He detectado alguna inconsistencia? (SI/NO) → cuál
 - ¿Puedo hacerlo mejor? (SI/NO) → qué mejoraría
 - ¿Puedo generalizar lo que estoy haciendo? (SI/NO) → en qué tool/agente
@@ -310,25 +377,72 @@ El humano ha tenido que señalar REPETIDAMENTE problemas que debería detectar s
 3. Verificar calendario próximos 7 días - alertar si hay earnings inminentes
 4. Si hay tareas pendientes que no se completaron, documentarlas en work_in_progress
 
-## Flujo de Inversión OBLIGATORIO
+## Flujo de Inversión OBLIGATORIO (v2.0)
 
-### Flujo Standard (MoS 25-40%, moat Narrow)
-```
-Oportunidad → sector-screener → fundamental-analyst → investment-committee → Recomendación
-```
-Tiempo estimado: ~1.5h por stock. Usar para stocks nuevos sin thesis previa.
+### Framework de 5 Capas (OBLIGATORIO para toda inversión nueva)
 
-### Flujo Fast-Track (MoS >40% Y moat Wide, O thesis ya pre-escrita en watchlist)
+#### Capa 1: Contexto Macro
+- Leer world/current_view.md antes de analizar cualquier empresa
+- Verificar: ciclo económico, sectores favorables/desfavorables, riesgos geopolíticos
+- **REGLA**: No comprar cíclicas agresivas en late-cycle sin razón documentada
+
+#### Capa 2: Entender el Negocio (business-analysis-framework)
+**ANTES de valorar, responder:**
+- ¿Qué problema resuelve? ¿Cómo genera dinero?
+- Unit economics: CAC, LTV, LTV/CAC ratio
+- Estructura de márgenes y tendencia
+- **POR QUÉ ESTÁ BARATA**: narrativa del mercado + mi contra-tesis
+- Value trap checklist: si >3 factores SI → probable trap → REJECT o Tier C
+
+#### Capa 3: Proyectar con Lógica (projection-framework)
+**NUNCA usar defaults. Derivar de:**
+- TAM × market share × pricing = revenue growth
+- Márgenes: drivers de gross/operating/FCF
+- WACC: Rf + Beta×ERP, Kd after-tax, pesos E/V y D/V
+- Terminal growth: justificar (≤GDP)
+
+#### Capa 4: Valorar Multi-Método (valuation-methods)
+**Mínimo 2 métodos según tipo:**
+| Tipo | Método 1 | Método 2 |
+|------|----------|----------|
+| Estable | DCF | EV/EBIT |
+| Cíclica | EV/EBIT mid-cycle | P/B vs ROE |
+| Financiera | P/B vs ROE | DDM |
+| Asset-heavy | NAV | DDM |
+
+**Escenarios obligatorios:**
+- Bear (25%): thesis falla
+- Base (50%): ejecución normal
+- Bull (25%): catalizador positivo
+- Expected Value = ponderado
+
+#### Capa 5: Decisión (7 Gates del Investment Committee)
+1. Business understanding completo
+2. Proyección fundamentada (no defaults)
+3. Valoración multi-método
+4. Margen de seguridad (Tier A/B/C)
+5. Contexto macro favorable
+6. Portfolio fit (constraints)
+7. Autocrítica explícita
+
+**NUNCA saltarse ningún gate.**
+
+### Flujo Standard (nuevo framework completo)
 ```
-Oportunidad → price_checker.py (verificar precio) → investment-committee (verificación rápida) → Recomendación
+Contexto Macro → Business Analysis → Projection → Valuation → Investment Committee → Recomendación
 ```
-Tiempo estimado: ~15min. Aplicable cuando la thesis ya existe y está validada. El committee solo verifica que precio y constraints siguen siendo válidos.
+
+### Flujo Fast-Track (thesis pre-existente validada)
+```
+price_checker.py → Verificar gates 5-7 → Investment Committee (verificación rápida) → Recomendación
+```
+Solo si la thesis ya tiene business analysis, projection, y valuation completos.
 
 ### Flujo Batch (MODO POR DEFECTO para desplegar cash)
 ```
-Screening → Lanzar 3-5 fundamental-analysts EN PARALELO → Investment committees en paralelo → Recomendaciones batch
+Screening → 3-5 fundamental-analysts EN PARALELO (5 capas cada uno) → Investment committees → Recomendaciones
 ```
-**SIEMPRE usar batch mode cuando cash >15%.** NUNCA analizar stocks uno a uno secuencialmente. Los agentes son paralelos — USARLOS.
+**SIEMPRE usar batch mode cuando cash >15%.**
 
 ### Standing Orders (compras pre-aprobadas)
 Mantener en state/system.yaml sección `standing_orders:` con stocks que tienen:

@@ -1,8 +1,10 @@
 # Investment Thesis: Sanofi (SAN.PA)
 
 **Status:** ACTIVE POSITION
-**Date:** 2026-01-31
-**Analyst:** Claude (Fundamental Analyst)
+**Version:** 2.0 (Framework v2.0 compliant)
+**Original Date:** 2026-01-31
+**Re-evaluation Date:** 2026-02-03
+**Analyst:** Claude (Review Agent)
 **Quality Score:** 9/10 -- Tier A (Wide Moat Defensive)
 
 ---
@@ -14,260 +16,345 @@
 | Ticker | SAN.PA (Euronext Paris) |
 | Entry Price | EUR 79.20 |
 | Entry Date | 2026-01-31 |
+| Current Price | EUR 80.45 (2026-02-03) |
+| Unrealized P&L | +1.6% |
 | Shares | 6.52 |
 | Capital Deployed | EUR 516 |
 | Portfolio Weight | 5.0% |
-| Forward P/E at Entry | 8.9x |
-| Dividend Yield at Entry | 5.1% |
+| Forward P/E | 9.0x |
+| Dividend Yield | 4.9% |
 
 ---
 
-## 1. Business Overview
+## SECTION A: BUSINESS UNDERSTANDING (Framework v2.0)
 
-Sanofi is a global top-5 pharmaceutical company headquartered in Paris, France, with a market capitalization of approximately EUR 96 billion. The company operates across three segments:
+### A.1 Business Model
 
-- **Biopharma (Specialty Care + General Medicines):** The core engine, anchored by Dupixent (dupilumab), the world's leading immunology drug with EUR 15.7 billion in FY2025 sales (+25.2% CER). Specialty Care also includes rare disease franchises (Fabry, Gaucher, Pompe) and oncology.
-- **Vaccines:** A global leader in influenza, pediatric combination, and booster vaccines. Includes Beyfortus (RSV prevention, launched 2023).
-- **Consumer Healthcare:** Separated via the Opella transaction in 2024; no longer consolidated.
+**What problem does Sanofi solve?**
+Sanofi addresses critical unmet medical needs in immunology, rare diseases, vaccines, and oncology. Core value proposition: life-extending/improving therapies for chronic conditions (atopic dermatitis, asthma, rare enzyme disorders).
 
-**FY2025 Key Financials (reported 2026-01-29):**
+**How does it make money?**
+| Revenue Type | % of Total | Characteristics |
+|--------------|------------|-----------------|
+| Consumables (Biopharma) | ~85% | Repeat prescriptions, high switching costs |
+| Vaccines | ~15% | Seasonal (flu), pediatric schedules, boosters |
 
-| Metric | FY2025 | FY2024 |
-|--------|--------|--------|
-| Net Sales | EUR 43,626M | EUR 44,286M* |
-| Business EPS | EUR 7.83 | EUR 6.81 |
-| Reported EPS (diluted) | EUR 6.40 | EUR 4.55 |
-| Free Cash Flow | EUR 8,089M | EUR 5,886M |
-| Net Debt | ~EUR 8.6B | EUR 8.6B |
-| Dupixent Sales | EUR 15,714M | EUR 13,050M |
+**Revenue is highly recurring:** Chronic disease patients (Dupixent) remain on therapy for years/decades. Rare disease patients (Fabrazyme, Cerezyme) are lifetime customers.
 
-*FY2024 includes Opella; like-for-like growth was +9.9% CER in FY2025.
+### A.2 Unit Economics
 
-**CEO:** Paul Hudson (since 2019). Has refocused the company on high-growth immunology and rare disease, divested Consumer Healthcare, and accelerated pipeline execution.
+| Metric | Value | Commentary |
+|--------|-------|------------|
+| Gross Margin | 72.3% | Excellent; biologics command premium pricing |
+| Operating Margin | 12.3% | Compressed by R&D investment (25+ P3 trials) |
+| Net Margin | 16.7% | IFRS depressed by one-offs; Business basis ~18-20% |
+| FCF Conversion | ~125% | Strong; FCF EUR 8.1B vs Net Income EUR 6.4B |
+| R&D as % Revenue | ~15% | Industry standard for big pharma |
+| Capex as % Revenue | ~5% | Asset-light relative to revenue |
+
+**LTV/CAC Analysis (not traditional but relevant):**
+- "Customer acquisition" = regulatory approval + physician adoption
+- CAC = R&D investment per successful drug ($1-2B industry average)
+- LTV = peak sales x patent life (Dupixent: ~EUR 100B+ cumulative through 2033)
+- Implied LTV/CAC: >10x for successful drugs like Dupixent
+
+### A.3 Why Is It Cheap? (CRITICAL)
+
+**Market Narrative (what the market believes):**
+1. [X] **Dupixent patent cliff (2031-2033):** ~36% of revenue at risk
+2. [X] **Sector rotation:** European pharma out of favor vs US tech
+3. [ ] **Margin pressure:** R&D investment temporarily compressing operating margin
+4. [ ] **Guidance concerns:** "High single digit" growth may disappoint vs peers
+
+**My Contra-Thesis:**
+
+| Market Believes | I Believe | My Evidence | P(I'm Wrong) |
+|-----------------|-----------|-------------|--------------|
+| Dupixent cliff = disaster | 5-7 years runway + diversified pipeline | EUR 22B target by 2030, 25+ P3 readouts, ALTUVIIIO already >$1B | 20% |
+| EU pharma is dying | EU pharma is undervalued vs US peers | P/E 9x vs peers 13-16x for similar quality | 25% |
+| Low growth ahead | Growth continues 6-8% on business EPS basis | FY25 business EPS +15%, guidance "high single digit" | 30% |
+
+### A.4 Value Trap Checklist
+
+| Factor | Status | Commentary |
+|--------|--------|------------|
+| Industria en declive secular | NO | Pharma growing with aging demographics |
+| Disrupcion tecnologica inminente | NO | Biologics ARE the disruption; Sanofi is on right side |
+| Management destruyendo valor | NO | Hudson delivered: Opella divestiture, focused strategy |
+| Balance deteriorandose | NO | Debt/Equity 0.28x, FCF EUR 8B, buybacks |
+| Insider selling masivo (>5% 12m) | NO | No material selling |
+| Dividend cut reciente o probable | NO | 26 consecutive years of increases |
+| Perdida market share >2pp 3y | NO | Dupixent gaining share; leader in immunology |
+| ROIC < WACC ultimos 3 anos | NO | ROIC ~10-12% vs WACC 8% |
+| FCF negativo >2 anos | NO | FCF positive 5+ years (EUR 5.9-8.5B annually) |
+| Goodwill >50% equity | MONITOR | High goodwill typical for pharma; no impairment signals |
+
+**RESULT: 0/10 factors YES. NOT a value trap. PASS.**
+
+### A.5 My Informational Advantage
+
+- [X] **Longer time horizon:** Market focuses on 2031 cliff; I see 5-7 years of growth runway
+- [X] **Behavioral over-reaction:** 28% below 52w high on sentiment, not fundamentals
+- [ ] **Sector expertise:** N/A
+- [X] **Quantitative analysis:** DCF + DDM multi-method vs single P/E focus
 
 ---
 
-## 2. Why We Bought
+## SECTION B: PROJECTION FRAMEWORK (Framework v2.0)
 
-### 2.1 Valuation: Deeply Discounted vs. History and Peers
+### B.1 Revenue Growth Derivation
 
-Sanofi trades at a forward P/E of 8.9x on FY2026E business EPS of ~EUR 8.94, a level not seen since the 2008-2009 financial crisis. For context:
+**TAM Analysis:**
+- Global pharmaceutical market: ~$1.6T (2025), growing 5-6% annually
+- Immunology TAM: ~$100B, growing 8-10% (Dupixent's core market)
+- Rare disease TAM: ~$40B, growing 6-8%
+- Vaccines TAM: ~$80B, growing 4-5%
 
-- **5-year average forward P/E:** ~13-14x
-- **Peer average (Roche, Novartis, AstraZeneca, GSK):** 13-16x
-- **Trailing P/E (reported):** 19.6x (depressed by one-time items; business EPS-based P/E is far more relevant)
-- **EV/EBITDA:** 8.6x (vs. pharma peer median ~11-12x)
-- **Price/Book:** 1.35x (book value EUR 58.86/share)
-- **Price vs. 52-week high:** -28.6% (52w high: EUR 110.88)
+**Market Share:**
+- Dupixent: #1 in IL-4/IL-13 pathway, ~70% share in atopic dermatitis
+- Vaccines: #3-4 globally, stable share
+- Rare Disease: #1-2 in enzyme replacement therapies
 
-The stock has de-rated due to (a) Dupixent patent cliff concerns (biosimilar entry expected ~2031-2033), (b) sector rotation away from European pharma, and (c) temporary margin pressure from pipeline investment. We believe the market is pricing in an overly pessimistic scenario.
+**Revenue Growth Formula:**
+```
+Revenue Growth = TAM Growth + Delta Market Share + Pricing Power
+Biopharma: 5% TAM + 1% share gain + 2% pricing = ~8%
+Vaccines: 4% TAM + 0% share + 1% pricing = ~5%
+Blended (85/15): ~7%
 
-### 2.2 Quality: Score 9/10
+Conservative estimate: 6% (years 1-5), 3% (years 6-10, post-cliff)
+```
 
-| Criterion | Score | Detail |
-|-----------|-------|--------|
-| ROE >15% consistently | 1/1 | Historically 15-20%+ on business basis; 6.7% IFRS (one-offs depress) |
-| FCF positive 5+ years | 1/1 | EUR 5.9-8.5B annually (2021-2025) |
-| Debt/Equity <1.0 | 1/1 | 0.28x (very conservative) |
-| Dividend 10+ years uncut | 1/1 | 26 consecutive years of increases |
-| Wide moat | 1/1 | See Section 3 |
-| Revenue stability | 1/1 | Max revenue decline <5% in any recession |
-| Management quality | 1/1 | Hudson has delivered on strategy; Opella divestiture, pipeline acceleration |
-| Analyst coverage >10 | 1/1 | 23 analysts; consensus "Buy" (1.9/5) |
-| Market cap >EUR 10B | 1/1 | EUR 96B |
-| Defensive sector | 0/1 | Pharma is defensive but patent cliffs add cyclicality -- 0.5 rounded down |
+### B.2 Margin Projection
 
-**Total: 9/10 -- Tier A confirmed. Minimum MoS required: 15%.**
+| Metric | FY2025 | FY2026E | FY2030E | Commentary |
+|--------|--------|---------|---------|------------|
+| Gross Margin | 72.3% | 72% | 71% | Stable; biologics maintain premium |
+| Operating Margin | 12.3% | 15% | 18% | R&D leverage as pipeline matures |
+| FCF Margin | 17.4% | 18% | 20% | Improving cash conversion |
 
-### 2.3 Moat Assessment: WIDE
+### B.3 WACC Derivation
 
-**Moat sources:**
+```
+Risk-Free Rate (EUR 10Y Bund): 2.4%
+Equity Risk Premium: 5.5% (conservative)
+Beta: 0.65 (pharma typical; yfinance 0.37 too low due to defensive nature)
+Cost of Equity (Ke) = 2.4% + 0.65 x 5.5% = 5.98%
 
-1. **Intellectual Property / Patents:** Dupixent patent protection through ~2031 (composition of matter) with additional formulation/method patents extending into 2030s. Biosimilar entry is complex (biologic, not small molecule).
-2. **Regulatory Barriers:** Biologics require extensive clinical trials for biosimilar approval. FDA/EMA approval processes create 2-4 year lag even after patent expiry.
-3. **Scale in Vaccines:** One of only 4 companies globally with full vaccine manufacturing capability. Massive fixed-cost infrastructure that is nearly impossible to replicate.
-4. **Rare Disease Franchise:** Orphan drug designations, small patient populations, and specialized distribution create high switching costs. Cerezyme/Fabrazyme have maintained dominance for 20+ years.
-5. **Pipeline Depth:** 25+ Phase III readouts expected in 2026. Diversified across immunology, oncology, neurology, rare disease.
-6. **Brand/Relationship:** Deep KOL relationships in immunology and rare disease. Dupixent is standard of care across 9+ indications.
+Cost of Debt (pre-tax): 4.0% (investment grade BBB+/A-)
+Tax Rate: 25%
+Cost of Debt (after-tax): 3.0%
 
-**Moat durability:** 7-10 years. Even post-Dupixent patent expiry, the diversified pipeline (amlitelimab, fitusiran, ALTUVIIIO >$1B) and vaccine franchise provide durable competitive advantages.
+Capital Structure:
+  Market Cap: EUR 97.5B (88.5% weight)
+  Net Debt: EUR 12.7B (11.5% weight)
+
+Calculated WACC = (88.5% x 5.98%) + (11.5% x 3.0%) = 5.63%
+
+APPLIED WACC: 8.0% (per investment-rules minimum for established companies)
+Rationale: Calculated WACC too low due to defensive beta; 8% provides conservatism
+```
+
+### B.4 Scenarios
+
+| Parameter | Bear | Base | Bull |
+|-----------|------|------|------|
+| FCF Growth Y1-5 | 4% | 6% | 8% |
+| FCF Growth Y6-10 | 2% | 3% | 4% |
+| Terminal Growth | 1.5% | 2.0% | 2.5% |
+| WACC | 9% | 8% | 7.5% |
+| Probability | 25% | 50% | 25% |
 
 ---
 
-## 3. Fair Value Estimate
+## SECTION C: VALUATION (Multi-Method per Framework v2.0)
 
-### Method 1: Earnings-Based (Primary)
+### Method 1: DCF (40% weight)
 
-Using normalized business EPS and conservative peer multiple:
-
-| Scenario | Business EPS | Multiple | Fair Value | MoS at EUR 79.20 |
-|----------|-------------|----------|------------|-------------------|
-| Bear | EUR 8.00 | 10x | EUR 80 | 1% |
-| Base | EUR 8.94 | 12x | EUR 107 | 26% |
-| Bull | EUR 9.50 | 14x | EUR 133 | 40% |
-
-**Weighted fair value (25/50/25):** EUR 107
-
-### Method 2: DCF (Sanity Check)
-
-Assumptions:
-- Starting FCF: EUR 8.1B (FY2025)
-- Growth years 1-5: 6% (below management guidance of "high single digit")
-- Growth years 6-10: 3% (Dupixent patent cliff impact)
-- Terminal growth: 2%
+**Inputs:**
+- Base FCF: EUR 8.089B (FY2025)
+- Growth: 6%/3% (years 1-5/6-10)
+- Terminal: 2%
 - WACC: 8%
-- Net debt: EUR 8.6B
-- Shares outstanding: 1,211M
+- Net Debt: EUR 12.67B
+- Shares: 1.208B
 
-| Year | FCF (EUR M) |
-|------|-------------|
-| 1 | 8,586 |
-| 2 | 9,101 |
-| 3 | 9,647 |
-| 4 | 10,226 |
-| 5 | 10,839 |
-| 6 | 11,165 |
-| 7 | 11,500 |
-| 8 | 11,845 |
-| 9 | 12,200 |
-| 10 | 12,566 |
-| TV | 213,622 |
+**Results:**
+| Scenario | Fair Value | MoS vs Current |
+|----------|-----------|----------------|
+| Bear (WACC 9%, growth 4%/2%) | EUR 91.87 | 12.4% |
+| Base (WACC 8%, growth 6%/3%) | EUR 129.49 | 37.9% |
+| Bull (WACC 7.5%, growth 8%/4%) | EUR 173.59 | 53.7% |
 
-**PV of FCFs + TV:** EUR 142.6B
-**Minus net debt:** EUR 134.0B
-**Per share:** EUR 110.6
-**With 20% haircut for model risk:** EUR 88.5
+### Method 2: DDM (60% weight)
 
-### Method 3: Dividend Discount Model
+**Rationale for higher DDM weight:** Sanofi is a dividend aristocrat (26 years consecutive increases). For big pharma with stable dividends, DDM is highly relevant.
 
-- Current dividend: EUR 3.92
-- Dividend growth: 5% (26-year track record of ~5-6% annual increases)
-- Required return: 8%
+**Inputs:**
+- Current Dividend: EUR 3.92
+- Dividend Growth: 4% (conservative; historical 5%+)
+- Required Return: 8% (matches WACC floor)
+- Payout Ratio: 97% (high but FCF-covered)
 
-**Gordon Growth Model:** EUR 3.92 * 1.05 / (0.08 - 0.05) = EUR 137
+**Gordon Growth Model:**
+```
+D1 = EUR 3.92 x 1.04 = EUR 4.08
+FV = EUR 4.08 / (0.08 - 0.04) = EUR 101.92 (Conservative)
+```
 
-This is optimistic; using 4% growth: EUR 3.92 * 1.04 / (0.08 - 0.04) = EUR 102
+| Scenario | r | g | Fair Value |
+|----------|---|---|------------|
+| Bear | 8% | 4% | EUR 101.92 |
+| Base | 8% | 4.5% | EUR 117.04 |
+| Bull | 7.5% | 5% | EUR 164.64 |
 
-### Method 4: Analyst Consensus
+### Combined Valuation (DCF 40% + DDM 60%)
 
-- Mean target: EUR 100 (23 analysts)
-- Median target: EUR 100
-- Range: EUR 85 - EUR 119
+| Scenario | DCF FV | DDM FV | Combined FV | MoS |
+|----------|--------|--------|-------------|-----|
+| Bear | EUR 91.87 | EUR 101.92 | **EUR 97.90** | 17.8% |
+| Base | EUR 129.49 | EUR 117.04 | **EUR 122.02** | 34.1% |
+| Bull | EUR 173.59 | EUR 164.64 | **EUR 168.22** | 52.2% |
 
-### Summary of Fair Value Estimates
+**Expected Value (25/50/25):** EUR 127.54
+**Margin of Safety vs Expected Value:** 36.9%
+**Margin of Safety vs Base:** 34.1%
+**Margin of Safety vs Bear:** 17.8%
 
-| Method | Fair Value | MoS at EUR 79.20 |
-|--------|-----------|-------------------|
-| Earnings-based (weighted) | EUR 107 | 26% |
-| DCF (haircut applied) | EUR 88.5 | 10% |
-| DDM (conservative) | EUR 102 | 22% |
-| Analyst consensus | EUR 100 | 21% |
+### Comparison: Original vs v2.0
 
-**Our estimate: EUR 97-107 (midpoint EUR 102)**
-**Margin of Safety at entry: 19-23%**
-**Tier A minimum (15%): SATISFIED**
+| Metric | Original (v1.0) | Framework v2.0 | Delta |
+|--------|-----------------|----------------|-------|
+| Fair Value Range | EUR 97-107 | EUR 98-168 | Wider range |
+| Fair Value Base | EUR 102 | EUR 122 | **+19.6%** |
+| MoS at Entry (EUR 79.20) | 19-23% | 35% | Higher |
+| MoS Current (EUR 80.45) | 18-22% | 34% | Higher |
 
----
-
-## 4. Key Risks
-
-### 4.1 Dupixent Concentration Risk (HIGH)
-- Dupixent represents ~36% of total sales and a disproportionate share of profits.
-- Patent cliff expected 2031-2033. Biosimilar erosion could be 30-50% of peak sales within 3 years of entry.
-- **Mitigation:** Management targets EUR 22B Dupixent sales by 2030 (runway before cliff). Pipeline diversification is accelerating. New launches (ALTUVIIIO, Beyfortus, Kevzara) already contributing EUR 3.9B.
-
-### 4.2 Pipeline Execution Risk (MEDIUM)
-- 25 Phase III readouts in 2026 is ambitious. Clinical failures are inherent to pharma.
-- Key binary events: amlitelimab (atopic dermatitis), tolebrutinib (neurology -- now under regulatory review).
-- **Mitigation:** Diversified pipeline reduces single-program dependence. Track record is strong (10 regulatory approvals in 2025).
-
-### 4.3 Pricing/Regulatory Risk (MEDIUM)
-- US drug pricing reform (IRA) could impact Dupixent and future launches.
-- European reference pricing pressure.
-- **Mitigation:** Biologics less exposed to IRA price negotiation timelines than small molecules. Dupixent negotiation not expected before 2028-2029 at earliest.
-
-### 4.4 FX Risk (LOW-MEDIUM)
-- ~40% of revenue in USD, reported in EUR. EUR/USD volatility affects reported results.
-- **Mitigation:** Natural hedging through US-based costs. EUR weakness is actually a tailwind.
-
-### 4.5 Acquisition Risk (MEDIUM)
-- Sanofi has been actively acquiring (Vicebio $1.2B, Dynavax ~$2.2B). Overpayment risk exists.
-- **Mitigation:** Deals are bolt-on, not transformative. Balance sheet is strong (Debt/Equity 0.28x).
-
-### 4.6 Value Trap Risk (LOW-MEDIUM)
-- Stock has underperformed for 12+ months. Market may be signaling something we are missing.
-- **Mitigation:** Fundamentals (EPS growth, FCF, dividend) do not support value trap thesis. FY2025 results were strong. De-rating appears driven by sentiment, not deterioration.
+**Why v2.0 FV is higher:**
+1. Original used 20% haircut on DCF for "model risk" which was arbitrary
+2. v2.0 uses proper multi-method weighting (DCF 40% + DDM 60%)
+3. DDM with conservative assumptions still yields EUR 102-117
+4. 8% WACC is already conservative given low beta
 
 ---
 
-## 5. Kill Triggers (When We Sell)
+## SECTION D: BUSINESS ANALYSIS DEEP DIVE
+
+### D.1 Moat Assessment: WIDE (Confirmed)
+
+| Moat Source | Evidence | Durability |
+|-------------|----------|------------|
+| **IP/Patents** | Dupixent protected to 2031; biologics harder to copy | 7-10 years |
+| **Regulatory** | FDA/EMA approval = 2-4 year biosimilar lag | 5+ years |
+| **Scale (Vaccines)** | 1 of 4 global vaccine manufacturers | 10+ years |
+| **Rare Disease** | Orphan designations, specialized distribution | 10+ years |
+| **Pipeline Depth** | 25+ P3 readouts 2026; diversified | 5-10 years |
+| **KOL Relationships** | Immunology/rare disease leadership | 5+ years |
+
+**ROIC vs WACC (10 years):** ROIC consistently 10-15% vs WACC 8% = economic moat confirmed.
+
+### D.2 Key Risks (Updated)
+
+| Risk | Severity | Probability | Mitigation |
+|------|----------|-------------|------------|
+| Dupixent concentration | HIGH | MEDIUM | EUR 22B runway to 2030; pipeline diversifying |
+| Pipeline execution | MEDIUM | MEDIUM | 25+ P3s diversify; strong 2025 track record |
+| Pricing/IRA | MEDIUM | LOW-MEDIUM | Biologics less exposed; negotiation not before 2028 |
+| FX (EUR/USD) | LOW | MEDIUM | Natural hedging; EUR weakness is tailwind |
+| M&A overpayment | MEDIUM | LOW | Bolt-on deals; strong balance sheet |
+
+---
+
+## SECTION E: MACRO FIT (Framework v2.0)
+
+**From world/current_view.md (2026-02-02):**
+
+| Factor | Impact on Sanofi | Assessment |
+|--------|------------------|------------|
+| Fed/BCE rates | Neutral; not rate-sensitive | OK |
+| EU economy | Neutral; pharma is defensive | OK |
+| Trump tariffs | Korea pharma tariffs (25%); Sanofi is EU, not directly affected | OK |
+| Geopolitics | Low exposure to Iran/China | OK |
+| Demographics | Aging population = pharma tailwind | POSITIVE |
+
+**Macro Conclusion:** Pharma is neutral sentiment, reasonable valuation per world view. Sanofi not directly affected by current tariff escalation (Korea focus). Demographics structurally favorable.
+
+---
+
+## SECTION F: KILL TRIGGERS & PROFIT-TAKING
 
 ### Immediate Sell (Thesis Broken)
-1. **Dupixent safety signal** -- FDA black box warning or market withdrawal in any indication.
-2. **Dividend cut** -- After 26 years of consecutive increases, a cut signals fundamental distress.
-3. **Debt/Equity rises above 1.0x** without clear strategic rationale (e.g., transformative acquisition).
-4. **Business EPS declines >20% YoY** for reasons other than one-time items.
+1. Dupixent safety signal (black box warning, withdrawal)
+2. Dividend cut
+3. Debt/Equity > 1.0x without strategic rationale
+4. Business EPS decline >20% YoY (ex one-offs)
 
 ### Review for Sell (Thesis Weakened)
-5. **Pipeline failure rate >60%** of Phase III readouts in 2026 -- signals R&D productivity problem.
-6. **Dupixent growth decelerates below 10% CER** before 2028 -- signals earlier-than-expected competitive erosion.
-7. **Management change** -- Paul Hudson departure would require reassessment of strategic direction.
+5. Pipeline failure rate >60% in 2026
+6. Dupixent growth <10% CER before 2028
+7. CEO change (Hudson departure)
 
-### Profit-Taking
-8. **Price reaches EUR 100-107** (fair value range) -- review position sizing, consider trimming to 3-4%.
-9. **Forward P/E exceeds 14x** -- pharma sector re-rating may present better opportunities elsewhere.
+### Profit-Taking (per investment-rules v2.0)
+| Trigger | Action | Rationale |
+|---------|--------|-----------|
+| Price = EUR 97-98 (80% of Base FV) | Sell 25% | Lock in gains |
+| Price = EUR 122 (Base FV) | Sell 50% | Thesis mostly played |
+| Price = EUR 168 (Bull FV) | Sell rest | Full value, rotate |
 
 ---
 
-## 6. Key Dates to Monitor
-
-### 2026 Calendar
+## SECTION G: KEY DATES
 
 | Date | Event | Importance |
 |------|-------|------------|
-| 2026-02-28 | FDA decision: Dupixent for AFRS (9th indication) | HIGH |
-| 2026-04-27 | FDA decision: Dupixent for CSU in children | HIGH |
-| 2026-H1 | Multiple Phase III readouts (amlitelimab, others) | HIGH |
-| 2026-H1 | Q1 2026 earnings (~late April) | MEDIUM |
-| 2026-05 (est.) | Ex-dividend date (EUR ~4.10 expected) | MEDIUM |
-| 2026-H2 | STYLE 1 study readout (Dupixent in LSC) | MEDIUM |
-| 2026-Q3 | Half-year results | MEDIUM |
-| 2026-Q4 | Q3 results + pipeline update | MEDIUM |
-| Ongoing | EUR 1B share buyback execution throughout 2026 | LOW |
-
-### Earnings Dates (from yfinance)
-- Next earnings call: 2026-06-23 (estimated)
-- Fiscal year end earnings: 2026-08-25 (estimated)
-
-### Dividend Schedule
-- Ex-dividend date: 2026-05-12 (estimated, based on pattern)
-- Expected dividend: EUR ~4.10 (5% increase on EUR 3.92)
-- At 6.52 shares: ~EUR 26.7 annual income
+| 2026-02-28 | FDA: Dupixent AFRS approval | HIGH |
+| 2026-04-27 | FDA: Dupixent CSU children | HIGH |
+| 2026-H1 | P3 readouts (amlitelimab, others) | HIGH |
+| 2026-05-12 (est.) | Ex-dividend (EUR ~4.10) | MEDIUM |
+| 2026-Q2 | Q1 earnings | MEDIUM |
 
 ---
 
-## 7. Investment Decision Record
+## SECTION H: INVESTMENT DECISION RECORD
 
-**Decision:** BUY at EUR 79.20
-**Conviction:** HIGH (8/10)
-**Time horizon:** 2-4 years (targeting re-rating to fair value + dividend income)
+### Original Decision (2026-01-31)
+**BUY** at EUR 79.20 | Conviction: HIGH (8/10)
 
-**Expected return breakdown:**
-- Multiple expansion (8.9x to 12x): +35%
-- EPS growth (6-8% annual): +12-16% over 2 years
-- Dividend yield: +5.1% annual
-- **Total expected 2-year return: 40-55% (annualized 18-25%)**
+### Re-Evaluation (2026-02-03)
+**STATUS: MAINTAIN** | Conviction: HIGH (8/10)
 
-**What must go right:**
-1. Dupixent continues to grow (>15% CER through 2028)
-2. Pipeline delivers at least 2-3 positive Phase III readouts in 2026
-3. Market re-rates European pharma closer to historical multiples
+**Summary:**
+- Framework v2.0 valuation is HIGHER than original (EUR 122 vs EUR 102 base)
+- MoS improved from 22% to 34% (current price EUR 80.45)
+- Value trap checklist: PASS (0/10 factors)
+- Macro fit: NEUTRAL-POSITIVE (defensive, not tariff-exposed)
+- All thesis elements remain intact
 
-**What could go wrong:**
-1. Earlier-than-expected biosimilar competition for Dupixent
-2. Major pipeline failure reduces growth outlook
-3. Sustained sector de-rating of European pharma
+**Action:** No change. Position remains attractive at current levels.
 
 ---
 
-*Thesis authored 2026-01-31. Next review: After Q1 2026 earnings or upon any kill trigger event.*
+## AUTOCRITICA (Framework v2.0 requirement)
+
+**Assumptions:**
+- WACC 8% may be conservative given low beta (~0.37)
+- 6% FCF growth assumes management guidance minus 20% haircut
+- DDM assumes dividend growth sustains 4%+ (payout ratio 97% is high)
+
+**Biases Detected:**
+- Possible anchoring to original thesis
+- Pharma is in my training data; may overestimate understanding
+
+**Evidence I May Be Ignoring:**
+- Market has been pricing Sanofi down for 12+ months; collective wisdom?
+- Dupixent concentration is real; 36% of revenue is significant
+- Biosimilar erosion could be faster than historical biologics
+
+**Validation:**
+- Cross-checked FCF with yfinance (EUR 5.89B 2024 → EUR 8.1B 2025 confirmed)
+- WACC derived from first principles (Rf + Beta x ERP)
+- Multi-method valuation reduces single-method error
+
+---
+
+*Thesis v2.0 authored 2026-02-03. Next review: After Q1 2026 earnings or upon kill trigger.*
