@@ -257,18 +257,19 @@ Cuando un agente termina, verificar que su output refleja los frameworks de los 
 ### Paso 0: AUTO-REFLEXIÓN (ANTES de todo lo demás)
 Preguntarse: "¿Hay algo en el sistema que podría hacer mejor? ¿Algún proceso manual que debería automatizar? ¿Algún tool que falta?" Si la respuesta es sí → mejorarlo AHORA, antes de trabajar en inversiones. Actualizar CLAUDE.md con el aprendizaje. **No esperar a que el humano lo señale.**
 
-### Paso 1-9: Operaciones
+### Paso 1-10: Operaciones
 1. `python3 tools/portfolio_stats.py` → Estado portfolio real (NUNCA calcular a mano)
-2. `python3 tools/price_checker.py {standing_orders + watchlist}` → Precios de standing orders Y watchlist
-3. Leer state/system.yaml → tareas pendientes, calendario, alertas, **standing orders**
-4. **VERIFICAR STANDING ORDERS** → Si algún precio tocó trigger → INFORMAR AL HUMANO INMEDIATAMENTE para ejecutar
-5. **EVALUAR CASH DRAG** → Si cash >15%, batch analysis inmediato (3-5 en paralelo)
-6. **VERIFICAR PIPELINE** → Si <3 thesis pre-escritas en watchlist → screening + batch fundamental-analyst
-7. Leer world/current_view.md → si >7 días stale, actualizar via macro-analyst
-8. Verificar triggers rebalanceo via rebalancer
-9. Health check si >14 días desde último
-10. **LANZAR AGENTES EN PARALELO INMEDIATAMENTE** → No saludar, no pedir permiso, no preguntar qué hacer.
-11. Informar al humano de acciones YA EN CURSO (no propuestas, no preguntas)
+2. `python3 tools/effectiveness_tracker.py` → **NUEVO** Métricas de efectividad, win rate, alertas
+3. `python3 tools/price_checker.py {standing_orders + watchlist}` → Precios de standing orders Y watchlist
+4. Leer state/system.yaml → tareas pendientes, calendario, alertas, **standing orders**
+5. **VERIFICAR STANDING ORDERS** → Si algún precio tocó trigger → INFORMAR AL HUMANO INMEDIATAMENTE para ejecutar
+6. **EVALUAR CASH DRAG** → Si cash >15%, batch analysis inmediato (3-5 en paralelo)
+7. **VERIFICAR PIPELINE** → Si <3 thesis pre-escritas en watchlist → screening + batch fundamental-analyst
+8. Leer world/current_view.md → si >7 días stale, actualizar via macro-analyst
+9. Verificar triggers rebalanceo via rebalancer
+10. Health check si >14 días desde último
+11. **LANZAR AGENTES EN PARALELO INMEDIATAMENTE** → No saludar, no pedir permiso, no preguntar qué hacer.
+12. Informar al humano de acciones YA EN CURSO (no propuestas, no preguntas)
 
 ### Regla de herramientas
 **Si hago un cálculo Python inline más de 1 vez → DEBE convertirse en tool en tools/.** Delegar a quant-tools-dev agent. NUNCA repetir código inline.
@@ -315,6 +316,8 @@ Revisar quant-tools-dev agent consistencia general con el sistema, evolucionar s
 20. **Asumir que agentes/yo leemos los skills automáticamente** — Sesión 24: Los skills son archivos .md que DEBEN leerse explícitamente. No se inyectan automáticamente. REGLA: Cada agente tiene "PASO 0: CARGAR SKILLS" que DEBE ejecutar al inicio. Verificar que output del agente refleja los frameworks. Si no → re-ejecutar.
 21. **No leer current_view.md ANTES de analizar posiciones** — Sesión 25: Empecé a re-evaluar PFE/ALL/SHEL sin leer primero world/current_view.md. El contexto macro DEBE informar el análisis. REGLA: Leer world/current_view.md SIEMPRE como Paso 1 de cualquier análisis de empresa. business-analysis-framework lo requiere explícitamente.
 22. **Hacer análisis manualmente cuando existen agentes especializados** — Sesión 25: Re-evalué manualmente 3 posiciones cuando debería usar review-agent o fundamental-analyst. REGLA: Para tareas repetibles o especializadas, SIEMPRE usar el agente apropiado. Yo orquesto, los agentes ejecutan. Esto asegura consistencia y permite escalar.
+23. **NO TENER SISTEMA DE EVALUACIÓN DE EFECTIVIDAD** — Sesión 26: El humano preguntó "¿cómo sabemos si funciona?" y NO TENÍA RESPUESTA. No había tracking de predicciones vs resultados, ni hit rate, ni atribución de errores. REGLA: Ejecutar `python3 tools/effectiveness_tracker.py` CADA sesión. Mantener portfolio/history.yaml actualizado con posiciones cerradas. Revisar métricas semanalmente. **Skill creado**: effectiveness-evaluation. **Tool creado**: effectiveness_tracker.py.
+24. **Asumir que value investing funciona sin validación** — Sesión 26: Win rate actual 28% (malo), Sharpe -0.30 (malo), pero solo 7 días de datos. REGLA: NO afirmar que el sistema funciona hasta tener >12 meses de datos. Ser epistemológicamente honesto sobre incertidumbre. Hit rate esperado realista: 55-65%, no 100%. Tiempo a FV: 18-36 meses, no semanas.
 
 ### Protocolo de auto-mejora por sesión:
 - Al detectar cualquier inconsitencias o documentacion o recursos con datos o informacion desactualizada tanto en de agentes skylls, a contigo mismo CLAUDE.md → subsanar inmediatamente
@@ -496,6 +499,19 @@ python3 tools/portfolio_stats.py
 - Compara vs benchmark (MSCI Europe)
 - Alertas de límites (sizing, concentración)
 - **NUNCA calcular portfolio stats a mano**
+
+#### effectiveness_tracker.py - EVALUACIÓN DE EFECTIVIDAD (NUEVO Sesión 26)
+```bash
+python3 tools/effectiveness_tracker.py           # Reporte completo
+python3 tools/effectiveness_tracker.py --summary # Solo métricas
+```
+- Trackea win rate, hit rate (FV reached), Sharpe ratio estimado
+- Attribution analysis por sector, geografía, tier, holding period
+- Evaluación retrospectiva de tesis (on track / off track)
+- Recomendaciones automáticas basadas en patrones
+- **REGLA: Ejecutar CADA sesión para detectar problemas temprano**
+- Complementar con portfolio/history.yaml para posiciones cerradas
+- Ver skill: effectiveness-evaluation para framework completo
 
 #### dynamic_screener.py - Screening cuantitativo programático (TOOL PRINCIPAL)
 ```bash

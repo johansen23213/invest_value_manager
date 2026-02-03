@@ -13,7 +13,8 @@
       "Bash(bash:*)",
       "Bash(git checkout:*)",
       "WebFetch(domain:investors.pfizer.com)",
-      "WebFetch(domain:finance.yahoo.com)"
+      "WebFetch(domain:finance.yahoo.com)",
+      "WebFetch(domain:www.pfizer.com)"
     ]
   }
 }

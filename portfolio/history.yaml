@@ -1,0 +1,103 @@
+# =============================================================================
+# PORTFOLIO HISTORY - Closed Positions Track Record
+# =============================================================================
+# Purpose: Track all closed positions for performance evaluation
+# Updated: After each SELL that closes a position
+# Schema: entry/exit dates, prices, P&L, thesis accuracy assessment
+# =============================================================================
+
+# Metadata
+metadata:
+  created: 2026-02-03
+  last_updated: 2026-02-03
+  total_closed: 1
+  total_pnl_eur: 0.00
+  win_rate: 0.0  # % of positions that were profitable
+  avg_holding_days: 4
+
+# Closed Positions
+closed_positions:
+  # Template for each closed position:
+  # - ticker: SYMBOL
+  #   name: "Company Name"
+  #   entry_date: YYYY-MM-DD
+  #   exit_date: YYYY-MM-DD
+  #   shares: N
+  #   entry_price: X.XX
+  #   exit_price: X.XX
+  #   entry_currency: EUR/USD/GBp
+  #   invested: X.XX  # Total amount invested (local currency)
+  #   proceeds: X.XX  # Total amount received (local currency)
+  #   pnl_amount: X.XX  # Profit/Loss amount
+  #   pnl_percent: X.XX  # Profit/Loss %
+  #   holding_days: N
+  #   thesis_fv_at_entry: X.XX  # Fair value from thesis at entry
+  #   fv_reached: true/false  # Did price reach 80%+ of FV?
+  #   thesis_accuracy:
+  #     correct: true/false  # Was the thesis correct in hindsight?
+  #     notes: "Brief assessment"
+  #   exit_reason: "sell_at_fv|stop_loss|thesis_invalidated|rebalance|error"
+
+  - ticker: ENEL.MI
+    name: "Enel S.p.A."
+    entry_date: 2026-01-27
+    exit_date: 2026-01-31
+    shares: 81
+    entry_price: 9.225
+    exit_price: 9.225
+    entry_currency: EUR
+    invested_eur: 747.00
+    proceeds_eur: 747.00
+    pnl_amount: 0.00
+    pnl_percent: 0.0
+    holding_days: 4
+    thesis_fv_at_entry: null  # No formal thesis was written
+    fv_reached: false
+    thesis_accuracy:
+      correct: null  # Position closed before thesis could be validated
+      notes: "Sold because bought at fair value without margin of safety (error in process). No loss, but opportunity cost. Recognized process failure and corrected."
+    exit_reason: error  # Bought without proper thesis/MoS
+
+# Partial Sells (Trims) - Not full exits, but record for P&L tracking
+partial_sells:
+  - ticker: SHEL.L
+    date: 2026-01-31
+    shares_sold: 20
+    shares_remaining: 20.85
+    price_gbx: 2689
+    proceeds_approx_eur: 285.00
+    pnl_approx_eur: 285.00
+    reason: "TRIM - Position 23.9% exceeded 7% max limit"
+
+  - ticker: SHEL.L
+    date: 2026-02-02
+    shares_sold: 10
+    shares_remaining: 10.85
+    price_gbx: 2700  # Approx
+    proceeds_approx_eur: 150.00
+    pnl_approx_eur: 50.00
+    reason: "TRIM 2 - Continued rebalancing from 20.85 to 10.85 shares"
+
+  - ticker: DTE.DE
+    date: 2026-02-03
+    shares_sold: 14
+    shares_remaining: 23.62
+    total_usd: 396.96
+    pnl_approx_eur: 70.00  # Estimated gain
+    reason: "TRIM - Position 11.3% exceeded 7% max limit"
+
+# Statistics (auto-calculated by effectiveness_tracker.py)
+statistics:
+  # Will be populated by the tool
+  total_closed_positions: 1
+  total_partial_sells: 3
+  total_realized_pnl_eur: 405.00  # Approx from trims
+  winners: 0
+  losers: 0
+  breakeven: 1
+  win_rate_pct: null  # Not meaningful with 1 position
+  avg_win_pct: null
+  avg_loss_pct: null
+  avg_holding_days: 4
+  positions_reached_fv: 0
+  thesis_accuracy_rate: null
