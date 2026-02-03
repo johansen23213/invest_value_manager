@@ -2,7 +2,7 @@
 
 **Date:** 2026-02-02
 **Analyst:** Claude (Fundamental Analyst)
-**Status:** BUY CANDIDATE - Tier B (25% MoS required)
+**Status:** REJECTED (2026-02-02) - No moat, negative equity, secular printing decline. Tier C requires 35% MoS; actual MoS ~17-20%. Value trap risk.
 **Current Price:** $19.44 (EUR 16.40)
 
 ---

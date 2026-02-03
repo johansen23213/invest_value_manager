@@ -7,33 +7,29 @@ system:
   system_version: "2.1.0"
   last_session: 2026-02-03
   last_session_summary: |
-    Sesión 22 - Earnings prep + Research batch
+    Sesión 23 - Research + HRB compra
     COMPLETADO:
-    - ADD FUTR.L 64 shares ($472.52) + ADD TEP.PA 7 shares ($465.34). Cash 28%→20%.
-    - Created constraint_checker.py tool (pre-validates BUY against portfolio limits)
-    - Added data validation to dynamic_screener.py (flags yield>15%, extreme P/E, FCF>50%)
-    - Pre-earnings frameworks ready: PFE (Feb 3), ALL (Feb 5), SHEL.L (Feb 5)
-    - Research batch: BBWI (WATCHLIST $18.50), WPP.L (PASS, wait 200p), BME.L (REJECTED geo), MEGP.L (wait FY results)
-    - US MidCap + FTSE250 screening completed
-    VIOLATIONS DETECTED:
-    - TEP.PA 8.2% > 7% limit, FUTR.L 7.2% > 7%, DTE.DE 7.0% > 7%
-    - EU geography 36.9% > 35% limit → blocks all new EU/UK purchases
+    - BUY HRB 9 shares @ $38.72 ($348.48). Tax prep US, P/E 8.9x, MoS 30%, solo 2 analysts.
+    - HPQ deep analysis → REJECTED (no moat, negative equity, secular decline, MoS insuficiente)
+    - US/UK screening completado (yfinance rate limited UK). Candidatos: GIS, KMPR, BBWI.
+    - PFE earnings preview preparado (consenso $0.57, reporta mañana pre-market)
+    - Investment committee aprobó HRB con condiciones (size reducido a 2.7%)
+    VIOLATIONS PENDIENTES:
+    - TEP.PA 8.1% > 7% limit → TRIM 3 shares pendiente
+    - FUTR.L 7.2% > 7%, DTE.DE 7.1% > 7%
+    - EU geography ~36% > 35% limit
     ESTADO:
-    - 17 posiciones, cash €1,941 (20.1%), P&L +0.9%
-    - Standing orders: BME.L, MEGP.L, UTG.L, TATE.L ADD, DGE.L, EVO.ST, ZIG.L, HPQ, FGP.L, BBWI, WPP.L (11 total)
+    - 18 posiciones, cash €1,647 (17%), P&L +0.8%
+    - US geo mejorado: 23% (era 20%)
     PROXIMOS CATALISTAS:
-    - PFE Q4 earnings 3-feb pre-market (consenso $0.57 EPS)
+    - PFE Q4 earnings 3-feb pre-market (HOY)
     - ALL Q4 earnings 5-feb
     - SHEL.L Q4 earnings 5-feb
     - EVO.ST earnings 5-feb (gate standing order)
-    - MEGP.L FY2025 results mid-Feb
-    - BBWI Q4 earnings 19-feb
-    - WPP.L FY2025 + Rose plan 19-feb
-    - DGE.L H1 earnings 25-feb (gate standing order)
     PRIORIDAD NEXT SESSION:
-    - Analyze PFE actual Q4 results
-    - Post-earnings review ALL + SHEL.L
-    - Address EU geo constraint (consider TRIM EU position to make room)
+    - Analyze PFE actual Q4 results → HOLD/SELL decision
+    - TRIM TEP.PA 3 shares (arreglar violación 8.1%)
+    - Post-earnings review ALL + SHEL.L (5-feb)
   status: active
 
 # -----------------------------------------------------------------------------

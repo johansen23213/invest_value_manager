@@ -7,7 +7,7 @@
 # =============================================================================
 
 cash:
-  amount: 1941.33  # Post ADD FUTR.L + TEP.PA 2026-02-03
+  amount: 1647.18  # Post BUY HRB 2026-02-03 (1941.33 - 294.15)
   currency: EUR
 
 positions:
@@ -147,6 +147,14 @@ positions:
     avg_cost_usd: 7.36  # 817.40 / 111
     date_opened: 2026-02-03
     thesis: thesis/active/FUTR.L/thesis.md
+
+  - ticker: HRB
+    name: "H&R Block Inc."
+    shares: 9
+    invested_usd: 348.48  # 9 * 38.72
+    avg_cost_usd: 38.72
+    date_opened: 2026-02-03
+    thesis: thesis/active/HRB/thesis.md
 
 transactions:
   - date: 2026-01-26
@@ -323,3 +331,10 @@ transactions:
     shares: 7
     total_usd: 465.34
     notes: "ADD to existing 7 shares. Total 14 shares. MoS 51%, FCF yield 38%. Position ~8%."
+
+  - date: 2026-02-03
+    action: BUY
+    ticker: HRB
+    shares: 9
+    total_usd: 348.48
+    notes: "H&R Block. Tax prep #2 US. P/E 8.9x, yield 4.3%, MoS 30%. Only 2 analysts. US geo fill."
