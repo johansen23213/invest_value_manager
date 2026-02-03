@@ -74,89 +74,17 @@ system:
     | VNA.DE | -10% | 25% | 0-1/10 | HOLD |
     | IMB.L | = | 20% | 1/10 | HOLD |
     | DTE.DE | +2% | 27-32% | 0/10 | HOLD |
-    | A2A.MI | -25% | 6% ⚠️ | 1-2/10 | HOLD |
+    | A2A.MI | -25% | 6% | 1-2/10 | HOLD |
     | DOM.L | +9% | 38% | 0.5/10 | HOLD |
     | SAN.PA | +20% | 34% | 0/10 | HOLD |
     | HRB | +17% | 54% | 2-3/10 | HOLD |
     | LIGHT.AS | +28% | 45% | 2.5/10 | HOLD |
     | TATE.L | +10% | 31% | 2/10 | HOLD |
     | EDEN.PA | +43% | 47% | 0-1/10 | HOLD |
-    | FUTR.L | -8% | 46-53% | 4/10 ⚠️ | HOLD |
+    | FUTR.L | -8% | 46-53% | 4/10 | HOLD |
     | UHS | -9% | 29% | 1.5/10 | HOLD |
     | TEP.PA | -4% | 49% | 1/10 | TRIM |
     | GL | -19% | 18% | 0/10 | HOLD |
-
-    HALLAZGOS CLAVE:
-    - Framework v2.0 mas conservador en ~50% de posiciones
-    - 8 posiciones con FV mayor (SAN, HRB, LIGHT, TATE, EDEN, DOM, DTE, VICI)
-    - A2A.MI: MoS solo 6% (DCF inapropiado, FCF negativo temporal)
-    - FUTR.L: 4/10 value trap factors (alto riesgo, pero MoS compensa)
-
-    CONSTRAINT VIOLATIONS:
-    - TEP.PA: 8.1% > 7% max → TRIM 2 shares pendiente
-    - FUTR.L: 7.2% > 7% max → borderline
-    - EU geo: 36.7% > 35% max
-
-    PFE EARNINGS (3-Feb): FY2026 guidance $2.80-3.00 INLINE, dividend MAINTAINED.
-
-    MEJORAS SISTEMA:
-    - CLAUDE.md: errores #21, #22 documentados
-    - Creado skill: re-evaluation-protocol
-    - Actualizado review-agent a v2.0
-    - 18 thesis y 18 journal reviews creados
-
-    PROXIMA SESION (26) - CONTINUAR DESDE AQUI:
-    1. TRIM TEP.PA: Vender 2 shares (~€112) para bajar de 8.1% a 6.5%
-    2. Revisar standing orders con nuevo framework v2.0
-    3. Revision global portfolio y toma de decisiones
-    4. Probar framework v2.0 con nueva investigacion (screening fresco)
-
-    EARNINGS PROXIMOS (5-Feb-2026):
-    - ALL: Q4 2025 - watch combined ratio
-    - SHEL.L: Q4 2025 - watch FCF, buyback
-    - GL: Q4 2025 - watch EPS $3.44 consensus
-
-    Sesion 24 - REDISENO COMPLETO DEL FRAMEWORK DE INVERSION
-
-    CAMBIO MAYOR ESTRATEGICO:
-    El humano y yo identificamos que el sistema compraba "estadisticamente barato" sin:
-    - Entender el negocio profundamente (unit economics, modelo)
-    - Saber POR QUE esta barata (narrativa del mercado vs mi contra-tesis)
-    - Proyectar con logica (usabamos defaults 5% growth, 9% WACC)
-    - Usar multiples metodos de valoracion (solo DCF)
-    - Conectar macro con decisiones de compra
-
-    IMPLEMENTADO:
-    1. 3 NUEVOS SKILLS:
-       - business-analysis-framework: Unit economics, modelo negocio, por que barata, value trap checklist
-       - projection-framework: TAM/share/pricing → growth, WACC calculado, NO defaults
-       - valuation-methods: Multiples metodos segun tipo empresa (DCF, EV/EBIT, NAV, DDM, P/B vs ROE)
-
-    2. 4 SKILLS ACTUALIZADOS (v2.0):
-       - investment-rules: 7 gates obligatorios, reglas de venta claras, sizing dinamico
-       - thesis-template: Business understanding, proyecciones, escenarios Bear/Base/Bull
-       - decision-template: Checklist expandido con todos los gates
-       - moat-framework: Evidencia cuantitativa obligatoria
-
-    3. 4 AGENTES ACTUALIZADOS (v2.0):
-       - fundamental-analyst: 5 fases obligatorias
-       - valuation-specialist: Metodo segun tipo empresa
-       - investment-committee: 7 gates obligatorios
-       - macro-analyst: Output ACCIONABLE conectado con decisiones
-
-    4. CLAUDE.md actualizado con:
-       - Nueva seccion v2.2.0 explicando el cambio
-       - Flujo de inversion de 5 capas
-       - 4 nuevos errores recurrentes documentados (#16-19)
-
-    PORTFOLIO: Sin cambios operativos esta sesion (foco en framework)
-    - 18 posiciones, cash €1,647 (17%)
-
-    PROXIMA SESION (26):
-    - Continuar re-evaluacion portfolio restante (14 posiciones)
-    - GL: Monitorear Q4 2025 earnings Feb 5
-    - ALL + SHEL.L earnings Feb 5 tambien
-    - Ejecutar TRIMs pendientes si confirmados
   status: active
 
 # -----------------------------------------------------------------------------
@@ -170,42 +98,63 @@ calendar:
       ticker: SHEL
       event: "DONE - TRIM SHEL: vender 10 acciones"
       priority: CRITICAL
-      action: "SELL 10 shares SHEL en eToro. 20.85→10.85. Rebalanceo 13%→7%."
+      action: "SELL 10 shares SHEL en eToro. 20.85-10.85. Rebalanceo 13%-7%."
 
     - date: 2026-02-03
       type: action_completed
       ticker: A2A.MI
       event: "DONE - BUY A2A.MI ~134 shares"
       priority: CRITICAL
-      action: "BUY ~134 shares A2A.MI ~€2.54. Total ~€340 (4%). Max entry €2.80."
+      action: "BUY ~134 shares A2A.MI ~2.54. Total ~340 (4%). Max entry 2.80."
 
     - date: 2026-02-03
       type: action_completed
       ticker: EDEN.PA
       event: "DONE - BUY EDEN.PA ~22 shares"
       priority: CRITICAL
-      action: "BUY ~22 shares EDEN.PA ~€17.67. Total ~€400 (4%). FV €33-36."
+      action: "BUY ~22 shares EDEN.PA ~17.67. Total ~400 (4%). FV 33-36."
 
     - date: 2026-02-03
       type: action_completed
       ticker: VNA.DE
       event: "DONE - BUY VNA.DE ~16 shares"
       priority: CRITICAL
-      action: "BUY ~16 shares VNA.DE ~€24.61. Total ~€400 (4%). FV €35-38."
+      action: "BUY ~16 shares VNA.DE ~24.61. Total ~400 (4%). FV 35-38."
 
     - date: 2026-02-03
-      type: earnings
+      type: earnings_completed
       ticker: PFE
-      event: "Pfizer Q4 2025 (pre-market)"
+      event: "DONE - Pfizer Q4 2025: BEAT EPS $0.66 vs $0.57, guidance reaffirmed"
       priority: high
-      action: "Watch: EPS $0.57, FY2026 guidance, dividendo. Beat+OK→HOLD. Miss+div cut→SELL."
+      action: "HOLD - MoS 8.7%, dividend maintained. No action needed."
+
+    - date: 2026-02-03
+      type: action_completed
+      ticker: TEP.PA
+      event: "DONE - TRIM TEP.PA: sold 3 shares"
+      priority: high
+      action: "Sold 3 shares @ 53.14 = 159. Position 7.8%-6.1%. Constraint resolved."
+
+    - date: 2026-02-03
+      type: analysis_completed
+      ticker: HPQ
+      event: "HPQ RE-EVALUATED v2.0: REJECTED as value trap"
+      priority: high
+      action: "Standing order ELIMINATED. Thesis archived. 4/10 value trap factors, MoS 22% vs 35% required."
+
+    - date: 2026-02-03
+      type: analysis_completed
+      ticker: UTG.L
+      event: "UTG.L RE-EVALUATED v2.0: Standing order VALIDATED at 540 GBp"
+      priority: high
+      action: "FV updated 745p (was 770p). MoS at 540p = 27.5%. Tier B REIT. Value trap 1.5/10."
 
     - date: 2026-02-05
       type: earnings
       ticker: GL
       event: "Globe Life Q4 2025 (after market close)"
       priority: high
-      action: "Watch: EPS $3.44 consensus, FY2026 guidance. If beat → may re-rate. If miss → evaluate position. MoS at $143 = 17.6%."
+      action: "Watch: EPS $3.44 consensus, FY2026 guidance. If beat - may re-rate. If miss - evaluate position. MoS at $143 = 17.6%."
 
     - date: 2026-02-05
       type: earnings
@@ -226,7 +175,7 @@ calendar:
       ticker: EVO.ST
       event: "POST-EARNINGS: Evaluar compra Evolution AB"
       priority: high
-      action: "Si buenos + UKGC OK → BUY hasta 650 SEK (~€400). Si malos → 480-530 SEK. Si UKGC revocacion → DESCARTAR."
+      action: "Si buenos + UKGC OK - BUY hasta 650 SEK (~400). Si malos - 480-530 SEK. Si UKGC revocacion - DESCARTAR."
 
     - date: 2026-02-03
       type: action_completed
@@ -242,10 +191,17 @@ calendar:
       priority: high
       action: "Bought 175 shares DOM.L, $436.52 invested. Master franchisee, 54% UK market share."
 
+    - date: 2026-02-24
+      type: earnings
+      ticker: UTG.L
+      event: "Unite Group FY2025 Preliminary Results"
+      priority: high
+      action: "Watch: FY2026 guidance, occupancy FY2027 reservations, Empiric synergies. If occupancy >95% - may trigger early. If <93% - lower trigger to 500p."
+
     - date: 2026-03-05
       type: earnings
       ticker: DOM.L
-      event: "Domino's Pizza Group FY25 results"
+      event: "Dominos Pizza Group FY25 results"
       priority: high
       action: "Review EBITDA guidance, FCF, dividend policy, CEO appointment timeline. Kill conditions: ND/EBITDA >3x, FCF <60M, share <45%."
 
@@ -273,21 +229,21 @@ calendar:
       ticker: CVS
       event: "CVS Health Q4 2025"
       priority: high
-      action: "BEAT (EPS >$6.70, margin >8%) → ready_to_buy €300. MISS → descartar."
+      action: "BEAT (EPS >$6.70, margin >8%) - ready_to_buy 300. MISS - descartar."
 
     - date: 2026-02-19
       type: earnings
       ticker: AGN.NV
       event: "Aegon FY2025"
       priority: high
-      action: "Watch OCG €1.2B, solvency >180%. Si precio cae €5.90 → BUY."
+      action: "Watch OCG 1.2B, solvency >180%. Si precio cae 5.90 - BUY."
 
     - date: 2026-02-23
       type: strategy
       ticker: ENEL.MI
       event: "Enel Capital Markets Day"
       priority: high
-      action: "Si FV sube €11-12 → entry €8.50."
+      action: "Si FV sube 11-12 - entry 8.50."
 
     - date: 2026-02-26
       type: earnings
@@ -301,14 +257,14 @@ calendar:
       ticker: CS.PA
       event: "AXA FY2025 results"
       priority: high
-      action: "Si precio cae a €34.50-35.50 post-earnings → BUY 5% (~€500). Combined ratio <90% + guidance OK = compra."
+      action: "Si precio cae a 34.50-35.50 post-earnings - BUY 5% (~500). Combined ratio <90% + guidance OK = compra."
 
     - date: 2026-02-27
       type: earnings
       ticker: PROX.BR
       event: "Proximus FY2025 + Strategic Plan"
       priority: high
-      action: "Si capex decline confirmado + plan Global creible → BUY 3% (~€300) a €7.50-7.70. Si decepcionante → AVOID hasta €5-6."
+      action: "Si capex decline confirmado + plan Global creible - BUY 3% (~300) a 7.50-7.70. Si decepcionante - AVOID hasta 5-6."
 
     - date: 2026-02-28
       type: earnings
@@ -339,13 +295,13 @@ watchlist:
       target_entry_eur: 45
       fair_value_eur: 60-83
       margin_of_safety: 26%
-      sizing: "€1,170 (7%)"
-      status: "WAIT - current ~€61 = 0% MoS. Need earnings + correction."
+      sizing: "1,170 (7%)"
+      status: "WAIT - current ~61 = 0% MoS. Need earnings + correction."
       thesis: thesis/watchlist/TTE/thesis.md
 
     - ticker: LGEN.L
       target_entry_gbp: 215
-      sizing: "€1,170 (7%)"
+      sizing: "1,170 (7%)"
       status: "ON WATCH - wait FY2025 results"
       notes: "P/E ~10x, yield 8.5%, BofA 17.5% capital return"
 
@@ -353,32 +309,32 @@ watchlist:
       target_entry_sek: 480-650
       fair_value_sek: 1009
       margin_of_safety: 42.6%
-      sizing: "€400 (4%)"
+      sizing: "400 (4%)"
       status: "WAIT earnings 5-feb"
       thesis: thesis/research/EVO.ST/thesis.md
 
 
   tier_2:
     - ticker: AGN.NV
-      entry: "€5.90-6.10"
+      entry: "5.90-6.10"
       notes: "P/E 7.4x, yield 5.8%. Borderline MoS. Earnings 19-Feb."
     - ticker: MBG.DE
-      entry: "€48-52"
-      notes: "Current €57. Need 30%+ MoS. Q4 earnings catalyst."
+      entry: "48-52"
+      notes: "Current 57. Need 30%+ MoS. Q4 earnings catalyst."
     - ticker: CS.PA
-      entry: "€34.50-35.50"
-      notes: "AXA. Tier A (8/10). FV €40.50. Wide moat. Solvency 222%. WAIT FY2025 earnings 26-feb."
+      entry: "34.50-35.50"
+      notes: "AXA. Tier A (8/10). FV 40.50. Wide moat. Solvency 222%. WAIT FY2025 earnings 26-feb."
     - ticker: ORA.PA
-      entry: "€13-14"
-      notes: "Orange. Current €15.62 above old target. P/E 41x = expensive. Needs re-evaluation or REMOVE."
+      entry: "13-14"
+      notes: "Orange. Current 15.62 above old target. P/E 41x = expensive. Needs re-evaluation or REMOVE."
     - ticker: RIO.L
-      entry: "£120"
+      entry: "120"
       notes: "Materials diversification. Lithium pivot."
     - ticker: ENGI.PA
-      entry: "€22"
+      entry: "22"
       notes: "Yield 6.6%. Needs fundamental analysis."
     - ticker: NTGY.MC
-      entry: "€19-21"
+      entry: "19-21"
       notes: "Yield conflict. Needs data validation."
     - ticker: CMCSA
       entry: "$25-26"
@@ -387,15 +343,15 @@ watchlist:
       entry: "$34-38"
       notes: "DCF ~$41. D/E 147%, GLP-1 headwind."
     - ticker: AZM.MI
-      entry: "€32-33"
-      notes: "Asset manager. P/E 9.8x, yield 4.9%, D/E 0.01. Narrow moat. FV €42-44. Strong buy €30."
+      entry: "32-33"
+      notes: "Asset manager. P/E 9.8x, yield 4.9%, D/E 0.01. Narrow moat. FV 42-44. Strong buy 30."
     - ticker: PROX.BR
-      entry: "€7.50-7.70"
-      notes: "Telecom belga. EV/EBITDA 3.1x. FV €12 base. WAIT strategic plan 27-feb. DIGI risk."
+      entry: "7.50-7.70"
+      notes: "Telecom belga. EV/EBITDA 3.1x. FV 12 base. WAIT strategic plan 27-feb. DIGI risk."
 
   on_watch:
     - ticker: ENEL.MI
-      entry: "€7.00-7.50"
+      entry: "7.00-7.50"
       notes: "Vendida breakeven. CMD 23-feb catalyst."
     - ticker: CVS
       entry: "$70"
@@ -404,21 +360,16 @@ watchlist:
       entry: "$160-165"
       notes: "Infrastructure REIT. Debt/EBITDA 6.18x."
     - ticker: IBE.MC
-      entry: "€14-15"
+      entry: "14-15"
       notes: "Quality but P/E 21-24x premium."
     - ticker: ADM.L
-      entry: "£24-26"
+      entry: "24-26"
       notes: "ROE 56% but margin -16%."
     - ticker: 8001.T
-      entry: "¥6,500 ($43)"
+      entry: "6,500 ($43)"
       notes: "Itochu. Quality premium in price."
     - ticker: TATE.L
       entry: "375 GBp (starter BOUGHT), 350 GBp add, 325 GBp full position"
-      fair_value: "500 GBp"
-      kill: "Dividend cut, ND/EBITDA >3x, EBITDA margin <17%"
-    - ticker: DGE.L
-      entry: "2400-2500 GBp"
-      notes: "Diageo. Wide moat beverages. Fwd P/E 13x, yield 4.8%. Payout ~100% = risk. Earnings 25-feb. Analyze post-earnings."
     - ticker: BME.L
       entry: "169 GBp"
       notes: "B&M discount retail. FV 260p. At 169p = 35% MoS Tier C. Or wait H2 June 2026. D/E high (IFRS16). Narrow moat."
@@ -430,22 +381,32 @@ watchlist:
       notes: "Lion Finance (ex-Bank of Georgia). P/E 7.9x, ROE 29%. Near 52w high (9975 vs 10230). NO discount. Wait -30% correction. Same Georgia risk as TBCG."
     - ticker: WPP.L
       entry: "200 GBp"
-      notes: "Value trap at current 297p. No moat, AI disruption, Altman Z 1.06. Only at 200p (35% MoS). Review Q3 results + CEO plan."
+      notes: "v2.0: Probable value trap (5-6/10). FV 380p. MoS 28% vs 35% required. Standing order 200p = 47% MoS. Wait Rose plan Feb 19."
     - ticker: UTG.L
       entry: "540 GBp"
-      fair_value: "770 GBp"
-      notes: "Unite Group. UK student REIT, 42% discount to NAV 986p. FY2026 earnings guided down 7-10%. Occupancy 95.2% falling. At 540p = 30% MoS. BBB+, LTV 26%."
+      fair_value: "745 GBp"
+      fair_value_v2: "745p (central), Bear 610p, Bull 870p"
+      notes: "v2.0 RE-EVAL: MoS at 540p = 27.5% (PASSES 25% Tier B). FY2026 earnings trough -7-10%. 42% discount to NAV 986p. Near-monopoly UK listed PBSA. Value trap 1.5/10. Earnings Feb 24."
       kill: "Occupancy <90%, dividend cut, LTV >35%, immigration policy kills int'l student demand"
-    - ticker: HPQ
-      entry: "$17-18"
-      fair_value: "$27"
-      notes: "HP Inc. FCF yield 13.2%, P/E 7.3x. Cash machine but printing in secular decline. MoS 28% borderline. Wait FY26 Q1 late-Feb. Baja conviccion."
-      kill: "Printing revenue decline >15% annual, dividend cut, FCF <$2B"
     - ticker: MEGP.L
       entry: "131 GBp"
       fair_value: "175 GBp"
       notes: "ME Group. ROE 31.8%, EBITDA margin 37%, net cash, monopoly laundry kiosks. Only 2 analysts. At 131p = 25% MoS. FY2025 results mid-Feb catalyst."
       kill: "German photo regulation kills Photo.ME division, laundry growth stalls <10%"
+
+  archived_rejected:
+    - ticker: HPQ
+      rejection_date: 2026-02-03
+      reason: "VALUE TRAP - 4/10 trap factors (secular printing decline, digital disruption, negative equity, heavy insider selling). MoS 22% vs 35% required for Tier C. CEO departed. No moat. Thesis archived."
+      fair_value: "$21-24"
+      entry_would_need: "$15.35 (for 35% MoS)"
+      thesis: thesis/archive/HPQ/thesis.md
+
+    - ticker: MEGP.L
+      rejection_date: 2026-02-03
+      reason: "NOT AVAILABLE ON ETORO - Excellent company (ROE 31.8%, MoS 29%, value trap 0.5/10) but broker doesn't offer this LSE micro-cap. Consider if switching brokers."
+      fair_value: "195 GBp"
+      thesis: thesis/archive/MEGP.L/thesis.md
 
   active_monitoring:
     - ticker: A2A.MI
@@ -455,7 +416,7 @@ watchlist:
     - ticker: EDEN.PA
       entry: 17.61
       fair_value: 33-36
-      kill: "FCF <€300M or revenue decline >10%"
+      kill: "FCF <300M or revenue decline >10%"
     - ticker: VNA.DE
       entry: 24.55
       fair_value: 35-38
@@ -479,7 +440,7 @@ watchlist:
     - ticker: TEP.PA
       entry: 54.60
       fair_value: 115
-      kill: "FCF <€600M or revenue -5%"
+      kill: "FCF <600M or revenue -5%"
     - ticker: SAN.PA
       entry: 79.20
       fair_value: 95-105
@@ -495,7 +456,7 @@ watchlist:
     - ticker: LIGHT.AS
       entry: 17.91
       fair_value: 26.73
-      kill: "FCF <€300M or revenue -10%"
+      kill: "FCF <300M or revenue -10%"
     - ticker: TATE.L
       entry: 375
       fair_value: 500
@@ -514,7 +475,7 @@ watchlist:
       fair_value_original: 215
       fair_value_v2: 174
       mos_v2: 17.6%
-      notes: "Framework v2.0 re-eval: P/B vs ROE + P/E normalized. 0/10 value trap. Beta 0.46. Quality 7/10 Tier B. MoS below 25% threshold → HOLD, no ADD."
+      notes: "Framework v2.0 re-eval: P/B vs ROE + P/E normalized. 0/10 value trap. Beta 0.46. Quality 7/10 Tier B. MoS below 25% threshold - HOLD, no ADD."
       kill: "Operating EPS <$12, or class action reveals material new fraud evidence"
       buy_trigger: "$130 or below (MoS would be 25.3%)"
     - ticker: FUTR.L
@@ -527,24 +488,25 @@ watchlist:
 # -----------------------------------------------------------------------------
 alerts:
   price_monitors:
-    - { ticker: TTE, entry_eur: 45, note: "FV €60. Wait earnings+correction" }
+    - { ticker: TTE, entry_eur: 45, note: "FV 60. Wait earnings+correction" }
     - { ticker: LGEN.L, entry_gbp: 215, note: "FV ~265p. Wait FY2025" }
-    - { ticker: MBG.DE, entry_eur: 50, note: "FV €70. Cyclical wait" }
+    - { ticker: MBG.DE, entry_eur: 50, note: "FV 70. Cyclical wait" }
     - { ticker: ENEL.MI, entry_eur: 7.50, note: "Re-entry. CMD 23-feb" }
     - { ticker: AGN.NV, entry_eur: 5.90, note: "Borderline. Earnings 19-Feb" }
     - { ticker: CVS, entry_usd: 70, note: "Q4 11-feb binary" }
     - { ticker: T, entry_usd: 22.50, note: "FCF $18B+. Best US telecom" }
-    - { ticker: BNP.PA, entry_eur: 78, note: "FV €103. CET1 12.5%" }
-    - { ticker: ENGI.PA, entry_eur: 22, note: "FV €29. Yield 6%" }
-    - { ticker: CS.PA, entry_eur: 35.50, note: "AXA. FV €40.50. Tier A. Earnings 26-feb" }
+    - { ticker: BNP.PA, entry_eur: 78, note: "FV 103. CET1 12.5%" }
+    - { ticker: ENGI.PA, entry_eur: 22, note: "FV 29. Yield 6%" }
+    - { ticker: CS.PA, entry_eur: 35.50, note: "AXA. FV 40.50. Tier A. Earnings 26-feb" }
     - { ticker: BME.L, entry_gbp: 169, note: "B&M Retail. FV 260p. Tier C turnaround." }
     - { ticker: TBCG.L, entry_gbp: 3500, note: "TBC Bank Georgia. FV 5400p. Frontier Tier C." }
     - { ticker: BGEO.L, entry_gbp: 7000, note: "Lion Finance (ex-BOG). Near ATH, wait correction." }
-    - { ticker: WPP.L, entry_gbp: 200, note: "Value trap. Only at 200p with turnaround evidence." }
+    - { ticker: WPP.L, entry_gbp: 200, note: "v2.0: 5-6/10 trap. FV 380p. 47% MoS at trigger. Feb 19 Rose plan critical." }
     - { ticker: TATE.L, entry_gbp: 350, note: "ADD to starter. FV 500p. Already own 66 shares." }
-    - { ticker: DGE.L, entry_gbp: 2450, note: "Diageo. Wide moat. Wait earnings 25-feb." }
-    - { ticker: EVO.ST, entry_sek: 530, note: "Evolution. If Q4 miss → buy 480-530 SEK." }
+    - { ticker: DGE.L, entry_gbp: 1300, note: "Diageo v2.0: FV 1400-1520 GBp. OVERVALUED at 1690. Entry 1300 for 15% MoS." }
+    - { ticker: EVO.ST, entry_sek: 530, note: "Evolution. If Q4 miss - buy 480-530 SEK." }
     - { ticker: GL, entry_usd: 130, note: "Globe Life ADD trigger. At $130 MoS=25.3%. Do not add >$130." }
+    - { ticker: UTG.L, entry_gbp: 540, note: "v2.0 VALIDATED. FV 745p. At 540p MoS 27.5%. Earnings Feb 24." }
 
 # -----------------------------------------------------------------------------
 # STANDING ORDERS (pre-aprobadas, ejecutar cuando precio toque trigger)
@@ -552,38 +514,37 @@ alerts:
 # En siguiente sesion confirma y se actualiza portfolio.
 # -----------------------------------------------------------------------------
 standing_orders:
-  # THESIS COMPLETA + COMMITTEE APROBADO — Solo falta que precio llegue
+  # THESIS COMPLETA + COMMITTEE APROBADO - Solo falta que precio llegue
   - ticker: BME.L
     action: BUY
     trigger: "<=169 GBp"
     size_eur: 400
     shares_approx: 235
     thesis: thesis/research/BME.L/thesis.md
-    fair_value: "260 GBp"
-    mos_at_trigger: "35%"
-    notes: "B&M discount retail. Narrow moat. Tier C. Committee: WATCHLIST at 175p, BUY at 169p."
+    fair_value: "321 GBp"
+    mos_at_trigger: "47%"
+    notes: "B&M discount retail. v2.0 CONFIRMED. Tier C. Value trap 2/10. EV/EBIT + DCF multi-method."
     expiry: 2026-04-01
 
-  - ticker: MEGP.L
-    action: BUY
-    trigger: "<=131 GBp"
-    size_eur: 400
-    shares_approx: 265
-    thesis: thesis/research/MEGP.L/thesis.md
-    fair_value: "175 GBp"
-    mos_at_trigger: "25%"
-    notes: "ME Group. 2 analysts, monopoly laundry kiosks. ROE 31.8%. FY2025 mid-Feb catalyst."
-    expiry: 2026-04-01
+  # MEGP.L REMOVED 2026-02-03 - NOT AVAILABLE ON ETORO
+  # Was: trigger 145 GBp, FV 195 GBp, MoS 29%. Excellent company but broker doesn't offer it.
+  # See thesis/archive/MEGP.L/
 
   - ticker: UTG.L
     action: BUY
     trigger: "<=540 GBp"
     size_eur: 400
     shares_approx: 64
-    thesis: thesis/research/UTG.L/thesis.md
-    fair_value: "770 GBp"
-    mos_at_trigger: "30%"
-    notes: "Unite Group UK student REIT. 42% discount NAV. Earnings declining FY2026."
+    thesis: thesis/research/UTG.L/thesis_v2.md
+    fair_value: "745 GBp"
+    fair_value_bear: "610 GBp"
+    fair_value_bull: "870 GBp"
+    mos_at_trigger: "27.5%"
+    tier: "B (Asset-Heavy REIT)"
+    value_trap_score: "1.5/10"
+    moat: "Narrow (Efficient Scale - near monopoly UK listed PBSA)"
+    notes: "v2.0 RE-EVAL VALIDATED. 42% discount NAV. FY2026 earnings trough -7-10%. Multi-method: NAV+DDM+FFO. Earnings Feb 24."
+    kill_conditions: "Occupancy <90%, dividend cut, LTV >35%, immigration policy kills demand"
     expiry: 2026-04-01
 
   - ticker: TATE.L
@@ -597,16 +558,6 @@ standing_orders:
     notes: "ADD to existing 66 shares. Brings position from 3.1% to ~6%."
     expiry: 2026-04-01
 
-  - ticker: DGE.L
-    action: BUY
-    trigger: "<=1700 GBp + earnings 25-feb OK (no div cut, ND/EBITDA declining)"
-    size_eur: 450
-    shares_approx: 23
-    thesis: thesis/research/DGE.L/thesis.md
-    fair_value: "2100-2200 GBp"
-    mos_at_trigger: "25-31%"
-    notes: "Diageo. Wide moat Tier A. CONDICIONAL a earnings 25-feb. Si div cut → CANCELAR."
-    expiry: 2026-03-15
 
   - ticker: ZIG.L
     action: BUY
@@ -614,9 +565,9 @@ standing_orders:
     size_eur: 350
     shares_approx: 81
     thesis: thesis/research/ZIG.L/thesis.md
-    fair_value: "500 GBp"
-    mos_at_trigger: "25%"
-    notes: "Zigup fleet management. 5 analysts, yield 6.9%, fwd P/E 7x. Ideal entry <=350p (30% MoS)."
+    fair_value: "652 GBp"
+    mos_at_trigger: "42%"
+    notes: "Zigup fleet management. v2.0 CONFIRMED. Tier B. 4-method valuation. ROCE 11.9% > WACC 8%."
     expiry: 2026-05-01
 
   # GL ADD - CONDITIONAL on price pullback
@@ -631,27 +582,18 @@ standing_orders:
     notes: "Globe Life. Framework v2.0 FV $174. At $130 reaches 25% MoS. Current $143 = 17.6% MoS (insufficient). Quality 7/10 Tier B."
     expiry: 2026-06-01
 
-  # PENDIENTE EARNINGS — Ejecutar SOLO si earnings cumplen condiciones
+  # PENDIENTE EARNINGS - Ejecutar SOLO si earnings cumplen condiciones
   - ticker: EVO.ST
     action: BUY
-    trigger: "<=650 SEK + Q4 beat + UKGC OK"
-    size_eur: 400
-    shares_approx: 7
+    trigger: "<=600 SEK + UKGC favorable (fine/conditions, NOT revocation)"
+    size_eur: 300
+    shares_approx: 5
     thesis: thesis/research/EVO.ST/thesis.md
-    fair_value: "1009 SEK"
-    notes: "CONDICIONAL a earnings 5-feb. Si UKGC revocacion → CANCELAR."
+    fair_value: "950 SEK"
+    fair_value_bear: "600 SEK"
+    tier: "C (Regulatory Risk)"
+    notes: "v2.0: Tier C por UKGC risk. Si UKGC revocacion - CANCELAR. Si favorable - BUY <=600 SEK."
     expiry: 2026-02-15
-
-  - ticker: HPQ
-    action: BUY
-    trigger: "<=$18.50"
-    size_eur: 400
-    shares_approx: 21
-    thesis: thesis/research/HPQ/thesis.md
-    fair_value: "$27"
-    mos_at_trigger: "31.5%"
-    notes: "HP Inc. Committee: WATCHLIST at $19.84, BUY at $18.50. Wait FY26 Q1 earnings late-Feb. Printing decline key risk."
-    expiry: 2026-04-01
 
   - ticker: FGP.L
     action: BUY
@@ -661,7 +603,7 @@ standing_orders:
     thesis: thesis/research/FGP.L/thesis.md
     fair_value: "220-240 GBp"
     mos_at_trigger: "25%"
-    notes: "FirstGroup. UK bus/rail. P/E 9x, 4 analysts all Buy. Narrow moat. IFRS16 distorts FCF."
+    notes: "FirstGroup. v2.0 CONFIRMED. UK bus/rail. P/E 9x, Tier B. Narrow moat. IFRS16 distorts FCF. FV blended 220-230p (EV/EBIT + P/E). Value trap 2/10."
     expiry: 2026-06-01
 
   - ticker: BBWI
@@ -692,8 +634,8 @@ standing_orders:
     size_eur: 400
     shares_approx: 173
     thesis: thesis/research/WPP.L/thesis.md
-    fair_value: "360 GBp"
-    mos_at_trigger: "44%"
+    fair_value: "380 GBp"
+    mos_at_trigger: "47%"
     notes: "WPP turnaround. Tier C. No moat, AI disruption. Altman Z 1.06. Wait for Rose plan Feb 19."
     expiry: 2026-04-01
 
@@ -702,8 +644,8 @@ standing_orders:
 # -----------------------------------------------------------------------------
 macro_snapshot:
   last_update: 2026-02-02
-  themes: ["Fed/BCE pausa 3.5%/2.0%", "Europa barata", "Tariffs escalando (Corea 25%, Canada amenaza)", "Iran tension ↑", "China mejora IMF 4.5%", "Alemania sale recesion"]
-  risks: ["US-Iran guerra regional 30-40% (↑)", "US-China Taiwan 10-20%", "Tariff war global 40-50%", "Recesion US 25-35%", "Oil shock >$90 si Iran 15-25%"]
+  themes: ["Fed/BCE pausa 3.5%/2.0%", "Europa barata", "Tariffs escalando (Corea 25%, Canada amenaza)", "Iran tension up", "China mejora IMF 4.5%", "Alemania sale recesion"]
+  risks: ["US-Iran guerra regional 30-40% (up)", "US-China Taiwan 10-20%", "Tariff war global 40-50%", "Recesion US 25-35%", "Oil shock >$90 si Iran 15-25%"]
 
 # -----------------------------------------------------------------------------
 # MANTENIMIENTO
@@ -716,33 +658,37 @@ maintenance:
   memory_status: ok
   agents_count: 19
   evolution_tracking:
-    last_evaluation: 2026-02-01
+    last_evaluation: 2026-02-03
     applied:
-      - "2026-02-01: Fusion self-evolution+evolution-manager → system-evolver"
-      - "2026-02-01: health-check upgraded haiku→sonnet, +quantitative checks"
-      - "2026-02-01: TTE moved active→watchlist"
-      - "2026-02-01: system.yaml compacted 863→~350 lines"
-    pending:
-      - "Continuar re-evaluacion: 14 posiciones restantes"
-      - "Crear skill/protocolo de re-evaluacion v2.0"
+      - "2026-02-01: Fusion self-evolution+evolution-manager - system-evolver"
+      - "2026-02-01: health-check upgraded haiku-sonnet, +quantitative checks"
+      - "2026-02-01: TTE moved active-watchlist"
+      - "2026-02-01: system.yaml compacted 863-~350 lines"
+    applied_2026_02_03_utg_review:
+      - "UTG.L re-evaluated with v2.0 framework: VALIDATED"
+      - "Standing order at 540 GBp MAINTAINED"
+      - "FV updated: 745 GBp (was 770 GBp) - weighted expected value more conservative"
+      - "MoS at 540p = 27.5% (passes 25% Tier B threshold)"
+      - "Value trap checklist: 1.5/10 (PASS)"
+      - "Narrow moat via Efficient Scale (near-monopoly UK listed PBSA)"
+      - "Multi-method valuation: NAV (40%), DDM (30%), FFO Multiple (30%)"
+      - "Bear/Base/Bull scenarios: 610p/745p/870p"
+      - "Key risk: Immigration policy reducing international student demand"
+      - "Earnings Feb 24: watch occupancy guidance FY2027/28"
+      - "Thesis v2.0 created: thesis/research/UTG.L/thesis_v2.md"
+    applied_2026_02_03_hpq_review:
+      - "HPQ re-evaluated with v2.0 framework: REJECTED as value trap"
+      - "4/10 value trap factors: secular decline, digital disruption, negative equity, insider selling"
+      - "MoS 22% vs 35% required for Tier C quality score 5/10"
+      - "Standing order at $18.50 ELIMINATED"
+      - "Thesis moved to thesis/archive/HPQ/thesis.md"
     applied_2026_02_03_session25:
-      - "Re-evaluacion PFE: FV $27.52 (era $32-35), MoS 3-10% (era 25-36%) → FAIRLY VALUED"
-      - "Re-evaluacion ALL: FV $240 (confirmado), MoS 16% (era 21%) → MODERATELY UNDERVALUED"
-      - "Re-evaluacion SHEL.L: FV £26.8 (era £32-35), MoS -4% (era 25-30%) → FAIRLY VALUED"
-      - "Re-evaluacion GL: FV $174 (era $215), MoS 17.6% (era 34%) → HOLD (was BUY). P/B vs ROE method."
+      - "Re-evaluacion PFE: FV $27.52 (era $32-35), MoS 3-10% (era 25-36%) - FAIRLY VALUED"
+      - "Re-evaluacion ALL: FV $240 (confirmado), MoS 16% (era 21%) - MODERATELY UNDERVALUED"
+      - "Re-evaluacion SHEL.L: FV L26.8 (era L32-35), MoS -4% (era 25-30%) - FAIRLY VALUED"
+      - "Re-evaluacion GL: FV $174 (era $215), MoS 17.6% (era 34%) - HOLD (was BUY). P/B vs ROE method."
       - "Framework v2.0 es ~20pp mas conservador que analisis original"
-      - "3/4 posiciones no habrian pasado filtro inicial con v2.0"
-      - "Fixed: LIGHT.AS ticker, HRB standing order removed"
-      - "CLAUDE.md actualizado: errores #21 (current_view primero), #22 (usar agentes)"
-      - "Creado skill: re-evaluation-protocol"
-      - "Actualizado review-agent a v2.0 (anadidos skills framework)"
-      - "PFE earnings HOY: FY2026 guidance $2.80-3.00 EPS INLINE, div MANTENIDO"
-      - "15 review-agents lanzados en paralelo para re-evaluar posiciones restantes"
-      - "GL review: thesis updated v2.0, journal entry created"
     applied_2026_02_02:
-      - "Fixed SHEL→SHEL.L ticker bug (+$427 phantom value)"
+      - "Fixed SHEL-SHEL.L ticker bug (+$427 phantom value)"
       - "Fixed dcf_calculator.py GBp/GBP mismatch for LSE stocks"
       - "Portfolio fully synced with eToro (13 positions)"
-      - "Added 8 new price monitors"
-      - "Moved A2A.MI, EDEN.PA, VNA.DE, TATE.L thesis to active"
-      - "7 fundamental analyses: WPP(reject), BME(watch), TATE(buy), CMCSA(watch), TBCG(watch), BGEO(watch), screening(complete)"

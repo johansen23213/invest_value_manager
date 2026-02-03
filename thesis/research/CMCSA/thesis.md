@@ -1,392 +1,330 @@
-# CMCSA (Comcast Corporation) - Investment Thesis v3
+# CMCSA (Comcast Corporation) - Investment Thesis v4.0
 
-**Date:** 2026-02-02 (v3 - corrected share count, refined valuation)
+**Date:** 2026-02-03 (v4 - Full v2.0 Framework Re-evaluation)
 **Analyst:** Fundamental Analyst Agent
 **Tier:** B (Cyclical Quality - Media/Cable conglomerate)
 **Quality Score:** 5.5/10
 **Required MoS:** >=25%
-**Decision:** WATCHLIST -- Do NOT buy at $29.77. Entry target $25-26.
+**Decision:** WATCHLIST -- Maintain $26 standing order. Do NOT buy at $29.98.
 
 ---
 
-## Executive Summary
+## 1. Executive Summary
 
-Comcast is a structurally complex conglomerate undergoing strategic transformation (Versant spin-off completed Jan 2026). The stock screens as extremely cheap (trailing P/E 5.5x, FCF yield ~16%) but the market is correctly pricing in secular decline of the core broadband business. After deep analysis, the DCF tool output of $60 base fair value is **grossly overstated** due to inflated 2025 FCF (includes $2B one-time tax benefit) and unrealistic growth assumptions on a declining-subscriber business.
+Comcast is a US media/telecom conglomerate with declining broadband core (31M subs, losing ~700K/year to FWA/fiber) offset by high-growth theme parks (Epic Universe driving $1B+ quarterly EBITDA) and loss-making streaming (Peacock, 44M subs, $10B+ cumulative losses). The market prices CMCSA at 5.5x trailing earnings due to broadband decline narrative.
 
-**Adjusted fair value: $33-38 (base $35)**
-**MoS at $29.77: ~18% -- BELOW the 25% Tier B threshold**
-**Entry target: $25.00-$26.25**
+**Why cheap:** Broadband secular decline (FWA, fiber overbuilders), Peacock cash burn ($2.5B/year NBA deal), Roberts family control concerns.
 
-The 103% MoS from the DCF tool was a false signal. The market is roughly right here.
+**My contra-thesis:** Theme parks are hidden asset worth $50-60B standalone; broadband is cash cow not corpse (ARPU +1.7%); Peacock could reach profitability 2027-2028.
+
+**Catalizador principal:** Epic Universe at full capacity (late 2026) + Peacock loss reduction + buybacks at 7x fwd earnings.
+
+**Fair Value (Weighted):** $33.13 expected | $32.66 base | $25.04 bear
+**Current Price:** $29.98 | **MoS at current:** +10% (BELOW 25% threshold)
+**Entry Target:** $25-26 for 25%+ MoS
 
 ---
 
-## Key Metrics (as of 2026-02-02)
+## 2. Business Understanding
 
-| Metric | Value | Assessment |
+### 2.1 Modelo de Negocio
+
+| Aspecto | Descripcion |
+|---------|-------------|
+| Problema que resuelve | Last-mile internet connectivity (essential utility); entertainment/experiences (parks, streaming) |
+| Cliente target | US households (120M+ addressable), theme park visitors (global families) |
+| Como genera ingresos | Broadband subscription (~63%), content/experiences (~37%: parks, NBC, Peacock, studios) |
+| % ingresos recurrentes | ~75% (broadband + streaming subscriptions) |
+
+### 2.2 Unit Economics (Broadband)
+
+| Metrica | Valor | Benchmark | Comentario |
+|---------|-------|-----------|------------|
+| Broadband ARPU | $86/month | CHTR similar | Growing +1.7% YoY |
+| Quarterly churn | ~2.3% | FWA lower | ELEVATED - main concern |
+| LTV estimate | ~$5,000-6,000 | Shrinking | 5-6 year avg tenure |
+| CAC (in-footprint) | ~$100-200 | Low | Infrastructure already built |
+| LTV/CAC | 25-50x | Excellent | BUT churn accelerating |
+
+### 2.3 Estructura de Margenes
+
+| Margen | Actual | 5y Avg | Tendencia | vs Peers |
+|--------|--------|--------|-----------|----------|
+| Gross | ~67% | ~66% | Stable | In-line CHTR |
+| Connectivity EBITDA | ~37% | ~38% | Pressured | CHTR ~40% |
+| Content EBITDA | ~24% | ~20% | Growing | Parks driving |
+| FCF margin | ~12% normalized | ~11% | Stable | Strong |
+
+### 2.4 Por Que Esta Barata
+
+**Narrativa del mercado:**
+1. Broadband is dying - FWA + fiber taking all gross adds
+2. Peacock is a money pit - $10B+ cumulative losses, $2.5B/year NBA commitment
+3. Cable networks are terminal - Versant spin-off confirms
+4. $101B debt is dangerous
+5. Roberts family may do value-destructive M&A
+
+**Mi contra-tesis:**
+
+| Market View | My Counter | Evidence | Prob Wrong |
+|-------------|------------|----------|------------|
+| Broadband dying | Cash cow not corpse - 31M subs at $86/mo = $32B/yr revenue | ARPU +1.7%, losses stabilizing | 35% |
+| Peacock never profits | Platform investment; could profit 2027-28 | 44M subs, +23% Q4 revenue | 50% |
+| Parks just 10% | Hidden gem worth $50-60B standalone | $1B+ Q4 EBITDA, Epic Universe | 25% |
+| Debt dangerous | Manageable - 5.3x interest coverage, IG rating | BBB+, well-laddered maturities | 30% |
+
+### 2.5 Value Trap Checklist
+
+| Factor | SI/NO | Comentario |
 |--------|-------|------------|
-| Price | $29.77 | -16% off 52w high ($35.60) |
-| P/E (trailing) | 5.5x | **MISLEADING** - includes one-time items |
-| Forward P/E | 7.5x | More representative (fwd EPS ~$4.22) |
-| Adj. EPS (FY2025) | $4.31 | Declining YoY |
-| GAAP EPS (FY2025) | ~$5.39 | Inflated by non-recurring items |
-| Dividend Yield | 4.4% ($1.32/share) | 18 consecutive years of growth |
-| FCF (FY2025) | $19.2B reported | **Includes $2B one-time tax benefit** |
-| Normalized FCF | ~$14-15B | After stripping one-time items |
-| FCF Yield (normalized) | ~13-14% | Strong on $108B market cap |
-| D/E | 1.02 | Moderate; total debt ~$97-101B |
-| Net Debt/EBITDA | 2.6x | Manageable but elevated; GuruFocus shows 2.64x |
-| Market Cap | ~$108B | Corrected: 3.64B shares x $29.77 |
-| Shares Outstanding | 3.64B | Down ~5%/yr via buybacks (was 3.83B a year ago) |
-| Beta | 0.81 | Below-market volatility |
+| Industria en declive secular | SI | Cable TV yes, broadband partially |
+| Disrupcion tecnologica inminente | SI | FWA, fiber overbuilders |
+| Management destruyendo valor | NO | Versant spin smart; buybacks at 7x |
+| Balance deteriorandose | NO | Debt stable |
+| Insider selling masivo | NO | Roberts not selling |
+| Dividend cut reciente/probable | NO | 18 consecutive increases |
+| Perdida market share >2pp/3y | SI | Broadband losing to FWA/fiber |
+| ROIC < WACC ultimos 3 anos | NO | ROIC ~8-10% vs WACC ~9% |
+| FCF negativo >2 anos | NO | $14-15B normalized FCF |
+| Goodwill >50% equity | NO | ~58% borderline |
 
-### Critical Note: Why the Headline P/E Is Misleading
-Trailing EPS of ~$5.39 includes one-time items from the Versant spin-off restructuring. Forward EPS consensus is ~$4.22 for 2026 (range $3.45-$4.65). The "5.5x P/E" is an optical illusion. At forward earnings, the stock trades at 7-7.5x -- still cheap but not as extreme as headlines suggest.
+**Total SI: 3** (borderline - requires 25% MoS minimum)
 
 ---
 
-## 1. Why Is CMCSA So Cheap? (The Market Is Partially Right)
+## 3. Metricas Financieras Clave
 
-### a) Broadband is in structural decline
-- Lost ~710K broadband subscribers in FY2025: Q1 -199K, Q2 -226K, Q3 -104K, Q4 -181K
-- On track to lose 700K-1M+ internet customers annually going forward
-- FWA competition: Verizon 4.8M FWA subs aiming for 8-9M by 2028; T-Mobile growing aggressively
-- Fiber overbuilders expanding into Comcast footprint
-- CFO acknowledged "more competitive environment from fiber" in Q4
-- ARPU growth (~1.7%) is NOT enough to offset volume decline long-term
-- Management deferred price increases in 2026, sacrificing near-term revenue for retention
-
-### b) Cord-cutting is accelerating ("Cord Cutting 2.0")
-- Lost 325K TV customers in Q2 2025 alone
-- Now it is broadband AND video -- the "last bundle" is unwinding
-- Versant spin-off is an acknowledgment that cable networks are terminal
-
-### c) Peacock is a cash furnace with NBA albatross
-- Quarterly losses in 2025: Q1 -$215M, Q2 -$101M, Q3 -$217M, Q4 -$552M (total ~$1.1B)
-- Q4 loss WORSE than Q4 2024 due to NBA rights costs kicking in
-- Full-year 2025: $5.4B revenue, 44M paid subscribers, but still significantly loss-making
-- NBA deal: $2.7B/year for 10 years = $27B total commitment
-- 44M subscribers is subscale vs Netflix (260M+), Disney+ (150M+)
-- Price increase to $10.99/month (most expensive ad-tier in market) risks churn
-- Profitability timeline is now "very long way away" per analysts
-
-### d) Record FCF in 2025 is misleading
-- $19.2B includes a $2.0B one-time cash tax benefit from Q4 2024 corporate reorganization
-- Management explicitly warned "2026 free cash flow will likely be lower"
-- Normalized FCF ~$14-15B (still excellent, but not $19B)
-- This is why our DCF tool showed 103% MoS -- it used inflated FCF as the base
+| Metrica | Valor | Sector Avg | Comentario |
+|---------|-------|-----------|-----------|
+| P/E trailing | 5.5x | 10x | MISLEADING - includes one-time items |
+| P/E forward | 7.0-7.5x | 10x | More representative |
+| P/FCF | ~7.5x (normalized) | 12x | Cheap on cash flow |
+| EV/EBITDA | 5.1x | 7x | Cheap |
+| Dividend Yield | 4.4% | 2.5% | Attractive |
+| Payout Ratio | 32-34% FCF | 40% | Safe |
+| Debt/Equity | 1.02 | 0.8 | Elevated |
+| Net Debt/EBITDA | 2.6x | 2.0x | Manageable |
+| Interest Coverage | 5.3x | 8x | Adequate |
+| ROE | 15-21% | 15% | In-line |
+| ROIC | 8-10% | 10% | Roughly WACC |
+| FCF Yield | ~13-14% normalized | 8% | Very attractive |
 
 ---
 
-## 2. Why the DCF Tool Output Was Wrong
+## 4. Proyecciones
 
-**Tool output: Bear $48 / Base $60 / Bull $78 vs $29.77 (103% MoS)**
+### 4.1 Drivers de Revenue
 
-This was a false signal because:
+| Driver | Valor | Fuente |
+|--------|-------|--------|
+| US Broadband TAM | ~$129B (US+Canada) | S&P Global |
+| TAM growth | 0-1% | Mature market |
+| Comcast share | ~26% (declining) | 31M of 120M subs |
+| Share trend | Losing ~1pp annually | FWA/fiber gaining |
+| Pricing power | Moderate | Can raise ARPU ~2%/yr |
 
-1. **Inflated FCF base**: Tool used reported $19.2B FCF. Normalized is ~$14-15B
-2. **Wrong growth assumption**: Default 5% growth on a business losing broadband subscribers is fantasy
-3. **Terminal value too high**: 2.5% terminal growth is above GDP for a secularly declining business
-4. **NBA costs not in historical base**: $2.7B/year new cost only started Q4 2025
-5. **Massive net debt**: ~$95B net debt consumes enormous enterprise value
+**Revenue growth derivado:**
+- Connectivity: -2% (sub losses offset by ARPU + wireless)
+- Content: +10% (parks +20%, flat studios/NBC)
+- Total: +1.5% to +2.5% annually
 
-### Corrected Valuation
+### 4.2 Proyeccion de Margenes
 
-#### Method 1: Adjusted DCF
+| Ano | Revenue Growth | EBITDA Margin | FCF Margin |
+|-----|---------------|--------------|------------|
+| 2025 (actual) | +1% | 30% | 12% |
+| 2026E | +1.5% | 28% | 10% (capex heavy) |
+| 2027E | +2.5% | 28.5% | 11% |
+| 2028E | +2.5% | 29% | 12% |
 
-| Scenario | Prob | FCF Base | Growth | WACC | Terminal G | FV/share |
-|----------|------|----------|--------|------|-----------|----------|
-| Bear | 25% | $13B | 0% | 10% | 1.5% | $23 |
-| Base | 50% | $14.5B | 1.5% | 9.5% | 2% | $36 |
-| Bull | 25% | $15B | 3% | 9% | 2% | $47 |
+### 4.3 WACC Derivado
 
-Note: Per-share values use 3.64B shares. Net debt ~$95B subtracted.
+```
+Risk-free: 4.3% | Beta: 0.81 | ERP: 5.0%
+Ke = 8.35% | Kd after-tax = 3.5%
+E/V = 51.7% | D/V = 48.3%
+Raw WACC = 6.0%
+ADJUSTED WACC = 9.0% (add uncertainty premium for declining business)
+```
 
-**Probability-weighted: ~$34/share**
+---
 
-#### Method 2: Sum of Parts
+## 5. Valoracion Multi-Metodo
+
+### 5.1 Method 1: Sum-of-Parts (Primary - Conglomerate)
 
 | Segment | EBITDA | Multiple | EV | Rationale |
 |---------|--------|----------|-----|-----------|
-| Connectivity & Platforms | $22B | 6x | $132B | Cable peers 5.5-6.5x; declining subs limits multiple |
-| Theme Parks | $4B | 14x | $56B | DIS parks ~12-15x; Epic Universe growth justifies premium |
-| Peacock/Studios/NBC | $1B | 8x | $8B | Loss-making streaming offsets profitable NBC/Studios |
-| **Total EV** | | | **$196B** |
-| Less: Net Debt | | | **-$95B** |
-| **Equity Value** | | | **$101B** |
-| **Per Share (3.64B)** | | | **~$28** |
+| Connectivity | $20.5B | 5.5x | $113B | Declining subs limits multiple |
+| Theme Parks | $4.5B | 14x | $63B | Epic Universe premium |
+| Media | $0.5B | 10x | $5B | Peacock losses offset NBC |
+| **Total EV** | | | **$181B** | |
+| Net Debt | | | **-$92B** | |
+| **Equity Value** | | | **$89B** | |
+| **FV per share** | | | **$24.45** | |
 
-Conservative SoP: ~$28. More generous view (7x connectivity, 16x parks): ~$37-40.
+Conservative SoP: $24.45 | Generous SoP: $28.43 | Bull SoP: $32.97
 
-#### Method 3: EV/EBITDA Comparables
+### 5.2 Method 2: EV/EBITDA Normalized
 
-| Company | EV/EBITDA | Notes |
-|---------|-----------|-------|
-| CMCSA | 5.1x | Current (EV ~$203B / EBITDA ~$37B) |
-| CHTR | 5.7x | Pure-play cable |
-| DIS | ~13x | Premium for growth |
-| WBD | ~8x | Turnaround |
-| Cable sector | 5.5-6.5x | |
+| Scenario | EBITDA | Multiple | EV | Equity | FV/share |
+|----------|--------|----------|-----|--------|----------|
+| Bear | $34B | 5.5x | $187B | $95B | $26.10 |
+| Base | $37B | 6.0x | $222B | $130B | $35.71 |
+| Bull | $40B | 6.5x | $260B | $168B | $46.15 |
 
-At 6.0x EBITDA ($222B EV - $95B debt) / 3.64B shares = ~$35/share
-At 6.5x EBITDA ($241B EV - $95B debt) / 3.64B shares = ~$40/share
+### 5.3 Method 3: DCF (Tool Output)
 
-#### Valuation Summary
+| Scenario | FV/share | Comment |
+|----------|----------|---------|
+| Bear | $23.57 | Tool uses inflated FCF |
+| Base | $35.98 | Growth assumptions too high |
+| Bull | $53.56 | Optimistic |
 
-| Method | Fair Value | MoS at $29.77 |
-|--------|-----------|----------------|
-| Adjusted DCF (weighted) | $34 | 12% |
-| Sum of Parts (conservative) | $28 | -6% |
-| Sum of Parts (generous) | $37-40 | 20-26% |
-| EV/EBITDA 6.0x | $35 | 15% |
-| EV/EBITDA 6.5x | $40 | 26% |
-| **Central estimate** | **$33-38** | **10-22%** |
+### 5.4 Weighted Fair Value
 
-**None of these methods consistently clear the 25% MoS threshold at $29.77.**
+| Method | Bear | Base | Bull | Weight |
+|--------|------|------|------|--------|
+| Sum-of-Parts | $24.45 | $28.43 | $32.97 | 40% |
+| EV/EBITDA | $26.10 | $35.71 | $46.15 | 40% |
+| DCF | $23.57 | $35.98 | $53.56 | 20% |
+| **Weighted** | **$25.04** | **$32.66** | **$42.15** | 100% |
 
----
+### 5.5 Expected Value y Margen de Seguridad
 
-## 3. Moat Assessment: NARROW (eroding)
+```
+Expected Value = (25% x $25.04) + (50% x $32.66) + (25% x $42.15) = $33.13
+Precio actual = $29.98
+MoS vs Expected Value = +10.5%
+MoS vs Base = +8.9%
+MoS vs Bear = -16.5% (UNDERWATER)
+```
 
-**Overall: 5/10**
-
-### Positives
-- **Last-mile infrastructure**: Coaxial/fiber to 62M+ homes; expensive to replicate
-- **Scale**: Largest US ISP with ~31M broadband subscribers (declining)
-- **Business Services**: 56% margins, sticky enterprise contracts, growing mid-single-digits
-- **Theme Parks + IP**: Universal brand, Epic Universe proving transformative ($1B+ quarterly EBITDA)
-- **Content library**: NBC, Universal Studios, sports rights (NFL, NBA, Olympics)
-
-### Negatives (moat erosion)
-- **Broadband moat narrowing**: FWA offers "good enough" at lower prices; fiber overbuilders expanding
-- **No pricing power**: Forced to eliminate data caps, offer price locks, bundle mobile for free
-- **Streaming has no moat**: Peacock is subscale, content costs escalating
-- **Roberts family control (33% voting)**: Limits governance discipline, activist pressure ineffective
-- Management acknowledged "most of its footprint will eventually be overbuilt"
+**CRITICAL: At current price, no safety margin vs Bear scenario.**
 
 ---
 
-## 4. Segment Analysis
+## 6. Moat Assessment
 
-### Connectivity & Platforms (~63% of revenue) -- DECLINING
-- Revenue declining low-single-digits; EBITDA margins ~37% (pressured)
-- Broadband: losing ~700K+ subs/year but ARPU partially offsets
-- Mobile (Xfinity Mobile, 9.3M lines): bright spot, record 378K adds in Q2, 364K in Q4
-- But mobile is MVNO (rides on Verizon network) -- thin margins
-- Business Services: stable, growing mid-single-digits, 56% margins
-- **Verdict: Cash cow in managed decline. 3-5 year runway before serious compression**
-
-### Content & Experiences (~37% of revenue) -- MIXED
-- **Theme Parks (star performer)**: $2.9B revenue Q4 (+22% YoY), EBITDA >$1B/quarter for first time
-  - Epic Universe driving longer stays, higher per-cap spending
-  - Less cannibalization of existing parks than expected
-  - Universal Kids Resort (Frisco, TX) coming 2026
-  - Full capacity at Epic Universe expected late 2026
-  - Potential for $5B+ annual EBITDA at maturity
-- **Peacock (problem child)**: $5.4B revenue FY2025, ~$1.1B EBITDA losses; NBA deal makes profitability distant
-- **Studios**: Volatile, hit-driven; revenue down 7% in Q4
-- **NBC Broadcast**: Stable, not growing
-
-### Versant (spun off Jan 2, 2026)
-- Cable networks: USA, CNBC, MSNBC, SYFY, E!, etc.
-- 1 VSNT share per 25 CMCSA shares (~145.8M VSNT shares outstanding)
-- Market cap ~$6.5B; trading at ~$40.57 at debut (fell 13% day 1)
-- Smart strategic move -- removes lowest-growth assets, lets RemainCo focus on broadband/parks/streaming
+| Aspecto | Evaluacion |
+|---------|------------|
+| Tipo | NARROW (eroding) |
+| Fuentes | Last-mile infrastructure, scale, content IP |
+| Evidencia cuantitativa | ROIC 8-10% vs WACC 9% (breakeven = no moat advantage) |
+| Durabilidad estimada | 5-7 years before FWA/fiber fully competitive |
+| Amenazas principales | 1. FWA (Verizon/T-Mobile) 2. Fiber overbuilders |
 
 ---
 
-## 5. Financial Health & FCF Sustainability
+## 7. Riesgos
 
-| Metric | FY2025 | Assessment |
-|--------|--------|------------|
-| Revenue | ~$125B | Flat to +1% |
-| Adj. EBITDA | $37.4B | Declining (NBA costs hit starting Q4) |
-| FCF (reported) | $19.2B | Record, but inflated by ~$2B one-time |
-| FCF (normalized) | ~$14-15B | After one-time items |
-| Total Debt | ~$97-101B | Per GuruFocus/MacroAxis |
-| Net Debt | ~$95B | Cash ~$5B |
-| Net Debt/EBITDA | 2.6x | Within 2.1-3.8x historical range |
-| Dividend cost | ~$4.8B/yr | 3.64B shares x $1.32 |
-| Buybacks | ~$7B in 2025 | Aggressive at low prices |
-| Total shareholder return | ~$12B in 2025 | |
+| Riesgo | Prob | Impacto | Mitigante |
+|--------|------|---------|-----------|
+| Broadband losses accelerate (>300K/Q) | M | A | DOCSIS 4.0, mobile bundling |
+| Peacock never profits | M | M | Scale reaching 44M subs |
+| Theme parks recession hit | B | M | Diversified across 3 resorts |
+| Leverage creep | M | A | Strong FCF, IG rating |
+| Roberts family bad M&A | M | A | No large deals in pipeline |
 
-### Debt Assessment: Elevated but Manageable
-- Total debt ~$97-101B is among the highest of any US company
-- Net debt/EBITDA of 2.6x is within normal range for cable (CHTR runs 4x+)
-- Interest expense ~$4.5B/year; well-covered by EBITDA
-- No near-term maturity wall (Comcast has well-laddered debt)
-- Risk: if EBITDA declines 20%, leverage jumps to 3.2x -- still manageable but uncomfortable
-- Rating: BBB+ / Baa1 -- investment grade, no downgrade imminent
-
-### FCF Trajectory Concern
-- 2025 normalized: ~$14-15B
-- 2026 est.: $12-14B (management guided lower; NBA full-year cost, broadband decline)
-- 2027-2028 est.: $11-13B (if broadband erosion continues)
-- Even declining FCF at $12B = ~11% FCF yield on $108B market cap -- still attractive
-
-### Dividend Safety
-- Payout ratio: ~32-34% of normalized FCF (using $4.8B / $14-15B)
-- Even at $12B FCF: payout ratio ~40%
-- **Dividend is SAFE** with substantial headroom
-- 18 years of consecutive increases; management committed to 19th year
+**Kill Conditions:**
+1. Broadband losses >300K/quarter for 3+ consecutive quarters
+2. Peacock annual losses widen beyond $2B
+3. Dividend cut or freeze
+4. Net leverage exceeds 3.5x
+5. Normalized FCF drops below $10B
 
 ---
 
-## 6. Quality Score
+## 8. Catalizadores
 
-| Criterion | Score | Notes |
-|-----------|-------|-------|
-| ROE >15% consistent | 0.5/1 | ~15-21%, volatile |
-| FCF positive 5+ years | 1/1 | Consistently $12-19B |
-| D/E <1.0 | 0/1 | 1.02, borderline fail |
-| Dividend 10+ years | 1/1 | 18 consecutive increases |
-| Wide moat | 0/1 | Narrow, eroding |
-| Revenue stability | 0.5/1 | Broadband declining structurally |
-| Management quality | 0.5/1 | Good operators, Roberts control is governance risk |
-| Analyst coverage >10 | 1/1 | 22+ analysts |
-| Market cap >10B EUR | 1/1 | ~EUR 91B |
-| Defensive sector | 0/1 | Media/cable facing disruption |
-
-**Quality Score: 5.5/10 = Tier B (25% MoS required)**
-
-Entry price for 25% MoS: $35 x 0.75 = **$26.25** (on base fair value)
-Entry price for 25% MoS: $33 x 0.75 = **$24.75** (on conservative fair value)
+| Catalizador | Timeframe | Prob | Impacto |
+|-------------|-----------|------|---------|
+| Epic Universe full capacity | Q4 2026 | Alta | +15-20% |
+| Peacock profitability | 2027-28 | Media | +10-15% |
+| Buybacks (5%/year) | Ongoing | Alta | +5% EPS accretion |
+| DOCSIS 4.0 deployment | 2026-27 | Media | Stabilize broadband |
+| Mobile reaches 15M lines | 2027 | Media | +5% revenue |
 
 ---
 
-## 7. Analyst Consensus (Reality Check)
+## 9. Conexion Macro
 
-| Source | Target | Upside from $29.77 |
-|--------|--------|--------|
-| WallStreetZen (15 analysts) | $35.70 | +20% |
-| MarketBeat (consensus) | $36.47 | +22% |
-| Morningstar (5 stars) | $49.00 | +65% |
-| High target (Benchmark) | $55.65 | +87% |
-| Low target | $28.00-$28.28 | -5% to -6% |
+| Factor Macro | Sensibilidad | Status Actual | Impacto |
+|--------------|--------------|---------------|---------|
+| Tasas de interes | Media | Fed hold 3.5-3.75% | Neutral |
+| Recesion | Media | 25-35% probability | Parks cyclical |
+| Tariffs | Baja | US domestic | Minimal |
+| Geopolitics | Baja | Not exposed | Neutral |
 
-Analyst consensus is $35-37, broadly consistent with my $33-38 range. Morningstar's $49 looks too generous (assumes broadband stabilization that may not materialize). The low targets ($28) suggest some analysts see the stock as slightly overvalued here.
-
----
-
-## 8. Key Risks & Kill Conditions
-
-### Critical Risks
-1. **Broadband subscriber losses accelerate beyond 300K/quarter** -- if FWA/fiber gain share faster, the cash cow collapses
-2. **Peacock never reaches profitability** -- $2.7B/year NBA deal could be a $27B mistake
-3. **Leverage creep** -- 2.6x net debt/EBITDA; if EBITDA declines 15-20%, leverage hits 3.2x+
-4. **Roberts family value-destructive M&A** -- history of empire-building (Sky acquisition was questionable)
-
-### Moderate Risks
-5. Theme park execution / Epic Universe cannibalization (early data says limited)
-6. Starlink as broadband alternative (currently niche but growing)
-7. Regulatory risk (net neutrality, content regulation)
-8. Interest rate environment pressuring highly-leveraged companies
-
-### Kill Conditions (remove from watchlist)
-- Broadband losses exceed 300K/quarter for 3+ consecutive quarters
-- Peacock annual losses widen beyond $2B
-- Dividend cut or freeze
-- Net leverage exceeds 3.5x
-- Normalized FCF drops below $10B annualized
-
----
-
-## 9. Catalysts
-
-### Positive
-- Epic Universe full capacity (late 2026): could push parks to $5B+ EBITDA
-- Buybacks at ~5%/year are highly accretive at these multiples (buying back at 7x fwd earnings)
-- Versant spin-off: RemainCo potentially re-rated higher (cleaner story)
-- Mobile growth (9.3M lines, growing 350K+/quarter) -- path to 15M+ lines
-- Peacock profitability (optimistic: 2027-2028)
-- Universal Kids Resort (Frisco, TX) 2026
-
-### Negative
-- FWA subscriber growth continues accelerating (Verizon targeting 8-9M)
-- NBA costs fully hit P&L in 2026 ($2.7B annual)
-- Management guided 2026 FCF lower than 2025
-- Broadband price competition intensifying
+**Fit con World View:** NEUTRAL - Domestically focused, mix of defensive (broadband) and cyclical (parks).
 
 ---
 
 ## 10. Decision
 
-### RECOMMENDATION: HOLD ON WATCHLIST -- DO NOT BUY AT $29.77
+| Campo | Valor |
+|-------|-------|
+| Recomendacion | WATCHLIST - Maintain $26 standing order |
+| Tier | B |
+| MoS requerido | >=25% |
+| MoS actual | +10% (BELOW threshold) |
+| Standing Order Price | $26.00 |
+| Adjusted Recommendation | Consider $25.00 for extra safety |
+| Fair Value Base | $32.66 |
+| Fair Value Expected | $33.13 |
+| Fair Value Bear | $25.04 |
+| Horizonte | 2-3 years |
 
-| Criterion | Status |
-|-----------|--------|
-| Thesis complete | YES |
-| MoS >= 25% | **NO** (only ~12-22% depending on method; central ~15%) |
-| Moat identified | Narrow, eroding |
-| Risks documented | YES |
-| Position limits OK | YES (would be first US media holding) |
+### Standing Order Analysis
 
-### What Would Change My Mind
-- **Price drops to $25-26**: Achieves 25%+ MoS on $33-35 FV
-- **Broadband losses stabilize**: 3 consecutive quarters of improvement
-- **Peacock breakeven**: Excluding NBA, showing path to profitability
-- **Theme parks exceed expectations**: $5B+ EBITDA supports higher SoP valuation
+| At Price | MoS vs Expected | MoS vs Base | MoS vs Bear |
+|----------|-----------------|-------------|-------------|
+| $29.98 (current) | +10.5% | +8.9% | -16.5% |
+| $26.00 (order) | +27.4% | +25.6% | -3.7% |
+| $25.00 (conservative) | +32.5% | +30.6% | +0.2% |
 
-### Watchlist Parameters
-- **Tier:** 2 (monitoring)
-- **Entry price:** $25.00-$26.25 (25% MoS on $33-35 FV range)
-- **Fair Value range:** $33-38 (base $35)
-- **Stop/Kill:** Below $20 reassess entire thesis; remove if kill conditions triggered
-
-### Price Alerts
-- **$26.00** -- Approach buy zone, refresh thesis
-- **$25.00** -- Buy zone, 25%+ MoS met
-- **$36.00** -- Fair value reached, remove from watchlist
+**CONCLUSION:**
+- $26.00 standing order is CORRECTLY PRICED for Tier B (25% MoS met)
+- $25.00 would provide extra cushion to Bear case
+- Do NOT buy at current $29.98
 
 ---
 
-## 11. Autocritique
+## 11. Autocritica
 
-### Assumptions
-1. Normalized FCF of $14-15B (stripping one-time tax benefit) -- could be conservative or generous
-2. Broadband losses continue at ~700K/year pace (not accelerating) -- key risk
-3. Theme parks maintain 20%+ growth through 2026 via Epic Universe
-4. NBA costs fully absorbed without offsetting Peacock revenue growth
-5. No major value-destructive acquisitions by Roberts family
-6. Net debt ~$95B (confirmed via multiple sources)
-
-### Biases Detected
-- **Anchoring to DCF output**: Had to actively fight the "103% MoS" framing -- the tool gave a false positive
-- **Possible excessive pessimism on broadband**: Comcast still has best speeds in most markets; DOCSIS 4.0 could extend competitive advantage
-- **Narrative bias**: "Cord cutting" is a powerful narrative that may overshoot reality
-
-### Evidence Ignored
-- Mobile segment growing fast and could become meaningful contributor (9.3M and accelerating)
-- DOCSIS 4.0 rollout could restore broadband speed advantage vs FWA/fiber
-- Theme parks could independently be worth $50B+ within 2-3 years
-
-### What I Could Be Wrong About
-- **Bull case I may be underweighting**: If mobile bundling + DOCSIS 4.0 stabilize broadband, AND theme parks hit $5B EBITDA, AND Peacock reaches breakeven, fair value could be $42-50
-- **Bear case I may be underweighting**: If FWA/fiber triggers price war AND leverage increases AND Peacock losses persist, fair value could be $20-25
-
-### What Would a Top Investor Think?
-A Buffett/Klarman type would note: (1) the moat is weakening -- this is not a business getting stronger over time, (2) ~$95B of debt is a lot for a business with declining core revenues, (3) but capital allocation (buybacks at 7x fwd earnings) is genuinely intelligent, (4) theme parks are an underappreciated asset that could be worth $50B+ standalone. They would likely want $24-26 entry to have genuine margin of safety.
+| Aspecto | Respuesta |
+|---------|-----------|
+| Asunciones no validadas | 1. Parks reach $4.5B EBITDA 2. Peacock narrows losses |
+| Sesgos posibles | 1. Anchoring to DCF tool 2. Optimism on Epic Universe |
+| Que me haria cambiar de opinion | 1. Broadband stabilizes 2. Peacock breakeven 2026 |
+| Mi ventaja informacional | Patient capital + SoP perspective underappreciated |
+| Que podria estar mal | Theme parks 14x multiple too high if recession; connectivity 5.5x too low if DOCSIS 4.0 works |
 
 ---
 
 ## Sources
 
 - [Comcast Q4 2025 Earnings (CNBC)](https://www.cnbc.com/2026/01/29/comcast-cmcsa-earnings-q4-2025.html)
-- [Comcast Q3 2025 Earnings (CNBC)](https://www.cnbc.com/2025/10/30/comcast-cmcsa-earnings-q3-2025.html)
-- [Comcast Q2 2025 Earnings (CNBC)](https://www.cnbc.com/2025/07/31/comcast-cmcsa-earnings-q2-2025.html)
-- [Comcast Q3 2025 Results (IR)](https://www.cmcsa.com/news-releases/news-release-details/comcast-reports-3rd-quarter-2025-results)
-- [Comcast Q1 2025 Results (IR)](https://www.cmcsa.com/news-releases/news-release-details/comcast-reports-1st-quarter-2025-results)
-- [Versant Spin-Off Completion (CNBC)](https://www.cnbc.com/2026/01/05/comcast-spinoff-versant-vsnt-trading-debut-nasdaq.html)
-- [Versant Spin-Off Details (IR)](https://www.cmcsa.com/VERSANT-Spin-Transaction)
-- [Comcast Debt Disclosure (IR)](https://www.cmcsa.com/financials/debt-disclosure)
-- [CMCSA Debt-to-EBITDA (GuruFocus)](https://www.gurufocus.com/term/debt-to-ebitda/CMCSA)
-- [Broadband Subscriber Losses (Light Reading)](https://www.lightreading.com/cable-technology/comcast-posts-best-ever-wireless-gains-worst-ever-broadband-losses)
-- [Cord Cutting 2.0 (Cord Cutters News)](https://cordcuttersnews.com/comcast-lost-226000-internet-customers-325000-tv-customers-in-q2-2025-as-cord-cutting-2-0-accelerates-while-5g-home-internet-surges/)
-- [Peacock Q4 Losses Widen (The Wrap)](https://www.thewrap.com/industry-news/business/comcast-earnings-q4-2025/)
-- [Peacock Profitability Derailed by NBA (nScreenMedia)](https://nscreenmedia.com/peacock-profitability-derailed-nba/)
+- [Comcast Q4 Earnings Call (Yahoo Finance)](https://finance.yahoo.com/news/comcast-corp-cmcsa-q4-2025-210256078.html)
 - [Epic Universe Record Earnings (Theme Park Insider)](https://www.themeparkinsider.com/flume/202601/12285/)
-- [Analyst Targets (MarketBeat)](https://www.marketbeat.com/stocks/NASDAQ/CMCSA/forecast/)
-- [Analyst Targets (WallStreetZen)](https://www.wallstreetzen.com/stocks/us/nasdaq/cmcsa/stock-forecast)
-- [CMCSA Statistics (StockAnalysis)](https://stockanalysis.com/stocks/cmcsa/statistics/)
-- [CMCSA Valuation (Alpha Spread)](https://www.alphaspread.com/security/nasdaq/cmcsa/summary)
-- [CMCSA Balance Sheet (Simply Wall St)](https://simplywall.st/stocks/us/media/nasdaq-cmcsa/comcast/health)
+- [Peacock Q4 Losses (The Wrap)](https://www.thewrap.com/industry-news/business/comcast-earnings-q4-2025/)
+- [Peacock NBA Deal Impact (Awful Announcing)](https://awfulannouncing.com/nbc/peacock-quarterly-losses-total-552m-nba-rights-fees-begin.html)
+- [US Broadband Market Trends (S&P Global)](https://www.spglobal.com/market-intelligence/en/news-insights/research/2025/11/americas-broadband-roundup-2025)
+- [FWA Market Disruption (NPS Prism)](https://www.npsprism.com/blog/how-is-fwa-disrupting-the-u.s.-broadband-market)
+- [Fiber Market Share Projections (Lightwave)](https://www.lightwaveonline.com/business/article/55277483/fiber-set-to-capture-33-market-share-in-north-america-by-2030)
+- [Comcast Debt Analysis (Simply Wall St)](https://simplywall.st/stocks/us/media/nasdaq-cmcsa/comcast/health)
+- [Comcast Debt Disclosure (IR)](https://www.cmcsa.com/financials/debt-disclosure)
+
+---
+
+## Metadata
+
+```yaml
+ticker: CMCSA
+fecha_creacion: 2026-02-02
+ultima_revision: 2026-02-03 (v4.0 - Full v2.0 Framework)
+autor: fundamental-analyst
+status: watchlist
+standing_order: $26.00
+next_review: Q1 2026 earnings or price touches $26
+```

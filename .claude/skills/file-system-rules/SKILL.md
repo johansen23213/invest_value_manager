@@ -27,6 +27,10 @@ value-investor/
 ├── world/
 │   ├── current_view.md       # Visión macro actual
 │   ├── geopolitics.md        # Geopolítica
+│   ├── sectors/              # Análisis sectoriales (NUEVO v2.1)
+│   │   ├── _TEMPLATE.md      # Template para nuevos sectores
+│   │   ├── [sector].md       # Un archivo por sector analizado
+│   │   └── ...
 │   └── updates/              # Updates específicos
 ├── journal/
 │   ├── decisions/            # Decisiones compra/venta

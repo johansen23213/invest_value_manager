@@ -7,7 +7,7 @@
 # =============================================================================
 
 cash:
-  amount: 1647.18  # Post BUY HRB 2026-02-03 (1941.33 - 294.15)
+  amount: 1806.60  # Post TRIM TEP.PA 2026-02-03 (1647.18 + 159.42)
   currency: EUR
 
 positions:
@@ -46,9 +46,9 @@ positions:
 
   - ticker: TEP.PA
     name: "Teleperformance SE"
-    shares: 14.015018  # Added 7 shares 2026-02-03
-    invested_usd: 923.37  # 458.03 + 465.34
-    avg_cost_usd: 65.88  # 923.37 / 14.015018
+    shares: 11.015018  # Trimmed 3 shares 2026-02-03 (14.015 - 3)
+    invested_usd: 725.79  # Prorated: 923.37 * (11.015/14.015)
+    avg_cost_usd: 65.88  # Unchanged (original cost basis)
     date_opened: 2026-01-31
     thesis: thesis/active/TEP.PA/thesis.md
 
@@ -338,3 +338,11 @@ transactions:
     shares: 9
     total_usd: 348.48
     notes: "H&R Block. Tax prep #2 US. P/E 8.9x, yield 4.3%, MoS 30%. Only 2 analysts. US geo fill."
+
+  - date: 2026-02-03
+    action: TRIM
+    ticker: TEP.PA
+    shares: 3
+    price_eur: 53.14
+    total_eur: 159.42
+    notes: "TRIM - Position 7.8% > 7% max. Sold 3/14 shares. Constraint violation resolved."

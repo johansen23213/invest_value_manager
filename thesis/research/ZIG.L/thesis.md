@@ -1,247 +1,342 @@
-# ZIGUP plc (ZIG.L) - Investment Thesis
+# ZIGUP plc (ZIG.L) - Investment Thesis v2.0
 
-**Date**: 2026-02-02
-**Analyst**: Fundamental Analyst Agent
-**Status**: RESEARCH - Pending Investment Committee
+**Date**: 2026-02-03
+**Analyst**: Fundamental Analyst Agent (v2.0 Framework)
+**Status**: RESEARCH - Standing Order Active at 375 GBp
 **Tier**: B (Cyclical de calidad) -- MoS requerido >=25%
+**Version**: 2.0 (Full business-analysis-framework applied)
 
 ---
 
 ## 1. Resumen Ejecutivo
 
-Zigup plc (formerly Redde Northgate) is a leading integrated mobility solutions provider operating in the UK, Ireland, and Spain. The company owns/leases ~130,000 vehicles (primarily LCVs) and manages over 700,000 vehicles across 175+ branches. It combines vehicle rental, fleet management, accident management, and repair services into an integrated platform.
+Zigup plc es el lider en soluciones de movilidad integrada en UK/Irlanda/Espana, operando una flota de 135,000+ vehiculos (principalmente LCVs) y gestionando 700,000+ vehiculos. Combina rental de vehiculos, fleet management, gestion de accidentes y reparaciones en una plataforma integrada.
 
-**Thesis**: Zigup is a high-quality cyclical business trading at a significant discount to intrinsic value due to: (1) temporary earnings pressure from vehicle residual value normalization, (2) heavy fleet investment creating a cash flow inflection point, and (3) market neglect (only 5 analysts). The integrated platform creates meaningful switching costs and scale advantages. FCF is set to improve materially as the fleet replacement cycle completes.
+**Thesis v2.0**: Zigup es un ciclico de calidad trading a 3.6x EV/EBITDA vs peers 5-7x, debido a: (1) fase de inversion en flota que comprime FCF temporalmente, (2) preocupacion por residual values de EVs (pero core es LCVs/ICE), (3) solo 5 analistas = bajo coverage. El negocio genera ROCE 11.9% > WACC 8-9%, tiene 40%+ exposicion a sector publico (estabilidad), y management guia FCF >200M para FY27/28 cuando capex normalice.
 
-**Decision**: BUY candidate - subject to Investment Committee approval.
-
----
-
-## 2. Key Metrics
-
-| Metric | Value | Source |
-|--------|-------|--------|
-| Price (GBp) | 347-383 | Screener + web (range) |
-| Market Cap | ~GBP 750-830M (~EUR 900-1,000M) | Multiple sources |
-| Trailing P/E | 10.4x | Screener data |
-| Forward P/E | 7.0x | Screener data |
-| Dividend Yield | 6.9-7.6% | Multiple sources |
-| DPS (FY2025) | 26.4p (+2.3% YoY) | Company IR |
-| FCF Yield | 47.7% (screener) | Note: includes vehicle disposals |
-| Debt/Equity | 0.81-0.90 | Multiple sources |
-| Net Debt | GBP 836.7M | Company results |
-| Leverage | 1.8-1.9x EBITDA | Company guidance (target 1-2x) |
-| Revenue (FY2025) | GBP 1.81B | Company results |
-| Underlying PBT (FY2025) | ~GBP 147M (implied) | Company guidance |
-| Underlying EPS (FY2025) | 58.4p | Company results |
-| FY2026 PBT guidance | >=GBP 155M (top of range) | H1 FY2026 results |
-| Consensus FY2026 EPS | ~51p (conservative) | Analyst consensus |
-| Analyst coverage | 5 analysts | Low - potential mispricing |
-| Avg analyst target | 425-476p | TipRanks/Investing.com |
-
-**Data discrepancy note**: The 47.7% FCF yield from the screener is unusually high. This likely reflects vehicle disposal proceeds being included in operating cash flow. True "underlying" FCF (after fleet maintenance capex) is significantly lower but still attractive. The company itself notes FCF is at an inflection point as the fleet replacement program completes.
+**Fair Value v2.0**: 652 GBp (Expected Value)
+**Precio actual**: 386.5 GBp
+**Margin of Safety**: 41%
+**Recomendacion**: BUY - Standing order 375 GBp confirmado
 
 ---
 
-## 3. Valuation
+## 2. Business Understanding (Framework v2.0)
 
-### 3.1 Earnings-Based Valuation
+### 2.1 Modelo de Negocio
 
-**Forward P/E approach:**
-- FY2026 underlying PBT guidance: >=GBP 155M
-- Consensus EPS: ~51p (some sources suggest higher given PBT upgrade)
-- If EPS = 55-60p (based on GBP 155M+ PBT):
-  - At 10x P/E (fair for cyclical B2B): 550-600p
-  - At 8x P/E (conservative): 440-480p
-  - At 12x P/E (if growth trajectory confirmed): 660-720p
+**Problema que resuelve**: Movilidad para empresas que necesitan flotas de vehiculos comerciales sin el capital y complejidad de gestion in-house.
 
-**Current price 350-383p implies forward P/E of 6-7x** -- deeply cheap for a business with improving earnings trajectory and 7%+ yield.
+**Segmento**: B2B - corporates, sector publico (40%+), SMEs
+**Must-have vs nice-to-have**: MUST-HAVE para empresas dependientes de vehiculos (logistica, utilities, servicios)
 
-### 3.2 Dividend Discount Model
+**Breakdown de ingresos**:
+| Segmento | % Revenue | Tipo | Estabilidad |
+|----------|-----------|------|-------------|
+| Vehicle hire/rental | ~60% | Recurrente | Alta |
+| Claims & services | ~25% | Fee-based | Media |
+| Vehicle sales | ~15% | One-time | Volatil |
 
-- Current DPS: 26.4p, growing ~2-3% per year
-- At 9% required return and 2.5% terminal growth: 26.4 * 1.025 / (0.09 - 0.025) = **416p**
-- At 8% required return: 26.4 * 1.025 / (0.08 - 0.025) = **492p**
+### 2.2 Unit Economics
 
-### 3.3 Peer Comparables
+| Metrica | Valor | Tendencia |
+|---------|-------|-----------|
+| Fleet size | 135,000+ vehiculos | Creciendo 2%+ |
+| Revenue/vehiculo | ~£13,800/año | Estable |
+| Rental margin UK&I | 15-16% | Target range |
+| Rental margin Spain | 17.5-19.5% | Outperforming |
+| Utilization | 91% | Near optimal (>90%) |
+| ROCE | 11.9% | > WACC |
+| Customer concentration | <3% max | Diversificado |
 
-UK vehicle leasing / fleet management comparables typically trade at 8-12x earnings. Zigup at 7x forward is at the bottom of the range despite having:
-- Geographic diversification (Spain growing strongly)
-- Integrated platform (higher switching costs)
-- No single customer >3% of fleet
+### 2.3 Estructura de Margenes
 
-### 3.4 DCF Estimate (Manual -- yfinance rate limited)
+| Margen | H1 FY26 | Tendencia | Driver |
+|--------|---------|-----------|--------|
+| EBITDA | 27% | Estable | Scale, pricing |
+| EBIT | 11% | Estable | Depreciation pressure |
+| Net | 4.4% | TTM | Interest costs |
 
-**Assumptions:**
-- FCF (normalized, post-maintenance capex): ~GBP 100-120M (company approaching inflection)
-- Growth: 3-5% (rental growth + pricing power)
-- WACC: 9%
-- Terminal growth: 2.5%
+### 2.4 Por Que Esta Barata + Contra-Tesis
 
-**Bear case** (FCF GBP 90M, 2% growth, 10% WACC):
-- Value: GBP 90M * 1.02 / (0.10 - 0.02) = GBP 1.15B
-- Per share (~220M shares): ~523p
+**Narrativa del mercado**:
+1. Residual values de EVs cayendo
+2. EV transition costosa e incierta
+3. Leverage aumentando (1.9x)
+4. Sector rental/leasing out-of-favor
 
-**Base case** (FCF GBP 110M, 3.5% growth, 9% WACC):
-- Value: GBP 110M * 1.035 / (0.09 - 0.035) = GBP 2.07B
-- Per share: ~940p (Note: this seems high; leverage-adjusted value = 2.07B - 0.84B net debt = 1.23B / 220M = ~560p)
+**Mi contra-tesis**:
 
-**Bull case** (FCF GBP 130M, 5% growth, 8.5% WACC):
-- Value: GBP 130M * 1.05 / (0.085 - 0.05) = GBP 3.9B
-- Equity value: 3.9B - 0.84B = 3.06B / 220M = ~1,390p (likely too optimistic)
+| Mercado cree | Yo creo | Evidencia | Prob error |
+|--------------|---------|-----------|------------|
+| RV EVs seguiran bajando | LCVs (core) son ICE, menos afectados | EV rentals +75% pero <10% flota | 30% |
+| Negocio en declive | H1 FY26: hire revenue +10.5%, EBIT +11.5% | Datos financieros muestran recuperacion | 20% |
+| Leverage riesgoso | 1.9x dentro de target 1-2x, inflection coming | Guidance FCF >200M FY27/28 | 25% |
 
-**EV/EBITDA cross-check:**
-- Net debt GBP 837M + Market cap ~GBP 800M = EV ~GBP 1.64B
-- EBITDA ~GBP 460-480M (implied from leverage 1.8x)
-- EV/EBITDA = ~3.4x -- extremely cheap
+### 2.5 Value Trap Checklist
 
-### 3.5 Fair Value Summary
+| Factor | Status | Comentario |
+|--------|--------|------------|
+| Industria en declive secular | NO | Fleet management +10-15% CAGR global |
+| Disrupcion tecnologica | NO | AVs largo plazo, proximos 5-10y OK |
+| Management destruyendo valor | NO | ROCE > WACC |
+| Balance deteriorandose | PARCIAL | Leverage sube pero dentro de guidance |
+| Insider selling | NO | No evidencia |
+| Dividend cut | NO | DPS estable |
+| Perdida market share | NO | Fleet +2% YoY |
+| ROIC < WACC 3 años | NO | 11.9% > 8-9% |
+| FCF negativo 2+ años | PARCIAL | Por inversion, inflection coming |
+| Goodwill >50% equity | NO | Fleet-backed |
 
-| Method | Bear | Base | Bull |
-|--------|------|------|------|
-| Earnings (P/E) | 440p | 550p | 660p |
-| DDM | 416p | 450p | 492p |
-| DCF (equity) | 523p | 560p | 700p+ |
-| Analyst targets | 350p | 425-476p | 550p |
+**Resultado: 1-2 factores parciales** → NO ES VALUE TRAP
 
-**Estimated Fair Value: 450-550p (central: 500p)**
+### 2.6 Catalizadores
 
-**Margin of Safety at 383p: 23-30% (at 500p midpoint: 23.4%)**
-**Margin of Safety at 347p: 23-36% (at 500p midpoint: 30.6%)**
+| Catalizador | Timeframe | Probabilidad | Impacto |
+|-------------|-----------|--------------|---------|
+| FCF inflection | 12-24m | 75% | +20-30% |
+| FY26 PBT top of range (>155M) | 6m | 80% | +10% |
+| Analyst coverage increase | 12m | 50% | +10-15% |
+| Spain outperformance continues | Ongoing | 70% | +5-10% |
+| M&A target potential | 6-24m | 40% | +30-50% |
 
-At current prices (347-383p), MoS is approximately 23-31%, which meets or borderline meets the Tier B >=25% threshold depending on entry price.
+### 2.7 Sensibilidad Macro
 
----
+| Factor | Sensibilidad | Impacto actual |
+|--------|-------------|----------------|
+| Tasas de interes | Media | Manejable (3.1% avg) |
+| Recesion UK | Media | 40% sector publico protege |
+| Inflacion | Baja | Pass-through |
+| Oil prices | Baja | Clientes pagan combustible |
 
-## 4. Moat Assessment
-
-**Rating: NARROW MOAT**
-
-### Competitive Advantages:
-
-1. **Scale & purchasing power (STRONG)**: One of the largest single purchasers of LCVs in the UK/Europe outside OEM dealership networks. Early access to vehicle supply at scale. 130,000+ vehicle fleet creates significant barriers to replication.
-
-2. **Integrated platform / switching costs (MODERATE-STRONG)**: End-to-end mobility solutions (rental, fleet management, accident management, repairs, EV consulting) create meaningful switching costs for corporate clients. No customer >3%, reducing concentration risk.
-
-3. **Diversified customer base (MODERATE)**: 40%+ public sector (sticky, long contracts). No sector >15% of fleet. Geographic diversification across UK, Ireland, Spain.
-
-4. **Relationships with 40+ OEMs (MODERATE)**: Supply-side advantage not easily replicable. Critical during vehicle shortage periods.
-
-5. **Network of 175+ branches (MODERATE)**: Physical infrastructure advantage in vehicle management and deployment.
-
-### Moat Risks:
-- EV transition could disrupt vehicle lifecycle economics
-- Technology-driven disruption (ride-sharing, autonomous vehicles in long-term)
-- Low barriers to entry in individual segments (though integrated offering is harder to replicate)
-
----
-
-## 5. Risk Assessment
-
-### Material Risks:
-
-| Risk | Severity | Probability | Impact |
-|------|----------|-------------|--------|
-| Residual value decline | HIGH | MEDIUM | Directly hits P&L through depreciation adjustments |
-| Leverage at upper range (1.9x) | MEDIUM | LOW | Within 1-2x guidance but limited headroom |
-| EV transition uncertainty | MEDIUM | MEDIUM | Timing and cost of fleet transition unclear |
-| UK economic slowdown | MEDIUM | MEDIUM | LCV demand tied to economic activity |
-| Interest rate exposure | MEDIUM | LOW | 3.1% avg financing rate is favorable; mostly hedged |
-| Key customer concentration | LOW | LOW | No customer >3% |
-
-### Mitigants:
-- Residual values have stabilized since autumn 2025
-- Conservative depreciation policy (track record of disposal profits)
-- Spain performing strongly, offsetting any UK weakness
-- Heavy fleet investment phase ending → FCF inflection approaching
-- Public sector exposure (40%+) provides stability
-
-### Quality Score (for Tier classification):
-1. ROE >15% consistently? PARTIAL -- ~7-8% ROI (capital-intensive business)
-2. FCF positive 5+ years? YES (though cyclical)
-3. Debt/Equity <1.0? YES (0.81-0.90)
-4. Dividend 10+ years without cut? YES (long dividend history)
-5. Wide moat? NARROW (not wide)
-6. Revenue stability? MODERATE (rental revenues sticky, vehicle sales volatile)
-7. Management quality? GOOD (conservative depreciation, disciplined leverage)
-8. Analyst coverage >10? NO (only 5)
-9. Market cap >EUR 10B? NO (~EUR 1B)
-10. Defensive sector? NO (Industrials/cyclical)
-
-**Quality Score: 5/10 → Tier B confirmed (MoS >=25% required)**
+**Fit con world view**: Europa barata, UK ciclicos de calidad ignorados = FAVORABLE
 
 ---
 
-## 6. Catalysts
+## 3. Proyecciones Fundamentadas (Framework v2.0)
 
-**Positive:**
-- FCF inflection as fleet replacement completes (next 6-12 months)
-- FY2026 PBT at top of range (GBP 155M+) → potential consensus upgrades
-- Spain continuing strong growth trajectory
-- Low analyst coverage = potential re-rating as more coverage initiates
-- Share buyback program continues
+### 3.1 Revenue Growth Derivation
 
-**Negative:**
-- Further residual value softening
-- UK recession
-- EV mandate forcing accelerated fleet replacement
+```
+TAM Growth (UK fleet): 3-4%
+Market Share gain: +0.5pp/año (Spain driving)
+Pricing power: +2-3%
+Revenue Growth = 3.5% + 0.5% + 2.5% = 6-7% (optimista)
+```
 
----
+**Proyeccion conservadora**: 4-5% growth (años 1-5)
 
-## 7. Autocritica (Critical Thinking Protocol)
+### 3.2 WACC Calculation
 
-**Assumptions made:**
-- Normalized FCF of GBP 100-120M is achievable post-inflection
-- Residual values have bottomed
-- Spain growth trajectory continues
-- No major UK economic downturn
+```
+Ke = Rf + Beta × ERP = 4.2% + 1.1 × 5% = 9.7%
+Kd after-tax = 3.1% × 0.75 = 2.3%
+E/V = 48%, D/V = 52%
+WACC calculated = 5.9%
+WACC usado = 8-9% (floor for cyclical)
+Terminal growth = 2.5%
+```
 
-**Biases detected:**
-- The extremely low P/E and high yield make this look like a value trap candidate. Must confirm earnings trajectory is UP, not DOWN.
-- The 47.7% FCF yield is almost certainly misleading (vehicle disposal cash flows). This is a common pitfall with fleet companies.
+### 3.3 Escenarios
 
-**Evidence that might invalidate:**
-- FY2025 earnings declined 36% YoY -- is this a one-off or trend?
-- Revenue declined 1.12% in FY2025 -- must confirm FY2026 H1 reversal is sustained
-- Leverage at 1.9x is at upper end of guidance
-
-**Validation:**
-- H1 FY2026 results CONFIRM recovery: revenue +2.9%, hire revenues +10.5%
-- PBT guidance raised to "at least top of GBP 150-155M range"
-- Spain delivering "standout performance"
-- Management tone is clearly positive
-
-**Verdict:** The earnings decline in FY2025 appears to be a trough driven by residual value normalization and fleet replacement costs. FY2026 is showing clear recovery. This is NOT a value trap -- it is a cyclical recovery at an attractive price.
+| Escenario | Revenue Growth | EBITDA Margin | Prob |
+|-----------|---------------|---------------|------|
+| Bear | 2% | 25% | 25% |
+| Base | 4-5% | 27% | 50% |
+| Bull | 7% | 29% | 25% |
 
 ---
 
-## 8. Decision
+## 4. Valoracion Multi-Metodo (Framework v2.0)
 
-**RECOMMENDATION: BUY**
-- Fair value estimate: 450-550p (central 500p)
-- Current price: ~347-383 GBp
-- Margin of Safety: 23-31% (meets Tier B >=25% at lower end of price range)
-- Entry target: <=380p for comfortable 24%+ MoS
-- Position size: Standard (3-4% of portfolio, ~EUR 300-400)
-- Sector: Industrials (check portfolio concentration)
-- Geography: UK/Ireland/Spain (check UK exposure limits)
+### 4.1 EV/EBITDA (Primario - asset-heavy)
 
-**Monitoring:**
-- FY2026 full year results (July 2026)
-- Residual value trends quarterly
-- Spain growth continuation
-- FCF inflection confirmation
-- Leverage trajectory (should decline toward 1.5x as capex normalizes)
+```
+EBITDA FY26E: ~500M
+Net Debt: 939M
+Market Cap: 870M
+EV: 1,809M
+EV/EBITDA actual: 3.6x
+
+Peers: 5-7x (auto lessors, fleet management)
+
+Fair Value @ 5x: 688p
+Fair Value @ 6x: 908p
+Fair Value @ 7x: 1,128p
+```
+
+### 4.2 P/E Normalizado (Secundario)
+
+```
+EPS FY26E: 51-55p
+P/E actual: 7x
+Fair P/E: 8-10x
+
+Fair Value @ 8x: 440p
+Fair Value @ 10x: 550p
+```
+
+### 4.3 DDM
+
+```
+DPS: 26.4p, growth 2.5%
+Required return: 9%
+Fair Value DDM: 416-425p
+```
+
+### 4.4 NAV Floor
+
+```
+ROE 8.1%, Ke 9%, g 2.5%
+P/B justo = 0.86x
+BV ~400-450p
+NAV floor: 344-380p
+```
+
+### 4.5 Reconciliacion
+
+| Metodo | Bear | Base | Bull | Peso |
+|--------|------|------|------|------|
+| EV/EBITDA | 688p | 908p | 1,128p | 40% |
+| P/E | 440p | 550p | 660p | 30% |
+| DDM | 416p | 425p | 450p | 20% |
+| NAV | 344p | 380p | 420p | 10% |
+| **Weighted** | **524p** | **651p** | **781p** | 100% |
+
+### 4.6 Expected Value
+
+```
+EV = (524 × 25%) + (651 × 50%) + (781 × 25%)
+EV = 131 + 326 + 195 = 652p
+```
 
 ---
 
-## Sources
+## 5. Decision (7 Gates)
 
-- [Zigup Financial Highlights](https://www.zigup.com/investors/financial-highlights/)
-- [FY26 Interim Results](https://zigup.com/fy-26-interim-results-statement/)
-- [Zigup Our Markets](https://zigup.com/about-us/our-markets/)
-- [DirectorsTalk Analysis](https://www.directorstalkinterviews.com/zigup-plc-zig-l-stock-analysis-a-28-upside-potential-amid-strong-dividend-yield/4121231319)
-- [TipRanks Forecast](https://www.tipranks.com/stocks/gb:zig/forecast)
-- [StockAnalysis](https://stockanalysis.com/quote/lon/ZIG/)
-- [Zigup Risk Tables](https://zigup.com/governance/risk-management/risk-tables/)
-- [Kalkine Analysis](https://kalkine.co.uk/news/premium/zigup-uk-stock-soars-14-decoding-the-half-year-surge-and-future-mobility-play)
+### Gate 1: Business Understanding
+- [x] Framework completado
+- [x] Puedo explicar en 2 min
+- [x] Se por que esta barata + contra-tesis
+- [x] Value trap checklist: <3 factores
+
+### Gate 2: Proyeccion Fundamentada
+- [x] TAM/share/pricing derivados
+- [x] WACC calculado (8-9%)
+- [x] Escenarios Bear/Base/Bull
+
+### Gate 3: Valoracion Multi-Metodo
+- [x] 4 metodos aplicados
+- [x] Apropiados para asset-heavy
+- [x] Divergencia explicada (EV/EBITDA > P/E por leverage)
+
+### Gate 4: Margen de Seguridad
+- [x] MoS vs Expected (652p): 41% > 25% requerido
+- [x] MoS vs Bear (524p): 26% > 25% requerido
+- [x] Tier B: CUMPLIDO
+
+### Gate 5: Contexto Macro
+- [x] World view revisado (2-feb-2026)
+- [x] Fit con ciclo: UK ciclicos de calidad baratos
+- [x] No es ciclica agresiva (40% publico)
+
+### Gate 6: Portfolio Fit
+- [ ] Verificar UK exposure <35%
+- [ ] Verificar Industrials <25%
+- [ ] Cash post-compra >5%
+
+### Gate 7: Autocritica
+- [x] Asunciones documentadas
+- [x] Sesgos identificados
+- [x] Kill conditions definidas
+
+**7 GATES: 6/7 PASADOS** (Gate 6 pendiente verificar portfolio fit)
+
+---
+
+## 6. Recomendacion Final
+
+### Fair Value Summary
+
+| Metric | Value |
+|--------|-------|
+| Fair Value Bear | 524p |
+| Fair Value Base | 651p |
+| Fair Value Bull | 781p |
+| **Expected Value** | **652p** |
+
+### MoS Analysis
+
+| Precio entrada | MoS vs EV | MoS vs Bear | Viable? |
+|----------------|-----------|-------------|---------|
+| 386.5p (actual) | 41% | 26% | SI |
+| 375p (standing order) | 42% | 28% | SI - FUERTE |
+| 350p | 46% | 33% | SI - EXCELENTE |
+
+### Standing Order
+
+**CONFIRMAR: Standing order 375 GBp**
+- Fair Value v2.0: 652p (vs 500p anterior)
+- MoS a 375p: 42%
+- Position size recomendado: 3-4% portfolio
+- Precio actual (386.5p) 3% sobre trigger
+
+**Alternativa**: BUY a precio actual (386.5p) tambien es viable con MoS 41%
+
+### Sell Triggers
+
+| Trigger | Precio | Accion |
+|---------|--------|--------|
+| 80% FV Base | 520p | Vender 25% |
+| FV Base | 651p | Vender 50% |
+| FV Bull | 781p | Vender resto |
+
+### Kill Conditions (venta inmediata)
+
+1. Leverage >2.5x sostenido
+2. Dividend cut
+3. ROCE < WACC 2 años consecutivos
+4. Spain growth reverses to negative
+
+---
+
+## 7. Monitoring
+
+**Proximos eventos**:
+- FY26 full year results: Julio 2026
+- H2 trading update: ~Abril 2026
+
+**Metricas a seguir**:
+- Leverage ratio (target 1-2x)
+- Rental margins UK&I (15-16% target)
+- Spain growth rate
+- FCF trajectory toward £200M+
+
+---
+
+## 8. Sources
+
+### Company
+- [ZIGUP FY26 Interim Results](https://zigup.com/fy-26-interim-results-statement/)
+- [ZIGUP Financial Highlights](https://www.zigup.com/investors/financial-highlights/)
+- [ZIGUP Our Markets](https://zigup.com/about-us/our-markets/)
+
+### Industry
+- [Fleet Management Market Report - MarketsandMarkets](https://www.marketsandmarkets.com/Market-Reports/fleet-management-systems-market-1020.html)
+- [UK Leasing EV Values 2026 - AM Online](https://www.am-online.com/news/uk-leasing-industry-expect-ev-values-to-fall-in-2026)
+- [Fleet Outlook 2026 - FleetWorld](https://fleetworld.co.uk/from-telematics-to-evs-the-2026-outlook-for-fleets/)
+- [BVRLA 2026 Outlook - Broker News](https://brokernews.co.uk/leasing-will-continue-its-upward-trajectory-in-2026-bvrla/)
+
+### Analyst
+- [DirectorsTalk Analysis](https://www.directorstalkinterviews.com/zigup-plc-zig-l-stock-analysis-growth-potential-with-a-26-upside-and-solid-dividend-yield/4121234105)
+- [Quartr Zigup Summary](https://quartr.com/companies/zigup-plc_13260)
+- [Yahoo Finance ZIG.L](https://finance.yahoo.com/quote/ZIG.L/)
+
+---
+
+## Changelog
+
+| Version | Date | Changes |
+|---------|------|---------|
+| 2.0 | 2026-02-03 | Full v2.0 framework applied: business analysis, projection derivation, 4-method valuation, 7 gates |
+| 1.0 | 2026-02-02 | Initial thesis (pre-v2.0 framework) |

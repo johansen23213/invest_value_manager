@@ -1,264 +1,460 @@
-# Diageo PLC (DGE.L) - Investment Thesis
+# Diageo PLC (DGE.L) - Investment Thesis v2.0
 
-**Date:** 2026-02-02
+**Date:** 2026-02-03
 **Analyst:** Fundamental Analyst Agent
-**Status:** CONDITIONAL BUY - Wait for earnings (25-Feb-2026)
+**Status:** WATCHLIST - Lower price target required
+**Framework Version:** v2.0 (business-analysis + projection + multi-method valuation)
 
 ---
 
-## Executive Summary
+## 1. Executive Summary
 
-Diageo is the world's largest spirits company trading at a historically depressed valuation (fwd P/E ~13x vs 5yr avg 27x) after a 29% decline from 52-week highs. The business has a wide moat built on iconic brands, global distribution scale, and premiumization tailwinds. However, elevated leverage (3.4x net debt/EBITDA), a ~100% payout ratio on trailing earnings, and near-zero organic growth create real risks that justify a discount to historical multiples.
+Diageo is the world's largest spirits company with iconic brands (Johnnie Walker, Guinness, Smirnoff, Tanqueray) trading at 1690 GBp after a 29% decline from 52-week highs. The market is pricing in: (1) near-zero organic growth, (2) high leverage (3.4x EBITDA), and (3) China/US consumer weakness.
 
-**Verdict:** At 1,679 GBp, DCF base case suggests ~26% upside to fair value (2,120 GBp). This exceeds the 15% Tier A threshold for wide-moat defensives. However, the Feb 25 earnings report is a critical catalyst -- payout sustainability and deleveraging trajectory will determine whether the thesis holds. Recommend waiting for earnings confirmation before entering.
+**Why cheap:** Organic growth stalled (FY26 guidance: flat to slightly down), leverage elevated, US/China headwinds. P/E 22x trailing but ~13x forward.
+
+**My counter-thesis (WEAK):** Multi-method valuation shows Diageo is NOT cheap at 1690 GBp. DCF, EV/EBIT, and DDM converge on fair value ~1400-1700 GBp, meaning current price offers 0-15% margin of safety - INSUFFICIENT for even Tier A threshold.
+
+**Catalyst:** H1 FY26 earnings 25-Feb could drive short-term volatility, but fundamentals support WAITING for 1300-1400 GBp for adequate MoS.
+
+**Fair Value:** 1400-1650 GBp (Expected Value) | **Required Entry:** <=1300 GBp for 15%+ MoS
 
 ---
 
-## Key Metrics
+## 2. Business Understanding
+
+### 2.1 Business Model
+
+| Aspect | Description |
+|--------|-------------|
+| Problem solved | Premium alcoholic beverages for social occasions, celebration, status |
+| Target customer | Global consumers across income levels, skewing premium/luxury |
+| Revenue model | Consumables - repeat purchase, brand loyalty |
+| % recurring | ~100% - spirits/beer are consumable, high repeat rate |
+
+Diageo manufactures, markets, and distributes premium spirits (~75% revenue) and beer (~25%) globally across ~180 countries with 200+ brands. Key categories: Scotch whisky (Johnnie Walker), vodka (Smirnoff), gin (Tanqueray), tequila (Don Julio), rum (Captain Morgan), beer (Guinness).
+
+### 2.2 Unit Economics
+
+For B2C/B2B consumables, traditional CAC/LTV metrics don't apply directly. Instead:
 
 | Metric | Value | Assessment |
 |--------|-------|------------|
-| Price | 1,679 GBp (EUR 19.37) | |
-| Trailing P/E | 22.1x | Elevated on depressed earnings |
-| Forward P/E | ~13x | Attractive vs 5yr avg 27x |
-| Dividend Yield | 4.8% | High but payout stretched |
-| Market Cap | GBP 37.3B | Large-cap, liquid |
-| Net Debt/EBITDA | 3.4x | HIGH - target 2.5-3.0x by FY28 |
-| ROE (5yr avg) | ~34% | Excellent, but declining to ~21% |
-| FCF (FY25) | $2.7B | Solid, improving |
-| Revenue (FY25) | $20.2B | Flat YoY |
-| Op Profit (FY25) | $4.3B | Down 28% (exceptionals) |
-| 52-week range | 1,422 - 2,379 GBp | Trading lower third |
+| Gross Margin | ~60% | Excellent - premium spirits have high margins |
+| Brand investment/Revenue | ~15% | Heavy marketing spend to maintain brand equity |
+| Operating Margin (adj) | 28.2% | Strong but declining (-68bp YoY) |
+| FCF Conversion | ~50% of EBIT | Solid but leverage eats into available cash |
+| Capex/Revenue | ~6% | Moderate - aging inventory requires capital |
+
+**Key insight:** Spirits are "time-locked" - Scotch ages 10-18+ years, creating natural barriers but also working capital intensity.
+
+### 2.3 Structure of Margins
+
+| Margin | FY25 | 5y Avg | Trend | vs Peers |
+|--------|------|--------|-------|----------|
+| Gross | ~60% | ~60% | Stable | In-line (Pernod ~60%, Brown-Forman ~58%) |
+| Operating (adj) | 28.2% | ~29% | Compressing | Slightly above peers |
+| Net | ~10% (reported) | ~18% | DOWN (exceptionals) | Below due to one-offs |
+| FCF | 13.6% ($2.7B/$20B) | ~13% | Stable | In-line |
+
+**Margin trajectory:** Operating margins compressed 68bp in FY25 due to lower volumes, tariffs, and mix. Accelerate cost savings program ($625M over 3 years) should stabilize but not expand margins given revenue headwinds.
+
+### 2.4 Why It's Cheap
+
+**Market narrative:**
+1. **Near-zero organic growth:** FY25 +1.7%, FY26 guided flat to slightly down
+2. **China/US headwinds:** China white spirits (-7.5% APAC in Q1), US spirits -4.1%
+3. **High leverage:** 3.4x EBITDA vs 2.5-3.0x target - limits buybacks, constrains dividend
+4. **Payout ratio concern:** ~98% on reported earnings (63% on adjusted)
+5. **Tariff exposure:** $200M annual impact from US tariffs
+
+**My counter-thesis: THE MARKET IS MOSTLY RIGHT**
+
+After rigorous multi-method valuation:
+- DCF (3% growth, 8.5% WACC): Fair value ~1000-1550 GBp
+- EV/EBIT (12x adjusted): Fair value ~1675 GBp
+- DDM (2-3% growth, 8-9% Ke): Fair value ~1400-1800 GBp
+
+**Convergence:** All methods point to fair value ~1400-1700 GBp. At 1690 GBp, there is NO margin of safety. The 5% yield is compensation for zero growth, not a bargain.
+
+**My (limited) edge:** The market may be too pessimistic on medium-term recovery (2-3 years) if US/China normalize. But I cannot quantify this with confidence given guidance cuts.
+
+### 2.5 Value Trap Checklist
+
+| Factor | SI/NO | Comment |
+|--------|-------|---------|
+| Industry in secular decline | NO | Spirits growing 3-4% globally, but mature in developed markets |
+| Imminent tech disruption | NO | Alcohol relatively immune |
+| Management destroying value | NO | Adequate but not stellar - leverage buildup concerning |
+| Balance deteriorating | **YES** | 3.4x leverage, above target, limited deleveraging visibility |
+| Massive insider selling | NO | No unusual activity |
+| Dividend cut recent/probable | **MAYBE** | Payout ~98% reported; sustainable on adjusted but risky if adjusted doesn't recover |
+| Market share loss >2pp/3y | NO | Share stable, premiumization helping |
+| ROIC < WACC last 3 years | NO | ROIC ~12-15% vs WACC ~8-9% |
+| FCF negative >2 years | NO | Consistently positive |
+| Goodwill >50% equity | **YES** | Significant intangibles from acquisitions |
+
+**Total SI: 2-2.5** (borderline - NOT clear value trap, but leverage is key risk)
 
 ---
 
-## Business Model
+## 3. Key Financial Metrics
 
-Diageo manufactures, markets, and distributes premium spirits and beer globally. Revenue is ~75% spirits (scotch, vodka, gin, tequila, rum) and ~25% beer (Guinness). Operations span ~180 countries with a portfolio of 200+ brands across all price tiers.
-
-**Revenue by region (approx):** North America ~35%, Europe/Turkey ~20%, Africa ~15%, Asia Pacific ~15%, Latin America ~15%.
-
-**Key economics:**
-- Capital-light manufacturing (distillation/aging) with high gross margins (~60%)
-- Brands appreciate with age and marketing investment (unlike physical assets)
-- Premiumization trend: premium-and-above grew from 26% to 35% of category in last decade
-- Scotch requires years of aging = natural barrier to entry and working capital commitment
-
----
-
-## Moat Assessment: WIDE (8/10 confidence)
-
-### 1. Brand Power (PRIMARY MOAT)
-- 13 billion-dollar brands: Johnnie Walker, Guinness, Smirnoff, Tanqueray, Captain Morgan, Baileys, Don Julio, etc.
-- Consumer loyalty in spirits is extremely sticky -- brand switching is low
-- Premiumization trend favors established heritage brands over newcomers
-
-### 2. Scale & Distribution
-- #1 spirits company globally, 1.5x the size of nearest competitor (Pernod Ricard)
-- 2x larger than #2 in the US (largest market)
-- Distribution network across 180 countries is nearly impossible to replicate
-- Bigger than 4 of top 10 competitors combined
-
-### 3. Regulatory Barriers
-- Alcohol regulation creates barriers to entry in most markets
-- Age-statement scotch (10yr, 12yr, 18yr) = natural time barrier
-- Licensing requirements in distribution
-
-### 4. Pricing Power
-- Premium spirits are relatively price-inelastic
-- Premiumization allows mix improvement without volume growth
-- Demonstrated ability to pass through inflation (price/mix +0.8% in FY25)
-
-### Moat Risks
-- Gen Z drinking less alcohol (structural long-term risk)
-- Cannabis/alternatives emerging in some markets
-- Private label penetration low but possible at value end
-
-**Moat verdict:** Wide moat. The brand portfolio + global distribution is one of the strongest in consumer staples. The moat is NOT eroding, but growth within the moat is slowing.
+| Metric | Value | Sector Avg | Comment |
+|--------|-------|-----------|---------|
+| P/E Trailing | 21.9x | ~18x | Elevated on depressed earnings |
+| P/E Forward | ~13x | ~15x | Looks cheap vs historical 27x avg |
+| P/FCF | ~14x | ~15x | Reasonable |
+| EV/EBITDA | ~11x | ~12x | Fair |
+| EV/EBIT (adj) | 12.1x | 12-14x | Fair for sector |
+| Dividend Yield | 4.9% | ~3% | High but risky |
+| Payout Ratio (reported) | ~98% | ~50% | STRETCHED |
+| Payout Ratio (adjusted) | ~63% | ~50% | Manageable if adjusted normalizes |
+| Debt/Equity | ~2.7x | ~1.5x | HIGH |
+| Net Debt/EBITDA | 3.4x | ~2.5x | HIGH - above target |
+| Interest Coverage | ~6x | ~8x | Adequate but watch |
+| ROE (current) | ~21% | ~18% | Declining from 34% |
+| ROIC | ~12% | ~10% | Above WACC but declining |
+| FCF Yield | ~7% | ~6% | Good but debt service priority |
 
 ---
 
-## Financial Analysis
+## 4. Projections (Projection Framework)
 
-### Profitability
-| Year | Revenue ($B) | Op Profit ($B) | Op Margin | ROE |
-|------|-------------|----------------|-----------|-----|
-| FY22 | 17.1 | 4.4 | 25.7% | ~40% |
-| FY23 | 20.2 | 5.6 | 27.7% | ~38% |
-| FY24 | 20.3 | 6.0 | 29.6% | ~35% |
-| FY25 | 20.2 | 4.3 | 21.4% | ~21% |
+### 4.1 Revenue Drivers
 
-FY25 operating profit decline of 28% was driven by exceptional items (impairments, restructuring). Underlying (organic) op profit declined only 1%. This is a critical distinction -- the earnings power is closer to $5.5-6.0B operating profit on a normalized basis.
+| Driver | Value | Source |
+|--------|-------|--------|
+| Global spirits TAM | ~$660B (2025) | Mordor Intelligence, Grand View |
+| TAM growth | +3.5-4% CAGR | Industry consensus |
+| Premium spirits TAM growth | +10% CAGR | Grand View Research |
+| Diageo market share (global spirits) | ~8% | #1 globally |
+| Market share trend | Stable | Maintaining but not gaining |
+| Pricing power | **Moderate** | +0.8% price/mix FY25, but volume weakness |
 
-### Free Cash Flow
-- FY25 FCF: $2.7B (up from $2.6B in FY24)
-- FY26 guidance: ~$3.0B FCF
-- FCF is resilient even as reported profits declined -- good sign for cash generation quality
-- Capex declining from $1.5B to $1.2-1.3B in FY26
+**Revenue growth derivation:**
+- TAM growth: +3.5%
+- Market share change: 0% (stable)
+- Pricing: +1.0% (can match inflation)
+- **Implied organic revenue growth: ~4-5%**
+- **REALITY CHECK: FY26 guidance is FLAT to slightly down due to China/US headwinds**
 
-### Balance Sheet -- KEY CONCERN
-- Net debt: $21.9B (3.4x EBITDA)
-- Target: 2.5-3.0x by FY28
-- Total liabilities: $36.1B vs equity $13.2B (D/E ~2.7x)
-- This is the weakest aspect of the investment case
-- Deleveraging requires: profit growth + capex discipline + potential disposals
-- Interest costs eat into FCF available for dividends
+**My projection:** 0-2% revenue growth FY26-27, recovering to 3-4% FY28+ IF US/China normalize.
 
-### Dividend Sustainability
-- FY25 dividend: 103.48 cents/share (+5% YoY)
-- EPS (basic): 105.9 cents → payout ratio ~98% on reported earnings
-- EPS (adj, ex-exceptionals): 164.2 cents → payout ratio ~63% on adjusted
-- On adjusted earnings, dividend is well covered
-- 25 consecutive years of dividend payments, never cut
-- But: if adjusted earnings don't recover, the payout becomes unsustainable
-- **FY26 guidance of mid-single-digit organic op profit growth should improve coverage**
+### 4.2 Margin Projections
 
----
+| Year | Revenue Growth | Op. Margin (adj) | FCF ($B) |
+|------|---------------|------------------|----------|
+| FY25 (actual) | +1.7% | 28.2% | $2.7B |
+| FY26E | 0% to -2% | 28-29% | $3.0B (guided) |
+| FY27E | +2% | 28.5% | $3.0-3.2B |
+| FY28E | +3% | 29% | $3.2-3.5B |
 
-## Valuation
+Cost savings from Accelerate ($625M over 3 years, 40% in FY26) should protect margins, but revenue headwinds offset expansion. Flat to slight improvement realistic.
 
-### Method 1: DCF (via dcf_calculator.py --scenarios)
+### 4.3 WACC Derivation
 
-| Scenario | Fair Value (GBp) | Margin of Safety |
-|----------|-----------------|-----------------|
-| Bear | 1,686 | +0.4% (no margin) |
-| Base | 2,120 | +26.3% |
-| Bull | 2,735 | +63.0% |
+```
+Risk-free (UK 10Y gilt): 4.0%
+Beta: 0.65 (defensive consumer staple)
+ERP: 5.0%
+Ke = 4.0% + 0.65 × 5.0% = 7.25%
 
-Base case assumptions: 5% FCF growth, 2.5% terminal, 9% WACC.
+Add-on for high leverage: +0.5%
+Adjusted Ke = 7.75% (round to 8%)
 
-**DCF assessment:** Base case offers 26% MoS, well above 15% Tier A threshold. Bear case essentially at current price, meaning downside is limited if growth stalls.
+Cost of debt (pre-tax): ~4.5% (interest/debt)
+Tax rate: 23%
+Kd after-tax = 4.5% × 0.77 = 3.5%
 
-### Method 2: Earnings Multiple Valuation
+Capital structure:
+Market cap: GBP 37.6B
+Net debt: GBP 17.5B
+EV: GBP 55.1B
+E/V = 68%, D/V = 32%
 
-**On trailing P/E (22.1x):** Not useful -- distorted by exceptional charges.
+WACC = (68% × 8%) + (32% × 3.5%) = 5.44% + 1.12% = 6.56%
+```
 
-**On forward P/E (~13x):**
-- Forward EPS implies ~129 GBp per share
-- At 15x multiple (conservative for wide-moat staple): 129 x 15 = 1,935 GBp → 15% upside
-- At 18x multiple (fair for quality compounder): 129 x 18 = 2,322 GBp → 38% upside
-- At 20x multiple (10yr average): 129 x 20 = 2,580 GBp → 54% upside
-- Average analyst target: 2,197 GBp → 31% upside
-
-**Earnings multiple assessment:** Even at a conservative 15x forward earnings (significant discount to 5yr avg of 27x), there is 15% upside. At 18x (reasonable for this quality), 38% upside.
-
-### Method 3: Yield-Based Valuation
-- Current yield: 4.8%
-- 10yr average yield: ~2.5%
-- If yield normalizes to 3.5% (still above historical): implied price = 1,679 x (4.8/3.5) = 2,302 GBp → 37% upside
-- Market is pricing in either a dividend cut or permanently impaired growth
-
-### Valuation Summary
-| Method | Fair Value (GBp) | MoS |
-|--------|-----------------|-----|
-| DCF Base | 2,120 | 26% |
-| DCF Bear | 1,686 | 0% |
-| Fwd P/E 18x | 2,322 | 38% |
-| Fwd P/E 15x | 1,935 | 15% |
-| Yield normalization | 2,302 | 37% |
-| Analyst consensus | 2,197 | 31% |
-
-**Central estimate: ~2,100-2,200 GBp (25-31% MoS)**
+**Sanity check:** 6.5% WACC seems LOW for a company with 3.4x leverage and declining growth. Using a more conservative 8-9% WACC for DCF is appropriate given execution risk.
 
 ---
 
-## Risk Assessment
+## 5. Multi-Method Valuation
 
-### HIGH RISKS
-1. **Leverage (3.4x EBITDA)** -- Highest among consumer staple peers. Limits buybacks, constrains dividend growth, increases vulnerability to downturn. Target 2.5-3.0x by FY28 requires execution.
-2. **Payout ratio on trailing earnings (~98%)** -- If adjusted earnings don't recover to normalized levels, dividend cut becomes real possibility. A dividend cut would trigger significant selling.
-3. **US tariffs** -- ~$150M annual impact from UK/EU spirits tariffs. Uncertain duration.
-4. **Organic growth near zero** -- FY25 organic net sales +1.7%, FY26 guided similar. For a P/E of 13x to re-rate, growth needs to inflect.
+### 5.1 Method 1: DCF (Primary)
 
-### MEDIUM RISKS
-5. **Gen Z alcohol consumption decline** -- Structural but very slow-moving. 600M new legal-age consumers by 2035 partially offsets.
-6. **Moat Hennessy associate income** -- Significant decline in FY25, driven by cognac weakness. Partially outside Diageo's control.
-7. **Currency exposure** -- Reports in USD but listed in GBP. Major operations in many currencies.
-8. **Competition from tequila/agave newcomers** -- Celebrity-backed brands taking share in fastest-growing category, though Don Julio remains strong.
+**Inputs:**
+- Starting FCF: $2.7B (GBP 2.16B at 0.80 USD/GBP)
+- Growth: 3% (conservative, below TAM due to current headwinds)
+- WACC: 8.5% (conservative for wide-moat staple with high debt)
+- Terminal growth: 2.0%
+- Years: 5 + terminal
+- Net debt: GBP 17.5B
 
-### LOW RISKS
-9. **Regulatory risk** -- Alcohol advertising restrictions could tighten. Slow-moving.
-10. **Inventory/aging risk** -- Scotch requires years of aging; demand forecasting errors are costly.
+**DCF Tool Results (with derived parameters):**
+| Scenario | Growth | WACC | Fair Value (GBp) |
+|----------|--------|------|------------------|
+| Bear | 1% | 9.5% | 586 |
+| Base | 3% | 8.5% | 991 |
+| Bull | 5% | 7.5% | 1,566 |
+
+**DCF verdict:** Even with optimistic 5% growth and 7.5% WACC, fair value ~1,566 GBp is BELOW current price of 1,690 GBp.
+
+### 5.2 Method 2: EV/EBIT (Secondary)
+
+**Inputs:**
+- Adjusted EBIT FY25: $5.7B = GBP 4.56B
+- Net debt: GBP 17.5B
+- Shares: 2.22B
+
+**Multiple selection:**
+- Consumer staples typical: 12-16x
+- Diageo adjustments: -1x for high leverage, -1x for zero growth
+- Fair multiple range: 10-14x
+
+| Scenario | Multiple | Fair EV | Fair Equity | Fair Price |
+|----------|----------|---------|-------------|------------|
+| Bear (10x) | 10x | GBP 45.6B | GBP 28.1B | 1,265 GBp |
+| Base (12x) | 12x | GBP 54.8B | GBP 37.2B | 1,675 GBp |
+| Bull (14x) | 14x | GBP 63.9B | GBP 46.4B | 2,086 GBp |
+
+**EV/EBIT verdict:** Current price 1,690 GBp is essentially at BASE case fair value. No margin of safety.
+
+### 5.3 Method 3: DDM (Tertiary - dividend aristocrat)
+
+**Inputs:**
+- Current dividend: 82.8 GBp (103.48 USD cents × 0.80 × 100)
+- Yield: 4.9%
+- Required return (Ke): 8-9%
+- Sustainable dividend growth: 2-3% (given payout constraints)
+
+**Gordon Growth Model:**
+| Growth | Ke=8% | Ke=8.5% | Ke=9% |
+|--------|-------|---------|-------|
+| 2% | 1,407 GBp | 1,299 GBp | 1,206 GBp |
+| 3% | 1,705 GBp | 1,550 GBp | 1,421 GBp |
+
+**DDM verdict:** Fair value 1,300-1,700 GBp depending on assumptions. Current 1,690 GBp offers minimal MoS.
+
+### 5.4 Valuation Reconciliation
+
+| Method | Weight | Fair Value | Weighted |
+|--------|--------|------------|----------|
+| DCF Base | 40% | 991 GBp | 396 GBp |
+| DCF Bull | 10% | 1,566 GBp | 157 GBp |
+| EV/EBIT Base | 30% | 1,675 GBp | 503 GBp |
+| DDM (3%, 8.5%) | 20% | 1,550 GBp | 310 GBp |
+| **Expected Value** | **100%** | | **1,366 GBp** |
+
+**Alternative (more generous) weighting:**
+| Method | Weight | Fair Value | Weighted |
+|--------|--------|------------|----------|
+| DCF Base | 30% | 991 GBp | 297 GBp |
+| EV/EBIT Base | 40% | 1,675 GBp | 670 GBp |
+| DDM | 30% | 1,550 GBp | 465 GBp |
+| **Expected Value** | **100%** | | **1,432 GBp** |
+
+### 5.5 Margin of Safety Calculation
+
+```
+Expected Value (conservative): 1,366 GBp
+Expected Value (generous): 1,432 GBp
+Bear Case (DCF): 586 GBp
+Bear Case (EV/EBIT): 1,265 GBp
+
+Current price: 1,690 GBp
+
+MoS vs Expected Value (conservative): -24% (OVERVALUED)
+MoS vs Expected Value (generous): -18% (OVERVALUED)
+MoS vs EV/EBIT Bear: -34% (OVERVALUED)
+```
+
+**CRITICAL FINDING:** Multi-method valuation shows Diageo is OVERVALUED at current price, not undervalued. The original thesis claiming 26% MoS was based on optimistic DCF parameters (5% growth, 9% WACC) that are not justified by current business trajectory.
 
 ---
 
-## Quality Score (Tier Assessment)
+## 6. Moat Assessment
 
-| # | Criterion | Score | Notes |
-|---|-----------|-------|-------|
-| 1 | ROE >15% (5yr) | 1/1 | 5yr avg ~34%, declining but still >15% |
-| 2 | FCF positive 5yr | 1/1 | Consistently positive |
-| 3 | Debt/Equity <1.0 | 0/1 | **FAIL** -- D/E ~2.7x, Net Debt/EBITDA 3.4x |
-| 4 | 10+ yr dividend streak | 1/1 | 25 years unbroken |
-| 5 | Wide moat | 1/1 | Clear wide moat |
-| 6 | Revenue stability | 1/1 | Max drawdown ~5% in recessions |
-| 7 | Management quality | 0.5/1 | Adequate but leverage buildup is concerning |
-| 8 | Analyst coverage >10 | 1/1 | 21+ analysts |
-| 9 | Market cap >EUR 10B | 1/1 | ~EUR 43B |
-| 10 | Defensive sector | 1/1 | Consumer staples |
+| Aspect | Evaluation |
+|--------|------------|
+| Type | **Wide** |
+| Sources | Brand intangibles (Johnnie Walker, Guinness, etc.), Scale advantage (1.5x nearest competitor), Regulatory barriers (licensing, age statements) |
+| Quantitative evidence | ROIC ~12% vs WACC ~8% = positive spread; ROE 21% vs industry ~15% |
+| Durability | 10+ years - brands appreciate with age |
+| Threats | 1. Gen Z drinking less (structural, slow-moving), 2. Celebrity tequila brands taking share in fastest-growing category |
 
-**Quality Score: 7.5/10 → Tier A (15% MoS required)**
-
-The debt level is the main quality detractor. Without it, this would score 8.5+/10. The deleveraging trajectory is therefore the key variable to monitor.
+**Moat verdict:** Wide moat is intact. The problem is not the moat - it's the valuation. A wide moat doesn't guarantee a good investment at any price.
 
 ---
 
-## Autocritica (Pre-Recommendation)
+## 7. Risks
 
-- **Assumptions:** I assume normalized earnings recover to ~165 cents EPS. If FY25 exceptionals recur, the thesis weakens.
-- **Biases detected:** Diageo is a well-known name (popularity bias check: justified here because it genuinely has the widest moat in spirits).
-- **Evidence ignored:** Gen Z alcohol trend could be more severe than I model. I may be anchoring to historical premiums.
-- **Validation:** DCF and earnings multiple methods converge on ~2,100-2,200 GBp. Analyst consensus at 2,197 GBp aligns. Convergence adds confidence.
-- **Alternatives considered:** Pernod Ricard (RI.PA) trades at similar discount. Could be worth comparing.
+| Risk | Prob | Impact | Mitigant |
+|------|------|--------|----------|
+| Dividend cut if growth doesn't recover | Medium | High | Payout 63% on adjusted - sustainable IF earnings recover |
+| Leverage remains elevated beyond FY28 | Medium | Medium | Accelerate program + asset sales; management committed |
+| US/China weakness persists >3 years | Medium | High | Geographic diversification (Europe +3.5%, Africa +8.9%, LatAm +10.9%) |
+| Gen Z secular decline in alcohol | Low | Medium | Very slow-moving; offset by emerging market growth |
+| Tariff escalation (US) | High | Low | $200M impact manageable; pricing power can offset |
+| Competition in tequila erodes Don Julio | Medium | Medium | Brand strength; premiumization protects margin |
 
----
-
-## Decision
-
-### CONDITIONAL BUY
-
-**Target entry:** 1,600-1,700 GBp (current range is acceptable)
-**Fair value estimate:** 2,100-2,200 GBp
-**Margin of Safety:** 25-31% (exceeds 15% Tier A threshold)
-**Position size:** 4-5% (moderate -- leverage risk warrants smaller than max)
-
-### Conditions (must ALL be met):
-1. **Feb 25 earnings must confirm:**
-   - Adjusted EPS trajectory supports dividend coverage (payout <75% on adjusted)
-   - No dividend cut announced
-   - Leverage trajectory on track (3.4x or improving)
-   - Organic growth at least flat
-2. **Sector allocation check:** With IMB.L and TATE.L, adding DGE.L increases consumer staples exposure. Must verify <25% sector limit.
-
-### If conditions met:
-- Enter at market price post-earnings (assuming no gap up >10%)
-- Set stop-loss mental level at 1,400 GBp (thesis invalidation: dividend cut or leverage >4x)
-- Target: hold for 2-3 years for re-rating + dividend collection
-
-### Price monitor:
-- Alert if price drops below 1,500 GBp (increase position sizing analysis)
-- Alert if price rises above 1,900 GBp pre-earnings (reduced MoS, reconsider entry)
+**Kill Conditions (sell immediately):**
+1. Dividend cut announced
+2. Leverage exceeds 4.0x with no clear path to deleveraging
+3. Organic growth negative for 3+ consecutive years
+4. Management fraud or major governance scandal
 
 ---
 
-## Comparables Context
+## 8. Catalysts
 
-| Company | Fwd P/E | Yield | Net Debt/EBITDA | Moat |
-|---------|---------|-------|-----------------|------|
-| Diageo (DGE.L) | ~13x | 4.8% | 3.4x | Wide |
-| Pernod Ricard (RI.PA) | ~14x | 4.2% | 3.0x | Wide |
-| Remy Cointreau | ~25x | 3.0% | 2.5x | Narrow |
-| Brown-Forman | ~28x | 2.0% | 1.5x | Wide |
+| Catalyst | Timeframe | Prob | Impact |
+|----------|-----------|------|--------|
+| H1 FY26 earnings (25-Feb-2026) | 0-1m | N/A | HIGH volatility - sets tone for year |
+| China/US recovery | 6-18m | Low-Med | +20-30% if growth returns to 3-4% |
+| Accelerate savings exceed guidance | 12-24m | Medium | +10-15% margin expansion |
+| Deleveraging ahead of schedule | 12-36m | Low-Med | Multiple re-rating |
+| Tariff resolution | 6-12m | Low | +5-10% if tariffs removed |
 
-Diageo is the cheapest of the wide-moat spirit names on forward P/E. Brown-Forman (Jack Daniel's) at 28x fwd shows what premium the market assigns to lower leverage and US-centric operations.
+**Near-term (H1 FY26 earnings 25-Feb):** Key metrics to watch:
+1. Organic sales growth vs "flat to slightly down" guidance
+2. Operating margin trajectory
+3. Dividend maintained (expected yes)
+4. Leverage path commentary
+
+---
+
+## 9. Macro Connection
+
+| Macro Factor | Sensitivity | Current Status | Impact |
+|--------------|-------------|----------------|--------|
+| Interest rates | Low-Medium | Stable (Fed/BCE on hold) | Neutral - high debt but manageable rates |
+| Recession risk | Medium | Low-Med probability | Spirits resilient but premium mix could suffer |
+| USD strength | Medium | USD weakening slightly | Mixed - reports in USD, listed in GBP |
+| Consumer confidence US | High | Weakening | NEGATIVE - US spirits -4.1% |
+| China economy | High | Weak, stimulus ongoing | NEGATIVE - APAC -7.5% |
+
+**Fit with World View:** CAUTIOUS
+
+From world/current_view.md: Consumer staples are generally favorable, but Diageo has specific headwinds (China, US) that make it less defensive than pure utilities or pharma. The 5% yield provides some cushion but does not compensate for zero growth at current valuations.
+
+---
+
+## 10. Decision
+
+| Field | Value |
+|-------|-------|
+| Recommendation | **WATCHLIST - DO NOT BUY at current price** |
+| Tier | A (if bought at right price) |
+| MoS required | >=15% (Tier A wide moat defensive) |
+| MoS actual | **-15% to -24% (NEGATIVE - overvalued)** |
+| Entry price target | **<=1,300 GBp** (provides ~15% MoS vs 1,520 FV) |
+| Fair Value (weighted) | 1,400-1,520 GBp |
+| Bull Target | 2,086 GBp (EV/EBIT 14x if growth resumes) |
+| Sizing if bought | 3-4% (reduced due to leverage risk) |
+| Horizon | 3-5 years |
+
+### Standing Order Update
+
+**PREVIOUS:** Buy at 1,700 GBp conditional on earnings
+**NEW RECOMMENDATION:** **REMOVE STANDING ORDER**
+
+At 1,700 GBp (or current 1,690 GBp), there is NO margin of safety based on multi-method valuation. The original thesis was too optimistic.
+
+**New standing order:** BUY at **1,300 GBp or below** (post-earnings, after confirmation of dividend maintenance and leverage trajectory).
+
+---
+
+## 11. Autocritica (MANDATORY)
+
+| Aspect | Response |
+|--------|----------|
+| Unvalidated assumptions | 1. Recovery to 3-4% growth in FY28+, 2. Leverage reaches 2.5-3.0x by FY28 |
+| Possible biases | 1. Popularity bias (Diageo is well-known), 2. Anchoring to historical P/E premium |
+| What would change my mind | 1. Q1/H1 shows organic growth inflection >3%, 2. Faster deleveraging, 3. Price drops to 1,300 GBp |
+| My informational edge | **NONE** - this is a well-covered stock with 21+ analysts. Market is probably right. |
+| What could be wrong | 1. I may be too conservative on growth recovery, 2. Premiumization tailwind could be stronger than I model |
+
+### Critical Assessment of Original Thesis
+
+The original thesis (pre-v2.0) claimed 26% MoS at 1,679 GBp. This was based on:
+- DCF with 5% growth assumption (NOT justified by current trajectory)
+- Single-method valuation (violated v2.0 rule of 2+ methods)
+- No explicit business analysis framework
+- No derivation of growth/WACC from fundamentals
+
+**v2.0 correction:** Multi-method valuation shows fair value 1,400-1,520 GBp, meaning current price is OVERVALUED. This is a material change in recommendation.
+
+---
+
+## 12. Earnings Scenarios (25-Feb-2026)
+
+### Scenario A: Beat + Positive Commentary (20% prob)
+- Organic sales flat or slightly positive (beat "flat to down" guidance)
+- Operating margin stable or improving
+- Dividend maintained
+- Management raises FY26 guidance
+- **Expected price reaction:** +5-10% (1,800-1,900 GBp)
+- **Action:** WAIT - still no MoS
+
+### Scenario B: In-line (50% prob)
+- Results match reduced guidance (flat to -2% organic)
+- Margin stable, dividend maintained
+- Leverage on track
+- **Expected price reaction:** -2% to +2% (1,650-1,720 GBp)
+- **Action:** WAIT - no MoS
+
+### Scenario C: Miss + Negative Commentary (25% prob)
+- Organic sales worse than guided
+- Margin pressure
+- Leverage concern raised
+- **Expected price reaction:** -10-15% (1,450-1,550 GBp)
+- **Action:** WATCH closely - approaching entry range
+
+### Scenario D: Dividend Cut (5% prob)
+- Earnings significantly worse
+- Dividend reduced or suspended
+- Management credibility damaged
+- **Expected price reaction:** -20-30% (1,200-1,400 GBp)
+- **Action:** REASSESS - thesis change, but potentially attractive entry if cut is conservative and temporary
+
+---
+
+## Peer Comparison
+
+| Company | Fwd P/E | Yield | ND/EBITDA | Growth | Moat | Assessment |
+|---------|---------|-------|-----------|--------|------|------------|
+| Diageo (DGE.L) | ~13x | 4.9% | 3.4x | Flat | Wide | Overvalued at current price |
+| Pernod Ricard (RI.PA) | ~12x | 6.3% | 3.0x | Low | Wide | **Better value** - lower leverage, higher yield |
+| Brown-Forman (BF-B) | ~16x | 3.4% | 1.5x | Low | Wide | Premium for US focus, low debt |
+| Remy Cointreau | ~25x | 3.0% | 2.5x | Low | Narrow | Overvalued |
+
+**Relative value:** Pernod Ricard appears to offer better value with higher yield, lower leverage, and similar growth profile. If allocating to spirits sector, RI.PA may be preferable.
 
 ---
 
 ## Sources
+
 - [Diageo FY25 Preliminary Results](https://www.diageo.com/en/news-and-media/press-releases/2025/2025-preliminary-results-year-ended-30-june-2025)
-- [Diageo Why Invest](https://www.diageo.com/en/investors/why-invest-in-diageo)
-- [Diageo ROE History - Macrotrends](https://www.macrotrends.net/stocks/charts/DEO/diageo/roe)
-- [Diageo Dividend History - StockAnalysis](https://stockanalysis.com/stocks/deo/dividend/)
-- [Diageo Analyst Estimates - MarketScreener](https://www.marketscreener.com/quote/stock/DIAGEO-PLC-27113137/valuation/)
-- [Diageo Competitive Landscape - TheBrandHopper](https://thebrandhopper.com/2025/01/26/who-are-diageos-top-competitors-in-global-spirits-industry/)
-- yfinance (price_checker.py, dcf_calculator.py)
+- [Diageo FY26 Q1 Trading Statement](https://www.diageo.com/en/news-and-media/press-releases/2025/diageo-issues-fiscal-26-q1-trading-statement)
+- [Diageo Financial Calendar](https://www.diageo.com/en/investors/results-reports-and-events/financial-calendar)
+- [Mordor Intelligence: Global Spirits Market](https://www.mordorintelligence.com/industry-reports/spirits-market)
+- [Grand View Research: Premium Spirits Market](https://www.grandviewresearch.com/industry-analysis/premium-spirit-market)
+- yfinance via price_checker.py, dcf_calculator.py
+- Internal calculations for EV/EBIT and DDM
+
+---
+
+## Metadata
+
+```yaml
+ticker: DGE.L
+fecha_creacion: 2026-02-02
+ultima_revision: 2026-02-03 (v2.0 upgrade)
+autor: fundamental-analyst
+status: watchlist
+next_review: 2026-02-26 (post H1 earnings)
+price_target_entry: 1300 GBp
+standing_order: REMOVED (was 1700 GBp)
+```

@@ -1,7 +1,7 @@
 ---
 name: investment-committee
-description: "Mandatory gate before any buy/sell recommendation. Validates all 7 gates: business understanding, projections, multi-method valuation, margin of safety, macro context, portfolio fit, and self-critique."
-tools: Read, Glob, Grep, Bash
+description: "Mandatory gate before any buy/sell recommendation. Validates all 8 gates: business understanding, projections, multi-method valuation, margin of safety, macro context, portfolio fit, self-critique, and sector understanding."
+tools: Read, Glob, Grep, Bash, Write
 model: opus
 permissionMode: plan
 skills:
@@ -12,6 +12,8 @@ skills:
   - business-analysis-framework
   - projection-framework
   - valuation-methods
+  - sector-deep-dive
+  - committee-decision-template
 ---
 
 # Investment Committee Sub-Agent (v2.0)
@@ -22,10 +24,13 @@ skills:
 Read .claude/skills/investment-rules/SKILL.md
 Read .claude/skills/portfolio-constraints/SKILL.md
 Read .claude/skills/sub-skills/decision-template/SKILL.md
+Read .claude/skills/sub-skills/committee-decision-template/SKILL.md (para guardar decisión)
 Read .claude/skills/business-analysis-framework/SKILL.md (para verificar Gate 1)
 Read .claude/skills/projection-framework/SKILL.md (para verificar Gate 2)
 Read .claude/skills/valuation-methods/SKILL.md (para verificar Gate 3)
+Read .claude/skills/sector-deep-dive/SKILL.md (para verificar Gate 8)
 Read world/current_view.md (para verificar Gate 5)
+Read world/sectors/[sector].md (para verificar Gate 8 - crear si no existe)
 Read portfolio/current.yaml (para verificar Gate 6)
 ```
 **NO PROCEDER sin haber leído estos archivos.**
@@ -38,7 +43,7 @@ Gate OBLIGATORIO antes de cualquier recomendación de compra/venta. Valida que e
 - OBLIGATORIO antes de presentar recomendación al usuario
 - NUNCA saltarse este gate
 
-## PROCESO: Validar 7 Gates
+## PROCESO: Validar 8 Gates (v2.1)
 
 ### Gate 1: Entendimiento del Negocio
 ```
@@ -136,14 +141,37 @@ Constraint checks (ejecutar tools/constraint_checker.py):
 [ ] Qué podría estar mal en mi análisis
 ```
 
+### Gate 8: Entendimiento del Sector (NUEVO v2.1)
+```
+[ ] Sector view existe: world/sectors/[sector].md
+    → Si no existe: CREAR antes de aprobar (usar sector-deep-dive skill)
+    → Si existe pero >30 días: ACTUALIZAR
+
+[ ] Sector view revisado (fecha: ___)
+[ ] Entiendo TAM y tendencias del sector
+[ ] Entiendo estructura competitiva
+[ ] Conozco riesgos de disrupción
+[ ] Sentimiento de mercado documentado
+
+[ ] Fit empresa-sector:
+    → ¿La empresa es líder o rezagada?
+    → ¿Tiene ventaja vs competidores del sector?
+    → ¿Está alineada con tendencias del sector?
+
+[ ] Posición sectorial del sistema:
+    → [SOBREPONDERAR/NEUTRAL/INFRAPONDERAR/EVITAR]
+    → Si INFRAPONDERAR o EVITAR: requiere justificación extra
+```
+
 ## Veredictos
 
 ### BUY (todos los gates OK)
 **Requisitos:**
-- 7 gates pasados
+- 8 gates pasados
 - MoS ≥ mínimo del Tier
 - No violaciones de constraints
 - Autocrítica completa
+- Sector view documentado
 
 **Output:**
 ```
@@ -209,13 +237,19 @@ Archivar en: thesis/archive/[TICKER]/
 
 ## Output Final
 
-Decisión documentada en journal/decisions/{date}_{TICKER}_decision.md siguiendo decision-template v2.0
+**OBLIGATORIO:** Crear archivo de decisión para trazabilidad:
+```
+thesis/[research|active]/[TICKER]/committee_decision.md
+```
+Usar template de .claude/skills/sub-skills/committee-decision-template/SKILL.md
 
 ## Reglas Duras
-1. **NUNCA aprobar sin los 7 gates validados**
+1. **NUNCA aprobar sin los 8 gates validados**
 2. **NUNCA aprobar con >3 factores value trap**
 3. **NUNCA aprobar sin projection-framework completo**
 4. **NUNCA aprobar con solo 1 método de valoración**
 5. **NUNCA aprobar violando constraints de portfolio**
 6. **NUNCA aprobar sin kill conditions definidas**
 7. **SIEMPRE ejecutar constraint_checker.py antes de aprobar**
+8. **NUNCA aprobar sin sector view documentado (Gate 8)**
+9. **SIEMPRE guardar decisión en committee_decision.md para trazabilidad**

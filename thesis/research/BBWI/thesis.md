@@ -1,253 +1,355 @@
-# BBWI - Bath & Body Works, Inc.
+# BBWI - Bath & Body Works, Inc. (v2.0)
 
-**Date:** 2026-02-02
-**Status:** RESEARCH - PASS (with caveats)
+**Date:** 2026-02-03
+**Status:** WATCHLIST
 **Tier:** C (Turnaround/Speculative)
 **Quality Score:** 3/10
-**Decision:** WATCHLIST - Wait for turnaround evidence before committing capital
+**Decision:** WATCHLIST - Standing order at $18.50 is correct, wait for Q4 earnings visibility
 
 ---
 
-## Executive Summary
+## 1. Executive Summary
 
-Bath & Body Works trades at 6.9x trailing P/E and 17.8% FCF yield, deeply discounted vs specialty retail peers (~19x P/E). The cheapness is warranted by: (1) declining revenue and earnings, (2) massive debt load with negative equity, (3) failed growth strategy requiring a multi-quarter turnaround, (4) active securities fraud litigation, and (5) competitive pressures from digital-first brands. However, the business still generates ~$660M/year in FCF, covers interest 5x, and trades near bear-case DCF value. This is a classic value trap vs turnaround debate.
+Bath & Body Works es un retailer especializado en fragancias corporales, body care, y home fragrances (velas 3-wick, Wallflowers). Cotiza a 7.1x P/E y ~14% FCF yield, muy por debajo de specialty retail peers (~19x). La baratura esta justificada por: (1) ingresos en declive -7% desde FY2022, (2) $5B de deuda con equity negativo (-$1.4B), (3) estrategia de crecimiento fallida que requiere turnaround, (4) litigio de fraude de valores activo. Sin embargo, genera ~$660M FCF/ano, cubre intereses 5.1x, y ha refinanciado deuda hasta 2029-2034.
 
----
-
-## Key Metrics
-
-| Metric | Value | Comment |
-|--------|-------|---------|
-| Price | $22.32 (EUR 18.83) | Down 47% from 52w high |
-| Market Cap | $4.6B | |
-| Trailing P/E | 6.9x | vs industry ~19x |
-| Forward P/E | 8.7x | Implies earnings decline |
-| Dividend Yield | 3.7% | $0.80/share annual |
-| FCF Yield | ~14.3% | $660M FCF / $4.6B mcap |
-| EV/EBITDA | ~6.0x | |
-| Total Debt | $4.96B | Includes lease obligations |
-| Long-Term Debt | $3.88B | |
-| Net Debt | $4.74B | Cash $0.67B - Debt significant |
-| Stockholders Equity | **-$1.39B** | NEGATIVE equity |
-| Gross Margin | 44.1% | |
-| Operating Margin | 10.1% | Down from 25% in FY2022 |
-| Interest Coverage | 5.1x | Adequate but declining |
-| Shares Outstanding | 205M | |
+**Por que esta barata:** Declive de revenue, leverage extremo, equity negativo, turnaround no probado
+**Mi contra-tesis:** FCF sigue siendo robusto (~14% yield), deuda refinanciada con maturities extendidas, categoria de fragancias crece 5-6% anual, optionalidad de turnaround
+**Catalizador principal:** Q4 earnings 19-Feb-2026 + FY2027 guidance - critico para visibilidad
+**Fair value base:** $29 | Precio actual: $22.82 | MoS: 23% (INSUFICIENTE para Tier C que requiere 35%)
 
 ---
 
-## 1. Why Is It So Cheap?
+## 2. Business Understanding
 
-Multiple compounding negatives explain the discount:
+### 2.1 Modelo de Negocio
 
-**a) Revenue in structural decline.** Revenue has fallen from $7.88B (FY2022) to $7.31B (FY2025), a 7% decline over 3 years. Q3 FY2026 showed -1% YoY. Q4 FY2026 guided for high single-digit decline. Management admitted 2026 won't deliver full-year growth.
+| Aspecto | Descripcion |
+|---------|-------------|
+| Problema que resuelve | Experiencia sensorial/emocional (fragancias, self-care) a precio accesible - "affordable luxury" |
+| Cliente target | Mujeres 18-54, preferencia por fragancia/body care, sensibles a precio pero buscan indulgencia |
+| Como genera ingresos | Transaccional (retail) + consumibles (repeat purchase de refills) |
+| % ingresos recurrentes | ~20-25% estimado (loyalty 80% de ventas pero no suscripcion) |
 
-**b) Earnings deteriorating faster than revenue.** Operating income fell from $2.01B (FY2022) to $1.27B (FY2025) -- a 37% decline. Operating margin compressed from 25.5% to 17.4% (reported) and current TTM is ~10.1%. Elevated promotions, tariffs, and operating costs are compressing margins.
+**Modelo:** Verticalmente integrado - diseno, marketing, y supply chain in-house. ~1,850 tiendas (mayoria mall-based). 39M loyalty members generan 80% de ventas US.
 
-**c) Failed growth strategy.** Management admitted their "adjacencies, collaborations and promotions" strategy did NOT grow the customer base. They are now retreating to core categories.
+**Categorias:**
+- Body care (lotions, shower gels)
+- Body fragrance (mists, perfumes)
+- Home fragrance (3-wick candles, Wallflowers, diffusers)
+- Hand soaps
 
-**d) Massive leverage with negative equity.** Total debt $4.96B against a $4.6B market cap. Stockholders' equity is -$1.39B. This is an LBO-style capital structure inherited from the L Brands days. D/E shows 0.00 in screeners because equity is negative (not because there's no debt).
+### 2.2 Unit Economics
 
-**e) Securities fraud class action.** Filed after Q3 2025 results caused a 24.8% single-day stock drop. Alleges management misrepresented effectiveness of growth strategy. Adds uncertainty and potential financial liability.
+| Metrica | Valor | Benchmark | Comentario |
+|---------|-------|-----------|------------|
+| AUR (Avg Unit Retail) | +LSD YoY | - | Mix shift to premium |
+| Sales/sq ft | ~$900-1,000 | $400 avg retail | Strong productivity |
+| Loyalty penetration | 80% | - | High but base shrinking |
+| New customer acquisition | FAILING | - | Management admitted strategy failed |
 
-**f) Competitive erosion.** Struggling to resonate with younger consumers. Digital-first competitors gaining share. Store traffic muted.
+### 2.3 Estructura de Margenes
 
----
+| Margen | FY2022 | FY2025 | TTM | Tendencia | vs Peers |
+|--------|--------|--------|-----|-----------|----------|
+| Gross | 45.3% | 44.5% | 44.1% | Comprimiendo | En linea |
+| Operating | 25.5% | 17.4% | 10.1% | **FUERTE COMPRESION** | Bajo |
+| Net | 16.9% | 10.9% | ~7% | Bajando | Bajo |
+| FCF/Revenue | 15.5% | 9.0% | ~9% | Estable post-compression | Decente |
 
-## 2. Revenue and Earnings Trajectory
+**Analisis:** Compresion de 25% a 10% operating margin es critica. Causas: promociones elevadas, tariffs $85M, deleverage operativo. $250M cost savings puede estabilizar pero no restaurar a 25%.
 
-| Fiscal Year (ends Jan) | Revenue | Operating Income | Net Income | EPS (est) |
-|------------------------|---------|-----------------|------------|-----------|
-| FY2022 (Jan 2022) | $7.88B | $2.01B | $1.33B | ~$5.50 |
-| FY2023 (Jan 2023) | $7.56B | $1.38B | $0.80B | ~$3.30 |
-| FY2024 (Jan 2024) | $7.43B | $1.28B | $0.88B | ~$3.80 |
-| FY2025 (Jan 2025) | $7.31B | $1.27B | $0.80B | ~$3.50 |
-| FY2026 (Jan 2026) est | ~$7.1B | ~$1.0B | ~$0.55B | ~$2.50-2.60 |
+### 2.4 Por Que Esta Barata
 
-**Verdict: Declining.** Revenue, operating income, and margins are all trending down. The FY2022 peak was a COVID-driven anomaly (home goods boom). The business is normalizing to a lower steady state, and it's unclear where the floor is.
+**Narrativa del mercado:**
+1. Declive secular - candles/body care discretionary, malls muriendo
+2. Disrupcion competitiva - Sephora/Ulta ganando, DTC brands, Amazon
+3. Balance insostenible - $5B deuda con equity negativo
+4. Turnaround incierto - CEO nuevo, 0 track record
+5. Litigio - Securities fraud class action
 
----
+**Mi contra-tesis:**
 
-## 3. Balance Sheet - Actual Debt Situation
+| Mercado cree | Yo creo | Evidencia | Prob. equivocado |
+|--------------|---------|-----------|------------------|
+| Declive secular | Categoria crece 5-6% | Home fragrance TAM $7.2B, CAGR 6.2% | 30% |
+| Disrupcion competitiva | BBWI tiene dominance en categorias | Teens returning (top 10 first time in 6yr) | 35% |
+| Balance insostenible | Deuda refinanciada, FCF cubre | Maturities 2029-2034, coverage 5.1x | 25% |
+| Turnaround incierto | FCF provee colchon | $660M FCF, $250M cost savings | 40% |
 
-The D/E ratio shows 0.00 because **stockholders' equity is negative** (-$1.39B). This is NOT a debt-free company -- it is the opposite.
+### 2.5 Value Trap Checklist
 
-- **Total Debt:** $4.96B (including $1.08B current + $3.88B long-term)
-- **Cash:** $0.67B
-- **Net Debt:** ~$4.3B
-- **Debt/EBITDA:** 3.06x (manageable but elevated)
-- **Interest Coverage:** 5.1x (adequate)
+| Factor | SI/NO | Comentario |
+|--------|-------|------------|
+| Industria en declive secular | NO | Home fragrance crece 6%+, body care 5%+ |
+| Disrupcion tecnologica inminente | NO | Experiencia fisica/sensorial |
+| Management destruyendo valor | PARCIAL | Failed strategy, pero buybacks ayudan |
+| Balance deteriorandose | SI | Equity -$1.4B, deuda estable |
+| Insider selling masivo | NO | No evidencia |
+| Dividend cut reciente/probable | PARCIAL | Safe ahora, at risk si FCF < $500M |
+| Perdida market share >2pp/3y | PARCIAL | Estable pero nuevos clientes no llegan |
+| ROIC < WACC ultimos 3 anos | NO | ROIC ~30%+ vs WACC ~11% |
+| FCF negativo >2 anos | NO | $660M positivo |
+| Goodwill >50% equity | N/A | Equity negativo |
 
-**Positive:** Company has been deleveraging. Total debt down from $6.05B (FY2023) to $4.96B (FY2025). Cash flow covers interest comfortably.
-
-**Negative:** Equity is deeply negative. At current earnings trajectory, it would take many years to restore positive equity. The capital structure is fragile -- any sustained earnings decline could pressure debt covenants.
-
----
-
-## 4. FCF Generation and Sustainability
-
-| FY | FCF | OCF | CapEx | Buybacks | Dividends |
-|----|-----|-----|-------|----------|-----------|
-| 2022 | $1,222M | $1,492M | -$270M | -$1,964M | -$120M |
-| 2023 | $816M | $1,144M | -$328M | -$1,312M | -$186M |
-| 2024 | $656M | $954M | -$298M | -$148M | -$182M |
-| 2025 | $660M | $886M | -$226M | -$401M | -$177M |
-
-FCF has declined from $1.2B to $660M but remains substantial. At $660M FCF, the stock yields ~14% on market cap. However:
-
-- FCF is declining in line with earnings
-- $250M cost savings program may stabilize FCF at $600-700M range
-- Buybacks + dividends ($578M in FY2025) consume 88% of FCF, leaving little for debt reduction
-- If earnings decline further, dividend ($177M/yr) could come under pressure
-
-**Sustainability: MODERATE.** FCF remains strong but the trajectory is negative and capital allocation prioritizes shareholder returns over deleveraging, which is risky given the balance sheet.
-
----
-
-## 5. Competitive Moat Assessment
-
-**Moat: NARROW (deteriorating)**
-
-**Strengths:**
-- Strong brand recognition in home fragrance/body care category
-- ~1,850 stores creates physical presence and impulse purchase opportunities
-- Loyal customer base (though shrinking)
-- High gross margins (44%) suggest some pricing power
-- International licensing model is asset-light
-
-**Weaknesses:**
-- Products are NOT truly differentiated -- candles and soaps face low barriers to entry
-- No meaningful switching costs
-- Brand losing relevance with younger consumers
-- Digital channel underdeveloped vs competitors
-- Mall-heavy footprint is a structural disadvantage
-- Promotional dependency erodes brand equity
-
-**Verdict:** The moat exists but is narrow and eroding. This is a brand franchise business where the franchise value is declining. Not a "wide moat" in any Buffett sense.
+**Total SI/PARCIAL:** 5-6 factores = **ZONA ROJA** (requiere 35%+ MoS)
 
 ---
 
-## 6. Valuation
+## 3. Key Metrics
 
-### DCF (via dcf_calculator.py with scenarios)
-
-| Scenario | Fair Value/Share | MoS% at $22.32 |
-|----------|-----------------|-----------------|
-| Bear | $21.83 | -2.2% (NO margin) |
-| Base | $33.43 | +49.8% |
-| Bull | $49.86 | +123.4% |
-
-**Note:** DCF assumes continued FCF generation. If FCF deteriorates further, bear case is the relevant scenario.
-
-### P/E Multiples Approach
-
-- Current EPS: ~$3.30 (TTM). Forward EPS: ~$2.50-2.60
-- Specialty retail average P/E: ~19x (irrelevant for declining business)
-- Distressed/declining retail P/E: 8-12x
-- Conservative fair P/E for BBWI: 8-10x (given declining trajectory)
-
-| Basis | P/E Applied | Fair Value |
-|-------|------------|------------|
-| TTM EPS $3.30 x 8x | Conservative | $26.40 |
-| TTM EPS $3.30 x 10x | Moderate | $33.00 |
-| Fwd EPS $2.55 x 8x | Conservative-Forward | $20.40 |
-| Fwd EPS $2.55 x 10x | Moderate-Forward | $25.50 |
-
-### EV/EBITDA Approach
-
-- Current EBITDA: ~$1.6B. Applying 6-8x EV/EBITDA:
-- EV range: $9.6B - $12.8B. Less net debt $4.3B = Equity $5.3B - $8.5B
-- Per share: $25.85 - $41.46
-
-### Synthesis
-
-| Method | Bear | Base | Bull |
-|--------|------|------|------|
-| DCF | $21.83 | $33.43 | $49.86 |
-| P/E (forward) | $20.40 | $25.50 | $33.00 |
-| EV/EBITDA | $25.85 | $33.00 | $41.46 |
-| **Weighted Avg** | **$22.50** | **$29.00** | **$38.00** |
-
-**Fair value estimate: $27-30 range (base case), giving ~20-35% upside from $22.32.**
-
-The margin of safety at current price is THIN on bear case ($22.50) but meaningful on base case ($29). This is the core tension.
+| Metrica | Valor | Sector Avg | Comentario |
+|---------|-------|-----------|-----------|
+| Price | $22.82 | | -47% from 52w high |
+| Market Cap | $4.7B | | |
+| P/E | 7.1x | ~19x | Deep discount |
+| P/E Forward | 8.7x | | Earnings decline implied |
+| FCF Yield | ~14% | | Very high |
+| EV/EBITDA | ~6.0x | | |
+| Dividend Yield | 3.6% | | |
+| Total Debt | $4.96B | | |
+| Net Debt | $4.3B | | |
+| Stockholders Equity | -$1.39B | | NEGATIVE |
+| Gross Margin | 44.1% | | |
+| Operating Margin | 10.1% | | Down from 25% |
+| Interest Coverage | 5.1x | | Adequate |
 
 ---
 
-## 7. Key Risks
+## 4. Projections
 
-1. **Structural decline (HIGH):** Revenue may not stabilize. If the category is ex-growth and the brand is fading, current earnings are the ceiling, not the floor.
+### 4.1 Revenue Drivers
 
-2. **Leverage (HIGH):** $5B debt on a declining business. Any earnings miss could trigger covenant issues or rating downgrades. Refinancing risk when bonds mature.
+| Driver | Valor | Fuente |
+|--------|-------|--------|
+| TAM (Home + Body Care US) | ~$22B | Precedence/Mordor |
+| TAM growth | 5.5% blended | GMI/Mordor |
+| Market share actual | ~33% | Estimated |
+| Market share trend | Losing slightly | |
+| Pricing power | MODERATE | AUR +LSD |
 
-3. **Turnaround execution (HIGH):** New CEO's plan won't show results until H2 FY2027. 3+ quarters of poor results ahead. Amazon partnership is unproven.
+**Revenue growth derivado:** TAM +5.5% - share loss 1.5% + pricing +1% = +5% theoretical
+**REALIDAD:** Company guiding NEGATIVE. BBWI is significantly underperforming TAM.
 
-4. **Securities litigation (MEDIUM):** Class action could result in settlement costs ($50-200M). Adds management distraction.
+### 4.2 Projection Table
 
-5. **Consumer discretionary risk (MEDIUM):** Candles and soaps are discretionary. Recession would accelerate decline.
+| Ano | Revenue | Op. Margin | FCF |
+|-----|---------|------------|-----|
+| FY2025 (actual) | $7.31B | 17.4% | $660M |
+| FY2026 | $7.1B | 14% | $500-550M |
+| FY2027 | $7.1-7.2B | 15% | $550-600M |
+| FY2028+ | $7.3-7.5B | 15-16% | $600-650M |
 
-6. **Dividend sustainability (MEDIUM):** $177M/yr dividend is safe at current FCF but at risk if earnings decline further. A cut would be devastating for the stock.
+### 4.3 WACC Derivado
 
-7. **Tariff exposure (MEDIUM):** Some products sourced from China. Tariff escalation would compress margins further.
-
----
-
-## Quality Score: 3/10
-
-| Criterion | Score | Notes |
-|-----------|-------|-------|
-| ROE >15% consistent | 0 | Negative equity, metric meaningless |
-| FCF positive 5+ years | 1 | Yes, but declining |
-| Debt/Equity <1.0 | 0 | Negative equity, massively leveraged |
-| Dividend 10+ years | 0 | Only since 2021 spin-off |
-| Wide moat | 0 | Narrow and deteriorating |
-| Revenue stability | 0 | Declining 3 consecutive years |
-| Management quality | 0 | Failed strategy, new CEO unproven |
-| Analyst coverage >10 | 1 | 13 analysts |
-| Market cap >EUR 10B | 0 | EUR 3.9B |
-| Defensive sector | 1 | Semi-discretionary (body care has some staple characteristics) |
-| **Total** | **3/10** | **Tier C (35% MoS required)** |
-
----
-
-## Tier Classification: C (Turnaround/Speculative)
-
-With Quality Score 3/10, this requires **minimum 35% margin of safety** to buy.
-
-- Base fair value: ~$29. At $22.32, MoS = 23%. **Does NOT meet 35% threshold.**
-- To meet 35% MoS on base case ($29): need price at ~$18.85
-- Bear fair value: ~$22.50. Current price offers essentially NO margin on bear case.
+```
+Risk-free: 4.2% | Beta: 1.6 | ERP: 5.5%
+Ke = 4.2% + (1.6 x 5.5%) = 13.0%
+Kd after-tax = 7.5% x (1-0.25) = 5.6%
+E/V = 49% | D/V = 51%
+WACC = 9.3% + 1.5% turnaround risk = 10.8% (rounded to 11%)
+```
 
 ---
 
-## Decision: WATCHLIST at $18.50 or below
+## 5. Valuation (Multi-Method)
 
-**NOT a buy at $22.32.** The MoS is insufficient for a Tier C turnaround.
+### 5.1 Method 1: DCF (via dcf_calculator.py --scenarios)
 
-The thesis becomes interesting at **$18.50** (36% MoS on $29 base) or if:
-- Two consecutive quarters of revenue stabilization/growth
-- Evidence the Amazon partnership drives incremental sales
-- Visible margin improvement from $250M cost savings
-- Litigation resolved or reserved
+| Scenario | Assumptions | Fair Value |
+|----------|-------------|------------|
+| Bear | Growth -2%, WACC 12%, Terminal 1.5% | $21.83 |
+| Base | Growth 3%, WACC 11%, Terminal 2% | $33.43 |
+| Bull | Growth 5%, WACC 10%, Terminal 2.5% | $49.86 |
 
-**Catalysts to monitor:**
-- Q4 FY2026 earnings: February 19, 2026 (17 days away)
-- FY2027 guidance will be critical for turnaround visibility
-- Amazon launch in 2026
+### 5.2 Method 2: EV/EBIT Normalized
+
+```
+EBIT normalized (5y avg): ~$1.3B
+Retail distressed multiple: 6-8x (using 7x conservative)
+EV = $9.1B
+Net Debt = $4.3B
+Equity Value = $4.8B
+Fair Value = $23.40/share
+```
+
+### 5.3 Method 3: P/E Forward
+
+```
+FY2027 EPS: ~$2.80
+Distressed retail P/E: 8-10x
+At 8x: $22.40
+At 10x: $28.00
+```
+
+### 5.4 Reconciliation
+
+| Method | Bear | Base | Bull | Weight |
+|--------|------|------|------|--------|
+| DCF | $21.83 | $33.43 | $49.86 | 40% |
+| EV/EBIT | $23.40 | $26.70 | $30.00 | 35% |
+| P/E Forward | $22.40 | $28.00 | $33.60 | 25% |
+| **Weighted Avg** | **$22.50** | **$29.00** | **$38.00** | |
+
+### 5.5 Expected Value
+
+```
+Expected Value = ($22.50 x 25%) + ($29.00 x 50%) + ($38.00 x 25%)
+Expected Value = $29.63
+
+Current Price: $22.82
+MoS vs Expected Value: 23%
+MoS vs Bear Case: -1.4% (NEGATIVE - no margin on bear)
+```
 
 ---
 
-## Autocritica
+## 6. Moat Assessment
 
-**Assumptions:** FCF stabilizes at ~$600-660M; turnaround takes 3+ quarters; no refinancing crisis.
+| Fuente | Presente? | Fortaleza | Evidencia | Durabilidad |
+|--------|-----------|-----------|-----------|-------------|
+| Cost Advantage | NO | 1/5 | Margenes en linea | N/A |
+| Network Effects | NO | 1/5 | No aplica | N/A |
+| Intangibles (Brand) | SI | 3/5 | Premium pero erosionando | 5-10y |
+| Switching Costs | PARCIAL | 2/5 | Loyalty 80% sin lock-in | 3-5y |
+| Efficient Scale | SI | 3/5 | 3-wick candles dominance | 5-10y |
 
-**Biases detected:** Temptation to buy cheap P/E without sufficient weight on balance sheet risk and declining trajectory. The 6.9x P/E is a siren song for value investors.
+**Moat Type: NARROW (deteriorating toward NONE)**
 
-**Evidence I might be wrong:** The business DOES generate significant FCF. If the turnaround works and revenue stabilizes, this could be a 2-3x from here. But "if turnaround works" is exactly what Tier C pricing demands.
+**Durabilidad estimada:** 5-10 anos
 
-**What a top fund manager would do:** Wait for Q4 results and FY2027 guidance. If guidance shows path to revenue stability, buy aggressively. If guidance disappoints again, this is a value trap heading to $15.
+**Amenazas principales:**
+1. Cambio preferencias consumidor (ALTA prob)
+2. Competencia digital-first (MEDIA prob)
+3. Mall decline (MEDIA prob)
 
 ---
 
-*Sources: yfinance, Bath & Body Works IR, stockanalysis.com, Simply Wall St, TIKR, Seeking Alpha*
-*Analysis date: 2026-02-02*
+## 7. Risks
+
+| Riesgo | Prob | Impacto | Mitigante |
+|--------|------|---------|-----------|
+| Revenue no estabiliza | ALTA | ALTO | $250M cost savings |
+| Leverage crisis | BAJA | MUY ALTO | Refinanciado 2029-2034 |
+| Turnaround execution fail | ALTA | ALTO | FCF provee tiempo |
+| Securities litigation | MEDIA | MEDIO | Manageable settlement |
+| Dividend cut | MEDIA | MEDIO | At risk si FCF < $500M |
+| Tariffs escalation | MEDIA | MEDIO | Supply chain mitigation |
+| Consumer recession | MEDIA | ALTO | Discretionary vulnerable |
+
+**Kill Conditions (sell immediately if):**
+1. Interest coverage < 3x
+2. Dividend cut
+3. FY2027 guidance shows continued revenue decline
+4. FCF falls below $400M annual
+
+---
+
+## 8. Catalysts
+
+| Catalizador | Timeframe | Prob | Impacto |
+|-------------|-----------|------|---------|
+| Q4 FY2026 earnings | 19-Feb-2026 | - | CRITICAL for FY2027 visibility |
+| Revenue stabilization | 6-12m | MEDIA | +30-50% |
+| Amazon partnership launch | 2026 | MEDIA | +10-20% |
+| Cost savings realization | 6-12m | ALTA | Margin support |
+
+---
+
+## 9. Macro Connection
+
+| Factor | Sensibilidad | Status | Impacto |
+|--------|--------------|--------|---------|
+| Tasas de interes | ALTA | Estable | Neutro - deuda refinanciada |
+| Recesion US | ALTA | 25% prob | NEGATIVO - discretionary |
+| Inflacion | MEDIA | 3% PCE | NEGATIVO - consumer squeeze |
+| Consumer confidence | ALTA | Debil | NEGATIVO |
+| Tariffs | MEDIA | Escalando | NEGATIVO - $85M |
+
+**Fit con World View:** CAUTELA - Late-cycle, tariffs escalando, discretionary retail no es ideal.
+
+---
+
+## 10. Decision (7 Gates)
+
+| Gate | Status |
+|------|--------|
+| 1. Business understanding | PASS |
+| 2. Proyeccion fundamentada | PASS |
+| 3. Valoracion multi-metodo | PASS |
+| 4. Margen de seguridad (35% req) | **FAIL** (23% actual) |
+| 5. Contexto macro | **FAIL** (late-cycle, discretionary) |
+| 6. Portfolio fit | PASS |
+| 7. Autocritica explicita | PASS |
+
+**VERDICT: 5/7 Gates = DO NOT BUY at current price**
+
+| Campo | Valor |
+|-------|-------|
+| Recomendacion | WATCHLIST |
+| Tier | C (Turnaround) |
+| MoS requerido | 35% |
+| MoS actual | 23% |
+| Fair Value Base | $29.00 |
+| **Correct trigger price** | **$18.85** (35% MoS) |
+| Standing order | $18.50 (CORRECT) |
+| Next catalyst | Q4 earnings 19-Feb-2026 |
+
+---
+
+## 11. Value Trap vs Genuine Opportunity Assessment
+
+**VERDICT: HIGH-RISK TURNAROUND, NOT A CLASSIC VALUE TRAP**
+
+Differences vs HPQ (classic value trap):
+- HPQ had irreversible secular decline (printing). BBWI is in a category GROWING 5-6%.
+- HPQ had complete commoditization. BBWI has brand loyalty (80% sales from members).
+- HPQ couldn't generate sustainable FCF. BBWI generates $660M FCF.
+
+But BBWI has:
+- NEGATIVE equity (worse than HPQ)
+- Unproven turnaround (new CEO, new strategy)
+- 5-6 red flags on value trap checklist
+
+**Conclusion:** It's a **legitimate turnaround opportunity** but current price does NOT offer sufficient MoS for the risk. At $18.50 (35% MoS), risk/reward is attractive. At $22.82, bear case downside is -1% and base case upside is +27% - not enough asymmetry.
+
+---
+
+## 12. Autocritica
+
+| Aspecto | Respuesta |
+|---------|-----------|
+| Asunciones no validadas | 1. $250M cost savings materialize 2. Amazon partnership impact |
+| Sesgos posibles | 1. Attracted by low P/E 2. High FCF yield may be temporary |
+| Que me haria cambiar | 1. 2+ quarters revenue growth 2. Margin improvement not just cost cutting |
+| Mi ventaja informacional | NONE - market probably right to be skeptical |
+| Que podria estar mal | Turnaround could take 5+ years, consuming FCF |
+
+---
+
+## Metadata
+
+```yaml
+ticker: BBWI
+fecha_creacion: 2026-02-02
+ultima_revision: 2026-02-03
+autor: fundamental-analyst (orchestrator v2.0)
+status: watchlist
+next_review: 2026-02-19 (post Q4 earnings)
+standing_order: $18.50
+earnings_date: 2026-02-19
+framework_version: v2.0
+```
+
+---
+
+## Sources
+
+- [Bath & Body Works IR - Q3 2025 Results](https://investors.bbwinc.com/news-releases/news-release-details/bath-body-works-outlines-strategic-transformation-sustainable)
+- [TipRanks - BBWI Earnings](https://www.tipranks.com/stocks/bbwi/earnings)
+- [Precedence Research - Home Fragrance Market](https://www.precedenceresearch.com/home-fragrance-market)
+- [Mordor Intelligence - Home Fragrances Market](https://www.mordorintelligence.com/industry-reports/home-fragrances-market)
+- [GMI - Fragrance Product Market](https://www.gminsights.com/industry-analysis/fragrance-product-market)
+- [Simply Wall St - BBWI Financial Health](https://simplywall.st/stocks/us/retail/nyse-bbwi/bath-body-works/health)
+- [Retail Brew - Teen Market Share](https://www.retailbrew.com/stories/2025/04/22/ulta-target-lose-beauty-share-with-teens-while-bath-and-body-works-mounts-a-comeback)
+- [Valens Research - BBWI Credit Analysis](https://www.valens-research.com/investor-essentials-daily/bbwi-bath-body-works-specialty-retailer-much-safer-rating-agencies-think/)
+- yfinance (price data)

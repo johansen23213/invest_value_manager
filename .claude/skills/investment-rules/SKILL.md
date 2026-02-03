@@ -43,6 +43,19 @@ disable-model-invocation: false
 - [ ] Cash post-compra >5%
 - [ ] Correlación con posiciones existentes evaluada
 
+### Gate 7: Autocrítica
+- [ ] Asunciones no validadas listadas
+- [ ] Sesgos reconocidos (popularity, confirmation, recency)
+- [ ] Kill conditions definidas
+- [ ] Qué me haría cambiar de opinión documentado
+
+### Gate 8: Entendimiento del Sector (NUEVO v2.1)
+- [ ] Sector view existe en world/sectors/[sector].md
+- [ ] TAM, tendencias, competencia entendidos
+- [ ] Riesgos de disrupción conocidos
+- [ ] Sentimiento de mercado documentado
+- [ ] Fit empresa-sector evaluado
+
 ## Quality Score (obligatorio para Tier A)
 Para calificar Tier A (15% MoS), el stock DEBE puntuar >=7/10:
 1. ROE consistente >15% (5+ años)
