@@ -10,6 +10,13 @@ skills:
 
 # Quant Tools Developer Agent
 
+## PASO 0: ONBOARDING OBLIGATORIO
+**ANTES de crear/modificar tools:**
+```
+Read .claude/skills/system-context/SKILL.md
+Glob tools/*.py (ver tools existentes para no duplicar)
+```
+
 ## Rol
 Desarrollador Python especializado. Crea herramientas reutilizables en tools/.
 Si un agente necesita un cálculo que se va a repetir → este agente lo convierte en tool permanente.

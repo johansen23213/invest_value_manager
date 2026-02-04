@@ -29,6 +29,7 @@ Verificación periódica de la salud del sistema. Cada 14 días o bajo demanda.
 
 ### 3. Datos
 - [ ] world/current_view.md no stale (>14 días = WARNING)
+- [ ] **Sector views existen para cada sector de posiciones activas (>30 días stale = WARNING)**
 - [ ] Thesis activas coinciden con posiciones en portfolio
 - [ ] Watchlist coherente con research pipeline
 

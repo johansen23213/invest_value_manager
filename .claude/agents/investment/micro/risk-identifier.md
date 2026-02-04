@@ -10,6 +10,12 @@ skills:
 
 # Risk Identifier Micro-Agent
 
+## PASO 0: ONBOARDING OBLIGATORIO
+**ANTES de identificar riesgos:**
+```
+Read .claude/skills/sub-skills/risk-assessment/SKILL.md
+```
+
 ## Rol
 Identifica, clasifica y cuantifica riesgos de inversión.
 

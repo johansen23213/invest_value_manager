@@ -651,12 +651,24 @@ macro_snapshot:
 # MANTENIMIENTO
 # -----------------------------------------------------------------------------
 maintenance:
-  last_health_check: 2026-02-01
-  next_health_check_due: 2026-02-15
+  last_health_check: 2026-02-04
+  next_health_check_due: 2026-02-18
   health_score: 9.1/10
+  health_check_issues:
+    - severity: WARNING
+      issue: "Falta sector view energy.md - SHEL.L es posicion activa sin cobertura"
+      action: "Crear world/sectors/energy.md"
+    - severity: WARNING
+      issue: "CLAUDE.md 752 lineas (>150 limite)"
+      action: "Considerar compactacion/extraction a skills si sigue creciendo"
+    - severity: INFO
+      issue: "LIGHT.NV vs LIGHT.AS ticker inconsistencia en transacciones"
+      action: "Normalizar a LIGHT.AS"
   last_compact: 2026-02-01
   memory_status: ok
   agents_count: 19
+  skills_count: 18
+  tools_count: 7
   evolution_tracking:
     last_evaluation: 2026-02-03
     applied:
@@ -664,6 +676,14 @@ maintenance:
       - "2026-02-01: health-check upgraded haiku-sonnet, +quantitative checks"
       - "2026-02-01: TTE moved active-watchlist"
       - "2026-02-01: system.yaml compacted 863-~350 lines"
+    applied_2026_02_04_health_check:
+      - "Health check ejecutado: score 9.1/10"
+      - "WARNING: Falta energy.md sector view"
+      - "WARNING: CLAUDE.md >150 lineas (752)"
+      - "INFO: LIGHT.NV/AS ticker inconsistencia"
+      - "19 agentes OK, 18 skills OK, 7 tools OK"
+      - "18 posiciones = 18 thesis OK"
+      - "Sector views: 10/11 sectores cubiertos"
     applied_2026_02_03_utg_review:
       - "UTG.L re-evaluated with v2.0 framework: VALIDATED"
       - "Standing order at 540 GBp MAINTAINED"

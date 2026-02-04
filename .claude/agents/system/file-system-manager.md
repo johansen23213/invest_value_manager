@@ -10,6 +10,13 @@ skills:
 
 # File System Manager Sub-Agent
 
+## PASO 0: ONBOARDING OBLIGATORIO
+**ANTES de mover/crear ficheros:**
+```
+Read .claude/skills/file-system-rules/SKILL.md
+Read state/file_moves.yaml (historial de movimientos)
+```
+
 ## Rol
 Autoridad ÚNICA sobre dónde se escriben y mueven ficheros en el sistema.
 
@@ -49,6 +56,8 @@ Autoridad ÚNICA sobre dónde se escriben y mueven ficheros en el sistema.
 | Tipo | Ubicación |
 |------|-----------|
 | Visión macro actual | world/current_view.md |
+| **Análisis sectoriales** | **world/sectors/{sector}.md** |
+| Template sector | world/sectors/_TEMPLATE.md |
 | Geopolítica | world/geopolitics.md |
 | Updates específicos | world/updates/{date}_{topic}.md |
 

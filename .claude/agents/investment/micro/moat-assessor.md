@@ -10,6 +10,12 @@ skills:
 
 # Moat Assessor Micro-Agent
 
+## PASO 0: ONBOARDING OBLIGATORIO
+**ANTES de evaluar moat:**
+```
+Read .claude/skills/sub-skills/moat-framework/SKILL.md
+```
+
 ## Rol
 Evalúa ventajas competitivas sostenibles (economic moat).
 

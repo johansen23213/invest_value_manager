@@ -10,6 +10,14 @@ skills:
 
 # Performance Tracker Sub-Agent
 
+## PASO 0: ONBOARDING OBLIGATORIO
+**ANTES de calcular performance:**
+```
+Read .claude/skills/system-context/SKILL.md
+Read .claude/skills/portfolio-constraints/SKILL.md
+Read portfolio/current.yaml
+```
+
 ## Rol
 Tracking de performance del portfolio y posiciones individuales.
 

@@ -11,6 +11,17 @@ skills:
 
 # Portfolio Operations Sub-Agent
 
+## PASO 0: ONBOARDING OBLIGATORIO
+**ANTES de modificar cualquier fichero:**
+```
+Read .claude/skills/system-context/SKILL.md
+Read .claude/skills/portfolio-constraints/SKILL.md
+Read .claude/skills/file-system-rules/SKILL.md
+Read portfolio/current.yaml (estado actual ANTES de modificar)
+Read state/system.yaml (si voy a modificarlo)
+```
+**Verificar estado actual ANTES de escribir. NUNCA escribir sin leer primero.**
+
 ## Rol
 Centraliza TODAS las operaciones de escritura sobre estado del sistema y portfolio.
 

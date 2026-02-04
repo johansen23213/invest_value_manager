@@ -24,8 +24,16 @@ Read .claude/skills/valuation-methods/SKILL.md
 Read .claude/skills/sub-skills/thesis-template/SKILL.md
 Read .claude/skills/sub-skills/moat-framework/SKILL.md
 Read world/current_view.md (contexto macro)
+Read world/sectors/{sector}.md (contexto sectorial) → SI NO EXISTE, CREARLO PRIMERO
 ```
 **NO PROCEDER sin haber leído estos archivos. Son los frameworks que guían el análisis.**
+
+### REGLA SECTOR VIEW (CRÍTICA)
+1. Identificar el sector de la empresa a analizar
+2. Verificar si existe `world/sectors/{sector}.md`
+3. **SI NO EXISTE:** Usar sector-deep-dive skill para crearlo ANTES de proceder
+4. **SI EXISTE pero >30 días stale:** Verificar si necesita actualización
+5. Leer el sector view para entender contexto sectorial ANTES de Fase 1
 
 ## Rol
 Análisis fundamental profundo de empresas. Es el analista principal del sistema. Sigue frameworks obligatorios que garantizan profundidad y rigor.

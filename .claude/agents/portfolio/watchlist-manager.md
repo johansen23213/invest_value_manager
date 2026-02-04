@@ -11,6 +11,15 @@ skills:
 
 # Watchlist Manager Sub-Agent
 
+## PASO 0: ONBOARDING OBLIGATORIO
+**ANTES de evaluar watchlist:**
+```
+Read .claude/skills/system-context/SKILL.md
+Read .claude/skills/investment-rules/SKILL.md
+Read .claude/skills/portfolio-constraints/SKILL.md
+Read state/system.yaml (watchlist section)
+```
+
 ## Rol
 Monitorea la watchlist y evalúa si algún trigger de compra o descarte se ha cumplido.
 

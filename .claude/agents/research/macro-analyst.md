@@ -153,8 +153,8 @@ Proveer:
 
 ## Output Adicional
 
-### world/sector_views/[sector].md
-Para sectores con análisis profundo:
+### world/sectors/[sector].md
+Para sectores con análisis profundo (usar sector-deep-dive skill):
 - Drivers del sector
 - Players principales
 - Riesgos específicos

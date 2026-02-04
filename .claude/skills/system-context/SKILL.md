@@ -37,11 +37,20 @@ Contexto Macro → Entender Negocio → Proyectar → Valorar → Decidir (7 gat
 - state/system.yaml → Estado, calendario, watchlist, alertas
 - portfolio/current.yaml → Posiciones actuales (Claude modifica tras confirmación humano)
 - world/current_view.md → Visión macro actual
+- world/sectors/{sector}.md → **Visión sectorial (ANTES de analizar cualquier empresa del sector)**
 
 ## Ficheros de referencia (READ ON DEMAND)
 - learning/system_config.yaml → Parámetros evolutivos
 - learning/key_learnings.md → Lecciones clave
 - state/agent_coordination.yaml → Coordinación inter-agente
+- world/sectors/_TEMPLATE.md → Template para crear nuevos sector views
+
+## Protocolo Sector Views
+1. **ANTES de analizar empresa:** Verificar si existe world/sectors/{sector}.md
+2. **Si NO existe:** Crear usando sector-deep-dive skill (fundamental-analyst/sector-screener)
+3. **Actualización:** Cada 30 días o ante cambio material (earnings season, regulación, disrupción)
+4. **Responsables:** sector-screener crea tras screening, fundamental-analyst verifica antes de análisis
+5. **Staleness:** >30 días = revisar si sigue válido
 
 ## Estructura de directorios
 Ver file-system-rules skill para ubicaciones exactas.

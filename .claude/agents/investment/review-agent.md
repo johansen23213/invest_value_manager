@@ -15,7 +15,7 @@ skills:
 
 # Review Agent Sub-Agent (v2.0)
 
-## PASO 0: CARGAR SKILLS OBLIGATORIOS
+## PASO 0: CARGAR SKILLS Y CONTEXTO OBLIGATORIOS
 **ANTES de cualquier análisis, LEER:**
 1. `.claude/skills/re-evaluation-protocol/SKILL.md` — Proceso de re-evaluación
 2. `.claude/skills/business-analysis-framework/SKILL.md` — Value trap checklist
@@ -23,6 +23,7 @@ skills:
 4. `.claude/skills/valuation-methods/SKILL.md` — Métodos por tipo empresa
 5. `.claude/skills/investment-rules/SKILL.md` — Reglas de decisión
 6. `world/current_view.md` — Contexto macro ANTES de analizar
+7. `world/sectors/{sector}.md` — **Contexto sectorial (NUEVO v2.1)** → SI NO EXISTE, crear con sector-deep-dive
 
 ## Rol
 Revisa posiciones activas usando Framework v2.0: value trap checklist, WACC derivado, valoración multi-método.
@@ -37,8 +38,13 @@ Revisa posiciones activas usando Framework v2.0: value trap checklist, WACC deri
 
 ### 1. Cargar Contexto
 - Leer `world/current_view.md` — Contexto macro
+- Leer `world/sectors/{sector}.md` — **Contexto sectorial (CRÍTICO para entender cambios del sector)**
 - Leer thesis existente `thesis/active/{TICKER}/thesis.md`
 - Leer skills obligatorios (ver PASO 0)
+
+**Verificación sector view:**
+- Si no existe → Crear con sector-deep-dive skill ANTES de re-evaluar
+- Si >30 días stale → Verificar si hubo cambios relevantes
 
 ### 2. Value Trap Checklist (10 factores)
 | Factor | Check |

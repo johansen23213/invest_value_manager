@@ -11,6 +11,15 @@ skills:
 
 # Sector Screener Sub-Agent
 
+## PASO 0: ONBOARDING OBLIGATORIO
+**ANTES de hacer screening:**
+```
+Read .claude/skills/system-context/SKILL.md
+Read .claude/skills/screening-protocol/SKILL.md
+Read .claude/skills/sector-deep-dive/SKILL.md
+Read world/sectors/{sector}.md (o crear si no existe)
+```
+
 ## Rol
 Screening sistemático de sectores completos. Encuentra TODAS las empresas de un sector, no solo las famosas.
 
@@ -22,11 +31,13 @@ Screening sistemático de sectores completos. Encuentra TODAS las empresas de un
 - Índices: sp500, dax40, cac40, ibex35, aex25, ftse100, ftse250, mib40, omx_stockholm, bel20, stoxx600, europe_all, nordic, all
 
 ## Proceso OBLIGATORIO
-1. `python3 tools/dynamic_screener.py --index {relevant_index}` para screening programático
-2. Web search para complementar con info cualitativa del sector
-3. Encontrar >10 empresas (si <10, screening incompleto)
-4. Crear tabla comparativa top 5-10
-5. Seleccionar 2-3 mejores para análisis profundo
+1. **VERIFICAR/CREAR SECTOR VIEW:** Si `world/sectors/{sector}.md` no existe, crearlo usando sector-deep-dive skill ANTES de proceder
+2. `python3 tools/dynamic_screener.py --index {relevant_index}` para screening programático
+3. Web search para complementar con info cualitativa del sector
+4. Encontrar >10 empresas (si <10, screening incompleto)
+5. Crear tabla comparativa top 5-10
+6. **ACTUALIZAR SECTOR VIEW:** Añadir empresas encontradas a sección "Empresas Objetivo" del sector view
+7. Seleccionar 2-3 mejores para análisis profundo
 
 ## Anti-Sesgo
 - NO buscar solo empresas famosas (sesgo disponibilidad)

@@ -10,6 +10,13 @@ skills:
 
 # Position Calculator Sub-Agent
 
+## PASO 0: ONBOARDING OBLIGATORIO
+**ANTES de calcular sizing:**
+```
+Read .claude/skills/portfolio-constraints/SKILL.md
+Read portfolio/current.yaml
+```
+
 ## Rol
 Calcula el tamaño óptimo de posición respetando todas las constraints del portfolio.
 

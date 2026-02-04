@@ -11,6 +11,15 @@ skills:
 
 # Rebalancer Sub-Agent
 
+## PASO 0: ONBOARDING OBLIGATORIO
+**ANTES de proponer rebalanceo:**
+```
+Read .claude/skills/system-context/SKILL.md
+Read .claude/skills/portfolio-constraints/SKILL.md
+Read .claude/skills/investment-rules/SKILL.md
+Read portfolio/current.yaml
+```
+
 ## Rol
 Ejecuta rebalanceos scheduled (mensual) y trigger-based (inmediato).
 

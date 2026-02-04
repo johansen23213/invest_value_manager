@@ -206,11 +206,110 @@ Claude debe:
 
 ## Arquitectura Multi-Agente (19 agentes, todos opus)
 
+### DOCUMENTO DE REFERENCIA: agent-registry skill
+**Ver `.claude/skills/agent-registry/SKILL.md`** para:
+- Inventario completo de los 19 agentes
+- Responsabilidades y single-responsibility de cada uno
+- Skills que usa cada agente
+- Qué lee y escribe cada agente
+- Mapa de dependencias
+- Protocolo de propagación de cambios
+
+### PROTOCOLO DE CONSISTENCIA (CRÍTICO)
+**Cuando hay un cambio sistémico, TODOS los agentes afectados DEBEN actualizarse en la misma sesión.**
+
+Checklist de propagación:
+```
+[ ] ¿Qué agentes leen esto? → Actualizar PASO 0
+[ ] ¿Qué agentes escriben esto? → Actualizar sección "Escribe"
+[ ] ¿Qué skills definen el framework? → Actualizar skill
+[ ] ¿file-system-rules conoce la ubicación? → Actualizar si nuevo fichero
+[ ] ¿health-check debe verificarlo? → Añadir check
+[ ] ¿CLAUDE.md lo documenta? → Añadir sección
+[ ] ¿agent-registry está actualizado? → Actualizar skill
+```
+
 ### REGLA DURA: TODOS los agentes SIEMPRE con model: opus
 **NUNCA usar haiku ni sonnet para ningún agente.** Haiku comete errores de cálculo y consistencia que requieren corrección manual (incidente sesión 19: cash% mal, conteo posiciones mal, thesis duplicada). El ahorro de coste NO compensa el riesgo de corromper ficheros de estado.
 
 ### Nivel 0: Orchestrator (este fichero)
 Delega directamente a agentes especializados. Sin capas intermedias.
+
+### ÁRBOL DE DECISIÓN: ¿Qué agente usar? (OBLIGATORIO)
+
+```
+¿Qué necesito hacer?
+│
+├─► ANALIZAR EMPRESA nueva
+│   └─► fundamental-analyst
+│       (él delegará a valuation-specialist, moat-assessor, risk-identifier)
+│
+├─► RE-EVALUAR posición existente (post-earnings, cambio material)
+│   └─► review-agent
+│
+├─► APROBAR compra/venta
+│   └─► investment-committee (OBLIGATORIO, nunca saltarse)
+│
+├─► BUSCAR empresas en un sector
+│   └─► sector-screener
+│
+├─► ACTUALIZAR visión macro
+│   └─► macro-analyst
+│
+├─► VERIFICAR triggers de rebalanceo
+│   └─► rebalancer
+│
+├─► CALCULAR sizing de posición
+│   └─► position-calculator
+│
+├─► VERIFICAR watchlist y alertas de precio
+│   └─► watchlist-manager
+│
+├─► ACTUALIZAR portfolio/state tras confirmación humano
+│   └─► portfolio-ops
+│
+├─► VER performance del portfolio
+│   └─► performance-tracker
+│
+├─► VERIFICAR calendario próximos días
+│   └─► calendar-manager
+│
+├─► AUDITAR salud del sistema
+│   └─► health-check
+│
+├─► COMPACTAR memoria
+│   └─► memory-manager
+│
+├─► MOVER ficheros entre directorios
+│   └─► file-system-manager
+│
+├─► MEJORAR el sistema (agentes, skills, etc.)
+│   └─► system-evolver
+│
+└─► CREAR tool Python reutilizable
+    └─► quant-tools-dev
+```
+
+**REGLA:** Si no estoy seguro de qué agente usar → consultar agent-registry skill.
+
+### PROTOCOLO DE VERIFICACIÓN POST-AGENTE (OBLIGATORIO)
+
+Cuando un agente termina, ANTES de usar su output:
+
+```
+VERIFICACIÓN POST-AGENTE:
+[ ] ¿El output tiene la estructura esperada? (ej: thesis completa, no parcial)
+[ ] ¿Refleja los frameworks de los skills? (ej: business-analysis si es fundamental-analyst)
+[ ] ¿Los datos son consistentes? (ej: FV calculado matches con inputs)
+[ ] ¿No hay errores obvios? (ej: MoS negativo cuando debería ser positivo)
+[ ] ¿Actualizó los ficheros que debía? (releer y verificar)
+
+Si ALGUNO falla:
+1. Identificar qué salió mal
+2. Re-ejecutar agente con instrucción más específica, o
+3. Corregir manualmente y documentar el problema
+4. Si es error recurrente → mejorar prompt del agente
+```
 
 ### Agentes por dominio (invocación directa, sin domain wrappers)
 
@@ -472,9 +571,72 @@ Ver skill agent-coordination para protocolo.
 ## Ficheros Clave
 - state/system.yaml → Cerebro del sistema
 - portfolio/current.yaml → Claude modifica, SIEMPRE con confirmación del humano antes (humano ejecuta en eToro)
-- world/current_view.md → Visión macro
+- world/current_view.md → Visión macro general
+- world/sectors/{sector}.md → **Visión sectorial (NUEVO v2.2.1)**
 - state/agent_coordination.yaml → Coordinación agentes
 - learning/system_config.yaml → Parámetros evolutivos
+
+## Sector Views (NUEVO v2.2.1 - Sesión 27)
+
+### ¿Qué son?
+Análisis profundos por sector que complementan la visión macro. Ubicados en `world/sectors/`.
+
+### ¿Para qué sirven?
+1. **Contexto pre-inversión**: ANTES de analizar cualquier empresa, leer su sector view
+2. **Pipeline de ideas**: Cada sector tiene "Empresas Objetivo" como watchlist sectorial
+3. **Anti-bias**: Evita depender de popularity bias para generar ideas
+4. **Consistencia**: Documenta por qué un sector está barato/caro
+
+### Sectores documentados actuales
+| Sector | Posiciones |
+|--------|------------|
+| telecom.md | DTE.DE |
+| insurance.md | ALL, GL |
+| pharma-healthcare.md | PFE, SAN.PA, UHS |
+| real-estate.md | VICI, VNA.DE |
+| business-services.md | TEP.PA, EDEN.PA, HRB |
+| consumer-staples.md | IMB.L, TATE.L, DOM.L |
+| industrials.md | LIGHT.AS |
+| utilities.md | A2A.MI, SHEL.L |
+| media-publishing.md | FUTR.L |
+
+### Protocolo de Uso
+
+```
+┌─────────────────┐     ┌───────────────────┐     ┌──────────────────┐
+│ ¿Existe sector  │ NO  │ Crear con sector- │     │ Leer sector view │
+│ view para esta  │────▶│ deep-dive skill   │────▶│ ANTES de         │
+│ empresa?        │     │ o template        │     │ fundamental-     │
+└────────┬────────┘     └───────────────────┘     │ analyst          │
+         │ SI                                      └──────────────────┘
+         └────────────────────────────────────────────────▲
+
+```
+
+### ¿Quién crea/actualiza?
+| Agente | Responsabilidad |
+|--------|-----------------|
+| **sector-screener** | Crea sector view ANTES de screening si no existe |
+| **fundamental-analyst** | Verifica que existe y lee ANTES de analizar |
+| **macro-analyst** | Puede actualizar si hay cambio macro relevante |
+
+### ¿Cada cuánto actualizar?
+- **Cada 30 días** como máximo (staleness check)
+- **Ante cambio material**: earnings season del sector, regulación nueva, disrupción
+- **En cada screening**: añadir empresas encontradas a "Empresas Objetivo"
+
+### ¿Qué pasa si NO existe sector view?
+1. **fundamental-analyst** DEBE crearlo ANTES de proceder con análisis
+2. Usar `world/sectors/_TEMPLATE.md` como base
+3. Aplicar sector-deep-dive skill para contenido
+4. NO se puede valorar empresa sin contexto sectorial
+
+### Template rápido
+Ver `world/sectors/_TEMPLATE.md` para estructura completa. Mínimo obligatorio:
+- Resumen Ejecutivo (2-3 párrafos)
+- Status: SOBREPONDERAR / NEUTRAL / INFRAPONDERAR / EVITAR
+- Métricas Clave (TAM, P/E sector, yield)
+- Empresas Objetivo (para análisis / evitar)
 
 ## Tools Cuantitativos (tools/)
 **FUENTE ÚNICA de cálculos repetibles. NUNCA duplicar lógica inline.**

@@ -11,6 +11,13 @@ skills:
 
 # Memory Manager Sub-Agent
 
+## PASO 0: ONBOARDING OBLIGATORIO
+**ANTES de gestionar memoria:**
+```
+Read .claude/skills/memory-management-rules/SKILL.md
+Read .claude/skills/sub-skills/summarization-template/SKILL.md
+```
+
 ## Rol
 Gestiona la memoria a largo plazo del sistema. Compacta, resume, indexa.
 
