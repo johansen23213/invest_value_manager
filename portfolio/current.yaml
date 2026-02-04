@@ -151,8 +151,8 @@ positions:
   - ticker: HRB
     name: "H&R Block Inc."
     shares: 9
-    invested_usd: 348.48  # 9 * 38.72
-    avg_cost_usd: 38.72
+    invested_usd: 334.80
+    avg_cost_usd: 37.20  # 334.80 / 9
     date_opened: 2026-02-03
     thesis: thesis/active/HRB/thesis.md
 
@@ -346,3 +346,4 @@ transactions:
     price_eur: 53.14
     total_eur: 159.42
     notes: "TRIM - Position 7.8% > 7% max. Sold 3/14 shares. Constraint violation resolved."
+

@@ -5,86 +5,75 @@
 
 system:
   system_version: "2.2.2"
-  last_session: 2026-02-03
+  last_session: 2026-02-04
   last_session_summary: |
-    Sesion 26 - FRAMEWORK DE EVALUACION DE EFECTIVIDAD
+    Sesion 29 - PREPARACION EARNINGS Y PIPELINE EXPANSION
 
-    PREGUNTA CLAVE DEL HUMANO:
-    "¿Como podemos estar seguros de que conseguiras el beneficio esperado?"
+    EARNINGS PREP COMPLETADOS (5-feb-2026):
+    1. GL (Globe Life) - Q4 after close
+       - EPS consensus $3.44, FY26 guidance ~$15
+       - Class action: SEC/DOJ cerrados, civil ongoing
+       - Accion: HOLD. Kill: EPS <$12 o new fraud evidence
+       - Buy trigger: $130 (25% MoS)
 
-    RESPUESTA HONESTA:
-    - NO PODEMOS GARANTIZAR resultados
-    - Value investing requiere 2-5 años para validar
-    - Hit rate esperado realista: 55-65%, no 100%
-    - Win rate actual (7 dias): 28% (muy corto para medir)
+    2. ALL (Allstate) - Q4
+       - Combined ratio esperado 92-96% (Q3 fue 80.1%)
+       - Accion: HOLD. Kill: CR >100% sostenido
+       - Decision tree preparado Bear/Base/Bull
 
-    MEJORAS IMPLEMENTADAS:
-    1. NUEVO TOOL: tools/effectiveness_tracker.py
-       - Win rate, FV hit rate, Sharpe estimado
-       - Attribution por sector/geo/tier/holding period
-       - Recomendaciones automaticas
-       - Ejecutar CADA sesion
+    3. SHEL.L (Shell) - Q4
+       - EPS $1.21, FCF $9-10B, buyback $3.5B esperado
+       - Iran hedge thesis: 30-40% prob conflicto
+       - Accion: HOLD. Kill: dividend cut o FCF <$30B FY
 
-    2. NUEVO SKILL: effectiveness-evaluation
-       - Metricas por horizonte (semanal/mensual/trimestral/anual)
-       - Protocolo de revision
-       - Registro obligatorio de errores
+    ANALISIS REALIZADOS (4 empresas):
+    1. GIS (General Mills): WATCHLIST
+       - FV $45-50, current $46.50 = 0% MoS
+       - Entry: $35-38 | Quality 6.5/10 Tier B
+       - GLP-1/private label headwinds
 
-    3. CLAUDE.md ACTUALIZADO:
-       - Error #23: No tener sistema de evaluacion de efectividad
-       - Error #24: Asumir que value investing funciona sin validacion
-       - Protocolo inicio: ahora incluye effectiveness_tracker.py
-       - Tool documentado en seccion de tools
+    2. BATS.L (British American Tobacco): WATCHLIST
+       - FV 5163 GBp, current 4545 GBp = 12-17% MoS
+       - Entry: 4000-4200 GBp (-10-12%)
+       - Ya tenemos IMB.L - IMB es mejor valor (P/E 8x vs 10x)
+       - Value trap 4/10, ROIC < WACC
+       - Earnings 12-feb
 
-    4. AUDITORIA COMPLETA DE CONSISTENCIA:
-       - 19 agentes: OK (16 principales + 3 micro)
-       - 22 skills: OK (todos referenciados)
-       - 7 tools: OK (todos documentados)
-       - 18 posiciones = 18 thesis: OK
-       - Sistema CONSISTENTE
+    3. CAG (Conagra): AVOID - VALUE TRAP
+       - FV ~$17.50, current $19.11 = OVERVALUED
+       - Value trap 5/10: impairment $968M, loss Q2, ROIC~WACC
+       - Yield 7.3% pero payout -667% (pagando de perdidas)
+       - NO COMPRAR a ningun precio actual
 
-    METRICAS ACTUALES (7 dias, estadisticamente irrelevante):
-    - Portfolio: EUR 9,623 | Cash 17.1% (DRAG)
-    - P&L total: -0.2% (flat)
-    - Win rate: 28% (bajo, pero solo 7 dias)
-    - Sharpe: -0.30 (negativo, pero muy corto plazo)
+    4. Documento Joan: NVDA/TSMC/Tierras Raras
+       - Creado en docs/analisis_joan_nvda_tsmc_tierras_raras.md
+       - Recomendacion: TSMC > NVDA > MP/Lynas
 
-    CONSTRAINT VIOLATIONS (sin cambios):
-    - TEP.PA: 7.9% > 7% max
-    - DTE.DE: 7.0% (borderline)
-    - EU geo: 36.6% > 35% max
+    CORRECCIONES:
+    - HRB ADD order $27.90 era ERROR - corregido
 
-    PENDIENTE PROXIMA SESION (27):
-    1. TRIM TEP.PA: 4 shares (~EUR 216) - CRITICO
-    2. PFE earnings call 10am EST hoy - verificar resultados
-    3. Earnings 5-Feb: GL, ALL, SHEL.L, EVO.ST
-    4. Desplegar cash (17.1% > 15% target)
-    5. Standing orders cercanos: ZIG.L (2.8%), BME.L (3.3%)
+    STANDING ORDERS VERIFICADOS:
+    - EVO.ST: 567 SEK BELOW trigger pero UKGC pendiente - NO COMPRAR
+    - BME.L: 175p vs 169p (+3.5%)
+    - ZIG.L: 386.5p vs 375p (+3.1%)
 
-    ---
-    Sesion 25 - RE-EVALUACION COMPLETA PORTFOLIO CON FRAMEWORK v2.0
+    METRICAS:
+    - Portfolio: $11,386 (EUR 9,628) | P&L +$37 (+0.4%)
+    - Cash: 18.8% | Posiciones: 18 | Winners: 44%
 
-    **18/18 POSICIONES RE-EVALUADAS:**
-    | Posicion | FV Change | MoS v2.0 | Value Trap | Status |
-    |----------|-----------|----------|------------|--------|
-    | PFE | -20% | 3% | 2/10 | HOLD |
-    | ALL | = | 16% | N/A | HOLD |
-    | SHEL.L | -18% | -4% | 0/10 | HOLD |
-    | VICI | +2% | 17% | 0/10 | HOLD |
-    | VNA.DE | -10% | 25% | 0-1/10 | HOLD |
-    | IMB.L | = | 20% | 1/10 | HOLD |
-    | DTE.DE | +2% | 27-32% | 0/10 | HOLD |
-    | A2A.MI | -25% | 6% | 1-2/10 | HOLD |
-    | DOM.L | +9% | 38% | 0.5/10 | HOLD |
-    | SAN.PA | +20% | 34% | 0/10 | HOLD |
-    | HRB | +17% | 54% | 2-3/10 | HOLD |
-    | LIGHT.AS | +28% | 45% | 2.5/10 | HOLD |
-    | TATE.L | +10% | 31% | 2/10 | HOLD |
-    | EDEN.PA | +43% | 47% | 0-1/10 | HOLD |
-    | FUTR.L | -8% | 46-53% | 4/10 | HOLD |
-    | UHS | -9% | 29% | 1.5/10 | HOLD |
-    | TEP.PA | -4% | 49% | 1/10 | TRIM |
-    | GL | -19% | 18% | 0/10 | HOLD |
+    ARCHIVOS MODIFICADOS:
+    - thesis/research/GIS/thesis.md (nuevo)
+    - thesis/research/BATS.L/thesis.md (nuevo)
+    - thesis/research/CAG/thesis.md (nuevo - AVOID)
+    - world/sectors/consumer-staples.md (actualizado)
+    - docs/analisis_joan_nvda_tsmc_tierras_raras.md (nuevo)
+
+    ALERTAS PROXIMA SESION (30):
+    1. EARNINGS HOY: GL, ALL, SHEL.L - ejecutar decision trees
+    2. BATS.L earnings 12-feb - revisar thesis post-results
+    3. Standing orders cerca: BME.L (-3.5%), ZIG.L (-3.1%)
+    4. EVO.ST - UKGC monitoring
+    5. Cash 18.8% - earnings pueden crear oportunidades
   status: active
 
 # -----------------------------------------------------------------------------
@@ -218,6 +207,13 @@ calendar:
       event: "UHS Q4 2025 / FY2025 earnings (estimated)"
       priority: high
       action: "Watch: EPS vs $21.80 consensus, behavioral health volumes, labor costs, Medicaid impact. Kill: ROIC<WACC 2Q, BH volumes decline YoY."
+
+    - date: 2026-02-04
+      type: action_cancelled
+      ticker: HRB
+      event: "CANCELLED - HRB ADD order was ERROR (price $27.90 unrealistic)"
+      priority: low
+      action: "Original order deleted. ADD trigger per thesis is <$35. Current price $37.20 = no action. Monitor for dip."
 
     - date: 2026-02-07
       type: action_completed
@@ -408,6 +404,12 @@ watchlist:
       fair_value: "195 GBp"
       thesis: thesis/archive/MEGP.L/thesis.md
 
+    - ticker: CAG
+      rejection_date: 2026-02-04
+      reason: "VALUE TRAP 5/10 - Q2 FY26 loss $664M, impairment $968M, ROIC 5.3% barely covers WACC, dividend payout -667% (paying from losses). Worst margins in sector. GIS is better choice if want food exposure."
+      fair_value: "$17.50 (current $19.11 = overvalued)"
+      thesis: thesis/research/CAG/thesis.md
+
   active_monitoring:
     - ticker: A2A.MI
       entry: 2.548
@@ -507,6 +509,9 @@ alerts:
     - { ticker: EVO.ST, entry_sek: 530, note: "Evolution. If Q4 miss - buy 480-530 SEK." }
     - { ticker: GL, entry_usd: 130, note: "Globe Life ADD trigger. At $130 MoS=25.3%. Do not add >$130." }
     - { ticker: UTG.L, entry_gbp: 540, note: "v2.0 VALIDATED. FV 745p. At 540p MoS 27.5%. Earnings Feb 24." }
+    - { ticker: SRE.L, entry_gbp: 75, note: "Sirius RE. FV 100p. Entry 75p = 25% MoS. Refinancing Jun-2026 catalyst." }
+    - { ticker: GIS, entry_usd: 38, note: "General Mills. FV $45-50. Entry $35-38. Quality 6.5/10 Tier B. GLP-1 headwind." }
+    - { ticker: BATS.L, entry_gbp: 4200, note: "BAT. FV 5163p. Entry 4000-4200p. Ya tenemos IMB.L. Earnings 12-feb." }
 
 # -----------------------------------------------------------------------------
 # STANDING ORDERS (pre-aprobadas, ejecutar cuando precio toque trigger)
