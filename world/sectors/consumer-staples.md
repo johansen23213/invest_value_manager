@@ -30,8 +30,8 @@ Consumer Staples es el sector defensivo por excelencia: alimentos, bebidas, taba
 
 | Metrica | Valor | vs Historia | Tendencia |
 |---------|-------|-------------|-----------|
-| TAM Global | $4,962B (2024) | | ↑ lento |
-| CAGR (5y proyectado) | 4.1% | | → estable |
+| TAM Global | $4,962B (2024) | | lento |
+| CAGR (5y proyectado) | 4.1% | | estable |
 | P/E sector US | 24.2x | vs 21-24x (5y avg) | Premium leve |
 | P/E sector EU | 18-20x | vs 18-21x historico | Fair value |
 | Dividend yield sector | 2.6-3.5% | vs S&P 1.7% | Premium |
@@ -205,19 +205,24 @@ Consumer Staples es el sector defensivo por excelencia: alimentos, bebidas, taba
 | Ticker | Empresa | P/E | Yield | Thesis Status | Entry Target |
 |--------|---------|-----|-------|---------------|--------------|
 | GIS | General Mills | 10x | 5.2% | WATCHLIST - Fair value ~$45, need $35-38 for 25% MoS | $35-38 |
+| BATS.L | British American Tobacco | ~10x norm | 5.3% | WATCHLIST - Tier B, MoS 12% insuf. Need 25% MoS | 4000-4200 GBp |
+
+### Analizadas - Evitar (Value Traps)
+
+| Ticker | Empresa | P/E | Yield | Razon Evitar | Fecha Analisis |
+|--------|---------|-----|-------|--------------|----------------|
+| CAG | Conagra Brands | N/A (loss) | 7.3% | **VALUE TRAP**: 5/10 factors triggered, ROIC ~5% barely covers WACC, $968M impairment, declining volumes, dividend payout -667% (negative earnings), gross margin 27% worst in sector | 2026-02-04 |
 
 ### Para Analisis Profundo
 
 | Ticker | Razon | Priority |
 |--------|-------|----------|
-| CAG | Conagra - caido 37% en 2025, turnaround? | Media |
 | HRL | Hormel Foods - dividend king 60y, caido 25% | Media |
 | ULVR.L | Unilever - lowest P/E de majors, highest yield | Media |
 | NESN.SW | Nestle - quality pero premium | Baja |
 | DGE.L | Diageo - spirits premium, correccion | Media |
-| BATS.L | BAT - yield 7.5%, share buybacks | Alta |
 
-### Evitar
+### Evitar (Legacy)
 
 | Ticker | Razon |
 |--------|-------|
@@ -232,11 +237,14 @@ Consumer Staples es el sector defensivo por excelencia: alimentos, bebidas, taba
 
 | Fecha | Evento | Impacto esperado |
 |-------|--------|------------------|
+| 12-Feb-2026 | **BAT FY25 Results** | Key for smoke-free progress, 2026 guidance |
+| Feb 17, 2026 | CAG CAGNY conference | May provide clarity (but avoid CAG) |
 | Q1 2026 | Earnings season | Visibility on GLP-1 impact, pricing |
 | Mar 2026 | GIS Q3 FY26 earnings | Volume trend critical for thesis |
 | Mar 2026 | TATE.L FY results | CP Kelco integration update |
+| Apr 2, 2026 | CAG Q3 FY26 earnings | Will show if decline continues |
 | 2026 | Fed rate cuts (if any) | Positivo para yield stocks |
-| 2026 | GLP-1 adoption pace | Si slower → bullish for food |
+| 2026 | GLP-1 adoption pace | Si slower bullish for food |
 
 ---
 
@@ -244,10 +252,12 @@ Consumer Staples es el sector defensivo por excelencia: alimentos, bebidas, taba
 
 | Tipo | Ticker | Thesis Path | Ultima Eval | Status |
 |------|--------|-------------|-------------|--------|
-| Portfolio | IMB.L | thesis/active/IMB.L | 2026-01-31 | HOLD |
+| Portfolio | IMB.L | thesis/active/IMB.L | 2026-02-03 | HOLD |
 | Portfolio | DOM.L | thesis/active/DOM.L | 2026-02-02 | REVIEW |
 | Portfolio | TATE.L | thesis/active/TATE.L | 2026-02-03 | HOLD |
 | Watchlist | GIS | thesis/research/GIS | 2026-02-04 | Entry $35-38 |
+| Watchlist | BATS.L | thesis/research/BATS.L | 2026-02-04 | Entry 4000-4200 GBp |
+| Avoid | CAG | thesis/research/CAG | 2026-02-04 | VALUE TRAP - Do not buy |
 
 ---
 
@@ -282,15 +292,32 @@ Consumer Staples es el sector defensivo por excelencia: alimentos, bebidas, taba
    - Entry target: $35-38 (need 18-25% drop)
    - Monitor Q3 FY26 earnings for volume stabilization
 
-2. **BAT (BATS.L)** - Priority ALTA
-   - Yield 7.5%, buybacks GBP 700-900M
-   - Mas barato que PMI, transicion a smoke-free en curso
-   - ESG outflows = oportunidad contrarian
+2. **BAT (BATS.L)** - WATCHLIST (Analizado 2026-02-04)
+   - P/E ~10x normalized, yield 5.3%, GBP 1.3B buyback 2026
+   - Smoke-free 18.2% revenue, Velo Plus #2 US pouches
+   - **Tier B (4/10 value trap factors)** - requires 25% MoS
+   - Current MoS: 12-17% vs blended FV 5163 GBp
+   - **Entry target: 4000-4200 GBp** (~10% below current)
+   - Tobacco concentration risk: already own IMB.L at 5.4%
+   - IMB.L is better value (cheaper, simpler, ROIC > WACC)
 
 3. **Diageo (DGE.L)** - Priority MEDIA
    - Premium spirits, correccion reciente
    - ROIC 13.3% (mejor del sector EU)
    - China/luxury exposure es risk
+
+### Value Traps Confirmados
+
+1. **Conagra Brands (CAG)** - AVOID (Analizado 2026-02-04)
+   - Down 37% looks attractive but is a TRAP
+   - 5/10 value trap factors triggered
+   - ROIC 5.3-5.7% barely covers WACC ~5% = NO moat
+   - $968M goodwill/brand impairment in Q2 FY26
+   - Dividend payout ratio -667% (negative earnings)
+   - Gross margin 27% = WORST among peers (GIS 34%, K 32%)
+   - Management expects FY26 EPS $1.70-1.85, down -24% YoY
+   - Analyst consensus: HOLD, avg target $18.58 (BELOW current $19.11)
+   - **Lesson:** High yield + big drop does NOT equal opportunity. Look at fundamentals.
 
 ---
 
@@ -298,6 +325,8 @@ Consumer Staples es el sector defensivo por excelencia: alimentos, bebidas, taba
 
 | Fecha | Cambio | Razon |
 |-------|--------|-------|
+| 2026-02-04 | **CAG movido de "Para Analisis" a "Evitar - Value Traps"** | Analisis Framework v2.0 completo. 5/10 value trap factors. ROIC ~5% = no moat. Dividend unsustainable. |
+| 2026-02-04 | **BATS.L movido de "Para Analisis" a "Watchlist"** | Analisis completo Framework v2.0. Tier B, MoS 12% insuf. Entry 4000-4200 GBp. Tobacco concentration risk con IMB.L existente |
 | 2026-02-04 | GIS movido de "Para Analisis" a "Watchlist" | Analisis completo Framework v2.0. FV $45, current $46.50 = fair. Entry $35-38 |
 | 2026-02-03 | Status inicial: NEUTRAL | Valuaciones no extremas, disrupcion real |
 
@@ -331,6 +360,9 @@ Consumer Staples es el sector defensivo por excelencia: alimentos, bebidas, taba
 - [Yahoo Finance: Domino's Pizza Group](https://finance.yahoo.com/quote/DOM.L/)
 - [MoneyWeek: Tobacco Industry Going Smoke-Free](https://moneyweek.com/investments/the-tobacco-industry-is-going-smoke-free)
 - [General Mills IR - Q2 FY2026 Results](https://www.generalmills.com/news/press-releases/general-mills-reports-fiscal-2026-second-quarter-results-and-reaffirms-full-year-outlook)
+- [BAT 2025 Pre-Close Trading Update](https://www.bat.com/media/press-releases/_2025/december/2025-full-year-pre-close-trading-update)
+- [Conagra Q2 FY2026 Earnings](https://www.conagrabrands.com/news-room/news-conagra-brands-reports-second-quarter-results-prn-122942)
+- [Seeking Alpha: Conagra Sell Rating](https://seekingalpha.com/article/4853964-conagra-brands-sell-on-bleak-outlook-and-falling-fundamentals)
 
 ### Sector Defensivo
 - [Nasdaq: Recession 2026 Consumer Staple Stocks](https://www.nasdaq.com/articles/recession-2026-3-solid-consumer-staple-stocks-safety)
