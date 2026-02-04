@@ -1,22 +1,22 @@
 # Sector: [NOMBRE]
 
-> Última actualización: YYYY-MM-DD
+> Ultima actualizacion: YYYY-MM-DD
 > Status: [SOBREPONDERAR / NEUTRAL / INFRAPONDERAR / EVITAR]
 
 ## Resumen Ejecutivo
 
-[2-3 párrafos explicando:
-- Qué hace este sector
-- Por qué está barato/caro
+[2-3 parrafos explicando:
+- Que hace este sector
+- Por que esta barato/caro
 - Mi tesis sobre el sector]
 
 ---
 
-## Métricas Clave
+## Metricas Clave
 
-| Métrica | Valor | vs Historia | Tendencia |
+| Metrica | Valor | vs Historia | Tendencia |
 |---------|-------|-------------|-----------|
-| TAM Global | $XB | | ↑/↓/→ |
+| TAM Global | $XB | | /|
 | CAGR (5y proyectado) | X% | | |
 | P/E sector | Xx | vs Yx (10y avg) | |
 | Dividend yield | X% | | |
@@ -25,7 +25,7 @@
 
 ## Estructura Competitiva
 
-**Concentración:** [Fragmentado / Oligopolio / Monopolio]
+**Concentracion:** [Fragmentado / Oligopolio / Monopolio]
 **Top 5 market share:** X%
 
 | Empresa | Market Share | Fortaleza |
@@ -42,25 +42,25 @@
 
 | Factor | Sensibilidad | Notas |
 |--------|--------------|-------|
-| Tipos de interés | Alta/Media/Baja | |
-| Recesión | Alta/Media/Baja | |
-| Inflación | Alta/Media/Baja | |
+| Tipos de interes | Alta/Media/Baja | |
+| Recesion | Alta/Media/Baja | |
+| Inflacion | Alta/Media/Baja | |
 
 **Mejor fase del ciclo:** [Early / Mid / Late / All]
-**Beta típico:** X
+**Beta tipico:** X
 
 ---
 
-## Disrupción y Riesgos
+## Disrupcion y Riesgos
 
-### Tecnológicos
+### Tecnologicos
 | Amenaza | Probabilidad | Impacto | Timeline |
 |---------|--------------|---------|----------|
 | AI | | | |
 | [otro] | | | |
 
 ### Regulatorios
-| Regulación | Probabilidad | Impacto |
+| Regulacion | Probabilidad | Impacto |
 |------------|--------------|---------|
 | | | |
 
@@ -78,27 +78,62 @@
 "[Lo que el mercado cree sobre este sector]"
 
 **Mi contra-tesis (si aplica):**
-"[Por qué el mercado está equivocado]"
+"[Por que el mercado esta equivocado]"
 
 **Flujos de fondos (12m):** [Inflows / Outflows] de $XB
 
 ---
 
+## Nuestras Posiciones Actuales
+
+### [TICKER1] - [Subsector]
+- **Holding:** X shares, ~$Y invested
+- **Thesis:** [Resumen breve]
+- **Por que nos gusta:** [Key points]
+- **Riesgos:** [Key risks]
+
+---
+
+## Dependencias Activas
+
+**Si este sector view cambia MATERIALMENTE, re-evaluar todas las thesis listadas.**
+
+| Tipo | Ticker | Thesis Path | Ultima Eval | Status |
+|------|--------|-------------|-------------|--------|
+| Portfolio | | | | HOLD |
+| Watchlist | | | | Entry Xp |
+
+### Protocolo de Cambio Material
+Cuando actualices este sector view con cambio MATERIAL:
+1. Cambiar status a "NEEDS_REVIEW" en todas las dependencias
+2. Anadir al calendario: "RE-EVAL [tickers] por cambio en [sector]"
+3. Documentar el cambio en "Historial de Cambios"
+
+---
+
 ## Empresas Objetivo
 
-### Para análisis profundo
-| Ticker | Razón | Priority |
+### Para analisis profundo
+| Ticker | Razon | Priority |
 |--------|-------|----------|
 | | | Alta/Media |
 
 ### Evitar
-| Ticker | Razón |
+| Ticker | Razon |
 |--------|-------|
 | | |
 
 ---
 
-## Catalizadores Próximos
+## Analizadas - En Watchlist
+
+| Ticker | Empresa | FV | Entry | MoS Req | Thesis | Fecha Analisis |
+|--------|---------|----|----- -|---------|--------|----------------|
+| | | | | | | |
+
+---
+
+## Catalizadores Proximos
 
 | Fecha | Evento | Impacto esperado |
 |-------|--------|------------------|
@@ -108,9 +143,31 @@
 
 ## Historial de Cambios
 
-| Fecha | Cambio | Razón |
+| Fecha | Cambio | Razon |
 |-------|--------|-------|
 | | Status inicial: X | |
+
+---
+
+## Reglas de Ciclo de Vida
+
+### Cuando una empresa se COMPRA:
+- Mover de "Analizadas - Watchlist" a "Nuestras Posiciones Actuales"
+- Anadir a "Dependencias Activas" como Portfolio
+
+### Cuando una thesis se ARCHIVA (vendida o descartada):
+- Mover de "Dependencias Activas" a "Historial de Analisis"
+- Registrar razon y fecha de archivo
+- Mantener maximo 10 entradas en historial, luego purgar
+
+### Cuando sector view crece demasiado (>300 lineas):
+- Mover "Historial de Analisis" a archivo separado: world/sectors/archive/[sector]-history.md
+- Mantener solo ultimos 6 meses en "Analizadas"
+
+### Historial de Analisis (Archivadas)
+| Ticker | Razon Archivo | Fecha | Leccion |
+|--------|---------------|-------|---------|
+| (vacio) | | | |
 
 ---
 

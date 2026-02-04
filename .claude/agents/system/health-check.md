@@ -33,6 +33,14 @@ Verificación periódica de la salud del sistema. Cada 14 días o bajo demanda.
 - [ ] Thesis activas coinciden con posiciones en portfolio
 - [ ] Watchlist coherente con research pipeline
 
+### 3b. Sistema de Dependencias (NUEVO v2.2.2)
+- [ ] **Cada sector view tiene sección "Dependencias Activas"** (si falta = WARNING, crear)
+- [ ] **Todas las posiciones activas están en dependencias de su sector** (si falta = WARNING)
+- [ ] **Todas las thesis en research/ están en dependencias de su sector** (si falta = INFO)
+- [ ] **No hay dependencias con status "NEEDS_REVIEW" >7 días** (si hay = WARNING, lanzar re-eval)
+- [ ] **Sector views >300 líneas** (si hay = INFO, proponer extracción de historial)
+- [ ] **Thesis archivadas eliminadas de dependencias activas** (si no = WARNING)
+
 ### 4. Memoria y tamaños (CUANTITATIVO)
 - [ ] Memoria activa <50KB
 - [ ] No hay ficheros >20KB individuales sin compactar

@@ -1,6 +1,6 @@
 # Sector: Consumer Staples
 
-> Ultima actualizacion: 2026-02-03
+> Ultima actualizacion: 2026-02-04
 > Status: **NEUTRAL** - Seleccionar empresas especificas, no sobreponderar sector
 
 ## Resumen Ejecutivo
@@ -200,11 +200,16 @@ Consumer Staples es el sector defensivo por excelencia: alimentos, bebidas, taba
 | DOM.L | Domino's Pizza UK | Alto | 6.4% | REVIEW - caido 40%, pero warning signs |
 | TATE.L | Tate & Lyle | ~15x | ~3% | HOLD - acquisition CP Kelco, healthy trends |
 
+### Analizadas - En Watchlist
+
+| Ticker | Empresa | P/E | Yield | Thesis Status | Entry Target |
+|--------|---------|-----|-------|---------------|--------------|
+| GIS | General Mills | 10x | 5.2% | WATCHLIST - Fair value ~$45, need $35-38 for 25% MoS | $35-38 |
+
 ### Para Analisis Profundo
 
-| Ticker | Razón | Priority |
+| Ticker | Razon | Priority |
 |--------|-------|----------|
-| GIS | General Mills - P/E 10x, yield 5%, pricing power | Alta |
 | CAG | Conagra - caido 37% en 2025, turnaround? | Media |
 | HRL | Hormel Foods - dividend king 60y, caido 25% | Media |
 | ULVR.L | Unilever - lowest P/E de majors, highest yield | Media |
@@ -228,9 +233,21 @@ Consumer Staples es el sector defensivo por excelencia: alimentos, bebidas, taba
 | Fecha | Evento | Impacto esperado |
 |-------|--------|------------------|
 | Q1 2026 | Earnings season | Visibility on GLP-1 impact, pricing |
+| Mar 2026 | GIS Q3 FY26 earnings | Volume trend critical for thesis |
+| Mar 2026 | TATE.L FY results | CP Kelco integration update |
 | 2026 | Fed rate cuts (if any) | Positivo para yield stocks |
 | 2026 | GLP-1 adoption pace | Si slower → bullish for food |
-| Mar 2026 | TATE.L FY results | CP Kelco integration update |
+
+---
+
+## Dependencias Activas
+
+| Tipo | Ticker | Thesis Path | Ultima Eval | Status |
+|------|--------|-------------|-------------|--------|
+| Portfolio | IMB.L | thesis/active/IMB.L | 2026-01-31 | HOLD |
+| Portfolio | DOM.L | thesis/active/DOM.L | 2026-02-02 | REVIEW |
+| Portfolio | TATE.L | thesis/active/TATE.L | 2026-02-03 | HOLD |
+| Watchlist | GIS | thesis/research/GIS | 2026-02-04 | Entry $35-38 |
 
 ---
 
@@ -258,13 +275,15 @@ Consumer Staples es el sector defensivo por excelencia: alimentos, bebidas, taba
 
 ### Nuevas Oportunidades
 
-1. **General Mills (GIS)** - Priority ALTA
-   - P/E 10x, yield 5%, pricing power demostrado
-   - Defensive en recesion, marcas establecidas
-   - Trade-down risk pero portfolio diversificado
+1. **General Mills (GIS)** - WATCHLIST (Analizado 2026-02-04)
+   - P/E 10x, yield 5.2%, pricing power demostrado
+   - Fair value ~$45, current $46.50 = fairly valued
+   - **NOT cheap enough for 25% MoS (Tier B)**
+   - Entry target: $35-38 (need 18-25% drop)
+   - Monitor Q3 FY26 earnings for volume stabilization
 
 2. **BAT (BATS.L)** - Priority ALTA
-   - Yield 7.5%, buybacks £700-900M
+   - Yield 7.5%, buybacks GBP 700-900M
    - Mas barato que PMI, transicion a smoke-free en curso
    - ESG outflows = oportunidad contrarian
 
@@ -279,6 +298,7 @@ Consumer Staples es el sector defensivo por excelencia: alimentos, bebidas, taba
 
 | Fecha | Cambio | Razon |
 |-------|--------|-------|
+| 2026-02-04 | GIS movido de "Para Analisis" a "Watchlist" | Analisis completo Framework v2.0. FV $45, current $46.50 = fair. Entry $35-38 |
 | 2026-02-03 | Status inicial: NEUTRAL | Valuaciones no extremas, disrupcion real |
 
 ---
@@ -310,6 +330,7 @@ Consumer Staples es el sector defensivo por excelencia: alimentos, bebidas, taba
 - [Simply Wall St: Tate & Lyle Analysis](https://simplywall.st/stocks/gb/food-beverage-tobacco/lse-tate/tate-lyle-shares)
 - [Yahoo Finance: Domino's Pizza Group](https://finance.yahoo.com/quote/DOM.L/)
 - [MoneyWeek: Tobacco Industry Going Smoke-Free](https://moneyweek.com/investments/the-tobacco-industry-is-going-smoke-free)
+- [General Mills IR - Q2 FY2026 Results](https://www.generalmills.com/news/press-releases/general-mills-reports-fiscal-2026-second-quarter-results-and-reaffirms-full-year-outlook)
 
 ### Sector Defensivo
 - [Nasdaq: Recession 2026 Consumer Staple Stocks](https://www.nasdaq.com/articles/recession-2026-3-solid-consumer-staple-stocks-safety)
