@@ -818,6 +818,18 @@ standing_orders:
     notes: "WPP turnaround. Tier C. No moat, AI disruption. Altman Z 1.06. Wait for Rose plan Feb 19."
     expiry: 2026-04-01
 
+  # NVO ADD - CONDITIONAL on CagriSema data or price drop
+  - ticker: NVO
+    action: ADD
+    trigger: "CagriSema vs Zepbound POSITIVE (March 2026) OR price <=$40"
+    size_eur: 300
+    shares_approx: 6
+    thesis: thesis/active/NVO/thesis.md
+    fair_value: "$66 (DKK 491)"
+    mos_at_trigger: "40%+ at $40"
+    notes: "ADD to existing 8.31 shares. Brings position from 4% to 6-7%. Framework v3.0 Tier A."
+    expiry: 2026-06-01
+
 # -----------------------------------------------------------------------------
 # MACRO (resumen)
 # -----------------------------------------------------------------------------

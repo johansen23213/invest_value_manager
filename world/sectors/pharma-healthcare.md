@@ -217,12 +217,13 @@ El sector Pharma/Healthcare esta en un momento de transicion historica. Por un l
 | PFE | Activa | Yield 6.5%, M&A firepower, transicion oncology/obesity | HOLD - monitorear ejecucion |
 | SAN.PA | Activa | Dupixent growth, pipeline diversificado | HOLD - valuacion expandida |
 | UHS | Activa | Behavioral health growth, valuacion razonable | HOLD - defensive exposure |
+| **NVO** | **Activa (NEW 2026-02-05)** | **QS 82 Tier A, GLP-1 pioneer, MoS 38%** | **HOLD - Framework v3.0 validated, ADD on CagriSema positive** |
 
 ### Analizadas - En Watchlist
 
 | Ticker | Thesis | Entry Price | Status | Dependencia |
 |--------|--------|-------------|--------|-------------|
-| **NOVO-B.CO** | QS 82, Quality Compounder distressed, MoS 38% | DKK 307 | **BUY SIGNAL** | thesis/research/NOVO-B.CO |
+| ~~NOVO-B.CO~~ | ~~QS 82, Quality Compounder distressed~~ | ~~DKK 307~~ | **PURCHASED 2026-02-05** | thesis/active/NVO |
 
 ### Para Analisis Profundo
 
@@ -253,7 +254,7 @@ El sector Pharma/Healthcare esta en un momento de transicion historica. Por un l
 | Portfolio | PFE | thesis/active/PFE | 2026-02-01 | HOLD |
 | Portfolio | SAN.PA | thesis/active/SAN.PA | 2026-02-01 | HOLD |
 | Portfolio | UHS | thesis/active/UHS | 2026-02-01 | HOLD |
-| Watchlist | **NOVO-B.CO** | thesis/research/NOVO-B.CO | **2026-02-04** | **BUY SIGNAL - awaiting catalyst** |
+| **Portfolio** | **NVO** | **thesis/active/NVO** | **2026-02-05** | **HOLD - phased entry 4%, ADD on CagriSema** |
 
 ---
 
