@@ -40,6 +40,7 @@ La IA generativa es tanto amenaza como oportunidad. Los incumbentes con datos pr
 | Adobe | Creative/Docs | #1 (80%+ graphics) | Moat profesional, Firefly AI |
 | SAP | ERP | #1 tied | Enterprise lock-in |
 | Oracle | Database/Cloud | #3 | Legacy + cloud transition |
+| Tyler Technologies | Gov Software | #1 (11.2% share) | Switching costs, 98% retention |
 
 **Barreras de entrada:** Altas en enterprise, Medias-Bajas en prosumer/SMB
 - Switching costs (datos, integraciones, training)
@@ -81,6 +82,7 @@ La IA generativa es tanto amenaza como oportunidad. Los incumbentes con datos pr
 - Empresas con **datos propietarios** (Adobe Firefly trained on licensed content) tienen ventaja
 - Empresas con **ecosistemas enterprise** (Salesforce, SAP) tienen switching costs como defensa
 - Software **commoditizado sin moat** (generic SaaS) es el mas vulnerable
+- **Government software** (Tyler) INMUNE a AI disruption - regulatory requirements, data sensitivity
 
 ### Regulatorios
 
@@ -140,6 +142,7 @@ La IA generativa es tanto amenaza como oportunidad. Los incumbentes con datos pr
 | Tipo | Ticker | Thesis Path | Ultima Eval | Status |
 |------|--------|-------------|-------------|--------|
 | Portfolio | ADBE | thesis/active/ADBE/thesis.md | 2026-02-04 | HOLD |
+| Watchlist | TYL | thesis/research/TYL/thesis.md | 2026-02-04 | Entry $250 |
 
 ### Protocolo de Cambio Material
 
@@ -156,7 +159,6 @@ Cuando actualices este sector view con cambio MATERIAL:
 
 | Ticker | Empresa | Razon | P/E | Priority | Notas |
 |--------|---------|-------|-----|----------|-------|
-| TYL | Tyler Technologies | Wide moat, 43% undervalued vs Morningstar FV $650, gov software leader | ~30x | Alta | Local gov software monopoly |
 | DASTY | Dassault Systemes | 15-year low P/E, PLM leader, 20% upside potential | ~20x | Alta | EU software, post-correction |
 | DOX | Amdocs Limited | IT services, 4 analysts only, 31% upside to targets | 14.7x | Alta | Low coverage = inefficiency |
 | BR | Broadridge Financial | 32% undervalued vs FV $290, fintech B2B | ~18x | Media | Investor communications |
@@ -180,7 +182,7 @@ Cuando actualices este sector view con cambio MATERIAL:
 
 | Ticker | Empresa | FV | Entry | MoS Req | Reason | Fecha Analisis |
 |--------|---------|----|----- -|---------|--------|----------------|
-| (ninguna aun) | | | | | | |
+| TYL | Tyler Technologies | $280 | $250-260 | 20% (Tier B) | Wide moat gov software, QS 72, overvalued at $332 | 2026-02-04 |
 
 ---
 
@@ -189,6 +191,7 @@ Cuando actualices este sector view con cambio MATERIAL:
 | Fecha | Evento | Impacto esperado |
 |-------|--------|------------------|
 | Q1 2026 | Adobe Q1 earnings (Mar) | Validate Firefly monetization |
+| Q1 2026 | Tyler Q4 2025 earnings | Cloud transition progress |
 | H1 2026 | Fed rate cuts? | Re-rating de software growth |
 | 2026 | Canva/Figma IPO | Clarify competitive landscape |
 | Ongoing | Enterprise AI adoption | Pricing power para incumbentes |
@@ -201,6 +204,7 @@ Cuando actualices este sector view con cambio MATERIAL:
 |-------|--------|-------|
 | 2026-02-04 | Status inicial: NEUTRAL | Sector creado. Valuaciones elevadas excepto bolsas de valor |
 | 2026-02-04 | ADBE anadido a posiciones | Compra aprobada, primer Quality Compounder tech |
+| 2026-02-04 | TYL analizado -> Watchlist | QS 72 (Tier B, no A). Wide moat pero overvalued. Entry $250-260 |
 
 ---
 
@@ -244,6 +248,11 @@ Cuando actualices este sector view con cambio MATERIAL:
 - [Investing.com: Adobe SWOT Analysis](https://www.investing.com/news/swot-analysis/adobes-swot-analysis-ai-integration-drives-growth-amid-competitive-pressures-93CH-4278458)
 - [EntrepreneurLoop: Canva AI Disruption](https://entrepreneurloop.com/canva-ai-tools-challenge-adobe/)
 - [StartupHub: AI Agents Threat](https://www.startuphub.ai/ai-news/ai-video/2026/ai-agents-trigger-software-stock-collapse-salesforce-and-adobe-face-new-existential-threat/)
+
+### Tyler Technologies Analysis
+- [Morningstar: Tyler's Modernizing Its Market](https://www.morningstar.com/stocks/tylers-modernizing-its-market)
+- [Seeking Alpha: Tyler Well-Positioned](https://seekingalpha.com/article/4600616-tyler-technologies-well-positioned-in-a-growing-market)
+- [Third Bridge: Tyler Growth Runway](https://thirdbridge.com/transcripts/tyler-technologies-growth-runway-public-sector-software-market-trends/)
 
 ### European Software
 - [Investing.com: Top European Software Stocks 2026](https://www.investing.com/news/stock-market-news/top-european-software-stocks-to-watch-in-2026-93CH-4380330)
