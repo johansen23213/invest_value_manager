@@ -7,9 +7,10 @@ permissionMode: acceptEdits
 skills:
   - evolution-protocol
   - system-context
+  - agent-meta-reflection
 ---
 
-# System Evolver Agent
+# System Evolver v3.0
 
 ## Rol
 Evaluación + mejora del sistema en un solo agente. Evalúa, propone, aplica (con confirmación para cambios mayores).

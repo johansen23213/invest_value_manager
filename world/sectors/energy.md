@@ -18,26 +18,33 @@ El sector de oil & gas majors enfrenta un **entorno fundamentalmente bajista** p
 | Metrica | Valor | vs Historia | Tendencia |
 |---------|-------|-------------|-----------|
 | TAM Global (oil market) | ~$2.5T | Estable | -> |
-| Brent spot (Feb 2026) | ~$67/bbl | vs $80+ avg 2022-24 | ↓ |
-| Brent forecast 2026 | $55-58/bbl | Consensus bearish | ↓ |
+| Brent spot (Feb 2026) | ~$74-76/bbl | vs $80+ avg 2022-24 | Bajista |
+| Brent forecast 2026 | $55-58/bbl | Consensus bearish | Bajista |
+| Henry Hub Gas | $3.50/MMBtu | vs $2.50 2024 | Alcista |
 | P/E sector (EU majors) | 11-16x | vs 10-12x historico | Inline |
 | P/E sector (US majors) | 21-27x | vs 12-15x historico | Premium |
 | Dividend yield (EU) | 4-5.5% | | Cubierto |
 | Dividend yield (US) | 2.9-4% | | Cubierto |
 | EV/EBITDA sector | 5-7x | | Bajo pero justificado |
-| FCF yield (majors) | 10-15% | | Muy alto |
+| FCF yield (majors) | 10-16% | | Muy alto |
 
 ### Comparativa Supermajors (Feb 2026)
 
-| Empresa | P/E | Yield | EV/EBITDA | Fortaleza |
-|---------|-----|-------|-----------|-----------|
-| TotalEnergies (TTE.PA) | 11.7x | 5.5% | ~5x | LNG growth, balance fuerte |
-| Shell (SHEL.L) | 15.6x | 3.9% | ~7x | #1 LNG mundial, buybacks |
-| ExxonMobil (XOM) | 21.5x | 2.9% | ~7x | Permian, dividend aristocrat |
-| Chevron (CVX) | 26.9x | 4.0% | ~8x | Premium injustificado |
-| BP (BP.L) | 58x* | 5.2% | ~6x | *Earnings deprimidos, turnaround |
+| Empresa | Ticker | Mkt Cap | P/E | Yield | FCF Yield | Fortaleza |
+|---------|--------|---------|-----|-------|-----------|-----------|
+| **Shell** | SHEL.L | $161B | 15.9x | 3.9% | 15-16% | #1 LNG mundial, buybacks |
+| TotalEnergies | TTE | $159B | 12.0x | 5.2% | 12-13% | LNG growth, balance fuerte |
+| ExxonMobil | XOM | $606B | 21.5x | 2.9% | 11-12% | Permian, dividend aristocrat |
+| Chevron | CVX | $356B | 26.9x | 4.0% | 8-10% | Premium injustificado |
+| BP | BP | $102B | 62.6x* | 5.1% | 15%+ | *Earnings deprimidos, turnaround |
+| Equinor | EQNR | $68B | 11.9x | 6.1% | 12%+ | Norway pure-play, 67% govt owned |
 
 *BP tiene P/E inflado por earnings debiles, no por valuacion cara.
+
+**Valuacion gap US vs EU:**
+- XOM/CVX cotizan 21-27x vs SHEL/TTE/BP 12-16x
+- Gap explicado por: shale assets, M&A capacity, ESG perception, governance
+- Oportunidad: EU majors infravalorados vs fundamentals
 
 ---
 
@@ -117,10 +124,10 @@ El sector de oil & gas majors enfrenta un **entorno fundamentalmente bajista** p
 
 | Regulacion | Probabilidad | Impacto | Timeline |
 |------------|--------------|---------|----------|
-| EU ETS expansion (refining CBAM) | Alta | Medio-Alto | 2026 debate, 2031 implementacion |
+| EU CBAM (Carbon Border Tax) | 100% (vigente Jan 2026) | Medio | Implementado |
+| EU ETS expansion refining | Alta | Medio-Alto | 2031 |
 | Carbon tax global | Media | Alto | 2030+ |
 | Methane regulations | Alta | Medio | 2025-2027 |
-| NOC access restrictions | Media | Alto | Ongoing |
 
 **EU ETS:** Refinadores EU pagan 30% de emisiones hoy, subiendo a 75% en 2035. CBAM no cubre refining aun pero expansion probable 2031. Shell/BP/TTE con operaciones EU en desventaja vs competidores sin carbon price.
 
@@ -139,9 +146,6 @@ El sector de oil & gas majors enfrenta un **entorno fundamentalmente bajista** p
 | China-Taiwan | 10-20% | Catastrofico | Supply chains globales |
 | OPEC+ discipline break | 40-50% | Medio | Price wars, Brent <$50 |
 
-**Exposicion China:** Baja directa, pero demand collapse de China = oil price crash
-**Supply chain:** Majors diversificados geograficamente, bajo riesgo concentracion
-
 ---
 
 ## Sentimiento de Mercado
@@ -153,7 +157,7 @@ El sector de oil & gas majors enfrenta un **entorno fundamentalmente bajista** p
 
 **Mi evaluacion de la narrativa:**
 **60% CORRECTA, 40% PREMATURA**
-- Correcto: Peak oil demand visible (~2030), EVs acelerando, ESG outflows reales ($8.6B Q1 2025 solo)
+- Correcto: Peak oil demand visible (~2030), EVs acelerando, ESG outflows reales
 - Incorrecto: Gas/LNG tiene 20+ anos runway, petrochemicals creciendo, FCF actual de majors cubre transicion
 - El mercado ya pricea mucho de esto a P/E 11-15x. No hay "deep value desconocido."
 
@@ -161,60 +165,74 @@ El sector de oil & gas majors enfrenta un **entorno fundamentalmente bajista** p
 
 ---
 
-## Nuestra Posicion: Shell (SHEL.L)
+## Nuestras Posiciones Actuales
 
-### Status Actual
-- **Shares:** 10.85 (post-TRIM)
-- **Weight:** ~3.6% del portfolio
-- **Avg Cost:** $36.72
-- **P&L:** +3.5%
-- **Status tesis:** HOLD - FAIRLY VALUED (re-evaluacion Framework v2.0)
+### SHEL.L - Shell plc
 
-### Por Que Tenemos Shell
+- **Holding:** 10.85 shares, ~$398 invested (~3.6% portfolio)
+- **Thesis:** Energy supermajor integrada, #1 LNG global, FCF machine $38-40B/ano
+- **Por que nos gusta:**
+  - FCF yield 15-16% (record discount vs sector)
+  - Buyback $3.5B/trimestre (16 trimestres consecutivos >$3B)
+  - LNG moat: #1 mundial, contratos largo plazo, Asian demand
+  - Balance solido (AA- rating, net debt $41B)
+  - Management pragmatico (Wael Sawan): gas/LNG > renewables
+- **Riesgos:**
+  - Oil price collapse <$60 (FCF compression)
+  - Regulatory (EU windfall taxes, CBAM)
+  - Energy transition largo plazo (10-15y runway OK)
+- **Valuation:**
+  - Fair value: GBP 40-50 (precio actual ~GBP 28.4)
+  - MoS: 30-45%
+- **Status:** HOLD pending earnings Feb 5
 
-1. **#1 mundial en LNG** - segmento creciendo 3-5%/anual, contratos 20+ anios con Qatar
-2. **FCF yield 14-15%** - genera $38-40B/anual, cubre dividendo + buybacks
-3. **Hedge geopolitico** - si Iran escala, Shell se beneficia
-4. **Management pragmatico** - Wael Sawan reducio pivot a renewables, foco en returns
+---
 
-### Por Que NO Aumentar
+## Dependencias Activas
 
-1. **MoS ~0% a precio actual (GBP 27.80)** - Re-evaluacion v2.0 muestra FV GBP 26.8
-2. **Brent bajando a $55-58** - reducira FCF significativamente
-3. **Sector en viento en contra** - demand destruction, ESG outflows, regulacion
-4. **LNG glut 2026-27** - supply surge de Qatar/US presionara precios gas
+**Si este sector view cambia MATERIALMENTE, re-evaluar todas las thesis listadas.**
 
-### Triggers para Accion
+| Tipo | Ticker | Thesis Path | Ultima Eval | Status |
+|------|--------|-------------|-------------|--------|
+| Portfolio | SHEL.L | portfolio/validations/SHEL_feb2026.md | 2026-02-04 | HOLD |
+| Watchlist | TTE | (no thesis formal) | 2026-02-04 | Monitor yield 5.2% |
 
-| Accion | Trigger | Justificacion |
-|--------|---------|---------------|
-| **HOLD** | Precio actual | MoS ~0%, no overvalued severamente |
-| **SELL partial** | >GBP 30 | Claramente overvalued, tomar profits |
-| **ADD** | <GBP 24 | MoS sube a 10%+ |
-| **EXIT** | FCF <$30B sostenido o div cut | Thesis broken |
+### Protocolo de Cambio Material
+Cuando actualices este sector view con cambio MATERIAL:
+1. Cambiar status a "NEEDS_REVIEW" en todas las dependencias
+2. Anadir al calendario: "RE-EVAL [tickers] por cambio en [sector]"
+3. Documentar el cambio en "Historial de Cambios"
 
 ---
 
 ## Empresas Objetivo
 
-### Para Analisis Profundo (si buscamos exposicion energia)
+### Para Analisis Profundo
 
-| Ticker | Razon | Priority |
-|--------|-------|----------|
-| TTE.PA | P/E 11.7x, yield 5.5%, LNG growth | Media |
-| XOM | Dividend aristocrat 43 anios, Permian growth | Baja (premium) |
-| CVX | Yield 4%, pero P/E 27x injustificado | Evitar |
+| Ticker | Empresa | Razon | Priority |
+|--------|---------|-------|----------|
+| TTE | TotalEnergies | P/E 12x, yield 5.2%, LNG strong, Mozambique restart | Media |
+| EQNR | Equinor | Norway pure-play, yield 6.1%, P/E 11.9x, 67% govt owned | Media |
+| CVX | Chevron | US major, yield 4%, Permian shale, M&A capacity | Baja |
 
-**TotalEnergies** es el mejor valor relativo entre majors: P/E mas bajo, yield mas alto, balance fuerte, LNG growth. Pero comparte mismos riesgos sectoriales.
+**Nota:** No anadir mas energia hasta confirmar SHEL thesis post-earnings. Concentracion maxima sector 10-15%.
 
 ### Evitar
 
-| Ticker | Razon |
-|--------|-------|
-| BP.L | Turnaround incierto, management cuestionado, earnings deprimidos |
-| CVX | Premium injustificado (P/E 27x vs sector 12-15x), Hess deal overpaid |
-| Independientes shale | Sin moat, margenes comprimidos si oil <$60 |
-| Oilfield services | Capex majors bajando, pricing power limitado |
+| Ticker | Empresa | Razon |
+|--------|---------|-------|
+| BP | BP plc | Balance debil (debt/EBITDA 1.5x+), P/E 62x distorsionado, payout ratio 338%, turnaround incierto. Elliott activist pero riesgo alto |
+| XOM | ExxonMobil | Fundamentals solidos PERO P/E 21.5x = premium vs EU peers. Preferir SHEL/TTE a mitad de precio |
+| OXY | Occidental Petroleum | Alta deuda post-Anadarko, dependiente oil prices altos |
+| Independientes shale | - | Sin moat, margenes comprimidos si oil <$60 |
+
+---
+
+## Analizadas - En Watchlist
+
+| Ticker | Empresa | FV | Entry | MoS Req | Thesis | Fecha Analisis |
+|--------|---------|----|----- -|---------|--------|----------------|
+| TTE | TotalEnergies | $80-85 | $62 | 25% | LNG + Mozambique restart + yield 5.2% | 2026-02-04 |
 
 ---
 
@@ -222,12 +240,13 @@ El sector de oil & gas majors enfrenta un **entorno fundamentalmente bajista** p
 
 | Fecha | Evento | Impacto esperado |
 |-------|--------|------------------|
-| 5-Feb-2026 | **SHEL Q4 2025 earnings** | FCF guidance clave |
-| Feb 2026 | Iran-US negociaciones | Riesgo asimetrico |
-| Q1 2026 | OPEC+ decision produccion | Oversupply o discipline? |
+| **5-Feb-2026** | **SHEL.L Q4 2025 earnings** | CRITICO - validation thesis FCF $40B |
+| 6-Feb-2026 | TTE Q4 2025 earnings | Comparable SHEL |
+| 11-Feb-2026 | BP Q4 2025 earnings | Turnaround progress? |
+| Q1 2026 | OPEC+ meeting | Production cuts extended/eased? |
+| Ongoing | Iran tensions | Oil price upside risk |
 | H1 2026 | Qatar LNG expansions online | Supply surge |
 | 2026 | EU ETS refining CBAM debate | Regulacion |
-| Nov 2026 | US-China trade deal expira | Geopolitica |
 
 ---
 
@@ -235,7 +254,7 @@ El sector de oil & gas majors enfrenta un **entorno fundamentalmente bajista** p
 
 ### Fit con Ciclo Economico
 - **Ciclo actual:** Late-cycle, desacelerando
-- **Fit energia:** **CAUTELA** - cíclicos en late-cycle sufren si recesion
+- **Fit energia:** **CAUTELA** - ciclicos en late-cycle sufren si recesion
 - **Excepcion:** Hedge geopolitico justifica posicion pequena (3-5%)
 
 ### Fit con Geopolitica
@@ -256,48 +275,41 @@ El sector de oil & gas majors enfrenta un **entorno fundamentalmente bajista** p
 
 | Fecha | Cambio | Razon |
 |-------|--------|-------|
-| 2026-02-04 | Status inicial: INFRAPONDERAR | Sector creado |
-| - | SHEL.L posicion reducida a 3.6% | TRIM por overweight |
+| 2026-02-04 | Status: INFRAPONDERAR | Sector view creado. Health check flag: SHEL.L posicion activa sin cobertura sectorial |
+| 2026-02-04 | SHEL.L posicion reducida a 3.6% | TRIM por overweight (era 15%) |
+
+---
+
+## Reglas de Ciclo de Vida
+
+### Cuando una empresa se COMPRA:
+- Mover de "Analizadas - Watchlist" a "Nuestras Posiciones Actuales"
+- Anadir a "Dependencias Activas" como Portfolio
+
+### Cuando una thesis se ARCHIVA (vendida o descartada):
+- Mover de "Dependencias Activas" a "Historial de Analisis"
+- Registrar razon y fecha de archivo
+- Mantener maximo 10 entradas en historial, luego purgar
+
+### Cuando sector view crece demasiado (>300 lineas):
+- Mover "Historial de Analisis" a archivo separado: world/sectors/archive/energy-history.md
+- Mantener solo ultimos 6 meses en "Analizadas"
+
+### Historial de Analisis (Archivadas)
+| Ticker | Razon Archivo | Fecha | Leccion |
+|--------|---------------|-------|---------|
+| (vacio) | | | |
 
 ---
 
 ## Fuentes
 
-### Oil Price Forecasts
+- [Deloitte 2026 Oil and Gas Industry Outlook](https://www.deloitte.com/us/en/insights/industry/oil-and-gas/oil-and-gas-industry-outlook.html)
+- [RSM US 2026 Oil and Gas Outlook](https://rsmus.com/insights/industries/energy/reconciling-industry-and-company-outlook.html)
 - [EIA Short-Term Energy Outlook](https://www.eia.gov/outlooks/steo/)
-- [J.P. Morgan Oil Price Forecast](https://www.jpmorgan.com/insights/global-research/commodities/oil-price-forecast)
-- [ABN AMRO Energy Market Outlook 2026](https://www.abnamro.com/research/en/our-research/energy-market-outlook-2026-oil-oversupply-and-european-gas-price)
-- [EBC Oil Price Forecast 2026](https://www.ebc.com/forex/oil-price-forecast-2026-where-brent-and-wti-may-land)
-
-### Energy Transition
-- [IEA World Energy Outlook 2025](https://www.iea.org/reports/oil-2025/executive-summary)
-- [IEA Oil Demand Forecasts](https://www.iea.org/energy-system/fossil-fuels/oil)
-- [BloombergNEF Energy Transition 2030](https://about.bnef.com/insights/clean-energy/progress-despite-fragmentation-the-energy-transition-to-2030/)
-
-### Oil Majors Capex & Strategy
-- [Evaluate Energy: Supermajors Capex](https://info.evaluateenergy.com/us-oil-gas-supermajors-exxon-chevron-outpace-european-shell-bp-totalenergies-in-upstream-capital-spending/)
-- [Oil & Gas Journal: Majors Pull Back Renewables](https://www.ogj.com/general-interest/economics-markets/article/55278829/majors-pull-back-from-renewable-energy-investments)
-- [Offshore Energy: $27B Quarterly Profits](https://www.offshore-energy.biz/27-billion-fills-shell-bp-totalenergies-eni-equinor-exxonmobil-chevron-and-conocophillips-quarterly-profit-coffers/)
-
-### LNG Market
-- [IEA: Global Gas Demand 2026](https://www.iea.org/news/global-natural-gas-demand-growth-set-to-accelerate-in-2026-as-more-lng-supply-comes-to-market)
-- [OilPrice: Global LNG Glut 2026](https://oilprice.com/Energy/Natural-Gas/Global-LNG-Glut-Could-Upend-Prices-by-2026.html)
-- [PWC: Future of LNG](https://www.pwc.com/us/en/industries/energy-utilities-resources/library/future-of-lng.html)
-
-### Regulation & ESG
-- [S&P Global: CBAM Refiners](https://www.spglobal.com/energy/en/news-research/latest-news/crude-oil/122225-commodities-2026-european-refiners-plead-for-cbam-protections)
-- [EC: Carbon Border Adjustment Mechanism](https://taxation-customs.ec.europa.eu/carbon-border-adjustment-mechanism_en)
-- [Morningstar: ESG Funds Outflows 2025](https://www.morningstar.com/sustainable-investing/esg-funds-2025-closes-with-continued-outflows-amid-persistent-headwinds)
-
-### NOCs vs IOCs
-- [OilPrice: NOCs Set Pace](https://oilprice.com/Energy/Energy-General/National-Oil-Companies-Quietly-Set-The-Pace-For-The-Next-Decade.amp.html)
-- [World Energy Council: NOCs](https://www.worldenergy.org/news-views/entry/the-other-players-independents-and-national-oil-companies)
-
-### Geopolitics
-- [Al Jazeera: Khamenei Warns Regional War](https://www.aljazeera.com/news/2026/2/1/khamenei-warns-us-of-regional-war-if-iran-is-attacked)
-- [Deloitte: Oil & Gas Industry Outlook 2026](https://www.deloitte.com/us/en/insights/industry/oil-and-gas/oil-and-gas-industry-outlook.html)
-
-### Valuations
-- [Wisesheets: Shell PE Ratio](https://www.wisesheets.io/pe-ratio/SHEL)
-- [Motley Fool: Oil Dividend Stocks 2026](https://www.fool.com/investing/stock-market/market-sectors/energy/oil-stocks/oil-dividend-stocks/)
-- [Siblis Research: EV/EBITDA by Sector](https://siblisresearch.com/data/ev-ebitda-multiple/)
+- [Wood Mackenzie Corporate Oil & Gas 2026 Outlook](https://www.woodmac.com/news/opinion/corporate-oil-gas-2026-outlook)
+- [Seeking Alpha - Shell FCF Analysis](https://seekingalpha.com/article/4851307-shell-continued-investment-and-incredibly-strong-fcf)
+- [CNBC - Oil Majors Earnings Season](https://www.cnbc.com/2026/02/03/oil-earnings-shell-bp-equinor-totalenergies-dividends-buybacks.html)
+- [Euronews - EU Carbon Border Tax](https://www.euronews.com/my-europe/2026/01/01/eus-carbon-border-tax-on-heavy-industry-goods-goes-into-effect-risking-trade-escalation)
+- [Motley Fool - Better Buy 2026: ExxonMobil or Chevron](https://www.fool.com/investing/2025/12/07/better-buy-for-2026-exxonmobil-or-chevron/)
+- [Equinor Dividend History](https://stockanalysis.com/stocks/eqnr/dividend/)

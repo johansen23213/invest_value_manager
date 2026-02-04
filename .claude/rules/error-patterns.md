@@ -98,3 +98,18 @@ El humano ha tenido que señalar REPETIDAMENTE problemas que debería detectar s
 27. **No actualizar sector view después de análisis** — Analizaba empresas pero no las movía de "Empresas Objetivo" a "Analizadas" ni las añadía a dependencias. REGLA: Después de cada fundamental-analyst, actualizar sector view correspondiente: mover empresa a sección correcta + añadir a dependencias + actualizar fecha.
 
 28. **No tener ciclo de vida para thesis archivadas** — Cuando una thesis se archiva, sus dependencias quedaban huérfanas. REGLA: Al archivar thesis: eliminar de dependencias activas, añadir a historial con razón y lección aprendida, mantener máximo 10 en historial.
+
+---
+
+## Errores Sesión 31 (2026-02-04)
+
+29. **Sugerir empresas por popularity bias en vez de usar herramientas** — Sugerí NOVO-B.CO, MA, V, GOOGL porque son nombres famosos de mi training data, no porque los encontré sistemáticamente. REGLA: ANTES de sugerir cualquier empresa:
+    1. Consultar sector views → "Empresas Objetivo" ya documentadas
+    2. Ejecutar dynamic_screener con filtros relevantes
+    3. SOLO después de estos pasos, puedo sugerir empresas
+    4. Si la empresa viene de mi "conocimiento", es sesgo → validar con datos
+
+30. **Comprar sin sector view existente** — Compré ADBE sin tener world/sectors/technology.md. Esto viola el proceso de inversión. REGLA: ANTES de cualquier BUY:
+    - Verificar que existe sector view para el sector de la empresa
+    - Si NO existe → crearlo PRIMERO (usar sector-screener agent)
+    - Investment Committee debe verificar Gate 8 (Sector Understanding) con sector view

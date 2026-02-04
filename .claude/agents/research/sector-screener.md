@@ -7,9 +7,10 @@ permissionMode: acceptEdits
 skills:
   - screening-protocol
   - critical-thinking
+  - agent-meta-reflection
 ---
 
-# Sector Screener Sub-Agent
+# Sector Screener v3.0
 
 ## PASO 0: ONBOARDING OBLIGATORIO
 **ANTES de hacer screening:**

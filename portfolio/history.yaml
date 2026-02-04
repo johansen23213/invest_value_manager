@@ -9,11 +9,11 @@
 # Metadata
 metadata:
   created: 2026-02-03
-  last_updated: 2026-02-03
-  total_closed: 1
-  total_pnl_eur: 0.00
+  last_updated: 2026-02-04
+  total_closed: 2
+  total_pnl_eur: -22.85
   win_rate: 0.0  # % of positions that were profitable
-  avg_holding_days: 4
+  avg_holding_days: 3
 
 # Closed Positions
 closed_positions:
@@ -57,6 +57,29 @@ closed_positions:
       correct: null  # Position closed before thesis could be validated
       notes: "Sold because bought at fair value without margin of safety (error in process). No loss, but opportunity cost. Recognized process failure and corrected."
     exit_reason: error  # Bought without proper thesis/MoS
+
+  - ticker: FUTR.L
+    name: "Future plc"
+    entry_date: 2026-02-03
+    exit_date: 2026-02-04
+    shares: 111
+    entry_price_gbp: 536.40  # Weighted avg: (47*532 + 64*539.5)/111
+    exit_price_gbp: 522.50
+    entry_currency: GBp
+    invested_eur: 695.05  # $817.40 / 1.1762 (avg FX)
+    proceeds_eur: 672.20
+    pnl_amount_eur: -22.85
+    pnl_percent: -2.8
+    holding_days: 1
+    thesis_fv_at_entry: 1100  # GBp - original thesis
+    thesis_fv_v2: 1050  # GBp - v2.0 re-evaluation
+    fv_reached: false
+    quality_score: 32  # Tier D - reason for exit
+    thesis_accuracy:
+      correct: null  # Position closed before thesis could be validated
+      notes: "Framework v3.0 Tier D violation. QS 32/100 = DO NOT HOLD. Value trap 4/10 factors (secular decline, tech disruption, ROIC<WACC, high goodwill). MoS was 46-53% but quality insufficient. Disciplined exit to redeploy capital to Tier A/B compounders."
+    exit_reason: thesis_invalidated  # Framework v3.0 upgrade revealed quality issue
+    lesson_learned: "v2.0 portfolio built on P/E+yield screening missed quality dimension. Framework v3.0 Quality Score is essential filter BEFORE valuation."
 
 # Partial Sells (Trims) - Not full exits, but record for P&L tracking
 partial_sells:

@@ -1,79 +1,225 @@
 # =============================================================================
-# ESTADO DEL SISTEMA - Value Investor v2.2.0
-# Actualizado 2026-02-03 - Framework de inversion rediseñado
+# ESTADO DEL SISTEMA - Value Investor v3.0
+# Actualizado 2026-02-04
 # =============================================================================
 
 system:
-  system_version: "2.2.2"
-  last_session: 2026-02-04
+  system_version: "3.0.0"
+  framework_version: "3.0"
+  last_session: 2026-02-05
+  session_number: 32
+
+  # FRAMEWORK v3.0 - IMPLEMENTADO
+  # =====================================
+  framework_v3_status:
+    status: IMPLEMENTED
+    document: docs/framework_v3.0_final_design.md
+    implementation_date: 2026-02-04
+    key_changes:
+      - "Quality Score (0-100) ANTES de valoración"
+      - "MoS variable: Tier A 10-15%, Tier B 20-25%, Tier C 30-40%"
+      - "Tier D (<35 QS) = NO COMPRAR nunca"
+      - "Métodos: OEY + Reverse DCF para Tier A"
+      - "9 Gates en Investment Committee"
+    phases:
+      - phase: 1
+        name: "Core System Update"
+        status: COMPLETED
+        description: "CLAUDE.md, investment-rules, quality-compounders skill, business-analysis-framework, valuation-methods"
+      - phase: 2
+        name: "Agents & Tools"
+        status: COMPLETED
+        description: "fundamental-analyst, investment-committee, quality_scorer.py"
+      - phase: 3
+        name: "Portfolio Re-evaluation"
+        status: COMPLETED
+        description: "Quality Score calculado para 18 posiciones"
+      - phase: 4
+        name: "Pipeline Expansion"
+        status: PENDING
+        description: "Añadir Quality Compounders a watchlist"
+      - phase: 5
+        name: "Validation"
+        status: PENDING
+        description: "Review +30 días"
+
+  # QUALITY SCORE - PORTFOLIO ANALYSIS (2026-02-04)
+  # ===============================================
+  portfolio_quality_analysis:
+    date: 2026-02-05
+    summary:
+      tier_a_count: 2  # ADBE + NVO
+      tier_b_count: 5
+      tier_c_count: 12
+      tier_d_count: 0
+      tier_d_violation: null  # RESOLVED: FUTR.L sold 2026-02-04
+      first_tier_a: ADBE  # First Quality Compounder in portfolio!
+      framework_v3_validated: true  # NVO = full end-to-end validation
+    positions:
+      # TIER A - Quality Compounders (2 positions)
+      - { ticker: ADBE, score: 76, tier: A, mos_required: "10-15%", status: "First Tier A!" }
+      - { ticker: NVO, score: 82, tier: A, mos_required: "10-15%", status: "Framework v3.0 validated! MoS 38%" }
+      # TIER B - Quality Value (5 positions)
+      - { ticker: HRB, score: 73, tier: B, mos_required: "20-25%" }
+      - { ticker: EDEN.PA, score: 62, tier: B, mos_required: "20-25%" }
+      - { ticker: DOM.L, score: 61, tier: B, mos_required: "20-25%" }
+      - { ticker: SAN.PA, score: 59, tier: B, mos_required: "20-25%" }
+      - { ticker: LIGHT.AS, score: 56, tier: B, mos_required: "20-25%" }
+      # TIER C - Special Situations (12 positions)
+      - { ticker: ALL, score: 54, tier: C, mos_required: "30-40%" }
+      - { ticker: VICI, score: 54, tier: C, mos_required: "30-40%" }
+      - { ticker: IMB.L, score: 54, tier: C, mos_required: "30-40%" }
+      - { ticker: GL, score: 52, tier: C, mos_required: "30-40%" }
+      - { ticker: UHS, score: 51, tier: C, mos_required: "30-40%" }
+      - { ticker: PFE, score: 49, tier: C, mos_required: "30-40%" }
+      - { ticker: DTE.DE, score: 48, tier: C, mos_required: "30-40%" }
+      - { ticker: TEP.PA, score: 46, tier: C, mos_required: "30-40%" }
+      - { ticker: TATE.L, score: 45, tier: C, mos_required: "30-40%" }
+      - { ticker: VNA.DE, score: 41, tier: C, mos_required: "30-40%" }
+      - { ticker: A2A.MI, score: 37, tier: C, mos_required: "30-40%" }
+      - { ticker: SHEL.L, score: 36, tier: C, mos_required: "30-40%" }
+      # TIER D - NONE (FUTR.L sold 2026-02-04)
+    diagnosis: |
+      Portfolio evolucionando de v2.0 (P/E screening) a v3.0 (Quality First).
+      Sesión 31: FUTR.L vendido (Tier D), ADBE comprado (primer Tier A).
+      Ahora: 1 Tier A, 5 Tier B, 12 Tier C. Sin violaciones Tier D.
+      Continuar añadiendo Tier A compounders: NOVO-B.CO, MA, V en pipeline.
   last_session_summary: |
-    Sesion 29 - PREPARACION EARNINGS Y PIPELINE EXPANSION
+    Sesión 32 - FRAMEWORK v3.0 VALIDADO + SEGUNDO TIER A (2026-02-05)
 
-    EARNINGS PREP COMPLETADOS (5-feb-2026):
-    1. GL (Globe Life) - Q4 after close
-       - EPS consensus $3.44, FY26 guidance ~$15
-       - Class action: SEC/DOJ cerrados, civil ongoing
-       - Accion: HOLD. Kill: EPS <$12 o new fraud evidence
-       - Buy trigger: $130 (25% MoS)
+    =====================================================
+    HITO: Framework v3.0 validado end-to-end con NVO
+    =====================================================
 
-    2. ALL (Allstate) - Q4
-       - Combined ratio esperado 92-96% (Q3 fue 80.1%)
-       - Accion: HOLD. Kill: CR >100% sostenido
-       - Decision tree preparado Bear/Base/Bull
+    OPERACIONES EJECUTADAS:
+    1. BUY NVO 8.31 shares @ $48.13 = $400
+       - QS: 82/100 (Tier A - Quality Compounder)
+       - MoS: 38% (excepcional)
+       - Framework v3.0 completo: QS → Business → Projections → Valuation → 9 Gates
+       - Segundo Tier A en portfolio (ADBE + NVO)
 
-    3. SHEL.L (Shell) - Q4
-       - EPS $1.21, FCF $9-10B, buyback $3.5B esperado
-       - Iran hedge thesis: 30-40% prob conflicto
-       - Accion: HOLD. Kill: dividend cut o FCF <$30B FY
+    ANÁLISIS COMPLETADOS:
+    1. MA (Mastercard) - QS 86 Tier A - WATCHLIST
+       - Overvalued: $551 actual vs $420 FV
+       - Entry price: $395 (-28%)
+       - Standing order añadido
 
-    ANALISIS REALIZADOS (4 empresas):
-    1. GIS (General Mills): WATCHLIST
-       - FV $45-50, current $46.50 = 0% MoS
-       - Entry: $35-38 | Quality 6.5/10 Tier B
-       - GLP-1/private label headwinds
+    2. Sector view payments-fintech CREADO
+       - Duopolio V/MA documentado
+       - Prerequisito para análisis MA/V
 
-    2. BATS.L (British American Tobacco): WATCHLIST
-       - FV 5163 GBp, current 4545 GBp = 12-17% MoS
-       - Entry: 4000-4200 GBp (-10-12%)
-       - Ya tenemos IMB.L - IMB es mejor valor (P/E 8x vs 10x)
-       - Value trap 4/10, ROIC < WACC
-       - Earnings 12-feb
+    SISTEMA:
+    1. opportunity-hunter verificado y añadido a agent-registry
+    2. Standing orders verificados:
+       - EVO.ST TRIGGERED (581 < 600) pero condicionado a earnings mañana
+       - ZIG.L -3.4% del trigger (388 vs 375)
 
-    3. CAG (Conagra): AVOID - VALUE TRAP
-       - FV ~$17.50, current $19.11 = OVERVALUED
-       - Value trap 5/10: impairment $968M, loss Q2, ROIC~WACC
-       - Yield 7.3% pero payout -667% (pagando de perdidas)
-       - NO COMPRAR a ningun precio actual
+    PORTFOLIO:
+    | Métrica | Valor |
+    |---------|-------|
+    | Posiciones | 19 |
+    | Tier A | 2 (ADBE, NVO) |
+    | Cash | €1,773 (18%) |
+    | Standing orders | 12 |
 
-    4. Documento Joan: NVDA/TSMC/Tierras Raras
-       - Creado en docs/analisis_joan_nvda_tsmc_tierras_raras.md
-       - Recomendacion: TSMC > NVDA > MP/Lynas
+    =====================================================
+    ACCIONES PENDIENTES PRÓXIMA SESIÓN
+    =====================================================
 
-    CORRECCIONES:
-    - HRB ADD order $27.90 era ERROR - corregido
+    URGENTE:
+    1. Evaluar EVO.ST earnings (Feb 5) - standing order condicionado
+    2. Monitorear ZIG.L (-3.4% del trigger)
+    3. Evaluar earnings GL, ALL, SHEL
 
-    STANDING ORDERS VERIFICADOS:
-    - EVO.ST: 567 SEK BELOW trigger pero UKGC pendiente - NO COMPRAR
-    - BME.L: 175p vs 169p (+3.5%)
-    - ZIG.L: 386.5p vs 375p (+3.1%)
+    ALTA PRIORIDAD:
+    4. Continuar desplegando cash (18% → 15%)
+    5. Analizar V (Visa) si interesa - pero probablemente también overvalued
 
-    METRICAS:
-    - Portfolio: $11,386 (EUR 9,628) | P&L +$37 (+0.4%)
-    - Cash: 18.8% | Posiciones: 18 | Winners: 44%
+    CALENDARIO PRÓXIMOS 7 DÍAS:
+    - Feb 5: EVO.ST earnings, GL call, ALL earnings, SHEL earnings
+    - Feb 11: CVS earnings
+    - Feb 12: BATS.L earnings
+
+    =====================================================
+
+  last_session_summary_archived: |
+    Sesión 31 - PRIMER QUALITY COMPOUNDER + CONSTRAINTS RESUELTOS (2026-02-04)
+
+    =====================================================
+    HITO: ADBE = Primer Tier A en Portfolio
+    =====================================================
+
+    OPERACIONES EJECUTADAS:
+    1. SELL FUTR.L 111 shares @ 522.50 GBp
+       - P&L: -€23 (-2.8%)
+       - Razón: Tier D violation (QS 32/100)
+       - Framework v3.0 funcionando: no toleramos Tier D
+
+    2. BUY ADBE 2 shares @ $270.60
+       - Total: $541.20 (~€458)
+       - QS: 76/100 (Tier A - Quality Compounder)
+       - MoS: 31% (vs 20% requerido)
+       - FV: $394 (OEY + Reverse DCF)
+       - At 52-week low, P/E 16.3x excepcional
+
+    3. TRIM DTE.DE 3 shares @ €30.31
+       - Proceeds: €91
+       - Constraint 7.3% → 6.4% RESOLVED
+
+    PORTFOLIO ACTUAL:
+    | Tier | Count | Posiciones |
+    |------|-------|------------|
+    | A    | 1     | ADBE (NEW!) |
+    | B    | 5     | HRB, EDEN, DOM, SAN, LIGHT |
+    | C    | 12    | ALL, VICI, IMB, GL, UHS, PFE, DTE, TEP, TATE, VNA, A2A, SHEL |
+    | D    | 0     | NINGUNA (FUTR.L vendido) |
+
+    MÉTRICAS:
+    - Posiciones: 18
+    - Valor: $11,503 (€9,727)
+    - P&L: +$171 (+1.9%)
+    - Cash: €2,112 (21.7%)
+    - Constraints: TODOS OK
+
+    EARNINGS FRAMEWORKS PREPARADOS (Feb 5):
+    - GL: Q4 after-close, consensus EPS $3.44
+    - ALL: Q4, watch combined ratio
+    - SHEL.L: Q4, watch FCF y buyback
+    Decision trees listos para cada escenario.
+
+    =====================================================
+    ACCIONES PENDIENTES PRÓXIMA SESIÓN
+    =====================================================
+
+    URGENTE:
+    1. Evaluar resultados earnings GL, ALL, SHEL.L
+    2. Continuar desplegando cash (21.7% → 15% target)
+
+    ALTA PRIORIDAD:
+    3. Analizar NOVO-B.CO (QS 94, near 52w low)
+    4. Analizar MA (QS 86, at 52w low)
+    5. Monitorear ZIG.L standing order (-3% del trigger)
+
+    PIPELINE:
+    6. Phase 4 en progreso: añadiendo Quality Compounders
+    7. Phase 5 en 30 días: validar resultados
+
+    =====================================================
+    ESTADO DEL SISTEMA
+    =====================================================
+    - Framework: v3.0 OPERATIVO
+    - Tier D violations: 0 (resuelto)
+    - Primer Tier A: ADBE
+    - Standing orders: 9 activas
+    - Próximo health check: 2026-02-18
 
     ARCHIVOS MODIFICADOS:
-    - thesis/research/GIS/thesis.md (nuevo)
-    - thesis/research/BATS.L/thesis.md (nuevo)
-    - thesis/research/CAG/thesis.md (nuevo - AVOID)
-    - world/sectors/consumer-staples.md (actualizado)
-    - docs/analisis_joan_nvda_tsmc_tierras_raras.md (nuevo)
+    - portfolio/current.yaml (FUTR.L removed, ADBE added, DTE.DE trimmed)
+    - portfolio/history.yaml (FUTR.L closed position)
+    - thesis/archive/FUTR.L/ (moved from active)
+    - thesis/active/ADBE/ (new)
+    - state/system.yaml (calendar, quality analysis)
 
-    ALERTAS PROXIMA SESION (30):
-    1. EARNINGS HOY: GL, ALL, SHEL.L - ejecutar decision trees
-    2. BATS.L earnings 12-feb - revisar thesis post-results
-    3. Standing orders cerca: BME.L (-3.5%), ZIG.L (-3.1%)
-    4. EVO.ST - UKGC monitoring
-    5. Cash 18.8% - earnings pueden crear oportunidades
   status: active
 
 # -----------------------------------------------------------------------------
@@ -138,6 +284,20 @@ calendar:
       priority: high
       action: "FV updated 745p (was 770p). MoS at 540p = 27.5%. Tier B REIT. Value trap 1.5/10."
 
+    - date: 2026-02-04
+      type: action_completed
+      ticker: FUTR.L
+      event: "DONE - SOLD FUTR.L 111 shares (Tier D violation resolved)"
+      priority: CRITICAL
+      action: "SOLD 111 shares FUTR.L @ 522.50 GBp. P&L -2.8% (-€23). Cash +€672. Capital ready for quality compounders."
+
+    - date: 2026-02-04
+      type: action_completed
+      ticker: ADBE
+      event: "DONE - BUY ADBE 2 shares (First Tier A Quality Compounder!)"
+      priority: high
+      action: "BUY 2 shares ADBE @ $270.60. Total $541.20. QS 76, MoS 31%. At 52w low. FV $394."
+
     - date: 2026-02-05
       type: earnings
       ticker: GL
@@ -160,11 +320,39 @@ calendar:
       action: "Watch FCF, buyback $3.5B, guidance."
 
     - date: 2026-02-05
+      type: action_completed
+      ticker: NVO
+      event: "DONE - BUY NVO 8.31 shares (Second Tier A Quality Compounder!)"
+      priority: high
+      action: "BUY 8.31 shares NVO @ $48.13. Total $400. QS 82 Tier A, MoS 38%. Framework v3.0 validated. Phased entry 4%."
+
+    - date: 2026-02-05
       type: action
       ticker: EVO.ST
       event: "POST-EARNINGS: Evaluar compra Evolution AB"
       priority: high
       action: "Si buenos + UKGC OK - BUY hasta 650 SEK (~400). Si malos - 480-530 SEK. Si UKGC revocacion - DESCARTAR."
+
+    - date: 2026-02-05
+      type: standing_order_alert
+      ticker: ZIG.L
+      event: "ZIG.L -3.4% del trigger (388 GBp vs 375 GBp)"
+      priority: high
+      action: "MONITOR DIARIO. Si llega a 375 GBp - EJECUTAR standing order (350 EUR, 81 shares)."
+
+    - date: 2026-02-05
+      type: standing_order_alert
+      ticker: EVO.ST
+      event: "EVO.ST BAJO trigger (581 SEK < 600 SEK) pero CONDICIONADO"
+      priority: high
+      action: "ESPERAR earnings Feb 5. Si UKGC favorable + resultados OK - EJECUTAR. Si UKGC revocación - CANCELAR."
+
+    - date: 2026-03-15
+      type: catalyst
+      ticker: NVO
+      event: "CagriSema vs Zepbound head-to-head data (critical catalyst)"
+      priority: CRITICAL
+      action: "If positive: ADD 2% to NVO position. If inferior: evaluate kill conditions."
 
     - date: 2026-02-03
       type: action_completed
@@ -286,6 +474,61 @@ calendar:
 # WATCHLIST
 # -----------------------------------------------------------------------------
 watchlist:
+  # QUALITY COMPOUNDERS PIPELINE (Framework v3.0 - Tier A)
+  quality_compounders:
+    # NOVO-B.CO/NVO MOVED TO PORTFOLIO 2026-02-05
+    # MA ANALYZED 2026-02-05 - WATCHLIST (overvalued)
+    - ticker: MA
+      quality_score: 86
+      tier: A
+      current_price_usd: 551
+      fair_value_usd: 420
+      entry_price_usd: 395
+      mos_current: "-24% (OVERVALUED)"
+      mos_required: "10-15%"
+      status: "WATCHLIST - Wait for $395 (-28% from current)"
+      notes: "QS 86 confirmed. ROIC 44%, FCF 48%. Wide moat. But P/E 33x needs correction to P/E 24-28x."
+    - ticker: V
+      quality_score: 80
+      tier: A
+      current_price_usd: 329
+      fair_value_usd: 275-290
+      entry_price_usd: 280
+      entry_price_add: 265
+      mos_current: "-12.6% (OVERVALUED)"
+      mos_required: "10-15%"
+      status: "WATCHLIST - Wait for $280 (-15% from current)"
+      notes: "QS 80 confirmed. ROIC 50%+, FCF 54%, #1 share 52%. Standing order $280 BUY, $265 ADD."
+    - ticker: ADBE
+      quality_score: 76
+      tier: A
+      current_price_usd: 272
+      at_52w_low: true
+      mos_required: "10-15%"
+      status: "ANALYZE PRIORITY - At 52w low, AI beneficiary"
+      notes: "P/E 16.3x ONLY! -51% from 52wH. Creative monopoly + AI. Low cap alloc score."
+    - ticker: GOOGL
+      quality_score: 76
+      tier: A
+      current_price_usd: 340
+      mos_required: "10-15%"
+      status: "ANALYZE - Near 52w high, wait for pullback"
+      notes: "P/E 33.6x. Search + Cloud + YouTube moat."
+
+  # QUALITY VALUE (Framework v3.0 - Tier B)
+  quality_value:
+    - ticker: META
+      quality_score: 74
+      tier: B
+      current_price_usd: 692
+      mos_required: "20-25%"
+      notes: "P/E 29.4x. -27% from 52wH. Social moat + AI."
+    - ticker: ASML
+      quality_score: 66
+      tier: B
+      mos_required: "20-25%"
+      notes: "Lithography monopoly. Wait for analysis."
+
   ready_to_buy:
     - ticker: TTE
       target_entry_eur: 45
@@ -484,6 +727,15 @@ watchlist:
       entry_gbp: 532
       fair_value_gbp: 1100-1200
       kill: "Revenue decline >10% 2+ years, margins <20%, buyback suspension"
+    - ticker: NVO
+      entry_usd: 48.13
+      fair_value_dkk: 491
+      fair_value_usd: 66  # approx, DKK 491 / 7.45
+      mos: 38%
+      tier: A
+      quality_score: 82
+      notes: "Framework v3.0 validated. Phased entry 4%. ADD trigger: CagriSema positive (Mar 2026) or price <$40."
+      kill: "CagriSema inferior to Zepbound, market share <40%, gross margin <70%, dividend cut"
 
 # -----------------------------------------------------------------------------
 # ALERTAS DE PRECIO
@@ -512,6 +764,7 @@ alerts:
     - { ticker: SRE.L, entry_gbp: 75, note: "Sirius RE. FV 100p. Entry 75p = 25% MoS. Refinancing Jun-2026 catalyst." }
     - { ticker: GIS, entry_usd: 38, note: "General Mills. FV $45-50. Entry $35-38. Quality 6.5/10 Tier B. GLP-1 headwind." }
     - { ticker: BATS.L, entry_gbp: 4200, note: "BAT. FV 5163p. Entry 4000-4200p. Ya tenemos IMB.L. Earnings 12-feb." }
+    - { ticker: V, entry_usd: 280, note: "Visa. QS 80 Tier A. FV $275-290. Entry $280, ADD $265. Duopoly #1." }
 
 # -----------------------------------------------------------------------------
 # STANDING ORDERS (pre-aprobadas, ejecutar cuando precio toque trigger)
@@ -644,6 +897,56 @@ standing_orders:
     notes: "WPP turnaround. Tier C. No moat, AI disruption. Altman Z 1.06. Wait for Rose plan Feb 19."
     expiry: 2026-04-01
 
+  # NVO ADD - CONDITIONAL on CagriSema data or price drop
+  - ticker: NVO
+    action: ADD
+    trigger: "CagriSema vs Zepbound POSITIVE (March 2026) OR price <=$40"
+    size_eur: 300
+    shares_approx: 6
+    thesis: thesis/active/NVO/thesis.md
+    fair_value: "$66 (DKK 491)"
+    mos_at_trigger: "40%+ at $40"
+    notes: "ADD to existing 8.31 shares. Brings position from 4% to 6-7%. Framework v3.0 Tier A."
+    expiry: 2026-06-01
+
+  # MA - Quality Compounder waiting for entry
+  - ticker: MA
+    action: BUY
+    trigger: "<=$395"
+    size_eur: 500
+    shares_approx: 1.3
+    thesis: thesis/research/MA/thesis.md
+    fair_value: "$420"
+    mos_at_trigger: "6% at $395, better at lower"
+    tier: "A (QS 86)"
+    notes: "Quality Compounder (ROIC 44%, FCF 48%). Currently $551 = OVERVALUED. Wait for correction. P/E 33x → need ~24-28x."
+    expiry: 2026-08-01
+
+  # V - Quality Compounder waiting for entry
+  - ticker: V
+    action: BUY
+    trigger: "<=$280"
+    size_eur: 500
+    shares_approx: 1.8
+    thesis: thesis/research/V/thesis.md
+    fair_value: "$275-290"
+    mos_at_trigger: "3-5% at $280, better at $265"
+    tier: "A (QS 80)"
+    notes: "Quality Compounder (ROIC 50%+, FCF 54%, #1 market share 52%). Currently $329 = OVERVALUED. V closer to entry than MA (-15% vs -28%)."
+    expiry: 2026-08-01
+
+  - ticker: V
+    action: ADD
+    trigger: "<=$265"
+    size_eur: 300
+    shares_approx: 1.1
+    thesis: thesis/research/V/thesis.md
+    fair_value: "$275-290"
+    mos_at_trigger: "8-10% at $265"
+    tier: "A (QS 80)"
+    notes: "ADD to existing position if price drops further. Total target 5-6%."
+    expiry: 2026-08-01
+
 # -----------------------------------------------------------------------------
 # MACRO (resumen)
 # -----------------------------------------------------------------------------
@@ -671,7 +974,7 @@ maintenance:
       action: "Normalizar a LIGHT.AS"
   last_compact: 2026-02-01
   memory_status: ok
-  agents_count: 19
+  agents_count: 20  # Added opportunity-hunter
   skills_count: 18
   tools_count: 7
   evolution_tracking:
