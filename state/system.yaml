@@ -85,60 +85,102 @@ system:
       Ahora: 1 Tier A, 5 Tier B, 12 Tier C. Sin violaciones Tier D.
       Continuar añadiendo Tier A compounders: NOVO-B.CO, MA, V en pipeline.
   last_session_summary: |
-    Sesión 32 - FRAMEWORK v3.0 VALIDADO + SEGUNDO TIER A (2026-02-05)
+    Sesión 34 - SISTEMA DE VIGILANCIA PROACTIVA (2026-02-05)
 
     =====================================================
-    HITO: Framework v3.0 validado end-to-end con NVO
+    MAJOR SYSTEM UPGRADE
     =====================================================
 
-    OPERACIONES EJECUTADAS:
-    1. BUY NVO 8.31 shares @ $48.13 = $400
-       - QS: 82/100 (Tier A - Quality Compounder)
-       - MoS: 38% (excepcional)
-       - Framework v3.0 completo: QS → Business → Projections → Valuation → 9 Gates
-       - Segundo Tier A en portfolio (ADBE + NVO)
+    Trigger: Usuario detectó que recomendamos NVO sin contextualizar
+    que la acción había caído 18% los 2 días previos.
 
-    ANÁLISIS COMPLETADOS:
-    1. MA (Mastercard) - QS 86 Tier A - WATCHLIST
-       - Overvalued: $551 actual vs $420 FV
-       - Entry price: $395 (-28%)
-       - Standing order añadido
+    DIAGNÓSTICO:
+    - No monitoreábamos noticias de posiciones activas
+    - No detectábamos movimientos anómalos
+    - Recomendaciones sin contexto de timing
+    - Ignorábamos META-REFLECTION de agentes
 
-    2. Sector view payments-fintech CREADO
-       - Duopolio V/MA documentado
-       - Prerequisito para análisis MA/V
+    IMPLEMENTADO:
+    - 3 nuevos agentes: news-monitor, market-pulse, risk-sentinel
+    - 3 nuevos skills: news-classification, error-detector, recommendation-context
+    - 2 rules: session-protocol v2.0, meta-reflection-integration
+    - 3 state files: news_digest.yaml, market_pulse.yaml, risk_alerts.yaml
+    - 4 nuevos errores documentados (#31-34)
 
-    SISTEMA:
-    1. opportunity-hunter verificado y añadido a agent-registry
-    2. Standing orders verificados:
-       - EVO.ST TRIGGERED (581 < 600) pero condicionado a earnings mañana
-       - ZIG.L -3.4% del trigger (388 vs 375)
+    TOTAL SISTEMA: 23 agentes, 21 skills, 6 rules, 7 tools
+
+    =====================================================
+    PENDIENTE PRÓXIMA SESIÓN
+    =====================================================
+
+    1. EJECUTAR nuevo protocolo Fase 0 (Vigilancia)
+    2. Verificar earnings GL, ALL (publicados hoy after close)
+    3. Verificar earnings SHEL.L (mañana)
+    4. EVO.ST earnings - evaluar si UKGC OK para ejecutar
+    5. Cash drag 18% - buscar deployment si constraints permiten
+
+    STANDING ORDERS CERCANOS:
+    - ZIG.L: 389.5 GBp vs 375 GBp (-3.7%)
+    - EVO.ST: 585.8 SEK < 600 SEK (CONDICIONADO)
+
+    =====================================================
+
+  last_session_summary_archived: |
+    Sesión 33 - ANÁLISIS V + TYL + EARNINGS PREP (2026-02-04)
+
+    =====================================================
+    ANÁLISIS COMPLETADOS (4 agentes en paralelo)
+    =====================================================
+
+    1. V (Visa) - QS 80 TIER A - WATCHLIST
+       - FV: $275-290
+       - Precio actual: $329 = OVERVALUED (-12.6% MoS)
+       - Entry: $280 (BUY 4%), $265 (ADD 2%)
+       - Standing orders añadidos
+       - Thesis creada: thesis/research/V/thesis.md
+
+    2. TYL (Tyler Technologies) - QS 72 TIER B (NO Tier A)
+       - FV: $278 vs precio $332 = OVERVALUED
+       - Entry: $250
+       - ROIC 6-9% no cumple criterio Tier A
+       - Thesis creada: thesis/research/TYL/thesis.md
+
+    3. Sector view energy.md ACTUALIZADO
+       - SHEL.L documentado (nuestra posición)
+       - TTE en watchlist
+       - Status: INFRAPONDERAR
+
+    4. Earnings frameworks GL/ALL PREPARADOS
+       - GL: HOLD, ADD si <$130, SELL si kill condition
+       - ALL: HOLD, ADD si <$180, SELL si kill condition
+       - Decision trees pre-comprometidos
+
+    STANDING ORDERS CERCANOS:
+    - EVO.ST: 582 SEK < 600 trigger pero CONDICIONADO a earnings
+    - ZIG.L: 388 GBp (-3.4% del trigger 375)
 
     PORTFOLIO:
     | Métrica | Valor |
     |---------|-------|
-    | Posiciones | 19 |
+    | Valor | €9,737 (+2.0%) |
+    | Cash | €1,773 (18.2%) |
     | Tier A | 2 (ADBE, NVO) |
-    | Cash | €1,773 (18%) |
-    | Standing orders | 12 |
+    | Standing orders | 14 (+V) |
 
     =====================================================
-    ACCIONES PENDIENTES PRÓXIMA SESIÓN
+    MONITOREAR MIENTRAS AUSENTE
     =====================================================
 
-    URGENTE:
-    1. Evaluar EVO.ST earnings (Feb 5) - standing order condicionado
-    2. Monitorear ZIG.L (-3.4% del trigger)
-    3. Evaluar earnings GL, ALL, SHEL
+    HOY (Feb 4-5):
+    - GL earnings after close → framework listo
+    - ALL earnings after close → framework listo
+    - EVO.ST earnings → si UKGC OK + buenos, ejecutar €300
 
-    ALTA PRIORIDAD:
-    4. Continuar desplegando cash (18% → 15%)
-    5. Analizar V (Visa) si interesa - pero probablemente también overvalued
+    MAÑANA:
+    - SHEL.L earnings 7:00 GMT
 
-    CALENDARIO PRÓXIMOS 7 DÍAS:
-    - Feb 5: EVO.ST earnings, GL call, ALL earnings, SHEL earnings
-    - Feb 11: CVS earnings
-    - Feb 12: BATS.L earnings
+    PRÓXIMOS DÍAS:
+    - ZIG.L si llega a 375 GBp → ejecutar €350
 
     =====================================================
 
@@ -974,9 +1016,10 @@ maintenance:
       action: "Normalizar a LIGHT.AS"
   last_compact: 2026-02-01
   memory_status: ok
-  agents_count: 20  # Added opportunity-hunter
-  skills_count: 18
+  agents_count: 23  # Added vigilance domain: news-monitor, market-pulse, risk-sentinel
+  skills_count: 21  # Added: news-classification, error-detector, recommendation-context
   tools_count: 7
+  rules_count: 6   # Added: meta-reflection-integration
   evolution_tracking:
     last_evaluation: 2026-02-03
     applied:
@@ -984,6 +1027,39 @@ maintenance:
       - "2026-02-01: health-check upgraded haiku-sonnet, +quantitative checks"
       - "2026-02-01: TTE moved active-watchlist"
       - "2026-02-01: system.yaml compacted 863-~350 lines"
+    applied_2026_02_05_proactive_vigilance:
+      - "MAJOR SYSTEM UPGRADE: Proactive Vigilance Framework"
+      - "Root cause: Recomendamos NVO sin contextualizar el timing (caída 18% previa)"
+      - "---"
+      - "NUEVOS AGENTES (3):"
+      - "  - news-monitor: Escanea noticias 48h de todas las posiciones al inicio de sesión"
+      - "  - market-pulse: Detecta movimientos anómalos de precio y busca causa"
+      - "  - risk-sentinel: Vigila litigios, regulación, investigaciones (semanal)"
+      - "---"
+      - "NUEVOS SKILLS (3):"
+      - "  - news-classification: Framework para clasificar noticias por impacto"
+      - "  - error-detector: Checklist OBLIGATORIO antes de cada recomendación"
+      - "  - recommendation-context: Template para contextualizar cada recomendación"
+      - "---"
+      - "NUEVAS RULES (2):"
+      - "  - session-protocol v2.0: Añade Fase 0 Vigilancia obligatoria"
+      - "  - meta-reflection-integration: Protocolo para integrar reflexiones de agentes"
+      - "---"
+      - "NUEVOS STATE FILES (3):"
+      - "  - state/news_digest.yaml: Output de news-monitor"
+      - "  - state/market_pulse.yaml: Output de market-pulse"
+      - "  - state/risk_alerts.yaml: Output de risk-sentinel"
+      - "---"
+      - "ACTUALIZACIONES:"
+      - "  - agent-registry: Añadido dominio VIGILANCIA con 3 agentes"
+      - "  - CLAUDE.md: Añadida sección vigilancia y referencias a nuevos skills"
+      - "  - error-patterns.md: Añadidos errores #31-34 (contexto, noticias, movimientos, meta-reflection)"
+      - "---"
+      - "IMPACTO ESPERADO:"
+      - "  - No más sorpresas de noticias en posiciones activas"
+      - "  - Recomendaciones siempre contextualizadas con timing"
+      - "  - Errores documentados se detectan ANTES de actuar"
+      - "  - Reflexiones de agentes se integran sistemáticamente"
     applied_2026_02_04_health_check:
       - "Health check ejecutado: score 9.1/10"
       - "WARNING: Falta energy.md sector view"

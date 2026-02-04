@@ -1,0 +1,28 @@
+# =============================================================================
+# NEWS DIGEST - Actualizado por news-monitor agent
+# =============================================================================
+
+last_scan: null  # Se actualiza cada sesión
+next_scan: "Inicio próxima sesión"
+
+alerts:
+  critical: []  # Alertas que requieren acción inmediata
+  material: []  # Alertas que requieren revisión de thesis
+
+# Resumen por ticker (últimas 48h)
+news_by_ticker: {}
+  # Ejemplo:
+  # NVO:
+  #   - headline: "Novo Nordisk guidance cut..."
+  #     classification: MATERIAL
+  #     source: "CNBC"
+  #     date: "2026-02-03"
+  #     impact: "Ya incorporado en thesis"
+  #     action: NONE
+
+# Estadísticas
+stats:
+  tickers_scanned: 0
+  critical_count: 0
+  material_count: 0
+  last_critical_alert: null

@@ -1,0 +1,40 @@
+# =============================================================================
+# MARKET PULSE - Actualizado por market-pulse agent
+# =============================================================================
+
+last_scan: null  # Se actualiza cada sesión
+
+market_context:
+  spy_change_1d: null
+  vix: null
+  sector_moves: {}
+
+# Anomalías detectadas
+anomalies:
+  critical: []  # Movimientos >10% sin causa
+  material: []  # Movimientos 5-10% o con causa identificada
+  # Ejemplo:
+  # - ticker: NVO
+  #   change_1d: -4.2%
+  #   change_1w: -18.3%
+  #   cause: "Guidance cut 2026"
+  #   cause_type: IDIOSYNCRATIC  # IDIOSYNCRATIC | SECTORIAL | MARKET
+  #   already_known: true
+  #   action: NONE
+
+# Resumen de posiciones
+position_summary: []
+  # Ejemplo:
+  # - ticker: NVO
+  #   current: 47.56
+  #   avg_cost: 48.13
+  #   pnl_pct: -1.2%
+  #   vs_52w_high: -52%
+  #   vs_52w_low: +8%
+  #   status: NORMAL  # NORMAL | WATCH | ALERT
+
+# Estadísticas
+stats:
+  positions_checked: 0
+  anomalies_detected: 0
+  movements_without_cause: 0

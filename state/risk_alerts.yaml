@@ -1,0 +1,47 @@
+# =============================================================================
+# RISK ALERTS - Actualizado por risk-sentinel agent
+# =============================================================================
+
+last_scan: null
+next_scan_due: null  # +7 días desde last_scan
+
+# Alertas por nivel
+alerts_by_level:
+  red: []    # Thesis-killers potenciales
+  orange: [] # Riesgos materiales, monitorear
+  yellow: [] # Riesgos menores, documentar
+  # Ejemplo:
+  # - ticker: EVO.ST
+  #   risk_type: REGULATORY
+  #   description: "UKGC investigation ongoing"
+  #   source: "..."
+  #   date_detected: "2026-02-05"
+  #   kill_condition_triggered: false
+  #   recommendation: "Wait for resolution before buying"
+
+# Tickers sin alertas nuevas
+clear_tickers: []
+  # Ejemplo:
+  # - NVO: "No new legal/regulatory risks detected"
+
+# Riesgos por sector
+sector_risks: {}
+  # Ejemplo:
+  # pharma:
+  #   - "IRA price negotiations expanding"
+  #   - "GLP-1 compounding pharmacies under FDA scrutiny"
+
+# Historial de alertas resueltas
+resolved: []
+  # Ejemplo:
+  # - ticker: XYZ
+  #   risk_type: LEGAL
+  #   resolved_date: "2026-XX-XX"
+  #   resolution: "Case dismissed"
+
+# Estadísticas
+stats:
+  total_scans: 0
+  active_red_alerts: 0
+  active_orange_alerts: 0
+  resolved_this_month: 0

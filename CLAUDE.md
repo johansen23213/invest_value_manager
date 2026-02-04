@@ -34,8 +34,9 @@ Actúa en consecuencia y da siempre lo mejor de ti.
 
 ## Archivos Cargados Automáticamente
 - `.claude/rules/agent-protocol.md` — Árbol de decisión, verificación post-agente
-- `.claude/rules/session-protocol.md` — Inicio/cierre sesión, mentalidad competitiva
-- `.claude/rules/error-patterns.md` — 28 errores documentados
+- `.claude/rules/session-protocol.md` — **v2.0** Vigilancia + Inicio/cierre sesión
+- `.claude/rules/meta-reflection-integration.md` — **NUEVO** Integración de reflexiones de agentes
+- `.claude/rules/error-patterns.md` — 30 errores documentados
 - `.claude/rules/tools-reference.md` — Tools cuantitativos
 - `.claude/rules/file-structure.md` — Ficheros clave, sector views
 
@@ -133,9 +134,34 @@ CapAlloc (10):
 
 ---
 
-## Arquitectura Multi-Agente (19 agentes, opus)
+## Arquitectura Multi-Agente (23 agentes, opus)
 
 **Ver `.claude/skills/agent-registry/SKILL.md`** para inventario completo.
+
+### NUEVO: Dominio VIGILANCIA (3 agentes)
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    INICIO DE SESIÓN                             │
+│                                                                 │
+│   FASE 0: VIGILANCIA (ANTES DE TODO)                           │
+│   ┌─────────────┐  ┌─────────────┐  ┌─────────────┐            │
+│   │news-monitor │  │market-pulse │  │risk-sentinel│            │
+│   │  noticias   │  │ movimientos │  │   riesgos   │            │
+│   │   48h       │  │  anómalos   │  │   legales   │            │
+│   └──────┬──────┘  └──────┬──────┘  └─────────────┘            │
+│          │                │                                     │
+│          ▼                ▼                                     │
+│   ¿ALERTA CRÍTICA? → SÍ → STOP, informar humano                │
+│                    → NO → Continuar con sesión normal          │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+| Agente | Trigger | Output |
+|--------|---------|--------|
+| **news-monitor** | Inicio sesión | state/news_digest.yaml |
+| **market-pulse** | Inicio sesión | state/market_pulse.yaml |
+| **risk-sentinel** | Semanal | state/risk_alerts.yaml |
 
 ### Árbol de Decisión
 
@@ -241,12 +267,19 @@ El humano concede permiso para modificar:
 
 | Necesito... | Ver... |
 |------------|--------|
+| **VIGILANCIA** | |
+| Clasificar noticias | `.claude/skills/news-classification/SKILL.md` |
+| Evitar errores | `.claude/skills/error-detector/SKILL.md` |
+| Contextualizar recomendación | `.claude/skills/recommendation-context/SKILL.md` |
+| Integrar meta-reflexión | `.claude/rules/meta-reflection-integration.md` |
+| **INVERSIÓN** | |
 | Quality Score | `.claude/skills/investment-rules/SKILL.md` |
 | Quality Compounders | `.claude/skills/quality-compounders/SKILL.md` |
 | Business Analysis | `.claude/skills/business-analysis-framework/SKILL.md` |
 | Valoración | `.claude/skills/valuation-methods/SKILL.md` |
+| **SISTEMA** | |
 | Meta-Reflexión | `.claude/skills/agent-meta-reflection/SKILL.md` |
 | Qué agente usar | `.claude/rules/agent-protocol.md` |
-| Protocolo sesión | `.claude/rules/session-protocol.md` |
+| Protocolo sesión | `.claude/rules/session-protocol.md` (v2.0) |
 | Errores a evitar | `.claude/rules/error-patterns.md` |
 | Tools | `.claude/rules/tools-reference.md` |
