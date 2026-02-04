@@ -1,12 +1,14 @@
 # Sector: Pharma/Healthcare
 
-> Ultima actualizacion: 2026-02-03
+> Ultima actualizacion: 2026-02-04
 > Analista: Claude
-> Status: NEUTRAL (subsector-dependent: Pharma = SOBREPONDERAR selectivo, Healthcare Services = NEUTRAL, GLP-1 Pure Play = INFRAPONDERAR)
+> Status: NEUTRAL (subsector-dependent: Pharma = SOBREPONDERAR selectivo, Healthcare Services = NEUTRAL, GLP-1 Pure Play = **ACTUALIZADO: NEUTRAL-POSITIVO a valuaciones actuales**)
 
 ## Resumen Ejecutivo
 
 El sector Pharma/Healthcare esta en un momento de transicion historica. Por un lado, las valuaciones de Big Pharma tradicional estan en minimos de 30 anos (P/E 7-15x vs historico 14-20x), creando oportunidades selectivas en empresas con pipelines solidos. Por otro lado, el sector enfrenta la mayor "patent cliff" de la historia ($300B en revenues en riesgo 2025-2030) y disrupcion masiva por GLP-1s/obesidad que esta reshapeando toda la industria.
+
+**ACTUALIZACION 2026-02-04:** La caida de Novo Nordisk (-50% desde maximos) ha cambiado dramaticamente la ecuacion de riesgo/recompensa en GLP-1 pure plays. NVO ahora cotiza a P/E 13x (vs 15-35x historico) con ROIC >20%, FCF margin >25%. El colapso post-guidance 2026 crea oportunidad en quality compounder a valuacion distressed.
 
 **Mi tesis central:** El mercado esta castigando indiscriminadamente a todo el sector por miedo al patent cliff, pero las empresas con:
 1. Pipelines diversificados post-2030
@@ -29,6 +31,7 @@ El sector Pharma/Healthcare esta en un momento de transicion historica. Por un l
 | TAM Healthcare Services US | $520B (2025) | Creciendo 6.3% CAGR | Hacia $900B (2034) |
 | P/E Big Pharma (US) | 31.1x | vs 53.0x (3y avg) | Comprimido |
 | P/E Big Pharma (names clave) | 7-16x | vs 14-20x historico | Minimos 30 anos |
+| P/E Novo Nordisk | **13x** | vs 25-35x historico | **COLAPSO** |
 | Discount vs S&P 500 | ~30% | Widest in 30 years | Potencial mean reversion |
 | Dividend Yield sector | 2-7% | Superior a S&P | Estable |
 | Patent Cliff 2025-2030 | $300B revenue at risk | Historico | Mayor de la historia |
@@ -43,7 +46,7 @@ El sector Pharma/Healthcare esta en un momento de transicion historica. Por un l
 | Empresa | Market Cap | Fortaleza Principal | Vulnerabilidad |
 |---------|-----------|---------------------|----------------|
 | Eli Lilly (LLY) | $930B | GLP-1 dominance (Mounjaro/Zepbound) | Valuacion extrema (51x P/E) |
-| Novo Nordisk (NVO) | $257B | GLP-1 pioneer (Ozempic/Wegovy) | Competencia, patente 2026+ |
+| Novo Nordisk (NVO) | **$180B** | GLP-1 pioneer (Ozempic/Wegovy) | Competencia, patente 2026+ |
 | Johnson & Johnson (JNJ) | $565B | Diversificacion, defensivo | Slow growth, litigios |
 | AbbVie (ABBV) | $402B | Immunology post-Humira | Dependencia Skyrizi/Rinvoq |
 | Merck (MRK) | $290B | Keytruda oncology | Patent cliff 2028 |
@@ -80,17 +83,24 @@ El sector Pharma/Healthcare esta en un momento de transicion historica. Por un l
 - Empresas con >50% revenue en drugs expirando 2025-2028 sin replacement
 
 ### 2. GLP-1/Obesity
-**Status: INFRAPONDERAR (pure play)**
+**Status: NEUTRAL-POSITIVO (actualizado 2026-02-04)**
 
-- Mercado explosivo ($63B -> $170B)
-- Pero: LLY y NVO cotizan a 50-15x P/E
-- Competencia creciendo (Pfizer/Metsera, Roche, etc.)
+**CAMBIO DE TESIS:** La caida de NVO ha cambiado la ecuacion:
+- Novo Nordisk ahora a P/E 13x (vs 15-35x historico)
+- Quality Score 82/100 = Tier A Compounder
+- MoS 38% vs fair value
+- Duopolio LLY/NVO sigue siendo el escenario probable
+
+**Riesgos que justifican cautela:**
+- Eli Lilly domina market share (59% vs 40%)
+- CagriSema vs Zepbound head-to-head data (Marzo 2026) es catalyst critico
 - Patentes expirando 2026+ (semaglutide)
-- Riesgo de commoditization a largo plazo
+- Compounded GLP-1s erosionando pricing
 
-**Exposicion preferida:**
+**Exposicion AHORA recomendada:**
+- Novo Nordisk (NOVO-B.CO) a valuaciones actuales - thesis completa disponible
 - Via Big Pharma con M&A en obesity (Pfizer adquirio Metsera $10B)
-- NO via LLY/NVO a valuaciones actuales
+- EVITAR LLY a valuaciones actuales (51x P/E)
 
 ### 3. Biosimilars
 **Status: NEUTRAL (catalysts en progreso)**
@@ -174,7 +184,7 @@ El sector Pharma/Healthcare esta en un momento de transicion historica. Por un l
 **Sentimiento actual:** ODIADO/IGNORADO (por distintas razones)
 
 - Big Pharma: Odiado por patent cliff, post-COVID hangover
-- GLP-1 pure plays: Querido/Sobrecomprado
+- GLP-1 pure plays: **ACTUALIZADO: Novo Nordisk ahora ODIADO (guidance shock)**
 - Healthcare Services: Neutral/Ignorado
 
 **Narrativa dominante:**
@@ -186,6 +196,7 @@ El sector Pharma/Healthcare esta en un momento de transicion historica. Por un l
 3. AI drug discovery reduce costos y acelera time-to-market
 4. GLP-1 expansion crea TAM nuevo, no solo canibaliza
 5. Mean reversion historica: 30% discount vs S&P es insostenible
+6. **NUEVO:** Novo Nordisk a P/E 13x precio como si fuera en declive terminal - es quality compounder con moat
 
 **Flujos de fondos (12m):** Outflows moderados de healthcare funds
 **Catalysts potenciales:**
@@ -193,6 +204,7 @@ El sector Pharma/Healthcare esta en un momento de transicion historica. Por un l
 - M&A mega-deals que validen pipelines
 - FDA approvals de pipeline drugs
 - IRA implementation less severe than feared
+- **CagriSema vs Zepbound head-to-head (Marzo 2026)**
 
 ---
 
@@ -205,6 +217,12 @@ El sector Pharma/Healthcare esta en un momento de transicion historica. Por un l
 | PFE | Activa | Yield 6.5%, M&A firepower, transicion oncology/obesity | HOLD - monitorear ejecucion |
 | SAN.PA | Activa | Dupixent growth, pipeline diversificado | HOLD - valuacion expandida |
 | UHS | Activa | Behavioral health growth, valuacion razonable | HOLD - defensive exposure |
+
+### Analizadas - En Watchlist
+
+| Ticker | Thesis | Entry Price | Status | Dependencia |
+|--------|--------|-------------|--------|-------------|
+| **NOVO-B.CO** | QS 82, Quality Compounder distressed, MoS 38% | DKK 307 | **BUY SIGNAL** | thesis/research/NOVO-B.CO |
 
 ### Para Analisis Profundo
 
@@ -222,9 +240,20 @@ El sector Pharma/Healthcare esta en un momento de transicion historica. Por un l
 | Ticker | Razon |
 |--------|-------|
 | LLY | P/E 51x - priced for perfection, any miss = -30% |
-| NVO | P/E 15.6x pero patent cliff 2026+, ya no es value |
+| ~~NVO~~ | ~~P/E 15.6x pero patent cliff 2026+, ya no es value~~ **REMOVIDO - ver Watchlist** |
 | BIIB | Pipeline weak, Alzheimer franchise risky |
 | JNJ | Too slow growth for current valuation |
+
+---
+
+## Dependencias Activas
+
+| Tipo | Ticker | Thesis Path | Ultima Eval | Status |
+|------|--------|-------------|-------------|--------|
+| Portfolio | PFE | thesis/active/PFE | 2026-02-01 | HOLD |
+| Portfolio | SAN.PA | thesis/active/SAN.PA | 2026-02-01 | HOLD |
+| Portfolio | UHS | thesis/active/UHS | 2026-02-01 | HOLD |
+| Watchlist | **NOVO-B.CO** | thesis/research/NOVO-B.CO | **2026-02-04** | **BUY SIGNAL - awaiting catalyst** |
 
 ---
 
@@ -260,12 +289,14 @@ El sector Pharma/Healthcare esta en un momento de transicion historica. Por un l
 
 | Fecha | Evento | Impacto esperado |
 |-------|--------|------------------|
+| **Marzo 2026** | **CagriSema vs Zepbound head-to-head data** | **MUY ALTO para NVO** |
 | Q1 2026 | Earnings season Big Pharma | Alto - first full year post-COVID normalization |
 | 2026 | FDA guidance on AI in drug development | Medio - claridad regulatoria |
 | Mayo 2026 | Januvia/Janumet generics launch (Merck) | Alto para MRK |
 | 2026 | Eliquis Medicare price drop ($231/month) | Medio para PFE/BMY |
 | 2026 | Semaglutide patent expiration starts | Alto para NVO, medio para LLY |
 | H2 2026 | Eli Lilly oral GLP-1 approval expected | Alto para sector |
+| H2 2026 | CagriSema FDA approval expected | Alto para NVO |
 | 2026-2027 | First AI-designed drug approval expected | Medio - narrative shift |
 
 ---
@@ -275,6 +306,7 @@ El sector Pharma/Healthcare esta en un momento de transicion historica. Por un l
 | Fecha | Cambio | Razon |
 |-------|--------|-------|
 | 2026-02-03 | Status inicial: NEUTRAL (subsector-dependent) | Valuaciones atractivas pero risks reales |
+| **2026-02-04** | **GLP-1 subsector -> NEUTRAL-POSITIVO; NVO movido de "Evitar" a "Watchlist"** | **Caida 50% NVO cambio ecuacion R/R; thesis completa creada** |
 
 ---
 
@@ -290,3 +322,5 @@ El sector Pharma/Healthcare esta en un momento de transicion historica. Por un l
 - [Pfizer Outlook - Various sources](https://www.gurufocus.com/news/8577323/pfizer-projects-revenue-dip-in-2026-as-patent-losses-weigh)
 - [Sanofi Q4 2025 - Company Press Release](https://www.sanofi.com/en/media-room/press-releases/2026/2026-01-29-06-30-00-3228191)
 - [NYU Stern P/E Data](https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/pedata.html)
+- [Novo Nordisk 2025 Results](https://www.globenewswire.com/news-release/2026/02/03/3231383/0/en/)
+- [CNBC: Novo Nordisk guidance](https://www.cnbc.com/2026/02/03/novo-nordisk-2025-earnings-wegovy-ozempic.html)

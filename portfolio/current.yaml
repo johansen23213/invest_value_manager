@@ -7,7 +7,7 @@
 # =============================================================================
 
 cash:
-  amount: 2112.08  # Post TRIM DTE.DE 2026-02-04 (2021.15 + 90.93)
+  amount: 1773.08  # Post BUY NVO 2026-02-05 (2112.08 - 339)
   currency: EUR
 
 positions:
@@ -155,6 +155,15 @@ positions:
     avg_cost_usd: 270.60  # 541.20 / 2
     date_opened: 2026-02-04
     thesis: thesis/active/ADBE/thesis.md
+
+  - ticker: NVO
+    name: "Novo Nordisk A/S"
+    shares: 8.31
+    invested_usd: 400.00
+    avg_cost_usd: 48.13  # 400 / 8.31
+    date_opened: 2026-02-05
+    thesis: thesis/active/NVO/thesis.md
+    notes: "Framework v3.0 validation. Tier A QS 82. MoS 38%. Phased entry 4%."
 
 transactions:
   - date: 2026-01-26
@@ -372,4 +381,12 @@ transactions:
     price_eur: 30.31
     total_eur: 90.93
     notes: "TRIM - Position 7.3% > 7% max. Constraint resolved. EU geo also improved."
+
+  - date: 2026-02-05
+    action: BUY
+    ticker: NVO
+    shares: 8.31
+    price_usd: 48.13
+    total_usd: 400.00
+    notes: "BUY - Second Tier A Quality Compounder. QS 82, MoS 38%. Framework v3.0 fully validated. GLP-1 leader at distressed valuation (-17% day). Phased entry 4%."
 

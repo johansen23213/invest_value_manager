@@ -39,7 +39,8 @@ Documento de referencia ÚNICO para:
 | | valuation-specialist | ✓ Completo |
 | | moat-assessor | ✓ Añadido |
 | | risk-identifier | ✓ Añadido |
-| Research | sector-screener | ✓ Añadido |
+| Research | opportunity-hunter | ✓ Completo |
+| | sector-screener | ✓ Añadido |
 | | macro-analyst | ✓ Completo |
 | Portfolio | rebalancer | ✓ Añadido |
 | | position-calculator | ✓ Añadido |
@@ -55,7 +56,7 @@ Documento de referencia ÚNICO para:
 
 ---
 
-## INVENTARIO DE AGENTES (19 total)
+## INVENTARIO DE AGENTES (20 total)
 
 ### Nivel 0: Orchestrator (CLAUDE.md)
 El orchestrator (yo, Claude) delega a agentes especializados. Lee CLAUDE.md que contiene todas las reglas, protocolos y contexto.
@@ -125,7 +126,18 @@ El orchestrator (yo, Claude) delega a agentes especializados. Lee CLAUDE.md que 
 
 ---
 
-### Dominio: RESEARCH (2)
+### Dominio: RESEARCH (3)
+
+#### opportunity-hunter
+| Campo | Valor |
+|-------|-------|
+| Responsabilidad | Búsqueda sistemática de oportunidades anti-sesgo |
+| Single-responsibility | Encuentra candidatos de forma sistemática, no los analiza profundamente |
+| Skills | screening-protocol, critical-thinking, agent-meta-reflection |
+| Lee | world/sectors/*.md, state/system.yaml (watchlist, standing_orders) |
+| Escribe | N/A (output directo al orchestrator) |
+| Dependencias | Usa dynamic_screener.py, verifica sector views existen |
+| Cuándo usar | Cash >15%, búsqueda de ideas, post-venta, proactivamente semanal |
 
 #### sector-screener
 | Campo | Valor |

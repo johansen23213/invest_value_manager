@@ -46,17 +46,19 @@ system:
   # QUALITY SCORE - PORTFOLIO ANALYSIS (2026-02-04)
   # ===============================================
   portfolio_quality_analysis:
-    date: 2026-02-04
+    date: 2026-02-05
     summary:
-      tier_a_count: 1  # ADBE added
+      tier_a_count: 2  # ADBE + NVO
       tier_b_count: 5
       tier_c_count: 12
       tier_d_count: 0
       tier_d_violation: null  # RESOLVED: FUTR.L sold 2026-02-04
       first_tier_a: ADBE  # First Quality Compounder in portfolio!
+      framework_v3_validated: true  # NVO = full end-to-end validation
     positions:
-      # TIER A - Quality Compounders (1 position)
+      # TIER A - Quality Compounders (2 positions)
       - { ticker: ADBE, score: 76, tier: A, mos_required: "10-15%", status: "First Tier A!" }
+      - { ticker: NVO, score: 82, tier: A, mos_required: "10-15%", status: "Framework v3.0 validated! MoS 38%" }
       # TIER B - Quality Value (5 positions)
       - { ticker: HRB, score: 73, tier: B, mos_required: "20-25%" }
       - { ticker: EDEN.PA, score: 62, tier: B, mos_required: "20-25%" }
@@ -260,11 +262,25 @@ calendar:
       action: "Watch FCF, buyback $3.5B, guidance."
 
     - date: 2026-02-05
+      type: action_completed
+      ticker: NVO
+      event: "DONE - BUY NVO 8.31 shares (Second Tier A Quality Compounder!)"
+      priority: high
+      action: "BUY 8.31 shares NVO @ $48.13. Total $400. QS 82 Tier A, MoS 38%. Framework v3.0 validated. Phased entry 4%."
+
+    - date: 2026-02-05
       type: action
       ticker: EVO.ST
       event: "POST-EARNINGS: Evaluar compra Evolution AB"
       priority: high
       action: "Si buenos + UKGC OK - BUY hasta 650 SEK (~400). Si malos - 480-530 SEK. Si UKGC revocacion - DESCARTAR."
+
+    - date: 2026-03-15
+      type: catalyst
+      ticker: NVO
+      event: "CagriSema vs Zepbound head-to-head data (critical catalyst)"
+      priority: CRITICAL
+      action: "If positive: ADD 2% to NVO position. If inferior: evaluate kill conditions."
 
     - date: 2026-02-03
       type: action_completed
@@ -388,14 +404,7 @@ calendar:
 watchlist:
   # QUALITY COMPOUNDERS PIPELINE (Framework v3.0 - Tier A)
   quality_compounders:
-    - ticker: NOVO-B.CO
-      quality_score: 94
-      tier: A
-      current_price_dkk: 307
-      at_52w_low: true
-      mos_required: "10-15%"
-      status: "ANALYZE - Near 52w low, highest QS in pipeline"
-      notes: "Healthcare leader. P/E 13.4x. -54% from 52wH. Needs OEY valuation."
+    # NOVO-B.CO/NVO MOVED TO PORTFOLIO 2026-02-05
     - ticker: MA
       quality_score: 86
       tier: A
@@ -640,6 +649,15 @@ watchlist:
       entry_gbp: 532
       fair_value_gbp: 1100-1200
       kill: "Revenue decline >10% 2+ years, margins <20%, buyback suspension"
+    - ticker: NVO
+      entry_usd: 48.13
+      fair_value_dkk: 491
+      fair_value_usd: 66  # approx, DKK 491 / 7.45
+      mos: 38%
+      tier: A
+      quality_score: 82
+      notes: "Framework v3.0 validated. Phased entry 4%. ADD trigger: CagriSema positive (Mar 2026) or price <$40."
+      kill: "CagriSema inferior to Zepbound, market share <40%, gross margin <70%, dividend cut"
 
 # -----------------------------------------------------------------------------
 # ALERTAS DE PRECIO
