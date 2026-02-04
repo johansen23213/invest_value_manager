@@ -827,7 +827,7 @@ maintenance:
       action: "Normalizar a LIGHT.AS"
   last_compact: 2026-02-01
   memory_status: ok
-  agents_count: 19
+  agents_count: 20  # Added opportunity-hunter
   skills_count: 18
   tools_count: 7
   evolution_tracking:

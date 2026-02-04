@@ -7,6 +7,13 @@
 ### Paso 0: AUTO-REFLEXIÓN (ANTES de todo lo demás)
 Preguntarse: "¿Hay algo en el sistema que podría hacer mejor? ¿Algún proceso manual que debería automatizar? ¿Algún tool que falta?" Si la respuesta es sí → mejorarlo AHORA, antes de trabajar en inversiones. Actualizar CLAUDE.md con el aprendizaje. **No esperar a que el humano lo señale.**
 
+### Paso 0.5: ANTI-SESGO CHECK (ANTES de sugerir inversiones)
+**NUNCA sugerir empresas de mi "conocimiento implícito".** SIEMPRE usar proceso sistemático:
+1. Revisar sector views → sección "Empresas Objetivo"
+2. Ejecutar `python3 tools/dynamic_screener.py --undiscovered`
+3. Solo DESPUÉS de estos pasos puedo sugerir candidatos
+4. Si una empresa "me viene a la mente" → es sesgo de disponibilidad → VALIDAR con datos
+
 ### Paso 1-12: Operaciones
 1. `python3 tools/portfolio_stats.py` → Estado portfolio real (NUNCA calcular a mano)
 2. `python3 tools/effectiveness_tracker.py` → Métricas de efectividad, win rate, alertas

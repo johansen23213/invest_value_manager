@@ -144,6 +144,7 @@ CapAlloc (10):
 ├─► ANALIZAR empresa → fundamental-analyst
 ├─► RE-EVALUAR posición → review-agent
 ├─► APROBAR compra/venta → investment-committee (OBLIGATORIO)
+├─► BUSCAR oportunidades (anti-sesgo) → opportunity-hunter
 ├─► BUSCAR en sector → sector-screener
 ├─► ACTUALIZAR macro → macro-analyst
 ├─► VERIFICAR rebalanceo → rebalancer
