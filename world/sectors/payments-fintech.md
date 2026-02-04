@@ -5,7 +5,7 @@
 
 ## Resumen Ejecutivo
 
-El sector de pagos es uno de los negocios mas atractivos del mercado desde una perspectiva de calidad: márgenes operativos del 57-67% (los mas altos del S&P 500), ROICs sostenidos >40%, y un duopolio Visa-Mastercard que procesa el 90% de las transacciones globales fuera de China. El sector se beneficia de la digitalizacion secular del efectivo hacia pagos electronicos, con un TAM de $3.1 trillones en 2025 creciendo a CAGR ~11%.
+El sector de pagos es uno de los negocios mas atractivos del mercado desde una perspectiva de calidad: margenes operativos del 57-67% (los mas altos del S&P 500), ROICs sostenidos >40%, y un duopolio Visa-Mastercard que procesa el 90% de las transacciones globales fuera de China. El sector se beneficia de la digitalizacion secular del efectivo hacia pagos electronicos, con un TAM de $3.1 trillones en 2025 creciendo a CAGR ~11%.
 
 Sin embargo, la combinacion de valuaciones premium (P/E 25-35x para los networks) y riesgos regulatorios crecientes (demanda antimonopolio en UK, revision de interchange en US/EU) justifica una posicion NEUTRAL a nivel sectorial. La oportunidad esta en empresas especificas donde el mercado subestime la durabilidad del moat o sobrevalore las amenazas de disrupcion.
 
@@ -17,13 +17,13 @@ La narrativa actual se divide entre: (1) "duopolio invencible con crecimiento se
 
 | Metrica | Valor | vs Historia | Tendencia |
 |---------|-------|-------------|-----------|
-| TAM Global Payments | $3.12T (2025) | Growing | ↑ CAGR 11% |
-| TAM Digital Payments | $122B (2025) → $359B (2030) | | ↑ CAGR 19-21% |
-| TAM Cross-Border | $213B (2024) → $321B (2030) | | ↑ CAGR 7.1% |
+| TAM Global Payments | $3.12T (2025) | Growing | CAGR 11% |
+| TAM Digital Payments | $122B (2025) - $359B (2030) | | CAGR 19-21% |
+| TAM Cross-Border | $213B (2024) - $321B (2030) | | CAGR 7.1% |
 | P/E Visa | ~28x | vs 25x (5y avg) | Premium |
 | P/E Mastercard | ~35x | vs 30x (5y avg) | Premium |
 | Operating Margin V/MA | 67% / 57% | Highest in S&P 500 | Stable |
-| Dividend Yield V/MA | ~0.7-0.8% | Low | → |
+| Dividend Yield V/MA | ~0.7-0.8% | Low | Stable |
 
 ---
 
@@ -81,7 +81,7 @@ La narrativa actual se divide entre: (1) "duopolio invencible con crecimiento se
 ### 4. BNPL (Affirm, Klarna, Afterpay/Block)
 - **Modelo:** Merchant fees (3-6%) + interest income
 - **Moat:** Merchant integrations, consumer data
-- **Growth driver:** TAM $560B in 2025 → $1T by 2031
+- **Growth driver:** TAM $560B in 2025 - $1T by 2031
 - **Riesgo:** Credit losses (34-41% miss payments), regulation, funding costs
 - **Nota:** Most players unprofitable, commoditizing rapidly
 
@@ -174,7 +174,7 @@ La narrativa es parcialmente correcta para consumer payments en mercados desarro
 
 | Tipo | Ticker | Thesis Path | Ultima Eval | Status |
 |------|--------|-------------|-------------|--------|
-| Research | MA | thesis/research/ | Pending | Pre-analysis |
+| Watchlist | MA | thesis/research/MA/thesis.md | 2026-02-04 | Entry $395-420 |
 | Research | V | thesis/research/ | Pending | Pre-analysis |
 
 ### Protocolo de Cambio Material
@@ -190,8 +190,7 @@ Cuando actualices este sector view con cambio MATERIAL:
 ### Para analisis profundo
 | Ticker | Empresa | Razon | Priority | Quality Score |
 |--------|---------|-------|----------|---------------|
-| MA | Mastercard | Quality Compounder, ROIC 164%, QS 86 | Alta | 86 (Tier A) |
-| V | Visa | Quality Compounder, 67% op margin, QS 80 | Alta | 80 (Tier A) |
+| V | Visa | Quality Compounder, 67% op margin | Alta | ~80 (Tier A est.) |
 | ADYEN | Adyen | Enterprise payments leader, 50% EBITDA margin | Media | TBD |
 | PYPL | PayPal | Turnaround, trading at P/S 1.76x vs 5x hist | Media | TBD |
 
@@ -213,9 +212,9 @@ Cuando actualices este sector view con cambio MATERIAL:
 
 ## Analizadas - En Watchlist
 
-| Ticker | Empresa | FV | Entry | MoS Req | Thesis | Fecha Analisis |
-|--------|---------|----|----- -|---------|--------|----------------|
-| (pending MA/V analysis) | | | | | | |
+| Ticker | Empresa | FV Base | Entry Target | MoS Req | Thesis Path | Fecha Analisis |
+|--------|---------|---------|--------------|---------|-------------|----------------|
+| MA | Mastercard | $420 | $395-420 | 10-15% | thesis/research/MA/thesis.md | 2026-02-04 |
 
 ---
 
@@ -260,6 +259,7 @@ Cuando actualices este sector view con cambio MATERIAL:
 | Fecha | Cambio | Razon |
 |-------|--------|-------|
 | 2026-02-04 | Sector view creado | MA/V en pipeline como Quality Compounders |
+| 2026-02-04 | MA analizada, movida a Watchlist | QS 86, FV $420, Entry $395-420 |
 
 ---
 

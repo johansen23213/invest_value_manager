@@ -6,8 +6,8 @@
 system:
   system_version: "3.0.0"
   framework_version: "3.0"
-  last_session: 2026-02-04
-  session_number: 31
+  last_session: 2026-02-05
+  session_number: 32
 
   # FRAMEWORK v3.0 - IMPLEMENTADO
   # =====================================
@@ -85,6 +85,64 @@ system:
       Ahora: 1 Tier A, 5 Tier B, 12 Tier C. Sin violaciones Tier D.
       Continuar añadiendo Tier A compounders: NOVO-B.CO, MA, V en pipeline.
   last_session_summary: |
+    Sesión 32 - FRAMEWORK v3.0 VALIDADO + SEGUNDO TIER A (2026-02-05)
+
+    =====================================================
+    HITO: Framework v3.0 validado end-to-end con NVO
+    =====================================================
+
+    OPERACIONES EJECUTADAS:
+    1. BUY NVO 8.31 shares @ $48.13 = $400
+       - QS: 82/100 (Tier A - Quality Compounder)
+       - MoS: 38% (excepcional)
+       - Framework v3.0 completo: QS → Business → Projections → Valuation → 9 Gates
+       - Segundo Tier A en portfolio (ADBE + NVO)
+
+    ANÁLISIS COMPLETADOS:
+    1. MA (Mastercard) - QS 86 Tier A - WATCHLIST
+       - Overvalued: $551 actual vs $420 FV
+       - Entry price: $395 (-28%)
+       - Standing order añadido
+
+    2. Sector view payments-fintech CREADO
+       - Duopolio V/MA documentado
+       - Prerequisito para análisis MA/V
+
+    SISTEMA:
+    1. opportunity-hunter verificado y añadido a agent-registry
+    2. Standing orders verificados:
+       - EVO.ST TRIGGERED (581 < 600) pero condicionado a earnings mañana
+       - ZIG.L -3.4% del trigger (388 vs 375)
+
+    PORTFOLIO:
+    | Métrica | Valor |
+    |---------|-------|
+    | Posiciones | 19 |
+    | Tier A | 2 (ADBE, NVO) |
+    | Cash | €1,773 (18%) |
+    | Standing orders | 12 |
+
+    =====================================================
+    ACCIONES PENDIENTES PRÓXIMA SESIÓN
+    =====================================================
+
+    URGENTE:
+    1. Evaluar EVO.ST earnings (Feb 5) - standing order condicionado
+    2. Monitorear ZIG.L (-3.4% del trigger)
+    3. Evaluar earnings GL, ALL, SHEL
+
+    ALTA PRIORIDAD:
+    4. Continuar desplegando cash (18% → 15%)
+    5. Analizar V (Visa) si interesa - pero probablemente también overvalued
+
+    CALENDARIO PRÓXIMOS 7 DÍAS:
+    - Feb 5: EVO.ST earnings, GL call, ALL earnings, SHEL earnings
+    - Feb 11: CVS earnings
+    - Feb 12: BATS.L earnings
+
+    =====================================================
+
+  last_session_summary_archived: |
     Sesión 31 - PRIMER QUALITY COMPOUNDER + CONSTRAINTS RESUELTOS (2026-02-04)
 
     =====================================================
@@ -275,6 +333,20 @@ calendar:
       priority: high
       action: "Si buenos + UKGC OK - BUY hasta 650 SEK (~400). Si malos - 480-530 SEK. Si UKGC revocacion - DESCARTAR."
 
+    - date: 2026-02-05
+      type: standing_order_alert
+      ticker: ZIG.L
+      event: "ZIG.L -3.4% del trigger (388 GBp vs 375 GBp)"
+      priority: high
+      action: "MONITOR DIARIO. Si llega a 375 GBp - EJECUTAR standing order (350 EUR, 81 shares)."
+
+    - date: 2026-02-05
+      type: standing_order_alert
+      ticker: EVO.ST
+      event: "EVO.ST BAJO trigger (581 SEK < 600 SEK) pero CONDICIONADO"
+      priority: high
+      action: "ESPERAR earnings Feb 5. Si UKGC favorable + resultados OK - EJECUTAR. Si UKGC revocación - CANCELAR."
+
     - date: 2026-03-15
       type: catalyst
       ticker: NVO
@@ -405,14 +477,17 @@ watchlist:
   # QUALITY COMPOUNDERS PIPELINE (Framework v3.0 - Tier A)
   quality_compounders:
     # NOVO-B.CO/NVO MOVED TO PORTFOLIO 2026-02-05
+    # MA ANALYZED 2026-02-05 - WATCHLIST (overvalued)
     - ticker: MA
       quality_score: 86
       tier: A
       current_price_usd: 551
-      at_52w_low: true
+      fair_value_usd: 420
+      entry_price_usd: 395
+      mos_current: "-24% (OVERVALUED)"
       mos_required: "10-15%"
-      status: "ANALYZE - At 52w low, payment duopoly"
-      notes: "P/E 33x. -23% from 52wH. FCF machine."
+      status: "WATCHLIST - Wait for $395 (-28% from current)"
+      notes: "QS 86 confirmed. ROIC 44%, FCF 48%. Wide moat. But P/E 33x needs correction to P/E 24-28x."
     - ticker: V
       quality_score: 80
       tier: A
@@ -829,6 +904,19 @@ standing_orders:
     mos_at_trigger: "40%+ at $40"
     notes: "ADD to existing 8.31 shares. Brings position from 4% to 6-7%. Framework v3.0 Tier A."
     expiry: 2026-06-01
+
+  # MA - Quality Compounder waiting for entry
+  - ticker: MA
+    action: BUY
+    trigger: "<=$395"
+    size_eur: 500
+    shares_approx: 1.3
+    thesis: thesis/research/MA/thesis.md
+    fair_value: "$420"
+    mos_at_trigger: "6% at $395, better at lower"
+    tier: "A (QS 86)"
+    notes: "Quality Compounder (ROIC 44%, FCF 48%). Currently $551 = OVERVALUED. Wait for correction. P/E 33x → need ~24-28x."
+    expiry: 2026-08-01
 
 # -----------------------------------------------------------------------------
 # MACRO (resumen)
