@@ -492,10 +492,13 @@ watchlist:
       quality_score: 80
       tier: A
       current_price_usd: 329
-      at_52w_low: false
+      fair_value_usd: 275-290
+      entry_price_usd: 280
+      entry_price_add: 265
+      mos_current: "-12.6% (OVERVALUED)"
       mos_required: "10-15%"
-      status: "ANALYZE - Payment duopoly"
-      notes: "P/E 30.9x. -26% from 52wH."
+      status: "WATCHLIST - Wait for $280 (-15% from current)"
+      notes: "QS 80 confirmed. ROIC 50%+, FCF 54%, #1 share 52%. Standing order $280 BUY, $265 ADD."
     - ticker: ADBE
       quality_score: 76
       tier: A
@@ -761,6 +764,7 @@ alerts:
     - { ticker: SRE.L, entry_gbp: 75, note: "Sirius RE. FV 100p. Entry 75p = 25% MoS. Refinancing Jun-2026 catalyst." }
     - { ticker: GIS, entry_usd: 38, note: "General Mills. FV $45-50. Entry $35-38. Quality 6.5/10 Tier B. GLP-1 headwind." }
     - { ticker: BATS.L, entry_gbp: 4200, note: "BAT. FV 5163p. Entry 4000-4200p. Ya tenemos IMB.L. Earnings 12-feb." }
+    - { ticker: V, entry_usd: 280, note: "Visa. QS 80 Tier A. FV $275-290. Entry $280, ADD $265. Duopoly #1." }
 
 # -----------------------------------------------------------------------------
 # STANDING ORDERS (pre-aprobadas, ejecutar cuando precio toque trigger)
@@ -916,6 +920,31 @@ standing_orders:
     mos_at_trigger: "6% at $395, better at lower"
     tier: "A (QS 86)"
     notes: "Quality Compounder (ROIC 44%, FCF 48%). Currently $551 = OVERVALUED. Wait for correction. P/E 33x → need ~24-28x."
+    expiry: 2026-08-01
+
+  # V - Quality Compounder waiting for entry
+  - ticker: V
+    action: BUY
+    trigger: "<=$280"
+    size_eur: 500
+    shares_approx: 1.8
+    thesis: thesis/research/V/thesis.md
+    fair_value: "$275-290"
+    mos_at_trigger: "3-5% at $280, better at $265"
+    tier: "A (QS 80)"
+    notes: "Quality Compounder (ROIC 50%+, FCF 54%, #1 market share 52%). Currently $329 = OVERVALUED. V closer to entry than MA (-15% vs -28%)."
+    expiry: 2026-08-01
+
+  - ticker: V
+    action: ADD
+    trigger: "<=$265"
+    size_eur: 300
+    shares_approx: 1.1
+    thesis: thesis/research/V/thesis.md
+    fair_value: "$275-290"
+    mos_at_trigger: "8-10% at $265"
+    tier: "A (QS 80)"
+    notes: "ADD to existing position if price drops further. Total target 5-6%."
     expiry: 2026-08-01
 
 # -----------------------------------------------------------------------------

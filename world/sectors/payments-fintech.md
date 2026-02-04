@@ -20,8 +20,8 @@ La narrativa actual se divide entre: (1) "duopolio invencible con crecimiento se
 | TAM Global Payments | $3.12T (2025) | Growing | CAGR 11% |
 | TAM Digital Payments | $122B (2025) - $359B (2030) | | CAGR 19-21% |
 | TAM Cross-Border | $213B (2024) - $321B (2030) | | CAGR 7.1% |
-| P/E Visa | ~28x | vs 25x (5y avg) | Premium |
-| P/E Mastercard | ~35x | vs 30x (5y avg) | Premium |
+| P/E Visa | ~31x | vs 28x (5y avg) | Premium |
+| P/E Mastercard | ~33x | vs 30x (5y avg) | Premium |
 | Operating Margin V/MA | 67% / 57% | Highest in S&P 500 | Stable |
 | Dividend Yield V/MA | ~0.7-0.8% | Low | Stable |
 
@@ -156,7 +156,7 @@ La narrativa es parcialmente correcta para consumer payments en mercados desarro
 3. Cross-border y B2B son vulnerables a nuevas rails
 4. El mercado subestima la velocidad de adopcion de RTP en Europa
 
-**Punto de entrada interesante:** V a P/E <23x, MA a P/E <28x (historicamente rare pero posible en risk-off)
+**Punto de entrada interesante:** V a P/E <25x (~$270-285), MA a P/E <28x (~$395-420)
 
 **Flujos de fondos (12m):** Inflows moderados, sector es core holding de growth funds
 
@@ -175,7 +175,7 @@ La narrativa es parcialmente correcta para consumer payments en mercados desarro
 | Tipo | Ticker | Thesis Path | Ultima Eval | Status |
 |------|--------|-------------|-------------|--------|
 | Watchlist | MA | thesis/research/MA/thesis.md | 2026-02-04 | Entry $395-420 |
-| Research | V | thesis/research/ | Pending | Pre-analysis |
+| Watchlist | V | thesis/research/V/thesis.md | 2026-02-04 | Entry $270-285 |
 
 ### Protocolo de Cambio Material
 Cuando actualices este sector view con cambio MATERIAL:
@@ -190,7 +190,6 @@ Cuando actualices este sector view con cambio MATERIAL:
 ### Para analisis profundo
 | Ticker | Empresa | Razon | Priority | Quality Score |
 |--------|---------|-------|----------|---------------|
-| V | Visa | Quality Compounder, 67% op margin | Alta | ~80 (Tier A est.) |
 | ADYEN | Adyen | Enterprise payments leader, 50% EBITDA margin | Media | TBD |
 | PYPL | PayPal | Turnaround, trading at P/S 1.76x vs 5x hist | Media | TBD |
 
@@ -212,9 +211,24 @@ Cuando actualices este sector view con cambio MATERIAL:
 
 ## Analizadas - En Watchlist
 
-| Ticker | Empresa | FV Base | Entry Target | MoS Req | Thesis Path | Fecha Analisis |
-|--------|---------|---------|--------------|---------|-------------|----------------|
-| MA | Mastercard | $420 | $395-420 | 10-15% | thesis/research/MA/thesis.md | 2026-02-04 |
+| Ticker | Empresa | QS | FV Base | Entry Target | MoS Req | Thesis Path | Fecha Analisis |
+|--------|---------|-----|---------|--------------|---------|-------------|----------------|
+| V | Visa | 80 | $275-290 | $270-285 | 10-15% | thesis/research/V/thesis.md | 2026-02-04 |
+| MA | Mastercard | 86 | $390-420 | $395-420 | 10-15% | thesis/research/MA/thesis.md | 2026-02-04 |
+
+### V vs MA Comparison
+
+| Metrica | V | MA | Ventaja |
+|---------|---|-----|---------|
+| Quality Score | 80 | 86 | MA |
+| Market Share | 52% | 35% | V |
+| FCF Margin | 54% | 48% | V |
+| Revenue CAGR | 8% | 10.5% | MA |
+| P/E | 31x | 33x | V |
+| Distance to Entry | -13% to -18% | -24% to -28% | V |
+| Overall | Wider moat, higher margin | Faster growth | Tie |
+
+**Recomendacion:** Ambos son Quality Compounders excelentes. V esta mas cerca de su entry zone, MA tiene mejor growth. Comprar el que toque entry primero.
 
 ---
 
@@ -234,7 +248,7 @@ Cuando actualices este sector view con cambio MATERIAL:
 
 ### Por que V/MA son Quality Compounders (QS 80-86)
 
-1. **ROIC Spread Extraordinario:** >40% ROIC vs ~10% WACC = 30pp+ spread
+1. **ROIC Spread Extraordinario:** 25-40% ROIC vs ~9% WACC = 15-30pp+ spread
 2. **Moat Duradero:** Network effects + switching costs + regulatory licenses
 3. **FCF Conversion:** Near-100% FCF conversion, minimal capex needs
 4. **Growth Runway:** Only 15-20% of global transactions are digital
@@ -242,13 +256,13 @@ Cuando actualices este sector view con cambio MATERIAL:
 
 ### Pero la valuacion importa
 
-| Metrica | V Actual | MA Actual | Entry Zone |
-|---------|----------|-----------|------------|
-| P/E | ~28x | ~35x | <23x / <28x |
-| P/FCF | ~30x | ~38x | <25x / <30x |
-| EV/EBIT | ~25x | ~30x | <20x / <25x |
+| Metrica | V Actual | MA Actual | V Entry Zone | MA Entry Zone |
+|---------|----------|-----------|--------------|---------------|
+| P/E | ~31x | ~33x | <25x | <28x |
+| P/FCF | ~29x | ~32x | <25x | <30x |
+| EV/EBIT | ~25x | ~28x | <20x | <25x |
 
-**El problema:** A P/E 28-35x, el MoS requerido para Tier A (10-15%) implica que el DCF fair value deberia estar 40-50% por encima del precio actual. Esto es dificil de justificar con growth rates realistas (10-12% revenue CAGR).
+**El problema:** A P/E 31-33x, el MoS requerido para Tier A (10-15%) implica que el DCF fair value deberia estar 40-50% por encima del precio actual. Esto es dificil de justificar con growth rates realistas (8-12% revenue CAGR).
 
 **Estrategia:** Wait for entry or accept smaller position size. V/MA son "buy on significant dips" stocks, no "buy at any price" compounders.
 
@@ -260,6 +274,7 @@ Cuando actualices este sector view con cambio MATERIAL:
 |-------|--------|-------|
 | 2026-02-04 | Sector view creado | MA/V en pipeline como Quality Compounders |
 | 2026-02-04 | MA analizada, movida a Watchlist | QS 86, FV $420, Entry $395-420 |
+| 2026-02-04 | V analizada, movida a Watchlist | QS 80, FV $280, Entry $270-285 |
 
 ---
 
