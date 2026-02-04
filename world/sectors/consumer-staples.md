@@ -51,7 +51,8 @@ Consumer Staples es el sector defensivo por excelencia: alimentos, bebidas, taba
 | Unilever | $131B | UK/NL | Emergentes, brands |
 | PepsiCo | $200B | US | Snacks + beverages |
 | Coca-Cola | $300B | US | Moat de marca, distribucion |
-| Diageo | $99B | UK | Spirits premium |
+| Diageo | $99B | UK | Spirits premium, #1 global |
+| Pernod Ricard | EUR 20B | Francia | Spirits premium, #2 global |
 | Philip Morris | $200B | US | Transition a smoke-free |
 | BAT | $85B | UK | Cash cow, yield alto |
 | Imperial Brands | $30B | UK | Mas barato del sector tobacco |
@@ -99,19 +100,27 @@ Consumer Staples es el sector defensivo por excelencia: alimentos, bebidas, taba
 - **Valuacion:** P/E 8-12x, yields 5-8% - **SIGNIFICATIVAMENTE MAS BARATO**
 - **Oportunidad:** Imperial Brands P/E 9x fwd, yield 5.3%, beta 0.15
 
-### 3. Household Products (15% del sector)
+### 3. Spirits (5% del sector)
+- **TAM:** ~$656B global (2025), CAGR 3.7%
+- **Players:** Diageo (#1), Pernod Ricard (#2), Brown-Forman, Remy Cointreau, Campari
+- **Dinamica:** Premiumization trend, China/US destocking 2025-26, tariff exposure
+- **Valuacion:** P/E 12-23x, yields 4-6%
+- **Key risks:** China tariffs (cognac), US destocking, GLP-1 minimal impact (spirits resilient)
+- **Oportunidad:** Pernod Ricard P/E 12.4x, yield 6.2%, caido 42% desde maximos
+
+### 4. Household Products (15% del sector)
 - **TAM:** ~$500B global
 - **Players:** P&G, Unilever, Henkel, Reckitt, Colgate
 - **Dinamica:** Private label amenaza, pero marcas premium resisten
 - **Valuacion:** P/E 20-28x, yields 2-3%
 
-### 4. Personal Care (10% del sector)
+### 5. Personal Care (10% del sector)
 - **TAM:** ~$300B global
 - **Players:** L'Oreal, Estee Lauder, P&G, Unilever
 - **Dinamica:** Premiumizacion, e-commerce, China recovery
 - **Valuacion:** P/E 25-35x (premium por growth)
 
-### 5. Food Ingredients (5% del sector)
+### 6. Food Ingredients (5% del sector)
 - **TAM:** ~$200B global
 - **Players:** Tate & Lyle, Kerry Group, DSM-Firmenich, Ingredion
 - **Dinamica:** B2B estable, trends a "healthier" benefician
@@ -136,6 +145,7 @@ Consumer Staples es el sector defensivo por excelencia: alimentos, bebidas, taba
 - **Winners:** Protein-rich, fiber-rich, functional foods
 - **Losers:** Ultra-processed, high-calorie snacks, sugary drinks
 - Pero: impacto menos severo de lo temido, y usuarios salen de drugs
+- **Spirits:** Minimal GLP-1 impact - alcohol consumption less affected
 
 ### Competitivos
 | Amenaza | Probabilidad | Impacto | Status |
@@ -164,7 +174,7 @@ Consumer Staples es el sector defensivo por excelencia: alimentos, bebidas, taba
 - **Supply chain:** Menos grave que 2021-2022, pero tariffs could impact
 - **Commodity prices:** Input costs (corn, wheat, sugar, palm oil) volatiles
 - **Currency:** Empresas globales expuestas a FX
-- **China slowdown:** Danone, Nestle, Diageo tienen exposure significativa
+- **China slowdown:** Danone, Nestle, Diageo, Pernod Ricard tienen exposure significativa
 
 ---
 
@@ -206,6 +216,7 @@ Consumer Staples es el sector defensivo por excelencia: alimentos, bebidas, taba
 |--------|---------|-----|-------|---------------|--------------|
 | GIS | General Mills | 10x | 5.2% | WATCHLIST - Fair value ~$45, need $35-38 for 25% MoS | $35-38 |
 | BATS.L | British American Tobacco | ~10x norm | 5.3% | WATCHLIST - Tier B, MoS 12% insuf. Need 25% MoS | 4000-4200 GBp |
+| RI.PA | Pernod Ricard | 12.4x | 6.2% | WATCHLIST - Tier C (QS 51), FV EUR 65-70, need EUR 55-60 for 30% MoS. China/US headwinds. H1 FY26 earnings 19-Feb critical | EUR 55-60 |
 
 ### Analizadas - Evitar (Value Traps)
 
@@ -220,7 +231,7 @@ Consumer Staples es el sector defensivo por excelencia: alimentos, bebidas, taba
 | HRL | Hormel Foods - dividend king 60y, caido 25% | Media |
 | ULVR.L | Unilever - lowest P/E de majors, highest yield | Media |
 | NESN.SW | Nestle - quality pero premium | Baja |
-| DGE.L | Diageo - spirits premium, correccion | Media |
+| DGE.L | Diageo - spirits premium, correccion, ROE 20% vs Pernod 10% | Media |
 
 ### Evitar (Legacy)
 
@@ -239,6 +250,7 @@ Consumer Staples es el sector defensivo por excelencia: alimentos, bebidas, taba
 |-------|--------|------------------|
 | 12-Feb-2026 | **BAT FY25 Results** | Key for smoke-free progress, 2026 guidance |
 | Feb 17, 2026 | CAG CAGNY conference | May provide clarity (but avoid CAG) |
+| **19-Feb-2026** | **Pernod Ricard H1 FY26 Results** | Critical for RI.PA thesis - FCF, dividend, China recovery |
 | Q1 2026 | Earnings season | Visibility on GLP-1 impact, pricing |
 | Mar 2026 | GIS Q3 FY26 earnings | Volume trend critical for thesis |
 | Mar 2026 | TATE.L FY results | CP Kelco integration update |
@@ -257,6 +269,7 @@ Consumer Staples es el sector defensivo por excelencia: alimentos, bebidas, taba
 | Portfolio | TATE.L | thesis/active/TATE.L | 2026-02-03 | HOLD |
 | Watchlist | GIS | thesis/research/GIS | 2026-02-04 | Entry $35-38 |
 | Watchlist | BATS.L | thesis/research/BATS.L | 2026-02-04 | Entry 4000-4200 GBp |
+| Watchlist | RI.PA | thesis/research/RI.PA | 2026-02-04 | Entry EUR 55-60 |
 | Avoid | CAG | thesis/research/CAG | 2026-02-04 | VALUE TRAP - Do not buy |
 
 ---
@@ -301,10 +314,22 @@ Consumer Staples es el sector defensivo por excelencia: alimentos, bebidas, taba
    - Tobacco concentration risk: already own IMB.L at 5.4%
    - IMB.L is better value (cheaper, simpler, ROIC > WACC)
 
-3. **Diageo (DGE.L)** - Priority MEDIA
+3. **Pernod Ricard (RI.PA)** - WATCHLIST (Analizado 2026-02-04)
+   - P/E 12.4x, yield 6.2%, #2 global spirits
+   - **Quality Score 51/100 (Tier C)** - requires 30-40% MoS
+   - Fair value EUR 65-70 (weighted), current EUR 80 = **overvalued**
+   - China tariffs (-21% China sales), US destocking, "transition year" FY2026
+   - FCF coverage of dividend only 0.99x (tight)
+   - **Entry target: EUR 55-60** (25-30% below current)
+   - **Key catalyst: H1 FY26 earnings 19-Feb-2026**
+   - Prefer DGE.L on risk-adjusted basis (safer dividend, 2x ROE)
+
+4. **Diageo (DGE.L)** - Priority MEDIA
    - Premium spirits, correccion reciente
-   - ROIC 13.3% (mejor del sector EU)
-   - China/luxury exposure es risk
+   - ROE 20.1% vs Pernod 10.1% (2x better capital efficiency)
+   - FCF coverage 1.5x vs Pernod 0.99x (safer dividend)
+   - China/luxury exposure es risk but less than Pernod
+   - Better risk-adjusted choice in spirits
 
 ### Value Traps Confirmados
 
@@ -325,6 +350,8 @@ Consumer Staples es el sector defensivo por excelencia: alimentos, bebidas, taba
 
 | Fecha | Cambio | Razon |
 |-------|--------|-------|
+| 2026-02-04 | **RI.PA anadido a Watchlist** | Analisis Framework v3.0 completo. QS 51 (Tier C). FV EUR 65-70, current EUR 80 = overvalued. Entry EUR 55-60. H1 FY26 19-Feb catalyst. |
+| 2026-02-04 | Spirits sub-sector anadido | Para documentar Pernod Ricard y Diageo correctamente |
 | 2026-02-04 | **CAG movido de "Para Analisis" a "Evitar - Value Traps"** | Analisis Framework v2.0 completo. 5/10 value trap factors. ROIC ~5% = no moat. Dividend unsustainable. |
 | 2026-02-04 | **BATS.L movido de "Para Analisis" a "Watchlist"** | Analisis completo Framework v2.0. Tier B, MoS 12% insuf. Entry 4000-4200 GBp. Tobacco concentration risk con IMB.L existente |
 | 2026-02-04 | GIS movido de "Para Analisis" a "Watchlist" | Analisis completo Framework v2.0. FV $45, current $46.50 = fair. Entry $35-38 |
@@ -354,6 +381,11 @@ Consumer Staples es el sector defensivo por excelencia: alimentos, bebidas, taba
 - [Circana: GLP-1 Users 35% of Sales by 2030](https://www.circana.com/post/glp-1-medication-users-to-represent-35-percent-of-u-s-food-and-beverage-sales-by-2030)
 - [Food Navigator: GLP-1 Effect on Food & Beverage 2026](https://www.foodnavigator-usa.com/Article/2025/12/15/soup-to-nuts-podcast-how-will-glp-1s-reshape-food-in-2026/)
 
+### Spirits Industry
+- [Mordor Intelligence - Spirits Market](https://www.mordorintelligence.com/industry-reports/spirits-market)
+- [Globe Newswire - Spirits Market 2028](https://www.globenewswire.com/news-release/2025/02/04/3020281/0/en/1-22-Trillion-Opportunities-in-the-Global-Spirits-Market-to-2028-with-Diageo-Pernod-Ricard-Suntory-The-Mark-Anthony-Group-of-Companies-and-Hite-Jinro-Dominating.html)
+- [DIMINS - 2026 Wine & Spirits Trends](https://www.dimins.com/blog/2026/01/13/2026-wine-spirits-industry-trends/)
+
 ### Empresas Especificas
 - [Stock Analysis: Imperial Brands Statistics](https://stockanalysis.com/quote/lon/IMB/statistics/)
 - [Simply Wall St: Tate & Lyle Analysis](https://simplywall.st/stocks/gb/food-beverage-tobacco/lse-tate/tate-lyle-shares)
@@ -363,6 +395,8 @@ Consumer Staples es el sector defensivo por excelencia: alimentos, bebidas, taba
 - [BAT 2025 Pre-Close Trading Update](https://www.bat.com/media/press-releases/_2025/december/2025-full-year-pre-close-trading-update)
 - [Conagra Q2 FY2026 Earnings](https://www.conagrabrands.com/news-room/news-conagra-brands-reports-second-quarter-results-prn-122942)
 - [Seeking Alpha: Conagra Sell Rating](https://seekingalpha.com/article/4853964-conagra-brands-sell-on-bleak-outlook-and-falling-fundamentals)
+- [Pernod Ricard FY25 Results](https://www.pernod-ricard.com/en/media/fy25-full-year-sales-and-results)
+- [Simply Wall St: Pernod Ricard Ownership](https://simplywall.st/stocks/us/food-beverage-tobacco/otc-pdrd.f/pernod-ricard/ownership)
 
 ### Sector Defensivo
 - [Nasdaq: Recession 2026 Consumer Staple Stocks](https://www.nasdaq.com/articles/recession-2026-3-solid-consumer-staple-stocks-safety)

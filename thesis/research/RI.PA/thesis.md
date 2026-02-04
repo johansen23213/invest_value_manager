@@ -1,337 +1,482 @@
-# Pernod Ricard SA (RI.PA) - Investment Thesis
+# RI.PA - Pernod Ricard
 
-**Date:** 2026-02-02
-**Analyst:** Fundamental Analyst Agent
-**Status:** CONDITIONAL BUY - Wait for H1 FY26 earnings (19-Feb-2026)
-
----
-
-## Executive Summary
-
-Pernod Ricard, the world's #2 spirits company, trades at EUR 74.58 -- a 10-year valuation low (11.6x trailing P/E, 6.3% yield) after a 32% decline from 52-week highs. The selloff is driven by three concurrent headwinds: China demand collapse (Martell -25%), US distributor destocking (Q1 FY26 US -16%), and a strong EUR/weak USD reducing reported results. The company has a wide moat (iconic brands, global distribution, pricing power) and is executing a EUR 1B efficiency program. However, FCF barely covers the dividend (0.99x), leverage is elevated at 3.3x Net Debt/EBITDA, and Q1 FY26 was weak (-7.6% organic).
-
-**Verdict:** On normalized mid-cycle earnings, fair value is EUR 95-110 per share (14-16x P/E), implying 27-47% upside. However, the near-term picture is poor and the H1 FY26 results on Feb 19 are critical. The dividend is at risk if FCF doesn't improve. This is a Tier B cyclical opportunity (25% MoS required). At EUR 74.58 with a base fair value of EUR 95-100, MoS is 21-25% -- borderline. Wait for earnings to confirm the trough.
+> Analysis Date: 2026-02-04 (Updated from 2026-02-02)
+> Framework: v3.0 Quality First
+> Analyst: fundamental-analyst (Claude)
+> Previous Status: CONDITIONAL BUY - Wait for H1 FY26 earnings (19-Feb-2026)
 
 ---
 
-## Key Metrics
+## TL;DR
 
-| Metric | Value | Assessment |
-|--------|-------|------------|
-| Price | EUR 74.58 | Near 52w low (71.30) |
-| Trailing P/E | 11.6x | 10-year low, historical avg ~20-22x |
-| Forward P/E | ~12.0x | Cheap but earnings still declining |
-| Dividend Yield | 6.3% (EUR 4.70) | Highest in decades, but barely covered |
-| Market Cap | EUR 18.8B | |
-| EV | EUR 29.5B | Net debt is 57% of EV |
-| Net Debt/EBITDA | 3.3x | Elevated, was 3.5x at H1 |
-| EV/EBITDA | 9.1x | Reasonable for wide moat |
-| ROE | 10.1% | LOW -- well below Diageo (20%) and historical ~15%+ |
-| FCF (FY25) | EUR 1.17B (+18% YoY) | Improving but barely covers dividend |
-| Revenue (FY25) | EUR 10.96B (-3% organic) | Declining |
-| Op Margin | 26.8% (+64bps YoY) | Resilient, expanding despite revenue decline |
-| FCF/Dividend coverage | 0.99x | CRITICAL -- no margin of error |
-| 52-week range | EUR 71.30 - 109.35 | Bottom third |
+Pernod Ricard is the #2 global spirits company with an iconic brand portfolio (Absolut, Jameson, Chivas, Martell), trading at P/E 12.4x and -26% from 52-week highs (EUR 80 current vs EUR 107 high). **Quality Score 51/100 (Tier C)** indicates mediocre quality driven by weak ROIC spread (+3.9pp vs required >5pp), high leverage (3.3x), and declining growth (-6.6% EPS CAGR 3yr). Despite premium brands and strong gross margins (59.5%), the company faces significant headwinds from China tariffs (-21% China sales), US destocking, and a "transition year" in FY2026. **Valuation analysis shows stock is fairly valued to modestly overvalued** - weighted fair value EUR 60-75 vs current EUR 80. The 6.2% dividend yield is attractive but not sufficient compensation for execution risks. **VERDICT: WATCHLIST at EUR 55-60** - wait for deeper correction or evidence of China recovery.
 
 ---
 
-## Business Model
+## Quality Score: 51/100 - Tier C (Special Situation)
 
-Pernod Ricard manufactures, markets, and distributes premium spirits and wines globally. It is the world's second-largest spirits company by volume behind Diageo, with 240+ brands across 160 countries.
+### Quality Score Breakdown
 
-**Revenue by region (FY25 approx):** Americas ~30%, Asia/RoW ~35%, Europe ~35%.
+| Category | Score | Max | Comments |
+|----------|-------|-----|----------|
+| **Financial Quality** | 11 | 40 | ROIC spread weak (+3.9pp), high leverage (3.3x), FCF declining |
+| **Growth Quality** | 13 | 25 | Revenue CAGR 0.8%, EPS CAGR -6.6% (3yr), GM stable |
+| **Moat Evidence** | 17 | 25 | Excellent GM premium (+21.5pp), #2 market position, but ROIC not persistent at high levels |
+| **Capital Allocation** | 10 | 10 | 10+ years dividend history, Ricard family owns 14% |
+| **TOTAL** | **51** | **100** | **Tier C - Special Situation** |
 
-**Key brands:** Absolut (vodka), Jameson (Irish whiskey), Chivas Regal & The Glenlivet (Scotch), Martell (Cognac), Beefeater (gin), Malibu (rum), Ricard/Pastis (anise), Havana Club (rum). 17 of top 100 global spirits brands.
+### Detailed Quality Metrics
 
-**Key economics:**
-- High gross margins (~60%) from branded spirits
-- Premiumization trend: consumers trading up to higher-priced bottles
-- Aging requirements for Scotch/Cognac = natural moat but ties up capital
-- Global distribution network extremely difficult to replicate
-- FY25: wine portfolio disposed to sharpen spirits focus
+**Financial Quality (11/40):**
+| Metric | Value | Points | Notes |
+|--------|-------|--------|-------|
+| ROIC Spread | +3.9pp (8.3% - 4.4%) | 0 pts | Below 5pp threshold |
+| FCF Margin | 10.2% | 5 pts | EUR 1.12B / EUR 10.96B |
+| Leverage | 3.3x | 2 pts | Net Debt/EBITDA |
+| FCF Consistency | 4/5 years | 4 pts | All 5 years positive |
+| **Subtotal** | | **11/40** | |
 
----
+**Growth Quality (13/25):**
+| Metric | Value | Points | Notes |
+|--------|-------|--------|-------|
+| Revenue CAGR 3yr | 0.8% | 5 pts | >0% but <5% |
+| EPS CAGR 3yr | -6.6% | 5 pts | Declining |
+| GM Trend | Stable | 3 pts | 59.5% vs 60.0% prior |
+| **Subtotal** | | **13/25** | |
 
-## Why Is It Down 32%?
+**Moat Evidence (17/25):**
+| Metric | Value | Points | Notes |
+|--------|-------|--------|-------|
+| GM Premium vs Sector | +21.5pp | 10 pts | 59.5% vs 38% sector median |
+| Market Position | #2 globally | 5 pts | Behind Diageo |
+| ROIC Persistence | ~6/10 years | 2 pts | Estimated |
+| **Subtotal** | | **17/25** | |
 
-Three concurrent cyclical headwinds, NOT structural impairment:
+**Capital Allocation (10/10):**
+| Metric | Value | Points | Notes |
+|--------|-------|--------|-------|
+| Shareholder Returns | 10+ years | 5 pts | Dividend maintained |
+| Insider Ownership | 20.8% | 5 pts | Ricard family 14% + GBL 6.8% |
+| **Subtotal** | | **10/10** | |
 
-### 1. China Collapse (-25% Martell, -21% China revenue FY25)
-- Anti-corruption campaigns reduced gifting/banquet spending
-- China MOFCOM anti-dumping investigation on EU cognac created uncertainty
-- Resolution in July 2025: minimum price undertaking (not full tariffs) -- costs ~EUR 80M/yr
-- Martell is ~90% of Pernod's China decline -- extreme brand concentration risk in one market
-- China showing no recovery in Q1 FY26
+### Tier C Implications
 
-### 2. US Destocking (Q1 FY26 US -16%)
-- Post-COVID inventory buildup being unwound
-- Tariff uncertainty caused distributors to pre-buy then destock
-- Sell-out (actual consumer demand) performing better than sell-in (distributor orders)
-- Expected to normalize by H2 FY26
-
-### 3. FX Headwinds
-- Strong EUR vs USD/INR/TRY reduced reported results
-- EUR 177M unfavorable FX in H1 FY25, EUR 143M in Q1 FY26
-- Purely translational -- no impact on local business fundamentals
-
----
-
-## Moat Assessment: WIDE (7/10 confidence)
-
-### 1. Brand Power (PRIMARY MOAT)
-- 17 of top 100 spirits brands globally
-- Most diversified spirits portfolio in the world (vodka, whiskey, cognac, gin, rum, anise)
-- Consumer loyalty in spirits is exceptionally sticky
-- Premiumization allows revenue growth without volume growth
-
-### 2. Scale & Distribution
-- #2 globally, present in 160 countries
-- Distribution network took decades to build; impossible to replicate organically
-- Local brands (Seagram's India, Ricard France) add geographic moats
-
-### 3. Aging Barrier
-- Scotch, cognac require years of aging -- massive working capital barrier to entry
-- Chivas 18yr, Martell XO require decade+ of inventory investment
-
-### 4. Pricing Power
-- Spirits are relatively price-inelastic
-- FY25: despite volume decline, PRO margin expanded +64bps through pricing/mix
-- Premium portfolio naturally benefits from trade-up
-
-### Moat vs Diageo
-- Diageo has 13 billion-dollar brands vs Pernod's 17-of-top-100 (Diageo brands are individually larger)
-- Diageo is 1.5x larger by revenue and 2x by market cap
-- Pernod's portfolio is MORE diversified across categories (especially cognac via Martell)
-- Pernod has greater China/India exposure -- higher growth potential but higher volatility
-- **Verdict:** Both wide moat. Diageo slightly wider due to scale and brand scale. Pernod more volatile due to geographic mix.
+**MoS Required: 30-40%** - Only buy with clear catalyst and significant discount.
 
 ---
 
-## Financial Analysis
+## Business Understanding
 
-### Revenue & Profitability Trend
+### What Problem Does Pernod Ricard Solve?
 
-| Year | Revenue (EUR B) | PRO (EUR B) | PRO Margin | EPS (EUR) |
-|------|----------------|------------|------------|-----------|
-| FY22 | 10.70 | 3.02 | 28.2% | ~7.50 |
-| FY23 | 12.14 | 3.32 | 27.4% | ~8.20 |
-| FY24 | 11.60 | 3.11 | 26.8% | ~7.00 |
-| FY25 | 10.96 | 2.94 | 26.8% | ~6.46 |
-| Q1 FY26 | 2.38 (-7.6% org) | -- | -- | -- |
+Pernod Ricard provides premium alcoholic beverages (spirits, wine, champagne) for:
+1. **Social occasions** - celebrations, dining, entertainment
+2. **Status signaling** - premium/luxury brands communicate affluence
+3. **Taste preferences** - specific spirit categories (whisky, cognac, vodka)
 
-Revenue peaked in FY23 and has declined ~10% since. Op margin is resilient (+64bps in FY25) showing pricing power and cost discipline. EPS down ~21% from peak.
+This is a **"nice-to-have"** with strong emotional/social components, making demand somewhat discretionary but resilient due to brand loyalty.
 
-### Free Cash Flow
+### Revenue Model
 
-| Year | FCF (EUR B) | FCF/Share | Dividend | FCF Coverage |
-|------|-----------|-----------|----------|-------------|
-| FY22 | 1.79 | 7.10 | 4.12 | 1.72x |
-| FY23 | 1.33 | 5.28 | 4.70 | 1.12x |
-| FY24 | 0.95 | 3.79 | 4.70 | 0.81x |
-| FY25 | 1.17 | 4.65 | 4.70 | 0.99x |
+| Revenue Source | % of Total | Characteristics |
+|----------------|------------|-----------------|
+| Spirits (core) | ~85% | Repeat purchase, brand loyalty |
+| Wine & Champagne | ~10% | Seasonal, higher margin |
+| Travel Retail | ~5% | High margin, volatile |
 
-FCF troughed in FY24 and recovered +18% in FY25. However, FCF coverage of the dividend is BARELY 1.0x. The EUR 4.70 dividend was held flat (first time in years -- signal of stress). If FCF doesn't improve in FY26, a dividend cut is possible.
+**Geographic Mix (FY2025):**
+- Americas: 33% (US is largest single market)
+- Asia/RoW: 32% (China, India, Travel Retail)
+- Europe: 35%
+
+### Brand Portfolio Strength
+
+| Brand | Category | Position | Notes |
+|-------|----------|----------|-------|
+| **Absolut** | Vodka | #3 global | Iconic, but category declining |
+| **Jameson** | Irish Whiskey | #1 global | Growth driver |
+| **Chivas Regal** | Scotch | Top 5 global | Premium positioning |
+| **Martell** | Cognac | #2 global | China exposure (tariff hit) |
+| **The Glenlivet** | Single Malt | Top 3 global | Premium growth |
+| **Ballantine's** | Scotch | #2 global | Value segment |
+| **Malibu** | Rum/Liqueur | #1 global | Younger demographic |
+| **Beefeater** | Gin | Top 5 global | UK/EU focused |
+
+### Margin Structure
+
+| Metric | FY2025 | FY2024 | FY2023 | Trend |
+|--------|--------|--------|--------|-------|
+| Revenue | EUR 10.96B | EUR 11.60B | EUR 12.14B | Declining |
+| Gross Margin | 59.5% | 60.1% | 59.7% | Stable |
+| Operating Margin | 26.8% | 26.8% | 27.3% | Stable |
+| Net Margin | 14.8% | 12.7% | 18.6% | Volatile |
+| FCF Margin | 10.2% | 8.2% | 11.0% | Declining |
+
+**vs Diageo (peer):**
+- Diageo Gross Margin: 60.4% (similar)
+- Diageo Operating Margin: 27.3% (similar)
+- Diageo ROE: 20.1% vs Pernod 10.1% (Diageo significantly better)
 
 ### Balance Sheet
 
-| Metric | FY25 | Assessment |
-|--------|------|------------|
-| Net Debt | EUR 10.76B | High |
-| Net Debt/EBITDA | 3.3x | Peak was 3.5x at H1 |
+| Metric | FY2025 | Assessment |
+|--------|--------|------------|
 | Total Debt | EUR 12.6B | |
 | Cash | EUR 1.8B | |
+| Net Debt | EUR 10.8B | High |
+| Net Debt/EBITDA | 3.3x | Elevated |
 | Debt/Equity | 77.6% | Manageable |
-
-Deleveraging catalysts: Wine disposal completed (April 2025), Imperial Blue India disposal (July 2025), capex normalizing down from peak, EUR 1B efficiency program FY26-29.
-
----
-
-## Valuation
-
-### Method 1: P/E Multiple on Normalized Earnings
-
-Mid-cycle normalized EPS: ~EUR 6.80 (based on EUR 11.5B revenue, 27% PRO margin, 55% flow-through)
-
-| Multiple | Fair Value | MoS vs EUR 74.58 |
-|----------|-----------|-------------------|
-| 14x (bear -- cyclical discount) | EUR 95 | 22% |
-| 16x (base -- discount to historical) | EUR 109 | 32% |
-| 18x (bull -- moat re-rating) | EUR 122 | 39% |
-| 20x (historical average) | EUR 136 | 45% |
-
-**Analyst consensus target: ~EUR 110-120 (varies by source)**
-
-### Method 2: EV/EBITDA
-
-| Multiple | EV | Equity Value | FV/Share | MoS |
-|----------|-----|-------------|----------|-----|
-| 9x (current) | 29.3B | 18.5B | EUR 73.5 | -1% |
-| 10x | 32.5B | 21.8B | EUR 86 | 14% |
-| 11x | 35.8B | 25.0B | EUR 99 | 25% |
-| 12x (historical avg) | 39.0B | 28.3B | EUR 112 | 34% |
-
-At 9x EBITDA, the stock is fairly valued. The question is whether it deserves >9x.
-
-### Method 3: Yield-Based
-
-- Current yield: 6.3%
-- 10-year average yield: ~2.5-3.0%
-- If yield normalizes to 4.0% (still well above historical): EUR 4.70 / 4.0% = EUR 117.50 (37% upside)
-- If yield stays at 5.0% (new normal with higher leverage): EUR 4.70 / 5.0% = EUR 94 (21% upside)
-- If dividend is cut 20% to EUR 3.76: EUR 3.76 / 5.0% = EUR 75 (at current price)
-
-### Method 4: DCF (tool output)
-
-The dcf_calculator.py produced very conservative results (Bear EUR 19, Base EUR 35, Bull EUR 58) because:
-- Default growth rates too low for a branded consumer business at trough earnings
-- Net debt of EUR 10.76B massively compresses equity value
-- The tool's default parameters are not calibrated for capital-intensive spirits businesses with aging inventory
-
-**I override the tool's DCF output as unreliable for this type of business.** P/E and EV/EBITDA multiples are more appropriate for branded consumer companies.
-
-### Valuation Summary
-
-| Method | Fair Value | MoS |
-|--------|-----------|-----|
-| P/E 14x normalized (bear) | EUR 95 | 22% |
-| P/E 16x normalized (base) | EUR 109 | 32% |
-| EV/EBITDA 11x | EUR 99 | 25% |
-| Yield normalization (4%) | EUR 118 | 37% |
-| Yield normalization (5%) | EUR 94 | 21% |
-
-**Central estimate: EUR 95-110 (MoS 22-32%)**
+| Goodwill + Intangibles | EUR 24.5B | 151% of equity - HIGH |
+| Interest Coverage | 4.8x | Adequate |
 
 ---
 
-## RI.PA vs DGE.L -- Head-to-Head
+## Why Is It Cheap? (CRITICAL)
+
+### Market Narrative
+
+1. **China tariffs & destocking (-21% China sales FY2025)**
+   - Anti-dumping investigation on EU cognac
+   - Excess distributor inventory being worked through
+   - Martell brand heavily exposed
+
+2. **US market weakness (Q1 FY26 US -16%)**
+   - Destocking cycle in US distribution
+   - Consumer trade-down to value brands
+   - Sell-out (actual consumer demand) performing better than sell-in
+
+3. **"Transition year" guidance for FY2026**
+   - Management guided for continued sales decline in H1
+   - Recovery skewed to H2 FY2026
+
+4. **Earnings declining**
+   - Net income down from EUR 2.26B (FY2023) to EUR 1.63B (FY2025)
+   - EPS down -27% from peak
+
+### My Counter-Thesis (and why I'm skeptical)
+
+| Narrative | My View | Confidence |
+|-----------|---------|------------|
+| China tariffs permanent | PARTIAL - Tariffs may ease late 2026 but structural China weakness remains | 60% |
+| US destocking temporary | LIKELY TRUE - Inventory normalization should complete by H2 2026 | 70% |
+| Brands losing relevance | FALSE - #2 position intact, premiumization trend supports | 80% |
+| Dividend at risk | UNCERTAIN - 73% payout, FCF barely covers dividend (0.99x) | 50% |
+| Value trap | FALSE - ROIC > WACC, FCF positive, industry stable | 75% |
+
+**KEY INSIGHT:** The stock has declined -42% from 5-year highs (EUR 137 to EUR 80). The market has priced in significant pain. BUT the current price still implies ~9.5x EV/EBITDA which is not cheap for a business with 1% revenue growth and declining earnings. The dividend yield of 6.2% is attractive but reflects risk, not opportunity.
+
+### Value Trap Checklist: 2/10 (LOW RISK)
+
+| Factor | Status | Notes |
+|--------|--------|-------|
+| Industry declining | NO | Spirits 3-4% CAGR |
+| Technology disruption | NO | RTDs are opportunity |
+| Management destroying value | PARTIAL | China/US execution issues |
+| Balance deteriorating | NO | Net debt stable |
+| Insider selling | NO | Family maintains 14% |
+| Dividend cut likely | NO | 73% payout, but FCF coverage 0.99x is tight |
+| Market share loss | PARTIAL | China share lost, #2 global intact |
+| ROIC < WACC | NO | 8.3% vs 4-5% WACC |
+| FCF negative | NO | 4/5 years positive |
+| Goodwill >50% equity | YES | EUR 24.5B / EUR 16.2B = 151% |
+
+**Conclusion:** Not a value trap, but not high quality either. The goodwill concern is mitigated by brand strength.
+
+---
+
+## Projection Framework
+
+### TAM Analysis
+
+**Global Spirits Market:**
+- 2025 TAM: USD 656B (EUR ~555B)
+- 2030E TAM: USD 789B (EUR ~668B)
+- CAGR: 3.7%
+
+### Revenue Growth Derivation
+
+| Component | Estimate | Notes |
+|-----------|----------|-------|
+| TAM Growth | +3.5% | Industry CAGR |
+| Market Share Change | 0% | Maintaining #2, lost some China |
+| Pricing Power | +1.5% | Premium brands can price above inflation |
+| **Total Revenue Growth** | **+3-4%** | **Normalized (post-destocking)** |
+
+**Short-term (FY2026):** -3% to 0% (transition year)
+**Medium-term (FY2027-28):** +3-4% (recovery)
+
+### WACC Derivation
+
+| Component | Value | Source |
+|-----------|-------|--------|
+| Risk-Free Rate | 2.5% | EUR 10Y |
+| Beta | 0.37 | yfinance |
+| Equity Risk Premium | 5.5% | Europe |
+| Cost of Equity | 4.5% | Rf + Beta * ERP |
+| Cost of Debt (after-tax) | 3.6% | |
+| Weight Equity | 65% | |
+| Weight Debt | 35% | |
+| **WACC (calculated)** | **4.4%** | Too low for spirits |
+| **WACC (adjusted)** | **7-8%** | More appropriate for consumer cyclical with China/tariff risk |
+
+### Terminal Growth: 2.5%
+
+Justified by global GDP growth and industry maturity.
+
+---
+
+## Valuation (Multi-Method)
+
+### Method 1: DCF (60% weight)
+
+**Base Case Assumptions:**
+- Normalized FCF: EUR 1.13B (3yr average)
+- Growth Years 1-5: +2%, +3%, +3%, +3%, +3%
+- WACC: 8%
+- Terminal Growth: 2.5%
+- Net Debt: EUR 10.76B
+
+| Scenario | FV/Share | MoS at EUR 80 |
+|----------|----------|---------------|
+| **Bear** (0% growth) | EUR 30 | -167% |
+| **Base** (3% growth) | EUR 42 | -90% |
+| **Bull** (5% growth) | EUR 57 | -40% |
+
+### Method 2: EV/EBITDA Comparable (40% weight)
+
+| Multiple | Fair Value/Share | MoS at EUR 80 |
+|----------|------------------|---------------|
+| 8x (distressed) | EUR 61 | -31% |
+| 9x (conservative) | EUR 73 | -10% |
+| 10x (fair) | EUR 86 | +7% |
+
+**Current Trading:** 9.5x EV/EBITDA
+
+### Method 3: P/E Normalized (Cross-Check)
+
+Mid-cycle normalized EPS: EUR 6.80 (based on EUR 11.5B revenue, 27% PRO margin)
+
+| Multiple | Fair Value | MoS at EUR 80 |
+|----------|-----------|---------------|
+| 14x (bear) | EUR 95 | +16% |
+| 16x (base) | EUR 109 | +27% |
+| 18x (bull) | EUR 122 | +34% |
+
+**Note:** Analyst consensus target EUR 110-129 uses normalized P/E multiples.
+
+### Weighted Fair Value
+
+The methods diverge significantly:
+- DCF (conservative, stress-tests FCF): EUR 42-57
+- EV/EBITDA (market-based): EUR 61-86
+- Normalized P/E (assumes recovery): EUR 95-122
+
+**Interpretation:** DCF captures downside risk; P/E captures upside if recovery materializes.
+
+| Method | Fair Value | Weight | Weighted |
+|--------|-----------|--------|----------|
+| DCF Base | EUR 42 | 40% | EUR 16.80 |
+| EV/EBITDA 9x | EUR 73 | 40% | EUR 29.20 |
+| Normalized P/E 14x | EUR 95 | 20% | EUR 19.00 |
+| **Weighted Average** | | **100%** | **EUR 65** |
+
+### Fair Value Range
+
+| Scenario | Fair Value | MoS at EUR 80 |
+|----------|-----------|---------------|
+| **Conservative (DCF)** | EUR 42 | -90% (OVERVALUED) |
+| **Weighted** | EUR 65 | -23% (OVERVALUED) |
+| **Normalized (P/E)** | EUR 95 | +16% (FAIRLY VALUED) |
+
+---
+
+## Margin of Safety Analysis
+
+**Current Price:** EUR 80.02
+**Weighted Fair Value:** EUR 65
+**MoS Required (Tier C):** 30-40%
+
+| Metric | Value | Assessment |
+|--------|-------|------------|
+| MoS vs Weighted FV | -23% | **OVERVALUED** |
+| MoS vs Conservative FV | -90% | **SIGNIFICANTLY OVERVALUED** |
+| MoS vs Normalized FV | +16% | Fairly valued if recovery occurs |
+| **Required MoS (Tier C)** | 30-40% | **NOT MET** |
+
+### Entry Price Calculation
+
+To achieve 30% MoS vs Weighted FV (EUR 65):
+- Entry Price = EUR 65 * 0.70 = **EUR 45**
+
+To achieve 30% MoS vs Normalized FV (EUR 95):
+- Entry Price = EUR 95 * 0.70 = **EUR 67**
+
+**Practical Entry Target: EUR 55-60** (compromise between conservative and normalized)
+
+---
+
+## Scenarios
+
+| Scenario | Probability | Fair Value | Assumptions |
+|----------|-------------|------------|-------------|
+| **Bear** | 25% | EUR 30-42 | China tariffs permanent, US share loss, dividend cut |
+| **Base** | 50% | EUR 65-75 | FY2026 transition, H2 recovery begins, 3% normalized growth |
+| **Bull** | 25% | EUR 95-110 | China tariffs lifted late 2026, India accelerates, 4% growth |
+
+### Expected Value
+
+EV = (EUR 36 * 0.25) + (EUR 70 * 0.50) + (EUR 102 * 0.25)
+EV = EUR 9 + EUR 35 + EUR 25.5 = **EUR 69.50**
+
+MoS at EUR 80 vs EV of EUR 70: **-14% (OVERVALUED)**
+
+---
+
+## Kill Conditions (MANDATORY)
+
+**SELL IMMEDIATELY IF:**
+
+1. **Dividend cut or suspension** - Signals cash flow stress beyond market expectations
+2. **Net Debt/EBITDA > 4.5x** - Balance sheet deterioration
+3. **ROIC falls below 5%** - Moat erosion
+4. **China sales decline >30% two consecutive years** - Structural brand damage
+5. **Market share drops to #4 or below globally** - Competitive position lost
+
+---
+
+## Macro Fit
+
+From world/current_view.md (2026-02-02):
+
+| Factor | Impact on Pernod | Assessment |
+|--------|------------------|------------|
+| EUR rates stable | Neutral | No yield re-rating catalyst |
+| China weakness | NEGATIVE | 32% Asia exposure |
+| Tariff risk | NEGATIVE | Cognac tariffs |
+| Consumer staples ignored | Neutral | No catalyst |
+
+**Conclusion:** Macro is not supportive. China/tariff exposure is a headwind.
+
+---
+
+## Recommendation
+
+### VERDICT: WATCHLIST at EUR 55-60
+
+**NOT BUY because:**
+1. Quality Score 51/100 (Tier C) requires 30-40% MoS
+2. Current price EUR 80 vs Fair Value EUR 65-70 = **overvalued**
+3. No clear near-term catalyst (FY2026 is "transition year")
+4. China/tariff risk not fully resolved
+5. FCF coverage of dividend is tight (0.99x)
+
+**WATCHLIST because:**
+1. Not a value trap (ROIC > WACC, FCF positive, brands strong)
+2. #2 global position in attractive industry
+3. 6.2% dividend yield attractive if price drops
+4. Ricard family alignment (14% stake)
+5. Long-term premiumization trend intact
+
+### Entry Conditions
+
+**Add to BUY list if:**
+- Price falls to EUR 55-60 (25-30% below current)
+- China tariff resolution announced
+- FY2026 H2 shows clear recovery (revenue +5% H2 vs H1)
+- Quality Score improves to 55+ (Tier B)
+
+### Standing Order
+
+| Trigger | Action | Sizing |
+|---------|--------|--------|
+| EUR 60 | ALERT - Review thesis | - |
+| EUR 55 | BUY initial position | 2% |
+| EUR 50 | ADD | +1% (3% total) |
+| EUR 45 | ADD (if thesis intact) | +1% (4% total) |
+
+### Upcoming Catalyst
+
+**H1 FY26 Earnings: February 19, 2026** - CRITICAL
+- Watch for: FCF trajectory, dividend decision, China/US recovery signs
+- If FCF improves and dividend maintained, thesis strengthens
+- If dividend cut, wait for further decline before entry
+
+---
+
+## RI.PA vs DGE.L Comparison
 
 | Metric | RI.PA | DGE.L | Winner |
 |--------|-------|-------|--------|
-| Trailing P/E | 11.6x | 22.0x | RI.PA (but DGE distorted by exceptionals) |
-| Forward P/E | ~12.0x | ~13.8x | RI.PA |
-| Dividend Yield | 6.3% | 4.8% | RI.PA |
-| FCF Coverage of Div | 0.99x | ~1.5x | DGE.L (much safer) |
-| Net Debt/EBITDA | 3.3x | 3.4x | Comparable |
-| Op Margin | 26.8% | 27.3% | Comparable |
-| ROE | 10.1% | 20.1% | DGE.L (much higher) |
-| Revenue Scale | EUR 11B | USD 20B | DGE.L (1.5x larger) |
-| Moat Width | Wide | Wide | DGE.L (slightly wider) |
-| China Exposure | HIGH (Martell) | MODERATE | DGE.L (lower risk) |
-| MoS (my estimate) | 22-32% | 25-31% | Comparable |
-| Earnings catalyst | Feb 19 | Feb 25 | Both imminent |
+| P/E | 12.4x | 23.0x | RI.PA cheaper |
+| Yield | 6.2% | 4.7% | RI.PA higher |
+| FCF Coverage of Div | 0.99x | ~1.5x | **DGE.L (safer)** |
+| Net Debt/EBITDA | 3.3x | 3.4x | Similar |
+| ROE | 10.1% | 20.1% | **DGE.L (2x better)** |
+| Quality Score | 51 (Tier C) | ~65 (Tier B) | **DGE.L** |
 
-**Verdict:** RI.PA is optically cheaper but DGE.L is the BETTER BUY because:
-1. Diageo's FCF coverage of dividend is 1.5x vs Pernod's 0.99x -- Diageo dividend is much safer
-2. Diageo ROE (20%) far exceeds Pernod (10%) -- better capital efficiency
-3. Diageo has less China concentration risk
-4. Both have similar MoS, but Diageo has lower risk profile
-5. DGE.L qualifies as Tier A (7.5/10 quality score, 15% MoS threshold). RI.PA is Tier B (higher MoS needed)
-
-RI.PA has higher upside IF China recovers strongly (Martell recovery = massive earnings leverage). It is the higher-beta play on spirits recovery.
-
----
-
-## Risk Assessment
-
-### HIGH RISKS
-1. **Dividend sustainability** -- FCF coverage 0.99x. If FY26 FCF doesn't improve, dividend cut is likely. A cut would send shares significantly lower (yield trap).
-2. **China structural risk** -- Martell is ~90% of China decline. If Chinese consumer spending doesn't recover, this is a permanent impairment to a key growth market.
-3. **US tariffs** -- Potential additional tariffs on EU spirits could add to headwinds beyond current levels.
-4. **Leverage at 3.3x** -- Limited financial flexibility. Cannot buy back shares, limited M&A capacity.
-
-### MEDIUM RISKS
-5. **FX headwinds continuing** -- Strong EUR vs reporting currencies reduces translated profits
-6. **Destocking duration** -- US destocking may extend beyond H1 FY26 if tariff uncertainty persists
-7. **India excise policy changes** -- Maharashtra policy impacted Q1 FY26; could spread to other states
-8. **Efficiency program execution** -- EUR 1B savings target ambitious, execution risk
-
-### LOW RISKS
-9. **Gen Z drinking less** -- Structural but very slow-moving, partially offset by premiumization and emerging market growth
-10. **Competitor pressure** -- Diageo, Brown-Forman, Campari all well-positioned but market is not winner-take-all
-
----
-
-## Quality Score (Tier Assessment)
-
-| # | Criterion | Score | Notes |
-|---|-----------|-------|-------|
-| 1 | ROE >15% (5yr) | 0/1 | **FAIL** -- ROE only 10.1% currently, inconsistent >15% |
-| 2 | FCF positive 5yr | 1/1 | Yes, consistently positive |
-| 3 | Debt/Equity <1.0 | 1/1 | 77.6% D/E (passes, but Net Debt/EBITDA 3.3x is high) |
-| 4 | 10+ yr dividend streak | 1/1 | Yes, though held flat FY25 |
-| 5 | Wide moat | 1/1 | Wide moat confirmed |
-| 6 | Revenue stability | 0.5/1 | Revenue down 10% from peak -- moderate cyclicality for "staples" |
-| 7 | Management quality | 0.5/1 | Efficiency program good, but slow to address leverage |
-| 8 | Analyst coverage >10 | 1/1 | 20 analysts |
-| 9 | Market cap >EUR 10B | 1/1 | EUR 18.8B |
-| 10 | Defensive sector | 0.5/1 | Spirits are quasi-staples but MORE cyclical than food/utilities |
-
-**Quality Score: 6.5/10 --> Tier B (25% MoS required)**
-
-The ROE failure and revenue cyclicality prevent Tier A classification. This is a cyclical quality stock, not a defensive compounder.
-
----
-
-## Autocritica (Pre-Recommendation)
-
-- **Assumptions:** I assume mid-cycle normalized EPS of EUR 6.80. If China doesn't recover and US growth stalls, trough earnings could persist and EUR 6.80 is too generous.
-- **Biases detected:** Anchoring to historical P/E multiples of 20-22x. The market may be correctly repricing spirits companies to lower multiples permanently due to Gen Z trends and leverage.
-- **Evidence ignored:** The FY26 efficiency program could accelerate FCF recovery faster than I model, making the bull case stronger.
-- **Validation:** P/E and EV/EBITDA methods converge on EUR 95-110 range. Analyst consensus aligns. Cross-validated against DGE.L comparable.
-- **Alternatives considered:** DGE.L is the main alternative -- better risk-adjusted but similar upside. Brown-Forman at 28x fwd is too expensive. Remy Cointreau at 25x has higher China risk.
-
----
-
-## Decision
-
-### CONDITIONAL BUY -- Wait for H1 FY26 Earnings (Feb 19, 2026)
-
-The stock is borderline at current prices. MoS is 22-32% depending on method, straddling the 25% Tier B threshold.
-
-**Why wait:**
-1. H1 FY26 results in 17 days will clarify: FCF trajectory, dividend decision, China/US recovery signs
-2. If FCF improves and dividend is maintained, MoS expands and risk decreases
-3. If FCF deteriorates and dividend is cut, the stock could fall to EUR 60-65 (and become a better entry)
-
-**Entry triggers post-earnings:**
-- **BUY at EUR 70-75** if: FCF coverage improves to >1.1x, dividend maintained, organic growth shows H2 inflection
-- **BUY at EUR 60-65** if: dividend cut but operational fundamentals stabilizing (contrarian entry)
-- **PASS** if: leverage increases to >3.5x AND no clear path to recovery
-
-**Position size:** EUR 400-450 (3.5-4% of portfolio). Lower than max due to leverage and dividend risk.
-
-**vs DGE.L:** If forced to choose ONE spirits name, DGE.L is preferred (safer dividend, higher ROE, wider moat). Could own both for diversification within spirits (different geographic/brand exposure).
-
-### Price Monitors
-- Alert if RI.PA drops below EUR 70 (closer to 52w low, better entry)
-- Alert if RI.PA rises above EUR 85 pre-earnings (reduced MoS, reconsider)
-- H1 FY26 earnings: **February 19, 2026** -- CRITICAL catalyst
-
----
-
-## Comparables
-
-| Company | Fwd P/E | Yield | Net Debt/EBITDA | Moat | MoS |
-|---------|---------|-------|-----------------|------|-----|
-| Pernod Ricard (RI.PA) | ~12x | 6.3% | 3.3x | Wide | 22-32% |
-| Diageo (DGE.L) | ~13.8x | 4.8% | 3.4x | Wide | 25-31% |
-| Remy Cointreau | ~25x | 3.0% | ~2.5x | Narrow | Negative |
-| Brown-Forman | ~28x | 2.0% | ~1.5x | Wide | Negative |
-| Campari | ~20x | 2.5% | ~2.0x | Narrow | Negative |
-
-Pernod and Diageo are the only wide-moat spirits names trading at historically depressed valuations. Both are attractive on a 2-3 year view IF earnings recover.
+**Verdict:** DGE.L is preferred on risk-adjusted basis (safer dividend, higher ROE). RI.PA is higher-beta play on spirits recovery - more upside if China recovers, more downside if not.
 
 ---
 
 ## Sources
-- [Pernod Ricard FY25 Results](https://www.pernod-ricard.com/en/media/fy25-full-year-sales-and-results)
-- [Pernod Ricard H1 FY25 Results](https://www.pernod-ricard.com/en/media/half-year-fy25-sales-and-results)
-- [Pernod Ricard Q1 FY26 Sales](https://www.pernod-ricard.com/en/media/q1-fy26-sales)
-- [Q1 FY26 Press Release (BusinessWire)](https://www.businesswire.com/news/home/20251015117697/en/)
-- [China Anti-Dumping Resolution](https://www.pernod-ricard.com/en/media/response-pernod-ricard-relation-conclusion-china-s-mofcom-cognac-anti-dumping-investigation)
-- [China Tariffs Spared (Drinks Business)](https://www.thedrinksbusiness.com/2025/07/pernod-lvmh-remy-spared-from-china-tariffs-on-cognac/)
-- [FY25 Profitability Analysis (ainvest)](https://www.ainvest.com/news/pernod-ricard-fy25-profitability-resilience-margin-expansion-sustain-volatile-market-2508/)
-- [2026 Recovery Analysis (ainvest)](https://www.ainvest.com/news/pernod-ricard-2026-recovery-share-price-undervalued-tariff-reductions-destocking-2508/)
-- [Morningstar Wide Moat Rating](https://www.morningstar.com/stocks/xpar/ri/quote)
-- [Pernod Ricard Net Debt/EBITDA (GuruFocus)](https://www.gurufocus.com/term/debt-to-ebitda/PDRDF)
-- yfinance (price data, financial statements)
+
+### Company & Financial Data
+- [Pernod Ricard IR - FY25 Results](https://www.pernod-ricard.com/en/media/fy25-full-year-sales-and-results)
+- [Pernod Ricard Consensus](https://www.pernod-ricard.com/en/consensus-january-8th-2026)
+- yfinance data (price_checker.py, quality_scorer.py)
+
+### Analyst Views
+- [Deutsche Bank Hold Rating](https://www.investing.com/news/analyst-ratings/deutsche-bank-resumes-pernod-ricard-stock-coverage-with-hold-rating-93CH-4390175)
+- [TipRanks Pernod Ricard Forecast](https://www.tipranks.com/stocks/fr:ri/forecast)
+- [Yahoo Finance Analyst Outlook](https://finance.yahoo.com/news/recent-analyst-shifts-changing-outlook-031037585.html)
+
+### China/Tariff Impact
+- [Vinetur - Tariff Impact Eases](https://www.vinetur.com/en/2025082890653/pernod-ricard-reports-sales-decline-but-beats-forecasts-as-tariff-impact-eases.html)
+- [Drinks International - US/China Decline](https://drinksint.com/news/fullstory.php/aid/11922/Pernod_Ricard_sees_drop_in_sales_driven_by_declines_in_US_and_China_.html)
+- [AInvest - 2026 Recovery Analysis](https://www.ainvest.com/news/pernod-ricard-2026-recovery-share-price-undervalued-tariff-reductions-destocking-2508/)
+
+### Industry Data
+- [Mordor Intelligence - Spirits Market](https://www.mordorintelligence.com/industry-reports/spirits-market)
+- [Globe Newswire - Spirits Market 2028](https://www.globenewswire.com/news-release/2025/02/04/3020281/0/en/1-22-Trillion-Opportunities-in-the-Global-Spirits-Market-to-2028-with-Diageo-Pernod-Ricard-Suntory-The-Mark-Anthony-Group-of-Companies-and-Hite-Jinro-Dominating.html)
+- [DIMINS - 2026 Wine & Spirits Trends](https://www.dimins.com/blog/2026/01/13/2026-wine-spirits-industry-trends/)
+
+### Ownership
+- [Simply Wall St - Ownership Structure](https://simplywall.st/stocks/us/food-beverage-tobacco/otc-pdrd.f/pernod-ricard/ownership)
+
+---
+
+## META-REFLECTION
+
+### Dudas/Incertidumbres
+
+1. **WACC estimation uncertainty:** Beta of 0.37 seems too low for a company with 32% China exposure during trade tensions. I used 8% WACC but this is judgmental.
+
+2. **Valuation method divergence:** DCF (EUR 42) vs Normalized P/E (EUR 95) is a 126% spread. This reflects genuine uncertainty about whether current earnings are trough or new normal.
+
+3. **Dividend sustainability:** FCF coverage 0.99x is razor-thin. A dividend cut would trigger selling and lower the stock further - but would also reduce stress and potentially be healthy.
+
+4. **FY2026 trajectory unclear:** Management says "transition year" but the timing and magnitude of recovery is uncertain.
+
+### Sugerencias de Mejora
+
+1. **Tool Enhancement:** quality_scorer.py should allow manual WACC input for more accurate ROIC spread calculation.
+
+2. **Sector View:** Consider creating `world/sectors/spirits-beverages.md` to track spirits industry trends separately from broad consumer staples.
+
+3. **DCF Tool:** The tool's default parameters produce very conservative results for capital-intensive consumer businesses. May need sector-specific templates.
+
+### Anomalias Detectadas
+
+1. **Yield display error in yfinance:** Shows 617% yield (should be 6.17%). price_checker.py correctly displays 6.2%.
+
+### Preguntas para Orchestrator
+
+1. Should we create a separate sector view for spirits/alcoholic beverages?
+
+2. Given the valuation uncertainty (DCF vs P/E spread), should entry target be EUR 55-60 (conservative) or EUR 65-70 (normalized)?
+
+3. Should Pernod be added to consumer-staples.md sector view under "Analizadas - Watchlist"?
+
+---
+
+**Analysis Complete. Updated thesis archived to thesis/research/RI.PA/thesis.md**

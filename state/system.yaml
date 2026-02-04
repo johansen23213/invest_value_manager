@@ -85,19 +85,57 @@ system:
       Ahora: 1 Tier A, 5 Tier B, 12 Tier C. Sin violaciones Tier D.
       Continuar añadiendo Tier A compounders: NOVO-B.CO, MA, V en pipeline.
   last_session_summary: |
+    Sesión 35 - VIGILANCIA OPERATIVA + SCREENING (2026-02-04)
+
+    =====================================================
+    PRIMERA SESIÓN CON SISTEMA DE VIGILANCIA PROACTIVA
+    =====================================================
+
+    FASE 0 VIGILANCIA - EJECUTADA CON ÉXITO:
+    - news-monitor: 21 tickers escaneados, 0 críticas, 6 materiales
+    - market-pulse: 19 posiciones, 3 anomalías (todas con causa)
+    - Archivos state/news_digest.yaml y market_pulse.yaml actualizados
+
+    ALERTAS MATERIALES (ya incorporadas):
+    - NVO: Guidance shock -17% (compramos post-caída)
+    - ADBE: AI fears -6.9% (compramos en 52w low)
+    - EDEN.PA: Brasil regulation -9% (monitorear)
+    - SHEL.L: Pre-anuncio débil (earnings hoy)
+
+    PORTFOLIO:
+    - Valor: €9,782 (+2.6%)
+    - Cash: €1,773 (18.1%) - CASH DRAG
+    - Posiciones: 19 (2 Tier A, 5 Tier B, 12 Tier C)
+
+    STANDING ORDER AÑADIDO:
+    - HRB ADD @ $35 (cerca de 52w low, €300)
+
+    SCREENING + ANÁLISIS (4 empresas):
+    | Ticker | QS | Tier | Veredicto | Entry |
+    |--------|----|----- |-----------|-------|
+    | KMPR | 42 | C | WATCHLIST | $28 |
+    | PUB.PA | 64 | B | BLOQUEADO EU | €68-72 |
+    | HIK.L | 46 | C | WATCHLIST | 1400 GBp |
+    | RI.PA | 51 | C | OVERVALUED | €55-60 |
+
+    PUB.PA es la mejor oportunidad (MoS 29%) pero EU constraint
+    (38.2% > 35% max) bloquea la compra.
+
+    =====================================================
+    PENDIENTE PRÓXIMA SESIÓN
+    =====================================================
+
+    1. Evaluar earnings GL/ALL/SHEL.L (publicados hoy after close)
+    2. Vigilar ZIG.L (-3.7% del trigger 375 GBp)
+    3. Vigilar HRB ADD trigger @ $35 (-4% del actual)
+    4. EVO.ST - UKGC sin resolver, no ejecutar
+    5. Cash drag 18% - considerar trim EU para PUB.PA
+    6. TEP.PA re-eval antes de earnings Feb 26 (-19%)
+
+    =====================================================
+
+  last_session_summary_archived: |
     Sesión 34 - SISTEMA DE VIGILANCIA PROACTIVA (2026-02-05)
-
-    =====================================================
-    MAJOR SYSTEM UPGRADE
-    =====================================================
-
-    Trigger: Usuario detectó que recomendamos NVO sin contextualizar
-    que la acción había caído 18% los 2 días previos.
-
-    DIAGNÓSTICO:
-    - No monitoreábamos noticias de posiciones activas
-    - No detectábamos movimientos anómalos
-    - Recomendaciones sin contexto de timing
     - Ignorábamos META-REFLECTION de agentes
 
     IMPLEMENTADO:
@@ -880,6 +918,19 @@ standing_orders:
     fair_value: "$174"
     mos_at_trigger: "25.3%"
     notes: "Globe Life. Framework v2.0 FV $174. At $130 reaches 25% MoS. Current $143 = 17.6% MoS (insufficient). Quality 7/10 Tier B."
+    expiry: 2026-06-01
+
+  # HRB ADD - Near 52w low opportunity
+  - ticker: HRB
+    action: ADD
+    trigger: "<=$35"
+    size_eur: 300
+    shares_approx: 8
+    thesis: thesis/active/HRB/thesis.md
+    fair_value: "$52-55"
+    mos_at_trigger: "33-36%"
+    tier: "B (QS 73)"
+    notes: "ADD to existing 9 shares. Near 52w low ($35.45). Q2 EPS miss was seasonal (tax prep weak Q2). Revenue +11%, guidance maintained. Brings position from 2.8% to ~5.5%."
     expiry: 2026-06-01
 
   # PENDIENTE EARNINGS - Ejecutar SOLO si earnings cumplen condiciones
