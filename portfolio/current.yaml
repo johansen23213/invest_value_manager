@@ -7,16 +7,16 @@
 # =============================================================================
 
 cash:
-  amount: 1806.60  # Post TRIM TEP.PA 2026-02-03 (1647.18 + 159.42)
+  amount: 2112.08  # Post TRIM DTE.DE 2026-02-04 (2021.15 + 90.93)
   currency: EUR
 
 positions:
   # DATOS SINCRONIZADOS CON eToro 2026-02-02
   - ticker: DTE.DE
     name: "Deutsche Telekom AG"
-    shares: 23.624621  # Trimmed from 37.62 on 2026-02-03
-    invested_usd: 801.26  # Updated post-trim
-    avg_cost_usd: 33.91  # 801.26 / 23.624621
+    shares: 20.624621  # Trimmed from 23.62 on 2026-02-04
+    invested_usd: 699.56  # Prorated: 801.26 * (20.62/23.62)
+    avg_cost_usd: 33.91  # Unchanged (original cost basis)
     date_opened: 2026-01-26
     thesis: thesis/active/DTE.DE/thesis.md
 
@@ -140,14 +140,6 @@ positions:
     date_opened: 2026-02-03
     thesis: thesis/active/GL/thesis.md
 
-  - ticker: FUTR.L
-    name: "Future plc"
-    shares: 111  # Added 64 shares 2026-02-03
-    invested_usd: 817.40  # 344.88 + 472.52
-    avg_cost_usd: 7.36  # 817.40 / 111
-    date_opened: 2026-02-03
-    thesis: thesis/active/FUTR.L/thesis.md
-
   - ticker: HRB
     name: "H&R Block Inc."
     shares: 9
@@ -155,6 +147,14 @@ positions:
     avg_cost_usd: 37.20  # 334.80 / 9
     date_opened: 2026-02-03
     thesis: thesis/active/HRB/thesis.md
+
+  - ticker: ADBE
+    name: "Adobe Inc."
+    shares: 2
+    invested_usd: 541.20
+    avg_cost_usd: 270.60  # 541.20 / 2
+    date_opened: 2026-02-04
+    thesis: thesis/active/ADBE/thesis.md
 
 transactions:
   - date: 2026-01-26
@@ -346,4 +346,30 @@ transactions:
     price_eur: 53.14
     total_eur: 159.42
     notes: "TRIM - Position 7.8% > 7% max. Sold 3/14 shares. Constraint violation resolved."
+
+  - date: 2026-02-04
+    action: SELL
+    ticker: FUTR.L
+    shares: 111
+    price_gbp: 522.50
+    total_eur: 672.20
+    pnl_eur: -22.85
+    pnl_pct: -2.8
+    notes: "SELL - Framework v3.0 Tier D violation (QS 32/100). Capital redeployed to quality."
+
+  - date: 2026-02-04
+    action: BUY
+    ticker: ADBE
+    shares: 2
+    price_usd: 270.60
+    total_usd: 541.20
+    notes: "BUY - First Tier A Quality Compounder. QS 76, MoS 31%, OEY+Growth 16.55%. At 52w low."
+
+  - date: 2026-02-04
+    action: TRIM
+    ticker: DTE.DE
+    shares: 3
+    price_eur: 30.31
+    total_eur: 90.93
+    notes: "TRIM - Position 7.3% > 7% max. Constraint resolved. EU geo also improved."
 

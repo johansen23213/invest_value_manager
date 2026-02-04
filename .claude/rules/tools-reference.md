@@ -85,6 +85,25 @@ python3 tools/dcf_calculator.py AAPL --output results.csv     # Save to CSV
 - **ADVERTENCIA**: DCF es sensible a inputs (GIGO). Siempre validar growth rate vs histórico y vs peers.
 - **ADVERTENCIA**: Para empresas con alta deuda (ej: GIS $13B net debt), el net debt puede reducir drásticamente el fair value. Siempre verificar que el resultado tiene sentido vs P/E y comparables.
 
+### quality_scorer.py - Quality Score para Framework v3.0 (NUEVO)
+```bash
+python3 tools/quality_scorer.py TICKER                   # Score básico
+python3 tools/quality_scorer.py TICKER --detailed        # Breakdown por categoría
+python3 tools/quality_scorer.py TICKER1 TICKER2 ...      # Batch analysis con summary
+```
+- Calcula Quality Score (0-100) con 4 componentes:
+  - Financial Quality (40 pts): ROIC spread, FCF margin, leverage, FCF consistency
+  - Growth Quality (25 pts): Revenue CAGR, EPS CAGR, GM trend
+  - Moat Evidence (25 pts): GM premium, market position, ROIC persistence
+  - Capital Allocation (10 pts): Shareholder returns, insider ownership
+- Asigna Quality Tier:
+  - **Tier A** (75-100): Quality Compounder, MoS 10-15%
+  - **Tier B** (55-74): Quality Value, MoS 20-25%
+  - **Tier C** (35-54): Special Situation, MoS 30-40%
+  - **Tier D** (<35): **NO COMPRAR**
+- **REGLA: Ejecutar SIEMPRE antes de cualquier análisis fundamental**
+- **REGLA: Tier D = STOP INMEDIATO, no proceder con análisis**
+
 ### constraint_checker.py - Pre-validación de constraints
 ```bash
 python3 tools/constraint_checker.py CHECK TEP.PA 400    # Simula compra y verifica limits

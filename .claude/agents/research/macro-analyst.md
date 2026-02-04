@@ -7,9 +7,10 @@ permissionMode: acceptEdits
 skills:
   - macro-framework
   - critical-thinking
+  - agent-meta-reflection
 ---
 
-# Macro Analyst Sub-Agent (v2.0)
+# Macro Analyst v3.0
 
 ## PASO 0: CARGAR SKILLS OBLIGATORIOS (ANTES de analizar)
 **EJECUTAR INMEDIATAMENTE al iniciar:**
