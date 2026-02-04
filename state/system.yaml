@@ -1,13 +1,77 @@
 # =============================================================================
-# ESTADO DEL SISTEMA - Value Investor v2.2.0
-# Actualizado 2026-02-03 - Framework de inversion rediseñado
+# ESTADO DEL SISTEMA - Value Investor v2.2.2
+# Actualizado 2026-02-04
 # =============================================================================
 
 system:
   system_version: "2.2.2"
   last_session: 2026-02-04
+
+  # EVOLUCIÓN PENDIENTE - FRAMEWORK v3.0
+  # =====================================
+  pending_evolution:
+    status: APPROVED_PENDING_IMPLEMENTATION
+    document: docs/evolution_proposal_fw_v3.0.md
+    approved_date: 2026-02-04
+    reason: |
+      Sesión 29 reveló sesgos estructurales en Framework v2.0:
+      1. MoS fijo 25% excluye quality compounders
+      2. P/E bajo como filtro encuentra value traps
+      3. 0% tech exposure es apuesta implícita no consciente
+      4. DCF como método primario da falsa precisión
+
+      Framework v3.0 introduce:
+      - Quality Score (0-100) ANTES de valoración
+      - MoS variable (10-40%) según quality tier
+      - Tres categorías: Compounders + Value + Special
+      - Sector allocation con tech mínimo 10%
+
+      INSTRUCCIÓN: Cuando el humano pida implementar v3.0,
+      leer docs/evolution_proposal_fw_v3.0.md COMPLETO primero.
+    phases:
+      - phase: 1
+        name: "Core System Update"
+        status: pending
+        description: "Actualizar CLAUDE.md, rules, skills, agents"
+      - phase: 2
+        name: "Tools"
+        status: pending
+        description: "Crear quality_scorer.py, modificar dynamic_screener.py"
+      - phase: 3
+        name: "Portfolio Re-evaluation"
+        status: pending
+        description: "Quality Score para 18 posiciones actuales"
+      - phase: 4
+        name: "Pipeline Expansion"
+        status: pending
+        description: "Añadir Quality Compounders a watchlist"
+      - phase: 5
+        name: "Validation"
+        status: pending
+        description: "Review +30 días"
   last_session_summary: |
-    Sesion 29 - PREPARACION EARNINGS Y PIPELINE EXPANSION
+    Sesion 29 - PREPARACION EARNINGS + AUTO-EVALUACION FRAMEWORK
+
+    AUTO-EVALUACIÓN CRÍTICA (hito importante):
+    El humano preguntó: "¿Por qué no hay tech en el portfolio?"
+    Esto reveló sesgos estructurales en Framework v2.0:
+    - MoS fijo 25% excluye quality compounders
+    - P/E bajo como filtro encuentra value traps
+    - 0% tech es apuesta implícita no consciente
+    - Value investing dogmático vs Buffett moderno
+
+    RESULTADO: Framework v3.0 diseñado y aprobado
+    - Documento: docs/evolution_proposal_fw_v3.0.md
+    - Quality Score (0-100) antes de valoración
+    - MoS variable según quality tier
+    - Categorías: Compounders + Value + Special
+    - Tech mínimo 10%
+
+    PROXIMOS PASOS v3.0:
+    Cuando el humano pida implementar, leer el documento completo
+    y seguir las 5 fases definidas.
+
+    ---
 
     EARNINGS PREP COMPLETADOS (5-feb-2026):
     1. GL (Globe Life) - Q4 after close
