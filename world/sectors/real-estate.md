@@ -1,6 +1,6 @@
 # Sector: Real Estate / REITs
 
-> Ultima actualizacion: 2026-02-03
+> Ultima actualizacion: 2026-02-04
 > Analista: Claude
 > Status: **NEUTRAL** (subsectores selectivos: SOBREPONDERAR gaming/healthcare/industrial)
 
@@ -129,6 +129,24 @@ El sector Real Estate/REITs atraviesa un punto de inflexion tras el shock de tip
 
 ---
 
+## Dependencias Activas
+
+**Si este sector view cambia MATERIALMENTE, re-evaluar todas las thesis listadas.**
+
+| Tipo | Ticker | Thesis Path | Ultima Eval | Status |
+|------|--------|-------------|-------------|--------|
+| Portfolio | VICI | thesis/active/VICI | 2026-02-03 | HOLD |
+| Portfolio | VNA.DE | thesis/active/VNA.DE | 2026-02-03 | HOLD |
+| Watchlist | SRE.L | thesis/research/SRE.L | 2026-02-04 | Entry 75p |
+
+### Protocolo de Cambio Material
+Cuando actualices este sector view con cambio MATERIAL:
+1. Cambiar status a "NEEDS_REVIEW" en todas las dependencias
+2. Anadir al calendario: "RE-EVAL [tickers] por cambio en [sector]"
+3. Documentar el cambio en "Historial de Cambios"
+
+---
+
 ## Empresas Objetivo para Analisis
 
 ### Para analisis profundo (Alta prioridad)
@@ -157,6 +175,14 @@ El sector Real Estate/REITs atraviesa un punto de inflexion tras el shock de tip
 | VNO | Vornado | Office NYC, alta vacancy |
 | SPG | Simon Property | Malls, aunque mejor que peers, disruption |
 | URW.AS | Unibail-Rodamco-W | Malls premium EU, pero sector en decline |
+
+---
+
+## Analizadas - En Watchlist
+
+| Ticker | Empresa | FV | Entry | MoS Req | Thesis | Fecha Analisis |
+|--------|---------|----|----- -|---------|--------|----------------|
+| SRE.L | Sirius Real Estate | 100p | 75p | 25% | thesis/research/SRE.L | 2026-02-04 |
 
 ---
 
@@ -204,6 +230,30 @@ El sector Real Estate/REITs atraviesa un punto de inflexion tras el shock de tip
 | Fecha | Cambio | Razon |
 |-------|--------|-------|
 | 2026-02-03 | Status inicial: NEUTRAL (selectivo) | Primera creacion del sector view |
+| 2026-02-04 | Anadida SRE.L a Watchlist | Analisis completado, entry target 75p |
+| 2026-02-04 | Implementado sistema de dependencias | Sistema de tracking de thesis dependientes |
+
+---
+
+## Reglas de Ciclo de Vida
+
+### Cuando una empresa se COMPRA:
+- Mover de "Analizadas - Watchlist" a "Nuestras Posiciones Actuales"
+- Anadir a "Dependencias Activas" como Portfolio
+
+### Cuando una thesis se ARCHIVA (vendida o descartada):
+- Mover de "Dependencias Activas" a "Historial de Analisis"
+- Registrar razon y fecha de archivo
+- Mantener maximo 10 entradas en historial, luego purgar
+
+### Cuando sector view crece demasiado (>300 lineas):
+- Mover "Historial de Analisis" a archivo separado: world/sectors/archive/real-estate-history.md
+- Mantener solo ultimos 6 meses en "Analizadas"
+
+### Historial de Analisis (Archivadas)
+| Ticker | Razon Archivo | Fecha | Leccion |
+|--------|---------------|-------|---------|
+| (vacio) | | | |
 
 ---
 
