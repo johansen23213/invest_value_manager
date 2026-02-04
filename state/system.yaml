@@ -7,7 +7,7 @@ system:
   system_version: "2.2.2"
   last_session: 2026-02-04
   last_session_summary: |
-    Sesion 29 - PREPARACION EARNINGS Y ANALISIS GIS
+    Sesion 29 - PREPARACION EARNINGS Y PIPELINE EXPANSION
 
     EARNINGS PREP COMPLETADOS (5-feb-2026):
     1. GL (Globe Life) - Q4 after close
@@ -25,40 +25,55 @@ system:
        - EPS $1.21, FCF $9-10B, buyback $3.5B esperado
        - Iran hedge thesis: 30-40% prob conflicto
        - Accion: HOLD. Kill: dividend cut o FCF <$30B FY
-       - Chemicals "significant loss" ya guided
 
-    ANALISIS REALIZADO:
-    - GIS (General Mills): WATCHLIST
-      - FV $45-50, current $46.50 = 0% MoS
-      - Entry target: $35-38 (25% MoS Tier B)
-      - GLP-1/private label headwinds, $13B debt
-      - Thesis creada, sector view actualizado
+    ANALISIS REALIZADOS (4 empresas):
+    1. GIS (General Mills): WATCHLIST
+       - FV $45-50, current $46.50 = 0% MoS
+       - Entry: $35-38 | Quality 6.5/10 Tier B
+       - GLP-1/private label headwinds
+
+    2. BATS.L (British American Tobacco): WATCHLIST
+       - FV 5163 GBp, current 4545 GBp = 12-17% MoS
+       - Entry: 4000-4200 GBp (-10-12%)
+       - Ya tenemos IMB.L - IMB es mejor valor (P/E 8x vs 10x)
+       - Value trap 4/10, ROIC < WACC
+       - Earnings 12-feb
+
+    3. CAG (Conagra): AVOID - VALUE TRAP
+       - FV ~$17.50, current $19.11 = OVERVALUED
+       - Value trap 5/10: impairment $968M, loss Q2, ROIC~WACC
+       - Yield 7.3% pero payout -667% (pagando de perdidas)
+       - NO COMPRAR a ningun precio actual
+
+    4. Documento Joan: NVDA/TSMC/Tierras Raras
+       - Creado en docs/analisis_joan_nvda_tsmc_tierras_raras.md
+       - Recomendacion: TSMC > NVDA > MP/Lynas
 
     CORRECCIONES:
-    - HRB ADD order $27.90 era ERROR - corregido en calendar
-      (precio actual $37.20, entry thesis <$35)
+    - HRB ADD order $27.90 era ERROR - corregido
 
     STANDING ORDERS VERIFICADOS:
-    - EVO.ST: 567 SEK BELOW trigger 600, pero UKGC pendiente - NO COMPRAR
-    - BME.L: 175p vs 169p trigger (+3.5%)
-    - ZIG.L: 386.5p vs 375p trigger (+3.1%)
+    - EVO.ST: 567 SEK BELOW trigger pero UKGC pendiente - NO COMPRAR
+    - BME.L: 175p vs 169p (+3.5%)
+    - ZIG.L: 386.5p vs 375p (+3.1%)
 
     METRICAS:
     - Portfolio: $11,386 (EUR 9,628) | P&L +$37 (+0.4%)
-    - Cash: 18.8% (drag, pero standing orders cerca)
-    - Posiciones: 18 | Winners: 8 (44%)
+    - Cash: 18.8% | Posiciones: 18 | Winners: 44%
 
     ARCHIVOS MODIFICADOS:
     - thesis/research/GIS/thesis.md (nuevo)
-    - world/sectors/consumer-staples.md (+GIS watchlist)
-    - state/system.yaml (HRB order fix)
+    - thesis/research/BATS.L/thesis.md (nuevo)
+    - thesis/research/CAG/thesis.md (nuevo - AVOID)
+    - world/sectors/consumer-staples.md (actualizado)
+    - docs/analisis_joan_nvda_tsmc_tierras_raras.md (nuevo)
 
     ALERTAS PROXIMA SESION (30):
-    1. EARNINGS HOY: GL (after close), ALL, SHEL.L
-    2. Ejecutar decision trees segun resultados
-    3. EVO.ST - seguir monitoreando UKGC
-    4. BME.L/ZIG.L - cerca de triggers
-    5. Cash drag 18.8% - buscar oportunidades post-earnings
+    1. EARNINGS HOY: GL, ALL, SHEL.L - ejecutar decision trees
+    2. BATS.L earnings 12-feb - revisar thesis post-results
+    3. Standing orders cerca: BME.L (-3.5%), ZIG.L (-3.1%)
+    4. EVO.ST - UKGC monitoring
+    5. Cash 18.8% - earnings pueden crear oportunidades
   status: active
 
 # -----------------------------------------------------------------------------
@@ -389,6 +404,12 @@ watchlist:
       fair_value: "195 GBp"
       thesis: thesis/archive/MEGP.L/thesis.md
 
+    - ticker: CAG
+      rejection_date: 2026-02-04
+      reason: "VALUE TRAP 5/10 - Q2 FY26 loss $664M, impairment $968M, ROIC 5.3% barely covers WACC, dividend payout -667% (paying from losses). Worst margins in sector. GIS is better choice if want food exposure."
+      fair_value: "$17.50 (current $19.11 = overvalued)"
+      thesis: thesis/research/CAG/thesis.md
+
   active_monitoring:
     - ticker: A2A.MI
       entry: 2.548
@@ -489,6 +510,8 @@ alerts:
     - { ticker: GL, entry_usd: 130, note: "Globe Life ADD trigger. At $130 MoS=25.3%. Do not add >$130." }
     - { ticker: UTG.L, entry_gbp: 540, note: "v2.0 VALIDATED. FV 745p. At 540p MoS 27.5%. Earnings Feb 24." }
     - { ticker: SRE.L, entry_gbp: 75, note: "Sirius RE. FV 100p. Entry 75p = 25% MoS. Refinancing Jun-2026 catalyst." }
+    - { ticker: GIS, entry_usd: 38, note: "General Mills. FV $45-50. Entry $35-38. Quality 6.5/10 Tier B. GLP-1 headwind." }
+    - { ticker: BATS.L, entry_gbp: 4200, note: "BAT. FV 5163p. Entry 4000-4200p. Ya tenemos IMB.L. Earnings 12-feb." }
 
 # -----------------------------------------------------------------------------
 # STANDING ORDERS (pre-aprobadas, ejecutar cuando precio toque trigger)
