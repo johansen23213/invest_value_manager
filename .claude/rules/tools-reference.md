@@ -85,7 +85,7 @@ python3 tools/dcf_calculator.py AAPL --output results.csv     # Save to CSV
 - **ADVERTENCIA**: DCF es sensible a inputs (GIGO). Siempre validar growth rate vs histórico y vs peers.
 - **ADVERTENCIA**: Para empresas con alta deuda (ej: GIS $13B net debt), el net debt puede reducir drásticamente el fair value. Siempre verificar que el resultado tiene sentido vs P/E y comparables.
 
-### quality_scorer.py - Quality Score para Framework v3.0 (NUEVO)
+### quality_scorer.py - Quality Score (Framework v4.0)
 ```bash
 python3 tools/quality_scorer.py TICKER                   # Score básico
 python3 tools/quality_scorer.py TICKER --detailed        # Breakdown por categoría
@@ -96,24 +96,29 @@ python3 tools/quality_scorer.py TICKER1 TICKER2 ...      # Batch analysis con su
   - Growth Quality (25 pts): Revenue CAGR, EPS CAGR, GM trend
   - Moat Evidence (25 pts): GM premium, market position, ROIC persistence
   - Capital Allocation (10 pts): Shareholder returns, insider ownership
-- Asigna Quality Tier:
-  - **Tier A** (75-100): Quality Compounder, MoS 10-15%
-  - **Tier B** (55-74): Quality Value, MoS 20-25%
-  - **Tier C** (35-54): Special Situation, MoS 30-40%
-  - **Tier D** (<35): **NO COMPRAR**
+- Asigna Quality Tier (DATOS, no recomendaciones):
+  - **Tier A** (75-100): Quality Compounder
+  - **Tier B** (55-74): Quality Value
+  - **Tier C** (35-54): Special Situation
+  - **Tier D** (<35): Calidad mínima insuficiente
 - **REGLA: Ejecutar SIEMPRE antes de cualquier análisis fundamental**
-- **REGLA: Tier D = STOP INMEDIATO, no proceder con análisis**
+- **REGLA: Tier D = calidad mínima insuficiente, no proceder**
+- **Framework v4.0**: El tool NO prescribe MoS. El MoS se razona caso a caso aplicando principios. Ver `learning/decisions_log.yaml` para precedentes.
 
-### constraint_checker.py - Portfolio context (Framework v4.0: ADVISORY)
+### constraint_checker.py - Portfolio Context Tool (Framework v4.0)
 ```bash
-python3 tools/constraint_checker.py CHECK TEP.PA 400    # Simula compra y muestra contexto
-python3 tools/constraint_checker.py REPORT               # Muestra situación actual del portfolio
+python3 tools/constraint_checker.py CHECK TEP.PA 400    # Simula compra, muestra preguntas
+python3 tools/constraint_checker.py REPORT               # Contexto actual con preguntas
 ```
-- **Framework v4.0**: Muestra información, NO juzga contra límites fijos
-- Provee contexto: concentración por posición, sector, geografía
-- Las decisiones se toman razonando desde principios (ver `learning/principles.md`)
-- Reference points (típicos, NO límites): ~7% posición, ~25% sector, ~35% geografía
-- **Usar para INFORMAR el razonamiento, no para DICTAR la decisión**
+- **Framework v4.0**: Provee INFORMACIÓN y PREGUNTAS, no juzga
+- Muestra: concentración por posición, sector, geografía
+- Calcula impacto: "Si X cae 50%, portfolio pierde Y%"
+- Genera preguntas para razonamiento:
+  - "¿Es este impacto coherente con mi convicción?"
+  - "¿Qué evento afectaría a todas las posiciones de esta geografía?"
+  - "¿Cuáles son mis oportunidades concretas para el cash?"
+- **NO tiene "reference points" ni "warnings" - solo contexto para decidir**
+- Ver `learning/principles.md` para framework de decisión
 
 ### correlation_matrix.py - Correlaciones entre posiciones
 ```bash

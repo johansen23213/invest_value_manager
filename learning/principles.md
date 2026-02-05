@@ -182,12 +182,40 @@ Claude (yo) analizo, decido, y gestiono.
 
 ---
 
+## ADVERTENCIA: Patrones vs Reglas
+
+### Lo que decisions_log.yaml contiene:
+```
+patterns:
+  sizing_by_tier:
+    tier_a:
+      typical_range: "3-5% initial"
+```
+
+### Cómo NO interpretarlo:
+"Tier A debe ser 3-5%, si es 6% está mal."
+
+### Cómo SÍ interpretarlo:
+"En el pasado, para Tier A usé 3-5%. ¿El contexto actual es similar? Si no, ¿qué justifica un sizing diferente?"
+
+### La diferencia clave:
+| Mentalidad Regla | Mentalidad Principio |
+|------------------|----------------------|
+| "37% EU > 35% limite, warning" | "37% EU, ¿cuál es el riesgo real?" |
+| "6% > 5% típico, problema" | "6%, si cae 50% pierdo 3%, ¿es coherente?" |
+| "Cash 11% está bien" | "Cash €1,081, ¿qué oportunidades tengo?" |
+
+### Regla de Oro:
+**Si no puedo explicar POR QUÉ un número específico importa, no debo usarlo como criterio.**
+
+---
+
 ## Referencia a Otros Documentos
 
-- **decisions_log.yaml**: Precedentes de decisiones pasadas
+- **decisions_log.yaml**: Precedentes (patrones observados, NO límites)
 - **exit-protocol skill**: Proceso para evaluar salidas
-- **consistency_checker.py**: Tool para validar coherencia con precedentes
-- **drift_detector.py**: Tool para detectar cambios graduales inadvertidos
+- **constraint_checker.py**: CONTEXTO para razonar (NO juez de compliance)
+- **drift_detector.py**: Detecta cambios graduales inadvertidos
 
 ---
 

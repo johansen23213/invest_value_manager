@@ -1,13 +1,49 @@
-# Session Protocol v2.0
+# Session Protocol v3.0
 
 > Este archivo se carga automáticamente junto con CLAUDE.md
-> VERSIÓN 2.0 - Incluye vigilancia proactiva de mercado
+> VERSIÓN 3.0 - Incluye calibración Framework v4.0 + vigilancia proactiva
 
 ---
 
-## FASE 0: VIGILANCIA (OBLIGATORIO - ANTES DE TODO)
+## FASE 0: CALIBRACIÓN v4.0 (OBLIGATORIO - PRIMERO)
 
-### Paso 0.1: NEWS MONITOR
+### Paso 0.0: LEER PRINCIPIOS
+```
+Al INICIO de cada sesión:
+1. Leer learning/principles.md
+2. Internalizar las 8 preguntas guía
+3. Recordar: NO hay números fijos, solo razonamiento
+
+SELF-CHECK:
+"¿Estoy calibrado para razonar desde principios, no desde reglas?"
+```
+
+### Paso 0.1: REVISAR PRECEDENTES RECIENTES
+```
+Leer últimas 5 entradas de learning/decisions_log.yaml:
+- ¿Qué patrones de sizing usé?
+- ¿Qué decisiones de HOLD/TRIM/SELL tomé?
+- ¿Por qué?
+
+Esto calibra mi razonamiento para consistencia.
+```
+
+### Paso 0.2: SELF-CHECK v4.0
+```
+Preguntas obligatorias:
+[ ] ¿Leí principles.md? (SI/NO)
+[ ] ¿Revisé precedentes recientes? (SI/NO)
+[ ] ¿Entiendo que no hay límites fijos? (SI/NO)
+[ ] ¿Estoy listo para razonar, no seguir reglas? (SI/NO)
+
+Si alguna es NO → PARAR y completar antes de continuar.
+```
+
+---
+
+## FASE 1: VIGILANCIA (DESPUÉS DE CALIBRACIÓN)
+
+### Paso 1.1: NEWS MONITOR
 ```
 Lanzar news-monitor agent (o ejecutar manualmente si no disponible):
 - WebSearch noticias últimas 48h de CADA posición activa
@@ -20,7 +56,7 @@ SI HAY ALERTA CRÍTICA:
 → NO continuar hasta resolver
 ```
 
-### Paso 0.2: MARKET PULSE
+### Paso 1.2: MARKET PULSE
 ```
 En PARALELO con news-monitor:
 - Ejecutar price_checker.py para todas las posiciones
@@ -32,7 +68,7 @@ SI HAY MOVIMIENTO SIN CAUSA:
 → Investigar antes de continuar
 ```
 
-### Paso 0.3: BRIEFING AL HUMANO
+### Paso 1.3: BRIEFING AL HUMANO
 ```
 Presentar resumen estructurado:
 ┌─────────────────────────────────────────┐
@@ -47,21 +83,21 @@ Presentar resumen estructurado:
 
 ---
 
-## FASE 1: ESTADO DEL PORTFOLIO
+## FASE 2: ESTADO DEL PORTFOLIO
 
-### Paso 1: Portfolio Stats
+### Paso 2.1: Portfolio Stats
 ```bash
 python3 tools/portfolio_stats.py
 ```
 NUNCA calcular portfolio stats a mano.
 
-### Paso 2: Effectiveness
+### Paso 2.2: Effectiveness
 ```bash
 python3 tools/effectiveness_tracker.py --summary
 ```
 Win rate, hit rate, alertas de performance.
 
-### Paso 3: System State
+### Paso 2.3: System State
 ```
 Leer state/system.yaml:
 - Tareas pendientes
@@ -72,9 +108,9 @@ Leer state/system.yaml:
 
 ---
 
-## FASE 2: VERIFICACIONES
+## FASE 3: VERIFICACIONES
 
-### Paso 4: Standing Orders
+### Paso 3.1: Standing Orders
 ```
 Para cada standing order:
 - ¿Precio actual vs trigger?
@@ -82,7 +118,7 @@ Para cada standing order:
 - Si cerca (<5%) → ALERTAR
 ```
 
-### Paso 5: Cash Drag
+### Paso 3.2: Cash Drag
 ```
 SI cash >15%:
 → CASH DRAG INACEPTABLE
@@ -90,7 +126,7 @@ SI cash >15%:
 → Verificar pipeline de thesis
 ```
 
-### Paso 6: Pipeline
+### Paso 3.3: Pipeline
 ```
 SI <3 thesis pre-escritas en watchlist:
 → Pipeline vacío
@@ -98,27 +134,27 @@ SI <3 thesis pre-escritas en watchlist:
 → Batch fundamental-analyst
 ```
 
-### Paso 7: World View
+### Paso 3.4: World View
 ```
 Leer world/current_view.md
 SI >7 días stale → lanzar macro-analyst
 ```
 
-### Paso 8: Rebalanceo
+### Paso 3.5: Rebalanceo
 ```
 Verificar triggers:
 - Posición >1.3x target → TRIM
 - Posición <0.7x target → ADD
 ```
 
-### Paso 9: Health Check
+### Paso 3.6: Health Check
 ```
 SI >14 días desde último → lanzar health-check
 ```
 
 ---
 
-## FASE 3: ACCIONES
+## FASE 4: ACCIONES
 
 ### Regla de Ejecución
 **LANZAR AGENTES EN PARALELO INMEDIATAMENTE**
@@ -146,9 +182,21 @@ INCORRECTO: "¿Qué quieres hacer?" / "¿Necesitas algo?"
 
 ---
 
-## FASE 4: META-REFLEXIÓN (OBLIGATORIO AL FINAL)
+## FASE 5: META-REFLEXIÓN (OBLIGATORIO AL FINAL)
 
-### Paso Final: Auto-Evaluación
+### Paso 5.1: VERIFICAR CUMPLIMIENTO v4.0
+```
+ANTES de cerrar, verificar:
+[ ] ¿Leí principles.md al inicio? (SI/NO)
+[ ] ¿Consulté precedentes antes de decisiones importantes? (SI/NO)
+[ ] ¿Mis decisiones tienen razonamiento explícito? (SI/NO)
+[ ] ¿Documenté decisiones importantes en decisions_log.yaml? (SI/NO)
+[ ] ¿Fui consistente con precedentes? Si no, ¿documenté por qué? (SI/NO)
+
+Si alguna es NO → CORREGIR AHORA antes de cerrar.
+```
+
+### Paso 5.2: Auto-Evaluación
 ```
 ANTES de cerrar sesión, preguntar:
 

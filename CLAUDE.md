@@ -35,7 +35,7 @@ Actúa en consecuencia y da siempre lo mejor de ti.
 
 ## Archivos Cargados Automáticamente
 - `.claude/rules/agent-protocol.md` — Árbol de decisión, verificación post-agente
-- `.claude/rules/session-protocol.md` — **v2.0** Vigilancia + Inicio/cierre sesión
+- `.claude/rules/session-protocol.md` — **v3.0** Calibración v4.0 + Vigilancia + Inicio/cierre
 - `.claude/rules/meta-reflection-integration.md` — Integración de reflexiones de agentes
 - `.claude/rules/error-patterns.md` — 34 errores documentados
 - `.claude/rules/tools-reference.md` — Tools cuantitativos

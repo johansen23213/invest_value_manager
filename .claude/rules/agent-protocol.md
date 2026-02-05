@@ -90,6 +90,43 @@ Delega directamente a agentes especializados. Sin capas intermedias.
 
 **REGLA:** Si no estoy seguro de qué agente usar → consultar agent-registry skill.
 
+### INSTRUCCIONES v4.0 PARA AGENTES (ACTUALIZADO)
+
+Al invocar agentes de decisión (fundamental-analyst, review-agent, investment-committee), INCLUIR en el prompt:
+
+```
+CONTEXTO v4.0:
+- Leer learning/principles.md para entender el framework
+- Consultar learning/decisions_log.yaml para precedentes similares
+- NO usar límites fijos (7%, 25%, etc.) - razonar desde principios
+- Documentar razonamiento explícito en el output
+- Si la decisión se desvía de precedentes, explicar por qué
+
+REGLA CRÍTICA - NÚMEROS:
+- NUNCA citar un número sin argumento explícito
+- Si dices "X está por encima de Y%" → explicar POR QUÉ ese Y% importa
+- Preguntar: "¿Por qué este número y no otro?"
+- Los "rangos típicos" en decisions_log son PATRONES observados, NO límites
+- Si no puedes argumentar un número desde principios, NO lo uses
+
+REGLA CRÍTICA - TOOLS:
+- Los tools como constraint_checker.py outputan DATOS CRUDOS
+- NO interpretar datos como "warnings" o "violations"
+- Aplicar principios de principles.md a los datos
+- El dato "EU 37%" no es bueno ni malo - es contexto para razonar
+```
+
+Esto asegura que los agentes sigan Framework v4.0 y no usen números arbitrarios.
+
+### REGLA: AGENTES NO DEBEN HARDCODEAR REGLAS
+
+Si un agente detecta que está a punto de escribir código o output con reglas fijas:
+- PARAR
+- Reformular para output datos crudos
+- Dejar el razonamiento al orchestrator o al siguiente paso
+
+Los agentes producen DATOS y ANÁLISIS, no JUICIOS con thresholds fijos.
+
 ### PROTOCOLO DE VERIFICACIÓN POST-AGENTE (OBLIGATORIO)
 
 Cuando un agente termina, ANTES de usar su output:

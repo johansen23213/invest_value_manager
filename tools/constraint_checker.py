@@ -1,12 +1,16 @@
 #!/usr/bin/env python3
 """
-Constraint Checker - Pre-validates BUY/ADD operations against portfolio constraints.
-Prevents violations BEFORE recommending to the human.
+Portfolio Context Tool - Raw data for principled decision-making.
+
+Framework v4.0: This tool outputs DATA. The reasoning comes from YOU
+applying principles (learning/principles.md) to this data.
+
+The tool does NOT tell you what questions to ask or what to think.
+That would be rules disguised as questions.
 
 Usage:
-  python3 tools/constraint_checker.py CHECK TICKER AMOUNT_EUR
-  python3 tools/constraint_checker.py CHECK TEP.PA 400
   python3 tools/constraint_checker.py REPORT
+  python3 tools/constraint_checker.py CHECK TICKER AMOUNT_EUR
 """
 import sys
 import os
@@ -39,19 +43,8 @@ GEO_MAP = {
     'SHEL.L': 'UK', 'IMB.L': 'UK', 'TATE.L': 'UK', 'DOM.L': 'UK', 'MONY.L': 'UK',
     'DTE.DE': 'EU', 'TEP.PA': 'EU', 'SAN.PA': 'EU', 'LIGHT.AS': 'EU',
     'A2A.MI': 'EU', 'EDEN.PA': 'EU', 'VNA.DE': 'EU',
-    'NVO': 'EU',  # Denmark, but EU for purposes of geo limits
+    'NVO': 'EU',
 }
-
-# ─── Reference Points (Framework v4.0: ADVISORY, not limits) ─────────────────
-# These are reference points for context, NOT hard limits.
-# Decisions are made by reasoning from principles, not by checking numbers.
-# See learning/principles.md for decision framework.
-
-REFERENCE_POSITION_PCT = 7.0   # Typical max for Tier C; Tier A can be higher if justified
-REFERENCE_SECTOR_PCT = 25.0   # Typical ceiling; can exceed with explicit reasoning
-REFERENCE_GEO_PCT = 35.0      # Typical ceiling; depends on country risk assessment
-REFERENCE_CASH_PCT = 5.0      # Typical floor; context determines appropriate level
-REFERENCE_POSITIONS = 25      # No hard limit; depends on management capacity
 
 # ─── Helpers ─────────────────────────────────────────────────────────────────
 
@@ -72,7 +65,6 @@ def get_fx_rates():
     return eurusd, gbpeur
 
 def get_current_value_eur(ticker, shares, invested_usd, eurusd, gbpeur):
-    """Get current market value in EUR. Falls back to invested_usd/eurusd on error."""
     try:
         info = yf.Ticker(ticker).info
         price = info.get('currentPrice') or info.get('regularMarketPrice') or info.get('previousClose')
@@ -93,7 +85,6 @@ def get_current_value_eur(ticker, shares, invested_usd, eurusd, gbpeur):
         return invested_usd / eurusd
 
 def guess_sector(ticker):
-    """Try yfinance sector if not in hardcoded map."""
     try:
         s = yf.Ticker(ticker).info.get('sector', 'Unknown')
         return s if s else 'Unknown'
@@ -101,7 +92,6 @@ def guess_sector(ticker):
         return 'Unknown'
 
 def guess_geo(ticker):
-    """Heuristic: .L = UK, .DE/.PA/.MI/.NV/.AS/.BR/.MC/.HE/.ST/.OL = EU, else US."""
     if ticker.endswith('.L'):
         return 'UK'
     eu_suffixes = ('.DE', '.PA', '.MI', '.NV', '.AS', '.BR', '.MC', '.HE', '.ST', '.OL')
@@ -112,7 +102,6 @@ def guess_geo(ticker):
 # ─── Core Logic ──────────────────────────────────────────────────────────────
 
 def build_portfolio_state(portfolio, eurusd, gbpeur):
-    """Returns dict with position values, sector/geo allocations, cash, total."""
     cash_eur = portfolio['cash']['amount']
     positions = portfolio.get('positions', [])
 
@@ -124,7 +113,6 @@ def build_portfolio_state(portfolio, eurusd, gbpeur):
         geo = GEO_MAP.get(ticker, guess_geo(ticker))
         pos_data.append({
             'ticker': ticker,
-            'name': p.get('name', ticker),
             'value_eur': val_eur,
             'sector': sector,
             'geo': geo,
@@ -140,17 +128,12 @@ def build_portfolio_state(portfolio, eurusd, gbpeur):
         'num_positions': len(pos_data),
     }
 
-def check_constraints(state, new_ticker=None, amount_eur=0):
-    """Check all constraints. If new_ticker/amount_eur provided, simulate purchase."""
-    violations = []
-    warnings = []
-
-    pos_list = list(state['positions'])
+def analyze_context(state, new_ticker=None, amount_eur=0):
+    pos_list = [dict(p) for p in state['positions']]
     cash = state['cash_eur']
     total = state['total_eur']
     num_pos = state['num_positions']
 
-    # Simulate purchase
     if new_ticker and amount_eur > 0:
         existing = [p for p in pos_list if p['ticker'] == new_ticker]
         new_sector = SECTOR_MAP.get(new_ticker, guess_sector(new_ticker))
@@ -160,138 +143,82 @@ def check_constraints(state, new_ticker=None, amount_eur=0):
         else:
             pos_list.append({
                 'ticker': new_ticker,
-                'name': new_ticker,
                 'value_eur': amount_eur,
                 'sector': new_sector,
                 'geo': new_geo,
             })
             num_pos += 1
         cash -= amount_eur
+        total = sum(p['value_eur'] for p in pos_list) + cash
 
-    # 1. Position sizing (ADVISORY - v4.0)
-    for p in pos_list:
-        pct = (p['value_eur'] / total) * 100 if total > 0 else 0
-        if pct > REFERENCE_POSITION_PCT:
-            warnings.append(f"POSITION {p['ticker']}: {pct:.1f}% above {REFERENCE_POSITION_PCT}% reference - requires reasoning")
-        elif pct > REFERENCE_POSITION_PCT - 1:
-            warnings.append(f"POSITION {p['ticker']}: {pct:.1f}% near {REFERENCE_POSITION_PCT}% reference")
-
-    # 2. Sector concentration (ADVISORY - v4.0)
     sector_totals = {}
     for p in pos_list:
         sector_totals[p['sector']] = sector_totals.get(p['sector'], 0) + p['value_eur']
-    for sec, val in sorted(sector_totals.items(), key=lambda x: -x[1]):
-        pct = (val / total) * 100 if total > 0 else 0
-        if pct > REFERENCE_SECTOR_PCT:
-            warnings.append(f"SECTOR {sec}: {pct:.1f}% above {REFERENCE_SECTOR_PCT}% reference - consider correlation")
-        elif pct > REFERENCE_SECTOR_PCT - 3:
-            warnings.append(f"SECTOR {sec}: {pct:.1f}% near {REFERENCE_SECTOR_PCT}% reference")
 
-    # 3. Geography concentration (ADVISORY - v4.0)
     geo_totals = {}
     for p in pos_list:
         geo_totals[p['geo']] = geo_totals.get(p['geo'], 0) + p['value_eur']
-    for geo, val in sorted(geo_totals.items(), key=lambda x: -x[1]):
-        pct = (val / total) * 100 if total > 0 else 0
-        if pct > REFERENCE_GEO_PCT:
-            warnings.append(f"GEO {geo}: {pct:.1f}% above {REFERENCE_GEO_PCT}% reference - assess country risk")
-        elif pct > REFERENCE_GEO_PCT - 3:
-            warnings.append(f"GEO {geo}: {pct:.1f}% near {REFERENCE_GEO_PCT}% reference")
 
-    # 4. Cash level (ADVISORY - v4.0)
-    cash_pct = (cash / total) * 100 if total > 0 else 0
-    if cash_pct < REFERENCE_CASH_PCT:
-        warnings.append(f"CASH: {cash_pct:.1f}% below {REFERENCE_CASH_PCT}% reference - consider opportunity cost")
-    elif cash_pct < REFERENCE_CASH_PCT + 2:
-        warnings.append(f"CASH: {cash_pct:.1f}% near {REFERENCE_CASH_PCT}% reference")
-
-    # 5. Position count (ADVISORY - v4.0, no hard limit)
-    if num_pos > REFERENCE_POSITIONS:
-        warnings.append(f"POSITIONS: {num_pos} above {REFERENCE_POSITIONS} reference - ensure manageable")
-
-    return violations, warnings, pos_list, sector_totals, geo_totals, cash, total
+    return pos_list, sector_totals, geo_totals, cash, total, num_pos
 
 def print_report(state):
-    violations, warnings, pos_list, sectors, geos, cash, total = check_constraints(state)
+    pos_list, sectors, geos, cash, total, num_pos = analyze_context(state)
 
-    print("=" * 70)
-    print("PORTFOLIO CONSTRAINT REPORT")
-    print("=" * 70)
+    print("=" * 60)
+    print("PORTFOLIO DATA")
+    print("=" * 60)
 
     # Positions
-    print(f"\n{'Ticker':<12} {'Sector':<20} {'Geo':>4} {'Value EUR':>10} {'Weight':>7}")
-    print("-" * 55)
+    print(f"\n{'Ticker':<10} {'Sector':<18} {'Geo':>3} {'EUR':>8} {'%':>6} {'50% Impact':>10}")
+    print("-" * 60)
     for p in sorted(pos_list, key=lambda x: -x['value_eur']):
         pct = (p['value_eur'] / total) * 100
-        flag = " *" if pct > REFERENCE_POSITION_PCT else ""
-        print(f"{p['ticker']:<12} {p['sector']:<20} {p['geo']:>4} {p['value_eur']:>10.0f} {pct:>6.1f}%{flag}")
-    print(f"{'CASH':<12} {'':20} {'':>4} {cash:>10.0f} {(cash/total)*100:>6.1f}%")
-    print(f"{'TOTAL':<12} {'':20} {'':>4} {total:>10.0f} {'100.0%':>7}")
+        impact = pct / 2
+        print(f"{p['ticker']:<10} {p['sector']:<18} {p['geo']:>3} {p['value_eur']:>8.0f} {pct:>5.1f}% {impact:>9.1f}%")
+    print(f"{'CASH':<10} {'':<18} {'':<3} {cash:>8.0f} {(cash/total)*100:>5.1f}%")
+    print("-" * 60)
+    print(f"{'TOTAL':<10} {'':<18} {'':<3} {total:>8.0f}")
 
     # Sectors
-    print(f"\n{'Sector':<25} {'Value EUR':>10} {'Weight':>7}")
-    print("-" * 44)
+    print(f"\n{'Sector':<22} {'EUR':>8} {'%':>6}")
+    print("-" * 38)
     for sec, val in sorted(sectors.items(), key=lambda x: -x[1]):
-        pct = (val / total) * 100
-        flag = " *" if pct > REFERENCE_SECTOR_PCT else ""
-        print(f"{sec:<25} {val:>10.0f} {pct:>6.1f}%{flag}")
+        print(f"{sec:<22} {val:>8.0f} {(val/total)*100:>5.1f}%")
 
     # Geographies
-    print(f"\n{'Geography':<25} {'Value EUR':>10} {'Weight':>7}")
-    print("-" * 44)
+    print(f"\n{'Geography':<22} {'EUR':>8} {'%':>6}")
+    print("-" * 38)
     for geo, val in sorted(geos.items(), key=lambda x: -x[1]):
-        pct = (val / total) * 100
-        flag = " *" if pct > REFERENCE_GEO_PCT else ""
-        print(f"{geo:<25} {val:>10.0f} {pct:>6.1f}%{flag}")
+        print(f"{geo:<22} {val:>8.0f} {(val/total)*100:>5.1f}%")
 
-    # Summary
-    print(f"\nPositions: {state['num_positions']} (reference: {REFERENCE_POSITIONS})")
-    print(f"Cash: {cash:.0f} EUR ({(cash/total)*100:.1f}%)")
-    print(f"\n* = above reference point (Framework v4.0: requires explicit reasoning, not automatic action)")
-
-    if warnings:
-        print("\nCONSIDERATIONS (Framework v4.0 - ADVISORY):")
-        for w in warnings:
-            print(f"  [INFO] {w}")
-    if not violations and not warnings:
-        print("\n[INFO] All metrics within typical ranges.")
+    print(f"\nPositions: {num_pos} | Cash: {cash:.0f} EUR ({(cash/total)*100:.1f}%)")
+    print("\n[Apply learning/principles.md to reason about this data]")
 
 def print_check(state, ticker, amount_eur):
-    print("=" * 70)
-    print(f"CONSTRAINT CHECK: BUY {ticker} for {amount_eur:.0f} EUR")
-    print("=" * 70)
+    print("=" * 60)
+    print(f"SIMULATED: BUY {ticker} for {amount_eur:.0f} EUR")
+    print("=" * 60)
 
-    violations, warnings, pos_list, sectors, geos, cash, total = check_constraints(
+    pos_list, sectors, geos, cash, total, num_pos = analyze_context(
         state, new_ticker=ticker, amount_eur=amount_eur
     )
 
-    # Show simulated position
+    # Find the position
     for p in pos_list:
         if p['ticker'] == ticker:
             pct = (p['value_eur'] / total) * 100
-            print(f"\n  {ticker} post-purchase: {p['value_eur']:.0f} EUR ({pct:.1f}%)")
+            impact = pct / 2
+            print(f"\n{ticker}: {p['value_eur']:.0f} EUR ({pct:.1f}%) | 50% drop = -{impact:.1f}% portfolio")
             break
 
-    # Show affected sector/geo
     sec = SECTOR_MAP.get(ticker, guess_sector(ticker))
     geo = GEO_MAP.get(ticker, guess_geo(ticker))
-    if sec in sectors:
-        print(f"  Sector {sec}: {(sectors[sec]/total)*100:.1f}%")
-    if geo in geos:
-        print(f"  Geography {geo}: {(geos[geo]/total)*100:.1f}%")
-    print(f"  Cash after: {cash:.0f} EUR ({(cash/total)*100:.1f}%)")
-    print(f"  Positions: {len([p for p in pos_list])}/{MAX_POSITIONS}")
 
-    # Framework v4.0: No PASS/FAIL, only information for principled decision-making
-    print(f"\n  FRAMEWORK v4.0: Decision requires reasoning from principles")
-    print(f"  See learning/principles.md and learning/decisions_log.yaml")
-
-    if warnings:
-        print("\n  CONSIDERATIONS:")
-        for w in warnings:
-            print(f"    [INFO] {w}")
-    else:
-        print("\n  [INFO] All metrics within typical ranges after this purchase.")
+    print(f"Sector {sec}: {(sectors.get(sec,0)/total)*100:.1f}%")
+    print(f"Geography {geo}: {(geos.get(geo,0)/total)*100:.1f}%")
+    print(f"Cash after: {cash:.0f} EUR ({(cash/total)*100:.1f}%)")
+    print(f"Positions: {num_pos}")
+    print("\n[Apply learning/principles.md to reason about this data]")
 
 # ─── Main ────────────────────────────────────────────────────────────────────
 
@@ -302,7 +229,7 @@ def main():
 
     mode = sys.argv[1].upper()
     portfolio = load_portfolio()
-    print("Fetching prices and FX rates...")
+    print("Fetching data...")
     eurusd, gbpeur = get_fx_rates()
     print(f"FX: EUR/USD={eurusd:.4f} | GBP/EUR={gbpeur:.4f}\n")
     state = build_portfolio_state(portfolio, eurusd, gbpeur)
@@ -311,13 +238,11 @@ def main():
         print_report(state)
     elif mode == 'CHECK':
         if len(sys.argv) < 4:
-            print("Usage: python3 tools/constraint_checker.py CHECK TICKER AMOUNT_EUR")
+            print("Usage: constraint_checker.py CHECK TICKER AMOUNT_EUR")
             sys.exit(1)
-        ticker = sys.argv[2]
-        amount_eur = float(sys.argv[3])
-        print_check(state, ticker, amount_eur)
+        print_check(state, sys.argv[2], float(sys.argv[3]))
     else:
-        print(f"Unknown mode: {mode}. Use CHECK or REPORT.")
+        print(f"Unknown mode: {mode}")
         sys.exit(1)
 
 if __name__ == '__main__':

@@ -67,16 +67,21 @@ QUALITY SCORE = Financial (40) + Growth (25) + Moat Evidence (25) + Capital Allo
 
 ## PARTE 2: QUALITY TIERS
 
-| Tier | Quality Score | MoS Típico | Descripción |
-|------|--------------|------------|-------------|
-| **A** | 75-100 | ~10-15% | Elite Compounders |
-| **B** | 55-74 | ~20-25% | Quality Value |
-| **C** | 35-54 | ~30-40% | Special Situations |
-| **D** | <35 | N/A | **NO COMPRAR** |
+| Tier | Quality Score | Descripción |
+|------|--------------|-------------|
+| **A** | 75-100 | Elite Compounders - Menor riesgo de pérdida permanente |
+| **B** | 55-74 | Quality Value - Riesgo moderado |
+| **C** | 35-54 | Special Situations - Mayor incertidumbre |
+| **D** | <35 | **NO COMPRAR** - Calidad mínima insuficiente |
 
-**NOTA v4.0:** Los MoS son rangos orientativos, NO límites fijos.
-El MoS específico se decide por razonamiento caso a caso.
-Consultar `learning/decisions_log.yaml` para precedentes.
+**Framework v4.0:** NO hay MoS "requerido" por tier.
+El MoS apropiado se determina por razonamiento:
+1. Consultar precedentes en `learning/decisions_log.yaml`
+2. Considerar riesgo específico de esta empresa
+3. Evaluar convicción en la tesis
+4. Documentar razonamiento explícito
+
+Los precedentes muestran PATRONES observados, no REGLAS a seguir.
 
 ---
 
@@ -190,8 +195,8 @@ Basado en precedentes en `decisions_log.yaml`:
 - QS cae a Tier D
 
 **Por Valoración (razonado):**
-- MoS se vuelve significativamente negativo (<-20%)
-- Mejor oportunidad clara (Opportunity Score >2.0)
+- MoS se vuelve claramente negativo (razonar qué significa "claramente" en contexto)
+- Mejor oportunidad clara (calcular Opportunity Score, interpretar cualitativamente)
 
 **Por Thesis Invalidada:**
 - Los fundamentales que justificaban la compra ya no existen

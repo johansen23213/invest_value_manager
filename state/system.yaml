@@ -91,52 +91,85 @@ system:
       Ahora: 1 Tier A, 5 Tier B, 12 Tier C. Sin violaciones Tier D.
       Continuar añadiendo Tier A compounders: NOVO-B.CO, MA, V en pipeline.
   last_session_summary: |
-    Sesión 38 - LIMPIEZA LEGACY v4.0 (2026-02-05)
+    Sesión 38 - AUDITORÍA SELF-SEEDING BIAS + FRAMEWORK v4.0 (2026-02-05)
 
     =====================================================
-    LIMPIEZA DE ARCHIVOS LEGACY
+    DESCUBRIMIENTO CRÍTICO: SELF-SEEDING BIAS
     =====================================================
 
-    El humano detectó que aún usaba mentalidad de reglas fijas
-    (ej: "20/20 LÍMITE"). Se eliminaron archivos legacy:
+    El humano detectó que yo escribía código con reglas hardcodeadas
+    que luego me sesgaban a mí mismo:
 
-    ELIMINADOS:
-    - learning/system_config.yaml (tenía max_positions: 20, etc.)
-    - portfolio/target_allocation.yaml (tenía allocations fijas)
-    - learning/lessons.yaml (redundante con decisions_log.yaml)
+    > "estas preguntas que genera la tool son en si misma reglas
+    > escritas que tu mismo acabas de escribir no?"
 
-    ACTUALIZADOS:
-    - tools/constraint_checker.py: MAX_* → REFERENCE_*, output ADVISORY
-    - .claude/rules/tools-reference.md: constraint_checker como ADVISORY
-    - state/system.yaml: eliminadas referencias "LÍMITE"
+    PROBLEMA: Cuando escribo tools/skills con reglas fijas (ej:
+    `if cash > 15%: print("warning")`), mi yo futuro lee esos
+    outputs y los sigue como si fueran principios.
+
+    =====================================================
+    AUDITORÍA COMPLETA EJECUTADA
+    =====================================================
+
+    ARCHIVOS CORREGIDOS:
+    - tools/constraint_checker.py → Solo datos crudos
+    - tools/portfolio_stats.py → Removido cash warning
+    - tools/quality_scorer.py → Removido MoS fijos por tier
+    - tools/effectiveness_tracker.py → Removido tier classification
+    - .claude/skills/portfolio-constraints/SKILL.md → Reescrito v4.0
+    - .claude/skills/valuation-methods/SKILL.md → Removido OE rule
+    - .claude/skills/exit-protocol/SKILL.md → Removido thresholds
+    - .claude/skills/investment-rules/SKILL.md → Removido MoS column
+
+    NUEVO ERROR DOCUMENTADO:
+    - error-patterns.md: Error #37 (Self-Seeding Bias)
+
+    AGENT-PROTOCOL ACTUALIZADO:
+    - Los tools outputan DATOS CRUDOS, no juicios
+    - Los agentes NO deben hardcodear reglas
+    - Aplicar principles.md a los datos
+
+    MEMORY.MD CREADO:
+    - Documenta el problema para futuras sesiones
+    - Incluye comandos de auditoría periódica
+
+    =====================================================
+    PRINCIPIO v4.0 REFORZADO
+    =====================================================
+
+    - RULES: Números fijos en código → ELIMINAR
+    - PRINCIPLES: Frameworks de razonamiento → principles.md
+    - PATTERNS: Precedentes observados → decisions_log.yaml
+    - DATA: Output de tools sin juicios → Yo razono
 
     =====================================================
     VIGILANCIA COMPLETADA
     =====================================================
 
     - 0 alertas críticas
-    - Earnings: ALL BEAT, SHEL.L MISS, GL MISS, HRB BEAT, PFE BEAT
-    - LIGHT.AS analizado: HOLD (FCF intacto, +8.6% desde compra)
-
-    =====================================================
-    PORTFOLIO
-    =====================================================
-
-    - Valor: €9,769 (+2.1%)
-    - Cash: €1,081 (11.1%)
-    - Posiciones: 20 (sin límite fijo)
-    - Tier A: 3 (ADBE, NVO, MONY.L)
+    - 5 materiales (todas con causa conocida)
+    - Earnings reportados: ALL BEAT, SHEL.L MISS, GL MISS
 
     =====================================================
     PRÓXIMA SESIÓN
     =====================================================
 
-    1. Framework v4.0 fully cleaned - razonar desde principios
-    2. Consultar learning/principles.md + decisions_log.yaml
-    3. Earnings próximos: MONY.L (Feb 23), EDEN.PA (Feb 24), TEP.PA (Feb 26)
-    4. Standing orders: ZIG.L @ 375p (-3.6% del actual)
+    1. Vigilancia de mercado
+    2. Earnings: MONY.L Feb 23, EDEN.PA Feb 24, TEP.PA Feb 26
+    3. ZIG.L monitor (-3.7% del trigger)
+    4. REGLA: Auditar tools cada health-check (14 días)
+
+    =====================================================
 
   last_session_summary_archived: |
+    Sesión 38a - LIMPIEZA LEGACY v4.0 (2026-02-05)
+
+    El humano detectó que aún usaba mentalidad de reglas fijas.
+    Se eliminaron archivos legacy (system_config.yaml, target_allocation.yaml).
+    constraint_checker.py actualizado como ADVISORY.
+    Vigilancia: 0 alertas críticas, earnings ALL/SHEL/GL reportados.
+
+  last_session_summary_archived_37: |
     Sesión 37 - FRAMEWORK v4.0 IMPLEMENTADO (2026-02-05)
 
     Implementación completa de "Principios Adaptativos":
@@ -634,6 +667,28 @@ calendar:
       event: "EVO.ST BAJO trigger (581 SEK < 600 SEK) pero CONDICIONADO"
       priority: high
       action: "ESPERAR earnings Feb 5. Si UKGC favorable + resultados OK - EJECUTAR. Si UKGC revocación - CANCELAR."
+
+    # EARNINGS WEEK FEB 23-26 (FRAMEWORKS PREPARED 2026-02-05)
+    - date: 2026-02-23
+      type: earnings
+      ticker: MONY.L
+      event: "MONY.L FY2025 Results"
+      priority: high
+      action: "FRAMEWORK READY. Consensus EBITDA £142.7m. Bull >£145m, Base £140-145m, Bear <£140m. Kill: ROIC<20%, revenue decline >5%, dividend cut. See thesis/active/MONY.L/earnings_framework_feb2026.md"
+
+    - date: 2026-02-24
+      type: earnings
+      ticker: EDEN.PA
+      event: "EDEN.PA FY2025 Results"
+      priority: high
+      action: "FRAMEWORK READY. Consensus NI €220m. 2026 = rebasing year (2-4%). Bull NI>€225m, Base €215-225m, Bear <€215m. Kill: ROIC<15%, revenue decline >5% 2Q, div cut >20%. See thesis/active/EDEN.PA/earnings_framework_feb2026.md"
+
+    - date: 2026-02-26
+      type: earnings
+      ticker: TEP.PA
+      event: "TEP.PA FY2025 Results"
+      priority: high
+      action: "FRAMEWORK READY. Guidance 1-2% revenue, FCF ~€1B. Bull >2% + AI optimism, Base 1-2%, Bear <1% or guidance cut. KILL CONDITIONS CRÍTICOS: FCF<€600M, revenue decline >5% 2Q, AI client loss, div cut. See thesis/active/TEP.PA/earnings_framework_feb2026.md"
 
     - date: 2026-03-15
       type: catalyst
@@ -1273,7 +1328,34 @@ maintenance:
   tools_count: 7
   rules_count: 6   # Added: meta-reflection-integration
   evolution_tracking:
-    last_evaluation: 2026-02-03
+    last_evaluation: 2026-02-05
+    applied_2026_02_05_session38_v4_compliance:
+      - "SESSION 38: Framework v4.0 Compliance Enforcement"
+      - "Root cause: Orquestador no leía principles.md ni consultaba precedentes"
+      - "---"
+      - "MEJORAS IMPLEMENTADAS:"
+      - "1. Session-protocol v2.0 → v3.0:"
+      - "   - Nueva FASE 0: CALIBRACIÓN v4.0"
+      - "   - Paso 0.0: Leer principles.md al inicio"
+      - "   - Paso 0.1: Revisar últimos 5 precedentes"
+      - "   - Paso 0.2: Self-check v4.0 obligatorio"
+      - "   - Fases renumeradas (Vigilancia → FASE 1, etc.)"
+      - "   - Paso 5.1: Verificar cumplimiento v4.0 al cierre"
+      - "2. Error-patterns.md:"
+      - "   - Error #35: No seguir Framework v4.0 completo"
+      - "3. Agent-protocol.md:"
+      - "   - Nueva sección: INSTRUCCIONES v4.0 PARA AGENTES"
+      - "   - Cuando invoco agentes de decisión, incluir contexto v4.0"
+      - "4. CLAUDE.md:"
+      - "   - session-protocol referencia actualizada a v3.0"
+      - "5. Decisions_log.yaml:"
+      - "   - Documentada decisión TEP.PA HOLD como precedente"
+      - "---"
+      - "IMPACTO ESPERADO:"
+      - "   - Orquestador calibra con principios al inicio de sesión"
+      - "   - Precedentes consultados antes de decisiones"
+      - "   - Agentes reciben contexto v4.0 en sus prompts"
+      - "   - Self-check al cierre verifica cumplimiento"
     applied:
       - "2026-02-01: Fusion self-evolution+evolution-manager - system-evolver"
       - "2026-02-01: health-check upgraded haiku-sonnet, +quantitative checks"

@@ -77,15 +77,15 @@ SECTOR_MAP = {
     'ENEL.MI': ('Utilities', 'Italy'),
 }
 
-# Tier classification (MoS-based)
+# Tier classification - read from thesis, NOT derived from MoS
 def classify_tier(mos_pct: float) -> str:
-    """Classify position tier based on margin of safety."""
-    if mos_pct >= 40:
-        return 'A'
-    elif mos_pct >= 25:
-        return 'B'
-    else:
-        return 'C'
+    """
+    Classify position tier.
+    NOTE: This is a fallback. Tier should come from thesis (Quality Score).
+    MoS does NOT determine tier - QS does.
+    """
+    # Return 'Unknown' - tier should be read from thesis
+    return 'Unknown'
 
 
 def parse_date(d: Union[str, date, datetime, None], default: str = '2026-01-26') -> datetime:
@@ -537,9 +537,8 @@ def generate_recommendations(metrics: Dict, attribution: Dict, active: List[Dict
     """Generate actionable recommendations based on patterns."""
     recommendations = []
 
-    # Cash drag check
-    if metrics['cash_pct'] > 15:
-        recommendations.append(f"HIGH CASH DRAG: {metrics['cash_pct']:.1f}% cash. Deploy capital to high-MoS opportunities.")
+    # Cash observation (no fixed threshold - apply principles)
+    recommendations.append(f"CASH: {metrics['cash_pct']:.1f}%. Apply Principle 4 (Cash as Active Position) to evaluate.")
 
     # Win rate check
     if metrics['win_rate_active_pct'] < 50 and metrics['active_positions'] >= 5:

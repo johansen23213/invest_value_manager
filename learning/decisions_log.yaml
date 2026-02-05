@@ -155,6 +155,34 @@ trim_decisions:
 hold_decisions:
 
   - date: 2026-02-05
+    ticker: TEP.PA
+    action: "HOLD (pre-earnings review)"
+    context:
+      quality_score: 46
+      tier: C
+      mos: "38-51%"
+      position_size: "6.0%"
+      price_vs_cost: "-18%"
+      price_vs_52w_low: "+3%"
+      earnings_date: "2026-02-26"
+    reasoning: |
+      Pre-earnings review con Framework v4.0.
+      Principio 6 aplicado: Vender requiere argumento.
+      - Tesis intacta (FCF ~€1B, revenue +1.5%, dividend OK)
+      - MoS positivo (38-51%)
+      - Kill conditions no activadas
+      - Precedentes: similar a HRB HOLD near 52w low
+      Sizing 6% > típico 3-4% para Tier C, pero posición ya fue
+      trimmed de 14 a 11 shares. No hay argumento para trim adicional.
+      Esperar earnings Feb 26 para re-evaluar con kill conditions.
+    kill_conditions_monitored:
+      - "FCF <€600M"
+      - "Revenue decline >5% 2Q consecutive"
+      - "Major client AI replacement"
+      - "Dividend cut"
+    outcome: "Pendiente earnings Feb 26"
+
+  - date: 2026-02-05
     ticker: ALL
     action: "HOLD (post-earnings)"
     context:

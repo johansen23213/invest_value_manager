@@ -140,3 +140,38 @@ El humano ha tenido que señalar REPETIDAMENTE problemas que debería detectar s
     - Procesar cada item: dudas, sugerencias, anomalías, preguntas
     - Implementar mejoras válidas INMEDIATAMENTE
     - Usar rule `meta-reflection-integration.md` como protocolo
+
+---
+
+## Errores Sesión 38 (2026-02-05)
+
+35. **No seguir Framework v4.0 completo** — Sesión 38: Analicé TEP.PA sin leer `principles.md` ni consultar `decisions_log.yaml` primero. Esto viola el proceso v4.0 que requiere razonamiento desde principios y consistencia con precedentes. REGLA:
+    - AL INICIO de cada sesión: Leer `learning/principles.md`
+    - ANTES de cada decisión importante: Consultar `learning/decisions_log.yaml`
+    - Responder las "preguntas guía" de los principios relevantes
+    - Si me desvío de precedentes, documentar POR QUÉ
+    - Documentar decisiones importantes en decisions_log.yaml
+    - Session-protocol v3.0 ahora incluye FASE 0: CALIBRACIÓN v4.0 obligatoria
+
+36. **Citar números de referencia sin argumentar desde principios** — Sesión 38: Dije ">15% cash = drag, <5% = sin dry powder" y "EU 37.5% es warning" sin argumentar POR QUÉ esos números y no otros. Esto es mentalidad de reglas disfrazada de principios. REGLA:
+    - CADA número que cite DEBE tener argumento explícito
+    - Si no puedo argumentar el número desde primeros principios, NO debo usarlo
+    - Preguntar: "¿Por qué este número y no otro? ¿Cuál es el riesgo/oportunidad REAL?"
+    - Los "rangos típicos" en decisions_log son PATRONES OBSERVADOS, no límites
+    - Eliminar símbolos de warning (⚠️) que implican alerta sin argumentar
+    - constraint_checker.py es CONTEXTO para razonar, no juez de compliance
+
+37. **Hardcodear reglas en tools, skills y agentes que luego me sesgan** — Sesión 38: El humano detectó que constraint_checker.py tenía preguntas hardcodeadas que eran "reglas disfrazadas de preguntas". Auditoría completa reveló el mismo problema en:
+    - `portfolio_stats.py`: warning hardcodeado "cash > 15%"
+    - `quality_scorer.py`: MoS fijos por tier en output
+    - `effectiveness_tracker.py`: classify_tier() con MoS hardcodeados
+    - `portfolio-constraints/SKILL.md`: límites fijos 7%, 25%, 35%
+    - `valuation-methods/SKILL.md`: "OEY + Growth > 12% = COMPRAR"
+
+    REGLA:
+    - Tools deben output DATOS CRUDOS, no juicios ni recomendaciones
+    - Skills deben proveer FRAMEWORKS de razonamiento, no números fijos
+    - Cualquier número fijo en código me sesga a mí mismo en el futuro
+    - Si necesito consistencia, usar PRECEDENTES (decisions_log), no hardcoding
+    - Auditar periódicamente tools/skills buscando reglas hardcodeadas
+    - El yo futuro debe RAZONAR, no seguir instrucciones de mi yo pasado

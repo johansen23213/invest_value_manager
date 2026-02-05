@@ -45,8 +45,8 @@ Interpretación:
 │ < 3%       │ Caro (incluso para compounder)  │
 └────────────┴─────────────────────────────────┘
 
-REGLA: OE Yield + Expected Growth > 12% → Comprar
-       OE Yield + Expected Growth < 10% → Esperar
+PATRÓN: OE Yield + Expected Growth se compara con coste de capital
+        Mayor spread = más atractivo. Ver precedentes en decisions_log.
 ```
 
 **Ejemplo GOOGL:**
@@ -324,15 +324,18 @@ El peso depende de qué método es más apropiado:
 ```
 Tier A (QS ≥75):
   → Owner Earnings Yield + Reverse DCF
-  → OEY + Growth > 12% = COMPRAR
+  → Comparar OEY + Growth vs coste de capital
 
 Tier B (QS 55-74):
   → Método apropiado al tipo + secundario
-  → MoS 20-25% vs weighted FV
+  → MoS apropiado según riesgo (ver precedentes)
 
 Tier C (QS 35-54):
   → Conservative multiple + Liquidation floor
-  → MoS 30-40% MÍNIMO
+  → MoS mayor por mayor incertidumbre (ver precedentes)
+
+NOTA: No hay MoS fijos. Razonar caso a caso.
+Ver learning/decisions_log.yaml para precedentes.
 ```
 
 ---
