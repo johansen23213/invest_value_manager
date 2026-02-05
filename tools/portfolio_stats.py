@@ -99,8 +99,8 @@ def main():
     print()
     print(f"Portfolio: ${portfolio_total:,.0f} (€{portfolio_total/eurusd:,.0f})")
     print(f"Cash: €{cash_eur:,.0f} ({cash_alloc:.1f}%)")
-    if cash_alloc > 15:
-        print(f"⚠ CASH DRAG: {cash_alloc:.0f}% > 15% target. Deploy capital.")
+    print()
+    print("[Apply learning/principles.md to reason about cash level]")
 
 if __name__ == '__main__':
     main()

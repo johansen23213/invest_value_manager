@@ -1,0 +1,417 @@
+# =============================================================================
+# PORTFOLIO - Fuente de verdad: eToro
+# =============================================================================
+# Actualizar después de cada operación en eToro
+# Última actualización: 2026-02-03
+# NOTA: eToro muestra TODO en USD. invested = monto original, avg_cost = invested/shares
+# =============================================================================
+
+cash:
+  amount: 1081.00  # Post ADD HRB 2026-02-05 (1373.08 - 292)
+  currency: EUR
+
+positions:
+  # DATOS SINCRONIZADOS CON eToro 2026-02-02
+  - ticker: DTE.DE
+    name: "Deutsche Telekom AG"
+    shares: 20.624621  # Trimmed from 23.62 on 2026-02-04
+    invested_usd: 699.56  # Prorated: 801.26 * (20.62/23.62)
+    avg_cost_usd: 33.91  # Unchanged (original cost basis)
+    date_opened: 2026-01-26
+    thesis: thesis/active/DTE.DE/thesis.md
+
+  - ticker: SHEL.L
+    name: "Shell plc"
+    shares: 10.848578  # Trimmed from 20.85 on 2026-02-02
+    invested_usd: 398.37  # Prorated: 765.54 * (10.85/20.85)
+    avg_cost_usd: 36.72  # eToro uses LSE listing (GBp), NOT NYSE
+    date_opened: 2026-01-26
+    thesis: thesis/active/SHEL.L/thesis.md
+
+  - ticker: PFE
+    name: "Pfizer Inc."
+    shares: 18.66368
+    invested_usd: 499.25
+    avg_cost_usd: 26.75
+    date_opened: 2026-01-27
+    thesis: thesis/active/PFE/thesis.md
+
+  - ticker: ALL
+    name: "Allstate Corporation"
+    shares: 2.03874
+    invested_usd: 399.59
+    avg_cost_usd: 196.00
+    date_opened: 2026-01-27
+    thesis: thesis/active/ALL/thesis.md
+
+  - ticker: TEP.PA
+    name: "Teleperformance SE"
+    shares: 11.015018  # Trimmed 3 shares 2026-02-03 (14.015 - 3)
+    invested_usd: 725.79  # Prorated: 923.37 * (11.015/14.015)
+    avg_cost_usd: 65.88  # Unchanged (original cost basis)
+    date_opened: 2026-01-31
+    thesis: thesis/active/TEP.PA/thesis.md
+
+  - ticker: SAN.PA
+    name: "Sanofi SA"
+    shares: 5.356514
+    invested_usd: 506.23
+    avg_cost_usd: 94.51  # 506.23 / 5.356514
+    date_opened: 2026-01-31
+    thesis: thesis/active/SAN.PA/thesis.md
+
+  - ticker: VICI
+    name: "VICI Properties Inc."
+    shares: 21.00105
+    invested_usd: 600.00
+    avg_cost_usd: 28.57  # 600 / 21.00105
+    date_opened: 2026-01-31
+    thesis: thesis/active/VICI/thesis.md
+
+  - ticker: IMB.L
+    name: "Imperial Brands plc"
+    shares: 14.255583
+    invested_usd: 600.00
+    avg_cost_usd: 42.09  # 600 / 14.255583
+    date_opened: 2026-01-31
+    thesis: thesis/active/IMB.L/thesis.md
+
+  - ticker: LIGHT.AS
+    name: "Signify NV"
+    shares: 28.753048
+    invested_usd: 597.70  # eToro value at open
+    avg_cost_usd: 20.79  # 597.70 / 28.753048
+    date_opened: 2026-01-31
+    thesis: thesis/active/LIGHT.AS/thesis.md
+
+  - ticker: A2A.MI
+    name: "A2A Group"
+    shares: 134.00
+    invested_usd: 404.65  # eToro: 405.50 - 0.85 P&L
+    avg_cost_usd: 3.02  # 404.65 / 134
+    date_opened: 2026-02-02
+    thesis: thesis/active/A2A.MI/thesis.md
+
+  - ticker: EDEN.PA
+    name: "Edenred SA"
+    shares: 22.00
+    invested_usd: 459.18  # eToro: 461.91 - 2.73 P&L
+    avg_cost_usd: 20.87  # 459.18 / 22
+    date_opened: 2026-02-02
+    thesis: thesis/active/EDEN.PA/thesis.md
+
+  - ticker: VNA.DE
+    name: "Vonovia SE"
+    shares: 16.00
+    invested_usd: 465.56  # eToro: 466.56 - 1.00 P&L
+    avg_cost_usd: 29.10  # 465.56 / 16
+    date_opened: 2026-02-02
+    thesis: thesis/active/VNA.DE/thesis.md
+
+  - ticker: TATE.L
+    name: "Tate & Lyle plc"
+    shares: 66.00
+    invested_usd: 339.73
+    avg_cost_usd: 5.15  # 339.73 / 66
+    date_opened: 2026-02-03
+    thesis: thesis/active/TATE.L/thesis.md
+
+  - ticker: DOM.L
+    name: "Domino's Pizza Group PLC"
+    shares: 175
+    invested_usd: 436.52
+    avg_cost_usd: 2.49  # 436.52 / 175
+    date_opened: 2026-02-02
+    thesis: thesis/active/DOM.L/thesis.md
+
+  - ticker: UHS
+    name: "Universal Health Services Inc."
+    shares: 2
+    invested_usd: 402.84
+    avg_cost_usd: 201.42  # 402.84 / 2
+    date_opened: 2026-02-02
+    thesis: thesis/active/UHS/thesis.md
+
+  - ticker: GL
+    name: "Globe Life Inc."
+    shares: 3
+    invested_usd: 423.18
+    avg_cost_usd: 141.06  # 423.18 / 3
+    date_opened: 2026-02-03
+    thesis: thesis/active/GL/thesis.md
+
+  - ticker: HRB
+    name: "H&R Block Inc."
+    shares: 19
+    invested_usd: 679.80  # 334.80 + 345.00
+    avg_cost_usd: 35.78  # 679.80 / 19
+    date_opened: 2026-02-03
+    thesis: thesis/active/HRB/thesis.md
+
+  - ticker: ADBE
+    name: "Adobe Inc."
+    shares: 2
+    invested_usd: 541.20
+    avg_cost_usd: 270.60  # 541.20 / 2
+    date_opened: 2026-02-04
+    thesis: thesis/active/ADBE/thesis.md
+
+  - ticker: NVO
+    name: "Novo Nordisk A/S"
+    shares: 8.31
+    invested_usd: 400.00
+    avg_cost_usd: 48.13  # 400 / 8.31
+    date_opened: 2026-02-05
+    thesis: thesis/active/NVO/thesis.md
+    notes: "Framework v3.0 validation. Tier A QS 82. MoS 38%. Phased entry 4%."
+
+  - ticker: MONY.L
+    name: "Mony Group PLC"
+    shares: 204
+    invested_usd: 473.00  # ~400 EUR at 1.1826 rate
+    avg_cost_usd: 2.32  # 473 / 204 (169 GBp in USD)
+    date_opened: 2026-02-04
+    thesis: thesis/active/MONY.L/thesis.md
+    notes: "Third Tier A Quality Compounder. QS 81, MoS 36%. UK price comparison #2. ROIC 29%."
+
+transactions:
+  - date: 2026-01-26
+    action: BUY
+    ticker: SHEL.L
+    shares: 40.8
+    price_gbp: 26.89
+    total_eur: 1500.00
+    notes: "Primera posición - energía tradicional, hedge geopolítico"
+
+  - date: 2026-01-26
+    action: BUY
+    ticker: DTE.DE
+    shares: 37.62
+    price_eur: 26.88
+    total_eur: 1200.00
+    notes: "Segunda posición - telecom líder EU, T-Mobile US hidden value"
+
+  - date: 2026-01-27
+    action: BUY
+    ticker: ENEL.MI
+    shares: 81
+    price_eur: 9.225
+    total_eur: 747.00
+    notes: "Comprada a fair value sin margen seguridad (error)"
+
+  - date: 2026-01-27
+    action: BUY
+    ticker: PFE
+    shares: 20
+    price_usd: 25.65
+    total_eur: 500.00
+    notes: "Big pharma US, yield 6.84% defensive"
+
+  - date: 2026-01-27
+    action: BUY
+    ticker: ALL
+    shares: 2
+    price_usd: 197.65
+    total_eur: 400.00
+    notes: "P&C insurance US, P/E 6.3x exceptional value"
+
+  - date: 2026-01-31
+    action: SELL
+    ticker: ENEL.MI
+    shares: 81
+    price_eur: 9.225
+    total_eur: 747.00
+    pnl_eur: 0.00
+    notes: "Vendida - comprada sin margen seguridad"
+
+  - date: 2026-01-31
+    action: BUY
+    ticker: TEP.PA
+    shares: 7.015018
+    total_usd: 458.03
+    notes: "BPO global leader, P/E 6.8x, FCF yield 34%, div yield 7.9%"
+
+  - date: 2026-01-31
+    action: BUY
+    ticker: SAN.PA
+    shares: 5.356514
+    total_usd: 506.23
+    notes: "Sanofi. Quality Score 9/10, P/E fwd 8.9x, yield 5.1%"
+
+  - date: 2026-01-31
+    action: SELL
+    ticker: SHEL
+    shares: 20
+    price_gbx: 2689
+    pnl_approx: "+€285"
+    notes: "TRIM - Position 23.9% >> 7% max. Sold 20/40.85 shares."
+
+  - date: 2026-01-31
+    action: BUY
+    ticker: IMB.L
+    shares: 14.255583
+    total_usd: 600.00
+    notes: "Imperial Brands. P/E 8.1x, yield 5.3%, buyback 11% mcap"
+
+  - date: 2026-01-31
+    action: BUY
+    ticker: VICI
+    shares: 21.00105
+    total_usd: 600.00
+    notes: "VICI Properties REIT. Yield 6.3%, wide moat"
+
+  - date: 2026-01-31
+    action: BUY
+    ticker: LIGHT.NV
+    shares: 28.753048
+    total_usd: 597.70
+    notes: "Signify, global #1 lighting. P/E 7.3x, FCF yield 18.6%"
+
+  - date: 2026-02-02
+    action: SELL
+    ticker: SHEL
+    shares: 10
+    notes: "TRIM 2 - Rebalanceo 20.85→10.85. Reducir concentración."
+
+  - date: 2026-02-02
+    action: BUY
+    ticker: A2A.MI
+    shares: 134
+    total_usd: 404.65
+    notes: "Italian utility. FV €3.62, MoS 30%. Entry €2.55."
+
+  - date: 2026-02-02
+    action: BUY
+    ticker: EDEN.PA
+    shares: 22
+    total_usd: 459.18
+    notes: "Edenred. FV €33-36, MoS 46-51%. Entry €17.67."
+
+  - date: 2026-02-02
+    action: BUY
+    ticker: VNA.DE
+    shares: 16
+    total_usd: 465.56
+    notes: "Vonovia. FV €35-38, MoS 31%. Entry €24.55."
+
+  - date: 2026-02-03
+    action: BUY
+    ticker: TATE.L
+    shares: 66
+    total_usd: 339.73
+    notes: "Tate & Lyle. Starter position. FV 500 GBp, MoS 25%. Consumer staples + UK geo fill."
+
+  - date: 2026-02-02
+    action: BUY
+    ticker: DOM.L
+    shares: 175
+    total_usd: 436.52
+    notes: "Domino's Pizza Group UK. Master franchisee 54% UK share. P/E 9.2x, FCF yield 12.4%, div 6.1%. FV 260-280p, MoS 42%."
+
+  - date: 2026-02-02
+    action: BUY
+    ticker: UHS
+    shares: 2
+    total_usd: 402.84
+    notes: "Universal Health Services. Behavioral health leader. P/E 9.6x, MoS 35.6%, ROE 20%."
+
+  - date: 2026-02-03
+    action: SELL
+    ticker: DTE.DE
+    shares: 14
+    total_usd: 396.96
+    notes: "TRIM - Position 11.3% >> 7% max. Sold 14/37.62 shares. Rebalanceo concentración."
+
+  - date: 2026-02-03
+    action: BUY
+    ticker: GL
+    shares: 3
+    total_usd: 423.18
+    notes: "Globe Life. Life/health insurance. P/E 10.2x, FCF yield 12%, ROE 22%, MoS 34.4%. SEC/DOJ cleared."
+
+  - date: 2026-02-03
+    action: BUY
+    ticker: FUTR.L
+    shares: 47
+    total_usd: 344.88
+    notes: "Future plc. Specialist media. P/E 8.6x, FCF yield 34%, MoS 52-56%. Tier C deep value."
+
+  - date: 2026-02-03
+    action: ADD
+    ticker: FUTR.L
+    shares: 64
+    total_usd: 472.52
+    notes: "ADD to existing 47 shares. Total 111 shares. MoS 51%, doubling conviction."
+
+  - date: 2026-02-03
+    action: ADD
+    ticker: TEP.PA
+    shares: 7
+    total_usd: 465.34
+    notes: "ADD to existing 7 shares. Total 14 shares. MoS 51%, FCF yield 38%. Position ~8%."
+
+  - date: 2026-02-03
+    action: BUY
+    ticker: HRB
+    shares: 9
+    total_usd: 348.48
+    notes: "H&R Block. Tax prep #2 US. P/E 8.9x, yield 4.3%, MoS 30%. Only 2 analysts. US geo fill."
+
+  - date: 2026-02-03
+    action: TRIM
+    ticker: TEP.PA
+    shares: 3
+    price_eur: 53.14
+    total_eur: 159.42
+    notes: "TRIM - Position 7.8% > 7% max. Sold 3/14 shares. Constraint violation resolved."
+
+  - date: 2026-02-04
+    action: SELL
+    ticker: FUTR.L
+    shares: 111
+    price_gbp: 522.50
+    total_eur: 672.20
+    pnl_eur: -22.85
+    pnl_pct: -2.8
+    notes: "SELL - Framework v3.0 Tier D violation (QS 32/100). Capital redeployed to quality."
+
+  - date: 2026-02-04
+    action: BUY
+    ticker: ADBE
+    shares: 2
+    price_usd: 270.60
+    total_usd: 541.20
+    notes: "BUY - First Tier A Quality Compounder. QS 76, MoS 31%, OEY+Growth 16.55%. At 52w low."
+
+  - date: 2026-02-04
+    action: TRIM
+    ticker: DTE.DE
+    shares: 3
+    price_eur: 30.31
+    total_eur: 90.93
+    notes: "TRIM - Position 7.3% > 7% max. Constraint resolved. EU geo also improved."
+
+  - date: 2026-02-05
+    action: BUY
+    ticker: NVO
+    shares: 8.31
+    price_usd: 48.13
+    total_usd: 400.00
+    notes: "BUY - Second Tier A Quality Compounder. QS 82, MoS 38%. Framework v3.0 fully validated. GLP-1 leader at distressed valuation (-17% day). Phased entry 4%."
+
+  - date: 2026-02-04
+    action: BUY
+    ticker: MONY.L
+    shares: 204
+    price_gbp: 169.20
+    total_eur: 400.00
+    notes: "BUY - Third Tier A Quality Compounder. QS 81, MoS 36%. UK price comparison #2 (MoneySupermarket, MoneySavingExpert). ROIC 29% vs WACC 9%. Net cash, 7% div yield."
+
+  - date: 2026-02-05
+    action: ADD
+    ticker: HRB
+    shares: 10
+    price_usd: 34.50
+    total_usd: 345.00
+    notes: "ADD - Standing order triggered @ $35. Q2 revenue +11%, guidance maintained. MoS 42%. Position 2.7%→5.5%. Investment Committee 9/9 PASS."
+

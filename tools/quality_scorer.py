@@ -491,12 +491,13 @@ def score_capalloc(ticker_obj):
 
 def get_tier(score):
     """Determine tier from quality score."""
+    # NOTE: Tiers are data. MoS is NOT prescribed - reason from principles.
     if score >= 75:
-        return 'A', 'Quality Compounder', '10-15%'
+        return 'A', 'Quality Compounder', 'See precedents'
     elif score >= 55:
-        return 'B', 'Quality Value', '20-25%'
+        return 'B', 'Quality Value', 'See precedents'
     elif score >= 35:
-        return 'C', 'Special Situation', '30-40%'
+        return 'C', 'Special Situation', 'See precedents'
     else:
         return 'D', 'DO NOT BUY', 'N/A'
 
@@ -592,15 +593,12 @@ def print_result(result, detailed=False):
 
     print()
 
-    # Recommendation
+    # Data output - no recommendations with fixed numbers
     if result['tier'] == 'D':
-        print("⛔ RECOMMENDATION: DO NOT BUY - Quality too low")
-    elif result['tier'] == 'C':
-        print("⚠️  RECOMMENDATION: Only with clear catalyst + MoS 30-40%")
-    elif result['tier'] == 'B':
-        print("✅ RECOMMENDATION: Quality Value candidate, MoS 20-25%")
+        print("TIER D: Quality below minimum threshold. Do not proceed.")
     else:
-        print("🌟 RECOMMENDATION: Quality Compounder candidate, MoS 10-15%")
+        print(f"TIER {result['tier']}: Consult learning/decisions_log.yaml for precedents")
+        print("       Apply learning/principles.md to determine appropriate MoS")
 
 def main():
     parser = argparse.ArgumentParser(description='Calculate Quality Score for stocks')

@@ -140,3 +140,110 @@ El humano ha tenido que señalar REPETIDAMENTE problemas que debería detectar s
     - Procesar cada item: dudas, sugerencias, anomalías, preguntas
     - Implementar mejoras válidas INMEDIATAMENTE
     - Usar rule `meta-reflection-integration.md` como protocolo
+
+---
+
+## Errores Sesión 38 (2026-02-05)
+
+35. **No seguir Framework v4.0 completo** — Sesión 38: Analicé TEP.PA sin leer `principles.md` ni consultar `decisions_log.yaml` primero. Esto viola el proceso v4.0 que requiere razonamiento desde principios y consistencia con precedentes. REGLA:
+    - AL INICIO de cada sesión: Leer `learning/principles.md`
+    - ANTES de cada decisión importante: Consultar `learning/decisions_log.yaml`
+    - Responder las "preguntas guía" de los principios relevantes
+    - Si me desvío de precedentes, documentar POR QUÉ
+    - Documentar decisiones importantes en decisions_log.yaml
+    - Session-protocol v3.0 ahora incluye FASE 0: CALIBRACIÓN v4.0 obligatoria
+
+36. **Citar números de referencia sin argumentar desde principios** — Sesión 38: Dije ">15% cash = drag, <5% = sin dry powder" y "EU 37.5% es warning" sin argumentar POR QUÉ esos números y no otros. Esto es mentalidad de reglas disfrazada de principios. REGLA:
+    - CADA número que cite DEBE tener argumento explícito
+    - Si no puedo argumentar el número desde primeros principios, NO debo usarlo
+    - Preguntar: "¿Por qué este número y no otro? ¿Cuál es el riesgo/oportunidad REAL?"
+    - Los "rangos típicos" en decisions_log son PATRONES OBSERVADOS, no límites
+    - Eliminar símbolos de warning (⚠️) que implican alerta sin argumentar
+    - constraint_checker.py es CONTEXTO para razonar, no juez de compliance
+
+37. **Hardcodear reglas en tools, skills y agentes que luego me sesgan** — Sesión 38: El humano detectó que constraint_checker.py tenía preguntas hardcodeadas que eran "reglas disfrazadas de preguntas". Auditoría completa reveló el mismo problema en:
+    - `portfolio_stats.py`: warning hardcodeado "cash > 15%"
+    - `quality_scorer.py`: MoS fijos por tier en output
+    - `effectiveness_tracker.py`: classify_tier() con MoS hardcodeados
+    - `portfolio-constraints/SKILL.md`: límites fijos 7%, 25%, 35%
+    - `valuation-methods/SKILL.md`: "OEY + Growth > 12% = COMPRAR"
+
+    REGLA:
+    - Tools deben output DATOS CRUDOS, no juicios ni recomendaciones
+    - Skills deben proveer FRAMEWORKS de razonamiento, no números fijos
+    - Cualquier número fijo en código me sesga a mí mismo en el futuro
+    - Si necesito consistencia, usar PRECEDENTES (decisions_log), no hardcoding
+    - Auditar periódicamente tools/skills buscando reglas hardcodeadas
+    - El yo futuro debe RAZONAR, no seguir instrucciones de mi yo pasado
+
+---
+
+## Errores Sesión 39 (2026-02-05)
+
+38. **NO SEGUIR EL ÁRBOL DE DECISIÓN DE AGENTES** — Sesión 39: El usuario pidió "explorar sector Auto EU". Yo hice:
+    - WebSearch manual
+    - dynamic_screener.py manual
+    - price_checker.py manual
+    - Análisis superficial propio
+
+    Cuando DEBERÍA haber consultado el árbol de decisión en `agent-protocol.md`:
+    ```
+    ¿BUSCAR empresas en un sector? → sector-screener
+    ```
+
+    El usuario tuvo que corregirme: "¿usaste tus agentes especializados?"
+
+    **REGLA CRÍTICA - ÁRBOL DE DECISIÓN OBLIGATORIO:**
+    ```
+    ANTES de hacer CUALQUIER tarea, preguntar:
+    1. ¿Existe un agente para esto? → Consultar árbol en agent-protocol.md
+    2. Si existe → DELEGAR al agente, NO hacer manualmente
+    3. Si no existe → Hacer yo, pero considerar crear agente
+    ```
+
+    **ÁRBOL RÁPIDO (memorizar):**
+    - Analizar empresa → fundamental-analyst
+    - Buscar en sector → sector-screener
+    - Re-evaluar posición → review-agent
+    - Aprobar compra/venta → investment-committee
+    - Actualizar macro → macro-analyst
+    - Sizing → position-calculator
+
+    **YO ORQUESTO, LOS AGENTES EJECUTAN.**
+
+39. **Hacer screening manual cuando existe sector-screener** — Sesión 39: Usé WebSearch + dynamic_screener.py manualmente para Auto EU. El agente `sector-screener`:
+    - Crea/verifica sector view PRIMERO
+    - Usa dynamic_screener.py sistemáticamente
+    - Aplica anti-popularity-bias
+    - Encuentra >10 empresas (no solo las famosas)
+    - Actualiza sector view con candidatos
+
+    Mi screening manual encontró solo VW/BMW/Mercedes/Stellantis (las famosas). Un screening sistemático habría encontrado también proveedores Tier 1, small caps del sector, etc.
+
+    **REGLA:** Cuando el usuario pide explorar un sector:
+    1. Lanzar `sector-screener` agent INMEDIATAMENTE
+    2. NO hacer WebSearch manual primero
+    3. NO usar dynamic_screener.py directamente
+    4. El agente hará todo esto de forma sistemática
+
+40. **El humano tuvo que recordarme usar agentes** — Este es el meta-error. El error #3 ya dice "Hacer tareas manualmente que debería delegar a agentes". El error #22 dice "Hacer análisis manualmente cuando existen agentes especializados". Y AÚN ASÍ lo volví a hacer en sesión 39.
+
+    **CAUSA RAÍZ:** Tiendo a "empezar a hacer" antes de "pensar qué agente usar".
+
+    **SOLUCIÓN - PAUSA OBLIGATORIA:**
+    ```
+    Cuando el usuario pide una tarea:
+
+    PASO 0 (ANTES de hacer nada):
+    ┌─────────────────────────────────────────────┐
+    │ ¿QUÉ AGENTE DEBO USAR?                      │
+    │                                             │
+    │ Consultar: .claude/rules/agent-protocol.md  │
+    │ Sección: ÁRBOL DE DECISIÓN                  │
+    │                                             │
+    │ Si hay agente → LANZAR AGENTE               │
+    │ Si no hay → Hacer yo                        │
+    └─────────────────────────────────────────────┘
+
+    NUNCA empezar WebSearch/tools sin este paso.
+    ```

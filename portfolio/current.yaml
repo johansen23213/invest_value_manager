@@ -240,7 +240,7 @@ transactions:
 
   - date: 2026-01-31
     action: SELL
-    ticker: SHEL
+    ticker: SHEL.L
     shares: 20
     price_gbx: 2689
     pnl_approx: "+€285"
@@ -262,14 +262,14 @@ transactions:
 
   - date: 2026-01-31
     action: BUY
-    ticker: LIGHT.NV
+    ticker: LIGHT.AS
     shares: 28.753048
     total_usd: 597.70
     notes: "Signify, global #1 lighting. P/E 7.3x, FCF yield 18.6%"
 
   - date: 2026-02-02
     action: SELL
-    ticker: SHEL
+    ticker: SHEL.L
     shares: 10
     notes: "TRIM 2 - Rebalanceo 20.85→10.85. Reducir concentración."
 
