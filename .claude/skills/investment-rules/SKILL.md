@@ -1,26 +1,31 @@
 ---
 name: investment-rules
-description: "Framework v3.0 - Quality Score cuantificable, MoS variable por tier, reglas de compra/venta, sizing dinámico"
+description: "Framework v4.0 - Quality Score, Principios Adaptativos, razonamiento sobre reglas"
 user-invocable: false
 disable-model-invocation: false
 ---
 
-# Investment Rules - Framework v3.0
+# Investment Rules - Framework v4.0
 
-## CAMBIO FUNDAMENTAL vs v2.0
+## EVOLUCIÓN DEL FRAMEWORK
 
 ```
-v2.0: "Compra barato" → Tiers por tipo de empresa
-v3.0: "Compra calidad" → Tiers por Quality Score cuantificable
+v2.0: "Compra barato" → Value traps
+v3.0: "Compra calidad" → Reglas mecánicas destruían valor
+v4.0: "Principios adaptativos" → Razonamiento > reglas
 ```
+
+**Cambio clave v4.0:** NO hay límites fijos (7%, 25%, 35%).
+El sizing y constraints se deciden por razonamiento documentado.
+Ver `learning/principles.md` y `learning/decisions_log.yaml`.
 
 ---
 
-## PARTE 1: QUALITY SCORE (0-100)
+## PARTE 1: QUALITY SCORE (0-100) - Sin cambios
 
 ### Principio: Si no se puede medir, no se puede gestionar
 
-**TODOS los criterios son cuantificables. Usar `tools/quality_scorer.py` para cálculo.**
+**Usar `tools/quality_scorer.py` para cálculo.**
 
 ```
 QUALITY SCORE = Financial (40) + Growth (25) + Moat Evidence (25) + Capital Allocation (10)
@@ -39,16 +44,16 @@ QUALITY SCORE = Financial (40) + Growth (25) + Moat Evidence (25) + Capital Allo
 
 | Métrica | Cálculo | Puntos |
 |---------|---------|--------|
-| **Revenue CAGR 5yr** | (Rev_now/Rev_5yr)^0.2 - 1 | >15%: 10, >10%: 8, >5%: 5, >0%: 2, <0%: 0 |
-| **EPS CAGR 5yr** | (EPS_now/EPS_5yr)^0.2 - 1 | >15%: 10, >10%: 8, >5%: 5, >0%: 2, <0%: 0 |
-| **Gross Margin Trend** | GM_now vs GM_3yr_avg | Expanding >1pp: 5, Stable: 3, Declining: 0 |
+| **Revenue CAGR 5yr** | CAGR | >15%: 10, >10%: 8, >5%: 5, >0%: 2, <0%: 0 |
+| **EPS CAGR 5yr** | CAGR | >15%: 10, >10%: 8, >5%: 5, >0%: 2, <0%: 0 |
+| **Gross Margin Trend** | GM vs 3yr | Expanding >1pp: 5, Stable: 3, Declining: 0 |
 
 ### 1.3 MOAT EVIDENCE (25 puntos)
 
 | Métrica | Cálculo | Puntos |
 |---------|---------|--------|
 | **Gross Margin Premium** | GM vs sector median | >10pp: 10, >5pp: 7, ±5pp: 4, <-5pp: 0 |
-| **Market Position** | Rank en mercado | #1-2: 8, #3-5: 5, #6-10: 2, >10: 0 |
+| **Market Position** | Rank | #1-2: 8, #3-5: 5, #6-10: 2, >10: 0 |
 | **ROIC Persistence** | Años ROIC>WACC en 10yr | 10/10: 7, 8-9: 5, 6-7: 3, <6: 0 |
 
 ### 1.4 CAPITAL ALLOCATION (10 puntos)
@@ -62,51 +67,25 @@ QUALITY SCORE = Financial (40) + Growth (25) + Moat Evidence (25) + Capital Allo
 
 ## PARTE 2: QUALITY TIERS
 
-| Tier | Quality Score | MoS Base | Descripción | Max Position |
-|------|--------------|----------|-------------|--------------|
-| **A** | 75-100 | 10-15% | Elite Compounders | 7% |
-| **B** | 55-74 | 20-25% | Quality Value | 6% |
-| **C** | 35-54 | 30-40% | Special Situations | 5% |
-| **D** | <35 | N/A | **NO COMPRAR** | 0% |
+| Tier | Quality Score | Descripción |
+|------|--------------|-------------|
+| **A** | 75-100 | Elite Compounders - Menor riesgo de pérdida permanente |
+| **B** | 55-74 | Quality Value - Riesgo moderado |
+| **C** | 35-54 | Special Situations - Mayor incertidumbre |
+| **D** | <35 | **NO COMPRAR** - Calidad mínima insuficiente |
 
-### Ajustes al MoS Base
+**Framework v4.0:** NO hay MoS "requerido" por tier.
+El MoS apropiado se determina por razonamiento:
+1. Consultar precedentes en `learning/decisions_log.yaml`
+2. Considerar riesgo específico de esta empresa
+3. Evaluar convicción en la tesis
+4. Documentar razonamiento explícito
 
-```
-MoS Final = MoS Base + Ajustes
-
-Ajustes (acumulables, max +15%):
-+ Beta > 1.3: +5%
-+ Sector cíclico: +5%
-+ EM exposure >30%: +5%
-+ Regulatory risk alto: +5%
-+ Customer concentration >20%: +3%
-```
+Los precedentes muestran PATRONES observados, no REGLAS a seguir.
 
 ---
 
-## PARTE 3: CATEGORÍAS DE INVERSIÓN
-
-### 3.1 Quality Compounders (20-40% portfolio)
-- Quality Score ≥75 (Tier A)
-- Hold 5+ años
-- Target: 3-5 posiciones
-- Ejemplos: GOOGL, META, V, MA, MSFT
-
-### 3.2 Value with Quality (40-60% portfolio)
-- Quality Score 55-74 (Tier B)
-- Hold 2-5 años
-- Target: 8-12 posiciones
-- Ejemplos: ALL, DTE.DE, SAN.PA
-
-### 3.3 Special Situations (10-25% portfolio)
-- Quality Score 35-54 (Tier C) + catalyst claro
-- Hold hasta catalyst (6-24 meses)
-- Target: 2-5 posiciones
-- Ejemplos: Turnarounds, spin-offs
-
----
-
-## PARTE 4: REGLAS DE COMPRA (8 GATES)
+## PARTE 3: INVESTMENT COMMITTEE GATES v4.0
 
 ### Gate 1: Quality Score
 ```
@@ -120,190 +99,159 @@ Ajustes (acumulables, max +15%):
 [ ] Business Analysis Framework completado
 [ ] Puedo explicar en 2 minutos
 [ ] Sé POR QUÉ está barata + contra-tesis
-[ ] Value trap checklist: ___/10 (si >3 → Tier C mínimo)
 ```
 
 ### Gate 3: Proyección Fundamentada
 ```
-[ ] Revenue growth derivado (TAM/share/pricing): ___%
-[ ] WACC calculado (Rf + Beta*ERP): ___%
-[ ] Terminal growth justificado: ≤3%
+[ ] Revenue growth derivado (no default)
+[ ] WACC calculado (no default)
 [ ] Escenarios Bear/Base/Bull
 ```
 
 ### Gate 4: Valoración Multi-Método
 ```
-[ ] Método 1 apropiado al tipo: [___] → FV €___
-[ ] Método 2: [___] → FV €___
-[ ] Si divergen >30%: explicación
+[ ] Método 1 apropiado al tipo: FV €___
+[ ] Método 2: FV €___
+[ ] MoS calculado: ___%
 ```
 
-### Gate 5: Margen de Seguridad
+### Gate 5: MoS Adequacy
 ```
-[ ] MoS vs Expected Value: ___%
-[ ] MoS vs Base Case: ___%
-[ ] ¿Cumple MoS del Tier?: [SI/NO]
-```
-
-### Gate 6: Contexto Macro
-```
-[ ] World view revisado (fecha: ___)
-[ ] Sector view existe y revisado
-[ ] Fit con ciclo económico
+[ ] ¿El MoS es suficiente para el riesgo de este tier?
+[ ] ¿Es coherente con precedentes de tier similar?
+NOTA: No hay número fijo. Razonar caso a caso.
 ```
 
-### Gate 7: Portfolio Fit
+### Gate 6: Sizing Razonamiento (NUEVO v4.0)
 ```
-[ ] Position post-compra: ___% (max per tier)
-[ ] Sector post-compra: ___% (max 25%)
-[ ] Geografía post-compra: ___% (max 35%)
-[ ] Cash post-compra: ___% (min 5%)
-[ ] Total posiciones: ___ (max 20)
+[ ] ¿El sizing propuesto tiene razonamiento explícito?
+[ ] ¿Es coherente con precedentes similares?
+[ ] Si se desvía de precedentes, ¿está justificado?
+[ ] Si cae 50%, ¿el impacto es aceptable para esta convicción?
+NOTA: No hay límite fijo. Razonar desde principios.
 ```
 
-### Gate 8: Autocrítica
+### Gate 7: Portfolio Context (NUEVO v4.0)
 ```
-[ ] Asunciones no validadas listadas
-[ ] Sesgos reconocidos
+[ ] ¿Cómo afecta la concentración sectorial?
+[ ] ¿Cómo afecta la exposición geográfica?
+[ ] ¿Hay correlación con otras posiciones?
+[ ] ¿El razonamiento considera estos factores?
+NOTA: No verificar vs límites, verificar que se CONSIDERÓ.
+```
+
+### Gate 8: Contexto Macro y Timing
+```
+[ ] World view revisado
+[ ] Sector view existe
+[ ] Catalizador identificado
+```
+
+### Gate 9: Kill Conditions y Documentación
+```
 [ ] Kill conditions definidas
-[ ] Qué me haría cambiar de opinión
+[ ] Thesis completa documentada
+[ ] Razonamiento de sizing documentado
+[ ] Precedentes considerados documentados
 ```
-
-**REGLA:** Si CUALQUIER gate falla → NO COMPRAR
 
 ---
 
-## PARTE 5: REGLAS DE VENTA
+## PARTE 4: PRINCIPIOS DE SIZING (v4.0)
 
-### Por Valoración (escalonado)
-| Trigger | Acción |
-|---------|--------|
-| Precio = 80% FV Base | Vender 25% |
-| Precio = FV Base | Vender 50% (total 75%) |
-| Precio = FV Bull | Vender resto |
+### Principio Central
+El sizing refleja convicción y riesgo, NO un número fijo.
 
-### Por Thesis Invalidada (INMEDIATO)
-- Quality Score cae a Tier D (<35)
-- Kill conditions cumplidas
-- ROIC < WACC 2+ años
-- Dividend cut (para dividend stocks)
+### Preguntas Guía
+1. "Si cae 50%, ¿cuánto pierdo? ¿Es coherente con mi convicción?"
+2. "¿Qué sizing usé en decisiones similares?"
+3. "¿Por qué este caso sería diferente?"
+
+### Patrones Observados (NO límites)
+Basado en precedentes en `decisions_log.yaml`:
+- Tier A (Quality Compounders): típicamente 3-5% inicial
+- Tier B (Quality Value): típicamente 3-5% full position
+- Tier C (Special Situations): típicamente 2-4%
+
+### Proceso
+1. Consultar `learning/decisions_log.yaml` para precedentes
+2. Evaluar convicción específica de esta tesis
+3. Considerar contexto del portfolio (concentración, correlación)
+4. Documentar razonamiento explícito
+5. Si me desvío de precedentes, explicar por qué
+
+---
+
+## PARTE 5: PRINCIPIOS DE VENTA (v4.0)
+
+### Principio Central
+**NUNCA vender solo porque "se rompió una regla".**
+
+### Cuándo Vender (con argumento)
+
+**Por Kill Condition (INMEDIATO):**
 - Management fraud
+- Pérdida permanente de ventaja competitiva
+- QS cae a Tier D
 
-### Por Quality Decay
-- Si QS baja de Tier A a B: reevaluar sizing
-- Si QS baja de Tier B a C: definir catalyst o vender
-- Si QS baja a Tier D: vender en próxima ventana
+**Por Valoración (razonado):**
+- MoS se vuelve claramente negativo (razonar qué significa "claramente" en contexto)
+- Mejor oportunidad clara (calcular Opportunity Score, interpretar cualitativamente)
 
-### NO Vender Por
-- Caída de precio sin cambio en fundamentales
-- Miedo general del mercado
-- Analyst downgrade sin nueva información
+**Por Thesis Invalidada:**
+- Los fundamentales que justificaban la compra ya no existen
 
----
+### Cuándo NO Vender
+- Solo porque posición creció a >X%
+- Solo porque el mercado cayó
+- Solo porque un analyst dijo algo
+- Sin argumento explícito
 
-## PARTE 6: SIZING DINÁMICO
-
-### Base Sizing por Tier
-| Tier | Base Size | Max Size |
-|------|-----------|----------|
-| A | 4-5% | 7% |
-| B | 3-4% | 6% |
-| C | 2-3% | 5% |
-
-### Ajustes
-```
-+ MoS > requisito +10pp: +1%
-+ Wide moat confirmado: +1%
-- Alta correlación (>0.7): -1%
-- Late cycle + cíclica: -1%
-- Small cap (<€2B): -0.5%
-```
-
-### Límites Absolutos
-- Mínimo: 2% (below = not worth tracking)
-- Máximo: 7% (nunca más, incluso alta convicción)
-- Rebalanceo trigger: >10% de portfolio
+### EXIT Protocol
+Para decisiones de salida complejas, usar `.claude/skills/exit-protocol/SKILL.md`.
+6 gates: Kill Condition → Tesis → MoS → Opportunity Score → Dead Money → Fricción
 
 ---
 
-## PARTE 7: SECTOR ALLOCATION
+## PARTE 6: NUNCA (Inmutable)
 
-### Targets (flexibles, no hard floors)
-
-| Sector | Mín | Target | Máx |
-|--------|-----|--------|-----|
-| Technology | 5% | 15-25% | 35% |
-| Healthcare | 5% | 10-15% | 20% |
-| Financials | 5% | 10-15% | 20% |
-| Consumer | 5% | 10-15% | 20% |
-| Industrials | 0% | 5-10% | 15% |
-| Energy | 0% | 5-10% | 12% |
-| Utilities | 0% | 5-8% | 12% |
-| Real Estate | 0% | 5-10% | 12% |
-| Telecom | 0% | 3-8% | 10% |
-
-### Reglas de Allocation
-1. Si sector <mínimo por >60 días: priorizar búsqueda
-2. Si no hay ideas con MoS suficiente: aceptable estar bajo target
-3. Revisión trimestral obligatoria
-4. ETFs permitidos como placeholder (max 15% total)
+1. **Comprar Tier D (QS <35)** - Esto SÍ es regla fija
+2. **Operar sin thesis documentada**
+3. **Usar apalancamiento**
+4. **Saltarse Investment Committee**
+5. **Usar defaults de growth/WACC sin derivación**
+6. **Comprar sin entender por qué está barata**
+7. **Vender sin argumento explícito**
+8. **Ignorar kill conditions**
 
 ---
 
-## PARTE 8: ETFs PERMITIDOS (placeholder)
+## PARTE 7: REFERENCIAS v4.0
 
-Para evitar cash drag mientras se buscan ideas individuales:
-
-| ETF | Uso | Max |
-|-----|-----|-----|
-| QQQ/QQQM | Tech placeholder | 10% |
-| VIG | Quality dividend | 10% |
-| SPY/VOO | Market exposure | 10% |
-
-**Total max ETFs: 15%**
-
-Reglas:
-- Vender cuando aparezca idea individual mejor
-- NO contar para Quality Score del portfolio
-- Revisar mensualmente si hay ideas para reemplazar
+| Necesito... | Ver... |
+|-------------|--------|
+| Principios de inversión | `learning/principles.md` |
+| Precedentes de decisiones | `learning/decisions_log.yaml` |
+| Validar consistencia | `tools/consistency_checker.py` |
+| Detectar drift | `tools/drift_detector.py` |
+| EXIT Protocol | `.claude/skills/exit-protocol/SKILL.md` |
 
 ---
 
-## PARTE 9: GROSS MARGIN REFERENCE BY SECTOR
-
-| Sector | Median | Top Quartile |
-|--------|--------|--------------|
-| Software | 72% | >80% |
-| Pharma | 67% | >75% |
-| Consumer Staples | 38% | >45% |
-| Industrials | 28% | >35% |
-| Retail | 28% | >35% |
-| Utilities | 40% | >50% |
-| Telecom | 45% | >55% |
-| Energy | 35% | >50% |
-
----
-
-## PARTE 10: NUNCA (Inmutable)
-
-1. Comprar Tier D (QS <35)
-2. Operar sin thesis documentada
-3. Usar apalancamiento
-4. Saltarse Investment Committee
-5. Comprar value trap (>3 factores)
-6. Ignorar kill conditions
-7. Usar defaults sin derivación
-8. Comprar sin entender por qué está barata
-9. Exceder 7% en una posición
-10. Exceder 25% en un sector
-
----
-
-## QUICK REFERENCE: Quality Score → Action
+## QUICK REFERENCE: Proceso v4.0
 
 ```
-QS 75-100 (A): BUY con MoS 10-15%, hold forever
-QS 55-74 (B):  BUY con MoS 20-25%, hold 2-5yr
-QS 35-54 (C):  BUY SOLO con catalyst + MoS 30-40%
-QS <35 (D):    DO NOT BUY EVER
+1. Calcular Quality Score → Determina tier
+2. Si Tier D → STOP
+3. Analizar negocio → Entender por qué barata
+4. Valorar → MoS
+5. Consultar precedentes → ¿Cómo decidí antes en casos similares?
+6. Razonar sizing → Convicción + riesgo + contexto
+7. Pasar 9 gates → Investment Committee
+8. Documentar → decisions_log.yaml
 ```
+
+---
+
+**Framework Version:** 4.0
+**Última actualización:** 2026-02-05

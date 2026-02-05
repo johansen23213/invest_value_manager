@@ -1,10 +1,8 @@
 # =============================================================================
-# NEWS DIGEST - Actualizado por news-monitor agent
-# =============================================================================
-# Scan: 2026-02-04 (ultimas 48h)
+# NEWS DIGEST - Actualizado 2026-02-05
 # =============================================================================
 
-last_scan: "2026-02-04T19:00:00"
+last_scan: "2026-02-05T08:00:00"
 next_scan: "Inicio proxima sesion"
 
 # =============================================================================
@@ -12,180 +10,132 @@ next_scan: "Inicio proxima sesion"
 # =============================================================================
 alerts:
   critical: []
-    # NINGUNA ALERTA CRITICA en las ultimas 48h
+    # NINGUNA ALERTA CRITICA
 
   material:
-    - ticker: NVO
-      headline: "Novo Nordisk warns 2026 sales may fall 5-13%, stock drops 17%"
+    - ticker: LIGHT.AS
+      headline: "JPMorgan downgrade to Neutral, Q4 EPS miss 17%"
       classification: MATERIAL
-      source: "CNBC, TipRanks"
-      date: "2026-02-03"
-      impact: "Compramos POST-CAIDA a $48.13. MoS 38%. Ya incorporado."
-      action: NONE
-
-    - ticker: EDEN.PA
-      headline: "Edenred shares fall 9% after Brazil approves new meal voucher rules"
-      classification: MATERIAL
-      source: "Yahoo Finance"
-      date: "2026-02-03"
-      impact: "Nueva regulacion Brasil puede afectar margenes"
-      action: MONITOR - Earnings Feb 24
-
-    - ticker: ADBE
-      headline: "Adobe shares fall 6.9% on AI disruption fears"
-      classification: MATERIAL
-      source: "TechCrunch, StockStory"
-      date: "2026-02-03"
-      impact: "Ya compramos en 52w low. AI es tailwind para ADBE."
-      action: NONE
+      impact: "Preocupaciones de crecimiento. Stock +8.6% desde compra."
+      action: REVIEW_THESIS
 
     - ticker: SHEL.L
-      headline: "Shell flags weaker Q4 earnings"
+      headline: "Q4 earnings weaker, but +4% dividend, $3.5B buyback"
       classification: MATERIAL
-      source: "IG UK"
-      date: "2026-02-04"
-      impact: "Pre-anuncio debil. Earnings HOY."
-      action: MONITOR
-
-    - ticker: LIGHT.AS
-      headline: "Signify downgraded to Neutral at JPMorgan"
-      classification: MATERIAL
-      source: "Yahoo Finance"
-      date: "2026-02-02"
-      impact: "Preocupaciones de crecimiento"
-      action: MONITOR
+      impact: "Miss but capital returns intact"
+      action: HOLD
 
     - ticker: VICI
-      headline: "VICI downgraded to Sector Perform at Scotiabank"
+      headline: "Scotiabank downgrade to Sector Perform"
       classification: MATERIAL
-      source: "Yahoo Finance"
-      date: "2026-02-04"
-      impact: "Downgrade por concentracion gaming"
+      impact: "PT cut $36 to $30"
       action: MONITOR
 
-# =============================================================================
-# NEWS BY TICKER
-# =============================================================================
-news_by_ticker:
-  NVO:
-    - headline: "Guidance 2026 warns sales may fall 5-13%"
-      classification: MATERIAL (ya en precio)
-      action: NONE
-    - headline: "DKK 3.8B share repurchase initiated"
-      classification: MENOR
-    - headline: "Wegovy oral reaches 50k weekly prescriptions"
-      classification: MENOR
-
-  ADBE:
-    - headline: "AI disruption fears -6.9%"
-      classification: MATERIAL (ya en precio)
-      action: NONE
-    - headline: "Adobe Animate in maintenance mode"
-      classification: MENOR
-
-  HRB:
-    - headline: "Q2 FY26 revenue +11%, EPS miss, guidance reaffirmed"
-      classification: MENOR
-      action: NONE - Positivo
-
-  EDEN.PA:
-    - headline: "Brazil meal voucher regulation"
+    - ticker: GL
+      headline: "Q4 EPS $3.29 vs $3.54 estimate - miss 7%"
       classification: MATERIAL
-      action: MONITOR
+      impact: "Miss pero FY guidance maintained"
+      action: HOLD
 
-  SAN.PA:
-    - headline: "EUR 1B share buyback mandate"
-      classification: MENOR
-
-  LIGHT.AS:
-    - headline: "JPMorgan downgrade to Neutral"
+    - ticker: EDEN.PA
+      headline: "Brazil meal voucher regulation overhang"
       classification: MATERIAL
-      action: MONITOR
-
-  ALL:
-    - headline: "Q4 2025 earnings after close"
-      classification: PENDING_EARNINGS
-
-  GL:
-    - headline: "Q4 2025 earnings after close"
-      classification: PENDING_EARNINGS
-
-  SHEL.L:
-    - headline: "Q4 weaker pre-announcement"
-      classification: MATERIAL
-      action: MONITOR
-
-  PFE:
-    - headline: "Q4 beat EPS $0.66 vs $0.57"
-      classification: MENOR
-
-  DTE.DE:
-    - headline: "+4.62% Feb 2, EUR 2B buyback"
-      classification: MENOR
-
-  IMB.L:
-    - headline: "GBP 1.45B buyback continues"
-      classification: MENOR
-
-  MA:
-    - headline: "Q4 beat, 14% dividend increase, $14B buyback"
-      classification: MENOR
-      action: NONE - Sigue overvalued
-
-  V:
-    - headline: "Q1 FY26 +15% revenue, +17% EPS"
-      classification: MENOR
-      action: NONE - Sigue overvalued
+      action: MONITOR - Earnings Feb 24
 
 # =============================================================================
-# EARNINGS HOY
+# EARNINGS REPORTADOS (ultimas 48h)
 # =============================================================================
-earnings_today:
-  - ticker: GL
-    consensus: "EPS $3.44"
-    framework_ready: true
-
+earnings_reported:
   - ticker: ALL
-    consensus: "EPS $8.72-9.53"
-    framework_ready: true
+    date: 2026-02-04
+    result: "BEAT - FY net income $10.2B, Q4 $3.8B"
+    combined_ratio: 72.9
+    dividend: "+8%"
+    buyback: "$4B authorized"
+    action: HOLD
 
   - ticker: SHEL.L
-    consensus: "EPS $1.21"
-    watch: "FCF, buyback, guidance"
+    date: 2026-02-05
+    result: "MISS - Q4 adj $3.3B vs $3.5B est"
+    dividend: "+4% to $0.372"
+    buyback: "$3.5B (17th consecutive quarter)"
+    action: HOLD
+
+  - ticker: GL
+    date: 2026-02-04
+    result: "MISS - Q4 EPS $3.29 vs $3.54"
+    fy_guidance: "$14.95-15.65 EPS"
+    action: HOLD
+
+  - ticker: HRB
+    date: 2026-02-03
+    result: "BEAT - Revenue +11%"
+    guidance: "Reaffirmed"
+    action: "ADD executed @ $35"
+
+  - ticker: PFE
+    date: 2026-02-04
+    result: "BEAT - Q4 EPS $0.66 vs $0.57"
+    action: HOLD
 
 # =============================================================================
-# STANDING ORDERS CERCANOS
+# EARNINGS PROXIMOS 21 DIAS
 # =============================================================================
-standing_orders_alert:
+earnings_upcoming:
+  - ticker: MONY.L
+    date: 2026-02-23
+
+  - ticker: EDEN.PA
+    date: 2026-02-24
+
+  - ticker: VICI
+    date: 2026-02-25
+
+  - ticker: DTE.DE
+    date: 2026-02-26
+
+  - ticker: TEP.PA
+    date: 2026-02-26
+
+  - ticker: UHS
+    date: 2026-02-26
+
+# =============================================================================
+# STANDING ORDERS
+# =============================================================================
+standing_orders:
   - ticker: ZIG.L
-    current: "389.5 GBp"
     trigger: "375 GBp"
-    distance: "-3.7%"
-    status: MONITOR_DAILY
+    current: "~389 GBp"
+    distance: "-3.6%"
+
+  - ticker: V
+    trigger: "$280"
+    current: "~$329"
+    distance: "-15%"
 
   - ticker: EVO.ST
-    current: "~585 SEK"
-    trigger: "600 SEK"
-    status: CONDICIONADO_UKGC
-
-# =============================================================================
-# ESTADISTICAS
-# =============================================================================
-stats:
-  tickers_scanned: 21
-  positions_scanned: 19
-  watchlist_scanned: 2
-  critical_count: 0
-  material_count: 6
-  pending_earnings: 3
-  last_critical_alert: null
+    trigger: "600 SEK + UKGC favorable"
+    status: CONDICIONADO
 
 # =============================================================================
 # RESUMEN
 # =============================================================================
 summary: |
-  SCAN 2026-02-04: 0 criticas, 6 materiales
-  NVO/ADBE ya incorporados en precios de compra
-  MONITOREAR: EDEN.PA (Brasil), LIGHT.AS/VICI (downgrades)
-  EARNINGS HOY: GL, ALL, SHEL.L
-  STANDING ORDERS: ZIG.L -3.7% del trigger
+  SCAN 2026-02-05: 0 CRITICAS, 5 MATERIALES
+
+  EARNINGS (ultimas 48h):
+  - ALL: BEAT, combined ratio 72.9, $4B buyback - HOLD
+  - SHEL.L: MISS pero +4% div, $3.5B buyback - HOLD
+  - GL: MISS 7%, guidance maintained - HOLD
+  - HRB: BEAT revenue +11% - ADD EJECUTADO
+  - PFE: BEAT EPS - HOLD
+
+  MONITOREAR:
+  - LIGHT.AS: Downgrade + miss (-13% week pero +8.6% desde compra)
+  - VICI: Downgrade - earnings Feb 25
+  - EDEN.PA: Brasil regulation - earnings Feb 24
+  - TEP.PA: -16% month - earnings Feb 26
+
+  STANDING ORDERS:
+  - ZIG.L @ -3.6% del trigger

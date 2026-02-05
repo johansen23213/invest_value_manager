@@ -1,0 +1,299 @@
+# DECISIONS_LOG.yaml - Framework v4.0
+#
+# Historial de decisiones de inversión con contexto y razonamiento.
+# Usar como PRECEDENTES para informar futuras decisiones.
+# NO son reglas. Son ejemplos de cómo razoné en situaciones similares.
+#
+# Creado: 2026-02-05 | Framework v4.0
+
+version: "4.0"
+last_updated: 2026-02-05
+
+# =============================================================================
+# DECISIONES DE SIZING (BUY/ADD)
+# =============================================================================
+sizing_decisions:
+
+  - date: 2026-02-04
+    ticker: ADBE
+    action: BUY
+    sizing: "4.8%"
+    context:
+      quality_score: 76
+      tier: A
+      mos: "31%"
+      price_vs_52w: "At 52-week low"
+      conviction: "Alta"
+      macro: "Late cycle, flight to quality"
+    reasoning: |
+      ADBE es Quality Compounder (Tier A) a 52-week low.
+      MoS 31% es excelente para Tier A.
+      Si cae 50%, pierdo 2.4% del portfolio - aceptable para esta convicción.
+      Creative Cloud tiene moat fuerte. AI es tailwind, no threat.
+      Posición inicial moderada para dejar espacio a ADD si baja más.
+    outcome: "Pendiente - posición recién abierta"
+
+  - date: 2026-02-05
+    ticker: NVO
+    action: BUY
+    sizing: "3.4%"
+    context:
+      quality_score: 82
+      tier: A
+      mos: "38%"
+      price_vs_52w: "-49% from high, -17% in 2 days (guidance shock)"
+      conviction: "Alta"
+      macro: "Healthcare defensive"
+    reasoning: |
+      NVO cayó 17% en 2 días por guidance shock (Wegovy competition fears).
+      Pero: Sigue siendo #1 GLP-1, pipeline fuerte (CagriSema), QS 82.
+      MoS 38% es excepcional para Tier A.
+      Sizing 4% (menor que ADBE 4.8%) porque:
+      - Evento catalizador (CagriSema data) en Marzo puede cambiar thesis
+      - Quiero dejar espacio para ADD si data es positiva o precio baja más
+      Si cae 50%, pierdo 1.7% - muy aceptable.
+    outcome: "Pendiente - posición recién abierta"
+
+  - date: 2026-02-04
+    ticker: MONY.L
+    action: BUY
+    sizing: "4.1%"
+    context:
+      quality_score: 81
+      tier: A
+      mos: "36%"
+      price_vs_52w: "At 52-week low"
+      conviction: "Alta"
+    reasoning: |
+      Tercer Tier A en portfolio.
+      ROIC 29% excepcional, net cash, 7% dividend yield.
+      MoS 36% excelente para Tier A.
+      UK focus pero negocio defensivo (ahorro del consumidor).
+      Similar sizing a ADBE y NVO (quality compounders ~4%).
+    outcome: "Pendiente - posición recién abierta"
+
+  - date: 2026-02-05
+    ticker: HRB
+    action: ADD
+    sizing: "de 2.7% a 5.7%"
+    context:
+      quality_score: 73
+      tier: B
+      mos: "42%"
+      existing_position: "9 shares, 2.7%"
+      price_vs_52w: "At 52-week low"
+      conviction: "Media-Alta"
+      recent_earnings: "Q2 revenue +11%, EPS miss menor, guidance maintained"
+    reasoning: |
+      Standing order pre-aprobado tocó trigger ($35).
+      Q2 mostró revenue +11% (positivo), EPS miss menor es normal en Q2 (temporada baja).
+      Guidance FY2026 mantenido - tesis intacta.
+      MoS 42% es muy bueno para Tier B.
+      Posición 5.7% es coherente con convicción media-alta para Tier B.
+      Si cae 50%, pierdo 2.85% - aceptable para esta convicción.
+      Riesgo: AI disruption. Pero timeline es 3-5 años, no inmediato.
+    outcome: "Pendiente"
+
+# =============================================================================
+# DECISIONES DE TRIM/SELL
+# =============================================================================
+trim_decisions:
+
+  - date: 2026-02-04
+    ticker: FUTR.L
+    action: "SELL (full exit)"
+    context:
+      quality_score: 32
+      tier: D
+      position_size: "6.8%"
+      pnl: "-2.8%"
+    reasoning: |
+      Framework v3.0 identificó FUTR.L como Tier D (QS 32).
+      Tier D = NO debería estar en portfolio. Calidad insuficiente.
+      No importa que el MoS fuera alto - la calidad es insuficiente.
+      Pérdida de 2.8% es preferible a mantener posición de baja calidad.
+      Capital redeployed a ADBE (Tier A).
+      LECCIÓN: No comprar por P/E bajo sin verificar calidad primero.
+    outcome: "Pérdida realizada -2.8%"
+
+  - date: 2026-02-03
+    ticker: DTE.DE
+    action: TRIM
+    context:
+      position_size_before: "7.3%"
+      position_size_after: "6.4%"
+      reason: "Sobrecompra acumulada + liberar capital"
+    reasoning: |
+      Posición había crecido a 7.3% por compras sucesivas, no solo precio.
+      TRIM fue correcto porque:
+      - La posición había crecido por COMPRAS sucesivas, no solo por precio
+      - Quería liberar capital para nuevas ideas (ADBE)
+      - No era un "ganador orgánico" sino sobrecompra
+      Si hubiera sido crecimiento puramente orgánico con tesis intacta,
+      habría considerado mantener.
+    outcome: "Capital liberado para ADBE"
+
+  - date: 2026-02-02
+    ticker: SHEL.L
+    action: TRIM
+    context:
+      position_size_before: "13%"
+      position_size_after: "7%"
+      reason: "Concentración excesiva para Tier C"
+    reasoning: |
+      13% era concentración excesiva para Tier C (QS 36).
+      SHEL.L no es quality compounder - es commodity play.
+      Riesgo de pérdida permanente es mayor que en Tier A.
+      Reducir a 7% libera capital para diversificar.
+      Diferente a ADBE: si ADBE llegara a 13% orgánicamente,
+      consideraría mantener porque es Tier A con menor riesgo.
+    outcome: "Capital liberado para diversificación"
+
+# =============================================================================
+# DECISIONES DE HOLD (también importantes como precedentes)
+# =============================================================================
+hold_decisions:
+
+  - date: 2026-02-05
+    ticker: SHEL.L
+    action: "HOLD (post-earnings EXIT analysis)"
+    context:
+      quality_score: 36
+      tier: C
+      mos: "-5%"
+      position_size: "3.6%"
+      pnl: "+4.5%"
+      earnings_result: "MISS - adj earnings $3.26B vs $3.53B expected"
+      dividend: "+4%"
+      buyback: "$3.5B"
+    reasoning: |
+      EXIT Protocol aplicado con 6 gates:
+      - Gate 1: No kill condition (FCF $26.1B, div +4%, buyback intacto)
+      - Gate 2: Tesis INTACTA pero DEBILITADA (Q4 weak)
+      - Gate 3: MoS -5% (overvalued pero no severo)
+      - Gate 4: OS 70 vs ZIG.L pero no ejecutable hoy (trigger -2.1%)
+      - Gate 5: No dead money (+4.5% en 10 días)
+      - Gate 6: Fricción 1.1%
+
+      Decisión HOLD porque:
+      1. Tesis intacta (shareholder returns fuertes)
+      2. No hay alternativa ejecutable inmediatamente
+      3. Posición ya pequeña (3.6%) post-TRIMs previos
+      4. Principio 6: No vender solo por MoS negativo sin argumento
+
+      Reconsiderar si: ZIG.L trigger, precio >£30, o dividend cut.
+    outcome: "Pendiente"
+
+  - date: 2026-02-05
+    ticker: TEP.PA
+    action: "HOLD (pre-earnings review)"
+    context:
+      quality_score: 46
+      tier: C
+      mos: "38-51%"
+      position_size: "6.0%"
+      price_vs_cost: "-18%"
+      price_vs_52w_low: "+3%"
+      earnings_date: "2026-02-26"
+    reasoning: |
+      Pre-earnings review con Framework v4.0.
+      Principio 6 aplicado: Vender requiere argumento.
+      - Tesis intacta (FCF ~€1B, revenue +1.5%, dividend OK)
+      - MoS positivo (38-51%)
+      - Kill conditions no activadas
+      - Precedentes: similar a HRB HOLD near 52w low
+      Sizing 6% > típico 3-4% para Tier C, pero posición ya fue
+      trimmed de 14 a 11 shares. No hay argumento para trim adicional.
+      Esperar earnings Feb 26 para re-evaluar con kill conditions.
+    kill_conditions_monitored:
+      - "FCF <€600M"
+      - "Revenue decline >5% 2Q consecutive"
+      - "Major client AI replacement"
+      - "Dividend cut"
+    outcome: "Pendiente earnings Feb 26"
+
+  - date: 2026-02-05
+    ticker: ALL
+    action: "HOLD (post-earnings)"
+    context:
+      earnings_result: "BEAT - EPS $14.31 vs $9.85 expected"
+      combined_ratio: "72.9 (excellent)"
+      dividend: "+8%"
+      buyback: "$4B new program"
+    reasoning: |
+      Earnings excepcionales validan tesis.
+      Combined ratio 72.9 es mejor de lo esperado.
+      Management returning capital (dividend + buyback).
+      No hay razón para vender ni para añadir (posición ya sized correctamente).
+    outcome: "HOLD - tesis fortalecida"
+
+# =============================================================================
+# DECISIONES DE GEOGRAFÍA
+# =============================================================================
+geography_decisions:
+
+  - date: 2026-02-05
+    observation: "EU exposure 34.1%, approaching historical concern at 35%"
+    context:
+      eu_positions: "DTE.DE, TEP.PA, SAN.PA, EDEN.PA, VNA.DE, A2A.MI, LIGHT.AS, NVO"
+      eu_risk_assessment: "Moderado - países desarrollados estables"
+    decision: "Priorizar no-EU para próximas compras, pero no es límite rígido"
+    reasoning: |
+      EU tiene varias posiciones concentradas en países desarrollados estables.
+      Riesgo político EU es moderado (no alto).
+      Si aparece oportunidad excepcional EU (ej: Tier A a >40% MoS),
+      consideraría comprar con argumento explícito.
+      Por ahora, priorizar US/UK para diversificar geografía.
+
+# =============================================================================
+# PATRONES IDENTIFICADOS
+# =============================================================================
+patterns:
+  sizing_by_tier:
+    tier_a:
+      typical_range: "3-5% initial"
+      examples: "ADBE 4.8%, NVO 3.4%, MONY.L 4.1%"
+      rationale: "Quality compounders permiten posiciones mayores por menor riesgo"
+    tier_b:
+      typical_range: "3-5% full position"
+      examples: "HRB 5.7%"
+      rationale: "Quality value, riesgo moderado"
+    tier_c:
+      typical_range: "3-4% max"
+      examples: "SHEL.L trimmed to ~7% from 13%"
+      rationale: "Mayor riesgo, limitar exposición"
+
+  mos_acceptance_by_tier:
+    tier_a: "10-15% mínimo típico, 30%+ es excepcional"
+    tier_b: "20-25% mínimo típico"
+    tier_c: "30%+ requerido"
+    note: "Estos no son límites fijos, son patrones observados"
+
+# =============================================================================
+# LECCIONES APRENDIDAS
+# =============================================================================
+lessons:
+  - date: 2026-02-05
+    lesson: "Sector entero puede ser value trap - P/E bajo sectorial no es oportunidad"
+    from_decision: "Auto EU analysis: VW (QS 20) y BMW (QS 24) - ambos Tier D REJECT"
+    impact: |
+      Evitó invertir en sector que destruye valor.
+      El 'top pick' de analistas (VW) y el 'quality play' según Goldman (BMW) son ambos Tier D.
+      P/E 7x refleja problemas reales (ROIC < WACC, FCF negativo), no oportunidad.
+      Los analistas con mandato diferente (trading/momentum) pueden estar equivocados para value investing.
+      Crear sector view ANTES de analizar evita sesgo de confirmación.
+
+  - date: 2026-02-04
+    lesson: "No comprar por P/E bajo sin verificar Quality Score"
+    from_decision: "FUTR.L exit"
+    impact: "Evitó value trap, QS ahora es obligatorio antes de valorar"
+
+  - date: 2026-02-03
+    lesson: "Distinguir crecimiento orgánico vs sobrecompra"
+    from_decision: "DTE.DE, SHEL.L trims"
+    impact: "TRIM de sobrecompra es correcto; TRIM de ganador orgánico requiere más análisis"
+
+  - date: 2026-02-05
+    lesson: "Aprovechar pánico de mercado en quality compounders"
+    from_decision: "NVO buy después de -17% en 2 días"
+    impact: "MoS excepcional surge del pánico, no del análisis frío del mercado"
