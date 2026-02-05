@@ -7,7 +7,7 @@
 # =============================================================================
 
 cash:
-  amount: 1773.08  # Post BUY NVO 2026-02-05 (2112.08 - 339)
+  amount: 1081.00  # Post ADD HRB 2026-02-05 (1373.08 - 292)
   currency: EUR
 
 positions:
@@ -142,9 +142,9 @@ positions:
 
   - ticker: HRB
     name: "H&R Block Inc."
-    shares: 9
-    invested_usd: 334.80
-    avg_cost_usd: 37.20  # 334.80 / 9
+    shares: 19
+    invested_usd: 679.80  # 334.80 + 345.00
+    avg_cost_usd: 35.78  # 679.80 / 19
     date_opened: 2026-02-03
     thesis: thesis/active/HRB/thesis.md
 
@@ -164,6 +164,15 @@ positions:
     date_opened: 2026-02-05
     thesis: thesis/active/NVO/thesis.md
     notes: "Framework v3.0 validation. Tier A QS 82. MoS 38%. Phased entry 4%."
+
+  - ticker: MONY.L
+    name: "Mony Group PLC"
+    shares: 204
+    invested_usd: 473.00  # ~400 EUR at 1.1826 rate
+    avg_cost_usd: 2.32  # 473 / 204 (169 GBp in USD)
+    date_opened: 2026-02-04
+    thesis: thesis/active/MONY.L/thesis.md
+    notes: "Third Tier A Quality Compounder. QS 81, MoS 36%. UK price comparison #2. ROIC 29%."
 
 transactions:
   - date: 2026-01-26
@@ -389,4 +398,20 @@ transactions:
     price_usd: 48.13
     total_usd: 400.00
     notes: "BUY - Second Tier A Quality Compounder. QS 82, MoS 38%. Framework v3.0 fully validated. GLP-1 leader at distressed valuation (-17% day). Phased entry 4%."
+
+  - date: 2026-02-04
+    action: BUY
+    ticker: MONY.L
+    shares: 204
+    price_gbp: 169.20
+    total_eur: 400.00
+    notes: "BUY - Third Tier A Quality Compounder. QS 81, MoS 36%. UK price comparison #2 (MoneySupermarket, MoneySavingExpert). ROIC 29% vs WACC 9%. Net cash, 7% div yield."
+
+  - date: 2026-02-05
+    action: ADD
+    ticker: HRB
+    shares: 10
+    price_usd: 34.50
+    total_usd: 345.00
+    notes: "ADD - Standing order triggered @ $35. Q2 revenue +11%, guidance maintained. MoS 42%. Position 2.7%→5.5%. Investment Committee 9/9 PASS."
 

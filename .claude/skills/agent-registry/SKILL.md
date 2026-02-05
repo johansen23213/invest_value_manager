@@ -29,10 +29,13 @@ Documento de referencia ÚNICO para:
 4. Verificar que ficheros que voy a modificar existen y están en estado esperado
 ```
 
-**TODOS los agentes tienen PASO 0 (actualizado 2026-02-04):**
+**TODOS los agentes tienen PASO 0 (actualizado 2026-02-05):**
 
 | Dominio | Agente | PASO 0 |
 |---------|--------|--------|
+| **Vigilancia** | news-monitor | ✓ NUEVO |
+| | market-pulse | ✓ NUEVO |
+| | risk-sentinel | ✓ NUEVO |
 | Inversión | fundamental-analyst | ✓ Completo |
 | | investment-committee | ✓ Completo |
 | | review-agent | ✓ Completo |
@@ -56,10 +59,50 @@ Documento de referencia ÚNICO para:
 
 ---
 
-## INVENTARIO DE AGENTES (20 total)
+## INVENTARIO DE AGENTES (23 total)
 
 ### Nivel 0: Orchestrator (CLAUDE.md)
 El orchestrator (yo, Claude) delega a agentes especializados. Lee CLAUDE.md que contiene todas las reglas, protocolos y contexto.
+
+---
+
+### Dominio: VIGILANCIA (3) - NUEVO v2.2
+
+> **Se ejecutan al INICIO de cada sesión, ANTES de cualquier otra cosa**
+
+#### news-monitor
+| Campo | Valor |
+|-------|-------|
+| Responsabilidad | Escanear noticias últimas 48h de todas las posiciones y watchlist |
+| Single-responsibility | Solo detecta y clasifica noticias, no decide acciones |
+| Skills | news-classification, critical-thinking |
+| Lee | portfolio/current.yaml, state/system.yaml (watchlist) |
+| Escribe | state/news_digest.yaml |
+| Trigger | INICIO de cada sesión (Fase 0) |
+| Alerta | CRÍTICO = STOP, informar humano inmediatamente |
+
+#### market-pulse
+| Campo | Valor |
+|-------|-------|
+| Responsabilidad | Detectar movimientos anómalos de precio y buscar su CAUSA |
+| Single-responsibility | Solo detecta anomalías, no decide acciones |
+| Skills | critical-thinking |
+| Lee | portfolio/current.yaml, state/system.yaml |
+| Escribe | state/market_pulse.yaml |
+| Tools | price_checker.py |
+| Trigger | INICIO de cada sesión (en paralelo con news-monitor) |
+| Alerta | Movimiento >5% sin causa = investigar |
+
+#### risk-sentinel
+| Campo | Valor |
+|-------|-------|
+| Responsabilidad | Vigilar litigios, investigaciones regulatorias, cambios legales |
+| Single-responsibility | Solo detecta riesgos exógenos, no valora empresas |
+| Skills | risk-assessment, critical-thinking |
+| Lee | portfolio/current.yaml, thesis/active/*, state/risk_alerts.yaml |
+| Escribe | state/risk_alerts.yaml, actualiza thesis si detecta riesgo nuevo |
+| Trigger | Semanal + on-demand |
+| Alerta | ROJO = posible thesis-killer, evaluar SELL |
 
 ---
 
