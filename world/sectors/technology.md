@@ -1,6 +1,6 @@
 # Sector: Technology / Software
 
-> Ultima actualizacion: 2026-02-04
+> Ultima actualizacion: 2026-02-05
 > Analista: Claude
 > Status: **NEUTRAL** (selectivo en quality compounders, evitar growth sin fundamentales)
 
@@ -75,13 +75,14 @@ La IA generativa es tanto amenaza como oportunidad. Los incumbentes con datos pr
 | AI commoditiza design | Media | Alto | 2-5 anos | Adobe, Canva |
 | AI agents reemplazan software | Media-Baja | Muy Alto | 5-10 anos | CRM, Analytics |
 | AI coding asistants | Alta | Medio | Ya ocurriendo | IDEs, dev tools |
+| **AI bundles commoditizan FSS** | **Alta** | **Alto** | **Ya ocurriendo** | **Dropbox, Box** |
 
 **Fuentes:** [StartupHub: AI Agents Threat](https://www.startuphub.ai/ai-news/ai-video/2026/ai-agents-trigger-software-stock-collapse-salesforce-and-adobe-face-new-existential-threat/), [Investing.com: Adobe SWOT](https://www.investing.com/news/swot-analysis/adobes-swot-analysis-ai-integration-drives-growth-amid-competitive-pressures-93CH-4278458)
 
 **Mi view sobre AI disruption:**
 - Empresas con **datos propietarios** (Adobe Firefly trained on licensed content) tienen ventaja
 - Empresas con **ecosistemas enterprise** (Salesforce, SAP) tienen switching costs como defensa
-- Software **commoditizado sin moat** (generic SaaS) es el mas vulnerable
+- Software **commoditizado sin moat** (generic SaaS, FSS) es el mas vulnerable
 - **Government software** (Tyler) INMUNE a AI disruption - regulatory requirements, data sensitivity
 
 ### Regulatorios
@@ -143,6 +144,7 @@ La IA generativa es tanto amenaza como oportunidad. Los incumbentes con datos pr
 |------|--------|-------------|-------------|--------|
 | Portfolio | ADBE | thesis/active/ADBE/thesis.md | 2026-02-04 | HOLD |
 | Watchlist | TYL | thesis/research/TYL/thesis.md | 2026-02-04 | Entry $250 |
+| Watchlist | DBX | thesis/research/DBX/thesis.md | 2026-02-05 | Entry $18-20 |
 
 ### Protocolo de Cambio Material
 
@@ -164,7 +166,6 @@ Cuando actualices este sector view con cambio MATERIAL:
 | BR | Broadridge Financial | 32% undervalued vs FV $290, fintech B2B | ~18x | Media | Investor communications |
 | G | Genpact | IT services/BPO, P/E 12.6x, low coverage (11 analysts) | 12.6x | Media | Business services overlap |
 | SAIC | SAIC | Gov IT contractor, P/E 12.4x, 9 analysts | 12.4x | Media | Defense/gov tech |
-| DBX | Dropbox | P/E 14.3x, FCF yield 12.8%, 7 analysts only | 14.3x | Media | Storage commoditized pero cheap |
 
 ### Evitar (overvalued, no moat, o value traps)
 
@@ -181,8 +182,9 @@ Cuando actualices este sector view con cambio MATERIAL:
 ## Analizadas - En Watchlist
 
 | Ticker | Empresa | FV | Entry | MoS Req | Reason | Fecha Analisis |
-|--------|---------|----|----- -|---------|--------|----------------|
+|--------|---------|-----|-------|---------|--------|----------------|
 | TYL | Tyler Technologies | $280 | $250-260 | 20% (Tier B) | Wide moat gov software, QS 72, overvalued at $332 | 2026-02-04 |
+| DBX | Dropbox | $33 | $18-20 | 35-40% | **Value trap risk alto**. QS 73 pero declive estructural, users -1.5%/yr, commoditized FSS, equity negativo. FCF yield 12.8% atractivo pero insostenible. Solo comprar con MoS extremo. | 2026-02-05 |
 
 ---
 
@@ -192,6 +194,7 @@ Cuando actualices este sector view con cambio MATERIAL:
 |-------|--------|------------------|
 | Q1 2026 | Adobe Q1 earnings (Mar) | Validate Firefly monetization |
 | Q1 2026 | Tyler Q4 2025 earnings | Cloud transition progress |
+| Q1 2026 | Dropbox Q4 2025 earnings | Dash metrics, user trends |
 | H1 2026 | Fed rate cuts? | Re-rating de software growth |
 | 2026 | Canva/Figma IPO | Clarify competitive landscape |
 | Ongoing | Enterprise AI adoption | Pricing power para incumbentes |
@@ -205,6 +208,7 @@ Cuando actualices este sector view con cambio MATERIAL:
 | 2026-02-04 | Status inicial: NEUTRAL | Sector creado. Valuaciones elevadas excepto bolsas de valor |
 | 2026-02-04 | ADBE anadido a posiciones | Compra aprobada, primer Quality Compounder tech |
 | 2026-02-04 | TYL analizado -> Watchlist | QS 72 (Tier B, no A). Wide moat pero overvalued. Entry $250-260 |
+| 2026-02-05 | DBX analizado -> Watchlist | QS 73 pero 5/10 value trap factors. Entry agresivo $18-20 requerido |
 
 ---
 
@@ -254,6 +258,11 @@ Cuando actualices este sector view con cambio MATERIAL:
 - [Seeking Alpha: Tyler Well-Positioned](https://seekingalpha.com/article/4600616-tyler-technologies-well-positioned-in-a-growing-market)
 - [Third Bridge: Tyler Growth Runway](https://thirdbridge.com/transcripts/tyler-technologies-growth-runway-public-sector-software-market-trends/)
 
+### Dropbox Analysis
+- [Dropbox Q3 2025 Results](https://dropbox.gcs-web.com/news-releases/news-release-details/dropbox-announces-fiscal-2025-third-quarter-results)
+- [Dropbox Bear Case - Insider Monkey](https://www.insidermonkey.com/blog/dropbox-inc-dbx-a-bear-case-theory-1659090/)
+- [Dropbox Structural Decline - AInvest](https://www.ainvest.com/news/dropbox-sustained-decline-structural-crisis-crowded-cloud-market-2508/)
+
 ### European Software
 - [Investing.com: Top European Software Stocks 2026](https://www.investing.com/news/stock-market-news/top-european-software-stocks-to-watch-in-2026-93CH-4380330)
 - [Seeking Alpha: Dassault Systemes Analysis](https://seekingalpha.com/article/4864751-dassault-systmes-one-of-the-best-it-potentials-for-2026)
@@ -265,4 +274,4 @@ Cuando actualices este sector view con cambio MATERIAL:
 
 ---
 
-*Proxima revision: 2026-03-04 o ante cambio material (AI regulation, major earnings, Fed action)*
+*Proxima revision: 2026-03-05 o ante cambio material (AI regulation, major earnings, Fed action)*
