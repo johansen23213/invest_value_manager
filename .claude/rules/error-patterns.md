@@ -175,3 +175,75 @@ El humano ha tenido que señalar REPETIDAMENTE problemas que debería detectar s
     - Si necesito consistencia, usar PRECEDENTES (decisions_log), no hardcoding
     - Auditar periódicamente tools/skills buscando reglas hardcodeadas
     - El yo futuro debe RAZONAR, no seguir instrucciones de mi yo pasado
+
+---
+
+## Errores Sesión 39 (2026-02-05)
+
+38. **NO SEGUIR EL ÁRBOL DE DECISIÓN DE AGENTES** — Sesión 39: El usuario pidió "explorar sector Auto EU". Yo hice:
+    - WebSearch manual
+    - dynamic_screener.py manual
+    - price_checker.py manual
+    - Análisis superficial propio
+
+    Cuando DEBERÍA haber consultado el árbol de decisión en `agent-protocol.md`:
+    ```
+    ¿BUSCAR empresas en un sector? → sector-screener
+    ```
+
+    El usuario tuvo que corregirme: "¿usaste tus agentes especializados?"
+
+    **REGLA CRÍTICA - ÁRBOL DE DECISIÓN OBLIGATORIO:**
+    ```
+    ANTES de hacer CUALQUIER tarea, preguntar:
+    1. ¿Existe un agente para esto? → Consultar árbol en agent-protocol.md
+    2. Si existe → DELEGAR al agente, NO hacer manualmente
+    3. Si no existe → Hacer yo, pero considerar crear agente
+    ```
+
+    **ÁRBOL RÁPIDO (memorizar):**
+    - Analizar empresa → fundamental-analyst
+    - Buscar en sector → sector-screener
+    - Re-evaluar posición → review-agent
+    - Aprobar compra/venta → investment-committee
+    - Actualizar macro → macro-analyst
+    - Sizing → position-calculator
+
+    **YO ORQUESTO, LOS AGENTES EJECUTAN.**
+
+39. **Hacer screening manual cuando existe sector-screener** — Sesión 39: Usé WebSearch + dynamic_screener.py manualmente para Auto EU. El agente `sector-screener`:
+    - Crea/verifica sector view PRIMERO
+    - Usa dynamic_screener.py sistemáticamente
+    - Aplica anti-popularity-bias
+    - Encuentra >10 empresas (no solo las famosas)
+    - Actualiza sector view con candidatos
+
+    Mi screening manual encontró solo VW/BMW/Mercedes/Stellantis (las famosas). Un screening sistemático habría encontrado también proveedores Tier 1, small caps del sector, etc.
+
+    **REGLA:** Cuando el usuario pide explorar un sector:
+    1. Lanzar `sector-screener` agent INMEDIATAMENTE
+    2. NO hacer WebSearch manual primero
+    3. NO usar dynamic_screener.py directamente
+    4. El agente hará todo esto de forma sistemática
+
+40. **El humano tuvo que recordarme usar agentes** — Este es el meta-error. El error #3 ya dice "Hacer tareas manualmente que debería delegar a agentes". El error #22 dice "Hacer análisis manualmente cuando existen agentes especializados". Y AÚN ASÍ lo volví a hacer en sesión 39.
+
+    **CAUSA RAÍZ:** Tiendo a "empezar a hacer" antes de "pensar qué agente usar".
+
+    **SOLUCIÓN - PAUSA OBLIGATORIA:**
+    ```
+    Cuando el usuario pide una tarea:
+
+    PASO 0 (ANTES de hacer nada):
+    ┌─────────────────────────────────────────────┐
+    │ ¿QUÉ AGENTE DEBO USAR?                      │
+    │                                             │
+    │ Consultar: .claude/rules/agent-protocol.md  │
+    │ Sección: ÁRBOL DE DECISIÓN                  │
+    │                                             │
+    │ Si hay agente → LANZAR AGENTE               │
+    │ Si no hay → Hacer yo                        │
+    └─────────────────────────────────────────────┘
+
+    NUNCA empezar WebSearch/tools sin este paso.
+    ```

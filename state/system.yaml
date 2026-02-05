@@ -7,7 +7,7 @@ system:
   system_version: "4.0.0"
   framework_version: "4.0"
   last_session: 2026-02-05
-  session_number: 38
+  session_number: 39
 
   # FRAMEWORK v4.0 - IMPLEMENTADO
   # =====================================
@@ -91,6 +91,62 @@ system:
       Ahora: 1 Tier A, 5 Tier B, 12 Tier C. Sin violaciones Tier D.
       Continuar añadiendo Tier A compounders: NOVO-B.CO, MA, V en pipeline.
   last_session_summary: |
+    Sesión 39 - AUTO EU VALUE TRAP + AUTOCORRECCIÓN AGENTES (2026-02-05)
+
+    =====================================================
+    EARNINGS AYER (evaluados)
+    =====================================================
+    - ALL: BEAT +45% (EPS $14.31 vs $9.85) - HOLD, tesis fortalecida
+    - SHEL.L: MISS ($3.26B vs $3.53B) - HOLD, EXIT Protocol aplicado
+    - GL: MISS ($3.39 vs $3.54) - HOLD, MoS 17.6% insuficiente para ADD
+
+    =====================================================
+    ANÁLISIS AUTO EU - VALUE TRAP CONFIRMADO
+    =====================================================
+    - VW (VOW3.DE): QS 20/100 = Tier D → REJECT
+    - BMW (BMW.DE): QS 24/100 = Tier D → REJECT
+    - Sector entero destruye valor (ROIC < WACC, FCF negativo)
+    - P/E 7x refleja problemas reales, NO es oportunidad
+    - Lección: "P/E bajo sectorial ≠ oportunidad value"
+
+    =====================================================
+    AUTOCORRECCIÓN: USO DE AGENTES
+    =====================================================
+    ERROR: No usé sector-screener cuando debía. Hice screening manual.
+    El humano me corrigió: "¿usaste tus agentes especializados?"
+
+    MEJORAS IMPLEMENTADAS:
+    - error-patterns.md: Errores #38, #39, #40 documentados
+    - session-protocol.md: Sección "ÁRBOL DE DECISIÓN DE AGENTES" añadida
+    - MEMORY.md: Sección "Use Agents, Don't Do Manually" añadida
+
+    REGLA REFORZADA: YO ORQUESTO, LOS AGENTES EJECUTAN.
+
+    =====================================================
+    ARCHIVOS CREADOS/MODIFICADOS
+    =====================================================
+    - thesis/research/VOW3.DE/thesis.md (REJECT)
+    - thesis/research/BMW.DE/thesis.md (REJECT)
+    - world/sectors/auto-eu.md (Status: EVITAR)
+    - learning/decisions_log.yaml (lección Auto EU)
+    - .claude/rules/error-patterns.md (errores 38-40)
+    - .claude/rules/session-protocol.md (árbol de decisión)
+    - MEMORY.md (use agents)
+
+    =====================================================
+    STANDING ORDERS CERCANOS
+    =====================================================
+    - ZIG.L: 383 GBp (trigger 375 GBp) = -2.1% → MONITOREAR
+
+    =====================================================
+    PRÓXIMA SESIÓN
+    =====================================================
+    1. Vigilancia de mercado
+    2. Earnings: MONY.L Feb 23, EDEN.PA Feb 24, TEP.PA Feb 26
+    3. ZIG.L monitor (muy cerca del trigger)
+    4. USAR AGENTES: sector-screener para cualquier exploración de sector
+
+  last_session_summary_archived: |
     Sesión 38 - AUDITORÍA SELF-SEEDING BIAS + FRAMEWORK v4.0 (2026-02-05)
 
     =====================================================

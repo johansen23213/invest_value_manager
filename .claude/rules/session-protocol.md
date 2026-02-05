@@ -41,6 +41,60 @@ Si alguna es NO → PARAR y completar antes de continuar.
 
 ---
 
+## REGLA CRÍTICA: ÁRBOL DE DECISIÓN DE AGENTES
+
+> **ERROR RECURRENTE (Sesión 39):** Tiendo a "hacer" antes de "pensar qué agente usar".
+> El humano tuvo que recordarme usar agentes especializados.
+
+### ANTES de ejecutar CUALQUIER tarea del usuario:
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    PASO 0: ¿QUÉ AGENTE?                         │
+│                                                                 │
+│  PAUSA OBLIGATORIA antes de hacer WebSearch/tools/análisis:     │
+│                                                                 │
+│  1. Consultar árbol en .claude/rules/agent-protocol.md          │
+│  2. Si hay agente para la tarea → LANZAR AGENTE                 │
+│  3. Si no hay agente → Hacer yo                                 │
+│                                                                 │
+│  NUNCA empezar a "hacer" sin este paso.                         │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### Árbol Rápido (MEMORIZAR):
+
+| Tarea | Agente |
+|-------|--------|
+| Analizar empresa nueva | `fundamental-analyst` |
+| **Buscar en sector** | `sector-screener` ⚠️ |
+| Re-evaluar posición | `review-agent` |
+| Aprobar compra/venta | `investment-committee` |
+| Actualizar macro | `macro-analyst` |
+| Sizing de posición | `position-calculator` |
+| Explorar codebase | `Explore` (Task tool) |
+
+### Ejemplo de Error (NO repetir):
+
+```
+Usuario: "Quiero explorar sector Auto EU"
+
+❌ INCORRECTO (lo que hice en Sesión 39):
+   - WebSearch manual "European auto stocks"
+   - python3 tools/dynamic_screener.py manual
+   - price_checker.py manual
+   - Análisis superficial propio
+
+✅ CORRECTO:
+   - Consultar árbol → "Buscar en sector" → sector-screener
+   - Lanzar Task(subagent_type="sector-screener", prompt="...")
+   - El agente hace TODO sistemáticamente
+```
+
+**YO ORQUESTO, LOS AGENTES EJECUTAN.**
+
+---
+
 ## FASE 1: VIGILANCIA (DESPUÉS DE CALIBRACIÓN)
 
 ### Paso 1.1: NEWS MONITOR

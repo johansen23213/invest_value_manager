@@ -155,6 +155,36 @@ trim_decisions:
 hold_decisions:
 
   - date: 2026-02-05
+    ticker: SHEL.L
+    action: "HOLD (post-earnings EXIT analysis)"
+    context:
+      quality_score: 36
+      tier: C
+      mos: "-5%"
+      position_size: "3.6%"
+      pnl: "+4.5%"
+      earnings_result: "MISS - adj earnings $3.26B vs $3.53B expected"
+      dividend: "+4%"
+      buyback: "$3.5B"
+    reasoning: |
+      EXIT Protocol aplicado con 6 gates:
+      - Gate 1: No kill condition (FCF $26.1B, div +4%, buyback intacto)
+      - Gate 2: Tesis INTACTA pero DEBILITADA (Q4 weak)
+      - Gate 3: MoS -5% (overvalued pero no severo)
+      - Gate 4: OS 70 vs ZIG.L pero no ejecutable hoy (trigger -2.1%)
+      - Gate 5: No dead money (+4.5% en 10 días)
+      - Gate 6: Fricción 1.1%
+
+      Decisión HOLD porque:
+      1. Tesis intacta (shareholder returns fuertes)
+      2. No hay alternativa ejecutable inmediatamente
+      3. Posición ya pequeña (3.6%) post-TRIMs previos
+      4. Principio 6: No vender solo por MoS negativo sin argumento
+
+      Reconsiderar si: ZIG.L trigger, precio >£30, o dividend cut.
+    outcome: "Pendiente"
+
+  - date: 2026-02-05
     ticker: TEP.PA
     action: "HOLD (pre-earnings review)"
     context:
@@ -243,6 +273,16 @@ patterns:
 # LECCIONES APRENDIDAS
 # =============================================================================
 lessons:
+  - date: 2026-02-05
+    lesson: "Sector entero puede ser value trap - P/E bajo sectorial no es oportunidad"
+    from_decision: "Auto EU analysis: VW (QS 20) y BMW (QS 24) - ambos Tier D REJECT"
+    impact: |
+      Evitó invertir en sector que destruye valor.
+      El 'top pick' de analistas (VW) y el 'quality play' según Goldman (BMW) son ambos Tier D.
+      P/E 7x refleja problemas reales (ROIC < WACC, FCF negativo), no oportunidad.
+      Los analistas con mandato diferente (trading/momentum) pueden estar equivocados para value investing.
+      Crear sector view ANTES de analizar evita sesgo de confirmación.
+
   - date: 2026-02-04
     lesson: "No comprar por P/E bajo sin verificar Quality Score"
     from_decision: "FUTR.L exit"
