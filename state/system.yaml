@@ -51,9 +51,9 @@ system:
   # QUALITY SCORE - PORTFOLIO ANALYSIS (2026-02-04)
   # ===============================================
   portfolio_quality_analysis:
-    date: 2026-02-04
+    date: 2026-02-05
     summary:
-      tier_a_count: 3  # ADBE + NVO + MONY.L
+      tier_a_count: 4  # ADBE + NVO + MONY.L + LULU
       tier_b_count: 5
       tier_c_count: 12
       tier_d_count: 0
@@ -65,6 +65,7 @@ system:
       - { ticker: ADBE, score: 76, tier: A, mos_required: "10-15%", status: "First Tier A!" }
       - { ticker: NVO, score: 82, tier: A, mos_required: "10-15%", status: "Framework v3.0 validated! MoS 38%" }
       - { ticker: MONY.L, score: 81, tier: A, mos_required: "10-15%", status: "Third Tier A! UK price comparison. MoS 36%" }
+      - { ticker: LULU, score: 82, tier: A, mos_required: "10-15%", status: "Fourth Tier A! Fallen angel -58%, problema ciclico. MoS 34%" }
       # TIER B - Quality Value (5 positions)
       - { ticker: HRB, score: 73, tier: B, mos_required: "20-25%" }
       - { ticker: EDEN.PA, score: 62, tier: B, mos_required: "20-25%" }
@@ -91,6 +92,72 @@ system:
       Ahora: 1 Tier A, 5 Tier B, 12 Tier C. Sin violaciones Tier D.
       Continuar añadiendo Tier A compounders: NOVO-B.CO, MA, V en pipeline.
   last_session_summary: |
+    Sesión 40 - FALLEN ANGEL HUNT + LULU TIER A (2026-02-05)
+
+    =====================================================
+    OPERACIÓN EJECUTADA
+    =====================================================
+    BUY LULU 2 shares @ $171.62 = $343.24
+    - QS 82 = Tier A (Quality Compounder)
+    - MoS 34%
+    - Fallen angel -58% desde máximo
+    - Problema CÍCLICO (producto stale), NO estructural
+    - Investment Committee: 9/9 gates PASS
+
+    =====================================================
+    TIER A PORTFOLIO (ahora 4)
+    =====================================================
+    1. ADBE (QS 76, MoS 31%) - First Tier A
+    2. NVO (QS 82, MoS 38%) - Framework validated
+    3. MONY.L (QS 81, MoS 36%) - UK price comparison
+    4. LULU (QS 82, MoS 34%) - Fallen angel NEW
+
+    =====================================================
+    ANÁLISIS COMPLETADOS (5 empresas)
+    =====================================================
+    - DBX: QS 73 Tier B, 5/10 value trap → LOW PRIORITY $18-20
+    - INGR: QS 57 Tier B, food ingredients → WATCHLIST $105-113
+    - GSK.L: QS 59 Tier B, patent cliff → WATCHLIST 1850p
+    - LULU: QS 82 Tier A, fallen angel → COMPRADO $172
+
+    =====================================================
+    MACRO UPDATE
+    =====================================================
+    - Iran-US: Desescalando (conversaciones Oman 7-Feb)
+    - Riesgo conflicto: 30-40% → 20-30%
+    - Tariff war: 60-70% (subiendo)
+    - Sin acciones requeridas
+
+    =====================================================
+    EARNINGS FRAMEWORKS VERIFICADOS
+    =====================================================
+    - MONY.L (Feb 23): ✅ Completo
+    - EDEN.PA (Feb 24): ✅ Completo
+    - TEP.PA (Feb 26): ✅ Completo
+
+    =====================================================
+    MEJORAS DEL SISTEMA
+    =====================================================
+    - Error #41 documentado: Completar ciclo post-análisis
+    - 5 nuevas alertas: INGR, DBX, GSK.L, LULU (ADD triggers)
+
+    =====================================================
+    ESTADO FINAL
+    =====================================================
+    - Posiciones: 21
+    - Tier A: 4
+    - Cash: €790 (8.1%)
+    - P&L: ~+2%
+
+    =====================================================
+    PRÓXIMA SESIÓN
+    =====================================================
+    1. ZIG.L monitor (2% del trigger 375p)
+    2. Conversaciones Iran-US (7-Feb) - impacto geopolítico
+    3. Earnings: MONY.L Feb 23, EDEN.PA Feb 24, TEP.PA Feb 26
+    4. LULU ADD triggers: $160, $145
+
+  last_session_summary_archived: |
     Sesión 39 - AUTO EU VALUE TRAP + AUTOCORRECCIÓN AGENTES (2026-02-05)
 
     =====================================================
@@ -704,6 +771,13 @@ calendar:
       action: "BUY 8.31 shares NVO @ $48.13. Total $400. QS 82 Tier A, MoS 38%. Framework v3.0 validated. Phased entry 4%."
 
     - date: 2026-02-05
+      type: action_completed
+      ticker: LULU
+      event: "DONE - BUY LULU 2 shares (Fourth Tier A Quality Compounder!)"
+      priority: high
+      action: "BUY 2 shares LULU @ $171.62. Total $343.24. QS 82 Tier A, MoS 34%. Fallen angel -58%, problema ciclico no estructural."
+
+    - date: 2026-02-05
       type: action
       ticker: EVO.ST
       event: "POST-EARNINGS: Evaluar compra Evolution AB"
@@ -1135,6 +1209,14 @@ watchlist:
       quality_score: 82
       notes: "Framework v3.0 validated. Phased entry 4%. ADD trigger: CagriSema positive (Mar 2026) or price <$40."
       kill: "CagriSema inferior to Zepbound, market share <40%, gross margin <70%, dividend cut"
+    - ticker: LULU
+      entry_usd: 171.62
+      fair_value_usd: 261
+      mos: 34%
+      tier: A
+      quality_score: 82
+      notes: "Fourth Tier A Quality Compounder. Fallen angel -58%. Problema ciclico (producto stale, US debil), NO estructural. ADD triggers: $160 (4.5%), $145 (5.5%)."
+      kill: "Gross Margin <50%, 3Q consecutive negative global comps, FCF negative 2Q, bad CEO hire, Chip Wilson board takeover"
 
 # -----------------------------------------------------------------------------
 # ALERTAS DE PRECIO
@@ -1167,7 +1249,7 @@ alerts:
     - { ticker: INGR, entry_usd: 105, note: "Ingredion. QS 57 Tier B. FV $167. Food ingredients. Wait Q1 earnings April 2026." }
     - { ticker: DBX, entry_usd: 20, note: "Dropbox. QS 73 Tier B but 5/10 value trap. FV $33. LOW PRIORITY. Declining users." }
     - { ticker: GSK.L, entry_gbp: 1850, note: "GlaxoSmithKline. QS 59 Tier B. FV 2424p. Entry 1850p = 24% MoS. Patent cliff 2027-28." }
-    - { ticker: LULU, entry_usd: 155, note: "Lululemon FALLEN ANGEL. -58% from high. ROIC 20%+, P/E 12x (decade low). QS pendiente. Producto stale = ciclico, no estructural." }
+    - { ticker: LULU, add_trigger_usd: 160, note: "POSITION ACTIVE (2 shares @ $171.62). ADD trigger $160 = 5% sizing. ADD aggressive at $145 (52w low) = 6% sizing. QS 82 Tier A." }
 
 # -----------------------------------------------------------------------------
 # STANDING ORDERS (pre-aprobadas, ejecutar cuando precio toque trigger)
