@@ -1164,6 +1164,10 @@ alerts:
     - { ticker: GIS, entry_usd: 38, note: "General Mills. FV $45-50. Entry $35-38. Quality 6.5/10 Tier B. GLP-1 headwind." }
     - { ticker: BATS.L, entry_gbp: 4200, note: "BAT. FV 5163p. Entry 4000-4200p. Ya tenemos IMB.L. Earnings 12-feb." }
     - { ticker: V, entry_usd: 280, note: "Visa. QS 80 Tier A. FV $275-290. Entry $280, ADD $265. Duopoly #1." }
+    - { ticker: INGR, entry_usd: 105, note: "Ingredion. QS 57 Tier B. FV $167. Food ingredients. Wait Q1 earnings April 2026." }
+    - { ticker: DBX, entry_usd: 20, note: "Dropbox. QS 73 Tier B but 5/10 value trap. FV $33. LOW PRIORITY. Declining users." }
+    - { ticker: GSK.L, entry_gbp: 1850, note: "GlaxoSmithKline. QS 59 Tier B. FV 2424p. Entry 1850p = 24% MoS. Patent cliff 2027-28." }
+    - { ticker: LULU, entry_usd: 155, note: "Lululemon FALLEN ANGEL. -58% from high. ROIC 20%+, P/E 12x (decade low). QS pendiente. Producto stale = ciclico, no estructural." }
 
 # -----------------------------------------------------------------------------
 # STANDING ORDERS (pre-aprobadas, ejecutar cuando precio toque trigger)

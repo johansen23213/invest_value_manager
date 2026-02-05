@@ -7,7 +7,7 @@
 # =============================================================================
 
 cash:
-  amount: 1081.00  # Post ADD HRB 2026-02-05 (1373.08 - 292)
+  amount: 790.40  # Post BUY LULU 2026-02-05 (1081 - 290.60 EUR = $343.24/1.1811)
   currency: EUR
 
 positions:
@@ -173,6 +173,15 @@ positions:
     date_opened: 2026-02-04
     thesis: thesis/active/MONY.L/thesis.md
     notes: "Third Tier A Quality Compounder. QS 81, MoS 36%. UK price comparison #2. ROIC 29%."
+
+  - ticker: LULU
+    name: "Lululemon Athletica Inc."
+    shares: 2
+    invested_usd: 343.24
+    avg_cost_usd: 171.62  # 343.24 / 2
+    date_opened: 2026-02-05
+    thesis: thesis/active/LULU/thesis.md
+    notes: "Fourth Tier A Quality Compounder. QS 82, MoS 34%. Fallen angel -58%, problema ciclico no estructural."
 
 transactions:
   - date: 2026-01-26
@@ -414,4 +423,12 @@ transactions:
     price_usd: 34.50
     total_usd: 345.00
     notes: "ADD - Standing order triggered @ $35. Q2 revenue +11%, guidance maintained. MoS 42%. Position 2.7%→5.5%. Investment Committee 9/9 PASS."
+
+  - date: 2026-02-05
+    action: BUY
+    ticker: LULU
+    shares: 2
+    price_usd: 171.62
+    total_usd: 343.24
+    notes: "BUY - Fourth Tier A Quality Compounder. QS 82, MoS 34%. Fallen angel -58% from high. Problema ciclico (producto stale, US debil), NO estructural. International +33%, China +46%."
 

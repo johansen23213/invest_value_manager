@@ -247,3 +247,27 @@ El humano ha tenido que señalar REPETIDAMENTE problemas que debería detectar s
 
     NUNCA empezar WebSearch/tools sin este paso.
     ```
+
+---
+
+## Errores Sesión 40 (2026-02-05)
+
+41. **No completar el ciclo post-análisis** — Sesión 40: Después de analizar INGR y DBX, presenté los resultados pero NO añadí las alertas de precio a system.yaml. El humano tuvo que preguntar "¿tenemos que poner alguna alerta?" y luego "¿por qué no lo hiciste?".
+
+    **CAUSA RAÍZ:** Presento resultados y paso a la siguiente pregunta sin completar TODAS las acciones derivadas del análisis.
+
+    **PROTOCOLO POST-ANÁLISIS (OBLIGATORIO):**
+    ```
+    Cuando un análisis termina con veredicto WATCHLIST o BUY:
+
+    1. ✅ Guardar thesis
+    2. ✅ Actualizar sector view
+    3. ✅ Añadir alerta de precio a state/system.yaml (price_monitors)
+    4. ✅ Si BUY aprobado → añadir standing order
+    5. ✅ Confirmar al usuario qué se añadió
+
+    NO esperar a que el humano lo pida.
+    NO pasar a la siguiente tarea sin completar el ciclo.
+    ```
+
+    **REGLA:** El análisis NO está completo hasta que la alerta está en el sistema.

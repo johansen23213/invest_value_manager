@@ -1,6 +1,6 @@
 # Sector: Pharma/Healthcare
 
-> Ultima actualizacion: 2026-02-04
+> Ultima actualizacion: 2026-02-05
 > Analista: Claude
 > Status: NEUTRAL (subsector-dependent: Pharma = SOBREPONDERAR selectivo, Healthcare Services = NEUTRAL, GLP-1 Pure Play = **ACTUALIZADO: NEUTRAL-POSITIVO a valuaciones actuales**)
 
@@ -9,6 +9,8 @@
 El sector Pharma/Healthcare esta en un momento de transicion historica. Por un lado, las valuaciones de Big Pharma tradicional estan en minimos de 30 anos (P/E 7-15x vs historico 14-20x), creando oportunidades selectivas en empresas con pipelines solidos. Por otro lado, el sector enfrenta la mayor "patent cliff" de la historia ($300B en revenues en riesgo 2025-2030) y disrupcion masiva por GLP-1s/obesidad que esta reshapeando toda la industria.
 
 **ACTUALIZACION 2026-02-04:** La caida de Novo Nordisk (-50% desde maximos) ha cambiado dramaticamente la ecuacion de riesgo/recompensa en GLP-1 pure plays. NVO ahora cotiza a P/E 13x (vs 15-35x historico) con ROIC >20%, FCF margin >25%. El colapso post-guidance 2026 crea oportunidad en quality compounder a valuacion distressed.
+
+**ACTUALIZACION 2026-02-05 (GSK):** GSK analizada - QS 59 (Tier B), MoS 10% insuficiente. Negocio solido pero precio near fair value. Anadida a watchlist con entry 1850p.
 
 **Mi tesis central:** El mercado esta castigando indiscriminadamente a todo el sector por miedo al patent cliff, pero las empresas con:
 1. Pipelines diversificados post-2030
@@ -32,6 +34,7 @@ El sector Pharma/Healthcare esta en un momento de transicion historica. Por un l
 | P/E Big Pharma (US) | 31.1x | vs 53.0x (3y avg) | Comprimido |
 | P/E Big Pharma (names clave) | 7-16x | vs 14-20x historico | Minimos 30 anos |
 | P/E Novo Nordisk | **13x** | vs 25-35x historico | **COLAPSO** |
+| P/E GSK | **15.7x** | vs 14-20x historico | Near fair value |
 | Discount vs S&P 500 | ~30% | Widest in 30 years | Potencial mean reversion |
 | Dividend Yield sector | 2-7% | Superior a S&P | Estable |
 | Patent Cliff 2025-2030 | $300B revenue at risk | Historico | Mayor de la historia |
@@ -55,6 +58,7 @@ El sector Pharma/Healthcare esta en un momento de transicion historica. Por un l
 | AstraZeneca (AZN) | $215B | Oncology pipeline | Valuacion ya expandida |
 | Bristol-Myers (BMY) | $115B | Oncology/immuno | Opdivo/Eliquis cliff |
 | Sanofi (SAN) | $98B | Dupixent franchise | Pipeline post-Dupixent |
+| **GSK** | **$88B** | **HIV, Vaccines, Oncology growth** | **Dolutegravir cliff 2027-28, vaccines weak** |
 
 **Barreras de entrada:** Muy Altas
 - R&D costs: $2.6B promedio para aprobar un drug (y subiendo)
@@ -78,6 +82,7 @@ El sector Pharma/Healthcare esta en un momento de transicion historica. Por un l
 - Sanofi (Dupixent franchise, pipeline diversificado)
 - Pfizer (yield alto + M&A firepower, pero transicion dolorosa)
 - Merck (Keytruda hasta 2028, luego?)
+- **GSK (HIV + Oncology growth, pero near fair value)**
 
 **Evitar:**
 - Empresas con >50% revenue en drugs expirando 2025-2028 sin replacement
@@ -233,12 +238,13 @@ El sector Pharma/Healthcare esta en un momento de transicion historica. Por un l
 |--------|--------|-------------|--------|-------------|
 | ~~NOVO-B.CO~~ | ~~QS 82, Quality Compounder distressed~~ | ~~DKK 307~~ | **PURCHASED 2026-02-05** | thesis/active/NVO |
 | **HIK.L** | **QS 46 Tier C, Generics/Injectables, family ownership** | **1400-1450 GBp** | **WATCHLIST - MoS 23% < 30% required** | thesis/research/HIK.L |
+| **GSK.L** | **QS 59 Tier B, HIV + Vaccines + Oncology** | **1850p** | **WATCHLIST - MoS 10% < 20% required** | thesis/research/GSK.L |
 
 ### Para Analisis Profundo
 
 | Ticker | Razon | Priority |
 |--------|-------|----------|
-| GSK.L | Yield 3.3%, P/E 14.6x, vaccines + respiratory | Alta |
+| ~~GSK.L~~ | ~~Yield 3.3%, P/E 14.6x, vaccines + respiratory~~ | **ANALIZADO 2026-02-05** |
 | MRK | Keytruda franchise, P/E ~9x forward, pero cliff 2028 | Media |
 | BMY | P/E 7x, deep value, pero pipeline concerns | Media |
 | GILD | P/E 22.5x, HIV franchise estable, oncology optionality | Media |
@@ -265,6 +271,7 @@ El sector Pharma/Healthcare esta en un momento de transicion historica. Por un l
 | Portfolio | UHS | thesis/active/UHS | 2026-02-01 | HOLD |
 | **Portfolio** | **NVO** | **thesis/active/NVO** | **2026-02-05** | **HOLD - phased entry 4%, ADD on CagriSema** |
 | **Watchlist** | **HIK.L** | **thesis/research/HIK.L** | **2026-02-04** | **WATCHLIST - Entry 1400-1450 GBp** |
+| **Watchlist** | **GSK.L** | **thesis/research/GSK.L** | **2026-02-05** | **WATCHLIST - Entry 1850p** |
 
 ---
 
@@ -294,12 +301,22 @@ El sector Pharma/Healthcare esta en un momento de transicion historica. Por un l
 - **Riesgos:** Labor costs, regulatory pressure, margin compression
 - **Verdict:** HOLD. Solid defensive position con upside modesto.
 
+### GSK (GSK.L) - WATCHLIST
+- **Thesis:** QS 59 Tier B, HIV + Vaccines + Oncology diversification
+- **Current status:** 2025 revenue £32.7B (+7%), core OP £9.78B (+11%)
+- **Patent cliff:** Dolutegravir £5.65B at risk 2027-28
+- **Positivos:** HIV transition to long-acting (Cabenuva +42%), Oncology +43%, buybacks £2B
+- **Negatives:** Arexvy disappointment (-72% Q3), near fair value
+- **Entry price:** 1850p (MoS 20%)
+- **Verdict:** WATCHLIST. Solid business but insufficient MoS at current price.
+
 ---
 
 ## Catalizadores Proximos
 
 | Fecha | Evento | Impacto esperado |
 |-------|--------|------------------|
+| **Feb 2026** | **Arexvy EMA 18+ approval** | **Medio para GSK** |
 | **26-Feb-2026** | **HIK.L FY2025 Results** | **Medio - potential catalyst for entry** |
 | **Marzo 2026** | **CagriSema vs Zepbound head-to-head data** | **MUY ALTO para NVO** |
 | Q1 2026 | Earnings season Big Pharma | Alto - first full year post-COVID normalization |
@@ -307,6 +324,7 @@ El sector Pharma/Healthcare esta en un momento de transicion historica. Por un l
 | Mayo 2026 | Januvia/Janumet generics launch (Merck) | Alto para MRK |
 | 2026 | Eliquis Medicare price drop ($231/month) | Medio para PFE/BMY |
 | 2026 | Semaglutide patent expiration starts | Alto para NVO, medio para LLY |
+| **2027-28** | **Dolutegravir patent expiry** | **Alto para GSK** |
 | H2 2026 | Eli Lilly oral GLP-1 approval expected | Alto para sector |
 | H2 2026 | CagriSema FDA approval expected | Alto para NVO |
 | 2026-2027 | First AI-designed drug approval expected | Medio - narrative shift |
@@ -319,7 +337,8 @@ El sector Pharma/Healthcare esta en un momento de transicion historica. Por un l
 |-------|--------|-------|
 | 2026-02-03 | Status inicial: NEUTRAL (subsector-dependent) | Valuaciones atractivas pero risks reales |
 | 2026-02-04 | GLP-1 subsector -> NEUTRAL-POSITIVO; NVO movido de "Evitar" a "Watchlist" | Caida 50% NVO cambio ecuacion R/R; thesis completa creada |
-| **2026-02-04** | **HIK.L analizada y anadida a Watchlist** | **Tier C QS 46, MoS 23% < 30% required. Entry 1400-1450 GBp** |
+| 2026-02-04 | HIK.L analizada y anadida a Watchlist | Tier C QS 46, MoS 23% < 30% required. Entry 1400-1450 GBp |
+| **2026-02-05** | **GSK.L analizada y anadida a Watchlist** | **Tier B QS 59, MoS 10% < 20% required. Entry 1850p. Good business, near fair value.** |
 
 ---
 
@@ -338,4 +357,5 @@ El sector Pharma/Healthcare esta en un momento de transicion historica. Por un l
 - [Novo Nordisk 2025 Results](https://www.globenewswire.com/news-release/2026/02/03/3231383/0/en/)
 - [CNBC: Novo Nordisk guidance](https://www.cnbc.com/2026/02/03/novo-nordisk-2025-earnings-wegovy-ozempic.html)
 - [Hikma Investor Relations](https://www.hikma.com/investors/)
-- [Hikma CEO Change Announcement](https://www.hikma.com/news/hikma-announces-ceo-change-and-board-appointment/)
+- [GSK Q4 2025 Results](https://www.gsk.com/en-gb/media/press-releases/gsk-delivers-strong-2025-performance-and-re-affirms-long-term-outlooks/)
+- [GSK 2026 Outlook](https://www.syneticx.com/blog/gsk.html)
