@@ -110,7 +110,15 @@ El sector Pharma/Healthcare esta en un momento de transicion historica. Por un l
 - Ganadores: Teva, Sandoz, Organon
 - Losers: AbbVie (pero ya en precio)
 
-### 4. Healthcare Services (Hospitales)
+### 4. Generics/Injectables
+**Status: NEUTRAL**
+
+- Mercado commoditizado, pricing pressure constante
+- Margenes bajos (GM 40-45% vs 67% pharma innovador)
+- Hikma (#3 US injectables) analizada - Tier C, MoS insuficiente actualmente
+- Mejores posicionados: empresas con sterile manufacturing expertise
+
+### 5. Healthcare Services (Hospitales)
 **Status: NEUTRAL**
 
 - Demanda estable (aging population)
@@ -224,6 +232,7 @@ El sector Pharma/Healthcare esta en un momento de transicion historica. Por un l
 | Ticker | Thesis | Entry Price | Status | Dependencia |
 |--------|--------|-------------|--------|-------------|
 | ~~NOVO-B.CO~~ | ~~QS 82, Quality Compounder distressed~~ | ~~DKK 307~~ | **PURCHASED 2026-02-05** | thesis/active/NVO |
+| **HIK.L** | **QS 46 Tier C, Generics/Injectables, family ownership** | **1400-1450 GBp** | **WATCHLIST - MoS 23% < 30% required** | thesis/research/HIK.L |
 
 ### Para Analisis Profundo
 
@@ -255,6 +264,7 @@ El sector Pharma/Healthcare esta en un momento de transicion historica. Por un l
 | Portfolio | SAN.PA | thesis/active/SAN.PA | 2026-02-01 | HOLD |
 | Portfolio | UHS | thesis/active/UHS | 2026-02-01 | HOLD |
 | **Portfolio** | **NVO** | **thesis/active/NVO** | **2026-02-05** | **HOLD - phased entry 4%, ADD on CagriSema** |
+| **Watchlist** | **HIK.L** | **thesis/research/HIK.L** | **2026-02-04** | **WATCHLIST - Entry 1400-1450 GBp** |
 
 ---
 
@@ -290,6 +300,7 @@ El sector Pharma/Healthcare esta en un momento de transicion historica. Por un l
 
 | Fecha | Evento | Impacto esperado |
 |-------|--------|------------------|
+| **26-Feb-2026** | **HIK.L FY2025 Results** | **Medio - potential catalyst for entry** |
 | **Marzo 2026** | **CagriSema vs Zepbound head-to-head data** | **MUY ALTO para NVO** |
 | Q1 2026 | Earnings season Big Pharma | Alto - first full year post-COVID normalization |
 | 2026 | FDA guidance on AI in drug development | Medio - claridad regulatoria |
@@ -307,7 +318,8 @@ El sector Pharma/Healthcare esta en un momento de transicion historica. Por un l
 | Fecha | Cambio | Razon |
 |-------|--------|-------|
 | 2026-02-03 | Status inicial: NEUTRAL (subsector-dependent) | Valuaciones atractivas pero risks reales |
-| **2026-02-04** | **GLP-1 subsector -> NEUTRAL-POSITIVO; NVO movido de "Evitar" a "Watchlist"** | **Caida 50% NVO cambio ecuacion R/R; thesis completa creada** |
+| 2026-02-04 | GLP-1 subsector -> NEUTRAL-POSITIVO; NVO movido de "Evitar" a "Watchlist" | Caida 50% NVO cambio ecuacion R/R; thesis completa creada |
+| **2026-02-04** | **HIK.L analizada y anadida a Watchlist** | **Tier C QS 46, MoS 23% < 30% required. Entry 1400-1450 GBp** |
 
 ---
 
@@ -325,3 +337,5 @@ El sector Pharma/Healthcare esta en un momento de transicion historica. Por un l
 - [NYU Stern P/E Data](https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/pedata.html)
 - [Novo Nordisk 2025 Results](https://www.globenewswire.com/news-release/2026/02/03/3231383/0/en/)
 - [CNBC: Novo Nordisk guidance](https://www.cnbc.com/2026/02/03/novo-nordisk-2025-earnings-wegovy-ozempic.html)
+- [Hikma Investor Relations](https://www.hikma.com/investors/)
+- [Hikma CEO Change Announcement](https://www.hikma.com/news/hikma-announces-ceo-change-and-board-appointment/)

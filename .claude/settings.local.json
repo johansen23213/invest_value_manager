@@ -16,7 +16,8 @@
       "WebFetch(domain:finance.yahoo.com)",
       "WebFetch(domain:www.pfizer.com)",
       "WebFetch(domain:investors.globelifeinsurance.com)",
-      "WebFetch(domain:www.allstateinvestors.com)"
+      "WebFetch(domain:www.allstateinvestors.com)",
+      "WebFetch(domain:www.monygroup.com)"
     ]
   }
 }

@@ -1,6 +1,6 @@
 # Sector: Insurance
 
-> Ultima actualizacion: 2026-02-03
+> Ultima actualizacion: 2026-02-04
 > Status: **NEUTRAL** (Seleccionar empresas especificas)
 
 ## Resumen Ejecutivo
@@ -183,6 +183,11 @@ Las europeas (Allianz, AXA) estan mas baratas que las US con mejores yields."
 | CINF | Cincinnati Fin | 12x | 2.2% | Quality regional | Media |
 | MUV2.DE | Munich Re | 14x | 3% | Reinsurance leader | Media |
 
+### Analizadas - En Watchlist
+| Ticker | Empresa | QS | Thesis Path | Entry Target | Status |
+|--------|---------|-----|-------------|--------------|--------|
+| KMPR | Kemper Corp | 42 (C) | thesis/research/KMPR | $28 | Wait for turnaround confirmation |
+
 ### Evitar
 | Ticker | Empresa | Razon |
 |--------|---------|-------|
@@ -197,6 +202,7 @@ Las europeas (Allianz, AXA) estan mas baratas que las US con mejores yields."
 | Fecha | Evento | Impacto esperado |
 |-------|--------|------------------|
 | 2026-02-04 | GL Q4 earnings | Critical - confirmation of normalized ops |
+| 2026-02-04 | KMPR Q4 earnings | Watch - turnaround progress |
 | 2026-02-05 | ALL Q4 earnings | Important - CR sustainability |
 | 2026 Q1 | Fed decisions | Investment income direction |
 | 2026 Q2-Q3 | Hurricane season | Cat loss exposure test |
@@ -210,8 +216,19 @@ Las europeas (Allianz, AXA) estan mas baratas que las US con mejores yields."
 
 1. **Mantener** ALL y GL - ambas bien posicionadas, esperar earnings
 2. **Watchlist** ALV.DE y CS.PA con targets de entrada (pullback 10%+)
-3. **NO incrementar** exposicion total al sector mas alla del 8-10%
-4. **Monitorear** cat season 2026 - oportunidades si hay overreaction
+3. **Watchlist** KMPR at $28 - requires turnaround confirmation
+4. **NO incrementar** exposicion total al sector mas alla del 8-10%
+5. **Monitorear** cat season 2026 - oportunidades si hay overreaction
+
+---
+
+## Dependencias Activas
+
+| Tipo | Ticker | Thesis Path | Ultima Eval | Status |
+|------|--------|-------------|-------------|--------|
+| Portfolio | ALL | thesis/active/ALL | 2026-02-03 | HOLD |
+| Portfolio | GL | thesis/active/GL | 2026-02-03 | HOLD |
+| Watchlist | KMPR | thesis/research/KMPR | 2026-02-04 | Entry $28 |
 
 ---
 
@@ -219,6 +236,7 @@ Las europeas (Allianz, AXA) estan mas baratas que las US con mejores yields."
 
 | Fecha | Cambio | Razon |
 |-------|--------|-------|
+| 2026-02-04 | Added KMPR analysis | QS 42 Tier C, WATCHLIST at $28 entry |
 | 2026-02-03 | Status inicial: NEUTRAL | Sector en transicion hard→soft market |
 
 ---

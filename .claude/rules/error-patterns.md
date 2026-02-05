@@ -113,3 +113,30 @@ El humano ha tenido que señalar REPETIDAMENTE problemas que debería detectar s
     - Verificar que existe sector view para el sector de la empresa
     - Si NO existe → crearlo PRIMERO (usar sector-screener agent)
     - Investment Committee debe verificar Gate 8 (Sector Understanding) con sector view
+
+---
+
+## Errores Sesión 34 (2026-02-05)
+
+31. **Recomendación sin contexto de timing** — Recomendé comprar NVO sin explicar claramente que la acción había caído 18% en los 2 días previos por guidance shock. El humano no tenía visibilidad del "por qué ahora". REGLA: TODA recomendación DEBE incluir:
+    - Evento catalizador que creó la oportunidad
+    - Fecha del evento y cuánto cayó/subió el precio
+    - Por qué el mercado ya incorporó la noticia (o no)
+    - Usar skill `recommendation-context` como template obligatorio
+
+32. **No monitorear noticias de posiciones activas** — No tenía proceso sistemático para escanear noticias de las 19 posiciones cada sesión. REGLA: Al INICIO de cada sesión:
+    - Ejecutar news-monitor agent (o WebSearch manual de cada posición)
+    - Clasificar noticias como CRÍTICO/MATERIAL/MENOR/RUIDO
+    - Si hay CRÍTICO → STOP, informar humano ANTES de continuar
+    - Usar skill `news-classification` para clasificar
+
+33. **No detectar movimientos anómalos de precio** — Una posición podía caer 10% y no lo detectaba hasta la siguiente sesión. REGLA: Al INICIO de cada sesión:
+    - Ejecutar market-pulse agent (o verificar manualmente)
+    - Cualquier movimiento >5% en 24h → buscar CAUSA
+    - Movimiento sin causa conocida → ALERTA, investigar antes de actuar
+
+34. **Ignorar META-REFLECTION de agentes** — La thesis de NVO incluía META-REFLECTION con preguntas que no respondí explícitamente. REGLA:
+    - SIEMPRE buscar sección META-REFLECTION en output de agentes
+    - Procesar cada item: dudas, sugerencias, anomalías, preguntas
+    - Implementar mejoras válidas INMEDIATAMENTE
+    - Usar rule `meta-reflection-integration.md` como protocolo
