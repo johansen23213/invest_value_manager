@@ -121,11 +121,11 @@ Consumer Staples es el sector defensivo por excelencia: alimentos, bebidas, taba
 - **Valuacion:** P/E 25-35x (premium por growth)
 
 ### 6. Food Ingredients (5% del sector)
-- **TAM:** ~$200B global
-- **Players:** Tate & Lyle, Kerry Group, DSM-Firmenich, Ingredion
-- **Dinamica:** B2B estable, trends a "healthier" benefician
-- **Valuacion:** P/E 15-22x
-- **Oportunidad:** TATE.L caido 40% desde maximos
+- **TAM:** ~$200B global, specialty ingredients ~$113B growing 5-6% CAGR
+- **Players:** Tate & Lyle, Kerry Group, DSM-Firmenich, Ingredion, ADM, Cargill
+- **Dinamica:** B2B estable, trends a "healthier" benefician, clean-label demand rising
+- **Valuacion:** P/E 10-22x
+- **Oportunidades:** TATE.L caido 40% desde maximos, INGR caido 15% con narrow moat
 
 ---
 
@@ -217,6 +217,7 @@ Consumer Staples es el sector defensivo por excelencia: alimentos, bebidas, taba
 | GIS | General Mills | 10x | 5.2% | WATCHLIST - Fair value ~$45, need $35-38 for 25% MoS | $35-38 |
 | BATS.L | British American Tobacco | ~10x norm | 5.3% | WATCHLIST - Tier B, MoS 12% insuf. Need 25% MoS | 4000-4200 GBp |
 | RI.PA | Pernod Ricard | 12.4x | 6.2% | WATCHLIST - Tier C (QS 51), FV EUR 65-70, need EUR 55-60 for 30% MoS. China/US headwinds. H1 FY26 earnings 19-Feb critical | EUR 55-60 |
+| **INGR** | **Ingredion** | 10.8x | 2.7% | **WATCHLIST** - Tier B (QS 57), FV $141, current $120.90 = 14% MoS insuf. Narrow moat (specialty ingredients), 0.6x leverage, 11+ yr dividend streak. Argo facility issues temporary. | $105-113 |
 
 ### Analizadas - Evitar (Value Traps)
 
@@ -254,6 +255,7 @@ Consumer Staples es el sector defensivo por excelencia: alimentos, bebidas, taba
 | Q1 2026 | Earnings season | Visibility on GLP-1 impact, pricing |
 | Mar 2026 | GIS Q3 FY26 earnings | Volume trend critical for thesis |
 | Mar 2026 | TATE.L FY results | CP Kelco integration update |
+| **Apr 2026** | **INGR Q1 FY26 earnings** | Argo facility resolution update critical |
 | Apr 2, 2026 | CAG Q3 FY26 earnings | Will show if decline continues |
 | 2026 | Fed rate cuts (if any) | Positivo para yield stocks |
 | 2026 | GLP-1 adoption pace | Si slower bullish for food |
@@ -270,6 +272,7 @@ Consumer Staples es el sector defensivo por excelencia: alimentos, bebidas, taba
 | Watchlist | GIS | thesis/research/GIS | 2026-02-04 | Entry $35-38 |
 | Watchlist | BATS.L | thesis/research/BATS.L | 2026-02-04 | Entry 4000-4200 GBp |
 | Watchlist | RI.PA | thesis/research/RI.PA | 2026-02-04 | Entry EUR 55-60 |
+| **Watchlist** | **INGR** | **thesis/research/INGR** | **2026-02-04** | **Entry $105-113** |
 | Avoid | CAG | thesis/research/CAG | 2026-02-04 | VALUE TRAP - Do not buy |
 
 ---
@@ -324,7 +327,20 @@ Consumer Staples es el sector defensivo por excelencia: alimentos, bebidas, taba
    - **Key catalyst: H1 FY26 earnings 19-Feb-2026**
    - Prefer DGE.L on risk-adjusted basis (safer dividend, 2x ROE)
 
-4. **Diageo (DGE.L)** - Priority MEDIA
+4. **Ingredion (INGR)** - WATCHLIST (Analizado 2026-02-04)
+   - P/E 10.8x, yield 2.7%, #3-5 global food ingredients
+   - **Quality Score 57/100 (Tier B)** - requires 20-25% MoS
+   - Fair value $141 (weighted EV/EBIT + P/E), current $120.90 = **14% MoS insufficient**
+   - Narrow moat via switching costs in specialty ingredients (850+ patents)
+   - Excellent balance sheet: 0.6x Net Debt/EBITDA
+   - 11+ years consecutive dividend increases, 34% payout ratio
+   - Temporary headwinds: Argo facility issues, Q4 earnings miss, weak Q1 2026 guidance
+   - NOT a value trap (0/10 factors)
+   - **Entry target: $105-113** (need 10-15% drop)
+   - **Concern**: US geography already 32%, adding INGR pushes to 35-36%
+   - **Note**: Similar business to TATE.L (both food ingredients) - concentration risk
+
+5. **Diageo (DGE.L)** - Priority MEDIA
    - Premium spirits, correccion reciente
    - ROE 20.1% vs Pernod 10.1% (2x better capital efficiency)
    - FCF coverage 1.5x vs Pernod 0.99x (safer dividend)
@@ -350,6 +366,7 @@ Consumer Staples es el sector defensivo por excelencia: alimentos, bebidas, taba
 
 | Fecha | Cambio | Razon |
 |-------|--------|-------|
+| 2026-02-04 | **INGR anadido a Watchlist** | Analisis Framework v3.0 completo. QS 57 (Tier B). FV $141, current $120.90 = 14% MoS insuf. Entry $105-113. Narrow moat, solid balance sheet, temporary issues. |
 | 2026-02-04 | **RI.PA anadido a Watchlist** | Analisis Framework v3.0 completo. QS 51 (Tier C). FV EUR 65-70, current EUR 80 = overvalued. Entry EUR 55-60. H1 FY26 19-Feb catalyst. |
 | 2026-02-04 | Spirits sub-sector anadido | Para documentar Pernod Ricard y Diageo correctamente |
 | 2026-02-04 | **CAG movido de "Para Analisis" a "Evitar - Value Traps"** | Analisis Framework v2.0 completo. 5/10 value trap factors. ROIC ~5% = no moat. Dividend unsustainable. |
@@ -365,6 +382,8 @@ Consumer Staples es el sector defensivo por excelencia: alimentos, bebidas, taba
 - [Transparency Market Research: Consumer Staples Market 2035](https://www.transparencymarketresearch.com/consumer-staples-market.html)
 - [Deloitte: Consumer Products Industry Outlook 2026](https://www.deloitte.com/us/en/insights/industry/consumer-products/consumer-products-industry-outlook.html)
 - [Fidelity: Consumer Staples Sector Outlook 2025](https://www.fidelity.com/learning-center/trading-investing/outlook-consumer-staples)
+- [Precedence Research: Food Ingredients Market](https://www.precedenceresearch.com/food-ingredients-market)
+- [Grand View Research: Specialty Food Ingredients Market](https://www.grandviewresearch.com/industry-analysis/specialty-food-ingredients-market)
 
 ### Valuaciones
 - [World P/E Ratio: S&P 500 Consumer Staples](https://worldperatio.com/sector/sp-500-consumer-staples/)
@@ -397,6 +416,8 @@ Consumer Staples es el sector defensivo por excelencia: alimentos, bebidas, taba
 - [Seeking Alpha: Conagra Sell Rating](https://seekingalpha.com/article/4853964-conagra-brands-sell-on-bleak-outlook-and-falling-fundamentals)
 - [Pernod Ricard FY25 Results](https://www.pernod-ricard.com/en/media/fy25-full-year-sales-and-results)
 - [Simply Wall St: Pernod Ricard Ownership](https://simplywall.st/stocks/us/food-beverage-tobacco/otc-pdrd.f/pernod-ricard/ownership)
+- [Ingredion Q4 2025 Results](https://www.globenewswire.com/news-release/2026/02/03/3230839/0/en/Ingredion-Incorporated-Reports-2025-Fourth-Quarter-and-Full-Year-Results.html)
+- [Ingredion Moat Analysis - Morningstar](https://www.morningstar.com/stocks/ingredion-benefits-improving-product-mix)
 
 ### Sector Defensivo
 - [Nasdaq: Recession 2026 Consumer Staple Stocks](https://www.nasdaq.com/articles/recession-2026-3-solid-consumer-staple-stocks-safety)

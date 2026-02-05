@@ -46,9 +46,9 @@ system:
   # QUALITY SCORE - PORTFOLIO ANALYSIS (2026-02-04)
   # ===============================================
   portfolio_quality_analysis:
-    date: 2026-02-05
+    date: 2026-02-04
     summary:
-      tier_a_count: 2  # ADBE + NVO
+      tier_a_count: 3  # ADBE + NVO + MONY.L
       tier_b_count: 5
       tier_c_count: 12
       tier_d_count: 0
@@ -56,9 +56,10 @@ system:
       first_tier_a: ADBE  # First Quality Compounder in portfolio!
       framework_v3_validated: true  # NVO = full end-to-end validation
     positions:
-      # TIER A - Quality Compounders (2 positions)
+      # TIER A - Quality Compounders (3 positions)
       - { ticker: ADBE, score: 76, tier: A, mos_required: "10-15%", status: "First Tier A!" }
       - { ticker: NVO, score: 82, tier: A, mos_required: "10-15%", status: "Framework v3.0 validated! MoS 38%" }
+      - { ticker: MONY.L, score: 81, tier: A, mos_required: "10-15%", status: "Third Tier A! UK price comparison. MoS 36%" }
       # TIER B - Quality Value (5 positions)
       - { ticker: HRB, score: 73, tier: B, mos_required: "20-25%" }
       - { ticker: EDEN.PA, score: 62, tier: B, mos_required: "20-25%" }
@@ -85,6 +86,67 @@ system:
       Ahora: 1 Tier A, 5 Tier B, 12 Tier C. Sin violaciones Tier D.
       Continuar añadiendo Tier A compounders: NOVO-B.CO, MA, V en pipeline.
   last_session_summary: |
+    Sesión 36 - TERCER TIER A + ANÁLISIS RIESGOS (2026-02-04)
+
+    =====================================================
+    OPERACIÓN EJECUTADA
+    =====================================================
+
+    BUY MONY.L 204 shares @ 169 GBp (~€400)
+    - Quality Score: 81/100 = TIER A (Quality Compounder)
+    - MoS: 36% (vs 10-15% requerido)
+    - UK price comparison #2 (MoneySupermarket, MoneySavingExpert)
+    - ROIC 29%, net cash, 7% dividend yield
+    - Investment Committee: 9/9 gates PASSED
+
+    PORTFOLIO AHORA:
+    - Posiciones: 20/20 (LÍMITE ALCANZADO)
+    - Tier A: 3 (ADBE, NVO, MONY.L)
+    - Cash: €1,373 (14.1%)
+    - P&L: +2.3%
+
+    =====================================================
+    ANÁLISIS COMPLETADOS
+    =====================================================
+
+    | Ticker | QS | Tier | Veredicto |
+    |--------|-----|------|-----------|
+    | MONY.L | 81 | A | ✅ COMPRADO |
+    | INGR | 57 | B | Watchlist $105-113 |
+    | KMPR | 32 | D | ⛔ DESCARTADO |
+
+    =====================================================
+    CORRELACIÓN Y RIESGOS
+    =====================================================
+
+    - Correlación promedio: 0.109 (excelente)
+    - Diversification ratio: 2.56 (60.9% reducción riesgo)
+    - No hay pares con corr >0.6
+    - EU: 34.1% (near 35% limit)
+    - Top risk: AI disruption (14.2% exposición)
+
+    =====================================================
+    EARNINGS HOY
+    =====================================================
+
+    - GL: BEAT EPS $3.14 vs $3.12 (+1%) - HOLD
+    - ALL: Call hoy 9am ET - pendiente resultados
+    - SHEL.L: Resultados hoy - pendiente
+
+    =====================================================
+    PENDIENTE PRÓXIMA SESIÓN
+    =====================================================
+
+    1. Evaluar resultados ALL y SHEL.L
+    2. HRB trigger $35 a -2% del actual
+    3. ZIG.L trigger 375p a -3.7%
+    4. TEP.PA re-eval antes earnings Feb 26
+    5. 20/20 posiciones - próximas compras requieren vender algo
+    6. EU 34.1% near limit - no más compras EU
+
+    =====================================================
+
+  last_session_summary_archived: |
     Sesión 35 - VIGILANCIA OPERATIVA + SCREENING (2026-02-04)
 
     =====================================================
@@ -920,18 +982,11 @@ standing_orders:
     notes: "Globe Life. Framework v2.0 FV $174. At $130 reaches 25% MoS. Current $143 = 17.6% MoS (insufficient). Quality 7/10 Tier B."
     expiry: 2026-06-01
 
-  # HRB ADD - Near 52w low opportunity
-  - ticker: HRB
-    action: ADD
-    trigger: "<=$35"
-    size_eur: 300
-    shares_approx: 8
-    thesis: thesis/active/HRB/thesis.md
-    fair_value: "$52-55"
-    mos_at_trigger: "33-36%"
-    tier: "B (QS 73)"
-    notes: "ADD to existing 9 shares. Near 52w low ($35.45). Q2 EPS miss was seasonal (tax prep weak Q2). Revenue +11%, guidance maintained. Brings position from 2.8% to ~5.5%."
-    expiry: 2026-06-01
+  # HRB ADD - EXECUTED 2026-02-05
+  # - ticker: HRB
+  #   action: ADD
+  #   trigger: "<=$35"
+  #   EXECUTED: 2026-02-05, 10 shares @ $34.50, total $345
 
   # PENDIENTE EARNINGS - Ejecutar SOLO si earnings cumplen condiciones
   - ticker: EVO.ST
