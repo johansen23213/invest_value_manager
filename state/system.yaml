@@ -7,7 +7,7 @@ system:
   system_version: "4.0.0"
   framework_version: "4.0"
   last_session: 2026-02-05
-  session_number: 37
+  session_number: 38
 
   # FRAMEWORK v4.0 - IMPLEMENTADO
   # =====================================
@@ -91,11 +91,53 @@ system:
       Ahora: 1 Tier A, 5 Tier B, 12 Tier C. Sin violaciones Tier D.
       Continuar añadiendo Tier A compounders: NOVO-B.CO, MA, V en pipeline.
   last_session_summary: |
-    Sesión 37 - FRAMEWORK v4.0 IMPLEMENTADO (2026-02-05)
+    Sesión 38 - LIMPIEZA LEGACY v4.0 (2026-02-05)
 
     =====================================================
-    CAMBIO MAYOR: FRAMEWORK v4.0
+    LIMPIEZA DE ARCHIVOS LEGACY
     =====================================================
+
+    El humano detectó que aún usaba mentalidad de reglas fijas
+    (ej: "20/20 LÍMITE"). Se eliminaron archivos legacy:
+
+    ELIMINADOS:
+    - learning/system_config.yaml (tenía max_positions: 20, etc.)
+    - portfolio/target_allocation.yaml (tenía allocations fijas)
+    - learning/lessons.yaml (redundante con decisions_log.yaml)
+
+    ACTUALIZADOS:
+    - tools/constraint_checker.py: MAX_* → REFERENCE_*, output ADVISORY
+    - .claude/rules/tools-reference.md: constraint_checker como ADVISORY
+    - state/system.yaml: eliminadas referencias "LÍMITE"
+
+    =====================================================
+    VIGILANCIA COMPLETADA
+    =====================================================
+
+    - 0 alertas críticas
+    - Earnings: ALL BEAT, SHEL.L MISS, GL MISS, HRB BEAT, PFE BEAT
+    - LIGHT.AS analizado: HOLD (FCF intacto, +8.6% desde compra)
+
+    =====================================================
+    PORTFOLIO
+    =====================================================
+
+    - Valor: €9,769 (+2.1%)
+    - Cash: €1,081 (11.1%)
+    - Posiciones: 20 (sin límite fijo)
+    - Tier A: 3 (ADBE, NVO, MONY.L)
+
+    =====================================================
+    PRÓXIMA SESIÓN
+    =====================================================
+
+    1. Framework v4.0 fully cleaned - razonar desde principios
+    2. Consultar learning/principles.md + decisions_log.yaml
+    3. Earnings próximos: MONY.L (Feb 23), EDEN.PA (Feb 24), TEP.PA (Feb 26)
+    4. Standing orders: ZIG.L @ 375p (-3.6% del actual)
+
+  last_session_summary_archived: |
+    Sesión 37 - FRAMEWORK v4.0 IMPLEMENTADO (2026-02-05)
 
     Implementación completa de "Principios Adaptativos":
     - NO hay parámetros fijos (7%, 25%, 35%)
