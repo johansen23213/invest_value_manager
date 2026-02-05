@@ -7,7 +7,7 @@ system:
   system_version: "3.0.0"
   framework_version: "3.0"
   last_session: 2026-02-05
-  session_number: 32
+  session_number: 37
 
   # FRAMEWORK v3.0 - IMPLEMENTADO
   # =====================================
@@ -86,6 +86,89 @@ system:
       Ahora: 1 Tier A, 5 Tier B, 12 Tier C. Sin violaciones Tier D.
       Continuar añadiendo Tier A compounders: NOVO-B.CO, MA, V en pipeline.
   last_session_summary: |
+    Sesión 37 - FRAMEWORK v4.0 DISEÑADO + HRB ADD (2026-02-05)
+
+    =====================================================
+    OPERACIÓN EJECUTADA
+    =====================================================
+
+    ADD HRB 10 shares @ $34.50 (total $345)
+    - Standing order tocado ($35 trigger)
+    - Investment Committee: 9/9 gates PASS
+    - Posición: 9 → 19 shares (2.7% → 5.7%)
+    - MoS: 42% (FV $59.58)
+    - Q2 FY2026: Revenue +11%, guidance maintained
+
+    =====================================================
+    EARNINGS VERIFICADOS
+    =====================================================
+
+    ALL Q4 2025: BEAT EXCEPCIONAL
+    - EPS $14.31 vs $9.85 (+45% beat)
+    - Combined ratio 72.9 (excelente)
+    - Dividend +8%, $4B buyback anunciado
+    - Veredicto: HOLD - thesis validated
+
+    SHEL.L Q4 2025: WARNING
+    - Pre-anuncio: químicos a pérdidas, márgenes débiles
+    - Pendiente evaluar resultados completos
+
+    =====================================================
+    FRAMEWORK v4.0 DISEÑADO
+    =====================================================
+
+    El humano cuestionó fundamentalmente las reglas fijas:
+    - "¿Vendemos solo porque >7%? Eso es absurdo"
+    - "Las reglas son bias, deberían ser dinámicas"
+    - "¿Realmente necesitas ficheros con reglas?"
+
+    AUDITORÍA COMPLETA:
+    - 23 parámetros hardcodeados identificados
+    - 4 inconsistencias críticas (tickers, system.yaml)
+    - 10 items legacy a eliminar
+
+    DOS PROPUESTAS DOCUMENTADAS:
+    - v1: Parámetros condicionales (rechazada)
+    - v2: Principios + Precedentes + Razonamiento (aprobada)
+
+    DOCUMENTOS CREADOS:
+    - docs/evolution_framework_4.0.md (índice)
+    - docs/evolution_framework_4.0_v1_parameters.md (1,212 líneas)
+    - docs/evolution_framework_4.0_v2_principles.md (908 líneas)
+
+    FILOSOFÍA v4.0:
+    "Razona como profesional, no sigas reglas ciegamente"
+    - Principios sin números (preguntas guía)
+    - Precedentes (decisiones pasadas documentadas)
+    - Razonamiento explícito cada vez
+
+    =====================================================
+    PORTFOLIO ACTUAL
+    =====================================================
+
+    - Valor: €9,769 (+2.1%)
+    - Cash: €1,081 (11.1%)
+    - Posiciones: 20/20 (LÍMITE)
+    - Tier A: 3 (ADBE, NVO, MONY.L)
+
+    =====================================================
+    PENDIENTE PRÓXIMA SESIÓN
+    =====================================================
+
+    1. Evaluar resultados completos SHEL.L
+    2. IMPLEMENTAR Framework v4.0 (4-5 horas)
+       - Leer docs/evolution_framework_4.0.md (índice)
+       - Seguir plan de implementación
+    3. Standing orders activos:
+       - ZIG.L @ 375p (actual 389.5p, -3.7%)
+       - V @ $280 (actual $329, -15%)
+       - EVO.ST CONDICIONADO a UKGC
+    4. EU exposure 34.1% - no más compras EU
+    5. 20/20 posiciones - nuevas compras requieren vender
+
+    =====================================================
+
+  last_session_summary_archived: |
     Sesión 36 - TERCER TIER A + ANÁLISIS RIESGOS (2026-02-04)
 
     =====================================================
