@@ -21,9 +21,9 @@ except ImportError:
 # ─── Mappings ────────────────────────────────────────────────────────────────
 
 SECTOR_MAP = {
-    'LIGHT.AS': 'Technology', 'HPQ': 'Technology', 'ADBE': 'Technology',
-    'PFE': 'Healthcare', 'SAN.PA': 'Healthcare', 'UHS': 'Healthcare', 'NVO': 'Healthcare',
-    'ALL': 'Financial Services', 'GL': 'Financial Services', 'EDEN.PA': 'Financial Services', 'MONY.L': 'Financial Services',
+    'LIGHT.NV': 'Technology', 'FUTR.L': 'Technology', 'HPQ': 'Technology',
+    'PFE': 'Healthcare', 'SAN.PA': 'Healthcare', 'UHS': 'Healthcare',
+    'ALL': 'Financial Services', 'GL': 'Financial Services', 'EDEN.PA': 'Financial Services',
     'VICI': 'Real Estate', 'VNA.DE': 'Real Estate',
     'DTE.DE': 'Telecom',
     'SHEL.L': 'Energy',
@@ -35,11 +35,10 @@ SECTOR_MAP = {
 }
 
 GEO_MAP = {
-    'PFE': 'US', 'ALL': 'US', 'VICI': 'US', 'UHS': 'US', 'GL': 'US', 'HPQ': 'US', 'HRB': 'US', 'ADBE': 'US',
-    'SHEL.L': 'UK', 'IMB.L': 'UK', 'TATE.L': 'UK', 'DOM.L': 'UK', 'MONY.L': 'UK',
-    'DTE.DE': 'EU', 'TEP.PA': 'EU', 'SAN.PA': 'EU', 'LIGHT.AS': 'EU',
+    'PFE': 'US', 'ALL': 'US', 'VICI': 'US', 'UHS': 'US', 'GL': 'US', 'HPQ': 'US', 'HRB': 'US',
+    'SHEL.L': 'UK', 'IMB.L': 'UK', 'TATE.L': 'UK', 'DOM.L': 'UK', 'FUTR.L': 'UK',
+    'DTE.DE': 'EU', 'TEP.PA': 'EU', 'SAN.PA': 'EU', 'LIGHT.NV': 'EU',
     'A2A.MI': 'EU', 'EDEN.PA': 'EU', 'VNA.DE': 'EU',
-    'NVO': 'EU',  # Denmark, but EU for purposes of geo limits
 }
 
 # ─── Constraints ─────────────────────────────────────────────────────────────

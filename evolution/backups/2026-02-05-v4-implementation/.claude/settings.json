@@ -1,0 +1,35 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(**)",
+      "Write(thesis/**)",
+      "Write(world/**)",
+      "Write(journal/**)",
+      "Write(state/**)",
+      "Write(learning/**)",
+      "Write(archive/**)",
+      "Write(evolution/**)",
+      "Write(.claude/commands/**)",
+      "Write(.claude/agents/**)",
+      "Write(.claude/skills/**)",
+      "Write(CLAUDE.md)",
+      "Write(portfolio/**)"
+    ],
+    "deny": [
+      "Write(config/rules.yaml)",
+      "Write(.claude/settings.json)"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [{
+      "hooks": [{
+        "type": "command",
+        "command": "bash .claude/hooks/session-start.sh"
+      }]
+    }]
+  },
+  "enabledPlugins": {
+    "context7@claude-plugins-official": false,
+    "claude-code-setup@claude-plugins-official": true
+  }
+}
