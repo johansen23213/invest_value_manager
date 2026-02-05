@@ -42,13 +42,16 @@ GEO_MAP = {
     'NVO': 'EU',  # Denmark, but EU for purposes of geo limits
 }
 
-# ─── Constraints ─────────────────────────────────────────────────────────────
+# ─── Reference Points (Framework v4.0: ADVISORY, not limits) ─────────────────
+# These are reference points for context, NOT hard limits.
+# Decisions are made by reasoning from principles, not by checking numbers.
+# See learning/principles.md for decision framework.
 
-MAX_POSITION_PCT = 7.0
-MAX_SECTOR_PCT = 25.0
-MAX_GEO_PCT = 35.0
-MIN_CASH_PCT = 5.0
-MAX_POSITIONS = 20
+REFERENCE_POSITION_PCT = 7.0   # Typical max for Tier C; Tier A can be higher if justified
+REFERENCE_SECTOR_PCT = 25.0   # Typical ceiling; can exceed with explicit reasoning
+REFERENCE_GEO_PCT = 35.0      # Typical ceiling; depends on country risk assessment
+REFERENCE_CASH_PCT = 5.0      # Typical floor; context determines appropriate level
+REFERENCE_POSITIONS = 25      # No hard limit; depends on management capacity
 
 # ─── Helpers ─────────────────────────────────────────────────────────────────
 
@@ -165,46 +168,46 @@ def check_constraints(state, new_ticker=None, amount_eur=0):
             num_pos += 1
         cash -= amount_eur
 
-    # 1. Position max 7%
+    # 1. Position sizing (ADVISORY - v4.0)
     for p in pos_list:
         pct = (p['value_eur'] / total) * 100 if total > 0 else 0
-        if pct > MAX_POSITION_PCT:
-            violations.append(f"POSITION {p['ticker']}: {pct:.1f}% > {MAX_POSITION_PCT}% max")
-        elif pct > MAX_POSITION_PCT - 1:
-            warnings.append(f"POSITION {p['ticker']}: {pct:.1f}% approaching {MAX_POSITION_PCT}% max")
+        if pct > REFERENCE_POSITION_PCT:
+            warnings.append(f"POSITION {p['ticker']}: {pct:.1f}% above {REFERENCE_POSITION_PCT}% reference - requires reasoning")
+        elif pct > REFERENCE_POSITION_PCT - 1:
+            warnings.append(f"POSITION {p['ticker']}: {pct:.1f}% near {REFERENCE_POSITION_PCT}% reference")
 
-    # 2. Sector max 25%
+    # 2. Sector concentration (ADVISORY - v4.0)
     sector_totals = {}
     for p in pos_list:
         sector_totals[p['sector']] = sector_totals.get(p['sector'], 0) + p['value_eur']
     for sec, val in sorted(sector_totals.items(), key=lambda x: -x[1]):
         pct = (val / total) * 100 if total > 0 else 0
-        if pct > MAX_SECTOR_PCT:
-            violations.append(f"SECTOR {sec}: {pct:.1f}% > {MAX_SECTOR_PCT}% max")
-        elif pct > MAX_SECTOR_PCT - 3:
-            warnings.append(f"SECTOR {sec}: {pct:.1f}% approaching {MAX_SECTOR_PCT}% max")
+        if pct > REFERENCE_SECTOR_PCT:
+            warnings.append(f"SECTOR {sec}: {pct:.1f}% above {REFERENCE_SECTOR_PCT}% reference - consider correlation")
+        elif pct > REFERENCE_SECTOR_PCT - 3:
+            warnings.append(f"SECTOR {sec}: {pct:.1f}% near {REFERENCE_SECTOR_PCT}% reference")
 
-    # 3. Geography max 35%
+    # 3. Geography concentration (ADVISORY - v4.0)
     geo_totals = {}
     for p in pos_list:
         geo_totals[p['geo']] = geo_totals.get(p['geo'], 0) + p['value_eur']
     for geo, val in sorted(geo_totals.items(), key=lambda x: -x[1]):
         pct = (val / total) * 100 if total > 0 else 0
-        if pct > MAX_GEO_PCT:
-            violations.append(f"GEO {geo}: {pct:.1f}% > {MAX_GEO_PCT}% max")
-        elif pct > MAX_GEO_PCT - 3:
-            warnings.append(f"GEO {geo}: {pct:.1f}% approaching {MAX_GEO_PCT}% max")
+        if pct > REFERENCE_GEO_PCT:
+            warnings.append(f"GEO {geo}: {pct:.1f}% above {REFERENCE_GEO_PCT}% reference - assess country risk")
+        elif pct > REFERENCE_GEO_PCT - 3:
+            warnings.append(f"GEO {geo}: {pct:.1f}% near {REFERENCE_GEO_PCT}% reference")
 
-    # 4. Cash min 5%
+    # 4. Cash level (ADVISORY - v4.0)
     cash_pct = (cash / total) * 100 if total > 0 else 0
-    if cash_pct < MIN_CASH_PCT:
-        violations.append(f"CASH: {cash_pct:.1f}% < {MIN_CASH_PCT}% minimum")
-    elif cash_pct < MIN_CASH_PCT + 2:
-        warnings.append(f"CASH: {cash_pct:.1f}% approaching {MIN_CASH_PCT}% minimum")
+    if cash_pct < REFERENCE_CASH_PCT:
+        warnings.append(f"CASH: {cash_pct:.1f}% below {REFERENCE_CASH_PCT}% reference - consider opportunity cost")
+    elif cash_pct < REFERENCE_CASH_PCT + 2:
+        warnings.append(f"CASH: {cash_pct:.1f}% near {REFERENCE_CASH_PCT}% reference")
 
-    # 5. Max positions
-    if num_pos > MAX_POSITIONS:
-        violations.append(f"POSITIONS: {num_pos} > {MAX_POSITIONS} max")
+    # 5. Position count (ADVISORY - v4.0, no hard limit)
+    if num_pos > REFERENCE_POSITIONS:
+        warnings.append(f"POSITIONS: {num_pos} above {REFERENCE_POSITIONS} reference - ensure manageable")
 
     return violations, warnings, pos_list, sector_totals, geo_totals, cash, total
 
@@ -220,7 +223,7 @@ def print_report(state):
     print("-" * 55)
     for p in sorted(pos_list, key=lambda x: -x['value_eur']):
         pct = (p['value_eur'] / total) * 100
-        flag = " <<" if pct > MAX_POSITION_PCT else ""
+        flag = " *" if pct > REFERENCE_POSITION_PCT else ""
         print(f"{p['ticker']:<12} {p['sector']:<20} {p['geo']:>4} {p['value_eur']:>10.0f} {pct:>6.1f}%{flag}")
     print(f"{'CASH':<12} {'':20} {'':>4} {cash:>10.0f} {(cash/total)*100:>6.1f}%")
     print(f"{'TOTAL':<12} {'':20} {'':>4} {total:>10.0f} {'100.0%':>7}")
@@ -230,7 +233,7 @@ def print_report(state):
     print("-" * 44)
     for sec, val in sorted(sectors.items(), key=lambda x: -x[1]):
         pct = (val / total) * 100
-        flag = " <<" if pct > MAX_SECTOR_PCT else ""
+        flag = " *" if pct > REFERENCE_SECTOR_PCT else ""
         print(f"{sec:<25} {val:>10.0f} {pct:>6.1f}%{flag}")
 
     # Geographies
@@ -238,24 +241,20 @@ def print_report(state):
     print("-" * 44)
     for geo, val in sorted(geos.items(), key=lambda x: -x[1]):
         pct = (val / total) * 100
-        flag = " <<" if pct > MAX_GEO_PCT else ""
+        flag = " *" if pct > REFERENCE_GEO_PCT else ""
         print(f"{geo:<25} {val:>10.0f} {pct:>6.1f}%{flag}")
 
     # Summary
-    print(f"\nPositions: {state['num_positions']}/{MAX_POSITIONS}")
+    print(f"\nPositions: {state['num_positions']} (reference: {REFERENCE_POSITIONS})")
     print(f"Cash: {cash:.0f} EUR ({(cash/total)*100:.1f}%)")
+    print(f"\n* = above reference point (Framework v4.0: requires explicit reasoning, not automatic action)")
 
-    if violations:
-        print(f"\n{'!'*50}")
-        print("VIOLATIONS:")
-        for v in violations:
-            print(f"  [FAIL] {v}")
     if warnings:
-        print("\nWARNINGS:")
+        print("\nCONSIDERATIONS (Framework v4.0 - ADVISORY):")
         for w in warnings:
-            print(f"  [WARN] {w}")
+            print(f"  [INFO] {w}")
     if not violations and not warnings:
-        print("\n[OK] All constraints satisfied.")
+        print("\n[INFO] All metrics within typical ranges.")
 
 def print_check(state, ticker, amount_eur):
     print("=" * 70)
@@ -283,27 +282,16 @@ def print_check(state, ticker, amount_eur):
     print(f"  Cash after: {cash:.0f} EUR ({(cash/total)*100:.1f}%)")
     print(f"  Positions: {len([p for p in pos_list])}/{MAX_POSITIONS}")
 
-    if violations:
-        print(f"\n  RESULT: FAIL")
-        for v in violations:
-            print(f"    [FAIL] {v}")
-        # Suggest max allowed
-        for p in pos_list:
-            if p['ticker'] == ticker:
-                current_val = p['value_eur'] - amount_eur
-                max_val = total * MAX_POSITION_PCT / 100
-                max_buy = max_val - current_val
-                if max_buy > 0:
-                    print(f"\n  MAX ALLOWED for {ticker}: {max_buy:.0f} EUR (to reach {MAX_POSITION_PCT}%)")
-                else:
-                    print(f"\n  {ticker} already at/above {MAX_POSITION_PCT}% limit. Cannot add.")
-                break
-    else:
-        print(f"\n  RESULT: PASS")
+    # Framework v4.0: No PASS/FAIL, only information for principled decision-making
+    print(f"\n  FRAMEWORK v4.0: Decision requires reasoning from principles")
+    print(f"  See learning/principles.md and learning/decisions_log.yaml")
 
     if warnings:
+        print("\n  CONSIDERATIONS:")
         for w in warnings:
-            print(f"    [WARN] {w}")
+            print(f"    [INFO] {w}")
+    else:
+        print("\n  [INFO] All metrics within typical ranges after this purchase.")
 
 # ─── Main ────────────────────────────────────────────────────────────────────
 

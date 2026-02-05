@@ -104,13 +104,16 @@ python3 tools/quality_scorer.py TICKER1 TICKER2 ...      # Batch analysis con su
 - **REGLA: Ejecutar SIEMPRE antes de cualquier análisis fundamental**
 - **REGLA: Tier D = STOP INMEDIATO, no proceder con análisis**
 
-### constraint_checker.py - Pre-validación de constraints
+### constraint_checker.py - Portfolio context (Framework v4.0: ADVISORY)
 ```bash
-python3 tools/constraint_checker.py CHECK TEP.PA 400    # Simula compra y verifica limits
-python3 tools/constraint_checker.py REPORT               # Muestra violaciones actuales
+python3 tools/constraint_checker.py CHECK TEP.PA 400    # Simula compra y muestra contexto
+python3 tools/constraint_checker.py REPORT               # Muestra situación actual del portfolio
 ```
-- Verifica: posición max 7%, sector max 25%, geografía max 35%, cash min 5%, max 20 posiciones
-- **REGLA: Ejecutar SIEMPRE antes de recomendar BUY/ADD al humano**
+- **Framework v4.0**: Muestra información, NO juzga contra límites fijos
+- Provee contexto: concentración por posición, sector, geografía
+- Las decisiones se toman razonando desde principios (ver `learning/principles.md`)
+- Reference points (típicos, NO límites): ~7% posición, ~25% sector, ~35% geografía
+- **Usar para INFORMAR el razonamiento, no para DICTAR la decisión**
 
 ### correlation_matrix.py - Correlaciones entre posiciones
 ```bash
