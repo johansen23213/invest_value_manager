@@ -7,7 +7,7 @@ system:
   system_version: "4.0.0"
   framework_version: "4.0"
   last_session: 2026-02-06
-  session_number: 42
+  session_number: 43
 
   # FRAMEWORK v4.0 - IMPLEMENTADO
   # =====================================
@@ -92,64 +92,74 @@ system:
       Ahora: 1 Tier A, 5 Tier B, 12 Tier C. Sin violaciones Tier D.
       Continuar añadiendo Tier A compounders: NOVO-B.CO, MA, V en pipeline.
   last_session_summary: |
-    Sesion 42 - COVID CRASH STRESS TEST + DEBATE ESTRATEGICO (2026-02-06)
+    Sesion 43 - EXPANSION CRISIS FRAMEWORK: DE COVID A ABSTRACTO (2026-02-06)
 
     =====================================================
-    COVID CRASH AUDIT (PRINCIPAL)
+    EXPANSION DE DOCUMENTOS DE CRISIS (PRINCIPAL)
     =====================================================
-    El humano pidio stress-test del sistema contra COVID-19 (Feb-Mar 2020).
+    Continuacion de sesion 42. El humano detecto que los documentos de crisis
+    tenian sesgo COVID (self-seeding bias aplicado a gestion de crisis).
 
-    DOCUMENTOS CREADOS:
-    - docs/covid_system_crash_audit.md (audit completo fase a fase)
-    - docs/covid_system_crash_audit_improvements.md (11 mejoras, v2.0)
+    Insight clave del humano:
+    > "Si tu ahora entiendes que solo es un ejemplo no una regla, y sobre todo
+    > si tu yo futuro lo va a entender cuando lo lea."
 
-    SCORECARD SISTEMA EN COVID: C+
-    - Fortalezas: Principio 6 impide panic selling, Quality Score predice recovery
-    - Fallos criticos: Sin cash para comprar en bottom, standing orders sin freno,
-      sin protocolo de crisis, sin triage rapido, sin early warning
+    DOCUMENTOS ACTUALIZADOS:
 
-    =====================================================
-    DEBATE CRITICO CON HUMANO
-    =====================================================
-    El humano cuestiono mis conclusiones iniciales:
-    - "Mas cash parado = menos rendimiento normal" → CORRECTO, revise mi propuesta
-    - "Shorting/hedge fund no seria mejor?" → Analizado: rompe el sistema
-    - "Tu podrias anticipar crisis" → Diseñado Early Warning System de 4 capas
+    1. covid_system_crash_audit_improvements.md (985 → 1541 lineas, v3.0)
+       - Contexto de la conversacion (por que se expandio)
+       - 10 Principios Abstractos de Crisis (C1-C10) - PREGUNTAS, no reglas
+       - 6 Casos de estudio como EJEMPLOS (COVID, GFC, 2022, erosion lenta,
+         sectorial, riesgos sin precedente)
+       - Validacion de 11 mejoras contra principios abstractos
+       - Seccion anti-sesgo para yo futuro (6 sesgos identificados)
 
-    CONCLUSIONES REVISADAS (v2.0):
-    1. Quality IS the hedge (migrar a 70% Tier A+B)
-    2. Cash on Demand > Cash permanente (proceso rapido, no drag)
-    3. Early Warning System (mi capacidad mas subutilizada)
-    4. Time in market > timing (perder 10 mejores dias = -50% retorno)
-    5. Inverse ETFs como herramienta tactica, NO estrategia
-    6. Preparar emocionalmente al humano AHORA
+    2. covid_system_crash_audit.md (595 → 818 lineas, v2.0)
+       - Simulacion GFC 2008 (bear gradual, 18 meses, -57%)
+       - Simulacion Ucrania 2022 (dispersion sectorial, SHEL.L beneficiaria)
+       - Tabla comparativa: que es consistente y que NO entre 3 crisis
+       - Seccion anti-sesgo
 
-    =====================================================
-    11 MEJORAS PROPUESTAS (prioridad)
-    =====================================================
-    CRITICAS: Crisis Protocol, Circuit Breaker, Early Warning System
-    ALTAS: Vulnerability Matrix, Crisis Playbook humano, Migrar a Tier A, Cash on Demand
-    MEDIAS: Market Regime Detector, Stress Test Tool, Tail Correlations
-    BAJAS: Inverse ETFs documentacion
+    3. crisis_resilience_framework.md (NUEVO, 337 lineas)
+       - Referencia rapida para usar DURANTE una crisis
+       - 6 pasos basados en PREGUNTAS, no acciones predefinidas
+       - Tabla referencia C1-C10
+       - Sesgos del propio documento declarados
+
+    HALLAZGOS CLAVE:
+    - SHEL.L es "vulnerable" en COVID pero "beneficiaria" en 2022
+      → Tablas de vulnerabilidad por tipo son PELIGROSAS
+    - En GFC, comprar temprano = gastar cash antes del fondo real
+      → "Ya cayo bastante" no es argumento
+    - 6 de 11 mejoras generalizan bien; 5 tienen sesgo de crash rapido
+    - La mejora mas universal: #6 (Quality IS the hedge)
+    - La mas sesgada: #4 (Vulnerability Matrix como tabla)
 
     =====================================================
     ESTADO FINAL
     =====================================================
     - Posiciones: 21 (sin cambios)
-    - Tier A: 4 (ADBE, NVO, MONY.L, LULU)
-    - Cash: ~€790 (7.1%)
+    - Cash: ~EUR790 (7.1%)
     - Sin operaciones ejecutadas
-    - Branch feature/refactor_claude_md con 26 ficheros sin commitear
+    - Session number: 43
 
     =====================================================
     PROXIMA SESION
     =====================================================
-    1. VIGILANCIA: news-monitor + market-pulse (no ejecutados hoy)
-    2. Earnings: MONY.L Feb 23, EDEN.PA Feb 24, TEP.PA Feb 26
+    1. VIGILANCIA: news-monitor + market-pulse (no ejecutados hoy ni ayer)
+    2. Earnings proximos: MONY.L Feb 23, EDEN.PA Feb 24, TEP.PA Feb 26
     3. Standing orders: BME.L, UTG.L, TATE.L (activos)
-    4. IMPLEMENTAR mejoras Fase 1: Crisis playbook, circuit breaker, Principio 4
-    5. Commit branch de auditoria v4.0 (26 ficheros pendientes)
+    4. IMPLEMENTAR mejoras Fase 1: Crisis playbook humano, circuit breaker, Principio 4
+    5. Commit branch (ficheros pendientes)
     6. Pipeline Tier A: buscar 5+ quality compounders adicionales
+
+  last_session_summary_archived: |
+    Sesion 42 - COVID CRASH STRESS TEST + DEBATE ESTRATEGICO (2026-02-06)
+    Stress-test del sistema contra COVID-19 (Feb-Mar 2020).
+    Scorecard: C+. Fortalezas: P6 impide panic sell, QS predice recovery.
+    Fallos: sin cash en bottom, standing orders sin freno, sin protocolo crisis.
+    Debate con humano: "mas cash parado" rechazado. Quality IS the hedge.
+    11 mejoras propuestas v2.0. Sesion 43 las expandio a framework abstracto.
 
   last_session_summary_archived: |
     Sesión 40 - FALLEN ANGEL HUNT + LULU TIER A (2026-02-05)

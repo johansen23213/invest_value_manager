@@ -582,13 +582,237 @@ El sistema sobrevive el crash (no panic sell, quality focus), pero pierde la opo
 
 ---
 
-## 10. Plan de Mejoras (ver seccion siguiente del documento)
+## 10. OTRAS CRISIS: El Sistema Ante Escenarios No-COVID
 
-Las mejoras propuestas estan en la seccion siguiente de este documento.
-Cada mejora tiene: descripcion, implementacion concreta, y prioridad.
+### ADVERTENCIA
+
+```
+Los siguientes analisis son CASOS DE ESTUDIO para calibrar el pensamiento.
+NO son playbooks para seguir. NO son categorias para clasificar futuras crisis.
+
+Se incluyen porque el audit original (secciones 1-9) solo analizo COVID,
+lo que sesga hacia:
+- Crashes rapidos (COVID fue -34% en 23 dias)
+- Recovery V-shape (COVID se recupero en 5 meses)
+- Correlacion → 1 (en COVID todo cayo junto)
+
+Estas asunciones son FALSAS para la mayoria de crisis historicas.
+```
+
+### 10.1 Simulacion: GFC 2008 (Bear Market Gradual)
+
+#### Timeline critico
+
+| Fecha | Evento | S&P500 |
+|-------|--------|--------|
+| Oct 2007 | S&P500 peak | 1,565 |
+| Mar 2008 | Bear Stearns colapsa | 1,273 (-19%) |
+| Sep 2008 | Lehman quiebra | 1,213 (-22%) |
+| Oct 2008 | TARP aprobado, mercado sigue cayendo | 968 (-38%) |
+| Mar 2009 | **BOTTOM** | **676 (-57%)** |
+| Mar 2013 | Recovery a nivel pre-crisis (4 ANOS) | 1,565 |
+
+**Diferencia clave vs COVID: 18 meses de caida, no 23 dias.**
+
+#### Como habria reaccionado nuestro sistema
+
+**Fase temprana (Oct 2007 - Sep 2008): -22% en 11 meses**
+
+| Componente | Respuesta probable | Problema |
+|------------|-------------------|----------|
+| news-monitor | Detecta Bear Stearns, Countrywide, subprime headlines | Correcto pero lento |
+| market-pulse | Caidas graduales, no hay -5% en un dia | No activa alarma de crash |
+| EXIT Protocol | Gate 1 no activado (no hay kill condition para la mayoria) | Demasiado conservador |
+| Standing orders | Se ejecutarian gradualmente a medida que precios caen | **Gastan cash en el camino, el fondo es -57%** |
+| Cash | Se agota comprando "oportunidades" que siguen cayendo | **FALLO GRAVE** |
+
+**Diferencia critica vs COVID:** En COVID, la caida fue tan rapida que NO tuvimos
+tiempo de gastar cash. En GFC, la caida lenta nos habria hecho pensar "ya cayo bastante,
+es oportunidad" MULTIPLES VECES antes del fondo real.
+
+**Fase critica (Sep 2008 - Mar 2009): De -22% a -57%**
+
+A esta altura:
+- Cash probablemente AGOTADO (gastado en standing orders y "oportunidades")
+- Portfolio -40% o peor
+- Principio 6 (vender requiere argumento) nos SALVA de panic selling
+- Pero: algunas posiciones Tier C con deuda alta podrian ser kill conditions reales
+  (empresas quiebran en GFC, no en COVID)
+- Quality Score discrimina MEJOR aqui que en COVID: empresas sin deuda sobreviven,
+  apalancadas mueren
+
+**Leccion especifica para GFC:**
+El error NO es panic selling (Principio 6 previene esto).
+El error es **comprar demasiado temprano**. En una caida de 18 meses, cada -15%
+parece "el fondo". Si despliego cash en cada caida, llego al fondo real sin municion.
+
+**Como mejora el sistema post-audit:**
+- Cash on Demand (Mejora #7): No me comprometo a comprar en cada caida
+- Crisis Principles C2 (velocidad): Reconozco que es caida lenta, no urgente
+- Crisis Principle C8 (compound): Subprime → credito → bancos → empleo → consumo
+  La cadena de contagio me indica que puede empeorar
+
+#### Posiciones especificas de nuestro portfolio
+
+| Posicion | Impacto en GFC | Razon |
+|----------|---------------|-------|
+| VNA.DE (real estate) | **SEVERO** (-60-70%) | Real estate ES la crisis en GFC |
+| ALL, GL (seguros) | **ALTO** (-40-50%) | Carteras de inversion expuestas a subprime |
+| VICI (REIT) | **ALTO** (-50-60%) | REITs colapsaron, casinos afectados |
+| SHEL.L (oil) | **ALTO** (-50%) | Oil de $147 a $36 |
+| DTE.DE (telecom) | **MODERADO** (-25%) | Defensivo pero Europa en recesion |
+| PFE, SAN.PA (pharma) | **MODERADO** (-20-30%) | Defensivo |
+| ADBE (tech) | **MODERADO-ALTO** (-40%) | Tech cayo pero no era el epicentro |
+| IMB.L (tabaco) | **BAJO** (-15%) | Ultra defensivo, consumo basico |
+| A2A.MI (utility) | **BAJO** (-20%) | Defensivo |
+
+**Nuestro portfolio en GFC: ~-40% (peor que en COVID ~-34%)**
+Porque: Tenemos real estate (VNA.DE, VICI) y seguros (ALL, GL) que son el EPICENTRO
+de GFC. En COVID eran resilientes. En GFC son la crisis.
+
+**Scorecard GFC:** D+
+(Peor que COVID C+ porque: perdemos mas, no tenemos cash por comprar temprano,
+recovery toma ANOS no meses)
+
+---
+
+### 10.2 Simulacion: Ucrania/Inflacion 2022 (Crisis Geopolitica + Tipos)
+
+#### Timeline critico
+
+| Fecha | Evento | STOXX600 |
+|-------|--------|----------|
+| Ene 2022 | Inflacion al alza, Fed hawkish | 494 |
+| Feb 24 2022 | Rusia invade Ucrania | 440 (-11%) |
+| Mar 2022 | Gas natural x5, petroleo $130 | 420 (-15%) |
+| Jun 2022 | Fed +75bps, inflacion 9.1% | 396 (-20%) |
+| Oct 2022 | **BOTTOM STOXX600** | 380 (-23%) |
+| Jul 2023 | Recovery | 460 (-7%) |
+
+**Diferencia clave: NO es crash puro. Es crisis COMPUESTA con DISPERSION sectorial.**
+
+#### Como habria reaccionado nuestro sistema
+
+**Lo que habria pasado MUY DIFERENTE a COVID:**
+
+| Factor | COVID | Ucrania/Inflacion 2022 |
+|--------|-------|------------------------|
+| Correlacion | ~1 (todo cae) | Dispersion (energy +40%, tech -30%) |
+| Velocidad | -34% en 23 dias | -23% en 10 meses |
+| Recovery | V-shape (5 meses) | Gradual (12+ meses) |
+| Sectores beneficiados | Tech, delivery | Energy, commodities, value |
+| Sectores danados | Travel, presencial | Growth, real estate, importadores |
+
+**Posiciones de nuestro portfolio:**
+
+| Posicion | Impacto 2022 | Razon |
+|----------|-------------|-------|
+| SHEL.L (oil) | **BENEFICIADA** (+30-40%) | Oil de $80 a $130 |
+| IMB.L (tabaco) | **RESILIENTE** (+5%) | Pricing power = inflation hedge |
+| A2A.MI (utility IT) | **MIXTO** | Gas caro = costes suben, pero pass-through |
+| DTE.DE (telecom) | **RESILIENTE** (0%) | Defensivo |
+| VNA.DE (real estate) | **SEVERO** (-40%) | Tipos suben → RE destruido |
+| ADBE (tech growth) | **SEVERO** (-40%) | Growth castigado por tipos |
+| NVO (pharma growth) | **MODERADO** (-20%) | Growth pero healthcare defensivo |
+| EDEN.PA (services) | **MODERADO** (-25%) | Business services ciclico |
+| LULU (consumer disc.) | **SEVERO** (-35%) | Consumo discretionary + tipos |
+
+**Hallazgo critico:** SHEL.L (que es nuestro "Tier C vulnerable" en COVID) es
+BENEFICIARIA en 2022. VNA.DE (resiliente en COVID) es EPICENTRO en 2022.
+ADBE (beneficiaria en COVID) es SEVERAMENTE danada en 2022.
+
+**Esto demuestra por que las tablas de vulnerabilidad por tipo de crisis son PELIGROSAS.**
+La misma posicion puede ser vulnerable en una crisis y beneficiaria en otra.
+
+**Lo que el sistema habria hecho BIEN:**
+- Diversificacion sectorial FUNCIONA aqui (algunos suben, otros bajan)
+- Portfolio global: -15 a -20% (mejor que mercado general)
+- SHEL.L compensa parte de las perdidas de VNA.DE y ADBE
+- Principio 6 previene vender SHEL.L para "reducir riesgo" (seria vender el ganador)
+
+**Lo que el sistema habria hecho MAL:**
+- Standing orders podrian ejecutarse en posiciones que siguen cayendo
+- No hay mecanismo para "concentrar en lo que funciona" (rotar de growth a value)
+- Early Warning System habria dado alertas desde Dic 2021 (inflacion + geopolitica)
+  → Esto SI habria dado ventaja de 2 meses
+
+**Scorecard 2022:** B-
+(Mejor que COVID: diversificacion funciona, portfolio mas balanceado.
+Pero no aprovechamos la dispersion para rotar.)
+
+---
+
+### 10.3 Que Revelan Las Tres Simulaciones Juntas
+
+```
+                    COVID     GFC       2022
+                    ------    ------    ------
+Velocidad:          Rapida    Lenta     Media
+Correlacion:        Alta      Alta      Baja
+Nuestro drawdown:   -34%      -40%      -18%
+Recovery:           5m        4 anos    12m
+Principio 6 salva:  SI        SI        SI
+Diversificacion:    NO        NO        SI
+Standing orders:    Trampa    Trampa    Mixto
+Cash suficiente:    NO        NO        Menos critico
+Quality predice:    SI        SI        SI
+```
+
+**Patrones CONSISTENTES (aplican a las 3 crisis):**
+1. Principio 6 (vender requiere argumento) SIEMPRE salva de panic selling
+2. Quality Score SIEMPRE predice mejor recovery
+3. Standing orders sin contexto SON problematicos en crisis sistemicas
+
+**Patrones INCONSISTENTES (cambian por crisis):**
+1. Diversificacion: inutil en COVID/GFC, util en 2022
+2. Cash: critico en COVID, agotado en GFC, menos importante en 2022
+3. Sectores vulnerables: completamente DIFERENTES en cada crisis
+4. Velocidad de respuesta necesaria: horas(COVID) vs meses(GFC) vs semanas(2022)
+
+**CONCLUSION:** NO existe un "protocolo universal". Existen PRINCIPIOS que aplicar
+RAZONANDO sobre el contexto especifico. Los principios C1-C10 del improvements
+document capturan esto.
+
+---
+
+## 11. Anti-Sesgo para Lectores Futuros
+
+```
+Este documento tiene sesgo inherente:
+
+1. SESGO COVID: Las secciones 1-9 son 100% COVID. El analisis mas detallado
+   es sobre un crash rapido con V-shape recovery. Esto NO es representativo
+   de la mayoria de crisis historicas.
+
+2. SESGO DE EVENTOS: Analiza crisis con "inicio" y "fin" claros. La erosion
+   lenta (stagflation, Japon 1990s) no se analiza bien porque no tiene "fecha".
+
+3. SESGO DE SUPERVIVENCIA: Analiza nuestro portfolio actual. Pero en GFC real,
+   algunas de estas empresas podrian no haber existido o tener otros fundamentals.
+
+4. SESGO RETROSPECTIVO: Sabemos COMO termino cada crisis. En el momento real,
+   la incertidumbre era absoluta. "Mantener quality" es facil de decir sabiendo
+   que COVID se recupero en 5 meses. Si no lo sabias, mantener con -34% es terror.
+
+INSTRUCCION PARA MI YO FUTURO:
+Usa este documento para APRENDER A PENSAR, no para SABER QUE HACER.
+La proxima crisis sera diferente a todas estas. Los principios persisten.
+Los playbooks no.
+```
+
+---
+
+## 12. Plan de Mejoras (ver documento separado)
+
+Las mejoras propuestas estan en: `docs/covid_system_crash_audit_improvements.md`
+(v3.0 - expandido de COVID a crisis abstracta con principios C1-C10)
+
+El framework de referencia rapida para usar DURANTE una crisis esta en:
+`docs/crisis_resilience_framework.md`
 
 ---
 
 **Autor:** Claude (Orchestrator)
 **Framework:** v4.0
 **Fecha:** 2026-02-06
+**Version:** 2.0 (anadidas simulaciones GFC y 2022, seccion anti-sesgo)
