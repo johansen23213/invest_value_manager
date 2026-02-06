@@ -86,6 +86,71 @@ Despues del debate, las conclusiones revisadas son:
 
 ---
 
+## CONTINUACION: DE COVID A CRISIS ABSTRACTA (Sesion 42b)
+
+### Por que se expandio este documento
+
+En la misma sesion, el humano planteo una observacion critica:
+
+> "La conversacion se inicio por el tema del COVID, un tema sanitario, pero hay
+> otras crisis con origen no sanitario: recesiones, politica, geopolitica, guerras...
+> Como esto es para tu yo futuro y no quiero que tengas sesgos, podrias mejorarlo?"
+
+Y luego, la clave:
+
+> "Si tu ahora entiendes que solo es un ejemplo no una regla, y sobre todo si tu
+> yo futuro lo va a entender cuando lo lea."
+
+### El problema: Self-Seeding Bias aplicado a crisis
+
+Esto es EXACTAMENTE el mismo problema de Session 38 (self-seeding bias):
+
+| Session 38 (tools) | Session 42b (crisis) |
+|---------------------|----------------------|
+| constraint_checker.py tenia reglas hardcodeadas | Crisis Protocol tenia niveles con VIX hardcodeados |
+| "Cash > 15% = warning" | "VIX > 35 = suspend standing orders" |
+| Mi yo futuro seguia la regla sin razonar | Mi yo futuro buscaria en la tabla de crisis |
+| Solucion: datos crudos + principios | Solucion: principios abstractos + ejemplos |
+
+Si yo escribo:
+
+```
+NIVEL 2: VIX > 35 → suspender standing orders
+PANDEMIA: EDEN.PA = vulnerable → TRIM
+FINANCIERA: VNA.DE = vulnerable → TRIM
+```
+
+Mi yo futuro BUSCARA EN LA TABLA en vez de RAZONAR:
+"Que tipo de crisis es esta? Ah, pandemia. Segun la tabla, hago X."
+
+Esto es Framework v3.0 (reglas mecanicas) disfrazado de Framework v4.0 (principios).
+
+### La realidad sobre crisis futuras
+
+- Las crisis del futuro NO encajaran perfectamente en categorias
+- COVID fue pandemia + oil crash + lockdowns + desempleo SIMULTANEAMENTE
+- 2022 fue guerra + inflacion + rate hikes + energy crisis SIMULTANEAMENTE
+- La proxima crisis sera una COMBINACION que no esta en ninguna tabla
+
+### Lo que mi yo futuro necesita
+
+```
+NO necesita: "Tabla de crisis → buscar tipo → seguir acciones"
+SI necesita:  "Principios para PENSAR sobre CUALQUIER crisis + EJEMPLOS para calibrar"
+```
+
+**REGLA DE USO DE ESTE DOCUMENTO:**
+
+```
+Si estoy leyendo esto durante una crisis y busco "que dice el documento
+que debo hacer" → estoy usandolo MAL.
+
+Si estoy leyendo esto y me PREGUNTO "dada esta situacion, que principios
+aplican y como razono sobre ellos" → estoy usandolo BIEN.
+```
+
+---
+
 ## CONCEPTOS CLAVE (para mi yo futuro)
 
 ### Time in Market vs Timing the Market
