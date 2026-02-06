@@ -6,8 +6,8 @@
 system:
   system_version: "4.0.0"
   framework_version: "4.0"
-  last_session: 2026-02-05
-  session_number: 39
+  last_session: 2026-02-06
+  session_number: 42
 
   # FRAMEWORK v4.0 - IMPLEMENTADO
   # =====================================
@@ -92,59 +92,64 @@ system:
       Ahora: 1 Tier A, 5 Tier B, 12 Tier C. Sin violaciones Tier D.
       Continuar añadiendo Tier A compounders: NOVO-B.CO, MA, V en pipeline.
   last_session_summary: |
-    Sesión 41 - AUDITORÍA v4.0 COMPLETA + REVIEWS (2026-02-06)
+    Sesion 42 - COVID CRASH STRESS TEST + DEBATE ESTRATEGICO (2026-02-06)
 
     =====================================================
-    VIGILANCIA
+    COVID CRASH AUDIT (PRINCIPAL)
     =====================================================
-    - 0 alertas críticas, 8 noticias materiales
-    - NVO -8.2% (guidance shock, ya en thesis)
-    - EVO.ST: standing order actualizado (530 SEK, NO ejecutar)
+    El humano pidio stress-test del sistema contra COVID-19 (Feb-Mar 2020).
+
+    DOCUMENTOS CREADOS:
+    - docs/covid_system_crash_audit.md (audit completo fase a fase)
+    - docs/covid_system_crash_audit_improvements.md (11 mejoras, v2.0)
+
+    SCORECARD SISTEMA EN COVID: C+
+    - Fortalezas: Principio 6 impide panic selling, Quality Score predice recovery
+    - Fallos criticos: Sin cash para comprar en bottom, standing orders sin freno,
+      sin protocolo de crisis, sin triage rapido, sin early warning
 
     =====================================================
-    REVIEWS COMPLETADOS
+    DEBATE CRITICO CON HUMANO
     =====================================================
-    EDEN.PA: HOLD / WAIT EARNINGS FEB 24
-    - QS 62 Tier B (sin cambio)
-    - FV Expected EUR 38.4 (reducido -25% por decreto Brasil)
-    - MoS vs Bear 34.7% (amplio para Tier B)
-    - Kill conditions: ninguna triggered
-    - Sector view actualizado (Brasil: MATERIALIZADO)
+    El humano cuestiono mis conclusiones iniciales:
+    - "Mas cash parado = menos rendimiento normal" → CORRECTO, revise mi propuesta
+    - "Shorting/hedge fund no seria mejor?" → Analizado: rompe el sistema
+    - "Tu podrias anticipar crisis" → Diseñado Early Warning System de 4 capas
 
-    LIGHT.AS: HOLD-PROBATION
-    - QS 56 Tier B (sin cambio)
-    - FV EUR 21.90 (reducido -35.8% por Q4 miss + competencia china)
-    - MoS 9.9% (bajo)
-    - CMD Jun 23 2026 = definitive decision point
-    - Calendario actualizado con CMD
+    CONCLUSIONES REVISADAS (v2.0):
+    1. Quality IS the hedge (migrar a 70% Tier A+B)
+    2. Cash on Demand > Cash permanente (proceso rapido, no drag)
+    3. Early Warning System (mi capacidad mas subutilizada)
+    4. Time in market > timing (perder 10 mejores dias = -50% retorno)
+    5. Inverse ETFs como herramienta tactica, NO estrategia
+    6. Preparar emocionalmente al humano AHORA
 
     =====================================================
-    AUDITORÍA FRAMEWORK v4.0 (PRINCIPAL)
+    11 MEJORAS PROPUESTAS (prioridad)
     =====================================================
-    26 ficheros corregidos para eliminar números fijos hardcodeados:
-    - 5 CRITICAL: investment-committee, review-agent, position-calculator,
-      file-structure.md, dcf_calculator.py
-    - 8 HIGH: fundamental-analyst, error-detector, recommendation-context,
-      portfolio-ops, rebalancer, session-protocol, drift_detector.py
-    - 13 MEDIUM/LOW: version labels, agent-registry, quality_scorer,
-      opportunity-hunter, decision-template, evolution-protocol
-    Todo el sistema ahora razona desde principios + precedentes.
+    CRITICAS: Crisis Protocol, Circuit Breaker, Early Warning System
+    ALTAS: Vulnerability Matrix, Crisis Playbook humano, Migrar a Tier A, Cash on Demand
+    MEDIAS: Market Regime Detector, Stress Test Tool, Tail Correlations
+    BAJAS: Inverse ETFs documentacion
 
     =====================================================
     ESTADO FINAL
     =====================================================
-    - Posiciones: 21
+    - Posiciones: 21 (sin cambios)
     - Tier A: 4 (ADBE, NVO, MONY.L, LULU)
-    - Cash: ~€790 (8.1%)
+    - Cash: ~€790 (7.1%)
     - Sin operaciones ejecutadas
+    - Branch feature/refactor_claude_md con 26 ficheros sin commitear
 
     =====================================================
-    PRÓXIMA SESIÓN
+    PROXIMA SESION
     =====================================================
-    1. Earnings: MONY.L Feb 23, EDEN.PA Feb 24, TEP.PA Feb 26
-    2. LIGHT.AS Q1 results (fecha TBD) - monitorear
-    3. Standing orders: ZIG.L, EVO.ST (revisado)
-    4. Pipeline: verificar >3 thesis pre-escritas
+    1. VIGILANCIA: news-monitor + market-pulse (no ejecutados hoy)
+    2. Earnings: MONY.L Feb 23, EDEN.PA Feb 24, TEP.PA Feb 26
+    3. Standing orders: BME.L, UTG.L, TATE.L (activos)
+    4. IMPLEMENTAR mejoras Fase 1: Crisis playbook, circuit breaker, Principio 4
+    5. Commit branch de auditoria v4.0 (26 ficheros pendientes)
+    6. Pipeline Tier A: buscar 5+ quality compounders adicionales
 
   last_session_summary_archived: |
     Sesión 40 - FALLEN ANGEL HUNT + LULU TIER A (2026-02-05)
