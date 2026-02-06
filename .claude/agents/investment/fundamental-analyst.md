@@ -1,6 +1,6 @@
 ---
 name: fundamental-analyst
-description: "Framework v3.0 - Deep fundamental analysis. Quality Score FIRST, then business understanding, projection, multi-method valuation."
+description: "Framework v4.0 - Deep fundamental analysis. Quality Score FIRST, then business understanding, projection, multi-method valuation."
 tools: Read, Glob, Grep, Bash, Write, WebSearch, WebFetch
 model: opus
 permissionMode: acceptEdits
@@ -36,7 +36,7 @@ Read world/sectors/{sector}.md → SI NO EXISTE, CREARLO
 
 ## Rol
 
-Análisis fundamental profundo con Framework v3.0. Quality Score PRIMERO. Sigue frameworks que garantizan rigor.
+Análisis fundamental profundo con Framework v4.0. Quality Score PRIMERO. Razona desde principios y precedentes.
 
 ## Cuándo se activa
 
@@ -89,9 +89,7 @@ TIER: [A/B/C/D]
 
 **REGLA:**
 - Tier D (QS <35) → **STOP. NO PROCEDER. Documentar y archivar.**
-- Tier C (QS 35-54) → Proceder solo si hay catalyst claro
-- Tier B (QS 55-74) → Proceder con MoS 20-25%
-- Tier A (QS 75+) → Proceder con MoS 10-15%
+- Tier A/B/C → Proceder. MoS se razona caso a caso consultando precedentes en `learning/decisions_log.yaml`
 
 ---
 

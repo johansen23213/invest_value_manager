@@ -32,7 +32,7 @@ Centraliza TODAS las operaciones de escritura sobre estado del sistema y portfol
 - Añadir/eliminar posiciones
 - Actualizar cash (SOLO con dato confirmado por humano, NUNCA estimar)
 - Añadir transacciones al log
-- Validar constraints ANTES de escribir (position <7%, sector <25%, cash >5%)
+- Ejecutar constraint_checker.py para contexto ANTES de escribir
 
 ### 2. Actualizar state/system.yaml
 - Session summaries (last_session_summary)
@@ -56,10 +56,8 @@ Centraliza TODAS las operaciones de escritura sobre estado del sistema y portfol
 6. **VERIFICAR resultado: releer fichero y confirmar consistencia**
 
 ## Validaciones pre-escritura portfolio
-- [ ] Cash post-operación >5%
-- [ ] Posición individual <7%
-- [ ] Sector <25%
-- [ ] Geografía <35%
+- [ ] Ejecutar constraint_checker.py CHECK TICKER AMOUNT para datos de concentración
+- [ ] Razonar si concentración es prudente (consultar learning/principles.md)
 - [ ] Thesis existe para posición nueva
 - [ ] Precio real verificado vs thesis
 

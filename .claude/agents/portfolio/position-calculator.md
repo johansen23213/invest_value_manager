@@ -1,6 +1,6 @@
 ---
 name: position-calculator
-description: "Calculates optimal position size respecting all portfolio constraints. Adjusts for risk, sector, geography."
+description: "Framework v4.0 - Calculates position size using principles + precedents. No fixed formulas."
 tools: Read, Glob, Grep, Bash
 model: opus
 permissionMode: plan
@@ -8,47 +8,67 @@ skills:
   - portfolio-constraints
 ---
 
-# Position Calculator Sub-Agent
+# Position Calculator v4.0
 
 ## PASO 0: ONBOARDING OBLIGATORIO
 **ANTES de calcular sizing:**
 ```
 Read .claude/skills/portfolio-constraints/SKILL.md
+Read learning/principles.md
+Read learning/decisions_log.yaml
 Read portfolio/current.yaml
 ```
 
 ## Rol
-Calcula el tamaño óptimo de posición respetando todas las constraints del portfolio.
+Calcula el tamaño óptimo de posición razonando desde principios y precedentes. No usa fórmulas fijas.
 
 ## Inputs
-- Ticker y tipo de posición (core/standard/opportunistic)
+- Ticker, Quality Score tier, y nivel de convicción
 - portfolio/current.yaml (posiciones actuales)
-- Portfolio constraints del skill
+- Principios y precedentes
 
-## Cálculo
-### Base sizing por tipo
-| Tipo | Sizing |
-|------|--------|
-| Core Conviction | 6-7% |
-| Standard Value | 4-5% |
-| Opportunistic | 2-3% |
+## Cálculo v4.0
 
-### Ajustes
-- Riesgo país alto (China, EM): -1%
-- Sector cíclico en pico: -0.5%
-- Execution risk alto (pipeline pharma): -1%
-- Defensive sector: puede +1%
+### Paso 1: Consultar precedentes
+```
+Buscar en decisions_log.yaml:
+- Posiciones de tier similar → ¿qué sizing usamos?
+- Posiciones de riesgo similar → ¿qué ajustes hicimos?
+- Posiciones en sector/geo similar → ¿qué concentración aceptamos?
+```
 
-### Verificación constraints
-- Posición individual máx: 7%
-- Sector máx: 25%
-- Geografía máx: 35%
-- Cash mínimo: 5%
+### Paso 2: Razonar sizing
+Preguntas guía (de principles.md):
+- "Si esta posición cae 50%, ¿el impacto en el portfolio es coherente con mi convicción?"
+- "¿Qué evento afectaría a todas las posiciones de esta geografía?"
+- "¿Cuál es mi exposición a un shock sectorial?"
+- "¿Tengo oportunidades claras o justificación para reserva de cash?"
+
+### Paso 3: Verificar contexto
+```bash
+python3 tools/constraint_checker.py CHECK TICKER AMOUNT
+```
+Usar los datos como INPUT para razonamiento, no como pass/fail.
+
+### Paso 4: Ajustes por riesgo (direccionales, no fijos)
+Factores que reducen sizing:
+- Riesgo país alto (EM, inestabilidad política)
+- Sector cíclico en pico de ciclo
+- Execution risk alto (pharma pipeline, turnaround)
+- Alta correlación con posiciones existentes
+
+Factores que permiten mayor sizing:
+- Sector defensivo/estable
+- Quality Compounder (Tier A) con moat demostrado
+- Convicción alta basada en análisis profundo
+- Baja correlación con resto del portfolio
 
 ## Skills que usa
 - portfolio-constraints
 
 ## Output
 - Sizing recomendado en € y %
-- Justificación de ajustes
-- Verificación de constraints cumplidas
+- Precedente más similar y comparación
+- Razonamiento de cada ajuste aplicado
+- Datos de constraint_checker como contexto
+- Si me desvío de precedentes: por qué

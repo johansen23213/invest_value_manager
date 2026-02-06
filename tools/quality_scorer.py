@@ -553,7 +553,7 @@ def print_result(result, detailed=False):
     print()
     print(f"TOTAL SCORE: {result['total_score']}/100 → TIER {result['tier']}")
     print(f"Category: {result['category']}")
-    print(f"MoS Required: {result['mos_required']}")
+    print(f"MoS Guidance: {result['mos_required']}")
     print()
 
     # Component summary
@@ -619,7 +619,7 @@ def main():
         print(f"\n{'='*60}")
         print("SUMMARY")
         print(f"{'='*60}")
-        print(f"{'Ticker':<8} {'Score':>6} {'Tier':>5} {'Category':<20} {'MoS Req':<10}")
+        print(f"{'Ticker':<8} {'Score':>6} {'Tier':>5} {'Category':<20} {'MoS Guidance':<14}")
         print(f"{'-'*60}")
 
         for ticker in args.tickers:

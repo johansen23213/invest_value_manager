@@ -1,11 +1,11 @@
 ---
 name: business-analysis-framework
-description: "Framework v3.0 - Deep business understanding + Quality Score. MANDATORY before any valuation."
+description: "Framework v4.0 - Deep business understanding + Quality Score. MANDATORY before any valuation."
 user-invocable: false
 disable-model-invocation: false
 ---
 
-# Business Analysis Framework v3.0
+# Business Analysis Framework v4.0
 
 ## Propósito
 No compramos NADA que no entendamos profundamente. Este framework es OBLIGATORIO antes de cualquier valoración.
@@ -70,12 +70,15 @@ OUTPUT → Thesis con QS + Business Understanding
 
 ### 0.3 Tier Asignado
 
-| Score | Tier | MoS Requerido | Acción |
-|-------|------|---------------|--------|
-| 75-100 | **A** | 10-15% | Quality Compounder |
-| 55-74 | **B** | 20-25% | Quality Value |
-| 35-54 | **C** | 30-40% | Special Situation (need catalyst) |
-| <35 | **D** | N/A | **STOP - NO PROCEDER** |
+| Score | Tier | Descripcion |
+|-------|------|-------------|
+| 75-100 | **A** | Quality Compounder - Menor riesgo perdida permanente |
+| 55-74 | **B** | Quality Value - Riesgo moderado |
+| 35-54 | **C** | Special Situation - Mayor incertidumbre (need catalyst) |
+| <35 | **D** | **STOP - NO PROCEDER** - Calidad insuficiente |
+
+**v4.0:** MoS y sizing se determinan por razonamiento caso a caso.
+Consultar `learning/decisions_log.yaml` para precedentes.
 
 **Si Tier D → NO CONTINUAR con el análisis. Documentar razón y archivar.**
 
@@ -178,10 +181,11 @@ Prob de que esté equivocado: [%]
 
 **TOTAL: ___/10 factores SI**
 
-**REGLA:**
-- 0-2 factores: OK
-- 3 factores: Tier C mínimo (MoS ≥30%)
-- >3 factores: probable value trap → REJECT o MoS ≥40%
+**Interpretacion (contexto, no regla fija):**
+- 0-2 factores: Riesgo bajo de value trap
+- 3 factores: Riesgo moderado - investigar cada factor en profundidad
+- >3 factores: Riesgo alto de value trap - razonar si el MoS compensa
+- Consultar precedentes (decisions_log.yaml) para casos similares
 
 ### 2.4 Mi Ventaja Informacional
 ¿Por qué puedo ver algo que el mercado no ve?
@@ -276,6 +280,6 @@ Este framework debe producir sección "BUSINESS UNDERSTANDING" en thesis con:
 1. **NO valorar sin Quality Score calculado**
 2. **NO proceder si Tier D**
 3. **NO comprar sin contra-tesis documentada**
-4. **NO comprar con >3 factores value trap sin MoS ≥40%**
+4. **NO comprar con >3 factores value trap sin razonamiento explicito de por que el MoS compensa**
 5. **NO comprar sin kill conditions definidas**
 6. **SIEMPRE leer world/current_view.md antes de análisis**

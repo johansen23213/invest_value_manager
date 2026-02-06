@@ -137,26 +137,10 @@ def analyze_mos_threshold(mos_values):
             'message': "No hay suficientes datos por tier."
         }
 
-    # Check if minimums are reasonable
-    warnings = []
-    for r in results:
-        if r['tier'] == 'A' and r['min_accepted'] < 8:
-            warnings.append(f"Tier A: MoS mínimo aceptado {r['min_accepted']:.0f}% (esperado ~10%+)")
-        elif r['tier'] == 'B' and r['min_accepted'] < 15:
-            warnings.append(f"Tier B: MoS mínimo aceptado {r['min_accepted']:.0f}% (esperado ~20%+)")
-        elif r['tier'] == 'C' and r['min_accepted'] < 25:
-            warnings.append(f"Tier C: MoS mínimo aceptado {r['min_accepted']:.0f}% (esperado ~30%+)")
-
-    if warnings:
-        return {
-            'status': 'REVIEW',
-            'message': "; ".join(warnings),
-            'details': results
-        }
-
+    # Return raw data for reasoning - no hardcoded thresholds
     return {
-        'status': 'OK',
-        'message': "Umbrales de MoS parecen razonables por tier.",
+        'status': 'DATA',
+        'message': "MoS por tier (datos crudos para razonamiento).",
         'details': results
     }
 

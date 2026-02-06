@@ -247,3 +247,53 @@ El humano ha tenido que señalar REPETIDAMENTE problemas que debería detectar s
 
     NUNCA empezar WebSearch/tools sin este paso.
     ```
+
+---
+
+## Errores Sesión 40 (2026-02-05)
+
+41. **No completar el ciclo post-análisis** — Sesión 40: Después de analizar INGR y DBX, presenté los resultados pero NO añadí las alertas de precio a system.yaml. El humano tuvo que preguntar "¿tenemos que poner alguna alerta?" y luego "¿por qué no lo hiciste?".
+
+    **CAUSA RAÍZ:** Presento resultados y paso a la siguiente pregunta sin completar TODAS las acciones derivadas del análisis.
+
+    **PROTOCOLO POST-ANÁLISIS (OBLIGATORIO):**
+    ```
+    Cuando un análisis termina con veredicto WATCHLIST o BUY:
+
+    1. ✅ Guardar thesis
+    2. ✅ Actualizar sector view
+    3. ✅ Añadir alerta de precio a state/system.yaml (price_monitors)
+    4. ✅ Si BUY aprobado → añadir standing order
+    5. ✅ Confirmar al usuario qué se añadió
+
+    NO esperar a que el humano lo pida.
+    NO pasar a la siguiente tarea sin completar el ciclo.
+    ```
+
+    **REGLA:** El análisis NO está completo hasta que la alerta está en el sistema.
+
+---
+
+## Errores Sesión 44 (2026-02-06)
+
+42. **REINCIDENCIA: Comprar sin sector view (Error #30 repetido)** — Sesión 44: Compramos LULU sin tener `world/sectors/consumer-discretionary.md`. Esto es EXACTAMENTE el Error #30 (ADBE sin technology.md). Triple fallo:
+    - Error #30 ya documentado → lo repetí de todas formas
+    - META-REFLECTION del fundamental-analyst decia "Crear retail sector view" → no actué ANTES de comprar
+    - Investment Committee Gate 8 (Sector Understanding) pasó sin verificar que existiera el fichero
+
+    **CAUSA RAIZ:** No hay check AUTOMÁTICO. Depende de mi memoria, y mi memoria falla.
+
+    **CORRECCIÓN IMPLEMENTADA:**
+    - Añadido GATE 0 al Investment Committee: `Glob("world/sectors/*{sector}*")` ANTES de evaluar gates
+    - Si no existe sector view → BLOQUEAR hasta que se cree
+    - Esto es un HARD GATE, no un "debería"
+
+    **REGLA DURA:**
+    ```
+    ANTES de que Investment Committee evalúe ANY gate:
+    PASO 0: ¿Existe sector view para esta empresa?
+      → glob world/sectors/*{sector}*
+      → SI: Continuar con gates 1-9
+      → NO: STOP. Crear sector view PRIMERO. Lanzar sector-screener.
+      → NO HAY EXCEPCIONES.
+    ```

@@ -23,12 +23,13 @@ Read portfolio/current.yaml
 ## Rol
 Ejecuta rebalanceos scheduled (mensual) y trigger-based (inmediato).
 
-## Triggers inmediatos
-- Posición >target × 1.3 → TRIM a target
-- Posición <target × 0.7 + thesis intacta → ADD
-- Sector >27% → REBALANCEAR inmediato
-- Geografía >37% → REBALANCEAR
-- Cash <5% → STOP buying
+## Triggers inmediatos (directionales, razonar cada caso)
+- Posición significativamente por encima de target → Evaluar TRIM razonando desde principios
+- Posición significativamente por debajo de target + thesis intacta → Evaluar ADD
+- Concentración sectorial o geográfica alta → Evaluar rebalanceo consultando precedentes
+- Cash bajo → Evaluar si es prudente seguir comprando
+
+**SIEMPRE:** Consultar `learning/principles.md` y `learning/decisions_log.yaml` antes de decidir. Ejecutar `constraint_checker.py REPORT` para datos.
 
 ## Rebalanceo mensual
 - Primer lunes de cada mes

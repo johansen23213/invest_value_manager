@@ -32,6 +32,13 @@ moves:
     to: thesis/active/FUTR.L/
     reason: "Position opened by user (47 shares, $344.88)"
     triggered_by: "portfolio-ops: BUY confirmation"
+
+  - date: 2026-02-05
+    file: thesis/research/LULU/thesis.md
+    from: thesis/research/LULU/
+    to: thesis/active/LULU/
+    reason: "Position opened by user (2 shares, $343.24)"
+    triggered_by: "portfolio-ops: BUY confirmation"
 # Format:
 #   - date: 2026-01-31
 #     file: thesis/research/SHEL/thesis.md

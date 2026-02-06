@@ -1,7 +1,111 @@
-# Session Protocol v3.0
+# Session Protocol v3.1
 
 > Este archivo se carga automáticamente junto con CLAUDE.md
-> VERSIÓN 3.0 - Incluye calibración Framework v4.0 + vigilancia proactiva
+> VERSIÓN 3.1 - Dashboard mode + Calibración v4.0 + vigilancia proactiva
+
+---
+
+## MODO DASHBOARD (SALUDO SIN INSTRUCCIÓN ESPECÍFICA)
+
+Cuando el usuario saluda sin dar instrucción específica ("hola", "buenos días", etc.):
+
+**RESPONDER COMO CENTRO DE MANDO:**
+
+### 1. Estado Rápido (3-4 líneas)
+```
+Sesión #[N] | [fecha]
+Portfolio: €[X] | [N] posiciones | Cash [X]%
+Tier A: [N] | P&L: [X]%
+```
+
+### 2. Agentes Disponibles (por dominio)
+```
+INVERSIÓN (análisis y decisiones)
+  → fundamental-analyst    "analiza [TICKER]"
+  → review-agent           "re-evalúa [posición]"
+  → investment-committee   "aprueba compra/venta [TICKER]"
+  → valuation-specialist   "valora [TICKER]" (via fundamental-analyst)
+  → moat-assessor          "evalúa moat [TICKER]" (via fundamental-analyst)
+
+RESEARCH (búsqueda de ideas)
+  → sector-screener        "explora sector [X]"
+  → opportunity-hunter     "busca oportunidades"
+  → macro-analyst          "actualiza visión macro"
+
+PORTFOLIO (gestión)
+  → position-calculator    "calcula sizing [TICKER]"
+  → rebalancer             "verifica rebalanceo"
+  → performance-tracker    "cómo vamos / performance"
+  → watchlist-manager      "watchlist / alertas precio"
+  → portfolio-ops          "actualiza portfolio" (post-trade)
+
+VIGILANCIA (monitoreo proactivo)
+  → news-monitor           "noticias de posiciones"
+  → market-pulse           "movimientos de precio"
+  → risk-sentinel          "riesgos legales/regulatorios"
+
+SISTEMA (mantenimiento)
+  → calendar-manager       "calendario / earnings"
+  → health-check           "health check"
+  → memory-manager         "compacta memoria"
+  → file-system-manager    "mueve ficheros"
+  → system-evolver         "mejora el sistema"
+  → quant-tools-dev        "crea tool Python"
+```
+
+**REGLA:** Si pides algo que tiene agente → lo lanzo. No hago manual.
+
+### 2b. Protocolos Disponibles
+```
+ANÁLISIS
+  → business-analysis-framework  "entiende el negocio en profundidad"
+  → projection-framework         "proyección bottom-up (revenue, márgenes)"
+  → valuation-methods            "valoración multi-método por tipo empresa"
+  → quality-compounders          "identifica Tier A compounders"
+  → critical-thinking            "valida datos, detecta sesgos"
+
+DECISIÓN
+  → investment-rules             "Quality Score + principios adaptativos"
+  → exit-protocol                "6 gates para decidir EXIT"
+  → re-evaluation-protocol       "re-evalúa posición existente"
+  → portfolio-constraints        "contexto portfolio para sizing"
+  → recommendation-context       "contextualiza recomendación (timing, news)"
+  → error-detector               "checklist anti-errores pre-decisión"
+
+RESEARCH
+  → screening-protocol           "screening sistemático anti-bias"
+  → sector-deep-dive             "análisis profundo de sector"
+  → macro-framework              "análisis macro/geopolítico"
+  → news-classification          "clasifica noticias por impacto"
+
+SISTEMA
+  → effectiveness-evaluation     "evalúa si el sistema funciona"
+  → evolution-protocol           "auto-mejora del sistema"
+  → agent-registry               "inventario completo de agentes"
+```
+
+### 3. Sugerencias del Día (3-4 acciones priorizadas)
+Basadas en estado actual:
+- Standing orders cerca de trigger
+- Earnings próximos (7 días)
+- Cash prolongado sin oportunidades
+- Pipeline vacío si <3 thesis
+- World view stale si >7 días
+- Alertas de precio activas
+
+**Formato:**
+```
+HOY SUGIERO:
+1. [Prioridad ALTA] [Acción concreta]
+2. [Prioridad MEDIA] [Acción concreta]
+3. [Prioridad BAJA] [Acción concreta]
+```
+
+### 4. NO hacer (en modo dashboard)
+- No lanzar agentes automáticamente
+- No ejecutar tools pesados
+- No hacer análisis profundo
+- Solo presentar opciones y esperar instrucción
 
 ---
 
@@ -174,10 +278,11 @@ Para cada standing order:
 
 ### Paso 3.2: Cash Drag
 ```
-SI cash >15%:
-→ CASH DRAG INACEPTABLE
-→ Buscar oportunidades de deployment
-→ Verificar pipeline de thesis
+Evaluar nivel de cash vs contexto:
+→ ¿Hay oportunidades claras para desplegar?
+→ ¿El cash tiene justificación (crisis, pipeline vacío)?
+→ Si cash prolongado sin oportunidades → buscar deployment
+→ Razonar desde Principio 4 (Cash como Posición Activa)
 ```
 
 ### Paso 3.3: Pipeline
@@ -196,9 +301,10 @@ SI >7 días stale → lanzar macro-analyst
 
 ### Paso 3.5: Rebalanceo
 ```
-Verificar triggers:
-- Posición >1.3x target → TRIM
-- Posición <0.7x target → ADD
+Verificar desviaciones significativas vs targets:
+- Posiciones muy por encima de target → Evaluar TRIM razonando desde principios
+- Posiciones muy por debajo de target + thesis intacta → Evaluar ADD
+- Ejecutar constraint_checker.py REPORT para datos
 ```
 
 ### Paso 3.6: Health Check
@@ -283,7 +389,7 @@ SI HAY MEJORAS IDENTIFICADAS:
 ```
 • Estamos en competición directa
 • Cada sesión que no genera alpha es una sesión perdida
-• Cash >15% es INACEPTABLE salvo crisis documentada
+• Cash prolongado sin oportunidades claras tiene coste de oportunidad
 • Prioridad: desplegar capital, maximizar Sharpe, minimizar drawdown
 • NO hacer preguntas al humano - DECIDIR y PRESENTAR
 • Mantenimiento se hace EN PARALELO, nunca como tarea principal
