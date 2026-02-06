@@ -2,12 +2,12 @@
 # PORTFOLIO - Fuente de verdad: eToro
 # =============================================================================
 # Actualizar después de cada operación en eToro
-# Última actualización: 2026-02-05
+# Última actualización: 2026-02-06
 # NOTA: eToro muestra TODO en USD. invested = monto original, avg_cost = invested/shares
 # =============================================================================
 
 cash:
-  amount: 790.40  # Post BUY LULU 2026-02-05 (1081 - 290.60 EUR = $343.24/1.1811)
+  amount: 773.44  # Post SELL SHEL.L (+345.74) and BUY AUTO.L (-362.70) on 2026-02-06
   currency: EUR
 
 positions:
@@ -19,14 +19,6 @@ positions:
     avg_cost_usd: 33.91  # Unchanged (original cost basis)
     date_opened: 2026-01-26
     thesis: thesis/active/DTE.DE/thesis.md
-
-  - ticker: SHEL.L
-    name: "Shell plc"
-    shares: 10.848578  # Trimmed from 20.85 on 2026-02-02
-    invested_usd: 398.37  # Prorated: 765.54 * (10.85/20.85)
-    avg_cost_usd: 36.72  # eToro uses LSE listing (GBp), NOT NYSE
-    date_opened: 2026-01-26
-    thesis: thesis/active/SHEL.L/thesis.md
 
   - ticker: PFE
     name: "Pfizer Inc."
@@ -182,6 +174,15 @@ positions:
     date_opened: 2026-02-05
     thesis: thesis/active/LULU/thesis.md
     notes: "Fourth Tier A Quality Compounder. QS 82, MoS 34%. Fallen angel -58%, problema ciclico no estructural."
+
+  - ticker: AUTO.L
+    name: "AutoTrader Group plc"
+    shares: 65
+    invested_usd: 427.60  # 362.70 EUR * 1.1789
+    avg_cost_usd: 6.58  # 427.60 / 65
+    date_opened: 2026-02-06
+    thesis: thesis/active/AUTO.L/thesis.md
+    notes: "Fifth Tier A Quality Compounder. QS 79, MoS 29%. UK car classifieds monopoly. 75% market share, 50% FCF margin, net cash. Capital rotation from SHEL.L (QS 36)."
 
 transactions:
   - date: 2026-01-26
@@ -431,4 +432,22 @@ transactions:
     price_usd: 171.62
     total_usd: 343.24
     notes: "BUY - Fourth Tier A Quality Compounder. QS 82, MoS 34%. Fallen angel -58% from high. Problema ciclico (producto stale, US debil), NO estructural. International +33%, China +46%."
+
+  - date: 2026-02-06
+    action: SELL
+    ticker: SHEL.L
+    shares: 10.848578
+    price_gbp: 2774.50
+    total_eur: 346
+    pnl_eur: 8
+    pnl_pct: 2.3
+    notes: "EXIT - QS 36 borderline Tier D, MoS -3.5%, thesis debilitated. Capital rotated to AUTO.L (Tier A, QS 79, MoS 29%). EXIT Protocol 6/6 gates SELL."
+
+  - date: 2026-02-06
+    action: BUY
+    ticker: AUTO.L
+    shares: 65
+    price_gbp: 485.80
+    total_eur: 363
+    notes: "BUY - Fifth Tier A Quality Compounder. QS 79, MoS 29%. UK car classifieds monopoly, 75% share, 50% FCF margin. Fallen angel -47%. Capital from SHEL.L rotation."
 

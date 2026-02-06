@@ -31,11 +31,10 @@ La tesis sectorial: los classifieds dominantes son monopolios naturales locales.
 | Ticker | Empresa | Vertical | Status |
 |--------|---------|----------|--------|
 | MONY.L | Mony Group (MoneySupermarket) | Price comparison UK | PORTFOLIO (Tier A, QS 81) |
+| AUTO.L | AutoTrader Group | Car classifieds UK | PORTFOLIO (Tier A, QS 79) |
 
-### Analizadas - Pendiente Compra
-| Ticker | Empresa | Vertical | Status |
-|--------|---------|----------|--------|
-| AUTO.L | AutoTrader Group | Car classifieds UK | BUY APROBADO (Tier A, QS 79) |
+### Analizadas - Compradas
+*(ninguna pendiente)*
 
 ### Peers / Comparables
 | Ticker | Empresa | Vertical | EV/EBITDA | Margen | Notas |
@@ -75,7 +74,7 @@ La tesis sectorial: los classifieds dominantes son monopolios naturales locales.
 | Tipo | Ticker | Thesis Path | Ultima Eval | Status |
 |------|--------|-------------|-------------|--------|
 | Portfolio | MONY.L | thesis/active/MONY.L/thesis.md | 2026-02-04 | HOLD |
-| Pendiente | AUTO.L | thesis/research/AUTO.L/thesis.md | 2026-02-06 | BUY |
+| Portfolio | AUTO.L | thesis/active/AUTO.L/thesis.md | 2026-02-06 | HOLD |
 
 ---
 
@@ -84,6 +83,7 @@ La tesis sectorial: los classifieds dominantes son monopolios naturales locales.
 | Fecha | Tipo | Cambio |
 |-------|------|--------|
 | 2026-02-06 | CREACION | Sector view creado para AUTO.L analysis. Status SOBREPONDERAR. |
+| 2026-02-06 | BUY AUTO.L | Comprada 65 shares a 486 GBp. Capital de rotacion SHEL.L. 5to Tier A. |
 
 ---
 

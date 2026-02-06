@@ -39,6 +39,20 @@ moves:
     to: thesis/active/LULU/
     reason: "Position opened by user (2 shares, $343.24)"
     triggered_by: "portfolio-ops: BUY confirmation"
+
+  - date: 2026-02-06
+    file: thesis/active/SHEL.L/*
+    from: thesis/active/SHEL.L/
+    to: thesis/archive/SHEL.L/
+    reason: "Position closed - SELL 10.848578 shares @ 2774.50 GBp. QS 36 borderline Tier D, MoS -3.5%. Capital rotated to AUTO.L."
+    triggered_by: "portfolio-ops: SELL confirmation"
+
+  - date: 2026-02-06
+    file: thesis/research/AUTO.L/thesis.md
+    from: thesis/research/AUTO.L/
+    to: thesis/active/AUTO.L/
+    reason: "Position opened by user (65 shares @ 485.80 GBp, ~363 EUR)"
+    triggered_by: "portfolio-ops: BUY confirmation"
 # Format:
 #   - date: 2026-01-31
 #     file: thesis/research/SHEL/thesis.md

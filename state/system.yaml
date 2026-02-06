@@ -51,107 +51,86 @@ system:
   # QUALITY SCORE - PORTFOLIO ANALYSIS (2026-02-04)
   # ===============================================
   portfolio_quality_analysis:
-    date: 2026-02-05
+    date: 2026-02-06
     summary:
-      tier_a_count: 4  # ADBE + NVO + MONY.L + LULU
+      tier_a_count: 5  # ADBE + NVO + MONY.L + LULU + AUTO.L
       tier_b_count: 5
-      tier_c_count: 12
+      tier_c_count: 11
       tier_d_count: 0
-      tier_d_violation: null  # RESOLVED: FUTR.L sold 2026-02-04
-      first_tier_a: ADBE  # First Quality Compounder in portfolio!
-      framework_v3_validated: true  # NVO = full end-to-end validation
+      tier_d_violation: null
+      first_tier_a: ADBE
+      framework_v3_validated: true
     positions:
-      # TIER A - Quality Compounders (3 positions)
-      - { ticker: ADBE, score: 76, tier: A, mos_required: "10-15%", status: "First Tier A!" }
-      - { ticker: NVO, score: 82, tier: A, mos_required: "10-15%", status: "Framework v3.0 validated! MoS 38%" }
-      - { ticker: MONY.L, score: 81, tier: A, mos_required: "10-15%", status: "Third Tier A! UK price comparison. MoS 36%" }
-      - { ticker: LULU, score: 82, tier: A, mos_required: "10-15%", status: "Fourth Tier A! Fallen angel -58%, problema ciclico. MoS 34%" }
+      # TIER A - Quality Compounders (5 positions)
+      - { ticker: ADBE, score: 76, tier: A, status: "First Tier A!" }
+      - { ticker: NVO, score: 82, tier: A, status: "Framework v3.0 validated! MoS 38%" }
+      - { ticker: MONY.L, score: 81, tier: A, status: "Third Tier A! UK price comparison. MoS 36%" }
+      - { ticker: LULU, score: 82, tier: A, status: "Fourth Tier A! Fallen angel -58%. MoS 34%" }
+      - { ticker: AUTO.L, score: 79, tier: A, status: "Fifth Tier A! UK car classifieds monopoly. MoS 29%. Rotated from SHEL.L." }
       # TIER B - Quality Value (5 positions)
-      - { ticker: HRB, score: 73, tier: B, mos_required: "20-25%" }
-      - { ticker: EDEN.PA, score: 62, tier: B, mos_required: "20-25%" }
-      - { ticker: DOM.L, score: 61, tier: B, mos_required: "20-25%" }
-      - { ticker: SAN.PA, score: 59, tier: B, mos_required: "20-25%" }
-      - { ticker: LIGHT.AS, score: 56, tier: B, mos_required: "20-25%" }
-      # TIER C - Special Situations (12 positions)
-      - { ticker: ALL, score: 54, tier: C, mos_required: "30-40%" }
-      - { ticker: VICI, score: 54, tier: C, mos_required: "30-40%" }
-      - { ticker: IMB.L, score: 54, tier: C, mos_required: "30-40%" }
-      - { ticker: GL, score: 52, tier: C, mos_required: "30-40%" }
-      - { ticker: UHS, score: 51, tier: C, mos_required: "30-40%" }
-      - { ticker: PFE, score: 49, tier: C, mos_required: "30-40%" }
-      - { ticker: DTE.DE, score: 48, tier: C, mos_required: "30-40%" }
-      - { ticker: TEP.PA, score: 46, tier: C, mos_required: "30-40%" }
-      - { ticker: TATE.L, score: 45, tier: C, mos_required: "30-40%" }
-      - { ticker: VNA.DE, score: 41, tier: C, mos_required: "30-40%" }
-      - { ticker: A2A.MI, score: 37, tier: C, mos_required: "30-40%" }
-      - { ticker: SHEL.L, score: 36, tier: C, mos_required: "30-40%" }
-      # TIER D - NONE (FUTR.L sold 2026-02-04)
+      - { ticker: HRB, score: 73, tier: B }
+      - { ticker: EDEN.PA, score: 62, tier: B }
+      - { ticker: DOM.L, score: 61, tier: B }
+      - { ticker: SAN.PA, score: 59, tier: B }
+      - { ticker: LIGHT.AS, score: 56, tier: B }
+      # TIER C - Special Situations (11 positions) - SHEL.L removed (sold)
+      - { ticker: ALL, score: 54, tier: C }
+      - { ticker: VICI, score: 54, tier: C }
+      - { ticker: IMB.L, score: 54, tier: C }
+      - { ticker: GL, score: 52, tier: C }
+      - { ticker: UHS, score: 51, tier: C }
+      - { ticker: PFE, score: 49, tier: C }
+      - { ticker: DTE.DE, score: 48, tier: C }
+      - { ticker: TEP.PA, score: 46, tier: C }
+      - { ticker: TATE.L, score: 45, tier: C }
+      - { ticker: VNA.DE, score: 41, tier: C }
+      - { ticker: A2A.MI, score: 37, tier: C }
+      # TIER D - NONE
     diagnosis: |
-      Portfolio evolucionando de v2.0 (P/E screening) a v3.0 (Quality First).
-      Sesión 31: FUTR.L vendido (Tier D), ADBE comprado (primer Tier A).
-      Ahora: 1 Tier A, 5 Tier B, 12 Tier C. Sin violaciones Tier D.
-      Continuar añadiendo Tier A compounders: NOVO-B.CO, MA, V en pipeline.
+      Portfolio evolucionando hacia Quality First.
+      Ahora: 5 Tier A, 5 Tier B, 11 Tier C. Sin violaciones Tier D.
+      SHEL.L sold (QS 36 borderline), AUTO.L added (QS 79 Tier A).
+      Pipeline Tier A: MA, V pendientes de entry price.
   last_session_summary: |
-    Sesion 43 - EXPANSION CRISIS FRAMEWORK: DE COVID A ABSTRACTO (2026-02-06)
+    Sesion 44 - CAPITAL ROTATION: SHEL.L EXIT + AUTO.L ENTRY (2026-02-06)
 
     =====================================================
-    EXPANSION DE DOCUMENTOS DE CRISIS (PRINCIPAL)
+    OPERACIONES EJECUTADAS
     =====================================================
-    Continuacion de sesion 42. El humano detecto que los documentos de crisis
-    tenian sesgo COVID (self-seeding bias aplicado a gestion de crisis).
 
-    Insight clave del humano:
-    > "Si tu ahora entiendes que solo es un ejemplo no una regla, y sobre todo
-    > si tu yo futuro lo va a entender cuando lo lea."
+    1. SELL SHEL.L - Full exit 10.848578 shares @ 2774.50 GBp
+       - Proceeds: ~346 EUR
+       - P&L: +~8 EUR (+2.3%)
+       - Reason: QS 36 borderline Tier D, MoS -3.5%, thesis debilitated
+       - EXIT Protocol: 6/6 gates -> SELL
+       - Thesis archived to thesis/archive/SHEL.L/
 
-    DOCUMENTOS ACTUALIZADOS:
-
-    1. covid_system_crash_audit_improvements.md (985 → 1541 lineas, v3.0)
-       - Contexto de la conversacion (por que se expandio)
-       - 10 Principios Abstractos de Crisis (C1-C10) - PREGUNTAS, no reglas
-       - 6 Casos de estudio como EJEMPLOS (COVID, GFC, 2022, erosion lenta,
-         sectorial, riesgos sin precedente)
-       - Validacion de 11 mejoras contra principios abstractos
-       - Seccion anti-sesgo para yo futuro (6 sesgos identificados)
-
-    2. covid_system_crash_audit.md (595 → 818 lineas, v2.0)
-       - Simulacion GFC 2008 (bear gradual, 18 meses, -57%)
-       - Simulacion Ucrania 2022 (dispersion sectorial, SHEL.L beneficiaria)
-       - Tabla comparativa: que es consistente y que NO entre 3 crisis
-       - Seccion anti-sesgo
-
-    3. crisis_resilience_framework.md (NUEVO, 337 lineas)
-       - Referencia rapida para usar DURANTE una crisis
-       - 6 pasos basados en PREGUNTAS, no acciones predefinidas
-       - Tabla referencia C1-C10
-       - Sesgos del propio documento declarados
-
-    HALLAZGOS CLAVE:
-    - SHEL.L es "vulnerable" en COVID pero "beneficiaria" en 2022
-      → Tablas de vulnerabilidad por tipo son PELIGROSAS
-    - En GFC, comprar temprano = gastar cash antes del fondo real
-      → "Ya cayo bastante" no es argumento
-    - 6 de 11 mejoras generalizan bien; 5 tienen sesgo de crash rapido
-    - La mejora mas universal: #6 (Quality IS the hedge)
-    - La mas sesgada: #4 (Vulnerability Matrix como tabla)
+    2. BUY AUTO.L - 65 shares @ 485.80 GBp (~5.58 EUR)
+       - Cost: ~363 EUR
+       - QS: 79/100 = TIER A (Quality Compounder)
+       - MoS: 29% (FV 688p weighted average)
+       - UK car classifieds monopoly, 75% market share, 50% FCF margin, net cash
+       - Fifth Tier A in portfolio
+       - Thesis moved to thesis/active/AUTO.L/
 
     =====================================================
-    ESTADO FINAL
+    PORTFOLIO AFTER ROTATION
     =====================================================
-    - Posiciones: 21 (sin cambios)
-    - Cash: ~EUR790 (7.1%)
-    - Sin operaciones ejecutadas
-    - Session number: 43
+    - Posiciones: 21 (SHEL.L removed, AUTO.L added)
+    - Cash: 773.44 EUR (~7%)
+    - Tier A: 5 (ADBE, NVO, MONY.L, LULU, AUTO.L)
+    - Tier B: 5 (HRB, EDEN.PA, DOM.L, SAN.PA, LIGHT.AS)
+    - Tier C: 11 (ALL, VICI, IMB.L, GL, UHS, PFE, DTE.DE, TEP.PA, TATE.L, VNA.DE, A2A.MI)
 
     =====================================================
     PROXIMA SESION
     =====================================================
-    1. VIGILANCIA: news-monitor + market-pulse (no ejecutados hoy ni ayer)
+    1. VIGILANCIA: news-monitor + market-pulse
     2. Earnings proximos: MONY.L Feb 23, EDEN.PA Feb 24, TEP.PA Feb 26
     3. Standing orders: BME.L, UTG.L, TATE.L (activos)
-    4. IMPLEMENTAR mejoras Fase 1: Crisis playbook humano, circuit breaker, Principio 4
-    5. Commit branch (ficheros pendientes)
-    6. Pipeline Tier A: buscar 5+ quality compounders adicionales
+    4. AUTO.L ADD trigger at 450p - monitor
+    5. Pipeline Tier A: MA, V pendientes de entry price
+    6. Create sector view for digital-marketplaces (AUTO.L, MONY.L)
 
   last_session_summary_archived: |
     Sesion 42 - COVID CRASH STRESS TEST + DEBATE ESTRATEGICO (2026-02-06)
@@ -802,6 +781,20 @@ calendar:
       priority: high
       action: "ESPERAR earnings Feb 5. Si UKGC favorable + resultados OK - EJECUTAR. Si UKGC revocación - CANCELAR."
 
+    - date: 2026-02-06
+      type: action_completed
+      ticker: SHEL.L
+      event: "DONE - SOLD SHEL.L full exit 10.848578 shares @ 2774.50 GBp"
+      priority: high
+      action: "EXIT - QS 36, MoS -3.5%. Capital rotated to AUTO.L. P&L +2.3% (+8 EUR)."
+
+    - date: 2026-02-06
+      type: action_completed
+      ticker: AUTO.L
+      event: "DONE - BUY AUTO.L 65 shares @ 485.80 GBp (Fifth Tier A Quality Compounder!)"
+      priority: high
+      action: "BUY 65 shares AUTO.L @ 485.80 GBp. Total ~363 EUR. QS 79 Tier A, MoS 29%. UK car classifieds monopoly. ADD trigger 450p."
+
     # EARNINGS WEEK FEB 23-26 (FRAMEWORKS PREPARED 2026-02-05)
     - date: 2026-02-23
       type: earnings
@@ -1155,10 +1148,15 @@ watchlist:
       entry: 31.85
       fair_value: 58-74
       kill: "T-Mobile US spin-off fails or EBITDA decline >10%"
-    - ticker: SHEL.L
-      entry_usd: 36.72
-      fair_value_usd: 45-55
-      kill: "Dividend cut or FCF <$20B sustained"
+    # SHEL.L REMOVED 2026-02-06 - Position closed, capital rotated to AUTO.L
+    - ticker: AUTO.L
+      entry_gbp: 485.80
+      fair_value_gbp: 688
+      mos: 29%
+      tier: A
+      quality_score: 79
+      notes: "Fifth Tier A Quality Compounder. UK car classifieds monopoly. 75% market share, 50% FCF margin, net cash. ADD trigger at 450p (MoS >34%)."
+      kill: "Dealer count decline >5%, ARPR growth negative, competitor >20% share, FCF margin <35%, large M&A >GBP 1B"
     - ticker: PFE
       entry_usd: 26.75
       fair_value_usd: 32-35
@@ -1208,10 +1206,7 @@ watchlist:
       notes: "Framework v2.0 re-eval: P/B vs ROE + P/E normalized. 0/10 value trap. Beta 0.46. Quality 7/10 Tier B. MoS below 25% threshold - HOLD, no ADD."
       kill: "Operating EPS <$12, or class action reveals material new fraud evidence"
       buy_trigger: "$130 or below (MoS would be 25.3%)"
-    - ticker: FUTR.L
-      entry_gbp: 532
-      fair_value_gbp: 1100-1200
-      kill: "Revenue decline >10% 2+ years, margins <20%, buyback suspension"
+    # FUTR.L REMOVED 2026-02-04 - Position closed (Tier D violation)
     - ticker: NVO
       entry_usd: 48.13
       fair_value_dkk: 491
@@ -1262,6 +1257,7 @@ alerts:
     - { ticker: DBX, entry_usd: 20, note: "Dropbox. QS 73 Tier B but 5/10 value trap. FV $33. LOW PRIORITY. Declining users." }
     - { ticker: GSK.L, entry_gbp: 1850, note: "GlaxoSmithKline. QS 59 Tier B. FV 2424p. Entry 1850p = 24% MoS. Patent cliff 2027-28." }
     - { ticker: LULU, add_trigger_usd: 160, note: "POSITION ACTIVE (2 shares @ $171.62). ADD trigger $160 = 5% sizing. ADD aggressive at $145 (52w low) = 6% sizing. QS 82 Tier A." }
+    - { ticker: AUTO.L, add_trigger_gbp: 450, note: "POSITION ACTIVE (65 shares @ 485.80p). ADD trigger 450p = MoS >34%. QS 79 Tier A. UK car classifieds monopoly." }
 
 # -----------------------------------------------------------------------------
 # STANDING ORDERS (pre-aprobadas, ejecutar cuando precio toque trigger)

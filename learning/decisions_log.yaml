@@ -7,7 +7,7 @@
 # Creado: 2026-02-05 | Framework v4.0
 
 version: "4.0"
-last_updated: 2026-02-05
+last_updated: 2026-02-06
 
 # =============================================================================
 # DECISIONES DE SIZING (BUY/ADD)
@@ -94,6 +94,30 @@ sizing_decisions:
       Riesgo: AI disruption. Pero timeline es 3-5 años, no inmediato.
     outcome: "Pendiente"
 
+  - date: 2026-02-06
+    ticker: AUTO.L
+    action: BUY
+    sizing: "3.4%"
+    context:
+      quality_score: 79
+      tier: A
+      mos: "29%"
+      price_vs_52w: "-47% from high, near 52w low (473p)"
+      conviction: "Alta"
+      macro: "UK stable, used car market recovering"
+      capital_source: "Rotation from SHEL.L (QS 36)"
+    reasoning: |
+      AUTO.L es Quality Compounder (Tier A) - 5to del portfolio.
+      Monopolio UK car classifieds (75% market share, 10x mayor que competidor).
+      FCF margin 50%, ROIC spread +38pp, net cash - metricas excepcionales.
+      Caida 47% por dealer revolt (Deal Builder backlash) - CICLICO, no estructural.
+      MoS 29% acceptable para Tier A (precedentes: ADBE 31%, LULU 34%, NVO 38%).
+      Sizing 3.4% coherente con precedentes Tier A (3-5% inicial).
+      Capital viene de rotacion SHEL.L (QS 36, MoS -3.5%) - upgrade masivo en calidad.
+      Riesgo principal: IA/ChatGPT disruption largo plazo (kill condition).
+      ADD trigger: 450p (MoS >34%).
+    outcome: "Pendiente - posición recién abierta"
+
   - date: 2026-02-05
     ticker: LULU
     action: BUY
@@ -124,6 +148,30 @@ sizing_decisions:
 # DECISIONES DE TRIM/SELL
 # =============================================================================
 trim_decisions:
+
+  - date: 2026-02-06
+    ticker: SHEL.L
+    action: "SELL (full exit - capital rotation)"
+    context:
+      quality_score: 36
+      tier: C
+      position_size: "3.3%"
+      mos: "-3.5%"
+      pnl: "+2.3% (~+€8)"
+      destination: "AUTO.L (Tier A, QS 79, MoS 29%)"
+    reasoning: |
+      EXIT Protocol aplicado - 6/6 gates soportan SELL:
+      - Gate 1: No kill condition (FCF $42.9B, div +4%)
+      - Gate 2: Tesis DEBILITADA (Q4 worst in 5y, Iran desescalada)
+      - Gate 3: MoS -3.5% (overvalued vs FV revisado GBP 26.80)
+      - Gate 4: Opportunity Score extremo vs AUTO.L (QS 79 vs 36, MoS 29% vs -3.5%)
+      - Gate 5: Forward returns mediocres (~8% total yield)
+      - Gate 6: Friccion negligible (~0.5%)
+      Desviacion vs precedente HOLD (2026-02-05): contexto cambio materialmente
+      porque AUTO.L thesis completada = alternativa ejecutable disponible.
+      Precedente DTE.DE TRIM (liberar capital para mejor idea) aplica.
+      SHEL.L era posicion de menor calidad del portfolio (QS 36, borderline Tier D).
+    outcome: "P&L +2.3% (~+€8). Capital rotado a AUTO.L."
 
   - date: 2026-02-04
     ticker: FUTR.L
@@ -278,7 +326,7 @@ patterns:
   sizing_by_tier:
     tier_a:
       typical_range: "3-5% initial"
-      examples: "ADBE 4.8%, NVO 3.4%, MONY.L 4.1%"
+      examples: "ADBE 4.8%, NVO 3.4%, MONY.L 4.1%, AUTO.L 3.4%, LULU 3.5%"
       rationale: "Quality compounders permiten posiciones mayores por menor riesgo"
     tier_b:
       typical_range: "3-5% full position"
@@ -308,6 +356,16 @@ lessons:
       P/E 7x refleja problemas reales (ROIC < WACC, FCF negativo), no oportunidad.
       Los analistas con mandato diferente (trading/momentum) pueden estar equivocados para value investing.
       Crear sector view ANTES de analizar evita sesgo de confirmación.
+
+  - date: 2026-02-06
+    lesson: "Rotar de Tier C a Tier A genera alpha - no mantener posiciones de baja calidad cuando hay alternativas"
+    from_decision: "SHEL.L EXIT → AUTO.L BUY (capital rotation)"
+    impact: |
+      Rotacion de commodity play (QS 36, MoS -3.5%) a monopoly platform (QS 79, MoS 29%).
+      Upgrade masivo en calidad, valoracion, riesgo y crecimiento.
+      HOLD previo (2026-02-05) fue correcto cuando no habia alternativa.
+      Cuando aparecio alternativa Tier A, el contexto cambio materialmente.
+      El costo de oportunidad de mantener low-quality es real y cuantificable.
 
   - date: 2026-02-04
     lesson: "No comprar por P/E bajo sin verificar Quality Score"

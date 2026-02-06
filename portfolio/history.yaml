@@ -9,11 +9,11 @@
 # Metadata
 metadata:
   created: 2026-02-03
-  last_updated: 2026-02-04
-  total_closed: 2
-  total_pnl_eur: -22.85
-  win_rate: 0.0  # % of positions that were profitable
-  avg_holding_days: 3
+  last_updated: 2026-02-06
+  total_closed: 3
+  total_pnl_eur: -14.85  # -22.85 + 8.00 (SHEL.L)
+  win_rate: 33.3  # 1 winner (SHEL.L) / 3 positions
+  avg_holding_days: 5
 
 # Closed Positions
 closed_positions:
@@ -58,6 +58,29 @@ closed_positions:
       notes: "Sold because bought at fair value without margin of safety (error in process). No loss, but opportunity cost. Recognized process failure and corrected."
     exit_reason: error  # Bought without proper thesis/MoS
 
+  - ticker: SHEL.L
+    name: "Shell plc"
+    entry_date: 2026-01-26
+    exit_date: 2026-02-06
+    shares: 10.848578  # Final position after 2 trims (40.8 -> 20.85 -> 10.85)
+    entry_price_gbp: 2689  # Original avg cost
+    exit_price_gbp: 2774.50
+    entry_currency: GBp
+    invested_eur: 338  # Prorated invested for remaining 10.85 shares
+    proceeds_eur: 346
+    pnl_amount_eur: 8
+    pnl_percent: 2.3
+    holding_days: 11
+    thesis_fv_at_entry: 3200  # GBp - original thesis
+    thesis_fv_v2: 2680  # GBp - v2.0 re-evaluation
+    fv_reached: false
+    quality_score: 36  # Borderline Tier C/D
+    thesis_accuracy:
+      correct: false
+      notes: "Original thesis overestimated FV using P/FCF without mid-cycle adjustment. v2.0 re-evaluation showed stock was fairly valued (MoS -3.5%). QS 36 = borderline Tier C/D. Capital better deployed in Tier A compounders. EXIT Protocol 6/6 gates -> SELL. Small gain (+2.3%) despite thesis being wrong on upside."
+    exit_reason: thesis_invalidated  # Quality too low + no MoS + better opportunity (AUTO.L)
+    lesson_learned: "For cyclicals, EV/EBIT mid-cycle is the correct valuation method, not P/FCF. QS 36 is borderline - capital should be in Tier A/B. EXIT Protocol works: systematic evaluation led to correct rotation decision."
+
   - ticker: FUTR.L
     name: "Future plc"
     entry_date: 2026-02-03
@@ -100,6 +123,7 @@ partial_sells:
     proceeds_approx_eur: 150.00
     pnl_approx_eur: 50.00
     reason: "TRIM 2 - Continued rebalancing from 20.85 to 10.85 shares"
+    # FINAL EXIT: 2026-02-06 sold remaining 10.85 shares @ 2774.50 GBp - see closed_positions
 
   - ticker: DTE.DE
     date: 2026-02-03
@@ -112,15 +136,15 @@ partial_sells:
 # Statistics (auto-calculated by effectiveness_tracker.py)
 statistics:
   # Will be populated by the tool
-  total_closed_positions: 1
+  total_closed_positions: 3
   total_partial_sells: 3
-  total_realized_pnl_eur: 405.00  # Approx from trims
-  winners: 0
-  losers: 0
-  breakeven: 1
-  win_rate_pct: null  # Not meaningful with 1 position
-  avg_win_pct: null
-  avg_loss_pct: null
-  avg_holding_days: 4
+  total_realized_pnl_eur: 413.00  # Approx from trims + SHEL.L exit
+  winners: 1  # SHEL.L +2.3%
+  losers: 1  # FUTR.L -2.8%
+  breakeven: 1  # ENEL.MI 0%
+  win_rate_pct: 33.3
+  avg_win_pct: 2.3
+  avg_loss_pct: -2.8
+  avg_holding_days: 5
   positions_reached_fv: 0
   thesis_accuracy_rate: null
