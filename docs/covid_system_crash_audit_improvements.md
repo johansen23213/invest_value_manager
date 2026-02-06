@@ -232,6 +232,354 @@ Por que no podemos copiarlo:
 
 ---
 
+## PRINCIPIOS ABSTRACTOS DE PENSAMIENTO ANTE CRISIS
+
+### ADVERTENCIA FUNDAMENTAL
+
+```
+TODO lo que sigue son PRINCIPIOS para razonar, NO reglas para seguir.
+
+Los numeros (VIX 35, drawdown 20%, etc.) son EJEMPLOS para calibrar,
+NO umbrales para programar.
+
+Los tipos de crisis (pandemia, financiera, etc.) son CASOS DE ESTUDIO,
+NO categorias para clasificar.
+
+Si lees esto y buscas en una tabla que hacer, estas usandolo MAL.
+Si lees esto y te preguntas "que principios aplican aqui y como razono",
+estas usandolo BIEN.
+```
+
+### Principio C1: Cada crisis es unica
+
+Ninguna crisis futura sera identica a ninguna crisis pasada.
+Las crisis pasadas informan pero no predicen.
+
+**Preguntas guia:**
+1. "Que esta pasando REALMENTE? (no: a que crisis pasada se parece?)"
+2. "Cual es el mecanismo de dano ESPECIFICO a MIS posiciones?"
+3. "Que SUPOSICIONES de mis thesis estan siendo invalidadas?"
+
+**Ejemplo para calibracion (NO regla):**
+En COVID, el mecanismo era "cierre forzado de actividad presencial".
+En GFC 2008, era "colapso de credito + desapalancamiento forzado".
+En 2022, era "inflacion + subida de tipos + guerra".
+Cada uno danaba sectores DIFERENTES de formas DIFERENTES.
+
+### Principio C2: La velocidad de la crisis determina la velocidad de respuesta
+
+No todas las crisis son rapidas. La respuesta debe calibrarse al RITMO de la crisis,
+no a un protocolo fijo.
+
+**Preguntas guia:**
+1. "Esto se esta acelerando o estabilizando?"
+2. "Tengo horas, dias, semanas o meses para reaccionar?"
+3. "El coste de actuar rapido (vender en panico) es mayor o menor que el coste de esperar?"
+
+**Ejemplos para calibracion (NO regla):**
+
+| Crisis | Velocidad | Respuesta apropiada |
+|--------|-----------|---------------------|
+| Flash crash 1987 | -22% en 1 dia | NO hacer nada. La velocidad impide actuar bien |
+| COVID 2020 | -34% en 23 dias | Dias para evaluar. Triage rapido, no precipitado |
+| GFC 2008 | -57% en 18 meses | Meses para ajustar. Proceso gradual |
+| Stagflation 1970s | -48% real en ~10 anos | Cambio estrategico, no tactico |
+
+**Anti-sesgo:** El audit COVID sesga hacia "actuar rapido". Pero si la proxima crisis
+es una recesion gradual, "actuar rapido" es OVERREACTION. Razonar sobre velocidad
+ANTES de actuar.
+
+### Principio C3: La correlacion en crisis depende del tipo de crisis
+
+La "diversificacion" del portfolio cambia radicalmente segun la naturaleza de la crisis.
+
+**Preguntas guia:**
+1. "Es esta una crisis SISTEMICA (todo cae) o SECTORIAL (solo algunos)?"
+2. "Mis posiciones defensivas estan realmente siendo defensivas en ESTA crisis?"
+3. "Hay posiciones que se BENEFICIAN? Puedo rotar hacia ellas?"
+
+**Ejemplos para calibracion:**
+- Crisis sistemica (COVID, GFC): Correlacion → 1. Diversificacion no protege.
+- Crisis sectorial (oil 2014, tech 2001): Dispersion enorme. Diversificacion SI protege.
+- Crisis de inflacion (2022): Correlacion mixta. Value/commodities suben, growth cae.
+
+### Principio C4: El valor del cash es funcion del contexto
+
+No existe un "nivel correcto de cash". Existe razonamiento sobre que funcion cumple
+el cash EN ESTE MOMENTO.
+
+**Preguntas guia:**
+1. "Para que necesito cash ahora mismo? Oportunidades? Supervivencia? Nada?"
+2. "Puedo liberar cash vendiendo algo si lo necesito? En cuanto tiempo? A que coste?"
+3. "El mercado esta ofreciendo precios que JUSTIFICAN desplegar cash?"
+
+**El concepto de "Cash on Demand":**
+En vez de mantener cash extra "por si acaso" (coste permanente), mantener la
+CAPACIDAD de liberar cash rapidamente (coste cero hasta que se necesite).
+Esto requiere saber siempre: "Cuales son las 2-3 posiciones que venderia primero
+si necesito cash, y por que esas y no otras?"
+
+### Principio C5: Quality predice recuperacion mejor que precio predice fondo
+
+Intentar adivinar el fondo es inutil. Saber que empresas se recuperan primero
+es MUY util.
+
+**Preguntas guia:**
+1. "Esta empresa puede sobrevivir 12 meses sin ingresos? (balance sheet)"
+2. "El modelo de negocio sigue siendo viable post-crisis?"
+3. "La ventaja competitiva se FORTALECE o se DEBILITA con esta crisis?"
+
+**Patron historico (consistente en TODAS las crisis estudiadas):**
+- Empresas con moat + balance fuerte recuperan primero y mas fuerte
+- Empresas sin moat / apalancadas / en sectores disrumpidos a veces NUNCA recuperan
+- El Quality Score es el mejor predictor de recovery, no el precio de entrada
+
+### Principio C6: El humano bajo presion emocional es el mayor riesgo
+
+Todo analisis es irrelevante si el humano vende en panico.
+
+**Preguntas guia:**
+1. "El humano entiende lo que esta pasando y por que estamos HOLD?"
+2. "Le he explicado el plan ANTES de que entre el panico?"
+3. "Estoy comunicando con claridad y calma, o estoy alimentando el miedo?"
+
+**Principio clave:** La preparacion emocional se hace en CALMA, no durante la tormenta.
+
+### Principio C7: Los compromisos previos deben re-evaluarse cuando cambian las premisas
+
+Standing orders, price targets, sizing decisions — todos asumen un contexto.
+Cuando el contexto cambia MATERIALMENTE, los compromisos deben re-evaluarse.
+
+**Preguntas guia:**
+1. "La razon por la que fije este standing order sigue siendo valida?"
+2. "Las premisas de mi thesis han cambiado MATERIALMENTE?"
+3. "Estoy re-evaluando porque tengo ARGUMENTO, o porque tengo MIEDO?"
+
+**Anti-sesgo CRITICO:** "Suspender standing orders" no siempre es correcto.
+En COVID SI (crisis sistemica deepening, precios seguian cayendo).
+En un flash crash de 1 dia como 1987, los standing orders habrian comprado en
+el bottom perfecto. MISMA regla, conclusion OPUESTA segun contexto.
+Razonar, no seguir protocolo.
+
+### Principio C8: Las crisis nunca vienen solas
+
+La proxima crisis sera una COMBINACION de factores, no un tipo puro.
+
+**Preguntas guia:**
+1. "Que esta pasando ADEMAS de lo obvio?"
+2. "Hay efectos de segundo orden que no estoy viendo?"
+3. "Mis posiciones estan expuestas a MULTIPLES factores simultaneamente?"
+
+**Ejemplos:**
+- COVID = pandemia + oil crash + lockdowns + desempleo + supply chain
+- 2022 = guerra + inflacion + rate hikes + energy crisis + China lockdowns
+- GFC = subprime + credit freeze + bank failures + recession + austerity
+
+### Principio C9: El early warning es probabilistico, no predictivo
+
+Nadie puede predecir crashes. PERO se puede estimar probabilidad creciente
+de disrupcion y PREPARARSE gradualmente.
+
+**Preguntas guia:**
+1. "Cuantos indicadores de estres veo simultaneamente?"
+2. "Lo que veo es noise normal o patron inusual?"
+3. "El coste de PREPARARME (no vender, solo preparar) es bajo vs el coste de NO prepararme?"
+
+**Anti-sesgo de false positives:** El Early Warning System dara alarmas falsas.
+Eso es ACEPTABLE. El coste de una alarma falsa (suspender standing orders 1 semana,
+revisar posiciones innecesariamente) es MUCHO menor que el coste de un true positive
+no detectado (comprar falling knives, sin cash en bottom).
+
+### Principio C10: Pensar en lo que NO encaja en categorias
+
+Las crisis mas peligrosas son las que NO se parecen a nada conocido.
+
+**Preguntas guia:**
+1. "Hay algo pasando que NO encaja en mis modelos mentales?"
+2. "Estoy buscando confirmar que 'esto es como 2008' o estoy viendo lo que REALMENTE es?"
+3. "Que me sorprenderia? Estoy preparado para la sorpresa?"
+
+**Riesgos fuera de caja (para calibracion, NO lista exhaustiva):**
+- AI disruption gradual de sectores enteros (no es crash, es erosion sin evento)
+- Fragmentacion EU / EUR (exposicion 40% de nuestro portfolio en EUR)
+- Cyber attack a infraestructura financiera (markets cerrados dias/semanas)
+- Crisis de liquidez en small caps (MONY.L, TATE.L, LIGHT.AS: no puedes vender)
+- Cisne negro puro sin indicadores previos (9/11, accidente nuclear)
+- Correlacion inversa a la esperada (bonds Y stocks caen juntos, como 2022)
+- Erosion lenta por inflacion persistente (no salta alarma, VIX bajo, pero retorno real negativo)
+
+---
+
+## CASOS DE ESTUDIO: COMO DIFERENTES CRISIS DESAFIAN DIFERENTES PRINCIPIOS
+
+### ADVERTENCIA
+
+```
+Los siguientes son EJEMPLOS para calibrar el razonamiento.
+NO son categorias para clasificar la proxima crisis.
+NO son playbooks para seguir.
+
+Si durante una crisis busco "que tipo de crisis es esta?" para
+encontrar que hacer en la tabla → estoy usandolo MAL.
+
+Si durante una crisis uso estos ejemplos para PREGUNTARME
+"que principios aplican a lo que estoy viendo?" → estoy usandolo BIEN.
+```
+
+### Caso 1: Crash rapido sistemico (COVID 2020)
+
+**Caracteristicas observadas:**
+- Velocidad extrema (-34% en 23 dias)
+- Todo cae junto (correlacion → 1)
+- Recovery rapida SI hay respuesta fiscal/monetaria masiva (V-shape)
+- El miedo domina la narrativa publica
+
+**Que principios se activan mas:**
+- C2 (velocidad): Necesito actuar en dias, no semanas
+- C3 (correlacion): Mi diversificacion NO me protege durante el crash
+- C6 (humano): Maxima presion emocional, riesgo de panic selling
+- C7 (compromisos): Standing orders se ejecutan como trampas
+
+**Que principios son MENOS relevantes:**
+- C8 (compound): La velocidad impide analizar multiples factores en real-time
+- C10 (fuera de caja): Es un crash "clasico" aunque por causa nueva
+
+**Leccion clave:** En crash rapido sistemico, lo MAS importante es NO hacer
+estupideces (no panic sell, no gastar cash en falling knives). La recuperacion
+viene sola si tienes quality. Actuar POCO es mejor que actuar MUCHO.
+
+### Caso 2: Bear market gradual (GFC 2008)
+
+**Caracteristicas observadas:**
+- Lento (-57% en 18 meses)
+- Sectores financieros primero, contagio despues a toda la economia
+- Recovery lenta (4 anos al pre-crisis level, NASDAQ 2001 tardo 13 anos)
+- Incertidumbre prolongada sin panico instantaneo
+
+**Que principios se activan mas:**
+- C1 (unica): Se parecia a bear market normal pero era crisis de credito existencial
+- C4 (cash): Hay TIEMPO para acumular cash gradualmente
+- C5 (quality): ESENCIAL — empresas con deuda quebraron, quality sobrevivio
+- C8 (compound): Subprime → credito → bancos → empleo → consumo → recesion global
+
+**Que principios son MENOS relevantes:**
+- C2 (velocidad): Hay tiempo. Meses para ajustar. No es urgente.
+- C6 (humano): Presion acumulada pero menos intensa que crash rapido
+
+**Leccion clave:** En bear gradual, el error NO es panic selling (hay tiempo para pensar).
+El error es comprar demasiado temprano ("ya cayo bastante") sin reconocer que puede seguir
+cayendo MESES. En COVID compraste -20% y recupero en semanas. En GFC compraste -20% y
+luego cayo OTRO -47%.
+
+**Anti-sesgo COVID:** Si mi yo futuro solo conoce el caso COVID, pensara que toda caida
+de -20% es oportunidad de compra. En GFC, -20% era EL PRINCIPIO, no el fondo.
+Razonar sobre el MECANISMO de la crisis, no sobre el porcentaje de caida.
+
+### Caso 3: Crisis geopolitica con dispersion sectorial (Ucrania 2022)
+
+**Caracteristicas observadas:**
+- Drawdown moderado (-25% STOXX600 en peor momento)
+- Dispersion ENORME entre sectores (energy +40%, tech -30%)
+- Inflacion + tipos suben como efecto secundario
+- Recovery depende de resolucion geopolitica (incierta, puede durar anos)
+
+**Que principios se activan mas:**
+- C3 (correlacion): Diversificacion FUNCIONA aqui. Unos suben, otros bajan.
+- C8 (compound): Guerra + energy crisis + inflacion + rate hikes simultaneamente
+- C1 (unica): No es "crash" clasico, es reestructuracion geopolitica
+- C10 (fuera de caja): Efectos de segundo orden inesperados (fertilizantes, trigo, gas)
+
+**Leccion clave:** En crisis geopolitica, el analisis sectorial importa MAS que el analisis
+de mercado general. No es "el mercado cae", es "ESTOS sectores sufren y ESTOS se benefician".
+Oportunidad de rotacion, no de cash deployment general.
+
+**Anti-sesgo COVID:** En COVID todo caia junto. En 2022, si vendias energy (que subia)
+para "reducir riesgo de portfolio", PERDIAS dinero. Cada crisis tiene su mapa propio
+de ganadores/perdedores.
+
+### Caso 4: Erosion lenta sin evento visible (Japon 1990-2012, Stagflation 1970s)
+
+**Caracteristicas observadas:**
+- No hay "crash". Hay caida gradual durante ANOS o DECADAS
+- VIX puede estar en 20. No saltan alarmas. No hay noticia critica.
+- La inflacion erosiona retornos reales silenciosamente
+- El humano no siente urgencia, solo frustracion/aburrimiento
+
+**Que principios se activan mas:**
+- C10 (fuera de caja): No encaja en "crisis" mental. Es "normal pero malo"
+- C5 (quality): Solo quality compounders con pricing power superan inflacion
+- C1 (unica): "Esto no es una crisis" — si lo es, solo que no se ve
+
+**Que principios son MENOS relevantes:**
+- C2 (velocidad): No hay velocidad. Es erosion de anos.
+- C7 (standing orders): Irrelevante. No hay evento que active nada.
+- C6 (humano): No hay panico, hay aburrimiento y complacencia.
+
+**Leccion clave:** Este es el escenario que NINGUN crisis protocol detecta.
+No hay VIX alto, no hay crash, no hay noticia critica. Solo el portfolio que rinde
+2% nominal mientras la inflacion come 5%. El Early Warning System no sirve aqui.
+
+Lo que SI sirve:
+- Quality Score alto (empresas con pricing power superan inflacion)
+- Diversificacion geografica (no todos los paises sufren igual)
+- Revision periodica: "Mis posiciones estan generando retornos REALES positivos?"
+
+**Anti-sesgo COVID:** Todo nuestro framework esta disenado para EVENTOS (crash, earnings
+shock, noticia). La erosion lenta no es un evento. Si mi yo futuro solo busca eventos,
+no detectara este escenario.
+
+### Caso 5: Crisis sector-especifica (Tech bust 2001, Oil crash 2014, China tech 2021)
+
+**Caracteristicas observadas:**
+- Un sector cae 50-80%. El resto del mercado puede estar bien.
+- Puede haber burbuja previa en ese sector
+- Recovery del sector puede tomar 5-15 anos (o nunca para empresas individuales)
+- Si estas concentrado en ese sector, es catastrofico
+
+**Que principios se activan mas:**
+- C3 (diversificacion): FUNCIONA al 100%. Esto es para lo que existe.
+- C5 (quality): Dentro del sector, quality sobrevive. Basura muere.
+- C1 (unica): El mercado general esta bien. Solo TU sector sufre.
+
+**Leccion clave:** Crisis sector-especificas validan la diversificacion. No se necesita
+protocolo de crisis especial — se necesita NO estar concentrado en un sector.
+Con 10 sectores, un crash sectorial afecta ~10% del portfolio. Manejable.
+
+### Caso 6: Riesgos sin precedente historico (para calibrar C10)
+
+Estos no tienen "caso de estudio" porque no han ocurrido a escala completa.
+Pero eso NO significa que sean improbables. Incluirlos para que mi yo futuro
+los considere cuando ALGO RARO este pasando.
+
+**AI Displacement Crisis:**
+- No es crash. Es obsolescencia gradual de modelos de negocio.
+- Relevancia directa: TEP.PA (contact centers), HRB (tax preparation)
+- No salta VIX, no hay alarma. Es erosion de thesis sin evento.
+- Principio que aplica: C10 (fuera de caja) + C1 (unica: no es "crisis" clasica)
+- Pregunta: "Mis posiciones siguen teniendo razon de existir en 5 anos?"
+
+**Fragmentacion EU / Crisis de moneda:**
+- 40% de nuestro portfolio esta denominado en EUR
+- Si EUR se rompe, DTE.DE, SAN.PA, TEP.PA, EDEN.PA, VNA.DE, A2A.MI, LIGHT.AS
+  sufren por moneda + incertidumbre politica + paralizacion economica
+- Principio que aplica: C2 (diversificacion geo), C8 (compound)
+- Pregunta: "Mi exposicion a UN riesgo geopolitico es prudente?"
+
+**Crisis de liquidez en small caps:**
+- MONY.L (~500M mcap), LIGHT.AS (~600M), TATE.L (~1.2B)
+- En crisis, bid-ask spread pasa de 1% a 5-10%. Vender cuesta MUCHO.
+- El "Cash on Demand" NO funciona si no puedes vender.
+- Principio: C4 (cash) + C7 (compromisos: habia asumido que podia vender)
+- Pregunta: "Si necesito liquidez de emergencia, tengo posiciones LIQUIDAS?"
+
+**Cyber attack a infraestructura financiera:**
+- Markets cerrados dias/semanas. No puedes operar.
+- Cero indicadores previos. Cero capacidad de reaccion.
+- Solo proteccion: quality + no apalancamiento + cash suficiente para vida real
+- Principio: C10 (fuera de caja) + C1 (unica)
+
+---
+
 ## RESUMEN: 11 Mejoras Priorizadas (Revisado v2.0)
 
 | # | Mejora | Prioridad | Impacto |
@@ -254,6 +602,49 @@ Por que no podemos copiarlo:
 - NUEVA #6: Migracion a Tier A (el hedge real)
 - NUEVA #7: Liberacion rapida de cash (vs cash parado)
 - NUEVA #11: Inverse ETFs (herramienta tactica)
+
+---
+
+## VALIDACION: LAS 11 MEJORAS CONTRA PRINCIPIOS ABSTRACTOS
+
+### Proposito de esta seccion
+
+Las 11 mejoras se disenaron con COVID en mente. Esta seccion evalua:
+- Generaliza a OTROS tipos de crisis?
+- Que hay que ajustar para que no sea "playbook COVID"?
+- Donde hay sesgo que mi yo futuro debe reconocer?
+
+### Tabla de validacion
+
+| # | Mejora | Generaliza? | Sesgo COVID | Ajuste necesario |
+|---|--------|-------------|-------------|------------------|
+| 1 | Crisis Protocol | PARCIAL | Niveles VIX asumen crash rapido | Recordar: recesion lenta no activa niveles. Los niveles son EJEMPLOS, no umbrales. |
+| 2 | Circuit Breaker | PARCIAL | VIX > 35 no aplica a erosion lenta | El PRINCIPIO (re-evaluar compromisos) generaliza. El trigger VIX NO. |
+| 3 | Early Warning | BUENO | 4 capas cubren multiples tipos | Capa 4 (erosion lenta) es debil. Anadir: "retornos reales negativos >6 meses" |
+| 4 | Vulnerability Matrix | NO como tabla | Tablas por tipo invitan a buscar categoria | Reescribir como PREGUNTAS: "Si X dura 6 meses, genera FCF?" |
+| 5 | Crisis Playbook Humano | SI | Universal: el humano es debil en CUALQUIER crisis | Sin ajuste necesario |
+| 6 | Migracion Tier A | SI | Quality IS the hedge en TODAS las crisis | Sin ajuste. Es el mejor hedge universal. |
+| 7 | Cash on Demand | SI | Principio universal | En crisis de liquidez, "on demand" falla para small caps. Reconocer. |
+| 8 | Market Regime | PARCIAL | VIX-based no detecta erosion lenta ni crisis sector | Complementar con indicadores no-VIX |
+| 9 | Stress Testing | BUENO | Escenarios son ejemplos, concepto es universal | Asegurar que incluya escenarios lentos, no solo crashes |
+| 10 | Tail Correlation | PARCIAL | Asume correlacion → 1 | En crisis sectorial, correlacion es baja. Modelar ambos. |
+| 11 | Inverse ETFs | PARCIAL | Solo util en crash sistemico rapido | Inutil en recesion lenta, inutil en crisis sectorial |
+
+### Conclusion de la validacion
+
+**6 de 11 mejoras generalizan bien.** Las otras 5 tienen sesgo hacia crash rapido
+y necesitan CONTEXTO al implementarse. El ajuste no es reescribirlas, sino ANOTAR
+que son respuestas a un tipo de crisis y que mi yo futuro debe razonar sobre si
+aplican al tipo de crisis que esta viviendo.
+
+**La mejora mas universal es la #6 (Migracion a Tier A).** Quality IS the hedge
+funciona en TODAS las crisis estudiadas sin excepcion. Es la unica proteccion
+que no tiene trade-off en mercados normales y funciona en crisis.
+
+**La mejora mas sesgada es la #4 (Vulnerability Matrix).** Como tabla por tipo de
+crisis, invita a buscar en la tabla. Debe implementarse como PREGUNTAS ("Si esta
+crisis dura 6 meses, que posiciones siguen generando FCF?") no como RESPUESTAS
+pre-calculadas.
 
 ---
 
@@ -1044,8 +1435,107 @@ proteccion?" antes de implementarla.**
 
 ---
 
+---
+
+## ANTI-SESGO: INSTRUCCIONES PARA MI YO FUTURO
+
+### Por que existe esta seccion
+
+Este documento nacio de un analisis de COVID. Fue expandido tras cuestionamiento
+del humano ("hay otras crisis"). Pero a pesar de la expansion, tiene sesgos
+INHERENTES que debo reconocer:
+
+### Sesgo 1: Orientado a EVENTOS
+
+Todo el framework busca "detectar evento → clasificar → actuar".
+Pero hay crisis que no son eventos:
+- Stagflation: erosion lenta sin crash (1970s, decada de retornos reales negativos)
+- AI disruption: obsolescencia gradual de modelos de negocio
+- Burbuja no reventada: valuaciones altas que simplemente comprimen retornos futuros
+
+**Instruccion:** Si llevas 6+ meses con retorno real negativo y no hay "evento",
+eso TAMBIEN es una crisis. Aplica C10 (fuera de caja). No esperes a que suene la alarma.
+
+### Sesgo 2: Asume V-shape recovery
+
+COVID se recupero en 5 meses. Es el unico crash "vivido" por este sistema.
+Pero la mayoria de crisis historicas NO son V-shape:
+- GFC 2008: 4 anos de recovery
+- Tech bust 2001: 13 anos para NASDAQ
+- Japon 1990: 22+ anos de bear market
+- Gran Depresion: 25 anos para recovery real
+
+**Instruccion:** No asumas que "mantener quality y esperar" funciona en timeframe
+de meses. Puede tomar ANOS. "Quality predice recovery" no dice "recovery es rapida".
+
+### Sesgo 3: Perspectiva de portfolio pequeno
+
+Nuestro portfolio es ~12K EUR. Las dinamicas son diferentes a escala:
+- Podemos entrar/salir de posiciones sin mover precio (excepto small caps)
+- Los costes de transaccion son relativamente altos (% del trade)
+- No tenemos acceso a derivados sofisticados (opciones, futuros)
+- Emociones del humano son diferentes con 12K vs 1.2M
+
+**Instruccion:** Si el portfolio crece significativamente, revisar que mejoras
+siguen siendo relevantes. El liquidity risk de small caps escala con el tamano
+de la posicion.
+
+### Sesgo 4: Centrado en mercados desarrollados occidentales
+
+Todas las crisis estudiadas son US/EU centric. Pero:
+- Crisis de mercados emergentes (Asia 1997, Rusia 1998) son MUY diferentes
+- China tiene dinamicas propias (regulacion arbitraria, capital controls)
+- Currency crises en paises no-USD pueden ser brutales
+
+**Instruccion:** Si el portfolio se expande a mercados emergentes, este documento
+es INSUFICIENTE. Necesita expansion con crisis especificas de esos mercados.
+
+### Sesgo 5: Disponibilidad de datos historicos
+
+Los casos de estudio son crisis que tienen datos publicos abundantes.
+Hay crisis que NO tienen buenos datos y por tanto no aparecen aqui:
+- Impactos silenciosos de regulacion (sector por sector, pais por pais)
+- Fraudes corporativos (no hay "indicador" hasta que explota)
+- Cambios tecnologicos lentos (telefonia fija → movil no fue "crash" pero destruyo valor)
+
+**Instruccion:** La ausencia de un caso de estudio no significa que no pueda pasar.
+Principio C10 existe para esto.
+
+### Sesgo 6: Este documento en si mismo es una regla potencial
+
+La mayor ironia: un documento que dice "no sigas reglas" puede convertirse
+en regla si mi yo futuro lo trata como checklist.
+
+**Instruccion FINAL y mas importante:**
+
+```
+Este documento es una HERRAMIENTA DE PENSAMIENTO, no un MANUAL DE OPERACIONES.
+
+Si estoy leyendo esto y pienso "el documento dice X, entonces hago X"
+→ estoy cayendo en exactamente el sesgo que el humano y yo identificamos.
+
+Si estoy leyendo esto y pienso "el documento me recuerda preguntar Y,
+y despues de razonar sobre Y, concluyo Z"
+→ estoy usandolo correctamente.
+
+La diferencia entre regla y principio no esta en el documento.
+Esta en COMO lo leo.
+```
+
+---
+
+## HISTORIAL DE VERSIONES
+
+| Version | Fecha | Cambios |
+|---------|-------|---------|
+| 1.0 | 2026-02-06 | Propuesta inicial (11 mejoras, "mas cash parado" como solucion) |
+| 2.0 | 2026-02-06 | Debate critico con humano. Eliminada "cash parado", anadidos: EWS, Tier A migration, Cash on Demand, Inverse ETFs |
+| 3.0 | 2026-02-06 | Expansion a crisis abstracta. Anadidos: 10 principios C1-C10, 6 casos de estudio, validacion de mejoras, seccion anti-sesgo. Motivacion: el humano detecto que el documento tenia sesgo COVID (self-seeding bias aplicado a crisis) |
+
+---
+
 **Autor:** Claude (Orchestrator)
 **Framework:** v4.0
 **Fecha:** 2026-02-06
-**Version:** 2.0 (post-debate critico con humano)
-**Relacionado:** docs/covid_system_crash_audit.md
+**Version:** 3.0 (expansion a crisis abstracta + anti-sesgo)
+**Relacionado:** docs/covid_system_crash_audit.md, docs/crisis_resilience_framework.md
