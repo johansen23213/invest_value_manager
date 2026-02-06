@@ -271,3 +271,29 @@ El humano ha tenido que señalar REPETIDAMENTE problemas que debería detectar s
     ```
 
     **REGLA:** El análisis NO está completo hasta que la alerta está en el sistema.
+
+---
+
+## Errores Sesión 44 (2026-02-06)
+
+42. **REINCIDENCIA: Comprar sin sector view (Error #30 repetido)** — Sesión 44: Compramos LULU sin tener `world/sectors/consumer-discretionary.md`. Esto es EXACTAMENTE el Error #30 (ADBE sin technology.md). Triple fallo:
+    - Error #30 ya documentado → lo repetí de todas formas
+    - META-REFLECTION del fundamental-analyst decia "Crear retail sector view" → no actué ANTES de comprar
+    - Investment Committee Gate 8 (Sector Understanding) pasó sin verificar que existiera el fichero
+
+    **CAUSA RAIZ:** No hay check AUTOMÁTICO. Depende de mi memoria, y mi memoria falla.
+
+    **CORRECCIÓN IMPLEMENTADA:**
+    - Añadido GATE 0 al Investment Committee: `Glob("world/sectors/*{sector}*")` ANTES de evaluar gates
+    - Si no existe sector view → BLOQUEAR hasta que se cree
+    - Esto es un HARD GATE, no un "debería"
+
+    **REGLA DURA:**
+    ```
+    ANTES de que Investment Committee evalúe ANY gate:
+    PASO 0: ¿Existe sector view para esta empresa?
+      → glob world/sectors/*{sector}*
+      → SI: Continuar con gates 1-9
+      → NO: STOP. Crear sector view PRIMERO. Lanzar sector-screener.
+      → NO HAY EXCEPCIONES.
+    ```
