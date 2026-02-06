@@ -151,7 +151,7 @@ El sector Business Services es extremadamente heterogeneo, abarcando desde BPO/c
 
 | Regulacion | Probabilidad | Impacto | Afectados |
 |------------|--------------|---------|-----------|
-| **Brasil elimina tax benefits meal vouchers** | BAJA (20%) | MUY ALTO | EDEN.PA |
+| **Brasil decreto PAT: interchange cap 2%, settlement 15d, interoperabilidad** | **MATERIALIZADO** (Nov 2025) | MUY ALTO | EDEN.PA |
 | **Italia investiga comisiones** | EN CURSO | MEDIO | EDEN.PA |
 | **IRS Direct File permanente** | ALTA (80%) | ALTO | HRB |
 | **GDPR/AI Act compliance costs** | ALTA | MEDIO | Todos BPO |

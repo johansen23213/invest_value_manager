@@ -62,12 +62,11 @@ Prevenir errores recurrentes mediante un checklist OBLIGATORIO antes de cualquie
 ### 4. CONSTRAINT CHECK
 ```
 [ ] ¿Ejecuté constraint_checker.py?
-    - Posición no superará 7%
-    - Sector no superará 25%
-    - Geografía no superará 35%
-    - Cash no bajará de 5%
+    - Revisar datos de concentración por posición, sector, geografía, cash
+    - Razonar desde principios (learning/principles.md) si la exposición es prudente
+    - Consultar precedentes (learning/decisions_log.yaml) para sizing similar
 
-    ❌ FALLO si: No verifiqué o hay violación
+    ❌ FALLO si: No ejecuté constraint_checker.py antes de recomendar
 
     → Error #12 en error-patterns.md
 ```

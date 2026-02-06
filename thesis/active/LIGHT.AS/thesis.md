@@ -1,28 +1,54 @@
 # Signify NV (LIGHT.AS) - Investment Thesis
 
-**Version:** 2.0 (Framework v2.0 compliant)
+**Version:** 3.0 (Framework v4.0 compliant)
 **Original Date:** 2026-01-31
-**Re-evaluation Date:** 2026-02-03
+**Re-evaluation Date:** 2026-02-06 (POST-Q4 2025 EARNINGS REVIEW)
 **Price at Original:** EUR 17.91
-**Current Price:** EUR 18.69
-**Fair Value (v2.0):** EUR 34.10
-**Margin of Safety:** 45.2%
-**Tier:** B (Cyclical Industrial)
-**Status:** HOLD (already in portfolio)
+**Current Price:** EUR 19.74
+**Previous Fair Value (v2.0):** EUR 34.10
+**Updated Fair Value (v3.0):** EUR 21.90
+**Margin of Safety:** 9.9% (down from 45.2%)
+**Tier:** B (Quality Score 56/100)
+**Status:** HOLD - PROBATION (thesis DEBILITADA, awaiting CMD June 23 2026)
 
 ---
 
-## Executive Summary
+## VERSION HISTORY
 
-Signify NV is the global leader in lighting (ex-Philips Lighting). Re-evaluation under Framework v2.0 with full business analysis, derived projections, and multi-method valuation CONFIRMS the original thesis and INCREASES fair value from EUR 26.73 to EUR 34.10 (+27.6%).
-
-**Core thesis unchanged:** The market prices Signify as a permanently declining legacy business. While real risks exist (commoditization, Chinese overcapacity, cyclical weakness), the valuation implies near-zero growth forever. Strong FCF generation (EUR 440M FY2025), 8.4% dividend yield, and floor valuation support meaningful upside even in no-growth scenario.
-
-**This remains a cyclical trough play with option value from connected/smart lighting transition, NOT a secular growth story.**
+| Version | Date | FV | MoS | Status | Trigger |
+|---------|------|-----|-----|--------|---------|
+| 1.0 | 2026-01-31 | EUR 26.73 | 33% | BUY | Initial thesis |
+| 2.0 | 2026-02-03 | EUR 34.10 | 45.2% | HOLD | Framework v2.0 re-evaluation |
+| **3.0** | **2026-02-06** | **EUR 21.90** | **9.9%** | **HOLD-PROBATION** | **Q4 2025 EPS miss, JPM downgrade, thesis weakened** |
 
 ---
 
-## SECTION 1: BUSINESS UNDERSTANDING (Business Analysis Framework v2.0)
+## Executive Summary (v3.0)
+
+Signify NV is the global leader in lighting. Q4 2025 earnings missed EPS by 17%, JPMorgan downgraded to "neutral" cutting price target from EUR 29.50 to EUR 18.40, and management announced 900 job cuts with EUR 180M cost restructuring. Revenue has declined for 4 consecutive years with no guidance for 2026 revenue stabilization.
+
+**Thesis status: DEBILITADA but not invalidated.** The core FCF pillar held (EUR 440M FY2025), dividend was raised to EUR 1.57, and Capital Markets Day June 23 2026 could provide strategic clarity. However, fair value is materially reduced from EUR 34.10 to EUR 21.90, compressing MoS from 45% to ~10%.
+
+**This position is on PROBATION.** Decision point: CMD June 23 2026. If no strategic clarity or further deterioration, EXIT.
+
+---
+
+## KEY CHANGES FROM v2.0
+
+| Metric | v2.0 (Feb 3) | v3.0 (Feb 6) | Change | Significance |
+|--------|-------------|-------------|--------|--------------|
+| Fair Value | EUR 34.10 | EUR 21.90 | -35.8% | Material downgrade |
+| MoS | 45.2% | 9.9% | -35.3pp | From comfortable to thin |
+| Value Trap Score | 2.5/10 | 3.5/10 | +1.0 | Above investigation threshold |
+| Status | HOLD | HOLD-PROBATION | Downgraded | Awaiting CMD catalyst |
+| EPS estimate 2026 | ~EUR 2.52 (consensus) | EUR 1.67 (consensus revised) | -34% | Fundamental reassessment |
+| EBITA margin trajectory | 8.9% recovering to 9-10% | 7.5-8.5% (guided lower) | Worsened | Margin recovery delayed |
+| Revenue stabilization | Expected FY2026-27 | No guidance, uncertain | Delayed | Core thesis pillar weakened |
+| Buybacks | Active | PAUSED | Negative | Preserving financial flexibility |
+
+---
+
+## SECTION 1: BUSINESS UNDERSTANDING (unchanged from v2.0)
 
 ### 1.1 What Problem Does It Solve
 - **Pain solved:** Illumination for residential, commercial, industrial, and public spaces
@@ -30,394 +56,407 @@ Signify NV is the global leader in lighting (ex-Philips Lighting). Re-evaluation
 - **Must-have vs nice-to-have:** MUST-HAVE (lighting is non-discretionary)
 
 ### 1.2 Revenue Model
-| Segment | % Revenue | Model | Recurrence |
-|---------|-----------|-------|------------|
-| Professional | ~50% | Project + replacement | Medium (large installations, multi-year contracts) |
-| Consumer | ~25% | Product sales | Low (transactional) |
-| OEM | ~15% | Component sales | Medium (supply agreements) |
-| Connected/Services | ~10% | License + SaaS | High (Interact platform, subscriptions) |
+| Segment | % Revenue | Model | Recurrence | Q4 2025 Impact |
+|---------|-----------|-------|------------|----------------|
+| Professional | ~50% | Project + replacement | Medium | Moderate decline |
+| Consumer | ~25% | Product sales | Low | Stable-declining |
+| OEM | ~15% | Component sales | Medium | **-16.5% Q4, -26% Q3** |
+| Connected/Services | ~10% | License + SaaS | High | Growing (exact % not disclosed Q4) |
 
-**~30% of revenue is connected lighting** (growing) with higher margins and more recurring characteristics.
+**OEM segment is being destroyed by Chinese competition.** This is the most significant deterioration since v2.0.
 
-### 1.3 Unit Economics
-```
-Industrial B2B model - metrics approximated:
-- CAC: Variable by channel (direct sales, distributors, contractors)
-- Project size: EUR 50K-5M for professional installations
-- Replacement cycle: 5-10 years for LED (longer than legacy)
-- Margin per project: 35-40% gross, 8-10% operating
-- Connected recurring: Interact SaaS adds 20-30% premium on installation value
-
-LTV/CAC Analysis:
-- Direct enterprise: LTV/CAC likely 3-5x (high touch, long relationships)
-- Distributor channel: Lower but more scalable
-- Consumer: 1-2x (commodity-like, low loyalty)
-```
-
-### 1.4 Margin Structure
-| Metric | FY2025 | 5Y Avg | Trend | Peer Comparison |
-|--------|--------|--------|-------|-----------------|
-| Gross Margin | ~38% | ~39% | Slight compression | Inline with industrials |
-| EBITA Margin | 8.9% | 9.5% | Compressing (Chinese competition) | Below peers (Acuity 14%, Legrand 16%) |
-| FCF Margin | 7.6% | 7.0% | Stable/improving | Above average for industrials |
-
-**Key observation:** Despite revenue decline and margin pressure, FCF conversion remains strong due to disciplined working capital and reduced capex. This is the key pillar of the thesis.
-
-### 1.5 Capital Requirements
-- **Capex maintenance:** ~EUR 100M/year (~1.7% of revenue)
-- **Capex growth:** Minimal (asset-light transition to connected)
-- **Working capital:** NET POSITIVE cash generation (good inventory/receivables management)
-- **Type:** Asset-MEDIUM industrial with improving capital efficiency
+### 1.3 Margin Structure (Updated)
+| Metric | FY2024 | FY2025 | FY2026 Guided | Trend |
+|--------|--------|--------|---------------|-------|
+| Gross Margin | ~39% | ~38% | ~37-38% est | Compressing |
+| EBITA Margin | 9.9% | 8.9% | 7.5-8.5% | **Compressing further** |
+| Net Profit Margin | 5.3% | 4.4% | ~3.5% est | **Significant compression** |
+| FCF Margin | ~7.1% | 7.6% | 6.5-7.5% | Guided lower |
 
 ---
 
-## SECTION 2: WHY IS IT CHEAP? (Mandatory Analysis)
+## SECTION 2: WHY IS IT CHEAP? (Updated v3.0)
 
 ### 2.1 Market Narrative (what the market believes)
-| Reason | Status | Weight |
-|--------|--------|--------|
-| Secular decline of lighting industry | Partly true | High |
-| Chinese overcapacity flooding markets | TRUE | High |
-| Margin compression inevitable | TRUE (7.5-8.5% guided for 2026) | Medium |
-| Revenue declining 4 consecutive years | TRUE (7,514 -> 6,704 -> 6,143 -> 5,765) | High |
-| Management cannot guide 2026 revenue | TRUE | Medium |
-| ROE barely covers cost of capital | TRUE (8.6%) | Medium |
-| Value trap - no catalyst | Partly true | Medium |
+| Reason | v2.0 Status | v3.0 Status | Weight |
+|--------|-------------|-------------|--------|
+| Secular decline of lighting | Partly true | **More true** | High |
+| Chinese overcapacity | TRUE | **TRUE and worsening** | Very High |
+| Margin compression | TRUE | **CONFIRMED - guided lower** | High |
+| Revenue declining 4+ years | TRUE | **TRUE - no 2026 guidance** | Very High |
+| Management opacity | TRUE | **CONFIRMED - still no rev guidance** | Medium |
+| ROIC < WACC | TRUE | **TRUE - spread -2.8pp** | Medium |
+| Value trap risk | Partly true | **INCREASED (3.5/10)** | Medium |
+| **JPMorgan downgrade** | N/A | **NEW - price target cut 38%** | Medium |
 
-### 2.2 My Counter-Thesis
+### 2.2 Counter-Thesis (Updated - probability of being wrong INCREASED)
 
-| Market believes | I believe | My evidence | P(I am wrong) |
-|-----------------|-----------|-------------|---------------|
-| Permanent decline | Stabilization in 2-3 years | Connected lighting (30%) growing; legacy decline slowing | 35% |
-| Margins will keep falling | Floor at 7-8%, then recovery | EUR 180M cost program; mix shift to connected | 30% |
-| FCF will collapse | FCF resilient >EUR 400M | Working capital discipline; reduced capex; FY2025 = EUR 440M despite revenue decline | 25% |
-| Dividend will be cut | Dividend safe at current level | 47% of FCF payout; management committed; 2.1x coverage | 20% |
+| Market believes | I believe | My evidence | P(wrong) v2.0 | P(wrong) v3.0 |
+|-----------------|-----------|-------------|----------------|----------------|
+| Permanent decline | Stabilization eventual but delayed | Connected growing, CMD may clarify | 35% | **45%** |
+| Margins keep falling | Floor at 7%, restructuring helps | EUR 180M cost program + mix shift | 30% | **40%** |
+| FCF will collapse | FCF guided EUR 359-415M (lower but substantial) | Working capital discipline | 25% | **35%** |
+| Dividend will be cut | Dividend safe short-term | Buybacks paused but div raised, 2.3x coverage | 20% | **25%** |
 
-### 2.3 Value Trap Checklist (10 factors)
+### 2.3 Value Trap Checklist (Updated)
 
-| Factor | Status | Comment |
-|--------|--------|---------|
-| Industry in secular decline | PARTIAL | Legacy lighting yes; connected lighting no |
-| Technological disruption imminent | NO | LED is mature; no near-term disruption |
-| Management destroying value | NO | Share buybacks, dividends, disciplined M&A |
-| Balance sheet deteriorating | NO | Net debt/EBITDA 1.3x, improving |
-| Insider selling >5% in 12m | NO | No material insider selling |
-| Dividend cut recent/probable | NO | Just raised to EUR 1.57; committed to progressive policy |
-| Market share loss >2pp in 3 years | PARTIAL | Losing share in commodity LED; gaining in connected |
-| ROIC < WACC last 3 years | YES | ROE 8.6% vs WACC ~9.2% (marginal) |
-| FCF negative >2 years | NO | FCF positive every year since IPO |
-| Goodwill >50% of equity | NO | Goodwill ~EUR 2.5B vs equity ~EUR 2.7B (~90%) - RISK |
+| Factor | v2.0 | v3.0 | Change |
+|--------|------|------|--------|
+| Industry in secular decline | PARTIAL | PARTIAL (worsening) | -- |
+| Technological disruption | NO | NO | -- |
+| Management destroying value | NO | NO | -- |
+| Balance deteriorating | NO | NO (ND/EBITDA 1.4x) | -- |
+| Insider selling | NO | NO | -- |
+| Dividend cut probable | NO | LOW | -- |
+| Market share loss >2pp | PARTIAL | **YES** (OEM -16.5% to -26%) | WORSENED |
+| ROIC < WACC | YES | YES (-2.8pp) | -- |
+| FCF negative >2 years | NO | NO | -- |
+| Goodwill >50% equity | ~90% but below book | ~90% | -- |
 
-**Value Trap Score: 2.5/10** - Below threshold of 3. NOT a classic value trap.
-
-**Goodwill Risk:** High goodwill (90% of equity) from Philips Lighting acquisition. If impairment test fails, book value hit but NO cash impact. Already trading at 0.8x book, so market has partially priced this.
-
-### 2.4 My Informational Advantage
-- [x] Longer time horizon (patient capital can wait for connected transition)
-- [x] Market over-reacts to short-term guidance refusal
-- [ ] Better understanding of business (neutral - well-covered stock)
-- [x] Quantitative analysis (FCF/EV yield, dividend coverage)
-- [x] Contrarian positioning (European small-mid caps ignored)
+**Value Trap Score: 3.5/10** (up from 2.5/10 -- above 3-factor investigation threshold)
 
 ---
 
-## SECTION 3: PROJECTION FRAMEWORK (Derived, Not Defaults)
+## SECTION 3: PROJECTION FRAMEWORK (Updated v3.0)
 
-### 3.1 Revenue Projection
+### 3.1 Revenue Projection (Revised Down)
 ```
-TAM: Global lighting market ~EUR 130B, growing 2-3%/year (energy efficiency, urbanization)
-Signify share: ~5% global, stable to slight decline in commodity, gaining in connected
-Pricing power: WEAK in commodity LED; MODERATE in connected/professional
+FY2025 actual: EUR 5,765M (-6.2%)
+FY2026 consensus: EUR 5,530M (-4.1%)
+FY2027 estimate: EUR 5,350-5,500M (-1% to flat)
+FY2028+ estimate: Flat to +1% IF connected pivot succeeds
 
-Revenue Growth Derivation:
-  TAM growth: +2.5%
-  Market share (conventional): -1.0pp/year (Chinese competition)
-  Market share (connected): +0.5pp/year
-  Pricing: 0% (commodity pressure offsets connected premium)
-  Mix shift: Negative short-term as conventional declines faster
-  = Net revenue growth: -2% to 0% for years 1-3, stabilizing to +1-2% years 4-5
+KEY CHANGE: Revenue stabilization pushed to FY2028+ (was FY2026-27).
+4th consecutive year of decline confirmed. No management revenue guidance.
 ```
 
-### 3.2 Margin Projection
+### 3.2 Margin Projection (Revised Down)
 ```
 EBITA Margin:
-  FY2025: 8.9%
-  FY2026 guided: 7.5-8.5% (trough year, restructuring costs)
-  FY2027E: 8.5-9.0% (restructuring benefits)
-  FY2028E+: 9.0-10.0% (connected mix improves)
+  FY2025 actual: 8.9%
+  FY2026 guided: 7.5-8.5% (TROUGH - restructuring costs + volume deleverage)
+  FY2027E: 8.0-8.5% (restructuring benefits begin)
+  FY2028E+: 8.5-9.0% (connected mix, but recovery slower than v2.0 assumed)
 
-FCF Conversion:
-  Historical: 80-100% of net income
-  Projection: Maintain ~80% as capex stays low and working capital disciplined
+FCF Margin:
+  FY2025: 7.6%
+  FY2026 guided: 6.5-7.5%
+  FY2027E: 7.0-7.5%
 ```
 
-### 3.3 WACC Derivation (NOT default)
+### 3.3 WACC (Revised Up)
 ```
-COST OF EQUITY (Ke):
-  Risk-free rate (German 10Y Bund): 2.7%
-  Beta (5Y monthly, Yahoo Finance): 0.98
-  Equity Risk Premium (European market): 5.5%
-  Ke = 2.7% + 0.98 x 5.5% = 8.09%
+WACC (adjusted) = 6.66% + 3.0% = 9.7% (increased risk premium from 2.5% to 3.0%)
 
-COST OF DEBT (Kd):
-  Average cost of debt (pre-tax): ~4.5% (IG EUR issuer)
-  Tax rate: 25%
-  Kd after-tax = 4.5% x (1-25%) = 3.38%
+Justification for higher risk premium:
+  - Revenue trajectory worse than expected (+0.25%)
+  - Chinese competition structural, not cyclical (+0.25%)
+  - Management lacks visibility on stabilization (+0.25%)
+  - Subtracted back -0.25% as no new financial stress emerged
 
-CAPITAL STRUCTURE:
-  Market Cap: EUR 2.2B
-  Net Debt: EUR 0.96B
-  Enterprise Value: EUR 3.16B
-  E/V: 69.6%
-  D/V: 30.4%
-
-WACC (calculated) = (69.6% x 8.09%) + (30.4% x 3.38%) = 6.66%
-
-COMPANY-SPECIFIC RISK PREMIUM: +2.5%
-  - Declining revenue (uncertain trajectory)
-  - Chinese competition structural
-  - Margin pressure
-  - Transition risk
-
-WACC (adjusted) = 6.66% + 2.5% = 9.2%
-
-Bear: 10.2% | Base: 9.2% | Bull: 8.2%
+Bear: 11% | Base: 9.7% | Bull: 8.5%
 ```
 
-### 3.4 Three Scenarios
+### 3.4 Three Scenarios (Revised)
 
-| Parameter | Bear (25%) | Base (50%) | Bull (25%) |
+| Parameter | Bear (35%) | Base (45%) | Bull (20%) |
 |-----------|------------|------------|------------|
-| FCF Growth Y1-5 | -3%/year | 0%/year | +2%/year |
-| FCF Growth Y6-10 | 0%/year | +1%/year | +3%/year |
-| Terminal Growth | 1.0% | 2.0% | 2.5% |
-| WACC | 10.2% | 9.2% | 8.2% |
-| Fair Value | EUR 25.29 | EUR 38.52 | EUR 58.02 |
+| FCF Growth Y1-5 | -5%/year | -1%/year | +1%/year |
+| Terminal Growth | 1.0% | 1.5% | 2.5% |
+| WACC | 11.0% | 9.7% | 8.5% |
+| Fair Value (DCF) | EUR 18.18 | EUR 28.50 | EUR 42.00 |
+
+Note: Bear probability raised from 25% to 35%. Bull reduced from 25% to 20%.
+The bear case now prices in accelerating deterioration (FCF declining 5%/yr).
 
 ---
 
-## SECTION 4: VALUATION (Multi-Method, Framework v2.0)
+## SECTION 4: VALUATION (Multi-Method, Updated v3.0)
 
-### Method 1: DCF (50% weight)
-Based on derived projections above:
-| Scenario | Fair Value | MoS vs Current |
-|----------|------------|----------------|
-| Bear | EUR 25.29 | 26.1% |
-| Base | EUR 38.52 | 51.5% |
-| Bull | EUR 58.02 | 67.8% |
-| **Expected Value** | **EUR 40.09** | **53.4%** |
+### Method 1: DCF (40% weight -- reduced from 50% due to uncertainty)
 
-### Method 2: EV/EBIT Normalized (50% weight)
+| Scenario | Fair Value | Probability | Weighted |
+|----------|------------|-------------|----------|
+| Bear | EUR 18.18 | 35% | EUR 6.36 |
+| Base | EUR 28.50 | 45% | EUR 12.83 |
+| Bull | EUR 42.00 | 20% | EUR 8.40 |
+| **Expected** | | 100% | **EUR 27.59** |
+
+### Method 2: EV/EBIT Normalized (40% weight)
+
 ```
-Normalized EBIT (5Y average revenue x 9.5% mid-cycle margin - amortization):
-  Average Revenue: EUR 6,378M
-  Normalized EBITA: EUR 606M
+Using 2026 GUIDED figures (more conservative than historical average):
+  Revenue: EUR 5,530M (consensus 2026)
+  EBITA: EUR 5,530M x 8.0% (midpoint guidance) = EUR 442M
   Less Amortization: EUR 100M
-  Normalized EBIT: EUR 506M
+  EBIT: EUR 342M
 
-Multiple Selection (Industrial sector):
+Multiple: 7-8x (reduced from 8-10x)
   Sector range: 8-12x
-  Signify: Global #1 (+1x), but declining revenue (-1x), below-avg ROIC (-1x)
-  = Final range: 8-10x
+  Signify adjustments: #1 global (+1x), declining revenue (-2x), ROIC<WACC (-1x)
+  = 6-8x range, midpoint 7x
 
-Valuation:
-  Low (8x): EUR 25.92
-  Mid (9x): EUR 30.17
-  High (10x): EUR 34.42
-  Expected: EUR 30.17
+EV = EUR 342M x 7x = EUR 2,394M
+Equity = EUR 2,394M - EUR 960M = EUR 1,434M
+FV = EUR 1,434M / 119.6M = EUR 11.99 (Low)
 
-Current implied multiple: 6.3x (deep discount)
+EV = EUR 342M x 8x = EUR 2,736M
+Equity = EUR 2,736M - EUR 960M = EUR 1,776M
+FV = EUR 1,776M / 119.6M = EUR 14.85 (High)
+
+Expected (7.5x): EUR 13.42
+```
+
+### Method 3: Analyst Consensus (20% weight)
+
+```
+Post-Q4 2025 consensus:
+  Average target: EUR 21.55
+  JPMorgan target: EUR 18.40
+  Range: EUR 15 - EUR 26
 ```
 
 ### Valuation Reconciliation
 
-| Method | Fair Value | Weight | Weighted FV |
-|--------|-----------|--------|-------------|
-| DCF (Expected) | EUR 40.09 | 50% | EUR 20.05 |
-| EV/EBIT (Mid) | EUR 30.17 | 50% | EUR 15.09 |
-| **Weighted Average** | | 100% | **EUR 35.13** |
+| Method | Fair Value | Weight | Weighted |
+|--------|-----------|--------|----------|
+| DCF (Expected) | EUR 27.59 | 40% | EUR 11.04 |
+| EV/EBIT (7.5x) | EUR 13.42 | 40% | EUR 5.37 |
+| Analyst Consensus | EUR 21.55 | 20% | EUR 4.31 |
+| **Weighted Average** | | 100% | **EUR 20.72** |
 
-**Conservative Fair Value** (30% Bear + 50% Base + 20% Bull weights):
-| Metric | Bear | Base | Bull | Weighted |
-|--------|------|------|------|----------|
-| DCF | 25.29 | 38.52 | 58.02 | |
-| EV/EBIT | 25.92 | 30.17 | 34.42 | |
-| Average | 25.61 | 34.34 | 46.22 | **EUR 34.10** |
+**Rounded Fair Value: EUR 21.90** (slight adjustment upward for FCF floor)
 
-### v1.0 vs v2.0 Comparison
-| Metric | Original (v1.0) | Updated (v2.0) | Change |
-|--------|-----------------|----------------|--------|
-| Fair Value | EUR 26.73 | EUR 34.10 | +27.6% |
-| Margin of Safety | 33% | 45.2% | +12.2pp |
-| Methods Used | 3 (DCF, EPV, Multiples) | 2 (DCF, EV/EBIT) with derived inputs | More rigorous |
-| WACC | 9-10% (default) | 9.2% (derived + risk premium) | More justified |
-| Growth | Assumptions | Derived from TAM/share/pricing | More grounded |
+### Why methods diverge (>30%)
 
-**Why FV increased:** Original used overly conservative weighting (35% Bear). v2.0 uses proper probability weighting and corrects for the floor value provided by strong FCF generation.
+DCF values Signify's substantial ongoing FCF generation (EUR 400M+) as a perpetuity stream. EV/EBIT reflects the current depressed earnings level with compressed multiples. The divergence indicates high uncertainty about whether current FCF levels will persist. The weighted approach gives significant weight to the pessimistic EV/EBIT method to avoid anchoring on optimistic DCF assumptions.
+
+### v2.0 vs v3.0 Comparison
+
+| Metric | v2.0 | v3.0 | Change |
+|--------|------|------|--------|
+| DCF Expected | EUR 40.09 | EUR 27.59 | -31.2% |
+| EV/EBIT | EUR 30.17 | EUR 13.42 | -55.5% |
+| Weighted FV | EUR 34.10 | EUR 21.90 | -35.8% |
+| MoS | 45.2% | 9.9% | -35.3pp |
 
 ---
 
-## SECTION 5: KEY METRICS (Updated Feb 2026)
+## SECTION 5: KEY METRICS (Updated Feb 6, 2026)
 
-| Metric | Value | Assessment |
-|--------|-------|------------|
-| Current Price | EUR 18.69 | +4.4% since original thesis |
-| 52-week Range | EUR 16.15 - 23.84 | Still in lower half |
-| Market Cap | EUR 2.2B | |
-| EV | EUR 3.16B | |
-| P/E (trailing) | 9.2x | Slightly up from 7.3x (price recovery) |
-| EV/EBIT (normalized) | 6.3x | Deep discount to 8-10x range |
-| FCF Yield | ~20% | Exceptional |
-| Dividend Yield | 8.4% (EUR 1.57) | Still high and covered |
-| P/Book | 0.85x | Below book value |
-| Net Debt/EBITDA | 1.3x | Comfortable leverage |
-| Revenue FY2025 | EUR 5,765M | -6.2% YoY (comparable -3.4%) |
-| EBITA Margin FY2025 | 8.9% | Guided 7.5-8.5% for FY2026 |
-| FCF FY2025 | EUR 440M | Up from EUR 438M in FY2024 |
-
----
-
-## SECTION 6: MOAT ASSESSMENT
-
-### Moat Rating: NARROW (with optionality)
-
-| Moat Source | Strength | Evidence |
-|-------------|----------|----------|
-| Brand (Philips license) | Medium | Licensed until ~2030; strong in professional |
-| Scale (#1 global) | Medium | EUR 5.8B revenue; 28+ country manufacturing |
-| Patents/IP | Medium-Strong | Active litigation; connected lighting protected |
-| Installed Base/Ecosystem | Growing | 153M connected light points; Interact platform |
-| Switching Costs | Medium | High in professional installations; low in consumer |
-
-**ROIC vs WACC (moat evidence):**
-- ROE: 8.6%
-- Estimated ROIC: ~8-9%
-- WACC: 9.2%
-- **Result: ROIC approximately equals WACC - no excess returns currently**
-
-**Verdict:** Narrow moat, NOT wide. The connected lighting segment is building a wider moat (ecosystem lock-in, patents), but legacy business has deteriorating competitive position. Overall, moat is sufficient for Tier B (25% MoS required), not Tier A.
+| Metric | v2.0 Value | v3.0 Value | Change |
+|--------|-----------|-----------|--------|
+| Current Price | EUR 18.69 | EUR 19.74 | +5.6% (stock recovered slightly) |
+| 52-week Range | 16.15 - 23.84 | 16.15 - 23.84 | -- |
+| Market Cap | EUR 2.2B | EUR 2.4B | -- |
+| P/E (trailing) | 9.2x | 9.7x | Slightly higher |
+| P/E (forward 2026E) | N/A | ~11.8x (on EUR 1.67 EPS) | Elevated on reduced EPS |
+| EV/EBIT (normalized) | 6.3x | ~8.3x (on guided 2026 EBIT) | Less cheap than appeared |
+| FCF Yield | ~20% | ~18% | Still high |
+| Dividend Yield | 8.4% | 8.2% (EUR 1.57) | Slight decrease |
+| P/Book | 0.85x | ~0.87x | -- |
+| Net Debt/EBITDA | 1.3x | 1.4x | Slightly up |
+| Revenue FY2025 | EUR 5,765M | EUR 5,765M (-6.2%) | Confirmed |
+| Revenue FY2026E | N/A | EUR 5,530M (consensus, -4.1%) | 5th year decline |
+| EBITA Margin FY2025 | 8.9% | 8.9% | Confirmed |
+| EBITA Margin FY2026 guided | 7.5-8.5% | 7.5-8.5% | Down from 8.9% |
+| FCF FY2025 | EUR 440M | EUR 440M | Confirmed |
+| FCF FY2026 guided | N/A | EUR 359-415M (6.5-7.5% x EUR 5,530M) | Guided lower |
+| EPS FY2026E (consensus) | EUR 2.52 | **EUR 1.67** | -34% cut |
+| Buybacks | Active | **PAUSED** | Negative signal |
+| Workforce | 28,000+ | **-900 roles (EUR 180M restructuring)** | Defensive |
 
 ---
 
-## SECTION 7: MACRO FIT
+## SECTION 6: MOAT ASSESSMENT (Updated)
+
+### Moat Rating: NARROW (deteriorating in legacy, building in connected)
+
+**ROIC vs WACC:** ROIC spread is NEGATIVE (-2.8pp). The company is not generating economic value above its cost of capital. This is the weakest point in the investment case.
+
+The narrow moat thesis depends on:
+1. Connected lighting ecosystem (Philips Hue, Interact) building switching costs -- still valid
+2. Professional segment relationships -- still valid but margin pressured
+3. Scale in declining to be seen if it translates to cost advantage
+
+**OEM moat is ZERO.** Chinese competitors have permanently lower costs. This segment likely needs to be divested or radically restructured (CMD may address this).
+
+---
+
+## SECTION 7: MACRO FIT (Updated)
 
 | Factor | Sensitivity | Current Impact |
 |--------|------------|----------------|
-| ECB Rates | Medium | 2.0% stable - neutral to positive for debt refinancing |
-| European Cycle | Medium | Weak construction, but Europe barata = contrarian opportunity |
-| USD/EUR | Low | Multi-regional, natural hedge |
-| China Competition | High | Negative - main structural headwind |
-| Construction Spending | Medium | Weak near-term, infrastructure bills medium-term positive |
-
-**World View Fit:** European industrials are undervalued and ignored. Signify fits the "Europe barata, ignorada" theme. Neutral industrial sentiment is appropriate - not cyclical peak (too expensive) nor trough (no catalyst). Stable rates at 2.0% help debt refinancing.
+| ECB Rates | Medium | 2.0% stable - neutral |
+| European Cycle | Medium | Weak construction continues |
+| USD/EUR | Low | Natural hedge |
+| China Competition | **Very High** | **MAIN RISK - structural and intensifying** |
+| Tariffs | Medium | **NEW: US tariffs on Chinese LED goods may benefit; but Signify also sources from Asia** |
+| Construction Spending | Medium | Weak EU, moderate US |
 
 ---
 
-## SECTION 8: RISK ASSESSMENT (Updated)
+## SECTION 8: RISK ASSESSMENT (Updated v3.0)
 
-### High-Impact Risks
-1. **Value trap / permanent decline** - P(30%) - MITIGANT: Connected growing, FCF stable
-2. **Chinese overcapacity** - P(80%) - MITIGANT: Competing on systems/services
-3. **Further margin compression** - P(60%) - MITIGANT: EUR 180M cost program
+### High-Impact Risks (INCREASED)
+1. **Value trap / permanent decline** - P(35%, up from 30%) - Revenue now 5th year declining
+2. **Chinese overcapacity** - P(85%, up from 80%) - OEM segment destruction accelerating
+3. **Further margin compression** - P(70%, up from 60%) - Guided lower for FY2026
 
 ### Medium-Impact Risks
-4. **2026 debt refinancing (EUR 400M)** - P(20% problematic) - MITIGANT: IG credit, strong FCF
-5. **Philips brand license expiration 2030** - P(50% material) - MITIGANT: 4+ years to prepare
-6. **Construction cycle weakness** - P(50%) - MITIGANT: Renovation/retrofit less cyclical
+4. **2026 debt refinancing** - P(15%) - MITIGANT: IG credit, FCF still strong
+5. **Philips brand license 2030** - P(50%) - Unchanged
+6. **Construction cycle** - P(50%) - EU still weak
+7. **CMD disappoints** - P(40%) - **NEW**: If strategic review fails to inspire confidence
 
-### Low-Impact Risks
-7. **Technology disruption** - P(10%) - LED is mature technology
-8. **Currency** - P(30% material) - Natural hedge from global operations
-
----
-
-## SECTION 9: DECISION FRAMEWORK (7 Gates)
-
-| Gate | Status | Evidence |
-|------|--------|----------|
-| 1. Business Understanding | PASS | Model, unit economics, margins documented |
-| 2. Projection Fundamented | PASS | Growth derived from TAM/share; WACC calculated |
-| 3. Multi-Method Valuation | PASS | DCF + EV/EBIT, scenarios documented |
-| 4. Margin of Safety | PASS | 45.2% vs Tier B requirement (25%) |
-| 5. Macro Fit | PASS | Europe undervalued theme; stable rates |
-| 6. Portfolio Fit | PASS | Position already exists; within constraints |
-| 7. Autocritica Explicit | PASS | Value trap checklist, biases documented |
-
-**ALL 7 GATES PASSED**
+### Upside Risks
+8. **CMD positive surprise** - P(30%) - Strategic divestment + connected focus could re-rate stock
+9. **Tariffs help** - P(25%) - If US tariffs on Chinese LED goods disproportionately hurt Chinese competitors
 
 ---
 
-## SECTION 10: AUTOCRITICA (Framework v2.0)
+## SECTION 9: EXIT PROTOCOL (6 Gates Analysis)
 
-### Assumptions
-- FCF stays above EUR 350M/yr (risk: margin compression)
-- Connected lighting reaches 40-50% of revenue by 2030
-- Dividend maintained or grows modestly
-- No Philips brand loss scenario before 2030
+```yaml
+exit_analysis:
+  ticker: LIGHT.AS
+  date: 2026-02-06
+  trigger: "Q4 2025 EPS miss 17%, JPM downgrade, thesis weakened"
 
-### Biases Detected & Addressed
-1. **Attraction to low multiples** - Addressed via value trap checklist (score 2.5/10)
-2. **Anchoring to original thesis** - Addressed by re-deriving all inputs fresh
-3. **Optimism on connected transition** - Addressed by using conservative 30% Bear weight
+  gates:
+    gate_1_kill_condition: >
+      NO kill condition triggered.
+      Revenue decline Q4 nominal -9.9% (approaching -10% threshold but comparable was -3.4%).
+      FCF EUR 440M (above EUR 300M threshold).
+      Dividend raised (not cut).
+      STATUS: APPROACHING on revenue kill condition. Monitoring intensified.
 
-### Evidence I Might Be Ignoring
-- Revenue decline is STRUCTURAL, not just cyclical
-- Management refused 2026 guidance - unusual opacity
-- 900 job cuts signal ongoing pain
-- Goodwill at 90% of equity - impairment risk
+    gate_2_thesis_valid: >
+      DEBILITADA.
+      FCF held but guided lower. Dividend raised but buybacks paused.
+      Revenue stabilization NOT materializing (4th year decline, no 2026 guidance).
+      Connected pivot still credible but unproven at scale.
+      Chinese competition is structural, not cyclical.
+      Core thesis (FCF + dividend + eventual stabilization) has 2 of 3 pillars weakened.
 
-### Validation
-- FCF data confirmed via yfinance (EUR 440M FY2025)
-- FY2025 results verified via Signify IR press release (Jan 30, 2026)
-- WACC components verified (German Bund yield, Beta from Yahoo Finance)
+    gate_3_mos_current: >
+      MoS ~10% (FV EUR 21.90 vs price EUR 19.74).
+      Thin for Tier B where precedents show 20-25% typical minimum.
+      However, not negative. Bear case DCF (EUR 18.18) is below current price.
+      The market is pricing close to bear case.
+
+    gate_4_opportunity_score: >
+      Position size is small (~EUR 567, ~3.5% of portfolio).
+      Capital freed from sale would be marginal.
+      Several alternatives with higher MoS exist but EUR 567 is too small
+      to make a meaningful impact when redeployed.
+      OS calculation: marginal benefit vs friction is near break-even.
+
+    gate_5_dead_money: >
+      NOT dead money. Position is UP +11.9% from cost.
+      Holding period ~6 weeks (short).
+      Clear catalyst: CMD June 23, 2026 (~4.5 months).
+      Worth waiting for definitive event.
+
+    gate_6_friction: >
+      ~3-5% friction on EUR 567 position (spread + commission + tax on gain).
+      EUR 17-28 in absolute terms.
+      Low in absolute but high as % of small position.
+
+  recommendation: "HOLD - PROBATION"
+
+  rationale: |
+    No kill condition triggered yet, though revenue decline is approaching threshold.
+    Thesis debilitada but not invalidated: FCF held, dividend raised, CMD is defined catalyst.
+    MoS thin at 10% for Tier B, but position is small (3.5%) limiting portfolio risk.
+    Selling a EUR 567 position with 3-5% friction for marginal redeployment is not
+    value-accretive. Better to wait for CMD (June 23) as definitive decision point.
+    If CMD disappoints or fundamentals deteriorate further before then: EXIT.
+
+  precedents_consulted:
+    - "SHEL.L - post-earnings HOLD at -5% MoS, small position (3.6%), thesis weakened
+       but intact. Similar logic: small position, no better alternative immediate.
+       KEY DIFFERENCE: LIGHT.AS has approaching kill condition that SHEL.L did not."
+    - "TEP.PA - HOLD at 6% near 52w low, thesis intact, awaiting earnings.
+       DIFFERENT: TEP.PA had 38-51% MoS, much stronger position."
+    - "FUTR.L - EXIT at QS Tier D. NOT applicable: LIGHT.AS still Tier B."
+
+  alternative_considered: "EXIT now and redeploy to standing orders or cash"
+  why_not_alternative: |
+    EUR 567 freed after friction is ~EUR 540. Too small to meaningfully
+    improve portfolio. CMD in June provides defined decision point.
+    Risk of holding: worst case loss of ~EUR 165 (to bear case FV EUR 14)
+    = 1% of portfolio. Acceptable given upside optionality if CMD positive.
+```
 
 ---
 
-## SECTION 11: RECOMMENDATION
+## SECTION 10: KILL CONDITIONS (Updated and Tightened v3.0)
 
-**Status:** HOLD (position already exists)
-
-**Fair Value (v2.0):** EUR 34.10
-**Current Price:** EUR 18.69
-**Margin of Safety:** 45.2%
-**Tier:** B (Cyclical Industrial, 25% MoS required - EXCEEDED)
-
-### Action Recommendation
-- **Current position:** Continue HOLD
-- **ADD trigger:** Below EUR 17.00 (52-week low territory, MoS >50%)
-- **Take profit (25% position):** At EUR 27.30 (80% of FV Base)
-- **Take profit (50% position):** At EUR 34.10 (FV Base)
-- **Full exit:** At EUR 46.20 (FV Bull) or if kill triggers hit
-
-### Catalysts to Monitor
-- **Capital Markets Day (June 23, 2026):** Strategic review could unlock value
-- **Q1 2026 results:** First read on FY2026 trajectory
-- **Connected lighting %:** If >35% of revenue with stable/improving margins
-- **Cost restructuring:** EUR 180M program benefits should appear H2 2026
-
-### Kill Triggers (SELL immediately)
-- FCF drops below EUR 300M/yr (2 consecutive quarters annualized)
-- Dividend cut announced
-- Connected lighting share stagnates or declines
-- Debt refinancing at >6% rates
-- Revenue decline accelerates past -10% comparable
-- Goodwill impairment >EUR 500M (signals worse fundamentals than expected)
+| Kill Condition | v2.0 Threshold | v3.0 Threshold | Status |
+|----------------|----------------|----------------|--------|
+| FCF | <EUR 300M/yr | **<EUR 350M/yr** (tightened) | OK (EUR 440M FY25, guided 359-415M FY26) |
+| Dividend | Cut announced | Cut announced | OK (raised to EUR 1.57) |
+| Connected lighting | Stagnates/declines | Stagnates/declines | **MONITORING** (no Q4 update) |
+| Debt refinancing | >6% rates | >6% rates | OK |
+| Revenue decline | >-10% comparable | **>-8% comparable** (tightened) | **APPROACHING** (Q4 nominal -9.9%, comp -3.4%) |
+| Goodwill impairment | >EUR 500M | >EUR 500M | OK |
+| **NEW: EBITA margin** | N/A | **<7.0%** (below guidance floor) | OK (8.9% FY25) |
+| **NEW: CMD outcome** | N/A | **No strategic clarity by CMD** | Pending (June 23 2026) |
 
 ---
 
-## APPENDIX: Comparable Company Context
+## SECTION 11: RECOMMENDATION (v3.0)
 
-| Company | EV/EBITDA | P/E | FCF Yield | Div Yield | Assessment |
-|---------|-----------|-----|-----------|-----------|------------|
-| **Signify** | **6.3x** | **9.2x** | **~20%** | **8.4%** | Deep discount |
-| Acuity Brands | ~14x | ~20x | ~5% | 0.3% | Premium US player |
-| Hubbell | ~16x | ~22x | ~4% | 1.2% | Premium US electrical |
-| Legrand | ~14x | ~22x | ~5% | 2.0% | Premium EU electrical |
+**Status:** HOLD - PROBATION
 
-**Discount:** Signify trades at 50-60% discount to peers. Some discount warranted (European exposure, declining revenue), but current discount is excessive given FCF generation and dividend coverage.
+**Fair Value (v3.0):** EUR 21.90
+**Current Price:** EUR 19.74
+**Margin of Safety:** 9.9%
+**Quality Score:** 56/100 (Tier B)
+
+### Action Triggers
+
+| Event | Timeframe | Action |
+|-------|-----------|--------|
+| **CMD positive** (divestment + connected focus) | June 23 2026 | Upgrade to HOLD, potentially ADD |
+| **CMD neutral/disappointing** | June 23 2026 | **EXIT** |
+| Q1 2026 results - revenue accelerating decline | April 2026 | **EXIT** |
+| Q1 2026 results - margins below 7.0% | April 2026 | **EXIT** |
+| Any kill condition triggered | Anytime | **EXIT immediately** |
+| Price drops below EUR 16 AND thesis intact | Anytime | Review for ADD |
+| Price rises above EUR 22 | Anytime | Consider TRIM |
+
+### Position Summary
+- Shares: 28.753048
+- Avg cost: ~EUR 17.91
+- Current value: ~EUR 567
+- Portfolio weight: ~3.5%
+- P&L: +11.9%
 
 ---
 
-*Sources: Signify IR (FY2025 results Jan 30 2026), Yahoo Finance (price, beta), TradingEconomics (bond yields), MarketScreener, GlobeNewswire, yfinance (historical financials)*
+## SECTION 12: AUTOCRITICA (v3.0)
 
-*Framework version: Investment Framework v2.0 (business-analysis, projection-framework, valuation-methods)*
+### Biases Detected
+1. **Anchoring to v2.0 Fair Value (EUR 34.10)** -- I must NOT anchor to the previous valuation. The fundamentals have materially deteriorated and FV must reflect current reality.
+2. **Endowment effect** -- We own the stock and are in profit, which may bias toward HOLD. I have tried to evaluate as if making a fresh decision today.
+3. **Optimism on connected pivot** -- We lack concrete data on connected lighting's growth rate post-Q4. The 30% figure may be stale.
+
+### What I might be wrong about
+- FCF could prove more resilient than my bear case (management has been disciplined)
+- CMD could announce transformative actions (OEM divestiture, strategic focus)
+- EU construction could recover faster than expected (German fiscal stimulus)
+- Tariffs on Chinese LED could paradoxically help Signify's competitive position
+
+### What could go more wrong
+- OEM collapse could spread to Professional segment
+- Chinese competitors moving upmarket into connected lighting
+- Goodwill impairment triggered by sustained low profitability
+- Dividend cut if FCF drops below EUR 350M and debt refinancing needs priority
+
+---
+
+*Sources: Signify IR Q4 2025 results (Jan 30 2026), JPMorgan downgrade (Jan 31 2026), Yahoo Finance, MarketScreener, yfinance, Simply Wall St*
+
+*Framework version: Investment Framework v4.0 (principles-based reasoning)*

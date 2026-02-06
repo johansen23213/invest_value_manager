@@ -383,12 +383,6 @@ def print_dcf_waterfall(
 
     mos = calculate_mos(dcf["fair_value_per_share"], data["price_normalized"])
     print(f"\nMargin of Safety: {mos:+.1f}%")
-    if mos > 25:
-        print("  >>> BUY signal (MoS > 25%)")
-    elif mos > 0:
-        print("  >>> Fair value, slight upside")
-    else:
-        print("  >>> OVERVALUED")
 
 
 def print_scenario_table(
@@ -427,14 +421,7 @@ def print_scenario_table(
     print(f"Base Case Fair Value: {base_fv_display:.2f} {data['display_currency']}")
 
     base_mos = calculate_mos(scenarios["base"]["fair_value_per_share"], data["price_normalized"])
-    if base_mos > 25:
-        print(">>> STRONG BUY (Base MoS > 25%)")
-    elif base_mos > 15:
-        print(">>> BUY (Base MoS > 15%)")
-    elif base_mos > 0:
-        print(">>> HOLD (Slight upside)")
-    else:
-        print(">>> OVERVALUED")
+    print(f"Base Case MoS: {base_mos:+.1f}%")
 
 
 def print_summary_table(results: List[Dict], currency_tag: str = ""):
@@ -448,22 +435,15 @@ def print_summary_table(results: List[Dict], currency_tag: str = ""):
 
     header = (
         f"{'Ticker':<12} {'Name':<25} {'Price':>10} {'Fair Value':>12} "
-        f"{'MoS%':>8} {'Equity\u20acB':>10} {'Signal':<12}"
+        f"{'MoS%':>8} {'Equity\u20acB':>10}"
     )
     print(f"\n{header}")
-    print("-" * 100)
+    print("-" * 88)
 
     for r in sorted(results, key=lambda x: x["mos"], reverse=True):
-        signal = (
-            "STRONG BUY" if r["mos"] > 25
-            else "BUY" if r["mos"] > 15
-            else "HOLD" if r["mos"] > 0
-            else "OVERVALUED"
-        )
         print(
             f"{r['ticker']:<12} {r['name'][:25]:<25} {r['price_display']:>10.2f} "
-            f"{r['fair_value_display']:>12.2f} {r['mos']:>+7.1f}% {r['equity_value_eur_b']:>10.2f} "
-            f"{signal:<12}"
+            f"{r['fair_value_display']:>12.2f} {r['mos']:>+7.1f}% {r['equity_value_eur_b']:>10.2f}"
         )
 
     n = len(results)
@@ -474,7 +454,7 @@ def print_summary_table(results: List[Dict], currency_tag: str = ""):
 
     print(f"\n{n} stocks analyzed")
     print(f"Average MoS: {avg_mos:+.1f}%")
-    print(f"Strong Buy (MoS>25%): {buy_count} | Hold (0-25%): {hold_count} | Overvalued: {over_count}")
+    print(f"MoS >25%: {buy_count} | MoS 0-25%: {hold_count} | MoS <0%: {over_count}")
 
 
 def save_csv(results: List[Dict], filepath: str):

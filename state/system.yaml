@@ -92,73 +92,62 @@ system:
       Ahora: 1 Tier A, 5 Tier B, 12 Tier C. Sin violaciones Tier D.
       Continuar añadiendo Tier A compounders: NOVO-B.CO, MA, V en pipeline.
   last_session_summary: |
-    Sesión 40 - FALLEN ANGEL HUNT + LULU TIER A (2026-02-05)
+    Sesión 41 - AUDITORÍA v4.0 COMPLETA + REVIEWS (2026-02-06)
 
     =====================================================
-    OPERACIÓN EJECUTADA
+    VIGILANCIA
     =====================================================
-    BUY LULU 2 shares @ $171.62 = $343.24
-    - QS 82 = Tier A (Quality Compounder)
-    - MoS 34%
-    - Fallen angel -58% desde máximo
-    - Problema CÍCLICO (producto stale), NO estructural
-    - Investment Committee: 9/9 gates PASS
+    - 0 alertas críticas, 8 noticias materiales
+    - NVO -8.2% (guidance shock, ya en thesis)
+    - EVO.ST: standing order actualizado (530 SEK, NO ejecutar)
 
     =====================================================
-    TIER A PORTFOLIO (ahora 4)
+    REVIEWS COMPLETADOS
     =====================================================
-    1. ADBE (QS 76, MoS 31%) - First Tier A
-    2. NVO (QS 82, MoS 38%) - Framework validated
-    3. MONY.L (QS 81, MoS 36%) - UK price comparison
-    4. LULU (QS 82, MoS 34%) - Fallen angel NEW
+    EDEN.PA: HOLD / WAIT EARNINGS FEB 24
+    - QS 62 Tier B (sin cambio)
+    - FV Expected EUR 38.4 (reducido -25% por decreto Brasil)
+    - MoS vs Bear 34.7% (amplio para Tier B)
+    - Kill conditions: ninguna triggered
+    - Sector view actualizado (Brasil: MATERIALIZADO)
+
+    LIGHT.AS: HOLD-PROBATION
+    - QS 56 Tier B (sin cambio)
+    - FV EUR 21.90 (reducido -35.8% por Q4 miss + competencia china)
+    - MoS 9.9% (bajo)
+    - CMD Jun 23 2026 = definitive decision point
+    - Calendario actualizado con CMD
 
     =====================================================
-    ANÁLISIS COMPLETADOS (5 empresas)
+    AUDITORÍA FRAMEWORK v4.0 (PRINCIPAL)
     =====================================================
-    - DBX: QS 73 Tier B, 5/10 value trap → LOW PRIORITY $18-20
-    - INGR: QS 57 Tier B, food ingredients → WATCHLIST $105-113
-    - GSK.L: QS 59 Tier B, patent cliff → WATCHLIST 1850p
-    - LULU: QS 82 Tier A, fallen angel → COMPRADO $172
-
-    =====================================================
-    MACRO UPDATE
-    =====================================================
-    - Iran-US: Desescalando (conversaciones Oman 7-Feb)
-    - Riesgo conflicto: 30-40% → 20-30%
-    - Tariff war: 60-70% (subiendo)
-    - Sin acciones requeridas
-
-    =====================================================
-    EARNINGS FRAMEWORKS VERIFICADOS
-    =====================================================
-    - MONY.L (Feb 23): ✅ Completo
-    - EDEN.PA (Feb 24): ✅ Completo
-    - TEP.PA (Feb 26): ✅ Completo
-
-    =====================================================
-    MEJORAS DEL SISTEMA
-    =====================================================
-    - Error #41 documentado: Completar ciclo post-análisis
-    - 5 nuevas alertas: INGR, DBX, GSK.L, LULU (ADD triggers)
+    26 ficheros corregidos para eliminar números fijos hardcodeados:
+    - 5 CRITICAL: investment-committee, review-agent, position-calculator,
+      file-structure.md, dcf_calculator.py
+    - 8 HIGH: fundamental-analyst, error-detector, recommendation-context,
+      portfolio-ops, rebalancer, session-protocol, drift_detector.py
+    - 13 MEDIUM/LOW: version labels, agent-registry, quality_scorer,
+      opportunity-hunter, decision-template, evolution-protocol
+    Todo el sistema ahora razona desde principios + precedentes.
 
     =====================================================
     ESTADO FINAL
     =====================================================
     - Posiciones: 21
-    - Tier A: 4
-    - Cash: €790 (8.1%)
-    - P&L: ~+2%
+    - Tier A: 4 (ADBE, NVO, MONY.L, LULU)
+    - Cash: ~€790 (8.1%)
+    - Sin operaciones ejecutadas
 
     =====================================================
     PRÓXIMA SESIÓN
     =====================================================
-    1. ZIG.L monitor (2% del trigger 375p)
-    2. Conversaciones Iran-US (7-Feb) - impacto geopolítico
-    3. Earnings: MONY.L Feb 23, EDEN.PA Feb 24, TEP.PA Feb 26
-    4. LULU ADD triggers: $160, $145
+    1. Earnings: MONY.L Feb 23, EDEN.PA Feb 24, TEP.PA Feb 26
+    2. LIGHT.AS Q1 results (fecha TBD) - monitorear
+    3. Standing orders: ZIG.L, EVO.ST (revisado)
+    4. Pipeline: verificar >3 thesis pre-escritas
 
   last_session_summary_archived: |
-    Sesión 39 - AUTO EU VALUE TRAP + AUTOCORRECCIÓN AGENTES (2026-02-05)
+    Sesión 40 - FALLEN ANGEL HUNT + LULU TIER A (2026-02-05)
 
     =====================================================
     EARNINGS AYER (evaluados)
@@ -943,6 +932,14 @@ calendar:
       event: "Enel FY2025 results"
       priority: medium
 
+    # LIGHT.AS critical events
+    - date: 2026-06-23
+      type: catalyst
+      ticker: LIGHT.AS
+      event: "Signify Capital Markets Day - DEFINITIVE decision point for HOLD vs EXIT"
+      priority: CRITICAL
+      action: "CMD will reveal strategic review, OEM divestment plans, connected pivot clarity. If no strategic clarity → EXIT. If positive pivot → UPGRADE from probation."
+
 # -----------------------------------------------------------------------------
 # WATCHLIST
 # -----------------------------------------------------------------------------
@@ -1239,7 +1236,7 @@ alerts:
     - { ticker: WPP.L, entry_gbp: 200, note: "v2.0: 5-6/10 trap. FV 380p. 47% MoS at trigger. Feb 19 Rose plan critical." }
     - { ticker: TATE.L, entry_gbp: 350, note: "ADD to starter. FV 500p. Already own 66 shares." }
     - { ticker: DGE.L, entry_gbp: 1300, note: "Diageo v2.0: FV 1400-1520 GBp. OVERVALUED at 1690. Entry 1300 for 15% MoS." }
-    - { ticker: EVO.ST, entry_sek: 530, note: "Evolution. If Q4 miss - buy 480-530 SEK." }
+    - { ticker: EVO.ST, entry_sek: 530, note: "Evolution. Q4 MISS confirmed. FV revised 800-850 SEK. UKGC still pending. Entry 530 SEK ONLY if UKGC favorable." }
     - { ticker: GL, entry_usd: 130, note: "Globe Life ADD trigger. At $130 MoS=25.3%. Do not add >$130." }
     - { ticker: UTG.L, entry_gbp: 540, note: "v2.0 VALIDATED. FV 745p. At 540p MoS 27.5%. Earnings Feb 24." }
     - { ticker: SRE.L, entry_gbp: 75, note: "Sirius RE. FV 100p. Entry 75p = 25% MoS. Refinancing Jun-2026 catalyst." }
@@ -1331,18 +1328,18 @@ standing_orders:
   #   trigger: "<=$35"
   #   EXECUTED: 2026-02-05, 10 shares @ $34.50, total $345
 
-  # PENDIENTE EARNINGS - Ejecutar SOLO si earnings cumplen condiciones
+  # EVO.ST - REVISED 2026-02-06 post Q4 earnings MISS + UKGC still pending
   - ticker: EVO.ST
     action: BUY
-    trigger: "<=600 SEK + UKGC favorable (fine/conditions, NOT revocation)"
-    size_eur: 300
-    shares_approx: 5
+    trigger: "<=530 SEK + UKGC resolved favorably (fine/conditions, NOT revocation)"
+    size_eur: 250
+    shares_approx: 4
     thesis: thesis/research/EVO.ST/thesis.md
-    fair_value: "950 SEK"
-    fair_value_bear: "600 SEK"
+    fair_value: "800-850 SEK (revised from 950)"
+    fair_value_bear: "530-560 SEK"
     tier: "C (Regulatory Risk)"
-    notes: "v2.0: Tier C por UKGC risk. Si UKGC revocacion - CANCELAR. Si favorable - BUY <=600 SEK."
-    expiry: 2026-02-15
+    notes: "REVISED: Q4 MISS (rev -3.7%, EBITDA -6.1%). UKGC still pending. FV lowered. Both conditions MUST be met. If UKGC revocation or 3+ Qs revenue decline → CANCEL."
+    expiry: 2026-06-01
 
   - ticker: FGP.L
     action: BUY

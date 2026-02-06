@@ -135,15 +135,15 @@ Cuando sector view supera 300 líneas:
 
 ---
 
-## Reglas Inmutables
+## Reglas Operativas
 
 ### Portfolio
 - `portfolio/current.yaml`: Claude puede modificar SOLO tras confirmación del humano
 - NUNCA operar sin thesis documentada
 - NUNCA apalancamiento
-- Margen seguridad >25% para comprar
-- Posición máx 7%, sector máx 25%, geografía máx 35%
-- Cash mínimo 5%
+- Tier D (QS <35) = NO COMPRAR (calidad mínima insuficiente)
+- Sizing, concentración y cash se razonan desde principios (`learning/principles.md`) y precedentes (`learning/decisions_log.yaml`)
+- Ejecutar `constraint_checker.py` para contexto antes de decisiones de sizing
 
 ### Precios
 **PRECIOS: SIEMPRE via `python3 tools/price_checker.py TICKER`.**
@@ -174,11 +174,11 @@ Ver skill `agent-coordination` para protocolo.
 
 ---
 
-## REGLA ANTI-CASH-DRAG
+## PRINCIPIO ANTI-CASH-DRAG
 
-**Cash >20% durante >7 días es un FALLO DEL GESTOR.**
+El cash prolongado sin oportunidades claras tiene coste de oportunidad. Razonar sobre el nivel apropiado dado el contexto.
 
-Causa raíz: proceso secuencial y pipeline vacío.
+Causa raíz típica: proceso secuencial y pipeline vacío.
 
 Solución:
 1. Mantener SIEMPRE 5+ thesis pre-escritas en watchlist con precio target
