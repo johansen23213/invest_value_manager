@@ -35,7 +35,7 @@ UK's #1 software value-added reseller (VAR) trading at -47% from 52-week highs d
 
 Bytes solves the complexity problem for UK organizations (both public and private sector) purchasing, deploying, and managing enterprise software, cybersecurity, and cloud services. Rather than navigating the labyrinth of Microsoft licensing (Enterprise Agreements, CSP, Azure), cybersecurity vendors (CrowdStrike, Palo Alto, etc.), and cloud migration alone, organizations outsource this to Bytes as a trusted intermediary.
 
-This is a **"must-have"** for large organizations: software licensing compliance, cybersecurity posture, and cloud migration are non-negotiable business requirements. Doing them wrong can result in audit penalties (Microsoft audits are aggressive), security breaches, and failed digital transformation.
+This is a **"must-have"** for large organizations: software licensing compliance, cybersecurity posture management, and cloud migration are non-negotiable business requirements. Doing them wrong can result in audit penalties (Microsoft audits are aggressive), security breaches, and failed digital transformation.
 
 ### How Bytes Generates Revenue
 
@@ -432,14 +432,6 @@ MoS vs Bear Case: (350 - 296) / 350 = 15.4%
 
 **BYIT.L at 35% MoS is squarely within the range of Tier A precedents** (29-38%). The company quality (QS 81) is comparable to NVO (82) and MONY.L (81), and the MoS is in the upper half of the range.
 
-**Reasoning for why this MoS is adequate:**
-1. Net cash balance sheet provides downside protection.
-2. 80%+ recurring revenue base limits earnings volatility.
-3. 0/10 value trap factors.
-4. Services growth (+40%) provides structural offset to any margin pressure.
-5. The bear case (350p, +15% MoS) still provides upside even if everything goes wrong.
-6. Insider bought shares at 402p -- management believes in recovery.
-
 ---
 
 ## Kill Conditions
@@ -468,117 +460,37 @@ MoS vs Bear Case: (350 - 296) / 350 = 15.4%
 | USD strength | Low | UK-focused business, GBP-denominated. Indirect: Microsoft costs in USD could affect. |
 | UK fiscal policy | Medium | Public sector spending is policy-dependent. Cyber/digital mandates provide floor. |
 
-### Fit with World View (current_view.md)
-
-The world view notes:
-- UK is in the "developed stable" category for country risk -- favorable.
-- Quality compounders at discount are explicitly identified as the strategy -- BYIT fits perfectly.
-- Fed/BCE holding rates -- less relevant for UK-focused company with net cash.
-- No direct tariff exposure (services business, UK domestic).
-
-**Macro conclusion:** BYIT is largely insulated from the major macro risks (tariffs, Iran, China). The primary risk is UK-specific (public sector spending), which has structural underpinning from cybersecurity mandates.
-
 ---
 
 ## Portfolio Context
 
 ### Current UK Exposure
 
-We already hold 5 UK stocks: AUTO.L, MONY.L, IMB.L, TATE.L, DOM.L.
+We hold 6 UK stocks (including BYIT.L): AUTO.L, MONY.L, IMB.L, TATE.L, DOM.L, BYIT.L.
 
-Adding BYIT.L would make 6 UK positions. This is notable but:
-- UK is a "developed stable" country per principles.md
-- These are diverse sectors: auto classifieds, price comparison, tobacco, food ingredients, building materials, and now IT services
-- Correlation between these businesses is low
-- The question per Principle 2: "What event would affect ALL these UK positions simultaneously?" Answer: A severe UK recession. But BYIT has 80%+ recurring revenue and counter-cyclical public sector exposure.
-
-### Tech Exposure
-
-We already hold ADBE (technology sector). Adding BYIT would create 2 tech positions. However:
-- ADBE is US creative software. BYIT is UK IT services/reselling. Very different businesses.
-- Correlation is low -- different geographies, different end markets, different revenue models.
+These are diverse sectors: auto classifieds, price comparison, tobacco, food ingredients, pizza franchise, and IT services. Correlation between these businesses is low. The question per Principle 2: "What event would affect ALL these UK positions simultaneously?" Answer: A severe UK recession. But BYIT has 80%+ recurring revenue and counter-cyclical public sector exposure.
 
 ### Sizing Reasoning
 
-**Proposed: 3.5% initial position (~EUR 380)**
+**Position: 3.5% initial (~444 USD / ~377 EUR)**
 
 Reasoning:
 - Consistent with Tier A precedents (ADBE 4.8%, NVO 3.4%, MONY.L 4.1%, AUTO.L 3.4%, LULU 3.5%)
-- 3.5% is in the middle of the 3-5% range
 - If it falls 50%, portfolio loses 1.75% -- acceptable for Tier A quality with 0/10 value trap score
 - Not sizing at 4-5% because the Microsoft incentive uncertainty is real and I want to leave room for ADD if price drops further or H2 results confirm recovery
 
-**ADD Trigger: 260p (MoS >43%)** -- If price drops another 12%, the MoS becomes exceptional and H2 results will either confirm or deny the recovery thesis.
+**ADD Trigger: 260p (MoS >43%)** -- If price drops another 12%, the MoS becomes exceptional.
 
 ---
 
-## Veredicto: BUY -- WATCHLIST (Entry Near)
+## Veredicto: BUY -- PURCHASED 2026-02-07
 
-**Status: WATCHLIST with strong BUY recommendation at current price of 296p.**
-
-The current price of 296p is near the 52-week low of 295p, offering 35% MoS vs base case -- comparable to our best Tier A entries. The analysis fully supports a purchase.
-
-However, I note the following considerations for timing:
-1. The stock is at/near its 52-week low RIGHT NOW (296p vs 295p low), which suggests we are catching the bottom.
-2. H2 FY2026 results (full year ending Feb 2026) will be reported in May 2026, which will either confirm or deny the recovery.
-3. A director bought at 402p -- management sees value significantly above current levels.
-
-**My recommendation: BUY at current levels (296p) with 3.5% initial position. Set ADD trigger at 260p.**
-
-The reasoning is that waiting for H2 confirmation risks missing the bottom. The bear case still provides 15% upside, the value trap score is 0/10, and the quality is genuinely Tier A. This matches the pattern of our NVO purchase (bought into -17% drop before catalyst, with conviction the drop was cyclical, not structural).
-
----
-
-## Investment Committee Pre-Check
-
-| Gate | Status | Detail |
-|------|--------|--------|
-| **Gate 0: Sector View** | PASS | world/sectors/technology.md exists. BYIT is UK IT services -- adjacent to software sector. |
-| **Gate 1: Quality Score** | PASS | QS 81, Tier A |
-| **Gate 2: Business Understanding** | PASS | Full BAF completed above |
-| **Gate 3: Projections** | PASS | TAM-derived, WACC calculated, 3 scenarios |
-| **Gate 4: Multi-Method Valuation** | PASS | OEY (470p) + DCF (432p), EV/EBIT cross-check (410-460p) |
-| **Gate 5: MoS Adequacy** | PASS | 35% vs base, 15% vs bear -- consistent with Tier A precedents |
-| **Gate 6: Sizing** | PASS | 3.5%, if falls 50% loses 1.75% -- acceptable |
-| **Gate 7: Portfolio Context** | PASS | UK exposure diversified, low tech correlation with ADBE |
-| **Gate 8: Macro/Timing** | PASS | World view reviewed, catalyst identified (H2 normalization) |
-| **Gate 9: Kill Conditions** | PASS | 5 kill conditions defined |
-
----
-
-## META-REFLECTION
-
-### Dudas/Incertidumbres
-
-1. **Microsoft incentive changes are still evolving.** The FY26 restructuring happened retroactively (unprecedented per Microsoft partner community). There is a risk that FY27 brings further changes. I cannot predict Microsoft's partner strategy 2+ years out. This is the single biggest uncertainty.
-
-2. **FCF figure is estimated, not confirmed.** I used ~GBP 48M based on ~30% FCF margin applied to ~GBP 160M GP. The actual FCF reported in annual accounts may differ. I should verify this when the FY2026 annual results are published.
-
-3. **Quality Score ROIC calculation.** The tool calculates ROIC spread of only 4.9pp, which seems low for a company with 40% OP/GP margin and net cash. This is likely because ROIC calculation uses a capital base that may not reflect the true economic reality of an asset-light business. I adjusted my qualitative assessment accordingly, but this is a potential scoring anomaly.
-
-4. **Softcat discount gap.** BYIT trades at 14x P/E vs Softcat at 25x. If this gap persists (perhaps Softcat has a structural premium due to larger scale, broader portfolio, or better growth), my valuation could be optimistic. However, historically BYIT and Softcat traded at similar multiples.
-
-### Sugerencias de Mejora
-
-1. **Tool improvement: quality_scorer.py for asset-light businesses.** The ROIC calculation may understate quality for businesses with negative/minimal invested capital. Consider adding an alternative profitability metric (ROIC on tangible assets, or simply OP/GP margin) for asset-light companies. This would give a more accurate QS for companies like BYIT, AUTO.L, and similar platform businesses.
-
-2. **Sector view update needed.** BYIT.L is UK IT services/VAR, which is adjacent to but not identical to the existing technology.md sector view (which focuses on software companies). Consider either: (a) adding a UK IT services subsection to technology.md, or (b) creating a separate business-services.md or uk-technology-services.md sector view. Since we already have business-services.md for TEP.PA and EDEN.PA, BYIT could fit there or in technology.md.
-
-3. **Microsoft partner ecosystem risk should be tracked.** Add "Microsoft partner incentive changes" to our monitoring watchlist. This is a risk that affects BYIT, and potentially any future Microsoft-ecosystem investments.
-
-### Anomalias Detectadas
-
-1. **DCF tool default scenario gives 500p FV with only 5% growth.** This seems aggressive -- at 5% growth (below my base case), the tool still gives 68% MoS. This suggests the FCF base used by the tool may be high, or net cash position significantly inflates the equity value. I cross-checked with EV/EBIT and OEY methods to ensure consistency.
-
-2. **Price at 296p is literally 1.4p above the 52-week low of 295p.** This is unusual -- we are essentially at the bottom. This could mean either (a) we are catching excellent value, or (b) there is information the market has that I don't have. The H1 results and Microsoft incentive changes are well-known, so I believe (a) is more likely.
-
-### Preguntas para Orchestrator
-
-1. Given we already have 5 UK positions, should we prioritize this over other non-UK candidates from the pipeline? My assessment is YES because the quality and MoS are exceptional, and UK diversification across uncorrelated sectors is acceptable per Principle 2.
-
-2. Should BYIT.L be added to the technology.md sector view or to a different sector view? It sits between technology and business-services.
-
-3. The cash position is EUR 773 (7.2%). A 3.5% position (~EUR 380) would reduce cash to ~3.7%. Is this acceptable given the pipeline of other opportunities?
+**Status: ACTIVE POSITION**
+- 110 shares @ ~296 GBp (~$4.04 per share)
+- Total cost: $444 (~377 EUR)
+- Fair Value: 455 GBp (base case)
+- MoS: 35%
+- Sixth Tier A Quality Compounder in portfolio
 
 ---
 

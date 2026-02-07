@@ -95,6 +95,30 @@ sizing_decisions:
     outcome: "Pendiente"
 
   - date: 2026-02-06
+    ticker: BYIT.L
+    action: BUY
+    sizing: "~3.5%"
+    context:
+      quality_score: 81
+      tier: A
+      mos: "35%"
+      price_vs_52w: "At 52-week low (296p vs 295p low)"
+      conviction: "Alta"
+      macro: "UK stable, IT spending growing 5-8%"
+      capital_source: "Freed from TEP.PA + LIGHT.AS + PFE exits"
+    reasoning: |
+      BYIT.L es Quality Compounder (Tier A) - 6to del portfolio.
+      UK #1 software VAR, net cash, 30% FCF margin, 9.6% insider ownership.
+      Caida 47% por Microsoft partner incentive restructuring - CICLICO, no estructural.
+      Director compro acciones a 402p - insider confidence.
+      Softcat comparable a 25x P/E vs BYIT a 14x - gap injustificado.
+      MoS 35% consistente con precedentes Tier A (NVO 38%, MONY.L 36%, LULU 34%, ADBE 31%).
+      OEY + Growth = 14.4% >> WACC 9%. 0/10 value trap.
+      Capital proviene de rotacion de 3 Tier C (TEP.PA, LIGHT.AS, PFE) con ROIC < WACC.
+      ADD trigger: 260p (MoS >43%).
+    outcome: "Pendiente - posicion recien abierta"
+
+  - date: 2026-02-06
     ticker: AUTO.L
     action: BUY
     sizing: "3.4%"
@@ -148,6 +172,70 @@ sizing_decisions:
 # DECISIONES DE TRIM/SELL
 # =============================================================================
 trim_decisions:
+
+  - date: 2026-02-06
+    ticker: TEP.PA
+    action: "SELL (full exit - capital rotation)"
+    context:
+      quality_score: 46
+      tier: C
+      position_size: "~5.5%"
+      mos: "17% (revised from 38-51%)"
+      pnl: "~-18%"
+      destination: "BYIT.L (Tier A, QS 81, MoS 35%)"
+    reasoning: |
+      EXIT Protocol aplicado:
+      - Gate 2: Tesis DEBILITADA - AI disruption BPO mas rapida de lo esperado
+      - Gate 3: MoS revisado a 17% (DCF inapropiado para empresa con AI disruption)
+      - Gate 4: OS 3.6 vs BYIT.L (QS 81/46 × MoS 35%/17%) = rotacion clara
+      - ROIC < WACC = destruyendo valor economico
+      La valoracion original (MoS 38-51%) usaba DCF como metodo primario, inapropiado
+      para negocio enfrentando disruption estructural. EV/EBIT method → MoS solo 17%.
+      Liberar capital para Tier A con ROIC positivo y menor riesgo.
+    outcome: "P&L ~-18%. Capital rotado a BYIT.L."
+
+  - date: 2026-02-06
+    ticker: LIGHT.AS
+    action: "SELL (full exit - capital rotation)"
+    context:
+      quality_score: 56
+      tier: B
+      position_size: "~4.5%"
+      mos: "8.4%"
+      pnl: "+13.7%"
+      destination: "BYIT.L (Tier A, QS 81, MoS 35%)"
+    reasoning: |
+      EXIT Protocol aplicado:
+      - Gate 2: Tesis DEBILITADA - Q4 miss, OEM -16.5%, margins guided lower
+      - Gate 3: MoS solo 8.4% (insuficiente)
+      - Gate 4: OS 6.0 vs BYIT.L (QS 81/56 × MoS 35%/8.4%) = rotacion muy clara
+      - ROIC < WACC = destruyendo valor economico
+      Commoditization lighting mas severa de lo anticipado. Competencia china
+      moviendose upmarket. CMD Junio 2026 era la esperanza pero no justifica hold.
+      Tomar ganancia +13.7% y rotar a calidad superior.
+    outcome: "P&L +13.7%. Capital rotado a BYIT.L."
+
+  - date: 2026-02-06
+    ticker: PFE
+    action: "SELL (full exit - capital rotation)"
+    context:
+      quality_score: 47
+      tier: C
+      position_size: "~3.8%"
+      mos: "-3.2% (overvalued)"
+      pnl: "~-2%"
+      destination: "BYIT.L (Tier A, QS 81, MoS 35%)"
+    reasoning: |
+      EXIT Protocol aplicado:
+      - Gate 2: Tesis DEBILITADA - post-COVID hangover, patent cliff $17-18B
+      - Gate 3: MoS -3.2% (near 52-week HIGH = overvalued)
+      - Gate 4: OS extremo vs BYIT.L (QS 81/47 × MoS 35%/-3.2%)
+      - ROIC < WACC = destruyendo valor economico
+      PFE cotizando near 52w high a $26.75 vs entry $26.75 = sin potencial.
+      Patent cliff Eliquis/Ibrance 2026-2028 es riesgo material.
+      Metsera acquisition ($10B) para obesity no compensa en timeline relevante.
+      Liberar capital a empresa con ROIC > WACC y MoS real.
+    outcome: "P&L ~-2%. Capital rotado a BYIT.L."
 
   - date: 2026-02-06
     ticker: SHEL.L
@@ -326,7 +414,7 @@ patterns:
   sizing_by_tier:
     tier_a:
       typical_range: "3-5% initial"
-      examples: "ADBE 4.8%, NVO 3.4%, MONY.L 4.1%, AUTO.L 3.4%, LULU 3.5%"
+      examples: "ADBE 4.8%, NVO 3.4%, MONY.L 4.1%, AUTO.L 3.4%, LULU 3.5%, BYIT.L 3.5%"
       rationale: "Quality compounders permiten posiciones mayores por menor riesgo"
     tier_b:
       typical_range: "3-5% full position"
@@ -381,3 +469,23 @@ lessons:
     lesson: "Aprovechar pánico de mercado en quality compounders"
     from_decision: "NVO buy después de -17% en 2 días"
     impact: "MoS excepcional surge del pánico, no del análisis frío del mercado"
+
+  - date: 2026-02-06
+    lesson: "ROIC < WACC es signal clave para EXIT - no mantener empresas que destruyen valor economico"
+    from_decision: "TEP.PA, LIGHT.AS, PFE exits (tres posiciones con ROIC < WACC)"
+    impact: |
+      Patron claro: las 3 posiciones vendidas tenian ROIC < WACC.
+      Esto significa que destruian valor economico para accionistas.
+      Contrastar con Tier A compounders (ROIC spread +20-40pp sobre WACC).
+      Leccion: ROIC vs WACC es el filtro mas importante despues de QS.
+      Capital rotado a BYIT.L (ROIC >> WACC) = upgrade masivo.
+
+  - date: 2026-02-06
+    lesson: "MoS original puede ser incorrecto si metodo de valoracion es inapropiado"
+    from_decision: "TEP.PA MoS revisado de 38-51% a 17%"
+    impact: |
+      La thesis original de TEP.PA usaba DCF como metodo primario → MoS 38-51%.
+      Review-agent correctamente identifico que DCF es inapropiado para empresa
+      enfrentando disruption estructural (AI en BPO). EV/EBIT method → MoS solo 17%.
+      Leccion: El MoS no es un dato fijo. Cambia si cambia el metodo de valoracion.
+      Siempre cuestionar el metodo usado, especialmente si la thesis se debilita.

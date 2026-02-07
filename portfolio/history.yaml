@@ -9,11 +9,11 @@
 # Metadata
 metadata:
   created: 2026-02-03
-  last_updated: 2026-02-06
-  total_closed: 3
-  total_pnl_eur: -14.85  # -22.85 + 8.00 (SHEL.L)
-  win_rate: 33.3  # 1 winner (SHEL.L) / 3 positions
-  avg_holding_days: 5
+  last_updated: 2026-02-07
+  total_closed: 6
+  total_pnl_eur: 15.15  # -22.85 + 8.00 + (-48) + 70 + 8 = 15.15
+  win_rate: 50.0  # 3 winners (SHEL.L +2.3%, LIGHT.AS +13.7%, PFE +1.8%) / 6 positions
+  avg_holding_days: 6
 
 # Closed Positions
 closed_positions:
@@ -104,6 +104,75 @@ closed_positions:
     exit_reason: thesis_invalidated  # Framework v3.0 upgrade revealed quality issue
     lesson_learned: "v2.0 portfolio built on P/E+yield screening missed quality dimension. Framework v3.0 Quality Score is essential filter BEFORE valuation."
 
+  - ticker: TEP.PA
+    name: "Teleperformance SE"
+    entry_date: 2026-01-31
+    exit_date: 2026-02-07
+    shares: 11.015018
+    entry_price_eur: 65.88  # Avg cost
+    exit_price_eur: 52.18
+    entry_currency: EUR
+    invested_eur: 623  # ~725.79 USD / 1.165
+    proceeds_eur: 575
+    pnl_amount_eur: -48
+    pnl_percent: -6.7
+    holding_days: 7
+    thesis_fv_at_entry: 115  # EUR - original thesis
+    thesis_fv_v2: 110  # EUR - v2.0 re-evaluation
+    fv_reached: false
+    quality_score: 46  # Tier C
+    thesis_accuracy:
+      correct: null  # Exited before thesis could play out (18-24 month horizon)
+      notes: "Capital rotation decision. QS 46 Tier C with ROIC < WACC. MoS was high (38-51%) but revised down to 17% post re-evaluation. AI disruption accelerating. Capital better deployed in Tier A compounders (BYIT.L QS 81). Earnings Feb 26 not waited for."
+    exit_reason: capital_rotation_to_tier_a
+    lesson_learned: "Tier C positions with high MoS but ROIC < WACC and structural disruption risk should be rotated to Tier A when opportunities arise. MoS alone does not compensate for quality deficit."
+
+  - ticker: LIGHT.AS
+    name: "Signify NV"
+    entry_date: 2026-01-31
+    exit_date: 2026-02-07
+    shares: 28.753048
+    entry_price_eur: 17.91  # Avg cost
+    exit_price_eur: 20.06
+    entry_currency: EUR
+    invested_eur: 507  # ~597.70 USD / 1.179
+    proceeds_eur: 577
+    pnl_amount_eur: 70
+    pnl_percent: 13.7
+    holding_days: 7
+    thesis_fv_at_entry: 26.73  # EUR - original
+    thesis_fv_v3: 21.90  # EUR - v3.0 re-evaluation post Q4 miss
+    fv_reached: false
+    quality_score: 56  # Tier B
+    thesis_accuracy:
+      correct: false
+      notes: "Original FV EUR 26.73 was overoptimistic. v3.0 revised to EUR 21.90 post Q4 miss (-17% EPS). Thesis debilitated 2/3 pillars (revenue stabilization failed, ROIC < WACC persistent). On probation awaiting CMD June 23. Took profits (+13.7%) and rotated capital to Tier A (BYIT.L)."
+    exit_reason: capital_rotation_to_tier_a
+    lesson_learned: "Take profits when thesis weakens materially even if position is small. Probation status with thin MoS (8.4%) and ROIC < WACC is not worth waiting for a catalyst 4.5 months away when Tier A opportunities exist now."
+
+  - ticker: PFE
+    name: "Pfizer Inc."
+    entry_date: 2026-01-27
+    exit_date: 2026-02-07
+    shares: 18.66368
+    entry_price_usd: 26.75  # Avg cost
+    exit_price_usd: 27.22
+    entry_currency: USD
+    invested_eur: 423  # ~499.25 USD / 1.179
+    proceeds_eur: 431
+    pnl_amount_eur: 8
+    pnl_percent: 1.8
+    holding_days: 11
+    thesis_fv_at_entry: 32.00  # USD - original
+    thesis_fv_v2: 27.74  # USD - v2.0 re-evaluation
+    fv_reached: false
+    quality_score: 47  # Tier C (estimated, was 49 in system)
+    thesis_accuracy:
+      correct: false
+      notes: "Original FV $32-35 was overestimated (P/E method without WACC derivation). v2.0 revised to $27.74 using DCF+DDM. At $27.22 exit, stock was near fair value (MoS -3.2% = slightly overvalued). ROIC 7% < WACC 8%. Patent cliff 2026-28 structural risk. Capital rotated to Tier A (BYIT.L)."
+    exit_reason: capital_rotation_to_tier_a
+    lesson_learned: "Positions near fair value with ROIC < WACC and structural headwinds (patent cliff) should be rotated when Tier A opportunities arise. Yield alone (6.5%) does not justify holding when quality is Tier C and MoS is negative."
+
 # Partial Sells (Trims) - Not full exits, but record for P&L tracking
 partial_sells:
   - ticker: SHEL.L
@@ -136,15 +205,15 @@ partial_sells:
 # Statistics (auto-calculated by effectiveness_tracker.py)
 statistics:
   # Will be populated by the tool
-  total_closed_positions: 3
+  total_closed_positions: 6
   total_partial_sells: 3
-  total_realized_pnl_eur: 413.00  # Approx from trims + SHEL.L exit
-  winners: 1  # SHEL.L +2.3%
-  losers: 1  # FUTR.L -2.8%
+  total_realized_pnl_eur: 443.00  # Approx from trims + closed positions
+  winners: 3  # SHEL.L +2.3%, LIGHT.AS +13.7%, PFE +1.8%
+  losers: 2  # FUTR.L -2.8%, TEP.PA -6.7%
   breakeven: 1  # ENEL.MI 0%
-  win_rate_pct: 33.3
-  avg_win_pct: 2.3
-  avg_loss_pct: -2.8
-  avg_holding_days: 5
+  win_rate_pct: 50.0
+  avg_win_pct: 5.9  # (2.3 + 13.7 + 1.8) / 3
+  avg_loss_pct: -4.75  # (-2.8 + -6.7) / 2
+  avg_holding_days: 7
   positions_reached_fv: 0
   thesis_accuracy_rate: null

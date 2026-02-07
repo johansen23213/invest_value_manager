@@ -2,12 +2,12 @@
 # PORTFOLIO - Fuente de verdad: eToro
 # =============================================================================
 # Actualizar después de cada operación en eToro
-# Última actualización: 2026-02-06
+# Última actualización: 2026-02-07
 # NOTA: eToro muestra TODO en USD. invested = monto original, avg_cost = invested/shares
 # =============================================================================
 
 cash:
-  amount: 773.44  # Post SELL SHEL.L (+345.74) and BUY AUTO.L (-362.70) on 2026-02-06
+  amount: 1979  # Post 3 SELLs (TEP.PA ~575 + LIGHT.AS ~577 + PFE ~431) + BUY BYIT.L (-377) on 2026-02-07. Previous 773.44 + 575 + 577 + 431 - 377 = ~1979
   currency: EUR
 
 positions:
@@ -20,14 +20,6 @@ positions:
     date_opened: 2026-01-26
     thesis: thesis/active/DTE.DE/thesis.md
 
-  - ticker: PFE
-    name: "Pfizer Inc."
-    shares: 18.66368
-    invested_usd: 499.25
-    avg_cost_usd: 26.75
-    date_opened: 2026-01-27
-    thesis: thesis/active/PFE/thesis.md
-
   - ticker: ALL
     name: "Allstate Corporation"
     shares: 2.03874
@@ -35,14 +27,6 @@ positions:
     avg_cost_usd: 196.00
     date_opened: 2026-01-27
     thesis: thesis/active/ALL/thesis.md
-
-  - ticker: TEP.PA
-    name: "Teleperformance SE"
-    shares: 11.015018  # Trimmed 3 shares 2026-02-03 (14.015 - 3)
-    invested_usd: 725.79  # Prorated: 923.37 * (11.015/14.015)
-    avg_cost_usd: 65.88  # Unchanged (original cost basis)
-    date_opened: 2026-01-31
-    thesis: thesis/active/TEP.PA/thesis.md
 
   - ticker: SAN.PA
     name: "Sanofi SA"
@@ -67,14 +51,6 @@ positions:
     avg_cost_usd: 42.09  # 600 / 14.255583
     date_opened: 2026-01-31
     thesis: thesis/active/IMB.L/thesis.md
-
-  - ticker: LIGHT.AS
-    name: "Signify NV"
-    shares: 28.753048
-    invested_usd: 597.70  # eToro value at open
-    avg_cost_usd: 20.79  # 597.70 / 28.753048
-    date_opened: 2026-01-31
-    thesis: thesis/active/LIGHT.AS/thesis.md
 
   - ticker: A2A.MI
     name: "A2A Group"
@@ -183,6 +159,15 @@ positions:
     date_opened: 2026-02-06
     thesis: thesis/active/AUTO.L/thesis.md
     notes: "Fifth Tier A Quality Compounder. QS 79, MoS 29%. UK car classifieds monopoly. 75% market share, 50% FCF margin, net cash. Capital rotation from SHEL.L (QS 36)."
+
+  - ticker: BYIT.L
+    name: "Bytes Technology Group plc"
+    shares: 110
+    invested_usd: 444
+    avg_cost_usd: 4.04  # 444 / 110
+    date_opened: 2026-02-07
+    thesis: thesis/active/BYIT.L/thesis.md
+    notes: "Sixth Tier A Quality Compounder. QS 81, MoS 35%. UK #1 software VAR. Net cash, 30% FCF margin, 9.6% insider. Capital rotation from TEP.PA+LIGHT.AS+PFE."
 
 transactions:
   - date: 2026-01-26
@@ -450,4 +435,42 @@ transactions:
     price_gbp: 485.80
     total_eur: 363
     notes: "BUY - Fifth Tier A Quality Compounder. QS 79, MoS 29%. UK car classifieds monopoly, 75% share, 50% FCF margin. Fallen angel -47%. Capital from SHEL.L rotation."
+
+  - date: 2026-02-07
+    action: SELL
+    ticker: TEP.PA
+    shares: 11.015018
+    price_eur: 52.18
+    total_eur: 575
+    pnl_eur: -48
+    pnl_pct: -6.7
+    notes: "EXIT - QS 46 Tier C, MoS 17% (revised from 38-51%), ROIC < WACC, AI disruption accelerating. Capital rotated to Tier A."
+
+  - date: 2026-02-07
+    action: SELL
+    ticker: LIGHT.AS
+    shares: 28.753048
+    price_eur: 20.06
+    total_eur: 577
+    pnl_eur: 70
+    pnl_pct: 13.7
+    notes: "EXIT - QS 56 Tier B on probation, MoS 8.4% thin, ROIC < WACC, thesis debilitated 2/3 pillars. Took profits. Capital rotated to Tier A."
+
+  - date: 2026-02-07
+    action: SELL
+    ticker: PFE
+    shares: 18.66368
+    price_usd: 27.22
+    total_eur: 431
+    pnl_eur: 8
+    pnl_pct: 1.8
+    notes: "EXIT - QS 47 Tier C, MoS -3.2% (overvalued near 52w high), ROIC < WACC, patent cliff 2026-2028. Capital rotated to Tier A."
+
+  - date: 2026-02-07
+    action: BUY
+    ticker: BYIT.L
+    shares: 110
+    price_gbp: 296
+    total_usd: 444
+    notes: "BUY - Sixth Tier A Quality Compounder. QS 81, MoS 35%. UK #1 software VAR, net cash, 30% FCF margin, 9.6% insider. Fallen angel -47%. IC 9/9 PASS."
 

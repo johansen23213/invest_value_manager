@@ -227,7 +227,7 @@ El sector Pharma/Healthcare esta en un momento de transicion historica. Por un l
 
 | Ticker | Posicion | Tesis | Status |
 |--------|----------|-------|--------|
-| PFE | Activa | Yield 6.5%, M&A firepower, transicion oncology/obesity | HOLD - monitorear ejecucion |
+| ~~PFE~~ | ~~Activa~~ | ~~Yield 6.5%, M&A firepower~~ | **SOLD 2026-02-06** - QS 47, ROIC < WACC, MoS -3.2% (overvalued near 52w high) |
 | SAN.PA | Activa | Dupixent growth, pipeline diversificado | HOLD - valuacion expandida |
 | UHS | Activa | Behavioral health growth, valuacion razonable | HOLD - defensive exposure |
 | **NVO** | **Activa (NEW 2026-02-05)** | **QS 82 Tier A, GLP-1 pioneer, MoS 38%** | **HOLD - Framework v3.0 validated, ADD on CagriSema positive** |
@@ -266,7 +266,7 @@ El sector Pharma/Healthcare esta en un momento de transicion historica. Por un l
 
 | Tipo | Ticker | Thesis Path | Ultima Eval | Status |
 |------|--------|-------------|-------------|--------|
-| Portfolio | PFE | thesis/active/PFE | 2026-02-01 | HOLD |
+| ~~Portfolio~~ | ~~PFE~~ | ~~thesis/active/PFE~~ | ~~2026-02-01~~ | **SOLD 2026-02-06 - Capital rotation** |
 | Portfolio | SAN.PA | thesis/active/SAN.PA | 2026-02-01 | HOLD |
 | Portfolio | UHS | thesis/active/UHS | 2026-02-01 | HOLD |
 | **Portfolio** | **NVO** | **thesis/active/NVO** | **2026-02-05** | **HOLD - phased entry 4%, ADD on CagriSema** |
@@ -338,7 +338,8 @@ El sector Pharma/Healthcare esta en un momento de transicion historica. Por un l
 | 2026-02-03 | Status inicial: NEUTRAL (subsector-dependent) | Valuaciones atractivas pero risks reales |
 | 2026-02-04 | GLP-1 subsector -> NEUTRAL-POSITIVO; NVO movido de "Evitar" a "Watchlist" | Caida 50% NVO cambio ecuacion R/R; thesis completa creada |
 | 2026-02-04 | HIK.L analizada y anadida a Watchlist | Tier C QS 46, MoS 23% < 30% required. Entry 1400-1450 GBp |
-| **2026-02-05** | **GSK.L analizada y anadida a Watchlist** | **Tier B QS 59, MoS 10% < 20% required. Entry 1850p. Good business, near fair value.** |
+| 2026-02-05 | GSK.L analizada y anadida a Watchlist | Tier B QS 59, MoS 10% < 20% required. Entry 1850p. Good business, near fair value. |
+| **2026-02-06** | **PFE SOLD - Capital rotation to Tier A** | **QS 47, ROIC < WACC, MoS -3.2% (near 52w high = overvalued). Capital rotated to BYIT.L.** |
 
 ---
 

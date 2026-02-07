@@ -201,10 +201,8 @@ El sector Business Services es extremadamente heterogeneo, abarcando desde BPO/c
 
 | Ticker | P/E | Yield | Status | Priority |
 |--------|-----|-------|--------|----------|
-| **TEP.PA** | 6.5x | 7.5% | EN PORTFOLIO | Monitor AI impact |
 | **EDEN.PA** | 8.3x | 6.8% | EN PORTFOLIO | Monitor Brasil |
 | **HRB** | 8.4x | 4.3% | EN PORTFOLIO | Monitor IRS Direct File |
-| **FUTR.L** | 8.5x | 3.1% | EN PORTFOLIO | Monitor digital transition |
 
 ### Para screening adicional
 
@@ -278,11 +276,21 @@ El sector Business Services es extremadamente heterogeneo, abarcando desde BPO/c
 
 ---
 
+## Historial de Analisis
+
+| Ticker | Razon Archivo | Fecha | Leccion |
+|--------|---------------|-------|---------|
+| TEP.PA | SOLD - Capital rotation to Tier A (BYIT.L) | 2026-02-06 | QS 46 Tier C con ROIC < WACC. MoS revisado de 38-51% a 17% (DCF inapropiado para AI disruption). OS 3.6 vs BYIT.L justificaba rotacion. AI BPO disruption mas rapida de lo esperado. |
+| FUTR.L | SOLD - Tier D violation (QS 32) | 2026-02-04 | No comprar por P/E bajo sin verificar Quality Score. QS 32 era calidad insuficiente. |
+
+---
+
 ## Historial de Cambios
 
 | Fecha | Cambio | Razon |
 |-------|--------|-------|
 | 2026-02-03 | Status inicial: NEUTRAL (selectivo) | Sector bifurcado, oportunidades especificas |
+| 2026-02-06 | TEP.PA SOLD, movida a historial | Capital rotation a BYIT.L (Tier A). QS 46, ROIC < WACC, MoS solo 17%. |
 
 ---
 

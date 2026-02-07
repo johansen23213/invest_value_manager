@@ -6,6 +6,8 @@
 **Market Cap:** EUR 3.25B
 **Analyst:** Fundamental Analyst Agent (v2.0 Framework)
 
+**ARCHIVED: 2026-02-07 -- Position closed. EXIT decision: QS 46 Tier C, MoS 17% (revised from 38-51%), ROIC < WACC, AI disruption accelerating. Capital rotated to BYIT.L (Tier A, QS 81).**
+
 ---
 
 ## EXECUTIVE SUMMARY
@@ -140,8 +142,8 @@ Beta (yfinance): 0.59
 Beta (adjusted for AI disruption): 1.0 (conservative)
 
 Cost of Equity (Ke):
-  Raw: 3.44% + 0.59 × 5.0% = 6.4%
-  Adjusted: 3.44% + 1.0 × 5.0% = 8.44%
+  Raw: 3.44% + 0.59 x 5.0% = 6.4%
+  Adjusted: 3.44% + 1.0 x 5.0% = 8.44%
 
 Cost of Debt (Kd):
   Interest Expense: ~EUR 200M (estimated)
@@ -154,7 +156,7 @@ Capital Structure:
   Market Cap: EUR 3.25B (42% of EV)
   Net Debt: EUR 4.49B (58% of EV)
 
-WACC = (42% × 8.44%) + (58% × 2.6%) = 5.05%
+WACC = (42% x 8.44%) + (58% x 2.6%) = 5.05%
 
 ADJUSTED WACC for AI risk: 10% (conservative, higher than calculated)
 ```
@@ -195,9 +197,9 @@ BPO Sector Multiples:
   Premium BPO: 9.0x
 
 Fair Values:
-  Bear (5.5x): (1.19B × 5.5 - 4.49B) / 58.1M = EUR 35/share
-  Base (7.0x): (1.19B × 7.0 - 4.49B) / 58.1M = EUR 66/share
-  Bull (9.0x): (1.19B × 9.0 - 4.49B) / 58.1M = EUR 107/share
+  Bear (5.5x): (1.19B x 5.5 - 4.49B) / 58.1M = EUR 35/share
+  Base (7.0x): (1.19B x 7.0 - 4.49B) / 58.1M = EUR 66/share
+  Bull (9.0x): (1.19B x 9.0 - 4.49B) / 58.1M = EUR 107/share
 ```
 
 **EV/EBIT Base FV: EUR 66** (MoS 15%)
@@ -230,17 +232,17 @@ Floor Value: EUR 66
 **Weighted Fair Value (EV/EBIT-anchored):**
 ```
 Conservative (EV/EBIT anchor):
-  Bear (25%): EUR 35 × 0.25 = EUR 8.75
-  Base (50%): EUR 66 × 0.50 = EUR 33.00
-  Bull (25%): EUR 107 × 0.25 = EUR 26.75
+  Bear (25%): EUR 35 x 0.25 = EUR 8.75
+  Base (50%): EUR 66 x 0.50 = EUR 33.00
+  Bull (25%): EUR 107 x 0.25 = EUR 26.75
   EXPECTED VALUE = EUR 68.50
 
 Blended (DCF 25% + EV/EBIT 75%):
-  Bear: (208 × 0.25) + (35 × 0.75) = EUR 78
-  Base: (272 × 0.25) + (66 × 0.75) = EUR 118
-  Bull: (358 × 0.25) + (107 × 0.75) = EUR 170
+  Bear: (208 x 0.25) + (35 x 0.75) = EUR 78
+  Base: (272 x 0.25) + (66 x 0.75) = EUR 118
+  Bull: (358 x 0.25) + (107 x 0.75) = EUR 170
 
-  EXPECTED VALUE = (78×0.25) + (118×0.50) + (170×0.25) = EUR 121
+  EXPECTED VALUE = (78x0.25) + (118x0.50) + (170x0.25) = EUR 121
 ```
 
 **REVISED FAIR VALUE (v2.0): EUR 100-120** (midpoint EUR 110)

@@ -6,8 +6,8 @@
 system:
   system_version: "4.0.0"
   framework_version: "4.0"
-  last_session: 2026-02-06
-  session_number: 43
+  last_session: 2026-02-07
+  session_number: 45
 
   # FRAMEWORK v4.0 - IMPLEMENTADO
   # =====================================
@@ -53,9 +53,9 @@ system:
   portfolio_quality_analysis:
     date: 2026-02-06
     summary:
-      tier_a_count: 5  # ADBE + NVO + MONY.L + LULU + AUTO.L
-      tier_b_count: 5
-      tier_c_count: 11
+      tier_a_count: 6  # ADBE + NVO + MONY.L + LULU + AUTO.L + BYIT.L
+      tier_b_count: 4  # LIGHT.AS removed (sold)
+      tier_c_count: 9  # TEP.PA, PFE removed (sold); A2A.MI included
       tier_d_count: 0
       tier_d_violation: null
       first_tier_a: ADBE
@@ -67,70 +67,92 @@ system:
       - { ticker: MONY.L, score: 81, tier: A, status: "Third Tier A! UK price comparison. MoS 36%" }
       - { ticker: LULU, score: 82, tier: A, status: "Fourth Tier A! Fallen angel -58%. MoS 34%" }
       - { ticker: AUTO.L, score: 79, tier: A, status: "Fifth Tier A! UK car classifieds monopoly. MoS 29%. Rotated from SHEL.L." }
-      # TIER B - Quality Value (5 positions)
+      - { ticker: BYIT.L, score: 81, tier: A, status: "Sixth Tier A! UK IT services VAR. MoS 35%. Rotated from TEP.PA+LIGHT.AS+PFE." }
+      # TIER B - Quality Value (4 positions) - LIGHT.AS removed (sold)
       - { ticker: HRB, score: 73, tier: B }
       - { ticker: EDEN.PA, score: 62, tier: B }
       - { ticker: DOM.L, score: 61, tier: B }
       - { ticker: SAN.PA, score: 59, tier: B }
-      - { ticker: LIGHT.AS, score: 56, tier: B }
-      # TIER C - Special Situations (11 positions) - SHEL.L removed (sold)
+      # TIER C - Special Situations (9 positions) - TEP.PA, PFE removed (sold), A2A.MI included
       - { ticker: ALL, score: 54, tier: C }
       - { ticker: VICI, score: 54, tier: C }
       - { ticker: IMB.L, score: 54, tier: C }
       - { ticker: GL, score: 52, tier: C }
       - { ticker: UHS, score: 51, tier: C }
-      - { ticker: PFE, score: 49, tier: C }
       - { ticker: DTE.DE, score: 48, tier: C }
-      - { ticker: TEP.PA, score: 46, tier: C }
       - { ticker: TATE.L, score: 45, tier: C }
       - { ticker: VNA.DE, score: 41, tier: C }
       - { ticker: A2A.MI, score: 37, tier: C }
       # TIER D - NONE
     diagnosis: |
-      Portfolio evolucionando hacia Quality First.
-      Ahora: 5 Tier A, 5 Tier B, 11 Tier C. Sin violaciones Tier D.
-      SHEL.L sold (QS 36 borderline), AUTO.L added (QS 79 Tier A).
-      Pipeline Tier A: MA, V pendientes de entry price.
+      Portfolio evolucionando hacia Quality First - MAJOR UPGRADE.
+      Ahora: 6 Tier A, 4 Tier B, 9 Tier C (19 posiciones). Sin violaciones Tier D.
+      Sesion 45: 3 Tier C exits (TEP.PA, LIGHT.AS, PFE - all ROIC < WACC),
+      1 Tier A entry (BYIT.L QS 81, MoS 35%). Plus SHEL.L→AUTO.L rotation.
+      Tier A ratio: 32% (6/19) - up from 24% (5/21).
+      Pipeline Tier A: MA, V, DNLM.L, WKL.AS pendientes de entry price.
   last_session_summary: |
-    Sesion 44 - CAPITAL ROTATION: SHEL.L EXIT + AUTO.L ENTRY (2026-02-06)
+    Sesion 45 - MASSIVE QUALITY UPGRADE: 3 Tier C exits + 1 Tier A entry (2026-02-06)
 
     =====================================================
-    OPERACIONES EJECUTADAS
+    OPERACIONES EJECUTADAS (4 trades)
     =====================================================
 
-    1. SELL SHEL.L - Full exit 10.848578 shares @ 2774.50 GBp
-       - Proceeds: ~346 EUR
-       - P&L: +~8 EUR (+2.3%)
-       - Reason: QS 36 borderline Tier D, MoS -3.5%, thesis debilitated
-       - EXIT Protocol: 6/6 gates -> SELL
-       - Thesis archived to thesis/archive/SHEL.L/
+    SELLS (capital rotation from Tier C with ROIC < WACC):
+    1. SELL TEP.PA - Full exit 11 shares
+       - P&L: ~-18%. QS 46, ROIC < WACC, MoS revised to 17%
+       - Reason: AI BPO disruption, DCF inappropriate → EV/EBIT method
+       - OS 3.6 vs BYIT.L justified rotation
 
-    2. BUY AUTO.L - 65 shares @ 485.80 GBp (~5.58 EUR)
-       - Cost: ~363 EUR
-       - QS: 79/100 = TIER A (Quality Compounder)
-       - MoS: 29% (FV 688p weighted average)
-       - UK car classifieds monopoly, 75% market share, 50% FCF margin, net cash
-       - Fifth Tier A in portfolio
-       - Thesis moved to thesis/active/AUTO.L/
+    2. SELL LIGHT.AS - Full exit ~29 shares
+       - P&L: +13.7%. QS 56, ROIC < WACC, MoS 8.4%
+       - Reason: Commoditization worse than expected, OEM -16.5% Q4
+       - OS 6.0 vs BYIT.L justified rotation
+
+    3. SELL PFE - Full exit ~19 shares
+       - P&L: ~-2%. QS 47, ROIC < WACC, MoS -3.2% (near 52w HIGH)
+       - Reason: Patent cliff, overvalued, no upside potential
+
+    BUY:
+    4. BUY BYIT.L - 110 shares @ ~296 GBp (~$444 total)
+       - QS: 81/100 = TIER A (Quality Compounder)
+       - MoS: 35% (FV 455 GBp)
+       - UK #1 software VAR, net cash, 30% FCF margin
+       - Sixth Tier A in portfolio
+       - Investment Committee: 9/9 PASS
 
     =====================================================
-    PORTFOLIO AFTER ROTATION
+    FALLEN ANGEL HUNT RESULTS
     =====================================================
-    - Posiciones: 21 (SHEL.L removed, AUTO.L added)
-    - Cash: 773.44 EUR (~7%)
-    - Tier A: 5 (ADBE, NVO, MONY.L, LULU, AUTO.L)
-    - Tier B: 5 (HRB, EDEN.PA, DOM.L, SAN.PA, LIGHT.AS)
-    - Tier C: 11 (ALL, VICI, IMB.L, GL, UHS, PFE, DTE.DE, TEP.PA, TATE.L, VNA.DE, A2A.MI)
+    - Screened ~1,850 tickers across 5 indices
+    - BYIT.L: QS 81, MoS 35% → BOUGHT
+    - DNLM.L: QS 79, MoS 29% → WATCHLIST at 900p
+    - WKL.AS: QS 72, MoS 39% → WATCHLIST at €65
+
+    =====================================================
+    PORTFOLIO AFTER ALL TRADES
+    =====================================================
+    - Posiciones: 19 (removed SHEL.L/TEP.PA/LIGHT.AS/PFE, added AUTO.L/BYIT.L)
+    - Cash: ~1,979 EUR (~20%)
+    - Tier A: 6 (ADBE, NVO, MONY.L, LULU, AUTO.L, BYIT.L) = 33%
+    - Tier B: 4 (HRB, EDEN.PA, DOM.L, SAN.PA)
+    - Tier C: 9 (ALL, VICI, IMB.L, GL, UHS, DTE.DE, TATE.L, VNA.DE, A2A.MI)
+
+    =====================================================
+    KEY INSIGHT: ROIC < WACC pattern
+    =====================================================
+    All 3 exits had ROIC < WACC = destroying economic value.
+    Pattern: QS 46-56 with ROIC < WACC → SELL when Tier A available.
 
     =====================================================
     PROXIMA SESION
     =====================================================
     1. VIGILANCIA: news-monitor + market-pulse
-    2. Earnings proximos: MONY.L Feb 23, EDEN.PA Feb 24, TEP.PA Feb 26
-    3. Standing orders: BME.L, UTG.L, TATE.L (activos)
-    4. AUTO.L ADD trigger at 450p - monitor
-    5. Pipeline Tier A: MA, V pendientes de entry price
-    6. Create sector view for digital-marketplaces (AUTO.L, MONY.L)
+    2. Earnings proximos: MONY.L Feb 23, EDEN.PA Feb 24, DTE.DE Feb 26
+    3. Standing orders activos: BME.L, UTG.L, TATE.L, DNLM.L, WKL.AS, BYIT.L ADD
+    4. Cash 20% - consider deploying if standing orders trigger
+    5. Pipeline Tier A: MA, V, DNLM.L, WKL.AS
+    6. Verify thesis files properly moved (no stubs)
 
   last_session_summary_archived: |
     Sesion 42 - COVID CRASH STRESS TEST + DEBATE ESTRATEGICO (2026-02-06)
@@ -795,6 +817,34 @@ calendar:
       priority: high
       action: "BUY 65 shares AUTO.L @ 485.80 GBp. Total ~363 EUR. QS 79 Tier A, MoS 29%. UK car classifieds monopoly. ADD trigger 450p."
 
+    - date: 2026-02-07
+      type: action_completed
+      ticker: TEP.PA
+      event: "DONE - SOLD TEP.PA full exit 11.015 shares @ ~52.18 EUR"
+      priority: high
+      action: "EXIT - QS 46 Tier C, MoS 17%, ROIC < WACC, AI disruption. Capital rotated to BYIT.L. P&L -6.7% (-48 EUR)."
+
+    - date: 2026-02-07
+      type: action_completed
+      ticker: LIGHT.AS
+      event: "DONE - SOLD LIGHT.AS full exit 28.753 shares @ ~20.06 EUR"
+      priority: high
+      action: "EXIT - QS 56 Tier B probation, MoS 8.4%, ROIC < WACC. Capital rotated to BYIT.L. P&L +13.7% (+70 EUR)."
+
+    - date: 2026-02-07
+      type: action_completed
+      ticker: PFE
+      event: "DONE - SOLD PFE full exit 18.664 shares @ ~$27.22"
+      priority: high
+      action: "EXIT - QS 47 Tier C, MoS -3.2% overvalued, ROIC < WACC, patent cliff. Capital rotated to BYIT.L. P&L +1.8% (+8 EUR)."
+
+    - date: 2026-02-07
+      type: action_completed
+      ticker: BYIT.L
+      event: "DONE - BUY BYIT.L 110 shares @ ~296 GBp (Sixth Tier A Quality Compounder!)"
+      priority: high
+      action: "BUY 110 shares BYIT.L @ 296 GBp. Total $444 (~377 EUR). QS 81 Tier A, MoS 35%. UK #1 software VAR. ADD trigger 260p."
+
     # EARNINGS WEEK FEB 23-26 (FRAMEWORKS PREPARED 2026-02-05)
     - date: 2026-02-23
       type: earnings
@@ -813,9 +863,9 @@ calendar:
     - date: 2026-02-26
       type: earnings
       ticker: TEP.PA
-      event: "TEP.PA FY2025 Results"
-      priority: high
-      action: "FRAMEWORK READY. Guidance 1-2% revenue, FCF ~€1B. Bull >2% + AI optimism, Base 1-2%, Bear <1% or guidance cut. KILL CONDITIONS CRÍTICOS: FCF<€600M, revenue decline >5% 2Q, AI client loss, div cut. See thesis/active/TEP.PA/earnings_framework_feb2026.md"
+      event: "TEP.PA FY2025 Results (POSITION SOLD 2026-02-06)"
+      priority: low
+      action: "NO LONGER HOLDING. Monitor for sector intel only."
 
     - date: 2026-03-15
       type: catalyst
@@ -940,13 +990,13 @@ calendar:
       event: "Enel FY2025 results"
       priority: medium
 
-    # LIGHT.AS critical events
+    # LIGHT.AS POSITION SOLD 2026-02-06
     - date: 2026-06-23
       type: catalyst
       ticker: LIGHT.AS
-      event: "Signify Capital Markets Day - DEFINITIVE decision point for HOLD vs EXIT"
-      priority: CRITICAL
-      action: "CMD will reveal strategic review, OEM divestment plans, connected pivot clarity. If no strategic clarity → EXIT. If positive pivot → UPGRADE from probation."
+      event: "Signify Capital Markets Day (POSITION SOLD 2026-02-06)"
+      priority: low
+      action: "NO LONGER HOLDING. Monitor for sector intel only."
 
 # -----------------------------------------------------------------------------
 # WATCHLIST
@@ -1157,18 +1207,12 @@ watchlist:
       quality_score: 79
       notes: "Fifth Tier A Quality Compounder. UK car classifieds monopoly. 75% market share, 50% FCF margin, net cash. ADD trigger at 450p (MoS >34%)."
       kill: "Dealer count decline >5%, ARPR growth negative, competitor >20% share, FCF margin <35%, large M&A >GBP 1B"
-    - ticker: PFE
-      entry_usd: 26.75
-      fair_value_usd: 32-35
-      kill: "Dividend cut or FY2026 guidance miss >10%"
+    # PFE REMOVED 2026-02-06 - Position closed, capital rotated to BYIT.L
     - ticker: ALL
       entry_usd: 196.00
       fair_value_usd: 240-260
       kill: "Combined ratio >100% sustained or catastrophe losses >$5B"
-    - ticker: TEP.PA
-      entry: 54.60
-      fair_value: 115
-      kill: "FCF <600M or revenue -5%"
+    # TEP.PA REMOVED 2026-02-06 - Position closed, capital rotated to BYIT.L
     - ticker: SAN.PA
       entry: 79.20
       fair_value: 95-105
@@ -1181,10 +1225,7 @@ watchlist:
       entry_usd: 42.34
       fair_value_usd: 44-52
       kill: "Dividend cut or buyback suspension"
-    - ticker: LIGHT.AS
-      entry: 17.91
-      fair_value: 26.73
-      kill: "FCF <300M or revenue -10%"
+    # LIGHT.AS REMOVED 2026-02-06 - Position closed (+13.7%), capital rotated to BYIT.L
     - ticker: TATE.L
       entry: 375
       fair_value: 500
@@ -1224,6 +1265,14 @@ watchlist:
       quality_score: 82
       notes: "Fourth Tier A Quality Compounder. Fallen angel -58%. Problema ciclico (producto stale, US debil), NO estructural. ADD triggers: $160 (4.5%), $145 (5.5%)."
       kill: "Gross Margin <50%, 3Q consecutive negative global comps, FCF negative 2Q, bad CEO hire, Chip Wilson board takeover"
+    - ticker: BYIT.L
+      entry_gbp: 296
+      fair_value_gbp: 455
+      mos: 35%
+      tier: A
+      quality_score: 81
+      notes: "Sixth Tier A Quality Compounder. UK #1 software VAR. Net cash, 30% FCF margin, 9.6% insider. Fallen angel -47% Microsoft incentive restructuring. ADD trigger 260p."
+      kill: "Microsoft structurally disintermediates VARs, FCF negative 2+ years, services growth <10%, major customer/framework loss, QS <75"
 
 # -----------------------------------------------------------------------------
 # ALERTAS DE PRECIO
@@ -1258,6 +1307,9 @@ alerts:
     - { ticker: GSK.L, entry_gbp: 1850, note: "GlaxoSmithKline. QS 59 Tier B. FV 2424p. Entry 1850p = 24% MoS. Patent cliff 2027-28." }
     - { ticker: LULU, add_trigger_usd: 160, note: "POSITION ACTIVE (2 shares @ $171.62). ADD trigger $160 = 5% sizing. ADD aggressive at $145 (52w low) = 6% sizing. QS 82 Tier A." }
     - { ticker: AUTO.L, add_trigger_gbp: 450, note: "POSITION ACTIVE (65 shares @ 485.80p). ADD trigger 450p = MoS >34%. QS 79 Tier A. UK car classifieds monopoly." }
+    - { ticker: BYIT.L, add_trigger_gbp: 260, note: "POSITION ACTIVE (110 shares @ 296p). ADD trigger 260p = MoS >43%. QS 81 Tier A. UK IT services VAR." }
+    - { ticker: DNLM.L, entry_gbp: 900, note: "Dunelm. QS 79 Tier A. FV 1328p. Entry 900p = MoS 32%. UK #1 homewares, 38.5% insider (Adderley family). WATCHLIST." }
+    - { ticker: WKL.AS, entry_eur: 65, note: "Wolters Kluwer. QS 72 Tier B. FV 94.28. Entry 65 = MoS 31%. Wait full-year results late Feb. AI risk overpriced." }
 
 # -----------------------------------------------------------------------------
 # STANDING ORDERS (pre-aprobadas, ejecutar cuando precio toque trigger)
@@ -1445,6 +1497,47 @@ standing_orders:
     tier: "A (QS 80)"
     notes: "ADD to existing position if price drops further. Total target 5-6%."
     expiry: 2026-08-01
+
+  # DNLM.L - Tier A fallen angel, entry on pullback
+  - ticker: DNLM.L
+    action: BUY
+    trigger: "<=900 GBp"
+    size_eur: 375
+    shares_approx: 37
+    thesis: thesis/research/DNLM.L/thesis.md
+    fair_value: "1328 GBp"
+    mos_at_trigger: "32%"
+    tier: "A (QS 79)"
+    notes: "UK #1 homewares. 38.5% insider (Adderley family). 0/10 value trap. D/E 3.18 is IFRS16 distortion (real 0.33x)."
+    kill_conditions: "Insider ownership <25%, FCF negative 2+ years, gross margin <45%, store closures >10%"
+    expiry: 2026-06-01
+
+  # WKL.AS - Tier B, AI disruption overpriced
+  - ticker: WKL.AS
+    action: BUY
+    trigger: "<=65 EUR"
+    size_eur: 325
+    shares_approx: 5
+    thesis: thesis/research/WKL.AS/thesis.md
+    fair_value: "94.28 EUR"
+    mos_at_trigger: "31%"
+    tier: "B (QS 72)"
+    notes: "Market conflates 'information' with 'workflow'. Only 8-10% revenue at AI risk. Wait full-year results late Feb."
+    kill_conditions: "Revenue decline >5% 2Q, customer churn >10%, AI competitor >15% share"
+    expiry: 2026-06-01
+
+  # BYIT.L ADD - Position active, add on deeper discount
+  - ticker: BYIT.L
+    action: ADD
+    trigger: "<=260 GBp"
+    size_eur: 250
+    shares_approx: 82
+    thesis: thesis/active/BYIT.L/thesis.md
+    fair_value: "455 GBp"
+    mos_at_trigger: "43%"
+    tier: "A (QS 81)"
+    notes: "ADD to existing 110 shares. H2 results confirm or deny recovery."
+    expiry: 2026-06-01
 
 # -----------------------------------------------------------------------------
 # MACRO (resumen)
