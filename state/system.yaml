@@ -1,13 +1,13 @@
 # =============================================================================
 # ESTADO DEL SISTEMA - Value Investor v4.0
-# Actualizado 2026-02-05
+# Actualizado 2026-02-07
 # =============================================================================
 
 system:
   system_version: "4.0.0"
   framework_version: "4.0"
   last_session: 2026-02-07
-  session_number: 47
+  session_number: 50
 
   # FRAMEWORK v4.0 - IMPLEMENTADO
   # =====================================
@@ -95,7 +95,121 @@ system:
     Sesion 46: Pipelines + anomaly fixes. 11 pipelines defined.
     forward_return.py bug fixed. EDEN.PA FV corrected.
 
+  last_session_summary_archived_48: |
+    Sesion 48 - FIRST ADVERSARIAL PIPELINE TEST: DNLM.L (2026-02-07)
+
   last_session_summary: |
+    Sesion 50 - ADVERSARIAL REVIEW FASE 1 COMPLETADA: DTE.DE + UHS (2026-02-07)
+
+    =====================================================
+    ADVERSARIAL REVIEW: 2 POSICIONES (manual - agents hit rate limit)
+    =====================================================
+
+    DTE.DE (Tier C, QS 48):
+    - CRITICAL: Thesis claims "Tier A" but QS=48 (Tier C). ROIC spread -0.7pp!
+    - FV: EUR 36.50-38.50 → EUR 33-35 (-9%). MoS: ~11% (was 19-21%)
+    - Thesis errors: Quality tier wrong, leverage 3.3x not 2.6x, WACC manually
+      overridden from 3.9% to 6.5%, revenue CAGR 1.8% not 4%
+    - Positives: Q3 strong, guidance raised, dividend +11%, 18 analysts Buy
+    - Verdict: HOLD MEDIUM conviction. Defensive telecom, real FCF EUR 20B+.
+    - Exit plan: Post-earnings Feb 26. EXIT if guidance disappoints.
+
+    UHS (Tier C, QS 51):
+    - CRITICAL: DOJ $122M settlement + 5yr OIG oversight NOT IN THESIS
+    - FV: $283.74 → $243 (-14.4%). MoS: ~10% (was ~23%)
+    - Thesis errors: DOJ settlement omitted, DCF overweighted (FCF CV 2.3),
+      Bear FV $205 < current $218 (no downside protection)
+    - Positives: Q3 exceptional (+53.4% EPS YoY), guidance raised, $1.5B buyback
+    - Verdict: HOLD LOW conviction. ROIC barely > WACC (1.2pp).
+    - Exit plan: Post-earnings Feb 26. SELL if ROIC < WACC.
+
+    =====================================================
+    FASE 1 COMPLETADA - RESUMEN 4 POSICIONES
+    =====================================================
+    | Ticker | Thesis FV | Adversarial FV | Delta | Conviction |
+    | MONY.L | 277 GBp | 201 GBp | -27% | LOW |
+    | EDEN.PA | EUR 38.4 | EUR 29.0 | -24.5% | MEDIUM |
+    | DTE.DE | EUR 37.50 | EUR 34.00 | -9% | MEDIUM |
+    | UHS | $283.74 | $243 | -14.4% | LOW |
+    Average FV revision: -18.7%
+
+    =====================================================
+    PATTERN CONFIRMED (4/4): Thesis FVs systematically inflated
+    =====================================================
+    All 4 earnings-urgent positions had inflated FVs.
+    Range: -9% (DTE.DE) to -27% (MONY.L). Average: -18.7%.
+    Key finding: DTE.DE thesis claimed Tier A but is Tier C (QS 48).
+    Key finding: UHS had $122M DOJ settlement not in thesis.
+
+    =====================================================
+    FILES CREATED/UPDATED
+    =====================================================
+    - thesis/active/DTE.DE/thesis.md: adversarial addendum
+    - thesis/active/DTE.DE/risk_assessment.md: created
+    - thesis/active/DTE.DE/valuation_report.md: created
+    - thesis/active/UHS/thesis.md: adversarial addendum
+    - thesis/active/UHS/risk_assessment.md: created
+    - thesis/active/UHS/valuation_report.md: created
+    - portfolio/current.yaml: conviction + exit_plan for both
+    - state/system.yaml: fase_1 COMPLETED
+
+    =====================================================
+    PROXIMA SESION (51)
+    =====================================================
+    1. Adversarial review FASE 2: Tier C batch (A2A.MI, VNA.DE, TATE.L, GL, ALL, VICI, IMB.L)
+    2. DNLM.L interinos Feb 10: resultados (3 dias)
+    3. Branch feature/refactor_claude_md: commit + merge pendiente
+    4. Pipelines due: opportunity-scan, risk-review, position-review, deep-performance
+    5. Earnings: MONY.L Feb 23, EDEN.PA Feb 24, DTE.DE Feb 26, UHS Feb 26
+
+    =====================================================
+    BUY-PIPELINE ADVERSARIAL PROBADO CON EXITO
+    =====================================================
+    DNLM.L (Dunelm) - Full 4-round adversarial buy-pipeline:
+    - R1: fundamental-analyst + moat-assessor + risk-identifier (PARALELO) + valuation-specialist
+    - R2: devil's-advocate (STRONG COUNTER: 9/19 HIGH/CRITICAL)
+    - R3: Conflict resolution (all independents agree: thesis too optimistic)
+    - R4: investment-committee (WATCHLIST 750-800p)
+
+    RESULTADO: Thesis FV 1,328p → Risk-adjusted FV 1,008p (-24%)
+    - Entry trigger bajado: 900p → 750-800p
+    - 5 issues materiales detectados por agentes independientes:
+      1. NIC/NLW headwind £18M (8-9% PBT) - NO estaba en thesis
+      2. Insider sold 5% at 1,140p Jul-2025 - thesis decia "no sales"
+      3. CEO transition Oct 2025 (Moriarty ex-Sainsburys) - NO estaba en thesis
+      4. Consumer weakness 4-6 quarters (no "2-3" como thesis)
+      5. Temu/Amazon disruption 13.1M MAU UK - NO estaba en thesis
+    - Moat: NARROW (no WIDE como implicaba thesis)
+    - MoS a 936.5p: solo 7.1% (vs 29-38% precedentes Tier A)
+
+    =====================================================
+    ADVERSARIAL PORTFOLIO REVIEW INITIATED
+    =====================================================
+    Proyecto multi-sesion para re-evaluar TODO el portfolio:
+    - Tracker en state/system.yaml seccion adversarial_review
+    - 5 fases: earnings_urgentes → tier_c → standing_orders → tier_b → tier_a
+    - ~6 sesiones estimadas (49-55)
+    - Pipeline position-review actualizado a v2.0 (adversarial permanente)
+
+    =====================================================
+    SYSTEM CHANGES
+    =====================================================
+    - state/system.yaml: adversarial_review tracker creado
+    - pipelines/SKILL.md: position-review v2.0 (adversarial por defecto)
+    - MEMORY.md: ACTIVE PROJECT section para persistencia
+    - DNLM.L price monitor: 900p → 780p (midpoint 750-800)
+    - 6 ficheros audit trail en thesis/research/DNLM.L/
+
+    =====================================================
+    PROXIMA SESION (49)
+    =====================================================
+    1. Adversarial review FASE 1: MONY.L + EDEN.PA (earnings Feb 23-24)
+    2. Triage: forward_return.py + price_checker.py para priorizar
+    3. Branch feature/refactor_claude_md: commit + merge aun pendiente
+    4. DNLM.L interinos Feb 10: monitorear resultado
+    5. CVS earnings Feb 11 (watchlist)
+
+  last_session_summary_archived_47: |
     Sesion 47 - ADVERSARIAL ANALYSIS PROCESS (2026-02-07)
 
     =====================================================
@@ -1348,7 +1462,7 @@ alerts:
     - { ticker: LULU, add_trigger_usd: 160, note: "POSITION ACTIVE (2 shares @ $171.62). ADD trigger $160 = 5% sizing. ADD aggressive at $145 (52w low) = 6% sizing. QS 82 Tier A." }
     - { ticker: AUTO.L, add_trigger_gbp: 450, note: "POSITION ACTIVE (65 shares @ 485.80p). ADD trigger 450p = MoS >34%. QS 79 Tier A. UK car classifieds monopoly." }
     - { ticker: BYIT.L, add_trigger_gbp: 260, note: "POSITION ACTIVE (110 shares @ 296p). ADD trigger 260p = MoS >43%. QS 81 Tier A. UK IT services VAR." }
-    - { ticker: DNLM.L, entry_gbp: 900, note: "Dunelm. QS 79 Tier A. FV 1328p. Entry 900p = MoS 32%. UK #1 homewares, 38.5% insider (Adderley family). WATCHLIST." }
+    - { ticker: DNLM.L, entry_gbp: 780, note: "Dunelm. QS 79 Tier A. FV 1008p (risk-adjusted, was 1328p). Entry 750-800p = MoS 21-26%. Adversarial pipeline: STRONG COUNTER on price, quality genuine. Wait post-interims Feb 10. Alt path: 850-900p if interims de-risk. Adderley sold 5% at 1140p Jul-2025." }
     - { ticker: WKL.AS, entry_eur: 65, note: "Wolters Kluwer. QS 72 Tier B. FV 94.28. Entry 65 = MoS 31%. Wait full-year results late Feb. AI risk overpriced." }
 
 # -----------------------------------------------------------------------------
@@ -1765,3 +1879,78 @@ pipeline_tracker:
     last_run: 2026-02-02
     next_due: 2026-03-02
     last_result: "Tariffs escalando, Iran tension up, China mejora"
+
+# -----------------------------------------------------------------------------
+# ADVERSARIAL REVIEW PROJECT - Iniciado Sesión 48 (2026-02-07)
+# Re-evaluar todo el portfolio + standing orders con pipeline adversarial
+# Al completar: position-review pipeline ya será adversarial por defecto
+# -----------------------------------------------------------------------------
+adversarial_review:
+  status: IN_PROGRESS
+  started: 2026-02-07
+  objective: "Re-evaluar todas las posiciones y standing orders con pipeline adversarial (risk-identifier + valuation-specialist + devil's-advocate si necesario). Detectar FVs inflados, riesgos omitidos, errores factuales."
+  lesson_learned: "DNLM.L thesis tenía FV 24% inflado. NIC £18M omitido, insider selling omitido, CEO change omitido. Pipeline adversarial lo detectó."
+
+  # REVIEW PIPELINE POR POSICION (más ligero que buy-pipeline completo):
+  # Ronda 1: risk-identifier + valuation-specialist (PARALELO)
+  # Ronda 2: review-agent con veredicto HOLD/ADD/TRIM/SELL
+  # Ronda 3: devil's-advocate SOLO si discrepancia material vs thesis
+  # Ronda 4: investment-committee SOLO si SELL/TRIM recomendado
+
+  # PRIORIDAD: earnings_urgentes > tier_c > standing_orders > tier_b > tier_a
+
+  # ===== FASE 1: EARNINGS URGENTES (antes del 23 Feb) =====
+  fase_1_earnings:
+    status: COMPLETED
+    target_sessions: "49-50"
+    positions:
+      - { ticker: MONY.L, tier: A, earnings: "2026-02-23", reviewed: true, date: "2026-02-07", verdict: "HOLD LOW conviction", fv_revision: "277→201 GBp (-27%)", notes: "ROIC 29%>>WACC, CEO buying, earnings decisive" }
+      - { ticker: EDEN.PA, tier: B, earnings: "2026-02-24", reviewed: true, date: "2026-02-07", verdict: "HOLD MEDIUM conviction", fv_revision: "38.4→29.0 EUR (-24.5%)", notes: "Italy 120M not in FV, Brazil 19% not 9.5%, ROIC>>WACC" }
+      - { ticker: DTE.DE, tier: C, earnings: "2026-02-26", reviewed: true, date: "2026-02-07", verdict: "HOLD MEDIUM conviction", fv_revision: "36.50-38.50→33-35 EUR (-9%)", notes: "Thesis claims Tier A but QS=48 Tier C. ROIC spread -0.7pp. Leverage 3.3x not 2.6x. Revenue CAGR 1.8% not 4%." }
+      - { ticker: UHS, tier: C, earnings: "2026-02-26", reviewed: true, date: "2026-02-07", verdict: "HOLD LOW conviction", fv_revision: "283.74→243 USD (-14.4%)", notes: "DOJ $122M settlement + 5yr OIG oversight NOT in thesis. ROIC spread 1.2pp marginal. DCF unreliable (FCF CV 2.3)." }
+
+  # ===== FASE 2: TIER C - Mayor riesgo de FV inflado (9 posiciones) =====
+  fase_2_tier_c:
+    status: PENDING
+    target_sessions: "50-52"
+    positions:
+      - { ticker: A2A.MI, score: 37, reviewed: false, note: "Bottom FER 19%" }
+      - { ticker: VNA.DE, score: 41, reviewed: false }
+      - { ticker: TATE.L, score: 45, reviewed: false }
+      - { ticker: DTE.DE, score: 48, reviewed: false, note: "Also in fase_1" }
+      - { ticker: UHS, score: 51, reviewed: false, note: "Also in fase_1" }
+      - { ticker: GL, score: 52, reviewed: false }
+      - { ticker: IMB.L, score: 54, reviewed: false, note: "Bottom FER 20.1%" }
+      - { ticker: ALL, score: 54, reviewed: false }
+      - { ticker: VICI, score: 54, reviewed: false, note: "Bottom FER 20.3%" }
+
+  # ===== FASE 3: STANDING ORDERS (full adversarial) =====
+  fase_3_standing_orders:
+    status: PENDING
+    target_sessions: "52-53"
+    orders:
+      - { ticker: BME.L, trigger: "169 GBp", reviewed: false, note: "Full adversarial" }
+      - { ticker: UTG.L, trigger: "540 GBp", reviewed: false, note: "Full adversarial" }
+      - { ticker: TATE.L, trigger: "350 GBp ADD", reviewed: false, note: "Light review" }
+
+  # ===== FASE 4: TIER B (4 posiciones) =====
+  fase_4_tier_b:
+    status: PENDING
+    target_sessions: "53-54"
+    positions:
+      - { ticker: HRB, score: 73, reviewed: false }
+      - { ticker: EDEN.PA, score: 62, reviewed: true, note: "Reviewed in fase_1. FV 38.4→29.0 EUR. HOLD MEDIUM." }
+      - { ticker: DOM.L, score: 61, reviewed: false }
+      - { ticker: SAN.PA, score: 59, reviewed: false }
+
+  # ===== FASE 5: TIER A (6 posiciones - quick check) =====
+  fase_5_tier_a:
+    status: PENDING
+    target_sessions: "54-55"
+    positions:
+      - { ticker: ADBE, score: 76, reviewed: false }
+      - { ticker: NVO, score: 82, reviewed: false }
+      - { ticker: MONY.L, score: 81, reviewed: true, note: "Reviewed in fase_1. FV 277→201 GBp. HOLD LOW." }
+      - { ticker: LULU, score: 82, reviewed: false }
+      - { ticker: AUTO.L, score: 79, reviewed: false }
+      - { ticker: BYIT.L, score: 81, reviewed: false }

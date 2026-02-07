@@ -494,3 +494,38 @@ Precio actual EUR 28.74 ofrece MoS 27-32%. Position size correcta (5%). Esperar 
 ### Empresa
 - [Deutsche Telekom IR](https://www.telekom.com/en/investor-relations)
 - [Annual Report 2024](https://report.telekom.com/annual-report-2024/)
+
+---
+
+## ADVERSARIAL REVIEW ADDENDUM (2026-02-07)
+
+> Adversarial review Fase 1. See risk_assessment.md and valuation_report.md for full analysis.
+
+### Key Findings
+
+| Issue | Thesis | Adversarial | Severity |
+|-------|--------|-------------|----------|
+| Quality Tier | A (10/10 custom) | C (QS 48) | CRITICAL |
+| ROIC vs WACC | "+15% vs 6.5%" | Spread -0.7pp | HIGH |
+| Leverage | 2.6x | 3.3x | MEDIUM |
+| Revenue CAGR | 4% | 1.8% actual | MEDIUM |
+| FV | EUR 36.50-38.50 | EUR 33-35 | MEDIUM |
+| MoS (at EUR 30.26) | 19-21% | ~11% | MEDIUM |
+| WACC | 6.5% (manual override) | 7-8% appropriate | MEDIUM |
+
+### Revised Assessment
+- **Conviction:** MEDIUM (was HIGH)
+- **Risk-Adjusted FV:** EUR 33-35 (was EUR 36.50-38.50, -9%)
+- **MoS:** ~11% (was 19-21%)
+- **Exit Plan:** HOLD through earnings Feb 26. EXIT if guidance disappoints. TRIM if price approaches EUR 33+ without thesis improvement.
+
+### Positive Factors Confirmed
+- Q3 2025 strong (revenue +3.3%, EBITDA +2.9%)
+- FY2025 guidance raised
+- Dividend +11% to EUR 1.00
+- EUR 2B buyback 2026
+- 18 analysts consensus EUR 37.44 (all Buy)
+- CEO extended to 2028
+
+### Decision: HOLD MEDIUM conviction
+Not a quality compounder (Tier C, QS 48). Thesis overclaimed quality. But fundamentally solid defensive telecom with real FCF generation. Earnings Feb 26 is the decision point.

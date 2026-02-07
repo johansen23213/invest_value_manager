@@ -85,29 +85,37 @@ El orchestrator consulta `pipeline_tracker` al inicio de cada sesion para determ
 
 ---
 
-### 5. `position-review` | QUINCENAL
+### 5. `position-review` | QUINCENAL (ADVERSARIAL v2.0)
 
-**Objetivo:** Verificar que cada posicion merece estar en el portfolio.
+**Objetivo:** Verificar que cada posicion merece estar en el portfolio. Pipeline adversarial por defecto.
 
 | Paso | Accion | Ejecutor | Input | Output |
 |------|--------|----------|-------|--------|
-| 1 | Seleccionar batch 5-6 posiciones | Orchestrator | FER ranking (bottom first) | Batch seleccionado |
-| 2 | Re-evaluar cada posicion | `review-agent` (batch) | Thesis + precio actual + noticias | HOLD/ADD/TRIM/SELL por posicion |
-| 3 | Si SELL/TRIM → gate obligatorio | `investment-committee` agent | Review output | Aprobacion o rechazo |
-| 4 | Si ADD → sizing | `position-calculator` agent | Principios + precedentes | Sizing recomendado |
-| 5 | Actualizar conviction + exit_plan | `portfolio-ops` agent | Review results | portfolio/current.yaml |
-| 6 | Actualizar last_review en thesis | Orchestrator | Fecha | thesis files |
-| 7 | Registrar decisiones importantes | Orchestrator | Decisiones tomadas | decisions_log.yaml |
+| 1 | Seleccionar batch 3-4 posiciones | Orchestrator | FER ranking (bottom first) | Batch seleccionado |
+| 2a | Risk check independiente por posicion | `risk-identifier` agent | Thesis + WebSearch | risk_assessment.md actualizado |
+| 2b | Valuation check independiente | `valuation-specialist` agent | Thesis + precio actual | valuation_report.md actualizado |
+| | **2a y 2b en PARALELO** | | | |
+| 3 | Re-evaluar con inputs adversariales | `review-agent` | Thesis + risk + valuation reports | HOLD/ADD/TRIM/SELL por posicion |
+| 4 | Si discrepancia material (FV >20% diferente) | `devil's-advocate` agent | Todos los reports | counter_analysis.md |
+| 5 | Si SELL/TRIM → gate obligatorio | `investment-committee` agent | Todos los reports | Aprobacion o rechazo |
+| 6 | Si ADD → sizing | `position-calculator` agent | Principios + precedentes | Sizing recomendado |
+| 7 | Actualizar conviction + exit_plan | `portfolio-ops` agent | Review results | portfolio/current.yaml |
+| 8 | Actualizar last_review en thesis | Orchestrator | Fecha | thesis files |
+| 9 | Registrar decisiones importantes | Orchestrator | Decisiones tomadas | decisions_log.yaml |
 
 **Rotacion de batches:**
 ```
-Ejecucion 1: Bottom 6 por FER
-Ejecucion 2: Medio 6-7
-Ejecucion 3: Top 6-7
+Ejecucion 1: Bottom 3-4 por FER (highest risk of FV inflation)
+Ejecucion 2: Medio 3-4
+Ejecucion 3: Top 3-4
 Ciclo completo: ~6 semanas
 ```
 
-**Condicion de salida:** Batch revisado. Conviction actualizada. Acciones pendientes identificadas.
+**Cambio v2.0:** Antes era solo review-agent. Ahora incluye risk-identifier + valuation-specialist
+en paralelo ANTES del review. Devil's-advocate solo si discrepancia material. Esto detecta
+FVs inflados, riesgos omitidos y errores factuales (como se demostro con DNLM.L: FV -24%).
+
+**Condicion de salida:** Batch revisado con inputs adversariales. FV verificado. Conviction actualizada.
 
 ---
 

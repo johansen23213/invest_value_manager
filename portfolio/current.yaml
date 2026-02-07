@@ -19,6 +19,10 @@ positions:
     avg_cost_usd: 33.91  # Unchanged (original cost basis)
     date_opened: 2026-01-26
     thesis: thesis/active/DTE.DE/thesis.md
+    conviction: medium
+    fair_value: "EUR 33-35 (adversarial, was 36.50-38.50)"
+    last_review: 2026-02-07
+    exit_plan: "HOLD through earnings Feb 26. EXIT if guidance disappoints or div cut. TRIM if price >EUR 33 without thesis improvement."
 
   - ticker: ALL
     name: "Allstate Corporation"
@@ -67,6 +71,10 @@ positions:
     avg_cost_usd: 20.87  # 459.18 / 22
     date_opened: 2026-02-02
     thesis: thesis/active/EDEN.PA/thesis.md
+    conviction: medium
+    last_review: 2026-02-07
+    fair_value: "EUR 29.0 (adversarial, was 38.4)"
+    exit_plan: "HOLD through earnings Feb 24. EXIT if 2027-28 guidance <5% or France regulation. TRIM if MoS vs revised FV <15%."
 
   - ticker: VNA.DE
     name: "Vonovia SE"
@@ -99,6 +107,10 @@ positions:
     avg_cost_usd: 201.42  # 402.84 / 2
     date_opened: 2026-02-02
     thesis: thesis/active/UHS/thesis.md
+    conviction: low
+    fair_value: "$243 (adversarial, was $283.74)"
+    last_review: 2026-02-07
+    exit_plan: "HOLD through earnings Feb 26. EXIT if Q4 miss or labor warning. SELL if ROIC < WACC."
 
   - ticker: GL
     name: "Globe Life Inc."
@@ -140,7 +152,11 @@ positions:
     avg_cost_usd: 2.32  # 473 / 204 (169 GBp in USD)
     date_opened: 2026-02-04
     thesis: thesis/active/MONY.L/thesis.md
-    notes: "Third Tier A Quality Compounder. QS 81, MoS 36%. UK price comparison #2. ROIC 29%."
+    notes: "Third Tier A Quality Compounder. QS 81. UK price comparison #2. ROIC 29%."
+    conviction: low
+    last_review: 2026-02-07
+    fair_value: "201 GBp (adversarial, was 277)"
+    exit_plan: "HOLD through earnings Feb 23. SELL if revenue <435M or insurance -5%+. Probation if cautious guidance."
 
   - ticker: LULU
     name: "Lululemon Athletica Inc."
