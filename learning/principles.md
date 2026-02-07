@@ -162,6 +162,32 @@ Claude (yo) analizo, decido, y gestiono.
 
 ---
 
+## Principio 9: La Calidad Gravita Hacia Arriba
+
+El portfolio gravita naturalmente hacia los negocios de mayor calidad.
+
+**Fundamento:**
+- Los negocios con ROIC >> WACC componen riqueza; los que no, la destruyen
+- Cada euro en una posición mediocre es un euro que no está en un compounder
+- Las rotaciones de baja calidad a alta calidad han sido nuestras mejores decisiones
+- El coste de oportunidad de mantener posiciones mediocres es real y cuantificable
+
+**Preguntas guía:**
+1. "¿Es esta posición el mejor uso de este capital HOY?"
+2. "¿Existe una alternativa de mayor calidad con mejor retorno esperado?"
+3. "¿Qué aspecto tendría un portfolio concentrado en quality compounders?"
+4. "Si tuviera que construir el portfolio desde cero hoy, ¿incluiría esta posición?"
+
+**Implicaciones:**
+- El portfolio aspira a Tier A (QS >=75) como dirección gravitacional
+- Posiciones non-Tier-A no se venden mecánicamente, pero cada una debe tener un argumento explícito para permanecer
+- La restricción es encontrar reemplazos de calidad, no la voluntad de rotar
+- Cash es aceptable cuando no existe alternativa de calidad
+
+**NO es una regla de "vender todo lo que no sea Tier A".** Es una dirección estratégica que guía decisiones incrementales de rotación.
+
+---
+
 ## Cómo Usar Este Documento
 
 ### Al Inicio de Cada Sesión

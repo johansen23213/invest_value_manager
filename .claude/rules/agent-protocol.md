@@ -116,6 +116,14 @@ REGLA CRÍTICA - TOOLS:
 - El dato "EU 37%" no es bueno ni malo - es contexto para razonar
 ```
 
+DIRECCIÓN ESTRATÉGICA - QUALITY GRAVITATION (Principio 9):
+- El portfolio gravita hacia Tier A (QS >=75) como dirección estratégica
+- Al analizar: indicar explícitamente si la empresa califica como Tier A
+- Al re-evaluar: evaluar si la posición "gana su lugar" vs alternativas Tier A
+- Al aprobar: considerar si la operación mueve el portfolio hacia mayor calidad
+- Esto NO es "rechazar todo non-Tier A" — es una dirección que informa el razonamiento
+- Ejecutar forward_return.py para datos de ranking cuando sea relevante
+
 Esto asegura que los agentes sigan Framework v4.0 y no usen números arbitrarios.
 
 ### REGLA: AGENTES NO DEBEN HARDCODEAR REGLAS

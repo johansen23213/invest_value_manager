@@ -7,7 +7,7 @@ system:
   system_version: "4.0.0"
   framework_version: "4.0"
   last_session: 2026-02-07
-  session_number: 45
+  session_number: 46
 
   # FRAMEWORK v4.0 - IMPLEMENTADO
   # =====================================
@@ -18,7 +18,7 @@ system:
     key_changes:
       - "Principios Adaptativos - razonamiento sobre reglas"
       - "NO hay parámetros fijos (7%, 25%, 35%)"
-      - "learning/principles.md - 8 principios sin números"
+      - "learning/principles.md - 9 principios sin números (Principio 9 añadido Sesión 45)"
       - "learning/decisions_log.yaml - precedentes para consistencia"
       - "EXIT Protocol con 6 gates y Opportunity Score"
       - "consistency_checker.py - valida coherencia con precedentes"
@@ -92,6 +92,52 @@ system:
       Tier A ratio: 32% (6/19) - up from 24% (5/21).
       Pipeline Tier A: MA, V, DNLM.L, WKL.AS pendientes de entry price.
   last_session_summary: |
+    Sesion 46 - PIPELINE SYSTEM + ANOMALY FIXES (2026-02-07)
+
+    =====================================================
+    SYSTEM EVOLUTION - PIPELINES
+    =====================================================
+    - NUEVO: Sistema de Pipelines operativos (11 definidos)
+    - .claude/skills/pipelines/SKILL.md creado (definicion completa)
+    - pipeline_tracker añadido a state/system.yaml
+    - session-protocol.md v3.2: dashboard muestra OVERDUE/HOY/OK
+    - CLAUDE.md actualizado con tabla de pipelines
+    - MEMORY.md actualizado con session 46
+
+    Pipelines periodicos: vigilance (D), rotation-check (D),
+    opportunity-scan (S), risk-review (S), position-review (Q),
+    system-health (Q), deep-performance (M), macro-refresh (M)
+    Event-driven: buy-pipeline, sell-pipeline, earnings-pipeline
+
+    =====================================================
+    REBALANCEO EJECUTADO
+    =====================================================
+    - Sin acciones inmediatas requeridas
+    - Bottom 3: A2A.MI (FER 19%, QS 37), IMB.L (20.1%), VICI (20.3%)
+    - Cash 20.3% justificado (15+ standing orders activos)
+    - Quality trajectory: 6 Tier A (31.6% posiciones)
+
+    =====================================================
+    ANOMALIAS CORREGIDAS
+    =====================================================
+    - BUG: forward_return.py usaba QS de thesis (formato viejo X/10)
+      en vez de system.yaml (quality_scorer.py). VICI: 78→54, DTE.DE: 95→48
+      FIX: Ahora usa system.yaml como fuente autoritativa
+    - EDEN.PA FV: system.yaml decia 33-36, thesis dice 38.4. Corregido.
+    - EDEN.PA FER +131% es REAL (precio 17.64 vs FV 38.4)
+
+    =====================================================
+    PROXIMA SESION
+    =====================================================
+    1. PIPELINES OVERDUE: opportunity-scan, risk-review, position-review,
+       deep-performance (todos never-run, due 2/8)
+    2. Earnings proximos: DNLM.L Feb 10 (watchlist, near trigger!)
+    3. Standing orders cercanos: BME.L, ZIG.L, DNLM.L
+    4. EDEN.PA: MoS 117% - considerar ADD (earnings Feb 24)
+    5. Cash 20% - DCA en Tier A si MoS atractivo
+    6. Branch feature/refactor_claude_md: commit + merge pendiente
+
+  last_session_summary_archived_45: |
     Sesion 45 - MASSIVE QUALITY UPGRADE: 3 Tier C exits + 1 Tier A entry (2026-02-06)
 
     =====================================================
@@ -1188,7 +1234,7 @@ watchlist:
       kill: "FCF decline >15% or dividend cut"
     - ticker: EDEN.PA
       entry: 17.61
-      fair_value: 33-36
+      fair_value: 38.4  # EUR, probability-weighted (thesis v3.0)
       kill: "FCF <300M or revenue decline >10%"
     - ticker: VNA.DE
       entry: 24.55
@@ -1673,3 +1719,55 @@ maintenance:
       - "Fixed SHEL-SHEL.L ticker bug (+$427 phantom value)"
       - "Fixed dcf_calculator.py GBp/GBP mismatch for LSE stocks"
       - "Portfolio fully synced with eToro (13 positions)"
+
+# -----------------------------------------------------------------------------
+# PIPELINE TRACKER - Rutinas operativas del fondo
+# Ver .claude/skills/pipelines/SKILL.md para definicion completa
+# -----------------------------------------------------------------------------
+pipeline_tracker:
+  # DIARIOS
+  vigilance:
+    frequency: daily
+    last_run: 2026-02-07
+    next_due: 2026-02-08
+    last_result: "0 criticas, 6 materiales. NVO +9.9%, ALL -3.6%"
+  rotation_check:
+    frequency: daily
+    last_run: 2026-02-07
+    next_due: 2026-02-08
+    last_result: "Bottom 3: A2A.MI (FER 19%), IMB.L (20.1%), VICI (20.3%). Pipeline: DNLM.L -3.9% trigger"
+  # SEMANALES
+  opportunity_scan:
+    frequency: weekly
+    last_run: null
+    next_due: 2026-02-08
+    last_result: null
+  risk_review:
+    frequency: weekly
+    last_run: null
+    next_due: 2026-02-08
+    last_result: null
+  # QUINCENALES
+  position_review:
+    frequency: biweekly
+    last_run: null
+    next_due: 2026-02-08
+    last_result: null
+    current_batch: "bottom"
+    batch_rotation: ["bottom", "middle", "top"]
+  system_health:
+    frequency: biweekly
+    last_run: 2026-02-04
+    next_due: 2026-02-18
+    last_result: "9.1/10. Warnings: energy.md missing, CLAUDE.md >150 lines"
+  # MENSUALES
+  deep_performance:
+    frequency: monthly
+    last_run: null
+    next_due: 2026-02-08
+    last_result: null
+  macro_refresh:
+    frequency: monthly
+    last_run: 2026-02-02
+    next_due: 2026-03-02
+    last_result: "Tariffs escalando, Iran tension up, China mejora"

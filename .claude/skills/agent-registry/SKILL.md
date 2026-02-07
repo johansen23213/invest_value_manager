@@ -128,6 +128,7 @@ El orchestrator (yo, Claude) delega a agentes especializados. Lee CLAUDE.md que 
 | Lee | world/current_view.md, **world/sectors/{sector}.md**, portfolio/current.yaml, thesis del ticker |
 | Escribe | portfolio/validations/{TICKER}_validation.md, committee_decision.md |
 | Dependencias | sector view DEBE existir (Gate 8) |
+| **Nuevo v4.1** | Evaluar: "¿Esta operación mueve el portfolio hacia mayor calidad?" (Principio 9) |
 
 #### review-agent
 | Campo | Valor |
@@ -138,6 +139,7 @@ El orchestrator (yo, Claude) delega a agentes especializados. Lee CLAUDE.md que 
 | Lee | world/current_view.md, **world/sectors/{sector}.md**, thesis/active/{TICKER}/thesis.md |
 | Escribe | Actualiza thesis con v4.0, journal/reviews/ |
 | Dependencias | sector view DEBE existir antes de re-evaluar |
+| **Nuevo v4.1** | Output incluye conviction (high/medium/low) y exit_plan actualizado |
 
 #### valuation-specialist (micro)
 | Campo | Valor |
@@ -181,6 +183,7 @@ El orchestrator (yo, Claude) delega a agentes especializados. Lee CLAUDE.md que 
 | Escribe | N/A (output directo al orchestrator) |
 | Dependencias | Usa dynamic_screener.py, verifica sector views existen |
 | Cuándo usar | Cash sin oportunidades claras, búsqueda de ideas, post-venta, proactivamente semanal |
+| **Nuevo v4.1** | Priorizar candidatos Tier A (QS >=75). Quality compounders son el objetivo principal |
 
 #### sector-screener
 | Campo | Valor |
@@ -200,6 +203,7 @@ El orchestrator (yo, Claude) delega a agentes especializados. Lee CLAUDE.md que 
 | Skills | macro-framework, critical-thinking |
 | Lee | world/current_view.md, portfolio/current.yaml |
 | Escribe | world/current_view.md, **world/sectors/{sector}.md** (cuando aplica) |
+| **Nuevo v4.1** | Output incluye "Portfolio Implications" - mapeo de macro a posiciones concretas (tailwind/headwind) |
 
 ---
 
@@ -208,11 +212,12 @@ El orchestrator (yo, Claude) delega a agentes especializados. Lee CLAUDE.md que 
 #### rebalancer
 | Campo | Valor |
 |-------|-------|
-| Responsabilidad | Rebalanceo mensual y trigger-based |
-| Single-responsibility | Identifica desviaciones, propone ajustes |
-| Skills | portfolio-constraints, investment-rules |
-| Lee | portfolio/current.yaml |
+| Responsabilidad | Rebalanceo por sizing + quality ranking + rotation opportunities |
+| Single-responsibility | Identifica desviaciones de sizing Y calidad, propone ajustes |
+| Skills | portfolio-constraints, investment-rules, **rotation-engine** |
+| Lee | portfolio/current.yaml, **learning/principles.md** (Principio 9) |
 | Escribe | journal/decisions/ |
+| **Nuevo v4.1** | Ejecuta forward_return.py, evalúa bottom 3 posiciones, verifica pipeline |
 
 #### position-calculator
 | Campo | Valor |
@@ -240,6 +245,7 @@ El orchestrator (yo, Claude) delega a agentes especializados. Lee CLAUDE.md que 
 | Skills | portfolio-constraints, file-system-rules |
 | Lee | portfolio/current.yaml, state/system.yaml |
 | Escribe | portfolio/current.yaml, state/system.yaml (tras confirmación humano) |
+| **Nuevo v4.1** | Maneja campos conviction, exit_plan, last_review en portfolio/current.yaml |
 
 #### performance-tracker
 | Campo | Valor |
@@ -272,6 +278,7 @@ El orchestrator (yo, Claude) delega a agentes especializados. Lee CLAUDE.md que 
 | Lee | Todo el sistema |
 | Escribe | state/system.yaml (health_score, issues) |
 | Verifica | **Sector views existen para posiciones activas** |
+| **Nuevo v4.1** | Verificar: todas las posiciones tienen conviction y exit_plan. forward_return.py ejecutado en sesión |
 
 #### memory-manager
 | Campo | Valor |
