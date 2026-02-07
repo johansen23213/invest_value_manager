@@ -7,7 +7,7 @@ system:
   system_version: "4.0.0"
   framework_version: "4.0"
   last_session: 2026-02-07
-  session_number: 46
+  session_number: 47
 
   # FRAMEWORK v4.0 - IMPLEMENTADO
   # =====================================
@@ -23,7 +23,7 @@ system:
       - "EXIT Protocol con 6 gates y Opportunity Score"
       - "consistency_checker.py - valida coherencia con precedentes"
       - "drift_detector.py - detecta cambios graduales"
-      - "Investment Committee con 9 gates reformulados"
+      - "Investment Committee con 10 gates (Gate 10: Counter-Analysis)"
     files_created:
       - learning/principles.md
       - learning/decisions_log.yaml
@@ -91,51 +91,45 @@ system:
       1 Tier A entry (BYIT.L QS 81, MoS 35%). Plus SHEL.L→AUTO.L rotation.
       Tier A ratio: 32% (6/19) - up from 24% (5/21).
       Pipeline Tier A: MA, V, DNLM.L, WKL.AS pendientes de entry price.
+  last_session_summary_archived_46: |
+    Sesion 46: Pipelines + anomaly fixes. 11 pipelines defined.
+    forward_return.py bug fixed. EDEN.PA FV corrected.
+
   last_session_summary: |
-    Sesion 46 - PIPELINE SYSTEM + ANOMALY FIXES (2026-02-07)
+    Sesion 47 - ADVERSARIAL ANALYSIS PROCESS (2026-02-07)
 
     =====================================================
-    SYSTEM EVOLUTION - PIPELINES
+    MAJOR REFACTOR: BUY-PIPELINE → 4 ROUNDS ADVERSARIAL
     =====================================================
-    - NUEVO: Sistema de Pipelines operativos (11 definidos)
-    - .claude/skills/pipelines/SKILL.md creado (definicion completa)
-    - pipeline_tracker añadido a state/system.yaml
-    - session-protocol.md v3.2: dashboard muestra OVERDUE/HOY/OK
-    - CLAUDE.md actualizado con tabla de pipelines
-    - MEMORY.md actualizado con session 46
+    - NUEVO: devil's-advocate agent (contra-analisis independiente)
+    - REFORZADO: moat-assessor (49→190 lineas, investigacion independiente)
+    - REFORZADO: risk-identifier (45→240 lineas, busqueda activa riesgos)
+    - REFORZADO: valuation-specialist (+META-REFLECTION, +sensibilidad)
+    - ACTUALIZADO: fundamental-analyst v4.0 (sin delegacion, 5 fases)
+    - ACTUALIZADO: investment-committee (9→10 gates, Gate 10: Counter-Analysis)
 
-    Pipelines periodicos: vigilance (D), rotation-check (D),
-    opportunity-scan (S), risk-review (S), position-review (Q),
-    system-health (Q), deep-performance (M), macro-refresh (M)
-    Event-driven: buy-pipeline, sell-pipeline, earnings-pipeline
+    Buy-pipeline ahora 4 rondas:
+    R1: fundamental-analyst + moat-assessor + risk-identifier (PARALELO) → valuation-specialist
+    R2: devil's-advocate (contra-analisis)
+    R3: Resolucion conflictos (si necesario)
+    R4: investment-committee (10 gates, recibe TODO)
 
-    =====================================================
-    REBALANCEO EJECUTADO
-    =====================================================
-    - Sin acciones inmediatas requeridas
-    - Bottom 3: A2A.MI (FER 19%, QS 37), IMB.L (20.1%), VICI (20.3%)
-    - Cash 20.3% justificado (15+ standing orders activos)
-    - Quality trajectory: 6 Tier A (31.6% posiciones)
+    Ficheros por analisis (audit trail):
+    thesis/research/{TICKER}/: thesis.md, moat_assessment.md,
+    risk_assessment.md, valuation_report.md, counter_analysis.md,
+    committee_decision.md
 
-    =====================================================
-    ANOMALIAS CORREGIDAS
-    =====================================================
-    - BUG: forward_return.py usaba QS de thesis (formato viejo X/10)
-      en vez de system.yaml (quality_scorer.py). VICI: 78→54, DTE.DE: 95→48
-      FIX: Ahora usa system.yaml como fuente autoritativa
-    - EDEN.PA FV: system.yaml decia 33-36, thesis dice 38.4. Corregido.
-    - EDEN.PA FER +131% es REAL (precio 17.64 vs FV 38.4)
+    Agents: 23 → 24. Todos 7 investment agents con META-REFLECTION.
 
     =====================================================
     PROXIMA SESION
     =====================================================
-    1. PIPELINES OVERDUE: opportunity-scan, risk-review, position-review,
-       deep-performance (todos never-run, due 2/8)
-    2. Earnings proximos: DNLM.L Feb 10 (watchlist, near trigger!)
-    3. Standing orders cercanos: BME.L, ZIG.L, DNLM.L
-    4. EDEN.PA: MoS 117% - considerar ADD (earnings Feb 24)
-    5. Cash 20% - DCA en Tier A si MoS atractivo
-    6. Branch feature/refactor_claude_md: commit + merge pendiente
+    1. PROBAR buy-pipeline adversarial con fallen angel
+    2. Branch feature/refactor_claude_md: commit + merge pendiente
+    3. PIPELINES OVERDUE: opportunity-scan, risk-review, position-review,
+       deep-performance
+    4. Earnings proximos: verificar calendario
+    5. Cash ~20% - deployment oportunidad
 
   last_session_summary_archived_45: |
     Sesion 45 - MASSIVE QUALITY UPGRADE: 3 Tier C exits + 1 Tier A entry (2026-02-06)
@@ -1612,7 +1606,7 @@ maintenance:
       action: "Normalizar a LIGHT.AS"
   last_compact: 2026-02-01
   memory_status: ok
-  agents_count: 23  # Added vigilance domain: news-monitor, market-pulse, risk-sentinel
+  agents_count: 24  # Added devil's-advocate for adversarial counter-analysis
   skills_count: 21  # Added: news-classification, error-detector, recommendation-context
   tools_count: 7
   rules_count: 6   # Added: meta-reflection-integration

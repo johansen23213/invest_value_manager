@@ -186,7 +186,7 @@ Al inicio de cada sesion, consultar `pipeline_tracker` en `state/system.yaml`.
 | `system-health` | Quincenal | health-check, memory-manager |
 | `deep-performance` | Mensual | performance-tracker, effectiveness_tracker |
 | `macro-refresh` | Mensual | macro-analyst |
-| `buy-pipeline` | Event | fundamental-analyst, investment-committee, portfolio-ops |
+| `buy-pipeline` | Event | 4 rondas: analyst+moat+risk (paralelo), valuation, devil's-advocate, committee (10 gates) |
 | `sell-pipeline` | Event | review-agent, investment-committee, portfolio-ops |
 | `earnings-pipeline` | Event | review-agent, calendar-manager |
 
@@ -248,7 +248,7 @@ Ver `.claude/skills/exit-protocol/SKILL.md` para detalles.
 
 ---
 
-## Arquitectura Multi-Agente (23 agentes, opus)
+## Arquitectura Multi-Agente (24 agentes, opus)
 
 **Ver `.claude/skills/agent-registry/SKILL.md`** para inventario completo.
 
@@ -264,9 +264,15 @@ Ver `.claude/skills/exit-protocol/SKILL.md` para detalles.
 
 ```
 ¿Qué necesito?
-├─► ANALIZAR empresa → fundamental-analyst
+├─► ANALIZAR empresa (buy-pipeline completo, 4 rondas):
+│   RONDA 1: fundamental-analyst + moat-assessor + risk-identifier (PARALELO)
+│            → valuation-specialist (secuencial)
+│   RONDA 2: devil's-advocate (contra-análisis)
+│   RONDA 3: Resolución conflictos (si necesario)
+│   RONDA 4: investment-committee (10 gates)
+├─► DESAFIAR thesis → devil's-advocate
 ├─► RE-EVALUAR posición → review-agent
-├─► APROBAR compra/venta → investment-committee (OBLIGATORIO)
+├─► APROBAR compra/venta → investment-committee (OBLIGATORIO, 10 gates)
 ├─► EVALUAR salida → review-agent --exit-analysis
 ├─► OPTIMIZAR portfolio → rotation-engine (skill) + forward_return.py
 ├─► BUSCAR oportunidades → opportunity-hunter

@@ -2,11 +2,11 @@
 
 > Este archivo se carga automáticamente junto con CLAUDE.md
 
-## Arquitectura Multi-Agente (19 agentes, todos opus)
+## Arquitectura Multi-Agente (24 agentes, todos opus)
 
 ### DOCUMENTO DE REFERENCIA: agent-registry skill
 **Ver `.claude/skills/agent-registry/SKILL.md`** para:
-- Inventario completo de los 19 agentes
+- Inventario completo de los 24 agentes
 - Responsabilidades y single-responsibility de cada uno
 - Skills que usa cada agente
 - Qué lee y escribe cada agente
@@ -38,15 +38,21 @@ Delega directamente a agentes especializados. Sin capas intermedias.
 ```
 ¿Qué necesito hacer?
 │
-├─► ANALIZAR EMPRESA nueva
-│   └─► fundamental-analyst
-│       (él delegará a valuation-specialist, moat-assessor, risk-identifier)
+├─► ANALIZAR EMPRESA nueva (buy-pipeline completo)
+│   └─► RONDA 1: fundamental-analyst + moat-assessor + risk-identifier (PARALELO)
+│   └─► RONDA 1: valuation-specialist (tras Ronda 1 paralela)
+│   └─► RONDA 2: devil's-advocate (contra-análisis)
+│   └─► RONDA 3: Resolución de conflictos (si necesario)
+│   └─► RONDA 4: investment-committee (10 gates, recibe TODO)
+│
+├─► DESAFIAR thesis existente
+│   └─► devil's-advocate
 │
 ├─► RE-EVALUAR posición existente (post-earnings, cambio material)
 │   └─► review-agent
 │
 ├─► APROBAR compra/venta
-│   └─► investment-committee (OBLIGATORIO, nunca saltarse)
+│   └─► investment-committee (OBLIGATORIO, nunca saltarse, 10 gates)
 │
 ├─► BUSCAR empresas en un sector
 │   └─► sector-screener
@@ -159,11 +165,12 @@ Si ALGUNO falla:
 | Dominio | Agente | Cuándo |
 |---------|--------|--------|
 | **Inversión** | fundamental-analyst | Análisis profundo de empresa |
-| | investment-committee | Gate obligatorio antes de BUY/SELL |
+| | investment-committee | Gate obligatorio antes de BUY/SELL (10 gates) |
 | | review-agent | Review post-earnings de posiciones activas |
-| | valuation-specialist (micro) | DCF, comparables, DDM (via fundamental-analyst) |
-| | moat-assessor (micro) | Evaluación de ventaja competitiva (via fundamental-analyst) |
-| | risk-identifier (micro) | Identificación de riesgos (via fundamental-analyst) |
+| | devil's-advocate | Contra-análisis adversarial de thesis |
+| | valuation-specialist | Valoración multi-método independiente |
+| | moat-assessor | Evaluación independiente de moat |
+| | risk-identifier | Identificación independiente de riesgos |
 | **Research** | sector-screener | Screening sistemático de sectores |
 | | macro-analyst | Análisis macro/geopolítico, actualiza world view |
 | **Portfolio** | rebalancer | Rebalanceo mensual y por triggers |

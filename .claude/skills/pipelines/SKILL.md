@@ -167,19 +167,57 @@ Ciclo completo: ~6 semanas
 
 ### 9. `buy-pipeline` | Trigger: candidato identificado
 
-**Objetivo:** Proceso completo desde idea hasta compra.
+**Objetivo:** Proceso completo desde idea hasta compra. Análisis iterativo y adversarial en 4 rondas.
 
+**Estructura de ficheros por análisis:**
+```
+thesis/research/{TICKER}/
+  thesis.md              ← fundamental-analyst
+  moat_assessment.md     ← moat-assessor
+  risk_assessment.md     ← risk-identifier
+  valuation_report.md    ← valuation-specialist
+  counter_analysis.md    ← devil's-advocate
+  committee_decision.md  ← investment-committee
+```
+
+#### RONDA 0: PREPARACIÓN
 | Paso | Accion | Ejecutor | Input | Output |
 |------|--------|----------|-------|--------|
 | 0 | Verificar sector view existe | Orchestrator | `Glob("world/sectors/*{sector}*")` | Si no existe → STOP, crear |
-| 1 | Analisis fundamental completo | `fundamental-analyst` agent | Empresa + sector view | Thesis completa |
-| 2 | Procesar META-REFLECTION | Orchestrator | Output agente | Dudas resueltas |
-| 3 | Gate de aprobacion | `investment-committee` agent | Thesis + 9 gates | PASS o FAIL |
-| 4 | Calcular sizing | `position-calculator` agent | Principios + precedentes | Sizing |
-| 5 | Contextualizar recomendacion | Skill `recommendation-context` | Timing + noticias + precio | Contexto completo |
-| 6 | Presentar al humano | Orchestrator | Todo | Recomendacion estructurada |
-| 7 | Si confirma → actualizar state | `portfolio-ops` agent | Confirmacion | portfolio + system.yaml + sector view |
-| 8 | Si watchlist → standing order | Orchestrator | Trigger price | system.yaml standing_orders |
+
+#### RONDA 1: ANÁLISIS PROFUNDO (en paralelo donde posible)
+| Paso | Accion | Ejecutor | Input | Output |
+|------|--------|----------|-------|--------|
+| 1A | Análisis fundamental completo | `fundamental-analyst` agent | Empresa + sector view | thesis.md |
+| 1B | Evaluación independiente de moat | `moat-assessor` agent | Ticker + sector view | moat_assessment.md |
+| 1C | Identificación independiente de riesgos | `risk-identifier` agent | Ticker + macro view | risk_assessment.md |
+| | **1A, 1B, 1C en PARALELO** | | | |
+| 2 | Valoración multi-método | `valuation-specialist` agent | thesis + moat + risk | valuation_report.md |
+| 3 | Procesar META-REFLECTIONs (4 agentes) | Orchestrator | Outputs agentes | Conflictos identificados |
+
+#### RONDA 2: DESAFÍO
+| Paso | Accion | Ejecutor | Input | Output |
+|------|--------|----------|-------|--------|
+| 4 | Contra-análisis independiente | `devil's-advocate` agent | thesis + moat + risk + valuation | counter_analysis.md |
+| 5 | Comparar thesis vs contra-thesis | Orchestrator | thesis + counter_analysis | Clasificar: WEAK/MODERATE/STRONG |
+
+#### RONDA 3: RESOLUCIÓN (solo si conflictos críticos, max 2 iteraciones)
+| Paso | Accion | Ejecutor | Input | Output |
+|------|--------|----------|-------|--------|
+| 6 | Resolver conflictos clave | Orchestrator o agente relevante | Preguntas específicas | Respuestas documentadas |
+| | *Se ejecuta SOLO si hay desafíos HIGH/CRITICAL no resueltos o divergencias materiales entre agentes* | | | |
+
+#### RONDA 4: DECISIÓN
+| Paso | Accion | Ejecutor | Input | Output |
+|------|--------|----------|-------|--------|
+| 7 | Gate de aprobación (10 gates) | `investment-committee` agent | TODO (thesis + counter + moat + risk + valuation) | committee_decision.md |
+| 8 | Calcular sizing | `position-calculator` agent | Principios + precedentes | Sizing |
+| 9 | Contextualizar recomendación | Skill `recommendation-context` | Timing + noticias + precio | Contexto completo |
+| 10 | Presentar al humano | Orchestrator | Todo | Recomendación estructurada |
+| 11 | Si confirma → actualizar state | `portfolio-ops` agent | Confirmación | portfolio + system.yaml + sector view |
+| 12 | Si watchlist → standing order | Orchestrator | Trigger price | system.yaml standing_orders |
+
+**Condición de salida:** Decisión tomada con audit trail completo (6 ficheros en thesis/research/{TICKER}/).
 
 ---
 
