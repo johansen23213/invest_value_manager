@@ -1,0 +1,10 @@
+# Telegram bot (contains token)
+telegram/.env
+
+# Environment files
+.env
+*.env
+
+# Python
+__pycache__/
+*.pyc
