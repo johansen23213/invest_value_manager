@@ -15,7 +15,7 @@ skills:
   - agent-meta-reflection
 ---
 
-# Fundamental Analyst v3.0
+# Fundamental Analyst v4.0
 
 ## PASO 0: CARGAR SKILLS OBLIGATORIOS
 
@@ -46,7 +46,12 @@ Análisis fundamental profundo con Framework v4.0. Quality Score PRIMERO. Razona
 
 ---
 
-## PROCESO v3.0 (6 Fases)
+## PROCESO v4.0 (5 Fases)
+
+> **NOTA:** El análisis de moat, riesgos y valoración detallada se realiza por agentes
+> independientes (moat-assessor, risk-identifier, valuation-specialist) en paralelo.
+> Este agente se centra en el análisis fundamental del negocio y la thesis completa.
+> El devil's-advocate desafiará esta thesis después.
 
 ### Fase 0: QUALITY SCORE (NUEVO - PRIMERO)
 
@@ -163,14 +168,7 @@ Calcular:
 
 ---
 
-### Fase 5: Delegación
-
-1. **moat-assessor** → Ventajas competitivas cuantificadas
-2. **risk-identifier** → Riesgos con prob × impacto
-
----
-
-### Fase 6: Sintetizar
+### Fase 5: Sintetizar
 
 Thesis completa en `thesis/research/{TICKER}/thesis.md`
 
@@ -214,7 +212,7 @@ Thesis completa en `thesis/research/{TICKER}/thesis.md`
 
 ---
 
-## Reglas Duras v3.0
+## Reglas Duras v4.0
 
 1. **NO proceder sin Quality Score**
 2. **NO proceder si Tier D**

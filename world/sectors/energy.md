@@ -167,24 +167,7 @@ El sector de oil & gas majors enfrenta un **entorno fundamentalmente bajista** p
 
 ## Nuestras Posiciones Actuales
 
-### SHEL.L - Shell plc
-
-- **Holding:** 10.85 shares, ~$398 invested (~3.6% portfolio)
-- **Thesis:** Energy supermajor integrada, #1 LNG global, FCF machine $38-40B/ano
-- **Por que nos gusta:**
-  - FCF yield 15-16% (record discount vs sector)
-  - Buyback $3.5B/trimestre (16 trimestres consecutivos >$3B)
-  - LNG moat: #1 mundial, contratos largo plazo, Asian demand
-  - Balance solido (AA- rating, net debt $41B)
-  - Management pragmatico (Wael Sawan): gas/LNG > renewables
-- **Riesgos:**
-  - Oil price collapse <$60 (FCF compression)
-  - Regulatory (EU windfall taxes, CBAM)
-  - Energy transition largo plazo (10-15y runway OK)
-- **Valuation:**
-  - Fair value: GBP 40-50 (precio actual ~GBP 28.4)
-  - MoS: 30-45%
-- **Status:** HOLD pending earnings Feb 5
+*(Sin posiciones activas en este sector)*
 
 ---
 
@@ -194,7 +177,6 @@ El sector de oil & gas majors enfrenta un **entorno fundamentalmente bajista** p
 
 | Tipo | Ticker | Thesis Path | Ultima Eval | Status |
 |------|--------|-------------|-------------|--------|
-| Portfolio | SHEL.L | portfolio/validations/SHEL_feb2026.md | 2026-02-04 | HOLD |
 | Watchlist | TTE | (no thesis formal) | 2026-02-04 | Monitor yield 5.2% |
 
 ### Protocolo de Cambio Material
@@ -277,6 +259,7 @@ Cuando actualices este sector view con cambio MATERIAL:
 |-------|--------|-------|
 | 2026-02-04 | Status: INFRAPONDERAR | Sector view creado. Health check flag: SHEL.L posicion activa sin cobertura sectorial |
 | 2026-02-04 | SHEL.L posicion reducida a 3.6% | TRIM por overweight (era 15%) |
+| 2026-02-06 | SHEL.L EXIT completo | Capital rotado a AUTO.L (Tier A). QS 36, MoS -3.5%, tesis debilitada. |
 
 ---
 
@@ -298,7 +281,7 @@ Cuando actualices este sector view con cambio MATERIAL:
 ### Historial de Analisis (Archivadas)
 | Ticker | Razon Archivo | Fecha | Leccion |
 |--------|---------------|-------|---------|
-| (vacio) | | | |
+| SHEL.L | EXIT - Capital rotado a AUTO.L (Tier A, QS 79). QS 36 borderline Tier D, MoS -3.5%, tesis debilitada post-Q4 2025 miss. EXIT Protocol 6/6 SELL. | 2026-02-06 | Commodity play (QS 36) no compite con monopoly platform (QS 79). Rotar de Tier C a Tier A genera alpha. |
 
 ---
 

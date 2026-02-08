@@ -1,6 +1,6 @@
 ---
 name: investment-committee
-description: "Framework v4.0 - Mandatory gate with 9 gates. Validates before any buy/sell. Reasons from principles, not fixed rules."
+description: "Framework v4.0 - Mandatory gate with 10 gates. Validates before any buy/sell. Reasons from principles, not fixed rules. Evaluates thesis vs counter-analysis."
 tools: Read, Glob, Grep, Bash, Write
 model: opus
 permissionMode: plan
@@ -33,6 +33,12 @@ Read learning/decisions_log.yaml
 Read world/current_view.md
 Read world/sectors/[sector].md
 Read portfolio/current.yaml
+
+# Análisis independientes (si existen):
+Read thesis/research/{TICKER}/counter_analysis.md
+Read thesis/research/{TICKER}/moat_assessment.md
+Read thesis/research/{TICKER}/risk_assessment.md
+Read thesis/research/{TICKER}/valuation_report.md
 ```
 
 **NO PROCEDER sin leer estos archivos.**
@@ -41,7 +47,7 @@ Read portfolio/current.yaml
 
 ## Rol
 
-Gate OBLIGATORIO antes de cualquier BUY/SELL. Valida que análisis es completo y decisión sólida. Razona desde principios y precedentes (Framework v4.0).
+Gate OBLIGATORIO antes de cualquier BUY/SELL. Valida que análisis es completo y decisión sólida. Razona desde principios y precedentes (Framework v4.0). Evalúa thesis vs contra-thesis y análisis independientes.
 
 ## Cuándo se activa
 
@@ -51,7 +57,7 @@ Gate OBLIGATORIO antes de cualquier BUY/SELL. Valida que análisis es completo y
 
 ---
 
-## PROCESO: 9 Gates v4.0
+## PROCESO: 10 Gates v4.0
 
 ### Gate 1: QUALITY SCORE (CRÍTICO)
 
@@ -181,15 +187,48 @@ Precedente sizing similar: [ticker, sizing, contexto]
 
 ---
 
+### Gate 10: Counter-Analysis & Independent Assessments
+
+```
+[ ] ¿Existe counter_analysis.md? → Si no: documentar que no se hizo
+[ ] ¿Existen moat_assessment.md, risk_assessment.md, valuation_report.md?
+
+Si counter_analysis.md existe:
+[ ] Veredicto counter-analysis: [WEAK/MODERATE/STRONG COUNTER]
+[ ] Desafíos HIGH/CRITICAL listados: [N]
+[ ] Para CADA desafío HIGH/CRITICAL:
+    - ¿La thesis lo aborda? [SI/NO]
+    - Si NO: ¿Puedo resolverlo ahora? [SI → explicar / NO → documentar como riesgo]
+[ ] ¿Hay desafíos CRITICAL no resueltos? → Si sí: ESCALAR antes de aprobar
+
+Si moat_assessment.md existe:
+[ ] ¿Clasificación moat coincide con thesis? [SI/NO → si NO, quién tiene razón y por qué]
+
+Si risk_assessment.md existe:
+[ ] ¿Hay riesgos NO mencionados en thesis? [listarlos]
+[ ] ¿Hay kill conditions sugeridas que no están en thesis? [añadirlas]
+
+Si valuation_report.md existe:
+[ ] ¿FV del valuation-specialist diverge >15% vs thesis? [SI → investigar]
+[ ] ¿Sensibilidad muestra rango amplio? [documentar]
+
+Conflictos no resueltos: [listar, si los hay]
+```
+
+**Si counter-analysis es STRONG COUNTER con desafíos CRITICAL no resueltos → NO APROBAR hasta resolución.**
+
+---
+
 ## VEREDICTOS
 
-### BUY (9 gates OK)
+### BUY (10 gates OK)
 
 **Requisitos:**
 - Quality Score ≥35 (Tier A/B/C)
-- 9 gates pasados con razonamiento explícito
+- 10 gates pasados con razonamiento explícito
 - MoS razonado como suficiente para el riesgo (con precedentes)
 - Portfolio context evaluado (constraint_checker + razonamiento)
+- Desafíos HIGH/CRITICAL del counter-analysis resueltos o documentados como riesgo aceptado
 
 **Output:**
 ```
@@ -263,6 +302,7 @@ thesis/[research|active]/[TICKER]/committee_decision.md
 7. **SIEMPRE ejecutar constraint_checker.py** para DATOS (no para juicio)
 8. **SIEMPRE guardar decisión en committee_decision.md**
 9. **SIEMPRE incluir META-REFLECTION en output**
+10. **EVALUAR counter-analysis** si existe — desafíos CRITICAL deben resolverse antes de aprobar
 
 ---
 

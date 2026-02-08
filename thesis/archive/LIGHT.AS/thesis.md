@@ -11,6 +11,8 @@
 **Tier:** B (Quality Score 56/100)
 **Status:** HOLD - PROBATION (thesis DEBILITADA, awaiting CMD June 23 2026)
 
+**ARCHIVED: 2026-02-07 -- Position closed. EXIT decision: QS 56 Tier B on probation, MoS 8.4% thin, ROIC < WACC, thesis debilitated 2/3 pillars. Took profits (+13.7%). Capital rotated to BYIT.L (Tier A, QS 81).**
+
 ---
 
 ## VERSION HISTORY

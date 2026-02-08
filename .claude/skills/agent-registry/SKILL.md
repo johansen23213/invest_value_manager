@@ -4,7 +4,7 @@ description: Complete registry of all agents, their responsibilities, dependenci
 user-invocable: false
 ---
 
-# Agent Registry & Consistency Protocol (v2.1)
+# Agent Registry & Consistency Protocol (v3.0)
 
 ## Propósito
 Documento de referencia ÚNICO para:
@@ -59,7 +59,7 @@ Documento de referencia ÚNICO para:
 
 ---
 
-## INVENTARIO DE AGENTES (23 total)
+## INVENTARIO DE AGENTES (24 total)
 
 ### Nivel 0: Orchestrator (CLAUDE.md)
 El orchestrator (yo, Claude) delega a agentes especializados. Lee CLAUDE.md que contiene todas las reglas, protocolos y contexto.
@@ -106,66 +106,82 @@ El orchestrator (yo, Claude) delega a agentes especializados. Lee CLAUDE.md que 
 
 ---
 
-### Dominio: INVERSIÓN (4 principales + 3 micro)
+### Dominio: INVERSIÓN (5 principales + 3 independientes)
 
 #### fundamental-analyst
 | Campo | Valor |
 |-------|-------|
 | Responsabilidad | Análisis profundo de empresas con Framework v4.0 |
 | Single-responsibility | Crea thesis completa con 5 fases obligatorias |
-| Skills | business-analysis-framework, projection-framework, valuation-methods, thesis-template, moat-framework |
+| Skills | business-analysis-framework, projection-framework, valuation-methods, thesis-template, agent-meta-reflection |
 | Lee | world/current_view.md, **world/sectors/{sector}.md**, portfolio/current.yaml |
 | Escribe | thesis/research/{TICKER}/thesis.md |
-| Delega a | moat-assessor, risk-identifier, valuation-specialist |
 | Dependencias | sector view DEBE existir antes de valorar |
+| **v4.0** | Ya no delega a micro-agentes. El orchestrator lanza moat/risk/valuation en paralelo |
 
 #### investment-committee
 | Campo | Valor |
 |-------|-------|
-| Responsabilidad | Gate obligatorio de 8 gates antes de BUY/SELL |
-| Single-responsibility | Valida que análisis es completo y decisión sólida |
-| Skills | investment-rules, portfolio-constraints, decision-template, committee-decision-template, business-analysis-framework, projection-framework, valuation-methods, sector-deep-dive |
-| Lee | world/current_view.md, **world/sectors/{sector}.md**, portfolio/current.yaml, thesis del ticker |
-| Escribe | portfolio/validations/{TICKER}_validation.md, committee_decision.md |
-| Dependencias | sector view DEBE existir (Gate 8) |
+| Responsabilidad | Gate obligatorio de **10 gates** antes de BUY/SELL |
+| Single-responsibility | Valida que análisis es completo y decisión sólida. Evalúa thesis vs contra-thesis |
+| Skills | investment-rules, portfolio-constraints, decision-template, committee-decision-template, business-analysis-framework, projection-framework, valuation-methods, sector-deep-dive, agent-meta-reflection |
+| Lee | world/current_view.md, **world/sectors/{sector}.md**, portfolio/current.yaml, thesis del ticker, **counter_analysis.md, moat_assessment.md, risk_assessment.md, valuation_report.md** |
+| Escribe | thesis/research/{TICKER}/committee_decision.md |
+| Dependencias | sector view DEBE existir (Gate 8). Counter-analysis evaluado (Gate 10) |
+| **v4.0** | Gate 10: Counter-Analysis Gate. Desafíos CRITICAL deben resolverse antes de aprobar |
 
 #### review-agent
 | Campo | Valor |
 |-------|-------|
 | Responsabilidad | Re-evaluación de posiciones activas con Framework v4.0 |
 | Single-responsibility | Compara thesis vs realidad, recomienda HOLD/ADD/TRIM/SELL |
-| Skills | re-evaluation-protocol, business-analysis-framework, projection-framework, valuation-methods, investment-rules |
+| Skills | re-evaluation-protocol, business-analysis-framework, projection-framework, valuation-methods, investment-rules, agent-meta-reflection |
 | Lee | world/current_view.md, **world/sectors/{sector}.md**, thesis/active/{TICKER}/thesis.md |
 | Escribe | Actualiza thesis con v4.0, journal/reviews/ |
 | Dependencias | sector view DEBE existir antes de re-evaluar |
+| **v4.1** | Output incluye conviction (high/medium/low) y exit_plan actualizado |
 
-#### valuation-specialist (micro)
+#### devil's-advocate (NUEVO)
 | Campo | Valor |
 |-------|-------|
-| Responsabilidad | Cálculo de fair value multi-método |
+| Responsabilidad | Contra-análisis adversarial independiente de thesis |
+| Single-responsibility | Solo desafía, no decide. Busca evidencia en contra |
+| Skills | critical-thinking, business-analysis-framework, valuation-methods, agent-meta-reflection |
+| Lee | thesis/research/{TICKER}/thesis.md, moat_assessment.md, risk_assessment.md, valuation_report.md |
+| Escribe | thesis/research/{TICKER}/counter_analysis.md |
+| Trigger | Después de Ronda 1 del buy-pipeline, antes de investment-committee |
+| Output | Veredicto: WEAK COUNTER / MODERATE COUNTER / STRONG COUNTER |
+
+#### valuation-specialist (independiente)
+| Campo | Valor |
+|-------|-------|
+| Responsabilidad | Cálculo independiente de fair value multi-método |
 | Single-responsibility | Solo calcula valor, no decide |
-| Skills | valuation-methods, projection-framework, dcf-template, comparables-method |
-| Lee | Datos financieros de la empresa |
-| Escribe | Sección valoración de thesis |
-| Dependencias | projection-framework debe estar completo |
+| Skills | valuation-methods, projection-framework, dcf-template, comparables-method, agent-meta-reflection |
+| Lee | thesis.md + moat_assessment.md + risk_assessment.md, learning/principles.md, decisions_log.yaml |
+| Escribe | thesis/research/{TICKER}/valuation_report.md |
+| Dependencias | Preferible después de thesis + moat + risk para tener contexto completo |
+| META-REFLECTION | SI — incluye sensibilidad, discrepancias, dudas |
 
-#### moat-assessor (micro)
+#### moat-assessor (independiente)
 | Campo | Valor |
 |-------|-------|
-| Responsabilidad | Evaluación de ventajas competitivas |
-| Single-responsibility | Solo evalúa moat, no valora |
-| Skills | moat-framework |
-| Lee | Información competitiva de empresa |
-| Escribe | Sección moat de thesis |
+| Responsabilidad | Evaluación independiente de ventajas competitivas |
+| Single-responsibility | Solo evalúa moat con investigación propia. Puede discrepar con thesis |
+| Skills | moat-framework, business-analysis-framework, critical-thinking, agent-meta-reflection |
+| Lee | Ticker + sector view. Puede leer thesis si existe, pero investiga independientemente |
+| Escribe | thesis/research/{TICKER}/moat_assessment.md |
+| META-REFLECTION | SI — incluye discrepancias con thesis, incertidumbres |
 
-#### risk-identifier (micro)
+#### risk-identifier (independiente)
 | Campo | Valor |
 |-------|-------|
-| Responsabilidad | Identificación y cuantificación de riesgos |
-| Single-responsibility | Solo identifica riesgos, no decide |
-| Skills | risk-assessment |
-| Lee | Información de empresa, sector, macro |
-| Escribe | Sección riesgos de thesis |
+| Responsabilidad | Identificación activa de riesgos con investigación independiente |
+| Single-responsibility | Solo identifica riesgos. Busca lo que la thesis NO dice |
+| Skills | risk-assessment, critical-thinking, agent-meta-reflection |
+| Lee | Ticker + macro view + thesis (si existe). WebSearch obligatorio para litigación/regulación |
+| Escribe | thesis/research/{TICKER}/risk_assessment.md |
+| META-REFLECTION | SI — incluye riesgos subestimados, kill conditions sugeridas |
 
 ---
 
@@ -181,6 +197,7 @@ El orchestrator (yo, Claude) delega a agentes especializados. Lee CLAUDE.md que 
 | Escribe | N/A (output directo al orchestrator) |
 | Dependencias | Usa dynamic_screener.py, verifica sector views existen |
 | Cuándo usar | Cash sin oportunidades claras, búsqueda de ideas, post-venta, proactivamente semanal |
+| **Nuevo v4.1** | Priorizar candidatos Tier A (QS >=75). Quality compounders son el objetivo principal |
 
 #### sector-screener
 | Campo | Valor |
@@ -200,6 +217,7 @@ El orchestrator (yo, Claude) delega a agentes especializados. Lee CLAUDE.md que 
 | Skills | macro-framework, critical-thinking |
 | Lee | world/current_view.md, portfolio/current.yaml |
 | Escribe | world/current_view.md, **world/sectors/{sector}.md** (cuando aplica) |
+| **Nuevo v4.1** | Output incluye "Portfolio Implications" - mapeo de macro a posiciones concretas (tailwind/headwind) |
 
 ---
 
@@ -208,11 +226,12 @@ El orchestrator (yo, Claude) delega a agentes especializados. Lee CLAUDE.md que 
 #### rebalancer
 | Campo | Valor |
 |-------|-------|
-| Responsabilidad | Rebalanceo mensual y trigger-based |
-| Single-responsibility | Identifica desviaciones, propone ajustes |
-| Skills | portfolio-constraints, investment-rules |
-| Lee | portfolio/current.yaml |
+| Responsabilidad | Rebalanceo por sizing + quality ranking + rotation opportunities |
+| Single-responsibility | Identifica desviaciones de sizing Y calidad, propone ajustes |
+| Skills | portfolio-constraints, investment-rules, **rotation-engine** |
+| Lee | portfolio/current.yaml, **learning/principles.md** (Principio 9) |
 | Escribe | journal/decisions/ |
+| **Nuevo v4.1** | Ejecuta forward_return.py, evalúa bottom 3 posiciones, verifica pipeline |
 
 #### position-calculator
 | Campo | Valor |
@@ -240,6 +259,7 @@ El orchestrator (yo, Claude) delega a agentes especializados. Lee CLAUDE.md que 
 | Skills | portfolio-constraints, file-system-rules |
 | Lee | portfolio/current.yaml, state/system.yaml |
 | Escribe | portfolio/current.yaml, state/system.yaml (tras confirmación humano) |
+| **Nuevo v4.1** | Maneja campos conviction, exit_plan, last_review en portfolio/current.yaml |
 
 #### performance-tracker
 | Campo | Valor |
@@ -272,6 +292,7 @@ El orchestrator (yo, Claude) delega a agentes especializados. Lee CLAUDE.md que 
 | Lee | Todo el sistema |
 | Escribe | state/system.yaml (health_score, issues) |
 | Verifica | **Sector views existen para posiciones activas** |
+| **Nuevo v4.1** | Verificar: todas las posiciones tienen conviction y exit_plan. forward_return.py ejecutado en sesión |
 
 #### memory-manager
 | Campo | Valor |
@@ -414,12 +435,17 @@ Para cada agente, preguntar:
 │   INVERSIÓN   │    │   PORTFOLIO   │    │    SISTEMA    │
 ├───────────────┤    ├───────────────┤    ├───────────────┤
 │fundamental-   │    │rebalancer     │    │calendar-mgr   │
-│analyst        │    │position-calc  │    │health-check   │
-│  ├──valuation │    │watchlist-mgr  │    │memory-mgr     │
-│  ├──moat      │    │portfolio-ops  │    │file-system-mgr│
-│  └──risk      │    │performance    │    │system-evolver │
-│investment-    │    └───────────────┘    │quant-tools-dev│
-│committee      │                         └───────────────┘
+│analyst ──────────┐ │position-calc  │    │health-check   │
+│               │  │ │watchlist-mgr  │    │memory-mgr     │
+│moat-assessor ─┤  │ │portfolio-ops  │    │file-system-mgr│
+│risk-identifier┤  │ │performance    │    │system-evolver │
+│valuation-spec ┤  │ └───────────────┘    │quant-tools-dev│
+│               │  │                      └───────────────┘
+│devil's-       │  │  ← Desafía thesis
+│advocate ──────┘  │
+│               │  │
+│investment-    │◀─┘  ← Recibe TODO (thesis + counter + moat + risk + valuation)
+│committee      │
 │review-agent   │
 └───────────────┘
         │
@@ -428,6 +454,8 @@ Para cada agente, preguntar:
 ┌───────────────┐
 │   RESEARCH    │
 ├───────────────┤
+│opportunity-   │
+│hunter         │
 │sector-screener│
 │macro-analyst  │
 └───────────────┘
@@ -444,9 +472,36 @@ Para cada agente, preguntar:
 │  Leído por:  fundamental-analyst      │
 │              investment-committee     │
 │              review-agent             │
+│              devil's-advocate         │
 │                                       │
 │  Verificado: health-check             │
 └───────────────────────────────────────┘
+
+BUY-PIPELINE FLOW:
+┌──────────────┐   ┌──────────────┐   ┌──────────────┐
+│fundamental-  │   │moat-assessor │   │risk-identifier│
+│analyst       │   │              │   │              │
+│→ thesis.md   │   │→ moat_assess │   │→ risk_assess │
+└──────┬───────┘   └──────┬───────┘   └──────┬───────┘
+       │  RONDA 1 (PARALELO)  │               │
+       └──────────┬───────────┘───────────────┘
+                  ▼
+       ┌──────────────────┐
+       │valuation-        │
+       │specialist        │  RONDA 1 (secuencial)
+       │→ valuation_report│
+       └────────┬─────────┘
+                ▼
+       ┌──────────────────┐
+       │devil's-advocate  │  RONDA 2
+       │→ counter_analysis│
+       └────────┬─────────┘
+                ▼
+       ┌──────────────────┐
+       │investment-       │  RONDA 4
+       │committee (10 g.) │
+       │→ committee_dec.  │
+       └──────────────────┘
 ```
 
 ---

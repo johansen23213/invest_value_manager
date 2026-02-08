@@ -134,6 +134,26 @@ La IA generativa es tanto amenaza como oportunidad. Los incumbentes con datos pr
 - **Status:** HOLD. Entry at $270.60, FV Base $380, MoS 31%
 - **Thesis:** `/home/angel/value_invest2/thesis/active/ADBE/thesis.md`
 
+### BYIT.L - Bytes Technology Group plc (UK IT Services/VAR)
+
+- **Holding:** 110 shares, ~$444 invested
+- **Quality Score:** 81/100 (Tier A)
+- **Thesis:** UK #1 software VAR (value-added reseller). Net cash, 30% FCF margin, 9.6% insider ownership. Fallen angel -47% due to Microsoft partner incentive restructuring (FY26). Cyclical problem, not structural.
+- **Por que nos gusta:**
+  - Quality Compounder at near-52w low (296p vs 295p low)
+  - OEY + Growth = 14.4% >> 9% WACC
+  - 80%+ recurring revenue, >95% implied customer retention
+  - Services +40% growth provides structural offset to margin pressure
+  - 0/10 value trap, director bought shares at 402p
+  - Softcat comparable trades at 25x P/E vs BYIT at 14x
+- **Riesgos:**
+  - Microsoft incentive restructuring ongoing (FY27 could bring further changes)
+  - Concentration risk: heavily dependent on Microsoft ecosystem
+  - UK mid-cap, lower liquidity
+- **Status:** HOLD. Entry at 296 GBp, FV 455 GBp, MoS 35%
+- **ADD trigger:** 260p (MoS >43%)
+- **Thesis:** `/home/angel/value_invest2/thesis/active/BYIT.L/thesis.md`
+
 ---
 
 ## Dependencias Activas
@@ -143,6 +163,7 @@ La IA generativa es tanto amenaza como oportunidad. Los incumbentes con datos pr
 | Tipo | Ticker | Thesis Path | Ultima Eval | Status |
 |------|--------|-------------|-------------|--------|
 | Portfolio | ADBE | thesis/active/ADBE/thesis.md | 2026-02-04 | HOLD |
+| **Portfolio** | **BYIT.L** | **thesis/active/BYIT.L/thesis.md** | **2026-02-06** | **HOLD - Sixth Tier A** |
 | Watchlist | TYL | thesis/research/TYL/thesis.md | 2026-02-04 | Entry $250 |
 | Watchlist | DBX | thesis/research/DBX/thesis.md | 2026-02-05 | Entry $18-20 |
 
@@ -209,6 +230,7 @@ Cuando actualices este sector view con cambio MATERIAL:
 | 2026-02-04 | ADBE anadido a posiciones | Compra aprobada, primer Quality Compounder tech |
 | 2026-02-04 | TYL analizado -> Watchlist | QS 72 (Tier B, no A). Wide moat pero overvalued. Entry $250-260 |
 | 2026-02-05 | DBX analizado -> Watchlist | QS 73 pero 5/10 value trap factors. Entry agresivo $18-20 requerido |
+| **2026-02-06** | **BYIT.L comprado - Sixth Tier A** | **UK IT services VAR, QS 81, MoS 35%. Fallen angel -47% por Microsoft incentive restructuring.** |
 
 ---
 

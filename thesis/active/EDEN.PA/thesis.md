@@ -393,6 +393,50 @@ EARNINGS FEB 24
 | 1.0 | 2026-02-01 | Thesis inicial, BUY recommendation |
 | 2.0 | 2026-02-03 | Re-evaluation Framework v2.0. WACC derivado, segundo metodo. FV EUR 51.5 |
 | 3.0 | 2026-02-06 | URGENT review: Brazil decree. FV reducido a EUR 38.4 expected. 2026 guidance -8/-12%. Kill conditions expandidas. Status HOLD pre-earnings Feb 24 |
+| **4.0** | **2026-02-07** | **Adversarial review. FV revised EUR 38.4 → EUR 29.0 (-24.5%). Italy EUR 120M/yr NOT in FV calculation. Brazil 19% not 9.5%. Kill conditions: 7 → 10. Conviction MEDIUM.** |
+
+---
+
+## ADVERSARIAL REVIEW ADDENDUM (2026-02-07)
+
+> **Review Type:** Adversarial pipeline (risk-identifier + valuation-specialist + review-agent)
+> **Trigger:** Adversarial Portfolio Review Fase 1 (earnings urgentes)
+
+### Fair Value Revision
+
+| Metric | Thesis v3.0 | Adversarial | Delta |
+|--------|------------|-------------|-------|
+| Expected FV | EUR 38.4 | **EUR 29.0** | **-24.5%** |
+| Bear FV | EUR 27.5 | **EUR 20.0** | -27.3% |
+| MoS at EUR 17.64 | 53.3% | **39.2%** | -14pp |
+| MoS vs Bear | 34.7% | **11.8%** | -23pp |
+| Italy EBITDA impact | "background" | **EUR 120M/yr NOT in FV** | Material |
+| Brazil total exposure | 9.5% | **19% revenue** | Double |
+
+**Working FV: EUR 29.0** (replaces EUR 38.4 for decision-making)
+
+### Key Findings Not in Thesis v3.0
+1. **Italy EUR 120M/year impact NOT quantified in FV.** Thesis mentions Italy but does not adjust FV for it. Reduces FV by EUR 3-5/share.
+2. **Brazil total exposure 19%, not 9.5%.** The 9.5% is meal/food only. Mobility and corporate payments add another 9.5%.
+3. **Cumulative Italy + Brazil = EUR 270-320M, 22-27% of EBITDA.** Correlated regulatory pattern, not isolated events.
+4. **Negative equity accelerating**: EUR -809M to EUR -1,046M in 6 months while buyback continues.
+5. **Management credibility damaged**: +2/+4% → -8/-12% guidance swing of 10-16pp.
+
+### Verdict: HOLD through earnings Feb 24 | Conviction: MEDIUM
+
+**Reasoning:** ROIC 15-18% >> WACC 9.5% (distinguishes from TEP.PA/LIGHT.AS/PFE sells). MoS 39.2% vs adversarial FV still substantial. No kill conditions triggered. No replacement available. Earnings clarify all material uncertainties in 17 days.
+
+### Post-Earnings Decision Tree
+- 2027-28 guidance maintained + Italy manageable --> **HOLD, restore conviction**
+- 2027-28 guidance reduced but >5% --> **RE-EVALUATE, possible TRIM**
+- 2027-28 guidance <5% --> **EXIT (Kill Condition #6)**
+- Dividend cut or Net Debt/EBITDA >3.0x --> **EXIT**
+- France regulation announced --> **EXIT (Kill Condition #8)**
+
+### New Kill Conditions (expanded from 7 to 10)
+8. Regulation extends to 3rd major market (after Italy + Brazil)
+9. Credit rating downgrade to BBB+ or below
+10. 2027-28 EBITDA growth delivered at <3% (not just guided)
 
 ---
 

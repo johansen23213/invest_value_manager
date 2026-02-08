@@ -403,3 +403,39 @@ From world/current_view.md (2026-02-02):
 - [US Treasury Rates - Treasury.gov](https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value=2026)
 - [US 10Y Treasury - Trading Economics](https://tradingeconomics.com/united-states/government-bond-yield)
 - yfinance data (beta, financials, multiples)
+
+---
+
+## ADVERSARIAL REVIEW ADDENDUM (2026-02-07)
+
+> Adversarial review Fase 1. See risk_assessment.md and valuation_report.md for full analysis.
+
+### Key Findings
+
+| Issue | Thesis | Adversarial | Severity |
+|-------|--------|-------------|----------|
+| FV | $283.74 | $243 | HIGH (-14.4%) |
+| Bear FV | $217.36 | $205 | MEDIUM |
+| MoS (at $218.56) | ~23% | ~10% | HIGH |
+| DCF weight | 50% | 30% (FCF CV 2.3) | MEDIUM |
+| DOJ settlement | Not mentioned | $122M + 5yr OIG oversight | CRITICAL |
+| ROIC spread | 1.66pp | 1.2pp | LOW |
+
+### Critical Risk: DOJ/OIG Oversight (NOT IN THESIS)
+UHS paid $122M to settle False Claims Act allegations for medically unnecessary behavioral health services. Under 5-year Corporate Integrity Agreement with OIG monitor. This constrains behavioral health operations (44% of revenue).
+
+### Revised Assessment
+- **Conviction:** LOW (was HOLD)
+- **Risk-Adjusted FV:** ~$243 (was $283.74, -14.4%)
+- **MoS:** ~10% (was ~23%)
+- **Exit Plan:** HOLD through earnings Feb 26. EXIT if Q4 misses or labor cost warning. TRIM if ROIC < WACC.
+
+### Positive Factors Confirmed
+- Q3 2025 exceptional (EPS +53.4% YoY beat)
+- FY2025 guidance raised to $21.50-$22.10
+- $1.5B buyback
+- No insider selling (Miller family aligned)
+- P/E 10.4x on record earnings
+
+### Decision: HOLD LOW conviction
+Tier C (QS 51), ROIC barely > WACC (1.2pp), DOJ oversight material risk. Earnings Feb 26 = binary event. Would not buy today under current framework.

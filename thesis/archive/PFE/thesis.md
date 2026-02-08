@@ -4,6 +4,8 @@
 > Status: HOLD - FAIRLY VALUED
 > Confianza: MEDIA-ALTA (subio post-earnings beat)
 
+**ARCHIVED: 2026-02-07 -- Position closed. EXIT decision: QS 47 Tier C, MoS -3.2% (overvalued near 52w high), ROIC < WACC, patent cliff 2026-2028. Capital rotated to BYIT.L (Tier A, QS 81).**
+
 ## TL;DR
 
 Pfizer es big pharma US #5 por market cap ($145B), atravesando transicion post-COVID con patent cliff 2026-28. **Q4 2025 earnings beat (+16% EPS) confirma guidance FY2026 y dividend intacto.** Re-evaluacion Framework v2.0 muestra fair value ~$27.75, MoS 8.7% - insuficiente para ADD bajo Tier A (15%+), pero HOLD justificado por yield 6.5% y downside protection.
