@@ -2,12 +2,12 @@
 # PORTFOLIO - Fuente de verdad: eToro
 # =============================================================================
 # Actualizar después de cada operación en eToro
-# Última actualización: 2026-02-07
+# Última actualización: 2026-02-08
 # NOTA: eToro muestra TODO en USD. invested = monto original, avg_cost = invested/shares
 # =============================================================================
 
 cash:
-  amount: 1979  # Post 3 SELLs (TEP.PA ~575 + LIGHT.AS ~577 + PFE ~431) + BUY BYIT.L (-377) on 2026-02-07. Previous 773.44 + 575 + 577 + 431 - 377 = ~1979
+  amount: 3013  # Post SELL TATE.L ~298 EUR on 2026-02-08. Previous 2715 + 298 = ~3013
   currency: EUR
 
 positions:
@@ -31,6 +31,10 @@ positions:
     avg_cost_usd: 196.00
     date_opened: 2026-01-27
     thesis: thesis/active/ALL/thesis.md
+    conviction: low
+    fair_value: "$234 (adversarial, was $240 thesis)"
+    last_review: 2026-02-08
+    exit_plan: "HOLD ON PROBATION. SELL if Q1 2026 CR >97% or Arity settlement >$1B. SELL if Tier A needs capital. ADD at $180. Next review: Q1 2026 earnings."
 
   - ticker: SAN.PA
     name: "Sanofi SA"
@@ -47,6 +51,10 @@ positions:
     avg_cost_usd: 28.57  # 600 / 21.00105
     date_opened: 2026-01-31
     thesis: thesis/active/VICI/thesis.md
+    conviction: low
+    fair_value: "$30.50 (adversarial, was $33.75 thesis)"
+    last_review: 2026-02-08
+    exit_plan: "HOLD ON PROBATION through Feb 25 earnings. SELL if Caesars misses rent or rent reset >10%. SELL if AFFO guidance <$2.35. TRIM at $32. Next rotation candidate if no catalyst post-earnings."
 
   - ticker: IMB.L
     name: "Imperial Brands plc"
@@ -55,14 +63,10 @@ positions:
     avg_cost_usd: 42.09  # 600 / 14.255583
     date_opened: 2026-01-31
     thesis: thesis/active/IMB.L/thesis.md
-
-  - ticker: A2A.MI
-    name: "A2A Group"
-    shares: 134.00
-    invested_usd: 404.65  # eToro: 405.50 - 0.85 P&L
-    avg_cost_usd: 3.02  # 404.65 / 134
-    date_opened: 2026-02-02
-    thesis: thesis/active/A2A.MI/thesis.md
+    conviction: low-medium
+    fair_value: "3,409 GBp (adversarial, was 3,701 thesis)"
+    last_review: 2026-02-08
+    exit_plan: "HOLD on PROBATION. MoS only 2%. TRIM at 3,500 GBp. Next rotation candidate if Tier A alternative found. Forward return ~8-10% (yield+DPS growth+buyback)."
 
   - ticker: EDEN.PA
     name: "Edenred SA"
@@ -76,21 +80,7 @@ positions:
     fair_value: "EUR 29.0 (adversarial, was 38.4)"
     exit_plan: "HOLD through earnings Feb 24. EXIT if 2027-28 guidance <5% or France regulation. TRIM if MoS vs revised FV <15%."
 
-  - ticker: VNA.DE
-    name: "Vonovia SE"
-    shares: 16.00
-    invested_usd: 465.56  # eToro: 466.56 - 1.00 P&L
-    avg_cost_usd: 29.10  # 465.56 / 16
-    date_opened: 2026-02-02
-    thesis: thesis/active/VNA.DE/thesis.md
-
-  - ticker: TATE.L
-    name: "Tate & Lyle plc"
-    shares: 66.00
-    invested_usd: 339.73
-    avg_cost_usd: 5.15  # 339.73 / 66
-    date_opened: 2026-02-03
-    thesis: thesis/active/TATE.L/thesis.md
+  # TATE.L REMOVED 2026-02-08 - Position closed. Adversarial review: QS 45 Tier C, FV -40%, ROIC < WACC. P&L +3.5%.
 
   - ticker: DOM.L
     name: "Domino's Pizza Group PLC"
@@ -119,6 +109,10 @@ positions:
     avg_cost_usd: 141.06  # 423.18 / 3
     date_opened: 2026-02-03
     thesis: thesis/active/GL/thesis.md
+    conviction: medium-low
+    fair_value: "$185 (adversarial, was $174 thesis / $237 valuation report)"
+    last_review: 2026-02-08
+    exit_plan: "HOLD. 4 class actions risk. SELL if settlement >$500M or DOJ investigation. TRIM at $185+. Update thesis to v3.0 with Q4 results."
 
   - ticker: HRB
     name: "H&R Block Inc."
@@ -490,3 +484,32 @@ transactions:
     total_usd: 444
     notes: "BUY - Sixth Tier A Quality Compounder. QS 81, MoS 35%. UK #1 software VAR, net cash, 30% FCF margin, 9.6% insider. Fallen angel -47%. IC 9/9 PASS."
 
+  - date: 2026-02-08
+    action: SELL
+    ticker: A2A.MI
+    shares: 134
+    price_eur: 2.54
+    total_eur: 340
+    pnl_eur: -5
+    pnl_pct: -1.5
+    notes: "EXIT - Adversarial review. QS 37 Tier C (thesis claimed Tier A). ROIC spread -3.0pp (destroying value). EBIT overstated 25% in thesis. Adversarial FV EUR 2.04 vs thesis EUR 2.70 (-24%). MoS was -24.5% (overvalued). All 6 EXIT gates SELL."
+
+  - date: 2026-02-08
+    action: SELL
+    ticker: TATE.L
+    shares: 66
+    price_gbp: 393.60
+    total_eur: 298
+    pnl_eur: 10
+    pnl_pct: 3.5
+    notes: "EXIT - Adversarial review. QS 45 Tier C (thesis claimed Tier B). ROIC spread -0.5pp (below WACC per tool). D&A error (100M vs 172M actual) overstated EBIT 23%. Adversarial FV 329-430 GBp vs thesis 551 GBp (-22 to -40%). Consistent with TEP.PA/LIGHT.AS/PFE sell precedent."
+
+  - date: 2026-02-08
+    action: SELL
+    ticker: VNA.DE
+    shares: 16
+    price_eur: 24.78
+    total_eur: 396
+    pnl_eur: 0
+    pnl_pct: 0
+    notes: "EXIT - Adversarial review. QS 41 Tier C (thesis claimed Tier B). ROIC spread -6.6pp (destroying value). Refinancing wall EUR 10.2B 2026-2027. Adversarial FV EUR 24.35 vs thesis EUR 32.58 (-25%). MoS was -1.7% (zero safety). All 6 EXIT gates SELL."

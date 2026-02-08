@@ -9,10 +9,10 @@
 # Metadata
 metadata:
   created: 2026-02-03
-  last_updated: 2026-02-07
-  total_closed: 6
-  total_pnl_eur: 15.15  # -22.85 + 8.00 + (-48) + 70 + 8 = 15.15
-  win_rate: 50.0  # 3 winners (SHEL.L +2.3%, LIGHT.AS +13.7%, PFE +1.8%) / 6 positions
+  last_updated: 2026-02-08
+  total_closed: 9
+  total_pnl_eur: 20.15  # Previous 10.15 + 10 TATE.L = 20.15
+  win_rate: 44.4  # 4 winners (SHEL.L +2.3%, LIGHT.AS +13.7%, PFE +1.8%, TATE.L +3.5%) / 9 positions
   avg_holding_days: 6
 
 # Closed Positions
@@ -173,6 +173,77 @@ closed_positions:
     exit_reason: capital_rotation_to_tier_a
     lesson_learned: "Positions near fair value with ROIC < WACC and structural headwinds (patent cliff) should be rotated when Tier A opportunities arise. Yield alone (6.5%) does not justify holding when quality is Tier C and MoS is negative."
 
+  - ticker: A2A.MI
+    name: "A2A S.p.A."
+    entry_date: 2026-02-02
+    exit_date: 2026-02-08
+    shares: 134
+    entry_price_eur: 3.02  # Avg cost in USD, ~EUR 2.56
+    exit_price_eur: 2.54
+    entry_currency: EUR
+    invested_eur: 343  # ~$404.65 / 1.18
+    proceeds_eur: 340
+    pnl_amount_eur: -5
+    pnl_percent: -1.5
+    holding_days: 6
+    thesis_fv_at_entry: 3.62  # EUR - original thesis v1.0
+    thesis_fv_v2: 2.70  # EUR - v2.0 re-evaluation
+    thesis_fv_adversarial: 2.04  # EUR - adversarial independent valuation
+    fv_reached: false
+    quality_score: 37  # Tier C (thesis claimed Tier A, WRONG)
+    thesis_accuracy:
+      correct: false
+      notes: "Original FV EUR 3.62 was inflated 78% vs adversarial EUR 2.04. v2.0 FV EUR 2.70 still inflated 32%. Thesis self-assigned Tier A but QS=37 (Tier C). ROIC spread -3.0pp (destroying value). EBIT overstated 25% (EUR 1,500M vs actual EUR 1,200M). MoS was -24.5% vs adversarial FV. AGCM antitrust probe, net debt +24% in FY2024, 3% annual margin compression all missed by thesis."
+    exit_reason: adversarial_review_roic_below_wacc
+    lesson_learned: "Thesis FVs systematically inflated ~24%. ROIC < WACC = exit signal. Thesis self-assigned quality tier MUST match quality_scorer.py. EBIT in valuation must cross-check against actual/guided numbers. DDM unreliable when FCF is negative (dividends funded by borrowing)."
+
+  - ticker: VNA.DE
+    name: "Vonovia SE"
+    entry_date: 2026-02-02
+    exit_date: 2026-02-08
+    shares: 16
+    entry_price_eur: 24.70  # Avg cost ~$29.10 / 1.178
+    exit_price_eur: 24.78
+    entry_currency: EUR
+    invested_eur: 395  # ~$465.56 / 1.179
+    proceeds_eur: 396
+    pnl_amount_eur: 0
+    pnl_percent: 0
+    holding_days: 6
+    thesis_fv_at_entry: 35.00  # EUR - original v1.0 range midpoint
+    thesis_fv_v2: 32.58  # EUR - v2.0 re-evaluation
+    thesis_fv_adversarial: 24.35  # EUR - adversarial independent valuation
+    fv_reached: false
+    quality_score: 41  # Tier C (thesis claimed Tier B, WRONG)
+    thesis_accuracy:
+      correct: false
+      notes: "Original FV EUR 35-38 was inflated ~45% vs adversarial EUR 24.35. v2.0 FV EUR 32.58 still inflated 34%. Thesis used 20% NAV haircut when 35% appropriate (3+ years persistent sector discount). ROIC spread -6.6pp (destroying value). Refinancing wall EUR 10.2B in 2026-2027 not analyzed. Rf stale (2.3% vs actual 2.85% Bund). Interest coverage narrowing to ~2x by 2028. Zero margin of safety vs adversarial FV."
+    exit_reason: adversarial_review_roic_below_wacc
+    lesson_learned: "For leveraged REITs: NAV haircut must reflect persistent market discount, not aspirational recovery. ROIC < WACC applies to REITs too despite accounting differences. Debt maturity analysis is MANDATORY for leveraged companies. Rf must be current, not stale."
+
+  - ticker: TATE.L
+    name: "Tate & Lyle plc"
+    entry_date: 2026-02-03
+    exit_date: 2026-02-08
+    shares: 66
+    entry_price_gbp: 378  # Avg cost ~$5.15 = ~378 GBp at time
+    exit_price_gbp: 393.60
+    entry_currency: GBp
+    invested_eur: 288  # ~$339.73 / 1.18
+    proceeds_eur: 298
+    pnl_amount_eur: 10
+    pnl_percent: 3.5
+    holding_days: 5
+    thesis_fv_at_entry: 551  # GBp - thesis v2.0
+    thesis_fv_adversarial: 329  # GBp - adversarial valuation report (base case)
+    fv_reached: false
+    quality_score: 45  # Tier C (thesis claimed Tier B 5/10 on custom scale)
+    thesis_accuracy:
+      correct: false
+      notes: "Thesis FV 551 GBp inflated by ~40% vs adversarial 329 GBp. Key errors: D&A assumed 100M vs actual 172M (overstated EBIT 23%), EV/EBIT multiple 11x too high vs INGR peer 8.3x, QS miscategorized as Tier B (tool gives Tier C 45/100). ROIC spread -0.5pp per tool (below WACC). Sucralose regulatory risk (WHO/HHS/Tyson) underweighted. Bear case 195 GBp provided zero downside protection at 394 GBp entry."
+    exit_reason: adversarial_review_roic_below_wacc
+    lesson_learned: "D&A assumptions MUST be cross-checked against actual EBITDA-to-EBIT bridge in results. Post-acquisition D&A (intangible amortization) can be dramatically higher than pre-acquisition baseline. EV/EBIT multiples must anchor to actual peer trading levels, not theoretical ranges. For leveraged mid-caps, EV/EBIT is more reliable than DCF (which had 76% terminal value dependency)."
+
 # Partial Sells (Trims) - Not full exits, but record for P&L tracking
 partial_sells:
   - ticker: SHEL.L
@@ -205,15 +276,15 @@ partial_sells:
 # Statistics (auto-calculated by effectiveness_tracker.py)
 statistics:
   # Will be populated by the tool
-  total_closed_positions: 6
+  total_closed_positions: 9
   total_partial_sells: 3
-  total_realized_pnl_eur: 443.00  # Approx from trims + closed positions
-  winners: 3  # SHEL.L +2.3%, LIGHT.AS +13.7%, PFE +1.8%
-  losers: 2  # FUTR.L -2.8%, TEP.PA -6.7%
-  breakeven: 1  # ENEL.MI 0%
-  win_rate_pct: 50.0
-  avg_win_pct: 5.9  # (2.3 + 13.7 + 1.8) / 3
-  avg_loss_pct: -4.75  # (-2.8 + -6.7) / 2
+  total_realized_pnl_eur: 448.00  # Approx from trims + closed positions (438 + 10 TATE.L)
+  winners: 4  # SHEL.L +2.3%, LIGHT.AS +13.7%, PFE +1.8%, TATE.L +3.5%
+  losers: 3  # FUTR.L -2.8%, TEP.PA -6.7%, A2A.MI -1.5%
+  breakeven: 2  # ENEL.MI 0%, VNA.DE 0%
+  win_rate_pct: 44.4
+  avg_win_pct: 5.3  # (2.3 + 13.7 + 1.8 + 3.5) / 4
+  avg_loss_pct: -3.7  # (-2.8 + -6.7 + -1.5) / 3
   avg_holding_days: 7
   positions_reached_fv: 0
   thesis_accuracy_rate: null

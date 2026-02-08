@@ -1,6 +1,6 @@
 # Sector: Real Estate / REITs
 
-> Ultima actualizacion: 2026-02-04
+> Ultima actualizacion: 2026-02-08
 > Analista: Claude
 > Status: **NEUTRAL** (subsectores selectivos: SOBREPONDERAR gaming/healthcare/industrial)
 
@@ -121,11 +121,11 @@ El sector Real Estate/REITs atraviesa un punto de inflexion tras el shock de tip
 - **Por que nos gusta:** Margen >90%, leases son quasi-bonds con escalators. Diversificando a wellness/entertainment (Canyon Ranch, Chelsea Piers, Great Wolf). Management excelente track record.
 - **Riesgos:** Concentracion en Caesars, ciclicidad consumer discretionary.
 
-### Vonovia SE (VNA.DE) - Residential Germany
-- **Holding:** 16 shares, ~$466 invested
-- **Thesis:** Largest EU residential REIT. 533K apartments en Alemania, Suecia, Austria. NAV discount ~25%. Housing shortage estructural en Berlin, Munich, Hamburg. Gap significativo entre rent regulado y mercado = embedded growth.
-- **Por que nos gusta:** Volvio a profits en 2025 tras restructuracion. EBITDA target 2028 de 3.2-3.5B EUR (+33% vs 2024). Like-for-like rental growth 4.2%. Demografics favorables.
-- **Riesgos:** Rent regulation en Alemania, leverage (aunque mejorando), rate sensitivity.
+### Vonovia SE (VNA.DE) - Residential Germany (SOLD 2026-02-08)
+- **Entry:** 16 shares @ EUR 24.70, invested ~EUR 395
+- **Exit:** EUR 24.78, P&L: ~0% (break-even)
+- **Reason:** Adversarial review - QS 41 Tier C (thesis claimed Tier B). ROIC -6.6pp (destroying value). Refinancing wall EUR 10.2B in 2026-2027. NAV haircut 20% too aggressive (sector trades at 40-55% discount for 3+ years). Adversarial FV EUR 24.35 vs thesis EUR 32.58 (-25%). Zero margin of safety.
+- **Lesson:** For leveraged REITs: NAV haircut must reflect persistent market discount. ROIC < WACC applies to REITs too. Debt maturity analysis mandatory. Rf must be current.
 
 ---
 
@@ -136,7 +136,6 @@ El sector Real Estate/REITs atraviesa un punto de inflexion tras el shock de tip
 | Tipo | Ticker | Thesis Path | Ultima Eval | Status |
 |------|--------|-------------|-------------|--------|
 | Portfolio | VICI | thesis/active/VICI | 2026-02-03 | HOLD |
-| Portfolio | VNA.DE | thesis/active/VNA.DE | 2026-02-03 | HOLD |
 | Watchlist | SRE.L | thesis/research/SRE.L | 2026-02-04 | Entry 75p |
 
 ### Protocolo de Cambio Material
@@ -214,13 +213,13 @@ Cuando actualices este sector view con cambio MATERIAL:
 
 ## Resumen de Accion
 
-**POSICION ACTUAL:** 2 REITs (VICI + VNA.DE) = adecuada diversificacion subsectorial
+**POSICION ACTUAL:** 1 REIT (VICI only). VNA.DE sold 2026-02-08.
 
 **RECOMENDACION:**
-1. **HOLD** VICI y VNA.DE - bien posicionados en subsectores atractivos
+1. **HOLD** VICI - well positioned in gaming/triple-net subsector
 2. **WATCHLIST** Ventas (VTR) como healthcare play mas barato que Welltower
 3. **WATCHLIST** Prologis (PLD) o Segro (SEGRO.L) si hay pullback para industrial exposure
-4. **EVITAR** agregar office o malls
+4. **EVITAR** agregar office, malls, or highly leveraged residential REITs
 5. **MONITOR** tipos de interes - un pivot Fed seria catalizador para aumentar exposicion
 
 ---
@@ -232,6 +231,7 @@ Cuando actualices este sector view con cambio MATERIAL:
 | 2026-02-03 | Status inicial: NEUTRAL (selectivo) | Primera creacion del sector view |
 | 2026-02-04 | Anadida SRE.L a Watchlist | Analisis completado, entry target 75p |
 | 2026-02-04 | Implementado sistema de dependencias | Sistema de tracking de thesis dependientes |
+| 2026-02-08 | VNA.DE SOLD | Adversarial review: QS 41 Tier C, ROIC -6.6pp, FV inflated 25%, zero MoS. Position closed. |
 
 ---
 
@@ -253,7 +253,7 @@ Cuando actualices este sector view con cambio MATERIAL:
 ### Historial de Analisis (Archivadas)
 | Ticker | Razon Archivo | Fecha | Leccion |
 |--------|---------------|-------|---------|
-| (vacio) | | | |
+| VNA.DE | Adversarial review: ROIC -6.6pp, FV inflated 25%, zero MoS | 2026-02-08 | NAV haircut must reflect persistent sector discount. ROIC < WACC applies to REITs. Debt maturity analysis mandatory. |
 
 ---
 

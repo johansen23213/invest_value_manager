@@ -9,7 +9,7 @@ from telegram.ext import Application, MessageHandler, CommandHandler, filters
 load_dotenv()
 TOKEN = os.environ["TELEGRAM_BOT_TOKEN"]
 WORKDIR = "/home/angel/value_invest2"
-ALLOWED = [998346625]
+ALLOWED = [998346625, 8402308294]
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(message)s")
 log = logging.getLogger(__name__)

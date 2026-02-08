@@ -81,6 +81,27 @@ moves:
     to: thesis/active/BYIT.L/
     reason: "Position opened by user (110 shares @ ~296 GBp, $444)"
     triggered_by: "portfolio-ops: BUY confirmation"
+
+  - date: 2026-02-08
+    file: thesis/active/A2A.MI/*
+    from: thesis/active/A2A.MI/
+    to: thesis/archive/A2A.MI/
+    reason: "Position closed - SELL 134 shares @ EUR 2.54. Adversarial review: QS 37 Tier C (thesis claimed Tier A), ROIC -3.0pp, FV inflated 24%. MoS -24.5%."
+    triggered_by: "portfolio-ops: SELL confirmation"
+
+  - date: 2026-02-08
+    file: thesis/active/VNA.DE/*
+    from: thesis/active/VNA.DE/
+    to: thesis/archive/VNA.DE/
+    reason: "Position closed - SELL 16 shares @ EUR 24.78. Adversarial review: QS 41 Tier C (thesis claimed Tier B), ROIC -6.6pp, FV inflated 25%. MoS -1.7% (zero safety). Refinancing wall EUR 10.2B."
+    triggered_by: "portfolio-ops: SELL confirmation"
+
+  - date: 2026-02-08
+    file: thesis/active/TATE.L/*
+    from: thesis/active/TATE.L/
+    to: thesis/archive/TATE.L/
+    reason: "Position closed - SELL 66 shares @ 393.60 GBp (~298 EUR). Adversarial review: QS 45 Tier C (thesis claimed Tier B 5/10), ROIC spread -0.5pp, D&A error (100M vs 172M actual overstated EBIT 23%). FV 551→329 GBp (-40%). P&L +3.5%."
+    triggered_by: "portfolio-ops: SELL confirmation"
 # Format:
 #   - date: 2026-01-31
 #     file: thesis/research/SHEL/thesis.md
