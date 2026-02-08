@@ -99,7 +99,7 @@ Asegurar que CADA recomendación de inversión incluye contexto suficiente para 
 
 **MoS actual:** XX%
 
-**MoS requerido:** XX% (para Tier X)
+**MoS precedentes similares (de decisions_log.yaml):** [ticker, MoS aceptado, por qué]
 
 **Catalizadores próximos:**
 - [Catalizador 1] - [Fecha]
@@ -213,7 +213,7 @@ NVO cayó sola.
 
 **MoS actual:** 38%
 
-**MoS requerido:** 10-15% (para Tier A)
+**MoS precedentes Tier A (decisions_log):** ADBE 22%, MONY.L 36%, LULU 34%
 
 **Catalizadores próximos:**
 - CagriSema vs Zepbound head-to-head - Marzo 2026
@@ -232,7 +232,7 @@ Novo Nordisk es un Quality Compounder (QS 82) que acaba de caer 18% por un
 guidance shock que representa un año trough, no el nuevo normal. A $48, el
 mercado valora la empresa como si el negocio de GLP-1 estuviera en declive
 terminal, cuando la realidad es competencia temporal en un TAM de $170B.
-Compramos POST-pánico con MoS de 38% vs 15% requerido.
+Compramos POST-pánico con MoS de 38%, bien por encima de precedentes Tier A.
 
 ---
 

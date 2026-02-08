@@ -54,10 +54,10 @@ disable-model-invocation: false
 #### Gate 6: Portfolio Fit
 - [ ] Precio verificado via price_checker.py: €[X] (fecha: ___)
 - [ ] Sizing propuesto: [X]% (€[Y])
-- [ ] Position post-compra: [X]% (limit 7%): [OK/VIOLA]
-- [ ] Sector post-compra: [sector] = [X]% (limit 25%): [OK/VIOLA]
-- [ ] Geografía post-compra: [geo] = [X]% (limit 35%): [OK/VIOLA]
-- [ ] Cash post-compra: [X]% (min 5%): [OK/VIOLA]
+- [ ] Position post-compra: [X]% → ¿Coherente con convicción? (Principio 1)
+- [ ] Sector post-compra: [sector] = [X]% → ¿Exposición prudente? (Principio 3)
+- [ ] Geografía post-compra: [geo] = [X]% → ¿Riesgo país diversificado? (Principio 2)
+- [ ] Cash post-compra: [X]% → ¿Suficiente para oportunidades? (Principio 4)
 - [ ] Correlación con posiciones existentes: [alta/media/baja]
 
 #### Gate 7: Autocrítica

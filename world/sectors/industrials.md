@@ -1,7 +1,7 @@
 # Sector: Industrials (Lighting / Building Technology / Automation)
 
-> Ultima actualizacion: 2026-02-03
-> Status: **NEUTRAL** (seleccion especifica de empresas requerida)
+> Ultima actualizacion: 2026-02-06
+> Status: **NEUTRAL - DETERIORATING** (lighting subsector under structural pressure)
 
 ## Resumen Ejecutivo
 
@@ -9,7 +9,9 @@ El sector Industrials es amplio y heterogeneo. Este analisis se enfoca en los su
 
 El sector lighting enfrenta presion estructural por **commoditization de LED** que erosiona margenes, pero los lideres estan pivotando hacia **smart lighting** y **Light-as-a-Service (LaaS)** donde los margenes son mas defendibles. El mercado de building automation esta en fuerte crecimiento (CAGR 10-13%) impulsado por eficiencia energetica, regulaciones ESG, y adopcion de IoT.
 
-**Tesis sectorial**: El mercado castiga a empresas de lighting como Signify por la narrativa de commoditization, ignorando el pivot hacia software/servicios. Esto crea oportunidad value selectiva en lideres que estan ejecutando la transicion. Sin embargo, el sector es ciclico (correlacion con construccion) y el timing macro no es ideal (construccion debil en EU). Seleccion cuidadosa requerida - no es momento de sobreponderar el sector en general.
+**UPDATE 2026-02-06:** Signify Q4 2025 resultados confirman presion estructural intensificandose. OEM segment -16.5% Q4, -26% Q3 por competencia china. Margenes guiados a la baja (7.5-8.5% EBITA 2026 vs 8.9% FY2025). JPMorgan downgrade a neutral con PT cortado 38% a EUR 18.40. La tesis del sector lighting como oportunidad value se DEBILITA - la commoditization es mas severa de lo anticipado. **CMD de Signify el 23 junio 2026 sera definitive para evaluar si el pivot a connected puede compensar.**
+
+**Tesis sectorial**: El mercado castiga a empresas de lighting como Signify por la narrativa de commoditization, ignorando el pivot hacia software/servicios. Sin embargo, Q4 2025 muestra que la commoditization es MAS severa de lo esperado, con OEM segment en caida libre. La contra-tesis depende del pivot connected + CMD junio 2026. Cautela incrementada - no es momento de anadir exposicion al subsector lighting.
 
 ---
 
@@ -20,9 +22,9 @@ El sector lighting enfrenta presion estructural por **commoditization de LED** q
 | TAM LED Lighting Global | $107B (2025) | - | 8% CAGR |
 | TAM Smart Lighting Global | $23-34B (2025) | - | 19-23% CAGR |
 | TAM Building Automation | $88-102B (2025) | - | 10-13% CAGR |
-| P/E Signify (lider) | 8.3x | vs 12-15x historico | Comprimido |
+| P/E Signify (lider) | 9.7x (fwd ~11.8x) | vs 12-15x historico | Comprimido pero EPS cayendo |
 | P/E Acuity Brands | ~15x | vs 18-20x historico | Neutral |
-| Dividend yield Signify | 7.4% | vs 3-4% historico | Elevado |
+| Dividend yield Signify | 8.2% | vs 3-4% historico | Elevado (sostenibilidad en duda largo plazo) |
 
 ---
 
@@ -79,7 +81,7 @@ La building automation es donde Signify compite con su plataforma Interact (IoT 
 | LED commoditization | Ya ocurriendo | Alto en margenes | Continuo |
 | Smart lighting adoption | Alta | Positivo para lideres | 3-5 anos |
 | AI-driven building management | Alta | Positivo si se adaptan | 2-5 anos |
-| Competencia china low-cost | Alta | Alto en segmento basico | Continuo |
+| Competencia china low-cost | **Muy Alta** | **Muy Alto - OEM destruido** | **Continuo y acelerandose** |
 
 ### Regulatorios
 | Regulacion | Probabilidad | Impacto |
@@ -87,37 +89,43 @@ La building automation es donde Signify compite con su plataforma Interact (IoT 
 | EU Energy Efficiency Directives | Alta | Positivo (impulsa retrofit) |
 | Building decarbonization mandates | Alta | Positivo (smart buildings) |
 | Tariffs US-Mexico (25% luminaires) | Media | Negativo para supply chains |
+| **Tariffs US-China (LED goods)** | Media | **Mixto: puede beneficiar vs China pero Signify tambien sourcea de Asia** |
 
 ### Competitivos
 - **Nuevos entrantes**: Tech giants (Google Nest, Amazon Ring) en smart home lighting - pero mas consumer que commercial
 - **Sustitutos**: Natural daylight optimization (amenaza marginal), pero electricidad sigue dominando
+- **UPDATE**: Competencia china moviendose upmarket del OEM a Professional - mayor riesgo que hace 3 meses
 
 ---
 
 ## Sentimiento de Mercado
 
-**Sentimiento actual:** **Ignorado/Neutral** - no odiado pero tampoco querido
+**Sentimiento actual:** **Negativizandose** - de Ignorado/Neutral a Negativo post-Q4 Signify
 
 **Narrativa dominante:**
 "Lighting es un sector maduro con commoditization inevitable. LED ya penetro el mercado, el crecimiento estructural termino. Los margenes seguiran comprimidos por competencia china."
 
-**Mi contra-tesis:**
-"El mercado subestima el pivot de lideres como Signify hacia smart lighting y LaaS, donde los margenes son 2-3x mayores que en luminarias basicas. Signify tiene 64% de revenue en Professional segment (no consumer), ecosistema Philips Hue defendible, y esta invirtiendo en software. A P/E 8x con 7.4% yield, el mercado asume decline permanente que no esta justificado si el pivot tiene exito."
+**Mi contra-tesis (DEBILITADA):**
+"El mercado subestima el pivot de lideres como Signify hacia smart lighting y LaaS. Pero Q4 2025 muestra que la velocidad de erosion en commodity/OEM es mayor de lo esperado. La contra-tesis ahora depende enteramente del CMD junio 2026 y la ejecucion del pivot connected. Si el pivot no acelera materialmente, el mercado tiene razon."
 
-**Flujos de fondos (12m):** Outflows moderados de fondos growth, algunos value funds entrando selectivamente
+**Flujos de fondos (12m):** Outflows moderados acelerandose post-Q4 miss y JPM downgrade
 
 ---
 
 ## Empresas Objetivo
 
+### Posiciones Activas (Portfolio)
+
+| Ticker | Empresa | Status | Thesis Date | FV | MoS | Notas |
+|--------|---------|--------|-------------|-----|-----|-------|
+| **LIGHT.AS** | Signify | **HOLD-PROBATION** | 2026-02-06 v3.0 | EUR 21.90 | 9.9% | Q4 miss, thesis debilitada, CMD junio definitive |
+
 ### Para analisis profundo (value candidates)
 
 | Ticker | Empresa | Razon | Priority |
 |--------|---------|-------|----------|
-| **LIGHT.AS** | Signify | YA EN PORTFOLIO. P/E 8.3x, yield 7.4%, lider global, pivot a smart lighting. Monitorear earnings 30-ene-2026 | Alta |
 | ZAG.DE | Zumtobel | P/E ~10x, foco EU professional, menos exposicion commodities | Media |
 | AMS | ams-OSRAM | Deep value play, sensors/semis, reestructuracion | Media (riesgo alto) |
-| TEP.PA | Teleperformance | Industrials adjacent (BPO), P/E 6.5x, castigada por AI fears | Media |
 
 ### Para watchlist (Industrial Automation broader)
 
@@ -134,6 +142,7 @@ La building automation es donde Signify compite con su plataforma Interact (IoT 
 | Consumer lighting pure-plays | Commoditization total, sin moat |
 | Small cap lighting China | Quality concerns, governance |
 | Over-leveraged industrials | Ciclo desfavorable, servicing debt hard |
+| **OEM lighting pure-plays** | **Chinese competition destroying segment** |
 
 ---
 
@@ -141,7 +150,9 @@ La building automation es donde Signify compite con su plataforma Interact (IoT 
 
 | Fecha | Evento | Impacto esperado |
 |-------|--------|------------------|
-| 30-ene-2026 (pasado) | Signify Q4 2025 earnings | Ya reportado - revisar resultados |
+| 30-ene-2026 | Signify Q4 2025 earnings | **REPORTADO: EPS miss 17%, margins guided lower, JPM downgrade** |
+| Q1 2026 (~abril) | Signify Q1 2026 results | **CRITICO: First read on 2026 trajectory, margin vs guide** |
+| **23-jun-2026** | **Signify Capital Markets Day** | **DEFINITIVE: Strategic review, portfolio divestment, connected pivot clarity** |
 | Q1 2026 | EU Energy Efficiency regulations update | Potencial positivo para retrofit |
 | Q2 2026 | Construction activity data EU | Indicador de demanda |
 | H2 2026 | Fed rate cuts expectation | Si ocurre, positivo para construction |
@@ -151,14 +162,24 @@ La building automation es donde Signify compite con su plataforma Interact (IoT 
 ## Implicaciones para Portfolio
 
 ### Posicion actual: LIGHT.AS (Signify)
-- **Status**: Posicion existente, monitorear
-- **Accion recomendada**: HOLD - valuacion atractiva pero timing ciclico no ideal
-- **Triggers para ADD**: Mejora datos construccion EU, confirmacion pivot smart lighting en earnings, precio <EUR 18
-- **Triggers para SELL**: Margen gross deteriora >200bp, management abandona estrategia LaaS, deuda sube
+- **Status**: **HOLD - PROBATION** (downgraded from HOLD)
+- **Thesis v3.0**: FV EUR 21.90 (down from EUR 34.10), MoS 9.9% (down from 45.2%)
+- **Accion**: Wait for CMD June 23 2026 as definitive decision point
+- **Triggers para EXIT**: Q1 results below guidance floor (margin <7.0%), revenue decline >-8% comparable, CMD disappointing, any kill condition
+- **Triggers para UPGRADE**: CMD announces OEM divestment + connected focus + margin path to 9%+
 
 ### Sector allocation
-- **Recomendacion**: Mantener exposicion actual, no sobreponderar hasta mejora ciclo construccion
-- **Diversificacion**: Si queremos mas industrial, preferir automation (ABB, Siemens) sobre lighting puro por menor commoditization risk
+- **Recomendacion**: **NO anadir exposicion al sector lighting hasta CMD clarity**
+- **Diversificacion**: Si queremos mas industrial, preferir automation (ABB, Siemens) sobre lighting por riesgo commoditization
+- **Risk**: Si LIGHT.AS deteriora further, considerar EXIT antes de CMD si kill conditions approach
+
+---
+
+## Dependencias Activas
+
+| Tipo | Ticker | Thesis Path | Ultima Eval | Status |
+|------|--------|-------------|-------------|--------|
+| Portfolio | LIGHT.AS | thesis/active/LIGHT.AS | 2026-02-06 | HOLD-PROBATION |
 
 ---
 
@@ -167,6 +188,7 @@ La building automation es donde Signify compite con su plataforma Interact (IoT 
 | Fecha | Cambio | Razon |
 |-------|--------|-------|
 | 2026-02-03 | Status inicial: NEUTRAL | Primera version sector view |
+| 2026-02-06 | Status: NEUTRAL-DETERIORATING | Q4 2025 Signify earnings miss, JPM downgrade, thesis debilitada |
 
 ---
 
@@ -192,11 +214,13 @@ La building automation es donde Signify compite con su plataforma Interact (IoT 
 - [Inside Lighting: Signify Annual Report Insights](https://inside.lighting/news/25-03/7-key-insights-signifys-annual-report)
 - [GlobeNewswire: Smart Lighting Company Evaluation 2025](https://www.globenewswire.com/news-release/2025/06/16/3100049/0/en/Smart-Lighting-Company-Evaluation-Report-2025-with-Focus-on-Notable-Players-Signify-Acuity-Brands-and-Legrand.html)
 
-### Signify Valuation
+### Signify Valuation & Earnings
 - [MarketScreener: Signify Ratings](https://www.marketscreener.com/quote/stock/SIGNIFY-N-V-27862555/ratings/)
 - [Simply Wall St: Signify Analysis](https://simplywall.st/stocks/nl/capital-goods/ams-light/signify-shares)
 - [Stock Analysis: Signify](https://stockanalysis.com/quote/ams/LIGHT/)
 - [Yahoo Finance: Signify Analyst Estimates](https://finance.yahoo.com/quote/LIGHT.AS/analysis/)
+- [Signify Q4 2025 Results Report](https://www.signify.com/static/quarterlyresults/2025/q4_2025/signify-fourth-quarter-and-full-year-results-2025-report.pdf)
+- [J.P. Morgan downgrades Signify to neutral](https://www.investing.com/news/stock-market-news/jp-morgan-downgrades-signify-to-neutral-after-q4-miss-and-margin-outlook-cut-4477889)
 
 ### Cyclicality & Construction
 - [Contracting Business: Construction Forecasting](https://www.contractingbusiness.com/hvacrdb/article/20859154/the-construction-industry-focus-on-forecasting)

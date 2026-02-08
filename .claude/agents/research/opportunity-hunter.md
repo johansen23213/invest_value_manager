@@ -104,7 +104,7 @@ ls world/sectors/{sector}.md
 4. ❌ Recomendar sin mostrar de dónde viene la idea (fuente)
 
 ## Cuándo Usar Este Agente
-- Inicio de sesión cuando cash > 15%
+- Inicio de sesión cuando hay cash disponible para desplegar
 - Cuando el humano pregunta "¿qué oportunidades hay?"
 - Después de vender una posición y tener capital para desplegar
 - Proactivamente cada semana para refrescar pipeline

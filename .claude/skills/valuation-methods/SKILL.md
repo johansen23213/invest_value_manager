@@ -1,11 +1,11 @@
 ---
 name: valuation-methods
-description: "Framework v3.0 - Métodos de valoración por Quality Tier y tipo de empresa. Owner Earnings Yield para Compounders."
+description: "Framework v4.0 - Metodos de valoracion por tipo de empresa. Razonamiento sobre MoS, no limites fijos."
 user-invocable: false
 disable-model-invocation: false
 ---
 
-# Valuation Methods v3.0
+# Valuation Methods v4.0
 
 ## Principio Fundamental
 
@@ -35,18 +35,12 @@ Maintenance Capex ≈ Depreciation × 1.1
 
 Owner Earnings Yield = OE / Market Cap
 
-Interpretación:
-┌────────────┬─────────────────────────────────┐
-│ OE Yield   │ Valoración                      │
-├────────────┼─────────────────────────────────┤
-│ > 5%       │ Muy atractivo (raro)            │
-│ 4-5%       │ Atractivo                       │
-│ 3-4%       │ Fair si growth >10%             │
-│ < 3%       │ Caro (incluso para compounder)  │
-└────────────┴─────────────────────────────────┘
-
-PATRÓN: OE Yield + Expected Growth se compara con coste de capital
-        Mayor spread = más atractivo. Ver precedentes en decisions_log.
+Interpretacion (contexto, no regla):
+- OEY alto = mas valor por euro invertido
+- OEY bajo = mercado paga premium por growth futuro
+- Comparar OEY + Expected Growth vs WACC
+- Mayor spread = mas atractivo
+- Consultar precedentes en decisions_log.yaml para niveles historicos aceptados
 ```
 
 **Ejemplo GOOGL:**
@@ -58,7 +52,7 @@ Owner Earnings = $70B - $16.5B + $15B = $68.5B
 Market Cap = $2.2T
 OE Yield = 3.1%
 Expected Growth = 12%
-OE Yield + Growth = 15.1% → COMPRAR si MoS OK
+OE Yield + Growth = 15.1% vs WACC ~9% = spread positivo (razonar en contexto)
 ```
 
 #### Método Secundario (40%): Reverse DCF

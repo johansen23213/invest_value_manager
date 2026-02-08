@@ -94,6 +94,32 @@ sizing_decisions:
       Riesgo: AI disruption. Pero timeline es 3-5 años, no inmediato.
     outcome: "Pendiente"
 
+  - date: 2026-02-05
+    ticker: LULU
+    action: BUY
+    sizing: "3.5%"
+    context:
+      quality_score: 82
+      tier: A
+      mos: "34%"
+      price_vs_52w: "-58% from 52-week high, fallen angel"
+      conviction: "Alta"
+      macro: "Late cycle, pero affluent consumers resilient"
+    reasoning: |
+      LULU es Quality Compounder (QS 82, Tier A) - identico a NVO.
+      Caida -58% por problemas CICLICOS (producto stale, US debil), NO estructurales.
+      Evidencia de ciclico vs estructural:
+      - Gross Margin 59% INTACTO (+23pp vs sector)
+      - ROIC 25%+ spread mantenido
+      - International +33%, China +46% compensa US weakness
+      - Management actuando (35% newness Spring 2026)
+      MoS 34% es excelente para Tier A (precedentes: NVO 38%, ADBE 31%, MONY.L 36%).
+      Sizing 3.5% coherente con precedentes Tier A (3-5% inicial).
+      Si cae 50%, pierdo 1.75% del portfolio - aceptable para conviccion alta.
+      CEO transition es riesgo adicional pero manejable (Co-CEOs interim competentes).
+      Precedente similar: NVO con guidance shock → compra exitosa.
+    outcome: "Pendiente - posición recién abierta"
+
 # =============================================================================
 # DECISIONES DE TRIM/SELL
 # =============================================================================

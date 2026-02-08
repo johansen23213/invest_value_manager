@@ -87,6 +87,19 @@ Los precedentes muestran PATRONES observados, no REGLAS a seguir.
 
 ## PARTE 3: INVESTMENT COMMITTEE GATES v4.0
 
+### Gate 0: Sector View Exists (HARD GATE - Sesión 44)
+```
+[ ] ¿Existe sector view para esta empresa?
+    → Verificar: glob world/sectors/*{sector}*
+    → SI: Continuar con Gates 1-9
+    → NO: **STOP. Crear sector view PRIMERO.**
+          Lanzar sector-screener agent.
+          NO HAY EXCEPCIONES.
+
+RAZÓN: Error #30 (ADBE) y #42 (LULU) = comprar sin contexto sectorial.
+Esto no es opcional. Es un check automático.
+```
+
 ### Gate 1: Quality Score
 ```
 [ ] Quality Score calculado: ___/100

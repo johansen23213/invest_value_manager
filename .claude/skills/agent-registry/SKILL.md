@@ -111,7 +111,7 @@ El orchestrator (yo, Claude) delega a agentes especializados. Lee CLAUDE.md que 
 #### fundamental-analyst
 | Campo | Valor |
 |-------|-------|
-| Responsabilidad | Análisis profundo de empresas con Framework v2.0 |
+| Responsabilidad | Análisis profundo de empresas con Framework v4.0 |
 | Single-responsibility | Crea thesis completa con 5 fases obligatorias |
 | Skills | business-analysis-framework, projection-framework, valuation-methods, thesis-template, moat-framework |
 | Lee | world/current_view.md, **world/sectors/{sector}.md**, portfolio/current.yaml |
@@ -132,11 +132,11 @@ El orchestrator (yo, Claude) delega a agentes especializados. Lee CLAUDE.md que 
 #### review-agent
 | Campo | Valor |
 |-------|-------|
-| Responsabilidad | Re-evaluación de posiciones activas con Framework v2.0 |
+| Responsabilidad | Re-evaluación de posiciones activas con Framework v4.0 |
 | Single-responsibility | Compara thesis vs realidad, recomienda HOLD/ADD/TRIM/SELL |
 | Skills | re-evaluation-protocol, business-analysis-framework, projection-framework, valuation-methods, investment-rules |
 | Lee | world/current_view.md, **world/sectors/{sector}.md**, thesis/active/{TICKER}/thesis.md |
-| Escribe | Actualiza thesis con v2.0, journal/reviews/ |
+| Escribe | Actualiza thesis con v4.0, journal/reviews/ |
 | Dependencias | sector view DEBE existir antes de re-evaluar |
 
 #### valuation-specialist (micro)
@@ -180,7 +180,7 @@ El orchestrator (yo, Claude) delega a agentes especializados. Lee CLAUDE.md que 
 | Lee | world/sectors/*.md, state/system.yaml (watchlist, standing_orders) |
 | Escribe | N/A (output directo al orchestrator) |
 | Dependencias | Usa dynamic_screener.py, verifica sector views existen |
-| Cuándo usar | Cash >15%, búsqueda de ideas, post-venta, proactivamente semanal |
+| Cuándo usar | Cash sin oportunidades claras, búsqueda de ideas, post-venta, proactivamente semanal |
 
 #### sector-screener
 | Campo | Valor |

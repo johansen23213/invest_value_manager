@@ -26,7 +26,7 @@ disable-model-invocation: false
 ## Qué NO puede modificar
 - settings.json (permisos)
 - portfolio/current.yaml (Claude modifica tras confirmación humano)
-- config/rules.yaml (reglas fijas)
+- learning/principles.md (principios adaptativos - solo con razón documentada)
 
 ## Changelog format
 ```yaml
