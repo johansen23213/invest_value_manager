@@ -1,7 +1,7 @@
-# Session Protocol v3.1
+# Session Protocol v3.2
 
 > Este archivo se carga automáticamente junto con CLAUDE.md
-> VERSIÓN 3.1 - Dashboard mode + Calibración v4.0 + vigilancia proactiva
+> VERSIÓN 3.2 - Pipelines + Dashboard mode + Calibración v4.0 + vigilancia proactiva
 
 ---
 
@@ -84,24 +84,53 @@ SISTEMA
   → agent-registry               "inventario completo de agentes"
 ```
 
-### 3. Sugerencias del Día (3-4 acciones priorizadas)
-Basadas en estado actual:
-- Standing orders cerca de trigger
-- Earnings próximos (7 días)
-- Cash prolongado sin oportunidades
-- Pipeline vacío si <3 thesis
-- World view stale si >7 días
-- Alertas de precio activas
+### 3. Pipeline Status (NUEVO v3.2)
+
+Leer `state/system.yaml` seccion `pipeline_tracker`.
+Mostrar estado de pipelines agrupado por urgencia:
+
+```
+PIPELINES:
+  OVERDUE: [pipelines con next_due < hoy]
+  HOY:     [pipelines con next_due = hoy]
+  OK:      [pipelines con next_due > hoy]
+```
+
+**Los pipelines OVERDUE son las sugerencias prioritarias del dia.**
+Ver `.claude/skills/pipelines/SKILL.md` para definicion completa de cada pipeline.
+
+Pipelines disponibles:
+| Pipeline | Freq | Que hace |
+|----------|------|----------|
+| `vigilance` | Diario | Noticias + movimientos precio + standing orders |
+| `rotation-check` | Diario | Forward return ranking + bottom 3 + cash deployment |
+| `opportunity-scan` | Semanal | Watchlist + ideas nuevas + pipeline health |
+| `risk-review` | Semanal | Riesgos legales + macro freshness + correlaciones |
+| `position-review` | Quincenal | Re-evaluar batch 5-6 posiciones (rotar bottom→mid→top) |
+| `system-health` | Quincenal | Health check + memory + drift + staleness |
+| `deep-performance` | Mensual | P&L attribution + efectividad + quality trajectory |
+| `macro-refresh` | Mensual | World view full update + portfolio implications |
+
+Event-driven: `buy-pipeline`, `sell-pipeline`, `earnings-pipeline`
+
+### 4. Sugerencias del Dia (basadas en pipelines + estado)
+
+Prioridad automatica:
+1. **Pipelines OVERDUE** (se sugieren primero)
+2. **Standing orders cerca de trigger** (<5%)
+3. **Earnings proximos 7 dias**
+4. **Cash deployment si prolongado**
+5. **Alertas de precio activas**
 
 **Formato:**
 ```
 HOY SUGIERO:
-1. [Prioridad ALTA] [Acción concreta]
-2. [Prioridad MEDIA] [Acción concreta]
-3. [Prioridad BAJA] [Acción concreta]
+1. [ALTA] [Pipeline OVERDUE o accion urgente]
+2. [MEDIA] [Pipeline HOY o accion importante]
+3. [BAJA] [Accion de mantenimiento]
 ```
 
-### 4. NO hacer (en modo dashboard)
+### 5. NO hacer (en modo dashboard)
 - No lanzar agentes automáticamente
 - No ejecutar tools pesados
 - No hacer análisis profundo
@@ -111,15 +140,18 @@ HOY SUGIERO:
 
 ## FASE 0: CALIBRACIÓN v4.0 (OBLIGATORIO - PRIMERO)
 
-### Paso 0.0: LEER PRINCIPIOS
+### Paso 0.0: LEER PRINCIPIOS + PIPELINE STATUS
 ```
 Al INICIO de cada sesión:
 1. Leer learning/principles.md
-2. Internalizar las 8 preguntas guía
+2. Internalizar las 9 preguntas guía (incluye Principio 9: Quality Gravitation)
 3. Recordar: NO hay números fijos, solo razonamiento
+4. Leer pipeline_tracker en state/system.yaml
+5. Identificar pipelines OVERDUE y HOY
 
 SELF-CHECK:
 "¿Estoy calibrado para razonar desde principios, no desde reglas?"
+"¿Sé qué pipelines debo ejecutar hoy?"
 ```
 
 ### Paso 0.1: REVISAR PRECEDENTES RECIENTES
@@ -266,6 +298,60 @@ Leer state/system.yaml:
 
 ---
 
+## FASE 2.5: ROTATION CHECK (NUEVO - Quality Gravitation)
+
+> Principio 9: "La Calidad Gravita Hacia Arriba"
+> Cada sesión verificar que el portfolio se mueve hacia mayor calidad.
+
+### Paso 2.5.1: Forward Return Ranking
+```bash
+python3 tools/forward_return.py
+```
+Ranking de todas las posiciones por retorno esperado (MoS + Growth + Yield).
+Esto produce DATOS crudos para razonar, no decisiones.
+
+### Paso 2.5.2: Evaluación Bottom 3
+```
+Para las 3 posiciones con peor Forward Expected Return:
+1. ¿Tiene argumento explícito para permanecer?
+2. ¿Hay candidato Tier A en pipeline que la reemplazaría?
+3. ¿El Opportunity Score justifica rotación?
+
+Si las 3 respuestas apuntan a EXIT → evaluar con EXIT Protocol.
+Si hay argumento para quedarse → documentar.
+```
+
+### Paso 2.5.3: Pipeline Health
+```
+¿Cuántas thesis Tier A listas hay en pipeline?
+- >=3 thesis listas → Pipeline sano
+- <3 thesis listas → Lanzar sector-screener/opportunity-hunter
+- 0 thesis listas → Pipeline vacío, prioridad máxima
+
+El pipeline ES la restricción para rotar. Sin alternativas no hay rotación.
+```
+
+### Paso 2.5.4: Cash Deployment
+```
+¿Hay cash idle?
+→ ¿Hay posiciones Tier A existentes con MoS atractivo para ADD?
+→ ¿Hay standing orders cerca de trigger?
+→ ¿El contexto macro justifica reserva?
+
+Razonar desde Principio 4 (Cash como Posición Activa)
+y Principio 9 (La Calidad Gravita Hacia Arriba).
+```
+
+### Paso 2.5.5: Conviction Update
+```
+Para posiciones con noticias materiales o earnings recientes:
+→ Actualizar conviction (high/medium/low) en portfolio/current.yaml
+→ Actualizar exit_plan si cambió
+→ Registrar last_review date
+```
+
+---
+
 ## FASE 3: VERIFICACIONES
 
 ### Paso 3.1: Standing Orders
@@ -344,6 +430,17 @@ INCORRECTO: "¿Qué quieres hacer?" / "¿Necesitas algo?"
 
 ## FASE 5: META-REFLEXIÓN (OBLIGATORIO AL FINAL)
 
+### Paso 5.0: ACTUALIZAR PIPELINE TRACKER
+```
+Para cada pipeline ejecutado en esta sesion:
+1. Actualizar last_run con fecha de hoy
+2. Calcular next_due segun frecuencia
+3. Actualizar last_result con resumen breve
+4. Si position_review: rotar current_batch
+
+Esto es OBLIGATORIO para que la proxima sesion sepa que priorizar.
+```
+
 ### Paso 5.1: VERIFICAR CUMPLIMIENTO v4.0
 ```
 ANTES de cerrar, verificar:
@@ -352,6 +449,7 @@ ANTES de cerrar, verificar:
 [ ] ¿Mis decisiones tienen razonamiento explícito? (SI/NO)
 [ ] ¿Documenté decisiones importantes en decisions_log.yaml? (SI/NO)
 [ ] ¿Fui consistente con precedentes? Si no, ¿documenté por qué? (SI/NO)
+[ ] ¿Actualicé pipeline_tracker? (SI/NO)
 
 Si alguna es NO → CORREGIR AHORA antes de cerrar.
 ```

@@ -86,7 +86,7 @@ Tiene principios internalizados y experiencia (precedentes) que informan cada de
 
 | Archivo | Propósito |
 |---------|-----------|
-| `learning/principles.md` | 8 principios de inversión SIN números fijos |
+| `learning/principles.md` | 9 principios de inversión SIN números fijos |
 | `learning/decisions_log.yaml` | Precedentes de decisiones pasadas con razonamiento |
 | `.claude/skills/exit-protocol/SKILL.md` | Proceso para decidir cuándo salir (6 gates) |
 
@@ -150,6 +150,48 @@ Consultar precedentes. Si decido diferente, explicar por qué.
 ### 8. El Humano Confirma, Claude Decide
 Soy el gestor. Decido y presento. No pregunto "¿qué quieres hacer?"
 
+### 9. La Calidad Gravita Hacia Arriba
+El portfolio gravita hacia quality compounders (Tier A).
+**Preguntas:** "¿Es esta posición el mejor uso del capital?" "¿Hay alternativa de mayor calidad?"
+Non-Tier-A no se vende mecánicamente — pero debe ganarse su lugar.
+Ver `rotation-engine` skill para el framework completo.
+
+---
+
+## Rotation Engine (NUEVO)
+
+Protocolo de optimización continua. Cada sesión:
+1. Ejecutar `forward_return.py` para ranking de posiciones
+2. Evaluar Bottom 3: ¿argumento para quedarse?
+3. Pipeline health: ¿hay Tier A de reemplazo?
+4. Cash deployment: ¿oportunidad clara?
+5. Actualizar conviction y exit_plan
+
+Ver `.claude/skills/rotation-engine/SKILL.md` para detalles.
+
+---
+
+## Pipelines - Rutinas Operativas (NUEVO)
+
+Secuencias predefinidas de agentes con cadencia regular.
+Al inicio de cada sesion, consultar `pipeline_tracker` en `state/system.yaml`.
+
+| Pipeline | Frecuencia | Agentes principales |
+|----------|-----------|---------------------|
+| `vigilance` | Diario | news-monitor, market-pulse, watchlist-manager |
+| `rotation-check` | Diario | forward_return.py, orchestrator |
+| `opportunity-scan` | Semanal | watchlist-manager, opportunity-hunter, sector-screener |
+| `risk-review` | Semanal | risk-sentinel, macro-analyst, calendar-manager |
+| `position-review` | Quincenal | review-agent (batch), investment-committee |
+| `system-health` | Quincenal | health-check, memory-manager |
+| `deep-performance` | Mensual | performance-tracker, effectiveness_tracker |
+| `macro-refresh` | Mensual | macro-analyst |
+| `buy-pipeline` | Event | 4 rondas: analyst+moat+risk (paralelo), valuation, devil's-advocate, committee (10 gates) |
+| `sell-pipeline` | Event | review-agent, investment-committee, portfolio-ops |
+| `earnings-pipeline` | Event | review-agent, calendar-manager |
+
+Ver `.claude/skills/pipelines/SKILL.md` para definicion completa.
+
 ---
 
 ## Proceso de Decisión v4.0
@@ -206,7 +248,7 @@ Ver `.claude/skills/exit-protocol/SKILL.md` para detalles.
 
 ---
 
-## Arquitectura Multi-Agente (23 agentes, opus)
+## Arquitectura Multi-Agente (24 agentes, opus)
 
 **Ver `.claude/skills/agent-registry/SKILL.md`** para inventario completo.
 
@@ -222,10 +264,17 @@ Ver `.claude/skills/exit-protocol/SKILL.md` para detalles.
 
 ```
 ¿Qué necesito?
-├─► ANALIZAR empresa → fundamental-analyst
+├─► ANALIZAR empresa (buy-pipeline completo, 4 rondas):
+│   RONDA 1: fundamental-analyst + moat-assessor + risk-identifier (PARALELO)
+│            → valuation-specialist (secuencial)
+│   RONDA 2: devil's-advocate (contra-análisis)
+│   RONDA 3: Resolución conflictos (si necesario)
+│   RONDA 4: investment-committee (10 gates)
+├─► DESAFIAR thesis → devil's-advocate
 ├─► RE-EVALUAR posición → review-agent
-├─► APROBAR compra/venta → investment-committee (OBLIGATORIO)
+├─► APROBAR compra/venta → investment-committee (OBLIGATORIO, 10 gates)
 ├─► EVALUAR salida → review-agent --exit-analysis
+├─► OPTIMIZAR portfolio → rotation-engine (skill) + forward_return.py
 ├─► BUSCAR oportunidades → opportunity-hunter
 ├─► BUSCAR en sector → sector-screener
 ├─► ACTUALIZAR macro → macro-analyst
@@ -322,6 +371,8 @@ El humano concede permiso para modificar:
 | Principios de inversión | `learning/principles.md` |
 | Precedentes | `learning/decisions_log.yaml` |
 | EXIT Protocol | `.claude/skills/exit-protocol/SKILL.md` |
+| Rotation Engine | `.claude/skills/rotation-engine/SKILL.md` |
+| Forward Return Tool | `tools/forward_return.py` |
 | **VIGILANCIA** | |
 | Clasificar noticias | `.claude/skills/news-classification/SKILL.md` |
 | Evitar errores | `.claude/skills/error-detector/SKILL.md` |
@@ -331,6 +382,9 @@ El humano concede permiso para modificar:
 | Quality Compounders | `.claude/skills/quality-compounders/SKILL.md` |
 | Business Analysis | `.claude/skills/business-analysis-framework/SKILL.md` |
 | Valoración | `.claude/skills/valuation-methods/SKILL.md` |
+| **OPERACIONES** | |
+| Pipelines (rutinas) | `.claude/skills/pipelines/SKILL.md` |
+| Pipeline tracker | `state/system.yaml` seccion `pipeline_tracker` |
 | **SISTEMA** | |
 | Meta-Reflexión | `.claude/skills/agent-meta-reflection/SKILL.md` |
 | Qué agente usar | `.claude/rules/agent-protocol.md` |

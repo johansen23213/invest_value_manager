@@ -3,6 +3,8 @@
 **Preparado:** 05 Febrero 2026 (actualizado)
 **Framework:** v4.0
 
+**ARCHIVED: 2026-02-07 -- Position closed before earnings. Capital rotated to BYIT.L (Tier A).**
+
 ---
 
 ## 1. POSICION ACTUAL (actualizado 05-Feb-2026)

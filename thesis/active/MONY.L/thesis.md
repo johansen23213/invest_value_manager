@@ -593,3 +593,51 @@ python3 tools/constraint_checker.py CHECK MONY.L 400
 
 *Thesis completada: 2026-02-04*
 *Pendiente: Aprobacion Investment Committee*
+
+---
+
+## ADVERSARIAL REVIEW ADDENDUM (2026-02-07)
+
+> **Review Type:** Adversarial pipeline (risk-identifier + valuation-specialist + review-agent)
+> **Trigger:** Adversarial Portfolio Review Fase 1 (earnings urgentes)
+
+### Fair Value Revision
+
+| Metric | Original Thesis | Adversarial | Delta |
+|--------|----------------|-------------|-------|
+| Expected FV | 277 GBp | **201 GBp** | **-27%** |
+| Bear FV | 190 GBp | **157 GBp** | -17% |
+| Revenue Growth assumed | 5-7% | **1-2% actual** | Massive |
+| Value Trap Score | 1/10 | **3-4/10** | Elevated |
+| MoS at 166.7 GBp | 40% | **17.1%** | -23pp |
+
+**Working FV: 201 GBp** (replaces 277 GBp for decision-making)
+
+### Key Findings Not in Original Thesis
+1. **Agentic AI is threat, not opportunity.** Thesis conflated internal chatbot AI (cost savings) with external agentic AI (demand destruction). 45% of shoppers using AI for comparison. Google AI Overviews cutting CTR by 50% on 14% of commercial queries.
+2. **Motor insurance premiums -9% H1 2025.** Insurance is 52% of revenue and already declined -2% H1 2025. Not in thesis.
+3. **Traffic decline 8.82% MoM** (Nov 2025). Not monitored in thesis.
+4. **Compound correlated risks**: AI + insurance + Google converging simultaneously. P/E 11x may be FAIR, not cheap.
+
+### Verdict: HOLD through earnings Feb 23 | Conviction: LOW
+
+**Reasoning:** ROIC 29% >> WACC 9% distinguishes from sell precedents (TEP.PA, LIGHT.AS, PFE all had ROIC < WACC). CEO bought at 170.6 GBp Feb 5. Position 4%, risk bounded. Earnings in 16 days provide decisive information.
+
+### Post-Earnings Decision Tree
+- Revenue < GBP 435M OR Insurance -5%+ H2 --> **SELL**
+- Revenue 435-450M, guidance cautious --> **HOLD 90d probation**
+- Revenue > 450M + AI monetization shown --> **Maintain, upgrade conviction**
+
+### Updated Kill Conditions (tightened)
+1. Revenue decline >5% in FY2025 (was >10%)
+2. Insurance segment revenue -5%+ in H2 2025
+3. Dividend cut
+4. Organic traffic -15% YoY for 2+ quarters
+5. ROIC < WACC for 2+ years
+6. Google AI Overviews >25% of MONY-relevant queries
+
+### Version History Update
+| Version | Date | Change |
+|---------|------|--------|
+| 1.0 | 2026-02-04 | Thesis original. FV 240-280 GBp |
+| **2.0** | **2026-02-07** | **Adversarial review. FV revised to 201 GBp. Conviction LOW. HOLD pre-earnings.** |

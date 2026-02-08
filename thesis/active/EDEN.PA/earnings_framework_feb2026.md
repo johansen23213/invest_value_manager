@@ -15,8 +15,8 @@
 | Position % | ~4% |
 | Unrealized P&L | -15% |
 | Quality Score | 62 (Tier B) |
-| Fair Value | EUR 51.5 (base), EUR 33.5 (bear) |
-| MoS actual | 65% (vs base FV) |
+| Fair Value | EUR 29.0 (adversarial base), EUR 20.0 (adversarial bear) |
+| MoS actual | 39.2% (vs adversarial base FV) |
 | Precio vs 52w low | +5% (low: 16.96) |
 
 ---
@@ -26,10 +26,10 @@
 **FY2025 Net Income Consensus:** ~EUR 220m
 **Target Price Consensus:** EUR 25.35
 
-**Guidance Management:**
+**Guidance Management (UPDATED post-Brazil decree):**
 - FY2025: Expected in-line with consensus
-- FY2026: "Rebasing year" con 2-4% growth (regulatory changes + portfolio optimization)
-- FY2027-2028: Target 8-12% EBITDA like-for-like growth
+- FY2026: REVISED to -8/-12% EBITDA (was +2/+4% pre-decree)
+- FY2027-2028: Target 8-12% EBITDA like-for-like growth (MAINTAINED - KEY TO VERIFY)
 
 **Factores clave:**
 - Regulatory changes impactando employee benefits
@@ -155,7 +155,7 @@ El mercado YA sabe que 2026 sera un ano de transicion. Precio actual EUR 17.73 v
 - P1: Sizing 4% es coherente con conviccion media-alta para Tier B
 
 **Razonamiento pre-comprometido:**
-EDEN.PA esta en un ciclo de "rebasing" conocido. El mercado ya priced in el 2026 debil. Nuestro FV base de EUR 51.5 asume recovery en 2027+. Un earnings que confirme el plan (incluso si debil en 2026) valida la tesis. Solo un deterioro del outlook 2027+ justificaria re-evaluacion.
+EDEN.PA esta en un ciclo de "rebasing" conocido. El mercado ya priced in el 2026 debil. Nuestro FV adversarial de EUR 29.0 asume recovery en 2027+ (thesis v3.0 FV de EUR 38.4 fue reducido -24.5% por adversarial review: Italy EUR 120M/yr no incluido, Brazil 19% not 9.5%, WACC 9.5% not 8.5%). MoS vs bear solo 11.8% -- thin para Tier B. HOLD solo si earnings confirman recovery trajectory 2027-28.
 
 ---
 

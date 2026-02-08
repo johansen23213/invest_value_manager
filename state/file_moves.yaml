@@ -39,6 +39,48 @@ moves:
     to: thesis/active/LULU/
     reason: "Position opened by user (2 shares, $343.24)"
     triggered_by: "portfolio-ops: BUY confirmation"
+
+  - date: 2026-02-06
+    file: thesis/active/SHEL.L/*
+    from: thesis/active/SHEL.L/
+    to: thesis/archive/SHEL.L/
+    reason: "Position closed - SELL 10.848578 shares @ 2774.50 GBp. QS 36 borderline Tier D, MoS -3.5%. Capital rotated to AUTO.L."
+    triggered_by: "portfolio-ops: SELL confirmation"
+
+  - date: 2026-02-06
+    file: thesis/research/AUTO.L/thesis.md
+    from: thesis/research/AUTO.L/
+    to: thesis/active/AUTO.L/
+    reason: "Position opened by user (65 shares @ 485.80 GBp, ~363 EUR)"
+    triggered_by: "portfolio-ops: BUY confirmation"
+
+  - date: 2026-02-07
+    file: thesis/active/TEP.PA/*
+    from: thesis/active/TEP.PA/
+    to: thesis/archive/TEP.PA/
+    reason: "Position closed - SELL 11.015 shares @ ~52.18 EUR. QS 46 Tier C, MoS 17%, ROIC < WACC. Capital rotated to BYIT.L (Tier A)."
+    triggered_by: "portfolio-ops: SELL confirmation"
+
+  - date: 2026-02-07
+    file: thesis/active/LIGHT.AS/*
+    from: thesis/active/LIGHT.AS/
+    to: thesis/archive/LIGHT.AS/
+    reason: "Position closed - SELL 28.753 shares @ ~20.06 EUR. QS 56 Tier B probation, MoS 8.4% thin, thesis debilitated. Took profits +13.7%. Capital rotated to BYIT.L (Tier A)."
+    triggered_by: "portfolio-ops: SELL confirmation"
+
+  - date: 2026-02-07
+    file: thesis/active/PFE/*
+    from: thesis/active/PFE/
+    to: thesis/archive/PFE/
+    reason: "Position closed - SELL 18.664 shares @ ~$27.22. QS 47 Tier C, MoS -3.2% overvalued, ROIC < WACC, patent cliff. Capital rotated to BYIT.L (Tier A)."
+    triggered_by: "portfolio-ops: SELL confirmation"
+
+  - date: 2026-02-07
+    file: thesis/research/BYIT.L/thesis.md
+    from: thesis/research/BYIT.L/
+    to: thesis/active/BYIT.L/
+    reason: "Position opened by user (110 shares @ ~296 GBp, $444)"
+    triggered_by: "portfolio-ops: BUY confirmation"
 # Format:
 #   - date: 2026-01-31
 #     file: thesis/research/SHEL/thesis.md

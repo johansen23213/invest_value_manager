@@ -2,12 +2,12 @@
 # PORTFOLIO - Fuente de verdad: eToro
 # =============================================================================
 # Actualizar después de cada operación en eToro
-# Última actualización: 2026-02-05
+# Última actualización: 2026-02-07
 # NOTA: eToro muestra TODO en USD. invested = monto original, avg_cost = invested/shares
 # =============================================================================
 
 cash:
-  amount: 790.40  # Post BUY LULU 2026-02-05 (1081 - 290.60 EUR = $343.24/1.1811)
+  amount: 1979  # Post 3 SELLs (TEP.PA ~575 + LIGHT.AS ~577 + PFE ~431) + BUY BYIT.L (-377) on 2026-02-07. Previous 773.44 + 575 + 577 + 431 - 377 = ~1979
   currency: EUR
 
 positions:
@@ -19,22 +19,10 @@ positions:
     avg_cost_usd: 33.91  # Unchanged (original cost basis)
     date_opened: 2026-01-26
     thesis: thesis/active/DTE.DE/thesis.md
-
-  - ticker: SHEL.L
-    name: "Shell plc"
-    shares: 10.848578  # Trimmed from 20.85 on 2026-02-02
-    invested_usd: 398.37  # Prorated: 765.54 * (10.85/20.85)
-    avg_cost_usd: 36.72  # eToro uses LSE listing (GBp), NOT NYSE
-    date_opened: 2026-01-26
-    thesis: thesis/active/SHEL.L/thesis.md
-
-  - ticker: PFE
-    name: "Pfizer Inc."
-    shares: 18.66368
-    invested_usd: 499.25
-    avg_cost_usd: 26.75
-    date_opened: 2026-01-27
-    thesis: thesis/active/PFE/thesis.md
+    conviction: medium
+    fair_value: "EUR 33-35 (adversarial, was 36.50-38.50)"
+    last_review: 2026-02-07
+    exit_plan: "HOLD through earnings Feb 26. EXIT if guidance disappoints or div cut. TRIM if price >EUR 33 without thesis improvement."
 
   - ticker: ALL
     name: "Allstate Corporation"
@@ -43,14 +31,6 @@ positions:
     avg_cost_usd: 196.00
     date_opened: 2026-01-27
     thesis: thesis/active/ALL/thesis.md
-
-  - ticker: TEP.PA
-    name: "Teleperformance SE"
-    shares: 11.015018  # Trimmed 3 shares 2026-02-03 (14.015 - 3)
-    invested_usd: 725.79  # Prorated: 923.37 * (11.015/14.015)
-    avg_cost_usd: 65.88  # Unchanged (original cost basis)
-    date_opened: 2026-01-31
-    thesis: thesis/active/TEP.PA/thesis.md
 
   - ticker: SAN.PA
     name: "Sanofi SA"
@@ -76,14 +56,6 @@ positions:
     date_opened: 2026-01-31
     thesis: thesis/active/IMB.L/thesis.md
 
-  - ticker: LIGHT.AS
-    name: "Signify NV"
-    shares: 28.753048
-    invested_usd: 597.70  # eToro value at open
-    avg_cost_usd: 20.79  # 597.70 / 28.753048
-    date_opened: 2026-01-31
-    thesis: thesis/active/LIGHT.AS/thesis.md
-
   - ticker: A2A.MI
     name: "A2A Group"
     shares: 134.00
@@ -99,6 +71,10 @@ positions:
     avg_cost_usd: 20.87  # 459.18 / 22
     date_opened: 2026-02-02
     thesis: thesis/active/EDEN.PA/thesis.md
+    conviction: medium
+    last_review: 2026-02-07
+    fair_value: "EUR 29.0 (adversarial, was 38.4)"
+    exit_plan: "HOLD through earnings Feb 24. EXIT if 2027-28 guidance <5% or France regulation. TRIM if MoS vs revised FV <15%."
 
   - ticker: VNA.DE
     name: "Vonovia SE"
@@ -131,6 +107,10 @@ positions:
     avg_cost_usd: 201.42  # 402.84 / 2
     date_opened: 2026-02-02
     thesis: thesis/active/UHS/thesis.md
+    conviction: low
+    fair_value: "$243 (adversarial, was $283.74)"
+    last_review: 2026-02-07
+    exit_plan: "HOLD through earnings Feb 26. EXIT if Q4 miss or labor warning. SELL if ROIC < WACC."
 
   - ticker: GL
     name: "Globe Life Inc."
@@ -172,7 +152,11 @@ positions:
     avg_cost_usd: 2.32  # 473 / 204 (169 GBp in USD)
     date_opened: 2026-02-04
     thesis: thesis/active/MONY.L/thesis.md
-    notes: "Third Tier A Quality Compounder. QS 81, MoS 36%. UK price comparison #2. ROIC 29%."
+    notes: "Third Tier A Quality Compounder. QS 81. UK price comparison #2. ROIC 29%."
+    conviction: low
+    last_review: 2026-02-07
+    fair_value: "201 GBp (adversarial, was 277)"
+    exit_plan: "HOLD through earnings Feb 23. SELL if revenue <435M or insurance -5%+. Probation if cautious guidance."
 
   - ticker: LULU
     name: "Lululemon Athletica Inc."
@@ -182,6 +166,24 @@ positions:
     date_opened: 2026-02-05
     thesis: thesis/active/LULU/thesis.md
     notes: "Fourth Tier A Quality Compounder. QS 82, MoS 34%. Fallen angel -58%, problema ciclico no estructural."
+
+  - ticker: AUTO.L
+    name: "AutoTrader Group plc"
+    shares: 65
+    invested_usd: 427.60  # 362.70 EUR * 1.1789
+    avg_cost_usd: 6.58  # 427.60 / 65
+    date_opened: 2026-02-06
+    thesis: thesis/active/AUTO.L/thesis.md
+    notes: "Fifth Tier A Quality Compounder. QS 79, MoS 29%. UK car classifieds monopoly. 75% market share, 50% FCF margin, net cash. Capital rotation from SHEL.L (QS 36)."
+
+  - ticker: BYIT.L
+    name: "Bytes Technology Group plc"
+    shares: 110
+    invested_usd: 444
+    avg_cost_usd: 4.04  # 444 / 110
+    date_opened: 2026-02-07
+    thesis: thesis/active/BYIT.L/thesis.md
+    notes: "Sixth Tier A Quality Compounder. QS 81, MoS 35%. UK #1 software VAR. Net cash, 30% FCF margin, 9.6% insider. Capital rotation from TEP.PA+LIGHT.AS+PFE."
 
 transactions:
   - date: 2026-01-26
@@ -431,4 +433,60 @@ transactions:
     price_usd: 171.62
     total_usd: 343.24
     notes: "BUY - Fourth Tier A Quality Compounder. QS 82, MoS 34%. Fallen angel -58% from high. Problema ciclico (producto stale, US debil), NO estructural. International +33%, China +46%."
+
+  - date: 2026-02-06
+    action: SELL
+    ticker: SHEL.L
+    shares: 10.848578
+    price_gbp: 2774.50
+    total_eur: 346
+    pnl_eur: 8
+    pnl_pct: 2.3
+    notes: "EXIT - QS 36 borderline Tier D, MoS -3.5%, thesis debilitated. Capital rotated to AUTO.L (Tier A, QS 79, MoS 29%). EXIT Protocol 6/6 gates SELL."
+
+  - date: 2026-02-06
+    action: BUY
+    ticker: AUTO.L
+    shares: 65
+    price_gbp: 485.80
+    total_eur: 363
+    notes: "BUY - Fifth Tier A Quality Compounder. QS 79, MoS 29%. UK car classifieds monopoly, 75% share, 50% FCF margin. Fallen angel -47%. Capital from SHEL.L rotation."
+
+  - date: 2026-02-07
+    action: SELL
+    ticker: TEP.PA
+    shares: 11.015018
+    price_eur: 52.18
+    total_eur: 575
+    pnl_eur: -48
+    pnl_pct: -6.7
+    notes: "EXIT - QS 46 Tier C, MoS 17% (revised from 38-51%), ROIC < WACC, AI disruption accelerating. Capital rotated to Tier A."
+
+  - date: 2026-02-07
+    action: SELL
+    ticker: LIGHT.AS
+    shares: 28.753048
+    price_eur: 20.06
+    total_eur: 577
+    pnl_eur: 70
+    pnl_pct: 13.7
+    notes: "EXIT - QS 56 Tier B on probation, MoS 8.4% thin, ROIC < WACC, thesis debilitated 2/3 pillars. Took profits. Capital rotated to Tier A."
+
+  - date: 2026-02-07
+    action: SELL
+    ticker: PFE
+    shares: 18.66368
+    price_usd: 27.22
+    total_eur: 431
+    pnl_eur: 8
+    pnl_pct: 1.8
+    notes: "EXIT - QS 47 Tier C, MoS -3.2% (overvalued near 52w high), ROIC < WACC, patent cliff 2026-2028. Capital rotated to Tier A."
+
+  - date: 2026-02-07
+    action: BUY
+    ticker: BYIT.L
+    shares: 110
+    price_gbp: 296
+    total_usd: 444
+    notes: "BUY - Sixth Tier A Quality Compounder. QS 81, MoS 35%. UK #1 software VAR, net cash, 30% FCF margin, 9.6% insider. Fallen angel -47%. IC 9/9 PASS."
 

@@ -120,6 +120,21 @@ python3 tools/constraint_checker.py REPORT               # Contexto actual con p
 - **NO tiene "reference points" ni "warnings" - solo contexto para decidir**
 - Ver `learning/principles.md` para framework de decisión
 
+### forward_return.py - Forward Expected Return ranking (NUEVO)
+```bash
+python3 tools/forward_return.py                    # Todas las posiciones
+python3 tools/forward_return.py --ticker ADBE NVO  # Tickers específicos
+```
+- Calcula Forward Expected Return por posición: MoS% + Growth% + Yield%
+- Lee fair value de thesis files, precios actuales de yfinance
+- Incluye conviction y tailwind si están en portfolio/current.yaml
+- Ranking de mejor a peor retorno esperado
+- Muestra Bottom 3 posiciones y pipeline candidates
+- **Output: DATOS CRUDOS solamente (Framework v4.0)**
+- **NUNCA interpretar ranking como "vender bottom 3"**
+- Usado en FASE 2.5 (Rotation Check) del session-protocol
+- **REGLA: Ejecutar cada sesión como parte del Rotation Check**
+
 ### correlation_matrix.py - Correlaciones entre posiciones
 ```bash
 python3 tools/correlation_matrix.py

@@ -116,9 +116,7 @@ La building automation es donde Signify compite con su plataforma Interact (IoT 
 
 ### Posiciones Activas (Portfolio)
 
-| Ticker | Empresa | Status | Thesis Date | FV | MoS | Notas |
-|--------|---------|--------|-------------|-----|-----|-------|
-| **LIGHT.AS** | Signify | **HOLD-PROBATION** | 2026-02-06 v3.0 | EUR 21.90 | 9.9% | Q4 miss, thesis debilitada, CMD junio definitive |
+*(ninguna actualmente)*
 
 ### Para analisis profundo (value candidates)
 
@@ -177,9 +175,15 @@ La building automation es donde Signify compite con su plataforma Interact (IoT 
 
 ## Dependencias Activas
 
-| Tipo | Ticker | Thesis Path | Ultima Eval | Status |
-|------|--------|-------------|-------------|--------|
-| Portfolio | LIGHT.AS | thesis/active/LIGHT.AS | 2026-02-06 | HOLD-PROBATION |
+*(ninguna actualmente)*
+
+---
+
+## Historial de Analisis
+
+| Ticker | Razon Archivo | Fecha | Leccion |
+|--------|---------------|-------|---------|
+| LIGHT.AS | SOLD - Capital rotation to Tier A (BYIT.L) | 2026-02-06 | QS 56, ROIC < WACC, MoS solo 8.4%. Commoditization lighting mas severa de lo esperado. OEM segment -16.5% Q4 por competencia china. P&L: +13.7%. |
 
 ---
 
@@ -189,6 +193,7 @@ La building automation es donde Signify compite con su plataforma Interact (IoT 
 |-------|--------|-------|
 | 2026-02-03 | Status inicial: NEUTRAL | Primera version sector view |
 | 2026-02-06 | Status: NEUTRAL-DETERIORATING | Q4 2025 Signify earnings miss, JPM downgrade, thesis debilitada |
+| 2026-02-06 | LIGHT.AS SOLD, sin posiciones activas | Capital rotation a BYIT.L (Tier A). QS 56, ROIC < WACC. |
 
 ---
 
