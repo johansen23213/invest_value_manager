@@ -389,6 +389,13 @@ MoS vs Moderate: ($210 - $143.44) / $210 = 31.7%
 
 **Quality Score: 7/10 - TIER B (25% MoS required)**
 
+**QS Tool-First Reconciliation (Sesion 52):**
+- **QS Tool:** 52/100 (Tier C) — Financial Quality 22/40, Growth 13/25, Moat 11/25, CapAlloc 6/10
+- **QS Thesis (old):** 7/10 custom scale (claimed Tier B)
+- **QS Ajustado:** 52/100 (Tier C) — Tool correctly identifies: narrow moat (captive agents, not wide, 11/25), modest growth (13/25). Old /10 scale conflated "passes checklist" with quality depth. Narrow moat + lingering class action risk = Tier C appropriate.
+- **Tier Efectivo:** C (Special Situation)
+- Note: Adversarial review (Feb 2026) found FV $185 (+6% vs thesis $174) — one of few positions where adversarial raised FV.
+
 ---
 
 ## 8. DECISION GATES (Framework v2.0 - 7 Gates)

@@ -291,7 +291,14 @@ FV = 167.53 / (0.09 - 0.045) = 3,723p
 | Defensive sector | 1/1 | Consumer staples (tobacco) |
 | **Total** | **9.5/10** | **Tier A confirmed** |
 
-**Required MoS for Tier A: >=15%**
+**QS Tool-First Reconciliation (Sesion 52):**
+- **QS Tool:** 54/100 (Tier C) — Financial Quality 15/40, Growth 15/25, Moat 14/25, CapAlloc 10/10
+- **QS Thesis (old):** 9.5/10 custom scale (overclaimed Tier A)
+- **QS Ajustado:** 54/100 (Tier C) — Tool penalizes tobacco: excise tax pass-through distorts revenue/margins (gross margin ~40% vs 60%+ for typical Tier A). Tobacco business model is fundamentally different — pricing power comes from addiction + regulation, not gross margin premium. Even with adjustment, Financial Quality (15/40) reflects real leverage and modest FCF margins. Moat 14/25 is debatable (narrow vs wide for regulated tobacco).
+- **Tier Efectivo:** C (Special Situation) — Adversarial review (Feb 2026) confirmed. MoS only 2% vs adversarial FV 3,409 GBp.
+- **Status:** HOLD on PROBATION, LOW-MED conviction
+
+**Required MoS for Tier A: >=15%** (NOTE: position no longer qualifies as Tier A)
 **Actual MoS: ~20%**
 **PASS**
 

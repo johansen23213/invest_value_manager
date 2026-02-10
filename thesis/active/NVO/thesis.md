@@ -13,7 +13,7 @@ Novo Nordisk, the GLP-1 pioneer behind Ozempic and Wegovy, has collapsed 50%+ fr
 
 ---
 
-## Quality Score: 82/100 - Tier A (Quality Compounder)
+## Quality Score: QS Tool 73/100 (Tier B) | QS Thesis 82/100 | QS Ajustado 73 (Tier B)
 
 ### Detailed Breakdown
 
@@ -55,7 +55,13 @@ Novo Nordisk, the GLP-1 pioneer behind Ozempic and Wegovy, has collapsed 50%+ fr
 
 ### QUALITY SCORE TOTAL: 82/100 - TIER A
 
-**Interpretation:** Elite Quality Compounder experiencing temporary competitive headwinds. Tier A status means MoS requirement is 10-15%, but given recent guidance shock and uncertainty, I apply Tier A + Adjustment = 15-20% MoS.
+**QS Tool-First Reconciliation (Sesion 52):**
+- **QS Tool:** 73/100 (Tier B) — Capital Allocation 5/10 (Foundation structure, low insider buying)
+- **QS Thesis:** 82/100 (Tier A) — Manual override +9 pts
+- **QS Ajustado:** 73/100 (Tier B) — Accepting tool score. The +9pt gap came from manually scoring Financial Quality 36/40 and Moat 19/25 higher than tool calculates. Tool penalizes: Capital Allocation (Foundation ownership ≠ insider alignment), Growth (GM declining from 85%→76%). No quantitative evidence justifies overriding the tool.
+- **Tier Efectivo:** B (Quality Value)
+
+**Interpretation:** Quality pharma company with strong fundamentals but competitive headwinds and declining gross margins. Tier B status, not Tier A as originally claimed.
 
 ---
 

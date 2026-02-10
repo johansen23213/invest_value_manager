@@ -6,8 +6,8 @@
 system:
   system_version: "4.0.0"
   framework_version: "4.0"
-  last_session: 2026-02-08
-  session_number: 51
+  last_session: 2026-02-09
+  session_number: 52
 
   # FRAMEWORK v4.0 - IMPLEMENTADO
   # =====================================
@@ -53,9 +53,9 @@ system:
   portfolio_quality_analysis:
     date: 2026-02-08
     summary:
-      tier_a_count: 6  # ADBE + NVO + MONY.L + LULU + AUTO.L + BYIT.L
-      tier_b_count: 4  # HRB, EDEN.PA, DOM.L, SAN.PA
-      tier_c_count: 6  # A2A.MI, VNA.DE, TATE.L removed (sold)
+      tier_a_count: 5  # ADBE + MONY.L + LULU + AUTO.L + BYIT.L (5 tool Tier A, but BYIT.L adversarial=68-72 Tier B)
+      tier_b_count: 4  # NVO(73), EDEN.PA(62), DOM.L(61), VICI(~62 REIT-adj). HRB+SAN.PA removed (sold)
+      tier_c_count: 5  # ALL(56), IMB.L(54), GL(52), UHS(51), DTE.DE(48). A2A.MI/VNA.DE/TATE.L/HRB/SAN.PA removed (sold)
       tier_d_count: 0
       tier_d_violation: null
       first_tier_a: ADBE
@@ -63,16 +63,16 @@ system:
     positions:
       # TIER A - Quality Compounders (6 positions)
       - { ticker: ADBE, score: 76, tier: A, status: "First Tier A!" }
-      - { ticker: NVO, score: 82, tier: A, status: "Framework v3.0 validated! MoS 38%" }
+      - { ticker: NVO, score: 73, tier: B, status: "QS Tool 73 (Tier B). Thesis overclaimed 82 Tier A. Cap Alloc 5/10, GM declining." }
       - { ticker: MONY.L, score: 81, tier: A, status: "Third Tier A! UK price comparison. MoS 36%" }
       - { ticker: LULU, score: 82, tier: A, status: "Fourth Tier A! Fallen angel -58%. MoS 34%" }
       - { ticker: AUTO.L, score: 79, tier: A, status: "Fifth Tier A! UK car classifieds monopoly. MoS 29%. Rotated from SHEL.L." }
       - { ticker: BYIT.L, score: 81, tier: A, status: "Sixth Tier A! UK IT services VAR. MoS 35%. Rotated from TEP.PA+LIGHT.AS+PFE." }
       # TIER B - Quality Value (4 positions)
-      - { ticker: HRB, score: 73, tier: B }
+      - { ticker: HRB, score: 70, tier: B, status: "SOLD 2026-02-09. P&L -13.25%. Adversarial review: moat breach by Intuit." }
       - { ticker: EDEN.PA, score: 62, tier: B }
       - { ticker: DOM.L, score: 61, tier: B }
-      - { ticker: SAN.PA, score: 59, tier: B }
+      - { ticker: SAN.PA, score: 59, tier: B, status: "SOLD 2026-02-09. P&L -0.84%. Adversarial review: pipeline failure + ROIC<WACC." }
       # TIER C - Special Situations (7 positions) - A2A.MI, VNA.DE removed (sold)
       - { ticker: ALL, score: 54, tier: C }
       - { ticker: VICI, score: 54, tier: C }
@@ -83,14 +83,14 @@ system:
       # TATE.L REMOVED 2026-02-08 - Position closed (QS 45 Tier C, adversarial FV -40%)
       # TIER D - NONE
     diagnosis: |
-      Portfolio quality continues to improve. Adversarial review driving exits.
-      Now: 6 Tier A, 4 Tier B, 6 Tier C (16 posiciones). No Tier D.
-      Session 51: 3 Tier C exits (A2A.MI QS 37, VNA.DE QS 41, TATE.L QS 45 - all ROIC < WACC).
-      GL=HOLD med-low (anomaly: thesis conservative), IMB.L=HOLD probation (MoS 2%), ALL+VICI=HOLD probation.
-      FV inflation confirmed across 10/11 Tier C positions reviewed (GL exception: undervalued).
-      Tier A ratio: 37.5% (6/16).
-      Pipeline Tier A: MA, V, DNLM.L, WKL.AS pendientes de entry price.
-      Cash EUR 3013 (~27%) - high due to 3 sales today, deployment needed.
+      Session 52: SAN.PA + HRB SELL recommended (pending confirmation).
+      If confirmed: 14 posiciones (6 Tier A, 2 Tier B, 6 Tier C). No Tier D.
+      SAN.PA: Amlitelimab failed, ROIC<WACC, FV -35.5%. HRB: moat breached, FCF declining.
+      Risk-sentinel first run: 12 gaps found, 5 ORANGE alerts. Now in weekly pipeline.
+      DNLM.L interims confirm FV 1,008p. Trigger 750-800p maintained.
+      Tier A ratio: 42.9% (6/14) post-sells.
+      Pipeline Tier A: DNLM.L (750-800p), MA, V, WKL.AS.
+      Cash ~EUR 4,100 (~35%) post-sells — deployment priority.
   last_session_summary_archived_46: |
     Sesion 46: Pipelines + anomaly fixes. 11 pipelines defined.
     forward_return.py bug fixed. EDEN.PA FV corrected.
@@ -98,18 +98,71 @@ system:
   last_session_summary_archived_48: |
     Sesion 48 - FIRST ADVERSARIAL PIPELINE TEST: DNLM.L (2026-02-07)
 
-  last_session_summary: |
+  last_session_summary_archived_51: |
     Sesion 51 - ADVERSARIAL REVIEW FASE 2 COMPLETADA (2026-02-08)
+    FASE 2: 9 Tier C reviewed. 3 SELL (A2A.MI, VNA.DE, TATE.L), 6 HOLD.
+    Cash: EUR 3,013 (~27%). Portfolio: 16 posiciones.
 
-    FASE 2: 9 Tier C positions reviewed. Results:
-    - SELL: A2A.MI (-24%), VNA.DE (-25%), TATE.L (-22/-40%) - ALL 3 SOLD AND CONFIRMED
-    - HOLD: DTE.DE (-9% MED), UHS (-14% LOW), GL (+6% MED-LOW)
-    - HOLD PROBATION: IMB.L (-8% LOW-MED), ALL (-2.5% LOW), VICI (-9.6% LOW)
+  last_session_summary: |
+    Sesion 52 - SAN.PA SELL + HRB SELL + RISK-SENTINEL FIRST RUN (2026-02-09)
 
-    A2A.MI + VNA.DE + TATE.L vendidos (confirmado).
-    Cash: EUR 3,013 (~27%). FV inflation confirmed 10/11 positions (GL exception).
-    Portfolio: 16 posiciones (6 Tier A, 4 Tier B, 6 Tier C).
-    Next: Fase 3 standing orders, Fase 4 Tier B, cash deployment.
+    =====================================================
+    THREE ANALYSES COMPLETED
+    =====================================================
+
+    1. SAN.PA RE-EVALUATION (URGENT):
+       - Amlitelimab Phase III inferior to Dupixent (COAST 1 weak, COAST 2 EU FAILED)
+       - UBS downgrade Buy→Neutral, PT EUR 105→88
+       - CFO admits Dupixent gap "too big to mitigate" internally
+       - Tolebrutinib FDA rejected + $1.8B impairment
+       - Pipeline failure rate ~50-55% (approaching 60% KC)
+       - FV revised: EUR 122.02 → EUR 78.69 (-35.5%)
+       - Bridge: 51% FCF growth cut, 32% DDM growth cut, 17% WACC increase
+       - 95% pipeline failure + capital allocation shift, 0% lawsuits
+       - EXIT Protocol: 4/6 gates support SELL
+       - ROIC < WACC confirmed (-2.1pp) — 8th position with this pattern
+       - QS adjusted 59→55 (Tier B low-end)
+       - VERDICT: SELL (pending human confirmation)
+
+    2. DNLM.L INTERIMS ANALYSIS:
+       - H1 sales GBP 926M (+3.6%), PBT GBP 112-114M (low end)
+       - FY26 PBT guidance: lower end of GBP 214-227M
+       - Q1 strong (+6.2%), Q2 weak (+1.6%) — Black Friday competitive
+       - GM +60bps, market share 7.9% (+30bp), digital 41%
+       - Adversarial FV 1,008p UNCHANGED — interims confirm base case
+       - Trigger 750-800p MAINTAINED (MoS 25.6% at 750p)
+
+    3. RISK-SENTINEL FIRST RUN (16 positions scanned):
+       - 0 RED, 5 ORANGE (SAN.PA, IMB.L, EDEN.PA, ADBE, VICI)
+       - 12 risk GAPS found (not in thesis)
+       - TOP NEW: SAN.PA Dupixent CTCL lawsuits, IMB.L $400M payment + UK ban
+       - POSITIVE: GL SEC/DOJ cleared, HRB IRS Direct File killed
+       - Risk-sentinel incorporated into weekly risk-review pipeline
+
+    4. HRB COUNTER-ANALYSIS REVIEWED:
+       - IRS Direct File death does NOT change SELL verdict
+       - Intuit 600 offices + $100M OpenAI = existential threat
+       - FCF declining 3yr ($752→$579M), $413M buyback destruction
+       - Counter-analysis: STRONG COUNTER 18/24
+       - VERDICT: SELL (pending human confirmation)
+
+    =====================================================
+    PENDING HUMAN CONFIRMATION
+    =====================================================
+    - SELL SAN.PA — human reviewing bridge analysis
+    - SELL HRB — human agrees, needs formal order
+
+    =====================================================
+    WORK FOR NEXT SESSION
+    =====================================================
+    1. Execute SAN.PA + HRB sells (after confirmation)
+    2. Update thesis IMB.L ($400M payment + UK generational ban)
+    3. Update thesis ADBE (FTC/DOJ subscription lawsuit)
+    4. Update thesis GL (SEC/DOJ clearance — positive)
+    5. Adversarial review Fase 3: standing orders (BME.L, UTG.L)
+    6. Adversarial review Fase 4: DOM.L (remaining Tier B)
+    7. Earnings: MONY.L Feb 23, EDEN.PA Feb 24, VICI Feb 25, DTE.DE Feb 26, UHS Feb 26
+    8. Cash deployment planning (~30%+ after SAN.PA + HRB sells)
     | EDEN.PA | EUR 38.4 | EUR 29.0 | -24.5% | MEDIUM |
     | DTE.DE | EUR 37.50 | EUR 34.00 | -9% | MEDIUM |
     | UHS | $283.74 | $243 | -14.4% | LOW |
@@ -1348,10 +1401,7 @@ watchlist:
       fair_value_usd: 240-260
       kill: "Combined ratio >100% sustained or catastrophe losses >$5B"
     # TEP.PA REMOVED 2026-02-06 - Position closed, capital rotated to BYIT.L
-    - ticker: SAN.PA
-      entry: 79.20
-      fair_value: 95-105
-      kill: "Dividend cut or 2+ trial failures"
+    # SAN.PA REMOVED 2026-02-09 - Position closed (adversarial review, ROIC<WACC, FV -35.5%, P&L -0.84%)
     - ticker: VICI
       entry_usd: 28.08
       fair_value_usd: 34-35
@@ -1421,7 +1471,7 @@ alerts:
     - { ticker: BNP.PA, entry_eur: 78, note: "FV 103. CET1 12.5%" }
     - { ticker: ENGI.PA, entry_eur: 22, note: "FV 29. Yield 6%" }
     - { ticker: CS.PA, entry_eur: 35.50, note: "AXA. FV 40.50. Tier A. Earnings 26-feb" }
-    - { ticker: BME.L, entry_gbp: 169, note: "B&M Retail. FV 260p. Tier C turnaround." }
+    # BME.L REMOVED 2026-02-09 - Standing order cancelled. Governance broken + ROIC collapsed.
     - { ticker: TBCG.L, entry_gbp: 3500, note: "TBC Bank Georgia. FV 5400p. Frontier Tier C." }
     - { ticker: BGEO.L, entry_gbp: 7000, note: "Lion Finance (ex-BOG). Near ATH, wait correction." }
     - { ticker: WPP.L, entry_gbp: 200, note: "v2.0: 5-6/10 trap. FV 380p. 47% MoS at trigger. Feb 19 Rose plan critical." }
@@ -1429,7 +1479,7 @@ alerts:
     - { ticker: DGE.L, entry_gbp: 1300, note: "Diageo v2.0: FV 1400-1520 GBp. OVERVALUED at 1690. Entry 1300 for 15% MoS." }
     - { ticker: EVO.ST, entry_sek: 530, note: "Evolution. Q4 MISS confirmed. FV revised 800-850 SEK. UKGC still pending. Entry 530 SEK ONLY if UKGC favorable." }
     - { ticker: GL, entry_usd: 130, note: "Globe Life ADD trigger. At $130 MoS=25.3%. Do not add >$130." }
-    - { ticker: UTG.L, entry_gbp: 540, note: "v2.0 VALIDATED. FV 745p. At 540p MoS 27.5%. Earnings Feb 24." }
+    # UTG.L REMOVED 2026-02-09 - Standing order cancelled. QS Tier D + FV -17.4% adversarial.
     - { ticker: SRE.L, entry_gbp: 75, note: "Sirius RE. FV 100p. Entry 75p = 25% MoS. Refinancing Jun-2026 catalyst." }
     - { ticker: GIS, entry_usd: 38, note: "General Mills. FV $45-50. Entry $35-38. Quality 6.5/10 Tier B. GLP-1 headwind." }
     - { ticker: BATS.L, entry_gbp: 4200, note: "BAT. FV 5163p. Entry 4000-4200p. Ya tenemos IMB.L. Earnings 12-feb." }
@@ -1450,37 +1500,15 @@ alerts:
 # -----------------------------------------------------------------------------
 standing_orders:
   # THESIS COMPLETA + COMMITTEE APROBADO - Solo falta que precio llegue
-  - ticker: BME.L
-    action: BUY
-    trigger: "<=169 GBp"
-    size_eur: 400
-    shares_approx: 235
-    thesis: thesis/research/BME.L/thesis.md
-    fair_value: "321 GBp"
-    mos_at_trigger: "47%"
-    notes: "B&M discount retail. v2.0 CONFIRMED. Tier C. Value trap 2/10. EV/EBIT + DCF multi-method."
-    expiry: 2026-04-01
+  # BME.L CANCELLED 2026-02-09 - Governance broken + ROIC collapsed. Adversarial review disqualified.
+  # Was: BUY <=169 GBp, FV 321 GBp, MoS 47%. Cancelled per user instruction.
 
   # MEGP.L REMOVED 2026-02-03 - NOT AVAILABLE ON ETORO
   # Was: trigger 145 GBp, FV 195 GBp, MoS 29%. Excellent company but broker doesn't offer it.
   # See thesis/archive/MEGP.L/
 
-  - ticker: UTG.L
-    action: BUY
-    trigger: "<=540 GBp"
-    size_eur: 400
-    shares_approx: 64
-    thesis: thesis/research/UTG.L/thesis_v2.md
-    fair_value: "745 GBp"
-    fair_value_bear: "610 GBp"
-    fair_value_bull: "870 GBp"
-    mos_at_trigger: "27.5%"
-    tier: "B (Asset-Heavy REIT)"
-    value_trap_score: "1.5/10"
-    moat: "Narrow (Efficient Scale - near monopoly UK listed PBSA)"
-    notes: "v2.0 RE-EVAL VALIDATED. 42% discount NAV. FY2026 earnings trough -7-10%. Multi-method: NAV+DDM+FFO. Earnings Feb 24."
-    kill_conditions: "Occupancy <90%, dividend cut, LTV >35%, immigration policy kills demand"
-    expiry: 2026-04-01
+  # UTG.L CANCELLED 2026-02-09 - QS Tier D + FV -17.4% in adversarial. Quality insufficient.
+  # Was: BUY <=540 GBp, FV 745 GBp, MoS 27.5%. Cancelled per user instruction.
 
   # TATE.L REMOVED 2026-02-08 - Position closed (adversarial review, QS 45, FV -40%)
 
@@ -1804,25 +1832,25 @@ pipeline_tracker:
   # DIARIOS
   vigilance:
     frequency: daily
-    last_run: 2026-02-08
-    next_due: 2026-02-09
-    last_result: "Skipped - full session on adversarial review Fase 2"
+    last_run: 2026-02-09
+    next_due: 2026-02-10
+    last_result: "SAN.PA urgent re-eval (Amlitelimab failure + UBS downgrade). DNLM.L interims analyzed. Risk-sentinel first run (12 gaps found)."
   rotation_check:
     frequency: daily
-    last_run: 2026-02-08
-    next_due: 2026-02-09
-    last_result: "Superseded by adversarial review. A2A+VNA sold. Bottom 3 now: TATE.L (SELL pending), UHS, ALL."
+    last_run: 2026-02-09
+    next_due: 2026-02-10
+    last_result: "SAN.PA SELL recommended (ROIC<WACC, FV -35.5%). HRB SELL recommended (moat breach, FCF decline). Both pending confirmation."
   # SEMANALES
   opportunity_scan:
     frequency: weekly
     last_run: null
-    next_due: 2026-02-09
+    next_due: 2026-02-10
     last_result: null
   risk_review:
     frequency: weekly
-    last_run: 2026-02-08
-    next_due: 2026-02-15
-    last_result: "Superseded by adversarial Fase 2 - 9 positions risk-assessed"
+    last_run: 2026-02-09
+    next_due: 2026-02-16
+    last_result: "Risk-sentinel first run: 0 RED, 5 ORANGE. 12 gaps found. Top: SAN.PA CTCL lawsuits, IMB.L $400M payment. Positive: GL SEC cleared, HRB Direct File dead."
   # QUINCENALES
   position_review:
     frequency: biweekly
@@ -1840,7 +1868,7 @@ pipeline_tracker:
   deep_performance:
     frequency: monthly
     last_run: null
-    next_due: 2026-02-09
+    next_due: 2026-02-10
     last_result: null
   macro_refresh:
     frequency: monthly
@@ -1907,10 +1935,10 @@ adversarial_review:
     status: PENDING
     target_sessions: "53-54"
     positions:
-      - { ticker: HRB, score: 73, reviewed: false }
+      - { ticker: HRB, score: 70, reviewed: true, date: "2026-02-09", verdict: "SELL EXECUTED", fv_revision: "59.58→33.94 USD (-43%)", notes: "SOLD 2026-02-09 @ $32.77. P&L -13.25%. Intuit moat breach. Counter 18/24 STRONG. IRS Direct File death does NOT change verdict." }
       - { ticker: EDEN.PA, score: 62, reviewed: true, note: "Reviewed in fase_1. FV 38.4→29.0 EUR. HOLD MEDIUM." }
       - { ticker: DOM.L, score: 61, reviewed: false }
-      - { ticker: SAN.PA, score: 59, reviewed: false }
+      - { ticker: SAN.PA, score: 59, reviewed: true, date: "2026-02-09", verdict: "SELL EXECUTED", fv_revision: "122.02→78.69 EUR (-35.5%)", notes: "SOLD 2026-02-09 @ EUR 80.29. P&L -0.84%. Amlitelimab inferior to Dupixent. ROIC<WACC (-2.1pp). 8th ROIC<WACC exit." }
 
   # ===== FASE 5: TIER A (6 posiciones - quick check) =====
   fase_5_tier_a:
@@ -1918,7 +1946,7 @@ adversarial_review:
     target_sessions: "54-55"
     positions:
       - { ticker: ADBE, score: 76, reviewed: false }
-      - { ticker: NVO, score: 82, reviewed: false }
+      - { ticker: NVO, score: 73, reviewed: true, note: "QS Tool-First: 73 Tier B (was 82 Tier A). Adversarial FV 68-70. Reviewed session 51." }
       - { ticker: MONY.L, score: 81, reviewed: true, note: "Reviewed in fase_1. FV 277→201 GBp. HOLD LOW." }
       - { ticker: LULU, score: 82, reviewed: false }
       - { ticker: AUTO.L, score: 79, reviewed: false }

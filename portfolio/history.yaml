@@ -9,10 +9,10 @@
 # Metadata
 metadata:
   created: 2026-02-03
-  last_updated: 2026-02-08
-  total_closed: 9
-  total_pnl_eur: 20.15  # Previous 10.15 + 10 TATE.L = 20.15
-  win_rate: 44.4  # 4 winners (SHEL.L +2.3%, LIGHT.AS +13.7%, PFE +1.8%, TATE.L +3.5%) / 9 positions
+  last_updated: 2026-02-09
+  total_closed: 11
+  total_pnl_eur: -119.85  # Previous 20.15 + SAN.PA -4 + HRB -136 (~-$155/1.14) = ~-119.85
+  win_rate: 36.4  # 4 winners / 11 positions (SAN.PA and HRB are losers)
   avg_holding_days: 6
 
 # Closed Positions
@@ -221,6 +221,52 @@ closed_positions:
     exit_reason: adversarial_review_roic_below_wacc
     lesson_learned: "For leveraged REITs: NAV haircut must reflect persistent market discount, not aspirational recovery. ROIC < WACC applies to REITs too despite accounting differences. Debt maturity analysis is MANDATORY for leveraged companies. Rf must be current, not stale."
 
+  - ticker: SAN.PA
+    name: "Sanofi SA"
+    entry_date: 2026-01-31
+    exit_date: 2026-02-09
+    shares: 5.39
+    entry_price_eur: 79.20  # Avg cost
+    exit_price_eur: 80.29
+    entry_currency: EUR
+    invested_eur: 428  # ~$506.23 / 1.183
+    proceeds_eur: 433
+    pnl_amount_eur: -4
+    pnl_percent: -0.84
+    holding_days: 9
+    thesis_fv_at_entry: 122.02  # EUR - original thesis v2.0
+    thesis_fv_adversarial: 78.69  # EUR - adversarial valuation v3.0
+    fv_reached: false
+    quality_score: 59  # Tool score (adjusted 55). Tier B low-end.
+    thesis_accuracy:
+      correct: false
+      notes: "Original FV EUR 122 inflated 55% vs adversarial EUR 79. Key driver: Amlitelimab Phase III inferior to Dupixent (COAST 2 EU failed). Pipeline failure rate ~50-55%. CFO admitted Dupixent gap too big for internal pipeline. UBS downgrade to Neutral, PT EUR 88. ROIC < WACC (-2.1pp). FV Bridge: 51% FCF growth cut, 32% DDM growth cut, 17% WACC increase. 95% fundamental deterioration, 5% sentiment."
+    exit_reason: adversarial_review_roic_below_wacc
+    lesson_learned: "8th ROIC<WACC exit. Pharma pipeline risk can destroy 35% of FV in weeks. When CFO admits the problem, thesis is fundamentally broken. MoS evaporation from 34% to 0% validates adversarial approach. NVO (QS 82) provides superior pharma exposure."
+
+  - ticker: HRB
+    name: "H&R Block Inc."
+    entry_date: 2026-02-03
+    exit_date: 2026-02-09
+    shares: 31  # 19 original + 10 ADD + 2 fractional (per eToro)
+    entry_price_usd: 35.78  # Avg cost (original tranche)
+    exit_price_usd: 32.77
+    entry_currency: USD
+    invested_eur: 576  # ~$679.80 / 1.18
+    proceeds_eur: 861  # ~$1,016 / 1.18
+    pnl_amount_usd: -155
+    pnl_percent: -13.25
+    holding_days: 6
+    thesis_fv_at_entry: 57.00  # USD - original thesis
+    thesis_fv_adversarial: null  # Full adversarial not completed, counter-analysis only
+    fv_reached: false
+    quality_score: 70  # Tier B
+    thesis_accuracy:
+      correct: false
+      notes: "Counter-analysis scored 18/24 STRONG against thesis. Intuit 600 Expert Offices + $100M OpenAI = two-front moat breach (physical + AI). FCF structural decline: $752M→$657M→$599M→$579M TTM (-23% 3yr). $413M buyback while FCF declining = value destruction. IRS Direct File killed (positive) but Intuit physical expansion is much larger threat. ADD at $35 amplified loss from -4.9% to -13.25%."
+    exit_reason: adversarial_review_moat_breach
+    lesson_learned: "ADD standing orders for non-Tier-A positions are dangerous - they amplify losses when thesis is subsequently invalidated. Counter-analysis 18/24 STRONG is decisive. Competitive moat breach (physical + AI two-front) is more material than regulatory risk (Direct File)."
+
   - ticker: TATE.L
     name: "Tate & Lyle plc"
     entry_date: 2026-02-03
@@ -276,15 +322,15 @@ partial_sells:
 # Statistics (auto-calculated by effectiveness_tracker.py)
 statistics:
   # Will be populated by the tool
-  total_closed_positions: 9
+  total_closed_positions: 11
   total_partial_sells: 3
-  total_realized_pnl_eur: 448.00  # Approx from trims + closed positions (438 + 10 TATE.L)
+  total_realized_pnl_eur: 308.00  # Approx from trims + closed positions (448 - 4 SAN.PA - 136 HRB)
   winners: 4  # SHEL.L +2.3%, LIGHT.AS +13.7%, PFE +1.8%, TATE.L +3.5%
-  losers: 3  # FUTR.L -2.8%, TEP.PA -6.7%, A2A.MI -1.5%
+  losers: 5  # FUTR.L -2.8%, TEP.PA -6.7%, A2A.MI -1.5%, SAN.PA -0.84%, HRB -13.25%
   breakeven: 2  # ENEL.MI 0%, VNA.DE 0%
-  win_rate_pct: 44.4
+  win_rate_pct: 36.4
   avg_win_pct: 5.3  # (2.3 + 13.7 + 1.8 + 3.5) / 4
-  avg_loss_pct: -3.7  # (-2.8 + -6.7 + -1.5) / 3
+  avg_loss_pct: -4.9  # (-2.8 + -6.7 + -1.5 + -0.84 + -13.25) / 5
   avg_holding_days: 7
   positions_reached_fv: 0
   thesis_accuracy_rate: null

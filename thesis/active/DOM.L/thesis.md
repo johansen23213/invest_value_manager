@@ -371,6 +371,12 @@ RESULT: 37.6% MoS > 25% requirement. PASSES.
 
 **Total: 6/10 = Tier B**
 
+**QS Tool-First Reconciliation (Sesion 52):**
+- **QS Tool:** 61/100 (Tier B) — Financial Quality 17/40, Growth 12/25, Moat 22/25, CapAlloc 10/10
+- **QS Thesis (old):** 6/10 custom scale (Tier B)
+- **QS Ajustado:** 61/100 (Tier B) — Tier matches. Tool scores Moat high (22/25) reflecting franchise master model and brand strength. Financial Quality lower (17/40) due to negative equity from buybacks distorting leverage metrics. Growth weak (12/25) reflecting UK consumer headwinds.
+- **Tier Efectivo:** B (Quality Value)
+
 ---
 
 ## SECTION 7: MACRO FIT

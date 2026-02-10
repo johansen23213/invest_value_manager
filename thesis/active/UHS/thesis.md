@@ -306,6 +306,12 @@ MoS vs EV: ($288.64 - $201.86) / $288.64 = 30.1%
 
 **Quality Score: 7/10 --> Tier B confirmed (25% MoS required)**
 
+**QS Tool-First Reconciliation (Sesion 52):**
+- **QS Tool:** 51/100 (Tier C) — Financial Quality 18/40, Growth 13/25, Moat 10/25, CapAlloc 10/10
+- **QS Thesis (old):** 7/10 custom scale (claimed Tier B)
+- **QS Ajustado:** 51/100 (Tier C) — Tool correctly penalizes: narrow moat (10/25) for hospital operator (no pricing power, commoditized services), modest growth, moderate financial quality. Old /10 scale was too generous. Family control (Miller dual-class) reduces governance quality.
+- **Tier Efectivo:** C (Special Situation)
+
 ---
 
 ## 8. MACRO CONTEXT FIT

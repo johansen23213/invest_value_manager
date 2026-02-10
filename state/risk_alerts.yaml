@@ -2,46 +2,230 @@
 # RISK ALERTS - Actualizado por risk-sentinel agent
 # =============================================================================
 
-last_scan: null
-next_scan_due: null  # +7 días desde last_scan
+last_scan: 2026-02-09
+next_scan_due: 2026-02-16  # +7 dias desde last_scan
 
 # Alertas por nivel
 alerts_by_level:
-  red: []    # Thesis-killers potenciales
-  orange: [] # Riesgos materiales, monitorear
-  yellow: [] # Riesgos menores, documentar
-  # Ejemplo:
-  # - ticker: EVO.ST
-  #   risk_type: REGULATORY
-  #   description: "UKGC investigation ongoing"
-  #   source: "..."
-  #   date_detected: "2026-02-05"
-  #   kill_condition_triggered: false
-  #   recommendation: "Wait for resolution before buying"
+
+  red: []  # No thesis-killers detected this scan
+
+  orange:
+    - ticker: SAN.PA
+      risk_type: LEGAL
+      description: >
+        NEW: Dupixent T-cell lymphoma (CTCL) lawsuits emerging. Multiple cases
+        filed Dec 2025 - Jan 2026 (wrongful death in TN, cancer diagnosis in IL).
+        MDL formation anticipated. Dupixent is 36% of Sanofi revenue (~EUR 13B).
+        If causal link proven, could trigger Kill Condition #1 (Dupixent safety signal).
+        ALSO: Regeneron suing Sanofi for breach of Dupixent collaboration agreement
+        (access to PBM contract info). Financial impact unclear but relationship risk.
+      source: "sokolovelaw.com, levinlaw.com, biospace.com (Regeneron suit)"
+      date_detected: 2026-02-09
+      kill_condition_triggered: false
+      kill_condition_at_risk: "KC#1 Dupixent safety signal - APPROACHING if CTCL link proven"
+      recommendation: "Monitor MDL formation. If FDA requires black box warning or label change for CTCL, evaluate immediate EXIT."
+
+    - ticker: IMB.L
+      risk_type: LEGAL_FINANCIAL
+      description: >
+        NEW: ITG Brands (Imperial US subsidiary) owes ~$400M payment in 2026
+        to Reynolds American tied to Florida tobacco settlement dispute. Delaware
+        Supreme Court affirmed $251.5M judgment Dec 2025, appeal exhausted.
+        Fitch includes ~$400M in 2026 assumptions. This is NOT in our thesis.
+        Also: UK Tobacco and Vapes Bill advancing - generational ban takes effect
+        Jan 1 2027. Vaping duty from Oct 2026.
+      source: "ts2.tech (Fitch), courtlistener.com, bills.parliament.uk"
+      date_detected: 2026-02-09
+      kill_condition_triggered: false
+      kill_condition_at_risk: "Suggested KC: EU/G7 generational ban spread. UK ban now confirmed for Jan 2027."
+      recommendation: "Verify impact of $400M payment on FCF/dividend capacity. UK ban is CONFIRMED - update thesis risk section."
+
+    - ticker: EDEN.PA
+      risk_type: REGULATORY
+      description: >
+        UPDATE: Turkey Competition Authority investigating Edenred + Multinet +
+        Pluxee + Setcard for price-fixing, collusive bidding, customer allocation.
+        Probe launched Sep 2025. Turkey is ~2% of operating revenue but contributes
+        disproportionately to growth due to hyperinflation. This is a THIRD
+        regulatory market (after Brazil + Italy). Kill Condition #8 is
+        "Regulation extends to 3rd major market."
+      source: "mlex.com, tradingview.com (Turkey probe)"
+      date_detected: 2026-02-09
+      kill_condition_triggered: false
+      kill_condition_at_risk: "KC#8 regulation extends to 3rd major market - Turkey probe is ANTITRUST not interchange cap, but pattern concerning"
+      recommendation: "Turkey is antitrust (price-fixing) not interchange regulation. Distinct from Brazil/Italy/France. Monitor but NOT a KC#8 trigger yet. Reassess if fine is material or regulation spreads."
+
+    - ticker: ADBE
+      risk_type: LEGAL
+      description: >
+        ONGOING: FTC/DOJ lawsuit over subscription cancellation practices (filed
+        Jun 2024, names 2 executives). Adobe failed to get case dismissed (May 2025).
+        Case proceeding to trial. Potential for material fine and mandatory business
+        practice changes. Also: $3M False Claims Act settlement for government
+        software kickbacks (resolved, minor).
+      source: "ftc.gov, bloomberglaw.com"
+      date_detected: 2026-02-09
+      kill_condition_triggered: false
+      recommendation: "FTC case is reputational/financial risk but unlikely to impair moat. Monitor trial date. Worst case: fine + forced practice changes (already partially implemented). Does NOT trigger any kill condition."
+
+    - ticker: VICI
+      risk_type: FUNDAMENTAL
+      description: >
+        UPDATE: Caesars regional lease coverage now at $750M EBITDA vs $730M rent
+        (1.03x). Multiple analyst downgrades (Evercore ISI, Wells Fargo). Rent
+        reduction negotiations anticipated. If >10% rent cut, this triggers
+        suggested Kill Condition from adversarial review. JP Morgan flagging the
+        risk. ~25% of VICI NOI at stake.
+      source: "casino.org, simplywall.st, yahoo finance"
+      date_detected: 2026-02-09
+      kill_condition_triggered: false
+      kill_condition_at_risk: "Suggested KC: Caesars Regional rent reduction >10% without adequate compensation"
+      recommendation: "HOLD ON PROBATION. Feb 25 earnings critical - watch for rent concession disclosure. If rent reduction >10% without asset transfer or lease extension, EXIT."
+
+  yellow:
+    - ticker: HRB
+      risk_type: REGULATORY
+      description: >
+        FTC finalized $7M settlement Jan 2025. Mandatory business practice changes
+        for 2025 + 2026 tax seasons (cancellation process, data deletion, 'free'
+        advertising disclosure). POSITIVE: IRS Direct File program KILLED - will
+        NOT be available 2026, removing HRB kill condition #5 threat.
+        ALSO: RICO class action re: data sharing with Meta/Google (tax data).
+      source: "ftc.gov, nstp.org (Direct File killed), classaction.org (RICO)"
+      date_detected: 2026-02-09
+      kill_condition_triggered: false
+      recommendation: "FTC settlement is manageable. IRS Direct File elimination is a POSITIVE catalyst. Monitor RICO class action (Meta/Google data sharing) but early stage."
+
+    - ticker: ALL
+      risk_type: LEGAL
+      description: >
+        Arity/data privacy: Texas AG lawsuit ACTIVE (filed Jan 2025), no
+        settlement yet. Class action by Morgan & Morgan also active. Employment
+        class action trial scheduled Jun 2026 (900+ class members). All KNOWN
+        risks, no escalation detected. DOJ not involved.
+      source: "texasattorneygeneral.gov, classaction.org, cliffordlaw.com"
+      date_detected: 2026-02-09
+      kill_condition_triggered: false
+      recommendation: "All known and documented. Monitor Texas AG case for settlement size. Kill condition: Arity model permanently banned across multiple states."
+
+    - ticker: GL
+      risk_type: LEGAL
+      description: >
+        POSITIVE UPDATE: SEC investigation CLOSED Jul 2025 with NO enforcement
+        action. DOJ investigation CLOSED Jul 2025 with NO enforcement action.
+        4 class action lawsuits still active but federal investigations cleared.
+        This removes major overhang from thesis.
+      source: "globelifeinsurance.com (investor relations), insurancebusinessmag.com"
+      date_detected: 2026-02-09
+      kill_condition_triggered: false
+      recommendation: "UPDATE THESIS: SEC/DOJ cleared is materially positive. Remaining class actions are private litigation risk. Consider updating fair value upward given reduced uncertainty."
+
+    - ticker: NVO
+      risk_type: REGULATORY_POSITIVE
+      description: >
+        MIXED: FDA warning letter for misleading Wegovy TV ad (Feb 5, 2026).
+        POSITIVE: Novo suing Hims & Hers for patent infringement (Feb 9, 2026),
+        FDA cracking down on compounded semaglutide - "decisive steps" to restrict
+        compounding. CagriSema NDA filed with FDA. Net effect is POSITIVE for
+        Novo (competition threat diminishing, IP enforcement working).
+      source: "cnbc.com, globenewswire.com, fiercepharma.com"
+      date_detected: 2026-02-09
+      kill_condition_triggered: false
+      recommendation: "FDA ad warning letter is minor (fix ad, pay fine). Compounding crackdown is major POSITIVE - reduces competitive threat from $49 pills. CagriSema NDA filed. HOLD."
+
+    - ticker: DTE.DE
+      risk_type: REGULATORY
+      description: >
+        Net neutrality complaint filed Apr 2025 by coalition (Epicenter.works,
+        GFF) with Bundesnetzagentur. BEREC Dec 2024 report classified DTE
+        practices as potential violations. No enforcement action yet.
+      source: "cyberlaw.stanford.edu"
+      date_detected: 2026-02-09
+      kill_condition_triggered: false
+      recommendation: "Low risk. Net neutrality complaints rarely result in material fines. Monitor Bundesnetzagentur response."
+
+    - ticker: LULU
+      risk_type: LEGAL
+      description: >
+        Securities class action filed (Dec 2023 - Jul 2024 class period) alleging
+        misleading statements re: inventory allocation, Breezethrough product.
+        PFAS/greenwashing lawsuit DISMISSED (Feb 2025). Chip Wilson activist
+        risk remains (kill condition #5).
+      source: "nasdaq.com (class action), consumershield.com (PFAS dismissed)"
+      date_detected: 2026-02-09
+      kill_condition_triggered: false
+      recommendation: "Securities class action is standard 'stock dropped, lawyers filed suit.' PFAS dismissed. Monitor Chip Wilson activity. No material threat."
 
 # Tickers sin alertas nuevas
-clear_tickers: []
-  # Ejemplo:
-  # - NVO: "No new legal/regulatory risks detected"
+clear_tickers:
+  - DOM.L: "No new legal/regulatory risks detected. Franchisee dispute resolved 2021. UK company separate from US DPZ litigation."
+  - MONY.L: "No lawsuits or regulatory actions detected. FCA clone warning was about fraudsters, not the company."
+  - AUTO.L: "No CMA investigation detected. Risk assessment flagged CMA as potential kill condition but no action initiated."
+  - BYIT.L: "Former CEO investigation resolved May 2024 (undisclosed share transactions, no wider misconduct). Settlement reached. Clean bill of health."
+  - UHS: "$122M DOJ settlement finalized. 5-year Corporate Integrity Agreement with OIG (independent monitor). KNOWN RISK, no escalation."
 
 # Riesgos por sector
-sector_risks: {}
-  # Ejemplo:
-  # pharma:
-  #   - "IRA price negotiations expanding"
-  #   - "GLP-1 compounding pharmacies under FDA scrutiny"
+sector_risks:
+  pharma_healthcare:
+    - "Dupixent CTCL lawsuits emerging - MDL formation anticipated (SAN.PA)"
+    - "GLP-1 compounding crackdown by FDA - POSITIVE for NVO"
+    - "CagriSema NDA filed, FDA review 2026 (NVO)"
+    - "IRA drug price negotiations could expand in 2026"
+  tobacco:
+    - "UK Tobacco and Vapes Bill - generational ban effective Jan 1 2027 (IMB.L)"
+    - "Vaping duty from Oct 2026 (IMB.L)"
+    - "ITG Brands $400M Florida settlement payment due 2026 (IMB.L)"
+  insurance:
+    - "Arity data privacy: Texas AG active lawsuit, class action active (ALL)"
+    - "GL: SEC/DOJ investigations CLEARED Jul 2025 (POSITIVE)"
+    - "P&C insurance cycle softening - rate decreases across industry (ALL)"
+  benefits_vouchers:
+    - "Brazil: decree suspended by injunction, EBITDA -8-12% for 2026 (EDEN.PA)"
+    - "Turkey: antitrust investigation launched Sep 2025 (EDEN.PA)"
+    - "France: political reform risk remains (EDEN.PA)"
+    - "Italy: EUR 120M/yr impact (EDEN.PA)"
+  gaming_reits:
+    - "Caesars regional lease coverage 1.03x, rent reduction anticipated (VICI)"
+    - "LV visitors down 7.5% in 2025 (VICI)"
+    - "Multiple analyst downgrades on VICI (Evercore ISI, Wells Fargo)"
+  tech:
+    - "Adobe FTC/DOJ subscription practices lawsuit ongoing (ADBE)"
+    - "AI disruption risk to price comparison models (MONY.L)"
+    - "Microsoft disintermediation risk for software VARs (BYIT.L)"
+  tax_services:
+    - "IRS Direct File KILLED - not available 2026 (POSITIVE for HRB)"
+    - "FTC $7M settlement finalized Jan 2025 (HRB)"
+    - "RICO class action vs HRB + Meta + Google for tax data sharing (HRB)"
+  telecom:
+    - "Net neutrality complaint filed with Bundesnetzagentur (DTE.DE)"
+
+# Riesgos correlacionados
+correlated_risks:
+  - description: "Regulatory multi-jurisdictional pattern for EDEN.PA"
+    tickers: [EDEN.PA]
+    detail: "Brazil (decree), Italy (EUR 120M), Turkey (antitrust), France (political). 4 markets now with regulatory pressure. Pattern suggests business model attracts regulatory scrutiny globally."
+
+  - description: "Consumer class actions across US positions"
+    tickers: [ALL, HRB, ADBE, LULU, GL]
+    detail: "5 of 6 US positions have active or recent class action litigation. Pattern is typical for large US companies but cumulative litigation cost should be monitored."
+
+  - description: "UK regulatory environment tightening"
+    tickers: [IMB.L, AUTO.L, MONY.L, BYIT.L, DOM.L]
+    detail: "5 UK positions. UK Tobacco and Vapes Bill (IMB.L), CMA reform with expanded powers (AUTO.L risk), FCA oversight (MONY.L). UK post-Brexit regulatory divergence increases country-specific risk."
 
 # Historial de alertas resueltas
-resolved: []
-  # Ejemplo:
-  # - ticker: XYZ
-  #   risk_type: LEGAL
-  #   resolved_date: "2026-XX-XX"
-  #   resolution: "Case dismissed"
+resolved:
+  - ticker: GL
+    risk_type: INVESTIGATION
+    resolved_date: 2025-07-28
+    resolution: "SEC investigation closed Jul 24, 2025 - no enforcement. DOJ investigation closed Jul 28, 2025 - no enforcement."
 
-# Estadísticas
+# Estadisticas
 stats:
-  total_scans: 0
+  total_scans: 1
   active_red_alerts: 0
-  active_orange_alerts: 0
+  active_orange_alerts: 5
+  active_yellow_alerts: 5
+  clear_tickers: 5
   resolved_this_month: 0

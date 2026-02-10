@@ -2,12 +2,12 @@
 # PORTFOLIO - Fuente de verdad: eToro
 # =============================================================================
 # Actualizar después de cada operación en eToro
-# Última actualización: 2026-02-08
+# Última actualización: 2026-02-09
 # NOTA: eToro muestra TODO en USD. invested = monto original, avg_cost = invested/shares
 # =============================================================================
 
 cash:
-  amount: 3013  # Post SELL TATE.L ~298 EUR on 2026-02-08. Previous 2715 + 298 = ~3013
+  amount: 4307  # Post SELL HRB (~$1,016 = ~EUR 861) + SAN.PA (~EUR 433) on 2026-02-09. Previous 3013 + 861 + 433 = ~4307
   currency: EUR
 
 positions:
@@ -36,13 +36,7 @@ positions:
     last_review: 2026-02-08
     exit_plan: "HOLD ON PROBATION. SELL if Q1 2026 CR >97% or Arity settlement >$1B. SELL if Tier A needs capital. ADD at $180. Next review: Q1 2026 earnings."
 
-  - ticker: SAN.PA
-    name: "Sanofi SA"
-    shares: 5.356514
-    invested_usd: 506.23
-    avg_cost_usd: 94.51  # 506.23 / 5.356514
-    date_opened: 2026-01-31
-    thesis: thesis/active/SAN.PA/thesis.md
+  # SAN.PA REMOVED 2026-02-09 - SOLD. Adversarial review: QS 59 Tier B (low-end), ROIC < WACC (-2.1pp), FV -35.5% (EUR 122→79). Amlitelimab inferior to Dupixent. P&L -0.84%.
 
   - ticker: VICI
     name: "VICI Properties Inc."
@@ -114,13 +108,7 @@ positions:
     last_review: 2026-02-08
     exit_plan: "HOLD. 4 class actions risk. SELL if settlement >$500M or DOJ investigation. TRIM at $185+. Update thesis to v3.0 with Q4 results."
 
-  - ticker: HRB
-    name: "H&R Block Inc."
-    shares: 19
-    invested_usd: 679.80  # 334.80 + 345.00
-    avg_cost_usd: 35.78  # 679.80 / 19
-    date_opened: 2026-02-03
-    thesis: thesis/active/HRB/thesis.md
+  # HRB REMOVED 2026-02-09 - SOLD. Adversarial review: Intuit 600 offices + $100M OpenAI = moat breach. FCF -20% 3yr. Counter 18/24 STRONG. P&L -13.25%.
 
   - ticker: ADBE
     name: "Adobe Inc."
@@ -513,3 +501,23 @@ transactions:
     pnl_eur: 0
     pnl_pct: 0
     notes: "EXIT - Adversarial review. QS 41 Tier C (thesis claimed Tier B). ROIC spread -6.6pp (destroying value). Refinancing wall EUR 10.2B 2026-2027. Adversarial FV EUR 24.35 vs thesis EUR 32.58 (-25%). MoS was -1.7% (zero safety). All 6 EXIT gates SELL."
+
+  - date: 2026-02-09
+    action: SELL
+    ticker: SAN.PA
+    shares: 5.39
+    price_eur: 80.29
+    total_eur: 433
+    pnl_eur: -4
+    pnl_pct: -0.84
+    notes: "EXIT - Adversarial review. QS 55-59 Tier B (low-end). ROIC < WACC (-2.1pp). Amlitelimab Phase III inferior to Dupixent (COAST 2 EU failed). UBS downgrade. CFO admits Dupixent gap too big for pipeline. FV revised EUR 122→79 (-35.5%). MoS ~0%. 4/6 EXIT gates SELL. 8th ROIC<WACC exit."
+
+  - date: 2026-02-09
+    action: SELL
+    ticker: HRB
+    shares: 31
+    price_usd: 32.77
+    total_usd: 1016
+    pnl_usd: -155
+    pnl_pct: -13.25
+    notes: "EXIT - Adversarial review. Intuit 600 Expert Offices + $100M OpenAI = moat breach. FCF structural decline $752M→$579M (-23% 3yr). Devil's advocate counter 18/24 STRONG. IRS Direct File death does NOT change verdict. QS 70 Tier B but forward deterioration."

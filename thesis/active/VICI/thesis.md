@@ -372,6 +372,13 @@ Margin of Safety vs Bear: 4.5%
 
 **Quality Score: 8/10** - Qualifies for Tier A (15% MoS minimum)
 
+**QS Tool-First Reconciliation (Sesion 52):**
+- **QS Tool:** 54/100 (Tier C) — Financial Quality 14/40, Growth 18/25, Moat 17/25, CapAlloc 5/10
+- **QS Thesis (old):** 8/10 custom scale (overclaimed Tier A)
+- **QS Ajustado:** ~62/100 (Tier B) — REIT-adjusted: tool penalizes Financial Quality heavily for REITs (low ROE/ROIC is structural for triple-net-lease model, high leverage is industry standard at 5.0x D/EBITDA). Adjusting Financial Quality from 14→22 for REIT structural factors gives ~62. Moat score (17/25) is fair — irreplaceable Strip assets + 30yr leases.
+- **Tier Efectivo:** B (Quality Value, REIT-adjusted)
+- Note: Adversarial review (Feb 2026) found Caesars Regional Lease coverage 1.03x and LV visitors declining — these are forward risks not captured in either score.
+
 ---
 
 ## SECTION 7: MACRO FIT (v2.0)

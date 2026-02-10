@@ -384,6 +384,13 @@ Margen de Seguridad vs Base: 27-32%
 
 **QUALITY SCORE: 10/10 = Tier A (MoS minimo 15%)**
 
+**QS Tool-First Reconciliation (Sesion 52):**
+- **QS Tool:** 48/100 (Tier C) — Financial Quality 14/40, Moat 7/25
+- **QS Thesis (old):** 10/10 custom scale (overclaimed Tier A)
+- **QS Ajustado:** 48/100 (Tier C) — Tool correctly penalizes: ROIC spread negative (-0.7pp), high leverage (3.3x), low moat score (commodity telecom). Old /10 scale was not comparable to /100 framework.
+- **Tier Efectivo:** C (Special Situation)
+- See Adversarial Review Addendum below for full reconciliation.
+
 ---
 
 ## DECISION v2.0
