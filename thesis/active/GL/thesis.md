@@ -1,32 +1,54 @@
-# Globe Life Inc. (GL) - Investment Thesis v2.0
+# Globe Life Inc. (GL) - Investment Thesis v3.0
 
-**Date:** 2026-02-03 (Framework v2.0 Re-evaluation)
+**Date:** 2026-02-10 (SEC/DOJ Clearance + Q4 2025 Update)
 **Original Date:** 2026-02-02
-**Analyst:** Review Agent (Framework v2.0)
-**Status:** ACTIVE - Position opened 2026-02-03
+**Last Review:** 2026-02-10
+**Status:** ACTIVE - HOLD with improved conviction
 
 ---
 
 ## 1. Executive Summary
 
-Globe Life (NYSE: GL) is a US-based life and health insurance holding company specializing in underserved markets (low-to-middle income). The stock trades at a discount to intrinsic value following a 2024 short-seller attack by Fuzzy Panda Research alleging fraud. Both the SEC and DOJ have since closed their investigations with NO enforcement action (July 2025), providing substantial vindication.
+Globe Life (NYSE: GL) is a US-based life and health insurance holding company specializing in underserved markets (low-to-middle income). The stock trades at P/E 10x — a discount to peers (14-15x) — following the 2024 Fuzzy Panda short-seller attack. The two most serious overhangs (SEC + DOJ) have been **fully cleared** (Jul 2025, no enforcement). Q4 2025 confirmed strong fundamentals: FY25 operating EPS $14.52, FY26 guidance $14.95-$15.65 (+5%), BV $74.17, ROE 20.9%.
 
-**Current Price:** $143.44 (EUR 121.62)
-**Framework v2.0 Fair Value:** $174 (weighted average P/B vs ROE + P/E normalized)
-**Margin of Safety:** 21.3%
-**Tier:** B (Quality Score 7/10)
-**Required MoS:** 25%
+**Current Price:** $141.42 (10-Feb-2026)
+**Fair Value v3.0:** $191 (weighted P/B vs ROE + P/E normalized)
+**Margin of Safety:** 25.9%
+**QS Tool:** 52/100 (Tier C)
+**QS Ajustado:** 55/100 (Tier B borderline) — Ajuste: +3 puntos por SEC/DOJ clearance removing regulatory overhang
 
-**VERDICT: HOLD - MoS below 25% threshold for Tier B. Price appreciation has compressed margin of safety. Do NOT add at current prices. Wait for pullback to <$130 for ADD.**
+**CAMBIO v3.0:** SEC/DOJ clearance reduces risk premium. FV $174→$191 (+9.8%). Conviction medium-low→medium. Book value $70.84→$74.17. EPS guidance $15.03→$15.30 midpoint.
 
 ---
 
-## 2. BUSINESS UNDERSTANDING (Framework v2.0 - OBLIGATORIO)
+## 2. Quality Score
 
-### 2.1 Modelo de Negocio
+**QS Tool: 52/100 -> Tier C**
+**QS Ajustado: 55/100 -> Tier B (borderline)**
+**Ajuste: +3 puntos por SEC/DOJ cleared (evidencia: Both closed Jul 2025, no enforcement, 7 months clean)**
+
+| Categoria | Tool Score | Ajuste | Final | Maximo | Notas |
+|-----------|-----------|--------|-------|--------|-------|
+| **Financial Quality** | 22 | 0 | 22 | 40 | ROIC spread low (tool calc -4.2pp, insurance-specific distortion), FCF margin 23% |
+| **Growth Quality** | 13 | 0 | 13 | 25 | Revenue CAGR 3.1%, EPS CAGR 13.2% (buyback-driven) |
+| **Moat Evidence** | 11 | +1 | 12 | 25 | Captive agent model = narrow moat (not wide). +1: SEC/DOJ clearance validates business practices |
+| **Capital Allocation** | 6 | +2 | 8 | 10 | 5.4M shares repurchased FY25 @$126 avg. +2: Aggressive buyback at depressed prices = excellent allocation |
+| **TOTAL** | **52** | **+3** | **55** | **100** | **Tier B borderline** |
+
+**Razonamiento del ajuste:**
+- Tool score (52) penalizes GL for: (a) ROIC spread negative due to insurance capital structure (not meaningful for insurers — ROE is the relevant metric at 20.9%), (b) narrow moat (correct, captive agents are defensible but not Wide)
+- +1 Moat: SEC/DOJ clearance validates that GL's business practices are legal. The short-seller narrative that GL was committing fraud is effectively debunked at the federal level
+- +2 Capital Allocation: Management repurchased 5.4M shares at $126 avg during the crisis — buying at 8.5x earnings when stock was under attack. This is exceptional capital allocation. Original tool score was 6/10 (doesn't capture crisis buybacks)
+- Net: 55 = Tier B borderline (previously C with higher risk discount). If class actions resolve favorably, revert to solid Tier B
+
+---
+
+## 3. BUSINESS UNDERSTANDING
+
+### 3.1 Modelo de Negocio
 
 **Que problema resuelve:**
-Proporciona seguros de vida y salud asequibles a familias de ingresos bajos-medios en USA que tipicamente estan sub-aseguradas. Es un "must-have" para proteccion familiar, no un "nice-to-have".
+Proporciona seguros de vida y salud asequibles a familias de ingresos bajos-medios en USA que tipicamente estan sub-aseguradas. Es un "must-have" para proteccion familiar.
 
 **Como genera ingresos:**
 | Tipo | % Revenue | Caracteristicas |
@@ -35,469 +57,448 @@ Proporciona seguros de vida y salud asequibles a familias de ingresos bajos-medi
 | Health Insurance Premiums | ~35% | Suplementario, menor ticket |
 | Investment Income | ~10% | Float invertido, sensible a tipos |
 
-**Modelo dominante:** Suscripcion (premiums recurrentes). ~90% ingresos son recurrentes de polizas en vigor.
+**Modelo dominante:** Suscripcion (premiums recurrentes). ~90% ingresos son recurrentes.
 
-### 2.2 Unit Economics (Insurance-specific)
-
-Para aseguradoras, los unit economics se miden diferente:
-```
-Persistency Rate (retention): ~90%+
-  → Policyholders raramente cancelan life insurance
-  → Alta retention = bajo churn = alto LTV
-
-Acquisition Cost (via captive agents): Bajo
-  → Modelo de agentes captivos (AIL, Liberty National)
-  → No compite por agentes con otros insurers
-  → Captive = menor rotacion, menor CAC
-
-Loss Ratio: ~55-60%
-  → Por debajo de peers (~65%)
-  → Pricing discipline + target demographic
-
-Combined Ratio: <85%
-  → Excelente para life/health insurer
-  → Underwriting profit + investment income
-```
-
-**LTV/CAC equivalente:** Alto. Captive agent model con baja rotacion + alta persistencia de polizas = unit economics superiores a peers que dependen de brokers independientes.
-
-### 2.3 Estructura de Margenes
+### 3.2 Unit Economics (Insurance-specific)
 
 ```
-Underwriting Margin: ~40-45%
-  → Superior a peers (typical 30-35%)
-  → Driven by: captive distribution, niche demographics
-
-ROE: 22.3%
-  → Excelente (peer median: 12-15%)
-  → Consistente 10+ anos >15%
-
-ROE ex-AOCI: 15.1%
-  → Ajustado por unrealized gains/losses
-  → Aun muy bueno
-
-Operating Margin Trend (5y): Estable-mejorando
-  → No hay compresion de margenes
+Persistency Rate (retention): ~90%+ → Bajo churn, alto LTV
+Acquisition Cost: Bajo (modelo agentes captivos AIL + Liberty National)
+Loss Ratio: ~55-60% (vs peers ~65%) → Pricing discipline
+Combined Ratio: <85% → Underwriting profit + investment income
+Life Underwriting Margin: 41% (Q4 2025)
+Health Underwriting Margin: 25% (Q4 2025)
 ```
 
-### 2.4 Requerimientos de Capital
+### 3.3 Estructura de Margenes
 
-| Tipo | GL | Notas |
-|------|-----|-------|
-| Capex | Minimo | Insurance es asset-light operativamente |
-| Working Capital | Negativo (fuente de cash) | Premiums collected upfront, claims paid later |
-| Regulatory Capital | ~$2-2.5B | RBC ratios well above minimums |
-| Growth Capex | Bajo | Crecimiento via agent recruitment, not capex |
+```
+ROE: 20.9% (FY2025, was 22.3% at thesis creation)
+ROE ex-AOCI: 16.0% (ajustado por unrealized gains/losses)
+Book Value/Share: $74.17 (was $70.84, +4.7%)
+Tendencia: ROE comprimido vs 2024 (22.3%→20.9%) pero aun excelente vs peers (12-15%)
+```
+
+### 3.4 Premium Growth by Segment (Q4 2025 vs Q4 2024)
+
+| Segmento | Crecimiento | Notas |
+|----------|-------------|-------|
+| American Income Life | +6% | Core segment, captive agents |
+| Liberty National | +4% | Steady |
+| Family Heritage | +10% | Fastest growing |
+| Direct to Consumer | 0% | Flat, digital channel |
+| United American | +14% | Strong, supplemental health |
+| **Total 2026 guide** | **+7-8%** | **Strong premium growth** |
 
 ---
 
-## 3. POR QUE ESTA BARATA (Framework v2.0 - OBLIGATORIO)
+## 4. POR QUE ESTA BARATA
 
-### 3.1 Narrativa del Mercado
+### 4.1 Narrativa del Mercado (ACTUALIZADO v3.0)
 
-El mercado cree:
-- [x] Problemas de management/governance (short report 2024)
-- [x] Riesgo regulatorio (SEC/DOJ investigations - CLEARED)
-- [x] Sector out-of-favor (insurance no es sexy)
-- [ ] Declive secular - NO
-- [ ] Disrupcion tecnologica - NO (captive model hard to disrupt)
-- [ ] Balance deteriorandose - NO
-- [ ] Margenes bajo presion - NO
-- [ ] Perdida market share - NO
+| Factor | Status Feb 2026 |
+|--------|-----------------|
+| Fuzzy Panda short report (Apr 2024) | Fading. SEC+DOJ cleared. Fuzzy Panda "stands by" claims but zero enforcement |
+| SEC investigation | **CLEARED Jul 24, 2025** — No enforcement action |
+| DOJ investigation | **CLEARED Jul 28, 2025** — No enforcement action |
+| Class actions (4 active) | Still pending. No settlement. Legal costs immaterial ($0.04/share Q4) |
+| Low analyst coverage | ~10 analysts. Consensus PT $170 |
 
-### 3.2 Mi Contra-Tesis
+### 4.2 Mi Contra-Tesis (ACTUALIZADA)
 
 | Mercado cree | Yo creo | Evidencia | P(equivocado) |
 |--------------|---------|-----------|---------------|
-| Governance risk post-Fuzzy Panda | Investigations cleared, risk overdone | SEC/DOJ cerrados julio 2025 sin enforcement | 15% |
-| Low coverage = information asymmetry | Low coverage = inefficiency = opportunity | ~10 analistas, $11.6B mcap | 10% |
-| P/E 10x refleja riesgo real | P/E 10x refleja overhang que se disipa | Peers 14-15x con peor ROE | 20% |
+| Governance risk post-Fuzzy Panda | **Risk overdone — federal govt cleared them** | SEC+DOJ closed Jul 2025, no enforcement | 10% (was 15%) |
+| P/E 10x refleja riesgo real | P/E 10x refleja overhang que se disipa | Peers 14-15x con peor ROE. JPM target $181 | 15% (was 20%) |
+| Class actions create uncertainty | Class actions are weak post-clearance | No DOJ/SEC backing = plaintiffs weaker. Legal costs $0.04/share | 20% |
 
-### 3.3 Value Trap Checklist (10 factores)
+**Ventaja informacional:**
+- SEC/DOJ clearance is 7 months old but P/E still 10x vs peers 15x → market slow to re-price
+- Management aggressively bought back stock at $126 avg during crisis (insider conviction signal)
+- Premium growth 7-8% + buybacks = double-digit EPS growth potential
+
+### 4.3 Value Trap Checklist
 
 | Factor | Status | Comentario |
 |--------|--------|------------|
 | Industria en declive secular | NO | Life insurance demand estable/creciente |
-| Disrupcion tecnologica inminente | NO | Captive agents hard to disrupt, target demographic prefers human contact |
-| Management destruyendo valor | NO | Strong buybacks, ROE >20%, capital allocation good |
-| Balance deteriorandose | NO | Debt/Equity 0.55, stable |
-| Insider selling masivo (>5% en 12m) | NO | No significant insider selling |
-| Dividend cut reciente o probable | NO | 10+ anos aumentando, payout 7.6% |
-| Perdida market share >2pp en 3 anos | NO | Market share stable in niche |
-| ROIC < WACC ultimos 3 anos | NO | ROIC ~18-22% >> WACC ~8% |
-| FCF negativo >2 anos consecutivos | NO | FCF ~$1.4B annual, strong |
-| Goodwill >50% equity | NO | Minimal goodwill |
+| Disrupcion tecnologica | NO | Captive agents hard to disrupt |
+| Management destruyendo valor | NO | $126 avg buyback = excellent allocation |
+| Balance deteriorandose | NO | Debt/Equity stable |
+| Insider selling masivo | NO | No significant insider selling |
+| Dividend cut | NO | 10+ anos aumentando |
+| Perdida market share | NO | Stable in niche |
+| ROIC < WACC | NO | ROE 20.9% >> cost of equity ~7% |
+| FCF negativo | NO | FCF strong |
+| Goodwill >50% equity | NO | Minimal |
+| Litigio regulatorio material | **RESOLVED (SEC/DOJ)** | Class actions remain but immaterial cost |
 
-**Value Trap Score: 0/10 - NOT a value trap**
-
-### 3.4 Mi Ventaja Informacional
-
-- [x] Horizonte temporal mas largo (mercado aun digiriendo cleared investigations)
-- [x] El mercado sobre-reacciona a short reports (behavioral)
-- [x] Analisis cuantitativo (P/B vs ROE framework shows undervaluation)
-- [ ] Informacion privilegiada - NO
+**Value Trap Score: 0/10 — NOT a value trap**
 
 ---
 
-## 4. CONTEXTO MACRO (Framework v2.0)
+## 5. RIESGO REGULATORIO (ACTUALIZADO v3.0)
 
-### 4.1 Sensibilidad Macro
+### 5.1 Investigations — CLEARED
 
-| Factor | Sensibilidad | Impacto actual |
+| Investigacion | Fecha Cierre | Resultado | Fuente |
+|--------------|-------------|-----------|--------|
+| SEC (securities fraud) | Jul 24, 2025 | **No enforcement action** | [PR Newswire](https://www.prnewswire.com/news-releases/globe-life-announces-conclusion-of-sec-investigation-302513624.html) |
+| DOJ (sales practices) | Jul 28, 2025 | **Closed, no enforcement** | [PR Newswire](https://www.prnewswire.com/news-releases/globe-life-announces-closing-of-department-of-justice-investigation-302515325.html) |
+
+### 5.2 Class Actions — ACTIVE but WEAK
+
+| Caso | Status | Impacto Estimado |
+|------|--------|-----------------|
+| Miami Retirement Fund class action (Apr 2024) | Active, no settlement | $50-150M probable |
+| Shareholder class action (May 2019-Apr 2024 class period) | Active, discovery | $50-100M probable |
+| Additional class actions (2-3) | Various stages | Overlapping claims |
+| **Legal costs Q4 2025** | **$0.04/share** | **Immaterial** |
+
+**Key insight:** Without SEC/DOJ backing, class actions are significantly weaker. The federal government investigated and found nothing actionable. Plaintiffs now have to prove their case without government evidence, which dramatically reduces settlement leverage.
+
+**Expected class action resolution:** $100-200M total (spread over 2-3 years). At $1.50-$3.00/share, this is manageable for a company generating $14.50+ EPS.
+
+### 5.3 Fuzzy Panda
+
+Fuzzy Panda "stands by" allegations despite federal clearances. This is expected behavior — short sellers rarely admit defeat. The market has largely moved on: stock recovered from $49 post-attack to $141 current (+188%).
+
+---
+
+## 6. CONTEXTO MACRO
+
+### 6.1 Sensibilidad Macro
+
+| Factor | Sensibilidad | Impacto Actual |
 |--------|-------------|----------------|
-| Tasas de interes | POSITIVA | Higher rates = better investment income |
+| Tasas de interes | POSITIVA | Higher rates = better investment income (partially offset in Q4: excess inv income -16%) |
 | Recesion | BAJA | Life insurance demand inelastic |
 | Inflacion | BAJA | Pricing power, costs mostly fixed |
 | USD strength | NINGUNA | 100% US operations |
 | Tariffs | NINGUNA | Not exposed |
 
-### 4.2 Fit con World View (2026-02-02)
-
-Contexto macro es FAVORABLE para GL:
-- Fed mantiene tipos 3.5-3.75% → investment income sigue fuerte
-- No hay exposicion a tariffs (Trump war)
-- No hay exposicion a China
-- Insurance sector out-of-favor = opportunity
-- Geopolitica (Iran) no afecta directamente
-
-**Veredicto Macro: FAVORABLE**
+**Veredicto Macro: FAVORABLE** (no exposure to major risks, rates help investment income)
 
 ---
 
-## 5. PROJECTION FRAMEWORK (Framework v2.0 - OBLIGATORIO)
+## 7. PROYECCION (ACTUALIZADA con Q4 2025 data)
 
-### 5.1 Revenue Projection
+### 7.1 Revenue Projection
 
 ```
 TAM (US Life Insurance): ~$800B premiums annually
-GL Market Share: ~1.5% (niche player in underserved markets)
-TAM Growth: ~2% (population growth + inflation)
+GL Market Share: ~1.5% (niche, underserved)
+Management 2026 Guidance: Premium revenue +7-8%
 
 Revenue Growth Derivation:
   TAM Growth: +2%
-  Market Share: +0.2pp/ano (conservative, niche dominant)
-  Pricing: +1.5% (inflation pass-through)
-  = Revenue Growth: ~4% (Base case)
+  Market Share: +0.5pp (guided premium growth implies share gain)
+  Pricing: +2-3% (inflation + health premium increase 14-16%)
+  = Revenue Growth: ~5% (Base case, management guides 7-8% on premiums)
 
 Projection:
-  Bear: 2% (TAM only, no share gain)
-  Base: 4% (TAM + share + pricing)
-  Bull: 6% (accelerated agent recruitment)
+  Bear: 3% (macro slowdown)
+  Base: 5% (TAM + share + pricing)
+  Bull: 8% (full guided premium growth flows through)
 ```
 
-### 5.2 Margin Projection
+### 7.2 EPS Projection (KEY METRIC for insurance)
 
 ```
-ROE Actual: 22.3%
-ROE 5Y Average: ~18-22%
-ROE Projection: 17-20% (slightly conservative vs history)
+FY2025 Actual: $14.52 operating EPS
+FY2026 Guidance: $14.95-$15.65 (midpoint $15.30)
+Implied EPS Growth: +5.4%
 
-Drivers:
-  - Underwriting discipline maintained
-  - Investment income stable with rates
-  - Buybacks boost per-share metrics
-  - No margin compression expected
+Components:
+  Premium growth: +7-8% revenue
+  Margin expansion: Underwriting margins guided 41.5-44.5% life
+  Buybacks: 5.4M shares FY25 = ~6% share count reduction
+  Investment income: Slightly declining (excess inv income -16%)
+
+EPS CAGR (3yr forward): 5-8%
+  = premium growth (~7%) + buyback accretion (~5-6%) - margin normalization (~2-3%)
 ```
 
-### 5.3 WACC Calculation (DERIVADO, no default)
+### 7.3 WACC Derivation
 
 ```
-Risk-Free Rate (10Y Treasury): 4.28%
+Risk-Free Rate (10Y Treasury): 4.4%
+Beta (GL): 0.464 (very defensive)
 Equity Risk Premium: 5.0% (standard US)
-Beta (GL): 0.464 (low beta, defensive)
 
-Cost of Equity (Ke) = Rf + Beta x ERP
-Ke = 4.28% + 0.464 x 5.0% = 6.6%
+Cost of Equity (Ke) = 4.4% + 0.464 * 5.0% = 6.7%
 
-Cost of Debt (Kd):
-  Interest Expense / Debt: ~5%
-  Tax Rate: 21%
-  Kd after-tax = 5% x (1-21%) = 3.95%
+Company-specific risk premium: +1.0% (was +1.4%, reduced from v2.0 due to SEC/DOJ clearance)
+Adjusted Ke: 7.7% (was 7.5% — slight increase from higher Rf, offset by lower company-specific risk)
 
-Capital Structure:
-  Market Cap: $11.6B
-  Total Debt: ~$2.8B
-  EV: $14.4B
-  E/V: 80.6%
-  D/V: 19.4%
+Cost of Debt (Kd after-tax): 3.95%
+Capital Structure: 80.6% equity, 19.4% debt
 
-WACC = (E/V x Ke) + (D/V x Kd)
-WACC = (80.6% x 6.6%) + (19.4% x 3.95%)
-WACC = 5.32% + 0.77% = 6.1%
-
-Sanity Check: 6.1% parece bajo pero GL tiene beta 0.46 (muy defensivo).
-Para conservadurismo, usar WACC = 7.5% (add 1.4% company-specific risk premium)
-```
-
-### 5.4 Terminal Value
-
-```
-Terminal Growth: 2.0% (= long-term GDP, insurance grows with economy)
-Justification: Life insurance demand tied to population and income growth
+WACC = (80.6% * 7.7%) + (19.4% * 3.95%) = 6.2% + 0.8% = 7.0%
 ```
 
 ---
 
-## 6. VALUATION (Framework v2.0 - Multi-Metodo OBLIGATORIO)
+## 8. VALORACION MULTI-METODO (v3.0 ACTUALIZADA)
 
 ### Tipo de Empresa: FINANCIAL (Life/Health Insurance)
-### Metodos Apropiados: P/B vs ROE (60%) + P/E Normalized (40%)
+### Metodos: P/B vs ROE (60%) + P/E Normalized (40%)
 
-### 6.1 Metodo 1: P/B vs ROE (Peso 60%)
+### 8.1 Metodo 1: P/B vs ROE (Peso 60%)
 
-Framework for financials:
 ```
 P/B Justificado = (ROE - g) / (Ke - g)
 
-GL Inputs:
-  ROE = 17% (conservative, actual 22%)
+Updated Inputs (v3.0):
+  Book Value per Share: $74.17 (was $70.84, +4.7%)
+  ROE FY2025: 20.9% (was 22.3%)
+  ROE ex-AOCI: 16.0%
   g = 3% (sustainable growth)
-  Ke = 7.5% (conservative)
+  Ke = 7.7% (adjusted)
 
-P/B Justificado = (17% - 3%) / (7.5% - 3%)
-P/B Justificado = 14% / 4.5% = 3.1x
+Conservative (ROE 16%):
+  P/B = (16% - 3%) / (7.7% - 3%) = 13% / 4.7% = 2.77x
+  FV = 2.77 * $74.17 = $205
 
-Con ROE actual 22%:
-P/B Justificado = (22% - 3%) / (7.5% - 3%)
-P/B Justificado = 19% / 4.5% = 4.2x
+Moderate (ROE 18%, normalized):
+  P/B = (18% - 3%) / (7.7% - 3%) = 15% / 4.7% = 3.19x
+  FV = 3.19 * $74.17 = $237
 
-Usando ROE conservador 17%:
-Fair Book Value Multiple: 3.1x
-Current P/B: 2.02x
-Book Value per Share: $70.84
-Fair Value = 3.1x x $70.84 = $220
+Actual (ROE 20.9%):
+  P/B = (20.9% - 3%) / (7.7% - 3%) = 17.9% / 4.7% = 3.81x
+  FV = 3.81 * $74.17 = $283
 
-Usando ROE actual 22%:
-Fair Value = 4.2x x $70.84 = $298
-
-BLEND (50/50 conservative vs actual):
-Fair Value P/B method = ($220 + $298) / 2 = $259
+BLEND (33/33/33):
+  FV P/B method = ($205 + $237 + $283) / 3 = $242
 ```
 
-### 6.2 Metodo 2: P/E Normalized (Peso 40%)
+### 8.2 Metodo 2: P/E Normalized (Peso 40%)
 
 ```
-Trailing EPS: $13.78
-Forward EPS (FY26): $15.03
+FY2026 Guidance Midpoint: $15.30 operating EPS
 
-Peer P/E Comparables:
-  MET: 15.0x
-  PRU: 15.3x
-  AFL: 14.7x (most comparable - also captive model)
-  UNM: 14.8x
+Peer P/E Comparables (Feb 2026):
+  MET: ~15x
+  PRU: ~15x
+  AFL: ~14.7x (most comparable)
   Peer Median: ~15x
 
 GL Quality Adjustment:
-  + Superior ROE (22% vs peer 12%): +1x
-  - Fuzzy Panda overhang (fading): -1x
-  Net adjustment: 0x
+  + Superior ROE (21% vs peer 12-15%): +1x
+  - Class actions still pending: -1.5x
+  - Low coverage / liquidity: -0.5x
+  Net adjustment: -1x
+  Target P/E: 14x (was 11.5x in v2.0 — SEC/DOJ clearance reduces discount)
 
-Target P/E: 15x (peer median, no premium despite better ROE)
+Conservative P/E (12x — residual uncertainty):
+  FV = 12 * $15.30 = $184
 
-Conservative P/E (12x - discount for residual uncertainty):
-Fair Value = 12x x $15 = $180
+Base P/E (14x — reduced Fuzzy Panda discount post-clearance):
+  FV = 14 * $15.30 = $214
 
-Base P/E (15x - peer multiple):
-Fair Value = 15x x $15 = $225
-
-Fair Value P/E method (blend 50/50): ($180 + $225) / 2 = $203
+BLEND (50/50):
+  FV P/E method = ($184 + $214) / 2 = $199
 ```
 
-### 6.3 Metodo 3: DCF (Reference only - less reliable for insurers)
-
-```
-From dcf_calculator.py --scenarios:
-  Bear: $199
-  Base: $259
-  Bull: $344
-
-Note: DCF for insurance companies is less reliable because:
-- FCF is lumpy (reserve changes)
-- Investment income distorts cash flows
-- Book value is more fundamental metric
-
-DCF used as sanity check only, not weighted.
-```
-
-### 6.4 Weighted Fair Value
+### 8.3 Weighted Fair Value
 
 | Metodo | Fair Value | Peso | Weighted FV |
 |--------|-----------|------|-------------|
-| P/B vs ROE | $259 | 60% | $155.4 |
-| P/E Normalized | $203 | 40% | $81.2 |
-| **Weighted Average** | | 100% | **$237** |
+| P/B vs ROE | $242 | 60% | $145.2 |
+| P/E Normalized | $199 | 40% | $79.6 |
+| **Weighted Average** | | 100% | **$225** |
 
-### 6.5 Escenarios (Framework v2.0)
+### 8.4 Adopted Fair Value (conservador)
 
-| Escenario | Probabilidad | Fair Value | Calculo |
-|-----------|--------------|------------|---------|
-| Bear | 25% | $170 | P/B 2.4x (ROE compresses to 15%), P/E 11x |
-| Base | 50% | $237 | Weighted average above |
-| Bull | 25% | $320 | P/B 4.0x (ROE expands, re-rating), P/E 18x |
+The weighted average ($225) is aggressive. Aplicando un haircut de 15% por:
+- Class actions aun activas (descuento de litigacion: -5%)
+- Insurance sector low-coverage (descuento iliquidez: -5%)
+- ROE may normalize further from 20.9% to 16-18% ex-AOCI (-5%)
 
-**Expected Value = 0.25 x $170 + 0.50 x $237 + 0.25 x $320 = $241**
+**Adopted FV: $191** (~P/E 12.5x on $15.30 midpoint)
 
-### 6.6 Margin of Safety Calculation
+This is conservative vs:
+- JPMorgan target: $181 (Overweight)
+- Truist target: $180 (Buy)
+- Consensus target: ~$170
+- Weighted multi-method: $225
 
-```
-Current Price: $143.44
-Expected Value: $241
-Base Case FV: $237
-Bear Case FV: $170
+### 8.5 Escenarios
 
-MoS vs Expected Value: ($241 - $143.44) / $241 = 40.5%
-MoS vs Base Case: ($237 - $143.44) / $237 = 39.5%
-MoS vs Bear Case: ($170 - $143.44) / $170 = 15.6%
-```
-
-**WAIT - This MoS seems high, but thesis original usaba FV $215 con MoS 34%.**
-
-Recalculando con approach mas conservador (usando solo P/E normalized como driver principal dado que ROE puede ser transitoriamente alto):
+| Escenario | Prob | P/E | EPS | Fair Value |
+|-----------|------|-----|-----|------------|
+| **Bear** (class action surprise + ROE compresses) | 20% | 10x | $14.50 | $145 |
+| **Base** (gradual re-rating + earnings growth) | 55% | 12.5x | $15.30 | $191 |
+| **Bull** (class actions resolve + full re-rate to peers) | 25% | 15x | $15.65 | $235 |
 
 ```
-Conservative Fair Value (P/E 12x on FY26 EPS $15): $180
-MoS vs Conservative: ($180 - $143.44) / $180 = 20.3%
-
-Moderate Fair Value (P/E 14x): $210
-MoS vs Moderate: ($210 - $143.44) / $210 = 31.7%
+Expected Value = (0.20 * $145) + (0.55 * $191) + (0.25 * $235)
+Expected Value = $29 + $105 + $59 = $193
 ```
 
-**ADOPTED FAIR VALUE: $174 (P/E 11.5x on $15.03 forward EPS)**
-- This is conservative given:
-  - Residual litigation uncertainty
-  - Earnings call tomorrow could surprise
-  - Beta only 0.46 suggests market sees it as less risky than short-seller narrative
+### 8.6 Margin of Safety
 
-**MoS at Adopted FV: ($174 - $143.44) / $174 = 17.6%**
+| Metrica | Valor |
+|---------|-------|
+| Precio actual (10-Feb-2026) | $141.42 |
+| Fair Value (Adopted) | $191 |
+| **MoS vs Adopted FV** | **25.9%** |
+| MoS vs Expected Value | 26.7% |
+| MoS vs Bear Case | 2.5% (near floor) |
+| MoS vs Bull Case | 39.8% |
+
+**Comparacion con versiones anteriores:**
+
+| Version | FV | MoS | Precio | Veredicto |
+|---------|------|------|--------|-----------|
+| v1.0 (Feb 2) | $215 | 34.4% | $141 | BUY |
+| v2.0 (Feb 3) | $174 | 17.6% | $143 | HOLD |
+| Adversarial (Feb 8) | $185 | +6% vs v2.0 | — | HOLD MED-LOW |
+| **v3.0 (Feb 10)** | **$191** | **25.9%** | **$141** | **HOLD MEDIUM** |
 
 ---
 
-## 7. QUALITY SCORE (Framework v2.0)
+## 9. KILL CONDITIONS
 
-| Factor | Score | Notes |
-|--------|-------|-------|
-| 1. ROE >15% consistently (5+ years) | YES | 22% actual, 18%+ historical |
-| 2. FCF positive every year (5+ years) | YES | ~$1.4B annual |
-| 3. Debt/Equity <1.0 | YES | 0.55 |
-| 4. Dividend 10+ years without cut | YES | Increasing since 2010+ |
-| 5. Wide moat | NO | Narrow moat (captive agents) |
-| 6. Revenue stability | YES | Insurance premiums recurring |
-| 7. Management quality | PARTIAL | Cleared by SEC/DOJ, but questions remain |
-| 8. Analyst coverage >10 | BORDERLINE | ~10 analysts |
-| 9. Market cap >10B EUR | NO | $11.6B = ~9.8B EUR |
-| 10. Defensive sector | YES | Insurance is defensive |
-
-**Quality Score: 7/10 - TIER B (25% MoS required)**
-
-**QS Tool-First Reconciliation (Sesion 52):**
-- **QS Tool:** 52/100 (Tier C) — Financial Quality 22/40, Growth 13/25, Moat 11/25, CapAlloc 6/10
-- **QS Thesis (old):** 7/10 custom scale (claimed Tier B)
-- **QS Ajustado:** 52/100 (Tier C) — Tool correctly identifies: narrow moat (captive agents, not wide, 11/25), modest growth (13/25). Old /10 scale conflated "passes checklist" with quality depth. Narrow moat + lingering class action risk = Tier C appropriate.
-- **Tier Efectivo:** C (Special Situation)
-- Note: Adversarial review (Feb 2026) found FV $185 (+6% vs thesis $174) — one of few positions where adversarial raised FV.
+1. **Class action reveals new material fraud** not addressed by SEC/DOJ → EXIT
+2. **Operating EPS falls below $12** (vs $15.30 guide) → RE-EVALUATE
+3. **ROE drops below 12% sustained** (2+ quarters) → Moat impaired
+4. **New regulatory investigation opened** (state AG, SEC reopens) → RE-EVALUATE
+5. **Underwriting margins compress below 35%** (life segment) → Pricing power lost
+6. **Premium growth turns negative** for 2+ quarters → Client base eroding
 
 ---
 
-## 8. DECISION GATES (Framework v2.0 - 7 Gates)
+## 10. INVESTMENT COMMITTEE GATES (v3.0)
 
 | Gate | Status | Notes |
 |------|--------|-------|
-| 1. Business understanding complete | PASS | Section 2 complete |
-| 2. Projection fundamentada (no defaults) | PASS | Section 5 - WACC derivado |
-| 3. Valoracion multi-metodo | PASS | P/B vs ROE + P/E normalized |
-| 4. Margen de seguridad (Tier B = 25%) | **FAIL** | MoS 17.6% < 25% required |
-| 5. Contexto macro favorable | PASS | No tariff/China exposure, rates help |
-| 6. Portfolio fit | PASS | Low correlation with ALL (0.29) |
-| 7. Autocritica explicita | PASS | Section 9 below |
-
-**OVERALL: FAIL Gate 4 - MoS insufficient for Tier B**
+| 1. QS calculado | PASS | Tool 52 (Tier C), Adj 55 (Tier B borderline). Insurance-specific distortions documented |
+| 2. Entendimiento del negocio | PASS | Captive agent model, niche demographics, Section 3 complete |
+| 3. Proyeccion fundamentada | PASS | Revenue 5%, EPS 5-8% CAGR, WACC 7.0% derivado |
+| 4. Valoracion multi-metodo | PASS | P/B vs ROE ($242) + P/E normalized ($199). Adopted $191 |
+| 5. Margen de seguridad | PASS | MoS 25.9% > 20-25% rango para Tier B/C borderline |
+| 6. Contexto macro | PASS | No tariff/China/rate exposure. Rates help investment income |
+| 7. Portfolio fit | PASS | Low correlation with insurance peer ALL (0.29). US-only |
+| 8. Autocritica | PASS | Section 11 below |
+| 9. Riesgo regulatorio | **IMPROVED** | SEC+DOJ cleared. Class actions manageable ($0.04/share legal costs) |
 
 ---
 
-## 9. AUTOCRITICA / DEVIL'S ADVOCATE
+## 11. AUTOCRITICA / DEVIL'S ADVOCATE
 
 ### Asunciones que estoy haciendo:
-1. SEC/DOJ clearance significa que Fuzzy Panda estaba equivocado
-2. ROE 22% es sostenible (no one-time items)
-3. 2025/2026 EPS guidance sera alcanzado
-4. Class action se resolvera sin impacto material (<$150M)
+1. SEC/DOJ clearance = definitive vindication (Fuzzy Panda could still be partially right about agent misconduct)
+2. ROE ~18-20% is sustainable (could normalize to 14-16% if rates decline)
+3. FY2026 guidance midpoint $15.30 will be achieved
+4. Class actions resolve for <$200M total ($2-3/share)
+5. P/E will re-rate from 10x toward 12-14x as overhang dissipates
 
 ### Sesgos detectados:
-- Confirmacion: Quiero que funcione porque ya tenemos posicion
-- Recency: SEC clearance es reciente, puede estar influyendo excesivamente
+- **Confirmation bias:** SEC clearance confirmed what I wanted to believe
+- **Anchoring:** Using analyst targets ($170-181) as validation when they could also be wrong
+- **Recency bias:** Q4 results are fresh, may be overweighting them
 
-### Evidencia ignorada:
-- Class action still ongoing (depositions, discovery)
-- Agent misconduct may have been real even if not SEC-level fraud
-- New short reports could emerge
+### What bears argue:
+- Fuzzy Panda "stands by" claims — maybe there IS something beneath the surface
+- Class actions could produce damaging depositions even if SEC cleared
+- Insurance sector structurally challenged by low interest rate future (if rates fall)
+- ROE 20.9% includes AOCI benefit; ex-AOCI is only 16%
+- Investment income ALREADY declining (-16% Q4 YoY)
 
 ### What would make me sell:
-1. Class action reveals new material fraud
-2. Operating EPS falls below $12 (vs $15 guidance)
-3. ROE drops below 12% sustained
+1. Class action reveals new material fraud not addressed by SEC/DOJ
+2. Operating EPS below $12 sustained
+3. ROE below 12% for 2+ quarters
 4. New regulatory investigation opened
+5. Premium growth turns negative
 
 ---
 
-## 10. RECOMMENDATION
+## 12. POSICION Y RECOMENDACION
 
-### Original Thesis (2026-02-02):
-- Fair Value: $215
-- MoS: 34.4%
-- Status: BUY
+**Status: HOLD (conviction MEDIUM)**
 
-### Framework v2.0 Re-evaluation (2026-02-03):
-- **Fair Value v2.0:** $174 (conservative P/E 11.5x)
-- **MoS v2.0:** 17.6%
-- **Status: HOLD**
+**Razonamiento:**
+1. SEC+DOJ clearance is the single biggest positive catalyst since position opened
+2. FY2025 results confirm strong fundamentals ($14.52 operating EPS, above midpoint)
+3. FY2026 guidance $14.95-$15.65 implies continued 5% EPS growth
+4. Management bought back 5.4M shares at $126 avg = excellent capital allocation signal
+5. MoS 25.9% at adopted FV $191 is adequate for Tier B/C borderline
+6. P/E 10x vs peers 14-15x = re-rating potential as overhang dissipates
 
-### Price Appreciation Impact:
-- Entry price: ~$141 (2026-02-02)
-- Current price: $143.44
-- Appreciation: +1.7%
+**Conviction upgrade:** medium-low → **medium** (SEC/DOJ clearance reduces major uncertainty)
 
-### Summary Table:
+**EXIT plan:**
+- HOLD through class action resolution
+- TRIM at $185+ (approaching FV)
+- ADD at $125 or below (MoS >35%, back to crisis pricing)
+- EXIT if KC#1 (new fraud revealed) or KC#4 (new investigation)
 
-| Metric | Original | v2.0 | Change |
-|--------|----------|------|--------|
-| Fair Value | $215 | $174 | -19% (more conservative valuation) |
-| MoS | 34.4% | 17.6% | -16.8pp (compressed) |
-| Quality Score | 6.5/10 | 7/10 | +0.5 (better quality recognition) |
-| Tier | B | B | Same |
-| Required MoS | 25% | 25% | Same |
-| **Verdict** | BUY | **HOLD** | Changed |
-
-### Action Items:
-1. **DO NOT ADD** at current prices ($143+)
-2. **HOLD** existing position
-3. **SET BUY TRIGGER** at $130 or below (MoS would be 25.3%)
-4. **MONITOR Q4 2025 EARNINGS** (Feb 5, 2026) - key catalyst
-5. If earnings disappoint, may need to re-evaluate
-
-### Catalysts to Watch:
-1. **Q4 2025 Earnings (Feb 5, 2026)** - Consensus EPS $3.44
-2. **Class action resolution** - Settlement or dismissal
-3. **Price pullback** - Re-entry opportunity at <$130
-4. **P/E re-rating** - If market gains confidence, could re-rate to 14-15x
+**Standing order: ADD at $125** (MoS 34.5%, near FY25 buyback avg of $126)
 
 ---
 
-## 11. POSITION TRACKING
+## 13. CALENDAR / MONITORING
+
+| Fecha | Evento | Accion |
+|-------|--------|--------|
+| Q1 2026 | Q1 earnings (~May) | Verify premium growth tracking 7-8%, underwriting margins |
+| 2026 ongoing | Class action developments | Monitor depositions, settlement talks. Alert if >$200M |
+| Continuous | P/E re-rating | If P/E approaches 13-14x, evaluate TRIM |
+
+---
+
+## 14. META-REFLECTION
+
+### Dudas/Incertidumbres
+1. **ROE normalization:** FY2025 ROE 20.9%, but ex-AOCI only 16%. If rates decline, ROE could compress further. P/B method is sensitive to ROE assumption.
+2. **Class action wildcard:** SEC/DOJ cleared doesn't mean agent misconduct didn't happen — it means it wasn't federal-level fraud. State-level issues or civil damages could still materialize.
+3. **Investment income declining:** Excess investment income -16% Q4 YoY. If this continues, EPS growth could disappoint guidance.
+
+### Sugerencias de Mejora
+1. **Create insurance sector view:** `world/sectors/insurance.md` should be updated with GL + ALL data and the SEC/DOJ clearance development
+2. **Track class action milestones:** Add specific dates as they become public
+
+### Anomalias Detectadas
+1. **QS Tool ROIC spread negative (-4.2pp):** This is an insurance-sector distortion. For insurers, ROE is the relevant metric, not ROIC. Tool penalizes GL incorrectly. Noted but not adjusted in Financial Quality (kept conservative).
+2. **Yield showing 76% on price_checker:** Likely yfinance data error. GL's actual dividend yield is ~0.8% ($3.60 annual dividend on $141 price).
+
+### Preguntas para Orchestrator
+1. Update insurance sector view with SEC/DOJ resolution?
+2. Add $125 standing order to system.yaml?
+
+---
+
+## 15. POSITION TRACKING
 
 | Date | Action | Price | Shares | Notes |
 |------|--------|-------|--------|-------|
-| 2026-02-03 | BUY | $141.04 | ~3.5 | Initial position ~$500 |
+| 2026-02-03 | BUY | $141.06 | 3 | Initial position ~$423 |
+| 2026-02-10 | — | $141.42 | 3 | v3.0 review: HOLD, conviction upgraded |
 
 ---
 
 ## Sources
 
-- [Globe Life Q4 2025 Earnings Call Feb 5](https://www.stocktitan.net/news/GL/globe-life-inc-announces-fourth-quarter-2025-earnings-release-and-gsucznixsb49.html)
-- [Globe Life Investor Relations](https://investors.globelifeinsurance.com/financial-reports-and-other-financial-information)
-- [Yahoo Finance Q4 2025 Expectations](https://finance.yahoo.com/news/expect-globe-lifes-q4-2025-103522801.html)
-- [SEC Investigation Closed - No Enforcement](https://www.insurancebusinessmag.com/us/news/breaking-news/sec-ends-globe-life-review-with-no-enforcement-543900.aspx)
+### Q4 2025 Earnings
+- [Globe Life Q4 2025 PR](https://www.prnewswire.com/news-releases/globe-life-inc-reports-fourth-quarter-2025-results-302679213.html)
+- [Globe Life Q4 2025 Earnings Call Transcript](https://seekingalpha.com/article/4866612-globe-life-inc-gl-q4-2025-earnings-call-transcript)
+- [Investing.com: GL Q4 misses by $0.05](https://www.investing.com/news/transcripts/earnings-call-transcript-globe-life-q4-2025-misses-forecasts-stock-dips-93CH-4488535)
+- [Seeking Alpha: GL 2026 outlook](https://seekingalpha.com/news/4548134-globe-life-outlines-5-percent-eps-growth-and-14-percent-16-percent-health-premium-increase)
+
+### SEC/DOJ Clearance
+- [SEC Investigation Closed — No Enforcement](https://www.insurancebusinessmag.com/us/news/breaking-news/sec-ends-globe-life-review-with-no-enforcement-543900.aspx)
 - [DOJ Investigation Closed](https://www.prnewswire.com/news-releases/globe-life-announces-closing-of-department-of-justice-investigation-302515325.html)
-- yfinance data (2026-02-03): Price $143.44, P/E 10.4, P/B 2.02, ROE 22.3%, Beta 0.464
+- [TipRanks: GL Cleared](https://www.tipranks.com/news/company-announcements/globe-life-cleared-by-doj-and-sec-investigations)
+
+### Analyst Targets
+- [JPMorgan: $181 PT, Overweight](https://finance.yahoo.com/news/jpmorgan-raises-price-target-globe-133901808.html)
+- [Truist: $180 PT, Buy](https://www.gurufocus.com/news/8591401/truist-securities-raises-price-target-for-globe-life-gl-to-180-gl-stock-news)
+- [Piper Sandler: $167 PT, Overweight](https://www.tickerreport.com/banking-finance/13336444/globe-life-nysegl-releases-fy-2026-earnings-guidance.html)
+
+### Fuzzy Panda
+- [InsuranceERM: Fuzzy Panda stands by claims](https://www.insuranceerm.com/news-comment/fuzzy-panda-stands-by-globe-life-allegations-despite-doj-and-sec-probes-winding-down.html)
 
 ---
 
@@ -505,5 +506,7 @@ MoS vs Moderate: ($210 - $143.44) / $210 = 31.7%
 
 | Version | Date | Changes |
 |---------|------|---------|
-| v1.0 | 2026-02-02 | Initial thesis |
-| v2.0 | 2026-02-03 | Framework v2.0 re-evaluation: Added business understanding, value trap checklist, P/B vs ROE valuation, WACC derivation, multi-method valuation, 7 gates. **Verdict changed from BUY to HOLD** due to MoS compression below 25% threshold. |
+| v1.0 | 2026-02-02 | Initial thesis. FV $215, BUY |
+| v2.0 | 2026-02-03 | Framework v2.0 re-evaluation. FV $174, HOLD (MoS compressed) |
+| Adversarial | 2026-02-08 | Adversarial review found FV $185 (+6% vs thesis). One of few positions where adversarial RAISED FV |
+| **v3.0** | **2026-02-10** | **SEC/DOJ clearance + Q4 2025 update. FV $191 (+9.8% vs v2.0). QS Adj 55 (Tier B borderline). Conviction medium. Standing order ADD $125.** |

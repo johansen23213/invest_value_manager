@@ -9,10 +9,10 @@
 # Metadata
 metadata:
   created: 2026-02-03
-  last_updated: 2026-02-09
-  total_closed: 11
-  total_pnl_eur: -119.85  # Previous 20.15 + SAN.PA -4 + HRB -136 (~-$155/1.14) = ~-119.85
-  win_rate: 36.4  # 4 winners / 11 positions (SAN.PA and HRB are losers)
+  last_updated: 2026-02-10
+  total_closed: 12
+  total_pnl_eur: -90.85  # Previous -119.85 + IMB.L +29 = ~-90.85
+  win_rate: 41.7  # 5 winners / 12 positions (IMB.L is winner +6.9%)
   avg_holding_days: 6
 
 # Closed Positions
@@ -267,6 +267,30 @@ closed_positions:
     exit_reason: adversarial_review_moat_breach
     lesson_learned: "ADD standing orders for non-Tier-A positions are dangerous - they amplify losses when thesis is subsequently invalidated. Counter-analysis 18/24 STRONG is decisive. Competitive moat breach (physical + AI two-front) is more material than regulatory risk (Direct File)."
 
+  - ticker: IMB.L
+    name: "Imperial Brands plc"
+    entry_date: 2026-01-31
+    exit_date: 2026-02-10
+    shares: 14.255583
+    entry_price_gbp: 3066  # Avg cost
+    exit_price_gbp: 3278
+    entry_currency: GBp
+    invested_eur: 508  # ~$600 / 1.18
+    proceeds_eur: 537
+    pnl_amount_eur: 29
+    pnl_percent: 6.9
+    holding_days: 10
+    thesis_fv_at_entry: 3701  # GBp - original thesis v2.0
+    thesis_fv_adversarial: 3409  # GBp - adversarial review (Feb 8)
+    thesis_fv_v3: 2796  # GBp - v3.0 thesis (Feb 10)
+    fv_reached: false
+    quality_score: 54  # Tier C (thesis claimed Tier A 9.5/10, WRONG)
+    thesis_accuracy:
+      correct: false
+      notes: "Original FV 3,701 GBp inflated 33% vs v3.0 FV 2,796 GBp. Thesis self-assigned Tier A (9.5/10 custom scale) but QS tool = 54 Tier C. Key gaps not in thesis: $400M HMRC excise tax payment, UK generational tobacco ban confirmed, dividend cut history (2016). MoS was -14.6% at exit (OVERVALUED vs v3.0 FV). Adversarial review (Feb 8) had already flagged as 'next rotation candidate'. Revenue growth is pricing-driven (excise pass-through), not volume — volumes declining 5-8%/yr structurally."
+    exit_reason: adversarial_review_overvalued
+    lesson_learned: "Excise tax pass-through inflates revenue but distorts quality metrics. Tobacco companies need REIT-like adjusted QS. Thesis self-assigned Tier A was worst misgrade in portfolio (54 vs claimed ~95). Always run quality_scorer.py BEFORE writing thesis, not after. Dividend cut history is a red flag regardless of current yield."
+
   - ticker: TATE.L
     name: "Tate & Lyle plc"
     entry_date: 2026-02-03
@@ -322,14 +346,14 @@ partial_sells:
 # Statistics (auto-calculated by effectiveness_tracker.py)
 statistics:
   # Will be populated by the tool
-  total_closed_positions: 11
+  total_closed_positions: 12
   total_partial_sells: 3
-  total_realized_pnl_eur: 308.00  # Approx from trims + closed positions (448 - 4 SAN.PA - 136 HRB)
-  winners: 4  # SHEL.L +2.3%, LIGHT.AS +13.7%, PFE +1.8%, TATE.L +3.5%
+  total_realized_pnl_eur: 337.00  # Previous 308 + IMB.L +29 = ~337
+  winners: 5  # SHEL.L +2.3%, LIGHT.AS +13.7%, PFE +1.8%, TATE.L +3.5%, IMB.L +6.9%
   losers: 5  # FUTR.L -2.8%, TEP.PA -6.7%, A2A.MI -1.5%, SAN.PA -0.84%, HRB -13.25%
   breakeven: 2  # ENEL.MI 0%, VNA.DE 0%
-  win_rate_pct: 36.4
-  avg_win_pct: 5.3  # (2.3 + 13.7 + 1.8 + 3.5) / 4
+  win_rate_pct: 41.7
+  avg_win_pct: 5.6  # (2.3 + 13.7 + 1.8 + 3.5 + 6.9) / 5
   avg_loss_pct: -4.9  # (-2.8 + -6.7 + -1.5 + -0.84 + -13.25) / 5
   avg_holding_days: 7
   positions_reached_fv: 0

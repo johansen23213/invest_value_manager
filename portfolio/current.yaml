@@ -7,7 +7,7 @@
 # =============================================================================
 
 cash:
-  amount: 4307  # Post SELL HRB (~$1,016 = ~EUR 861) + SAN.PA (~EUR 433) on 2026-02-09. Previous 3013 + 861 + 433 = ~4307
+  amount: 4844  # Post SELL IMB.L (~EUR 537 proceeds) on 2026-02-10. Previous 4307 + 537 = ~4844
   currency: EUR
 
 positions:
@@ -20,9 +20,9 @@ positions:
     date_opened: 2026-01-26
     thesis: thesis/active/DTE.DE/thesis.md
     conviction: medium
-    fair_value: "EUR 33-35 (adversarial, was 36.50-38.50)"
-    last_review: 2026-02-07
-    exit_plan: "HOLD through earnings Feb 26. EXIT if guidance disappoints or div cut. TRIM if price >EUR 33 without thesis improvement."
+    fair_value: "EUR 34.00 (v3.0. QS Tool 48 Tier C, no adj. Was EUR 33-35 adversarial)"
+    last_review: 2026-02-10
+    exit_plan: "HOLD through Feb 26 earnings. TRIM >EUR 33. ADD <EUR 27. SELL if div cut or FY2026 EPS guide <EUR 2.00. Check TMUS results Feb 11 TODAY."
 
   - ticker: ALL
     name: "Allstate Corporation"
@@ -46,21 +46,11 @@ positions:
     date_opened: 2026-01-31
     thesis: thesis/active/VICI/thesis.md
     conviction: low
-    fair_value: "$30.50 (adversarial, was $33.75 thesis)"
-    last_review: 2026-02-08
-    exit_plan: "HOLD ON PROBATION through Feb 25 earnings. SELL if Caesars misses rent or rent reset >10%. SELL if AFFO guidance <$2.35. TRIM at $32. Next rotation candidate if no catalyst post-earnings."
+    fair_value: "$29.00 (v3.0. QS Tool 54, REIT-Adj ~60 Tier B. Was $30.50 adversarial, $33.75 thesis)"
+    last_review: 2026-02-10
+    exit_plan: "HOLD ON PROBATION through Feb 25 earnings. SELL if AFFO guidance <$2.35 or rent cut >10% without compensation (KC#7). TRIM at $32. Post-earnings: SELL/HOLD/UPGRADE decision based on guidance + Caesars lease disclosure."
 
-  - ticker: IMB.L
-    name: "Imperial Brands plc"
-    shares: 14.255583
-    invested_usd: 600.00
-    avg_cost_usd: 42.09  # 600 / 14.255583
-    date_opened: 2026-01-31
-    thesis: thesis/active/IMB.L/thesis.md
-    conviction: low-medium
-    fair_value: "3,409 GBp (adversarial, was 3,701 thesis)"
-    last_review: 2026-02-08
-    exit_plan: "HOLD on PROBATION. MoS only 2%. TRIM at 3,500 GBp. Next rotation candidate if Tier A alternative found. Forward return ~8-10% (yield+DPS growth+buyback)."
+  # IMB.L REMOVED 2026-02-10 - SOLD. Adversarial review: QS 54 Tier C (thesis claimed Tier A 9.5/10). FV 2,796p (v3.0) vs 3,274p = MoS -14.6%. $400M HMRC payment + UK generational ban. P&L +6.9%.
 
   - ticker: EDEN.PA
     name: "Edenred SA"
@@ -83,6 +73,10 @@ positions:
     avg_cost_usd: 2.49  # 436.52 / 175
     date_opened: 2026-02-02
     thesis: thesis/active/DOM.L/thesis.md
+    conviction: low
+    fair_value: "240 GBp (v3.0. QS Tool 61 Tier B, no adj. Was 294p v2.0, -18.4%. EV/EBIT 60% + P/E 40%)"
+    last_review: 2026-02-10
+    exit_plan: "HOLD through FY25 results Mar 5. SELL if EBITDA <£125M (KC#1). HOLD if base (£130-137M). Conviction LOW — MoS 19.2% marginal for Tier B. New CEO Dominic Paul starts Apr 6."
 
   - ticker: UHS
     name: "Universal Health Services Inc."
@@ -92,9 +86,9 @@ positions:
     date_opened: 2026-02-02
     thesis: thesis/active/UHS/thesis.md
     conviction: low
-    fair_value: "$243 (adversarial, was $283.74)"
-    last_review: 2026-02-07
-    exit_plan: "HOLD through earnings Feb 26. EXIT if Q4 miss or labor warning. SELL if ROIC < WACC."
+    fair_value: "$213 (v3.0. QS Tool 51 Tier C, no adj. Was $243 adversarial, $283.74 thesis)"
+    last_review: 2026-02-10
+    exit_plan: "HOLD ON PROBATION through Feb 25 earnings. SELL if FY2026 guide <$20 (KC#5) or behavioral volumes decline (KC#4) or ROIC<WACC (KC#1). TRIM at $240. Post-earnings SELL/HOLD decision MANDATORY. Medicaid cuts (OBBBA) = structural risk."
 
   - ticker: GL
     name: "Globe Life Inc."
@@ -103,10 +97,10 @@ positions:
     avg_cost_usd: 141.06  # 423.18 / 3
     date_opened: 2026-02-03
     thesis: thesis/active/GL/thesis.md
-    conviction: medium-low
-    fair_value: "$185 (adversarial, was $174 thesis / $237 valuation report)"
-    last_review: 2026-02-08
-    exit_plan: "HOLD. 4 class actions risk. SELL if settlement >$500M or DOJ investigation. TRIM at $185+. Update thesis to v3.0 with Q4 results."
+    conviction: medium
+    fair_value: "$191 (v3.0. QS Tool 52, Adj 55 Tier B borderline. Was $185 adversarial, $174 v2.0)"
+    last_review: 2026-02-10
+    exit_plan: "HOLD through class action resolution. TRIM at $185+. ADD at $125 (MoS 34.5%). EXIT if KC#1 (new fraud) or KC#4 (new investigation). SEC+DOJ cleared Jul 2025."
 
   # HRB REMOVED 2026-02-09 - SOLD. Adversarial review: Intuit 600 offices + $100M OpenAI = moat breach. FCF -20% 3yr. Counter 18/24 STRONG. P&L -13.25%.
 
@@ -116,6 +110,10 @@ positions:
     invested_usd: 541.20
     avg_cost_usd: 270.60  # 541.20 / 2
     date_opened: 2026-02-04
+    conviction: medium
+    fair_value: "$390 (FTC-adjusted, was $394. QS Tool 76, Adj 73)"
+    exit_plan: "HOLD through trial Oct 2026. EXIT if KC#6 (FTC mandates one-click + churn >5pp). TRIM at $350 pre-trial. ADD only if <$240 (bear absorbed). No ADD until trial clarity."
+    last_review: 2026-02-10
     thesis: thesis/active/ADBE/thesis.md
 
   - ticker: NVO
@@ -521,3 +519,13 @@ transactions:
     pnl_usd: -155
     pnl_pct: -13.25
     notes: "EXIT - Adversarial review. Intuit 600 Expert Offices + $100M OpenAI = moat breach. FCF structural decline $752M→$579M (-23% 3yr). Devil's advocate counter 18/24 STRONG. IRS Direct File death does NOT change verdict. QS 70 Tier B but forward deterioration."
+
+  - date: 2026-02-10
+    action: SELL
+    ticker: IMB.L
+    shares: 14.255583
+    price_gbp: 3278
+    total_eur: 537
+    pnl_eur: 29
+    pnl_pct: 6.9
+    notes: "EXIT - Adversarial review thesis v3.0. QS 54 Tier C (thesis claimed Tier A 9.5/10). FV 2,796p vs price 3,274p = MoS -14.6% (OVERVALUED). $400M HMRC payment + UK generational ban not in thesis. Dividend cut history (2016). ROIC 17% but excise tax distorts. Next rotation candidate confirmed."

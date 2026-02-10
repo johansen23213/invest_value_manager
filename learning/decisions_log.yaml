@@ -312,6 +312,32 @@ trim_decisions:
       when 6 Tier A positions exist in portfolio.
     outcome: "P&L -13.25%. Lesson: ADD at $35 (standing order) amplified loss."
 
+  - date: 2026-02-10
+    ticker: IMB.L
+    action: "SELL (full exit - adversarial review)"
+    context:
+      quality_score: 54
+      tier: C
+      position_size: "~5.5%"
+      mos: "-14.6% (overvalued vs v3.0 FV 2,796p)"
+      pnl: "+6.9%"
+      holding_days: 10
+    reasoning: |
+      Adversarial review thesis v3.0 revealed:
+      - QS 54 Tier C (thesis claimed 9.5/10 Tier A — worst misgrade in portfolio)
+      - FV 3,701p→2,796p (-24.4%), MoS -14.6% at 3,278p (OVERVALUED)
+      - $400M HMRC excise tax payment not in thesis
+      - UK generational tobacco ban confirmed (Tobacco and Vapes Bill)
+      - Dividend cut history (2016) not in thesis
+      - Revenue growth = excise pass-through, not organic (volumes -5-8%/yr)
+      - BATS.L in price_monitors noted "ya tenemos IMB.L" — no longer relevant
+      Principio 9 (Quality Gravitation): QS 54 Tier C with negative MoS does not
+      earn its place when 5 Tier A positions exist. Feb 8 adversarial already flagged
+      "next rotation candidate if Tier A alternative found."
+      Principio 6 (Vender Requiere Argumento): Negative MoS + Tier C + undocumented
+      risks + overvalued = clear argument. No kill condition but 3 EXIT gates SELL.
+    outcome: "P&L +6.9% (~EUR 29). Cash to EUR 4,844 (~42%). 12th closed position."
+
   - date: 2026-02-04
     ticker: FUTR.L
     action: "SELL (full exit)"
