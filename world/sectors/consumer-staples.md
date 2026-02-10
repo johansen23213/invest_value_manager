@@ -20,9 +20,11 @@ Consumer Staples es el sector defensivo por excelencia: alimentos, bebidas, taba
 - Entorno macroeconomico incierto favorece defensivos si hay shock
 
 **Nuestras posiciones actuales:**
-- IMB.L (Imperial Brands) - Tobacco, P/E ~9x fwd, yield 5.3%
-- DOM.L (Domino's Pizza UK) - QSR franchise, caido 40% 52w, yield 6.4%
-- TATE.L (Tate & Lyle) - Food ingredients, caido ~40% desde maximos
+- DOM.L (Domino's Pizza UK) - QS 61 Tier B, FV 240 GBp. FY25 results Mar 5.
+
+**Vendidas:**
+- IMB.L (Imperial Brands) - SOLD 2026-02-10 (+6.9%). QS 54 Tier C, MoS -14.6%.
+- TATE.L (Tate & Lyle) - SOLD 2026-02-08 (+3.5%). QS 45 Tier C, adversarial FV -40%.
 
 ---
 
