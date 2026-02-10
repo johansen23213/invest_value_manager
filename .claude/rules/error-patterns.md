@@ -297,3 +297,41 @@ El humano ha tenido que señalar REPETIDAMENTE problemas que debería detectar s
       → NO: STOP. Crear sector view PRIMERO. Lanzar sector-screener.
       → NO HAY EXCEPCIONES.
     ```
+
+---
+
+## Errores Sesión 52 (2026-02-09)
+
+43. **QS de thesis no coincidía con quality_scorer.py en 5/6 posiciones Tier A** — Programa adversarial completo (Sesiones 48-52) reveló que en NVO, LULU, AUTO.L, BYIT.L y SAN.PA, el QS del thesis era superior al que el tool calcula o al que un análisis adversarial forward-looking produce. Patrón: el fundamental-analyst inflaba QS manualmente sin documentar ajustes.
+
+    **CAUSA RAÍZ:** No existía regla que obligara a usar el tool como fuente principal. El analyst podía asignar QS "a ojo" y el committee no verificaba contra el tool.
+
+    **REGLA - QS TOOL-FIRST (OBLIGATORIO):**
+    ```
+    1. quality_scorer.py = FUENTE PRINCIPAL del QS (dato base objetivo)
+    2. La thesis SIEMPRE muestra AMBOS números:
+       - "QS Tool: 79/100 (Tier A)"
+       - "QS Ajustado: 68/100 (Tier B) — Ajuste: -11 por [razón documentada]"
+    3. Si ajuste > 5 puntos vs tool → requiere EVIDENCIA CUANTITATIVA
+       (no vale "creo que el moat es más fuerte")
+    4. El Tier se determina por el score AJUSTADO, no el del tool
+    5. Ajustes válidos (con evidencia):
+       - Forward growth deterioration (H1 data contradicts historical CAGR)
+       - Moat under active siege (dealer revolt, regulatory threat)
+       - ROIC distortion (goodwill, negative working capital)
+       - Insider ownership data incorrect
+       - Kill condition approaching
+    6. Ajustes NO válidos:
+       - "El negocio me parece mejor de lo que dice el tool"
+       - Subir QS sin evidencia cuantitativa
+       - Ignorar el tool score sin documentar
+    ```
+
+    **Patrón descubierto en adversarial:**
+    | Ticker | QS Thesis | QS Tool | QS Adversarial | Error |
+    |--------|-----------|---------|----------------|-------|
+    | NVO    | 82        | ~70     | 68-70          | +12-14 |
+    | LULU   | 82        | 82      | 66-72          | Forward-adjusted |
+    | AUTO.L | 79        | 79      | 68-72          | Moat siege |
+    | BYIT.L | 81        | 81      | 68-72          | ROIC + insider |
+    | SAN.PA | --        | --      | --             | Same pattern |

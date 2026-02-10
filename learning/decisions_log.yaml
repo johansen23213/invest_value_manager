@@ -7,7 +7,7 @@
 # Creado: 2026-02-05 | Framework v4.0
 
 version: "4.0"
-last_updated: 2026-02-06
+last_updated: 2026-02-09
 
 # =============================================================================
 # DECISIONES DE SIZING (BUY/ADD)
@@ -261,6 +261,83 @@ trim_decisions:
       SHEL.L era posicion de menor calidad del portfolio (QS 36, borderline Tier D).
     outcome: "P&L +2.3% (~+€8). Capital rotado a AUTO.L."
 
+  - date: 2026-02-09
+    ticker: SAN.PA
+    action: "SELL (full exit - adversarial review)"
+    context:
+      quality_score: "55-59 (Tool 59, Adjusted 55)"
+      tier: "B (low-end, approaching C)"
+      position_size: "~4.5%"
+      mos: "~0% (revised from +34%)"
+      pnl: "-0.84%"
+      holding_days: 9
+    reasoning: |
+      EXIT Protocol aplicado - 4/6 gates support SELL:
+      - Gate 2: Tesis DEBILITADA - Amlitelimab inferior to Dupixent (COAST 2 EU failed),
+        CFO admits pipeline cannot replace Dupixent, M&A is only path (execution risk)
+      - Gate 3: MoS ~0% (FV EUR 122→79, -35.5%). Zero safety for Tier B.
+      - Gate 4: OS extreme vs NVO (QS 82, MoS 38%, same pharma sector)
+      - Gate 6: Friction <0.5% (liquid, minimal gain, no tax impact)
+      FV Bridge: 51% FCF growth cut (6→4% Y1-5, 3→2% Y6-10), 32% DDM growth cut
+      (4.5→3.5%), 17% WACC increase (8→8.5%). Mapped to: 60% pipeline failure,
+      35% capital allocation shift (buybacks halved, M&A needed), 5% sentiment.
+      ROIC < WACC (-2.1pp) = 8th position with this pattern → all 7 prior were sold.
+      Principio 7 (Consistency): deviating would require strong argument; none found.
+      Principio 9 (Quality Gravitation): NVO is Tier A pharma exposure. SAN.PA at QS 55-59
+      is lowest-quality active position outside probation.
+    outcome: "P&L -0.84%. Capital to cash (portfolio ~35% cash post-sells)."
+
+  - date: 2026-02-09
+    ticker: HRB
+    action: "SELL (full exit - adversarial review)"
+    context:
+      quality_score: 70
+      tier: B
+      position_size: "~5.7%"
+      mos: "~0% (revised from 42%)"
+      pnl: "-13.25%"
+      holding_days: 6
+    reasoning: |
+      Adversarial review with devil's-advocate produced STRONG COUNTER (18/24):
+      - Intuit 600 Expert Offices + $100M OpenAI partnership = moat breach
+        (physical + AI two-front assault on HRB's DIY + assisted segments)
+      - FCF structural decline: $752M→$657M→$599M→$579M TTM (-23% over 3 years)
+      - $413M share buybacks while FCF declining = value destruction
+      - IRS Direct File killed (positive) but doesn't change verdict because
+        Intuit physical expansion is much larger threat (IRS served only 296K returns)
+      - Marginal QS improvement ~+3 pts from Direct File death doesn't move tier
+      Principio 7: Consistent with adversarial review pattern (12/13 positions had
+      inflated FV, 5 sold so far including HRB).
+      Principio 9: QS 70 Tier B with deteriorating fundamentals does not earn its place
+      when 6 Tier A positions exist in portfolio.
+    outcome: "P&L -13.25%. Lesson: ADD at $35 (standing order) amplified loss."
+
+  - date: 2026-02-10
+    ticker: IMB.L
+    action: "SELL (full exit - adversarial review)"
+    context:
+      quality_score: 54
+      tier: C
+      position_size: "~5.5%"
+      mos: "-14.6% (overvalued vs v3.0 FV 2,796p)"
+      pnl: "+6.9%"
+      holding_days: 10
+    reasoning: |
+      Adversarial review thesis v3.0 revealed:
+      - QS 54 Tier C (thesis claimed 9.5/10 Tier A — worst misgrade in portfolio)
+      - FV 3,701p→2,796p (-24.4%), MoS -14.6% at 3,278p (OVERVALUED)
+      - $400M HMRC excise tax payment not in thesis
+      - UK generational tobacco ban confirmed (Tobacco and Vapes Bill)
+      - Dividend cut history (2016) not in thesis
+      - Revenue growth = excise pass-through, not organic (volumes -5-8%/yr)
+      - BATS.L in price_monitors noted "ya tenemos IMB.L" — no longer relevant
+      Principio 9 (Quality Gravitation): QS 54 Tier C with negative MoS does not
+      earn its place when 5 Tier A positions exist. Feb 8 adversarial already flagged
+      "next rotation candidate if Tier A alternative found."
+      Principio 6 (Vender Requiere Argumento): Negative MoS + Tier C + undocumented
+      risks + overvalued = clear argument. No kill condition but 3 EXIT gates SELL.
+    outcome: "P&L +6.9% (~EUR 29). Cash to EUR 4,844 (~42%). 12th closed position."
+
   - date: 2026-02-04
     ticker: FUTR.L
     action: "SELL (full exit)"
@@ -479,6 +556,27 @@ lessons:
       Contrastar con Tier A compounders (ROIC spread +20-40pp sobre WACC).
       Leccion: ROIC vs WACC es el filtro mas importante despues de QS.
       Capital rotado a BYIT.L (ROIC >> WACC) = upgrade masivo.
+
+  - date: 2026-02-09
+    lesson: "Standing orders that ADD to deteriorating positions amplify losses - adversarial review should precede ADD triggers"
+    from_decision: "HRB ADD at $35 (2026-02-05) then SELL at $32.77 (2026-02-09)"
+    impact: |
+      The ADD standing order for HRB was approved pre-adversarial review.
+      10 shares added at $35 on 2026-02-05 lost $22 in 4 days.
+      Total loss -$155 (-13.25%) vs -$33 (-4.9%) on original 19 shares alone.
+      Lesson: All standing orders should be re-validated through adversarial pipeline
+      before execution. ADD triggers for non-Tier-A positions are especially risky.
+
+  - date: 2026-02-09
+    lesson: "ROIC < WACC is the most reliable exit signal - now 8/8 positions with this pattern were sold"
+    from_decision: "SAN.PA SELL (8th ROIC<WACC exit after TEP.PA, LIGHT.AS, PFE, SHEL.L, A2A.MI, VNA.DE, TATE.L)"
+    impact: |
+      Perfect consistency: every position where ROIC < WACC was confirmed has been exited.
+      SAN.PA ROIC < WACC by -2.1pp confirmed by quality_scorer.py.
+      The pattern transcends sectors (pharma, BPO, lighting, energy, utility, REIT, staples).
+      Counter-argument tested: "pharma goodwill distorts ROIC" - valid concern but
+      even adjusted, the -2.1pp spread suggests value destruction.
+      This pattern should be a near-kill-condition for future positions.
 
   - date: 2026-02-06
     lesson: "MoS original puede ser incorrecto si metodo de valoracion es inapropiado"

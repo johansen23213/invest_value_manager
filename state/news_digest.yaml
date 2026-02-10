@@ -1,9 +1,11 @@
 # =============================================================================
-# NEWS DIGEST - Actualizado 2026-02-05
+# NEWS DIGEST - Actualizado 2026-02-09
 # =============================================================================
 
-last_scan: "2026-02-05T08:00:00"
+last_scan: "2026-02-09T10:00:00"
 next_scan: "Inicio proxima sesion"
+tickers_scanned: 16
+scan_type: "Full portfolio + watchlist"
 
 # =============================================================================
 # ALERTAS
@@ -13,129 +15,426 @@ alerts:
     # NINGUNA ALERTA CRITICA
 
   material:
-    - ticker: LIGHT.AS
-      headline: "JPMorgan downgrade to Neutral, Q4 EPS miss 17%"
+    - ticker: ADBE
+      headline: "Stock -6.9% Feb 4, -3.1% Feb 5 on AI disruption fears. Piper Sandler downgrade to Neutral."
       classification: MATERIAL
-      impact: "Preocupaciones de crecimiento. Stock +8.6% desde compra."
-      action: REVIEW_THESIS
+      source: "Yahoo Finance, IndexBox, StockStory"
+      impact: |
+        AI narrative escalating: Anthropic Claude Opus 4.6 + OpenAI agents seen as threat
+        to traditional SaaS. Canva now $3.1B ARR, 230M MAU, mid-40% growth.
+        Adobe boosted ad spending to $1.4B to counter AI fears.
+        Operating margins compressing: 47% (2024) -> 46% (2025) -> 45% (2026E).
+        Stock now -42% from 52w high. 21 analysts still consensus Buy, avg PT $414.
+      action_needed: false
+      detail: "THESIS-AWARE: We bought at 52w low specifically because AI fears were overdone. This sell-off creates MORE MoS, not less. Adobe has $22B ARR, enterprise lock-in, Firefly AI integration. Canva targets different segment (prosumer, not enterprise). Monitor but no action needed. Already incorporated in thesis."
 
-    - ticker: SHEL.L
-      headline: "Q4 earnings weaker, but +4% dividend, $3.5B buyback"
+    - ticker: NVO
+      headline: "Feb 4: Stock -17% on 2026 guidance cut (sales -5 to -13%). Feb 7: +8% recovery on Hims pulling $49 Wegovy competitor."
       classification: MATERIAL
-      impact: "Miss but capital returns intact"
-      action: HOLD
+      source: "CNBC, Motley Fool, Meyka"
+      impact: |
+        ALREADY KNOWN: We bought Feb 5 POST-crash at $48.13 specifically because of this.
+        NEW: Hims & Hers abandoned compounded Wegovy pill on Feb 7 (FDA + legal pressure).
+        This REDUCES competitive pressure and validates our thesis.
+        CagriSema REIMAGINE 2 positive: 14.2% weight loss vs 10.2% semaglutide (superior).
+        Wegovy pill early US momentum: ~170K patients, 88% on starter dose.
+      action_needed: false
+      detail: "Net POSITIVE for thesis since purchase. Guidance shock was entry catalyst (priced in). Hims withdrawal and CagriSema data are new positives. HOLD."
 
-    - ticker: VICI
-      headline: "Scotiabank downgrade to Sector Perform"
+    - ticker: ALL
+      headline: "Q4 2025 record: EPS $14.31 vs $9.60 est, CR 80.1%, FY net income $10.2B. BUT Arity revenue -50%, CEO sold $3.3M stock."
       classification: MATERIAL
-      impact: "PT cut $36 to $30"
-      action: MONITOR
+      source: "Investing.com, Simply Wall St, StockTitan"
+      impact: |
+        POSITIVE: Record results, CR 80.1% (well below exit trigger 97%), $4B buyback, div +8%.
+        CONCERNING: Arity revenue collapsed 50% to $60M, widened adj net loss to $12M.
+        Arity data privacy lawsuits still active (Texas AG + class action in IL federal court).
+        CEO Wilson sold $3.3M shares Feb 2 at $198-201.
+        Wells Fargo raised PT to $228, JPMorgan to $263.
+      action_needed: false
+      detail: "Q4 results STRONGLY positive for core insurance. Arity decline is concerning but small vs total ($60M vs $17.3B revenue). CEO sell is routine (he still holds large position). Lawsuits still active but no settlement. HOLD on probation per adversarial review. Next: monitor Arity trajectory and lawsuit developments."
 
-    - ticker: GL
-      headline: "Q4 EPS $3.29 vs $3.54 estimate - miss 7%"
+    - ticker: LULU
+      headline: "CEO Calvin McDonald departed Jan 31. Co-CEOs Meghan Frank + Andre Maestrini. Board search for permanent CEO."
       classification: MATERIAL
-      impact: "Miss pero FY guidance maintained"
-      action: HOLD
+      source: "Fox Business, ABC News, Yahoo Finance"
+      impact: |
+        CEO transition ALREADY KNOWN at purchase (Feb 5). We bought post-departure.
+        Interim co-CEO structure (CFO + Chief Commercial Officer) is adequate.
+        Board hired executive search firm. No permanent replacement yet.
+        Stock -10% YTD, -51% from highs. Forward P/E 13.3x vs industry 18.5x.
+        Q4 earnings expected: EPS $4.74 (-22.8% YoY), rev $3.6B (-0.24%).
+      action_needed: false
+      detail: "CEO change was KNOWN at entry and priced into our thesis. Interim leadership is competent. International still growing strongly (+45% China, +19% RoW). Monitor Q4 results closely (March earnings). HOLD."
+
+    - ticker: SAN.PA
+      headline: "Q4 2025 beat: rev EUR 11.3B (+7%), FY EPS +15%. Dupixent EUR 4.2B (+32%). EUR 1B buyback announced Feb 3."
+      classification: MATERIAL
+      source: "Sanofi PR, Nasdaq, Investing.com"
+      impact: |
+        STRONGLY POSITIVE: Dupixent +32% in Q4 is exceptional.
+        FY 2025 sales EUR 43.6B (+10%), earnings EUR 7.8B (+41%).
+        2026 guidance: high single-digit sales growth, EPS growth faster than sales.
+        Venglustat met Phase 3 endpoints (Gaucher disease).
+        EUR 1B buyback Feb 3-Dec 2026.
+      action_needed: false
+      detail: "All positive. Dupixent performance validates thesis. Guidance solid. Buyback enhances shareholder returns. No concern. HOLD."
 
     - ticker: EDEN.PA
-      headline: "Brazil meal voucher regulation overhang"
+      headline: "Earnings Feb 24. 2026 = rebasing year (2-4% EBITDA growth), 2027-28 targets 8-12%."
       classification: MATERIAL
-      action: MONITOR - Earnings Feb 24
+      source: "Investing.com, Quartr, Edenred PR"
+      impact: |
+        EARNINGS IN 15 DAYS. 2026 is rebasing year due to regulatory changes.
+        New reporting structure from 2026 enhances transparency.
+        Analysts expect EPS +16.8%, revenue +3.9%.
+        France meal voucher digitalization set for Jan 2027 (not 2026).
+        Key risk: actual EBITDA growth vs 2-4% guidance.
+      action_needed: true
+      detail: "PRE-EARNINGS MONITOR. Adversarial FV EUR 29.0 (was EUR 38.4). Key metrics to watch: EBITDA margin, France regulatory impact, LatAm performance. EXIT trigger: 2027-28 guidance below 5% or France regulation tightens."
+
+    - ticker: DNLM.L
+      headline: "Interim results released Feb 10. Sales +3.6% to GBP 926M, PBT GBP 112-114M. Full-year at LOWER END of consensus (GBP 222M avg)."
+      classification: MATERIAL
+      source: "Investegate, Morningstar, LSE"
+      impact: |
+        WATCHLIST POSITION (standing order at 750-800 GBp, was 900 GBp).
+        Soft Q2 (only +1.6%), weak Black Friday and December.
+        Gross margin +60bps (FX tailwind).
+        Digital sales 41-42% (growing).
+        FULL YEAR AT LOWER END OF CONSENSUS = mild profit warning.
+      action_needed: false
+      detail: "Results slightly below expectations but not disastrous. For our standing order at 750-800 GBp, this VALIDATES the lower entry price set by adversarial review. If stock drops toward 750-800, the investment case still works. Monitor price reaction tomorrow."
 
 # =============================================================================
-# EARNINGS REPORTADOS (ultimas 48h)
+# NEWS BY TICKER (all 16 positions)
 # =============================================================================
-earnings_reported:
-  - ticker: ALL
-    date: 2026-02-04
-    result: "BEAT - FY net income $10.2B, Q4 $3.8B"
-    combined_ratio: 72.9
-    dividend: "+8%"
-    buyback: "$4B authorized"
-    action: HOLD
+news_by_ticker:
 
-  - ticker: SHEL.L
-    date: 2026-02-05
-    result: "MISS - Q4 adj $3.3B vs $3.5B est"
-    dividend: "+4% to $0.372"
-    buyback: "$3.5B (17th consecutive quarter)"
-    action: HOLD
+  # ===================== EARNINGS IMMINENT (14-17 days) =====================
 
-  - ticker: GL
-    date: 2026-02-04
-    result: "MISS - Q4 EPS $3.29 vs $3.54"
-    fy_guidance: "$14.95-15.65 EPS"
-    action: HOLD
+  MONY.L:
+    earnings_date: 2026-02-23
+    classification: MENOR
+    headlines:
+      - "Executives acquired shares via SIP Feb 5 (Cresswell 88, Duffy 88, Whittle 59 @ 170.6p)"
+      - "CEO Peter Duffy appointed NED at Great Portland Estates (Feb 2)"
+      - "BlackRock reduced stake from 5.36% to 5.29%"
+    impact: "Insider buys are mildly positive signal. CEO external board role is normal. BlackRock reduction is tiny. No material news."
+    action_needed: false
+    pre_earnings_notes: |
+      Exit plan: SELL if revenue <435M or insurance division -5%+.
+      Adversarial FV: 201 GBp (was 277). Current ~170 GBp.
+      Conviction: LOW per adversarial review.
+      Key metrics: Revenue growth, insurance vs money comparison, ARPC trend.
 
-  - ticker: HRB
-    date: 2026-02-03
-    result: "BEAT - Revenue +11%"
-    guidance: "Reaffirmed"
-    action: "ADD executed @ $35"
+  EDEN.PA:
+    earnings_date: 2026-02-24
+    classification: MATERIAL
+    headlines:
+      - "2026 = rebasing year: 2-4% EBITDA growth guidance"
+      - "New reporting structure from 2026 for business line transparency"
+      - "France meal voucher digitalization set for Jan 2027"
+      - "Analyst consensus: EPS +16.8%, rev +3.9%"
+    impact: "Rebasing year sets low bar. Key is 2027-28 guidance (8-12% target)."
+    action_needed: true
+    pre_earnings_notes: |
+      Exit plan: EXIT if 2027-28 guidance <5% or France regulation negative.
+      Adversarial FV: EUR 29.0 (was EUR 38.4).
+      Conviction: MEDIUM.
+      Key metrics: EBITDA margin, France regulatory impact, Brazil regulation, retention rates.
 
-  - ticker: PFE
-    date: 2026-02-04
-    result: "BEAT - Q4 EPS $0.66 vs $0.57"
-    action: HOLD
+  VICI:
+    earnings_date: 2026-02-25
+    classification: MATERIAL
+    headlines:
+      - "Q4/FY2025 results Feb 25 after close"
+      - "Q3 beat: EPS $0.71 vs $0.69 est, rev $1B"
+      - "FY2025 AFFO guidance $2.36-2.37/share (+4.6% YoY)"
+      - "Caesars regional lease coverage 1.03x flagged by JPM, Evercore, Wells Fargo"
+      - "Caesars lease amendments: 1.5% annual base rent escalation, minimum coverage ratios"
+      - "Div $0.45/share (+4%), 8th consecutive increase"
+    impact: "Caesars rent coverage concern already known from adversarial review. Lease amendments are thesis-positive (de-risk). Key is Q4 AFFO and 2026 guidance."
+    action_needed: true
+    pre_earnings_notes: |
+      Exit plan: SELL if Caesars misses rent or reset >10%. SELL if AFFO guidance <$2.35.
+      Adversarial FV: $30.50 (was $33.75).
+      Conviction: LOW.
+      Key metrics: AFFO/share, Caesars coverage ratio, acquisition pipeline, 2026 AFFO guidance.
+
+  DTE.DE:
+    earnings_date: 2026-02-26
+    classification: MENOR
+    headlines:
+      - "FY2025 results Feb 26"
+      - "Stock +5.38% 1-day, +11.49% 7-day, +15.29% 90-day rally"
+      - "FY2025E: EBITDA AL >EUR 45B, FCF AL ~EUR 20B"
+      - "Proposed div EUR 1.00/share, EUR 2B buyback in 2026, ~EUR 7B total returns"
+    impact: "Stock rallying strongly into earnings. No negative news. Guidance pre-announced. Telecom sector rotating in favor."
+    action_needed: false
+    pre_earnings_notes: |
+      Exit plan: EXIT if guidance disappoints or div cut. TRIM if >EUR 33 without thesis improvement.
+      Adversarial FV: EUR 33-35 (was EUR 36.50-38.50).
+      Conviction: MEDIUM.
+      Key metrics: T-Mobile US performance, EBITDA AL, FCF AL, 2026 guidance, div confirmation.
+      NOTE: Stock may be approaching adversarial FV range (EUR 33-35). Watch for TRIM trigger.
+
+  UHS:
+    earnings_date: 2026-02-25  # Report after close Feb 25, call Feb 26
+    classification: MENOR
+    headlines:
+      - "Q4 2025 results after close Feb 25, call 9am Feb 26"
+      - "Analysts expect Q4 EPS $5.91 (+20.1% YoY)"
+      - "4 consecutive quarterly beats"
+      - "Easing staffing pressures + strong behavioral health demand"
+      - "Avg analyst PT $250.41 (25% upside from current)"
+    impact: "Setup is positive. Staffing easing is thesis-supportive. Behavioral health demand strong."
+    action_needed: false
+    pre_earnings_notes: |
+      Exit plan: EXIT if Q4 miss or labor warning. SELL if ROIC < WACC.
+      Adversarial FV: $243 (was $283.74).
+      Conviction: LOW.
+      Key metrics: Revenue per admission, labor cost ratio, behavioral health admissions, 2026 guidance.
+
+  # ===================== NON-EARNINGS POSITIONS =====================
+
+  ADBE:
+    classification: MATERIAL
+    headlines:
+      - "Stock -6.9% Feb 4 on AI sector sell-off (Anthropic Claude + OpenAI agents)"
+      - "Stock -3.1% Feb 5 on continued AI fears"
+      - "Piper Sandler downgrade to Neutral, PT $330"
+      - "Adobe boosted ad spending to $1.4B to counter AI narrative"
+      - "Stock -42% from 52w high, now $270 range"
+      - "21 analysts consensus Buy, avg PT $414 (54% upside)"
+    impact: "AI fears creating buying opportunity, not existential threat. We are thesis-aware."
+    action_needed: false
+
+  NVO:
+    classification: MATERIAL
+    headlines:
+      - "Feb 4: -17% on 2026 guidance cut (sales -5% to -13%)"
+      - "Feb 7: +8% on Hims pulling $49 compounded Wegovy alternative"
+      - "CagriSema REIMAGINE 2 positive: 14.2% weight loss superior to semaglutide (10.2%)"
+      - "Wegovy pill: ~170K patients, 88% on starter dose"
+      - "NDA submitted to FDA for CagriSema"
+    impact: "Net POSITIVE since our purchase. Guidance shock was entry catalyst. Hims withdrawal + CagriSema data are new catalysts."
+    action_needed: false
+
+  ALL:
+    classification: MATERIAL
+    headlines:
+      - "Q4 record: EPS $14.31 vs $9.60 est, CR 80.1%"
+      - "FY net income $10.2B (2x 2024), ROE 38.3%"
+      - "$4B buyback + div $1.08/qtr (+8%)"
+      - "Arity revenue -50% to $60M, net loss $12M"
+      - "CEO Wilson sold $3.3M Feb 2"
+      - "Wells Fargo PT $228, JPM PT $263"
+    impact: "Core insurance very strong. Arity concern noted but immaterial vs scale. HOLD on probation."
+    action_needed: false
+
+  SAN.PA:
+    classification: MENOR
+    headlines:
+      - "Q4 sales +13.3% CER to EUR 11.3B, FY EPS +15%"
+      - "Dupixent Q4 EUR 4.2B (+32%), FY EUR 15.7B"
+      - "EUR 1B buyback signed Feb 3"
+      - "2026 guide: high single-digit sales growth, EPS faster"
+      - "Venglustat met Phase 3 endpoints (Gaucher)"
+    impact: "All positive. Strong execution. No concerns."
+    action_needed: false
+
+  LULU:
+    classification: MATERIAL
+    headlines:
+      - "CEO Calvin McDonald departed Jan 31 (already known)"
+      - "Co-CEOs: CFO Meghan Frank + CCO Andre Maestrini"
+      - "Board search for permanent CEO ongoing"
+      - "Stock -10% YTD, -51% from highs"
+      - "Forward P/E 13.3x vs industry 18.5x"
+    impact: "CEO change priced in at purchase. Interim leadership adequate. Monitor Q4 (March)."
+    action_needed: false
+
+  AUTO.L:
+    classification: MENOR
+    headlines:
+      - "Share buyback ongoing: 430K shares @ 536p (Feb 2), 462K @ 502p (Feb 4)"
+      - "New AI-powered category search feature launched"
+      - "8 Buy, 7 Hold, 1 Sell ratings. 43% potential upside per analysts"
+    impact: "Buyback at 500-536p supports price. AI feature enhances product. All positive. No concerns."
+    action_needed: false
+
+  BYIT.L:
+    classification: MENOR
+    headlines:
+      - "Hit new 12-month low Feb 4"
+      - "Jefferies downgrade to Hold (Jan), PT 400 GBp (was 447)"
+      - "Dividend increase expected"
+      - "Stock -14% 3 months"
+    impact: "Price weakness noted but fundamentals unchanged. We bought at fallen angel level. Jefferies downgrade on valuation, not fundamentals."
+    action_needed: false
+
+  GL:
+    classification: MENOR
+    headlines:
+      - "SEC investigation concluded Jul 2025 (no action)"
+      - "DOJ investigation closed Jul 2025 (no action)"
+      - "Class action lawsuit still ongoing (filed Apr 2024)"
+      - "No new material news in last 48h"
+    impact: "SEC/DOJ cleared. Remaining risk is class action (4 lawsuits). Known and in thesis."
+    action_needed: false
+
+  HRB:
+    classification: MENOR
+    headlines:
+      - "Q2 FY2026 results Feb 3: Revenue +11%, beat estimates"
+      - "FY guidance reaffirmed: Rev $3.875-3.895B, EPS $4.85-5.00"
+      - "AI tax tools integration expanding"
+      - "FTC order: $7M fine, overhaul advertising (finalized 2025)"
+    impact: "Strong Q2, guidance confirmed. Tax season underway. Thesis intact."
+    action_needed: false
+
+  IMB.L:
+    classification: MENOR
+    headlines:
+      - "FY2026 guidance: adj OP growth 3-5% CER"
+      - "Ex-dividend date Feb 19 (div 40.08p)"
+      - "Stock at 3,160-3,340 GBp range"
+      - "Analyst rating: Hold, PT 2,700 GBp (below current)"
+    impact: "Steady as expected. Approaching ex-div date. Analyst PT below current price is bearish signal but thesis is yield + buyback story."
+    action_needed: false
+
+  DOM.L:
+    classification: MENOR
+    headlines:
+      - "Q3 total sales +2.1%, LFL +1%, orders -1.5%"
+      - "EBITDA guidance maintained 130-140M"
+      - "Chicken Dip brand and Ultimate Indian Feast performing well"
+      - "Management warns of weakening orders in 2026 from budget impact"
+      - "Next earnings: March 5, 2026"
+    impact: "Slow but steady. No negative surprises. Monitor March earnings."
+    action_needed: false
 
 # =============================================================================
-# EARNINGS PROXIMOS 21 DIAS
+# EARNINGS CALENDAR - NEXT 21 DAYS
 # =============================================================================
 earnings_upcoming:
+  - ticker: BBWI
+    date: 2026-02-19
+    type: "Standing order watchlist"
+    notes: "Q4 EPS est $1.75. Q3 miss. Monitor for potential entry."
+
   - ticker: MONY.L
     date: 2026-02-23
+    type: "PORTFOLIO - PRIORITY"
+    notes: "Adversarial FV 201 GBp. Conviction LOW. EXIT if revenue <435M."
 
   - ticker: EDEN.PA
     date: 2026-02-24
+    type: "PORTFOLIO - PRIORITY"
+    notes: "Rebasing year. EXIT if 2027-28 guidance <5%. Adversarial FV EUR 29."
 
   - ticker: VICI
     date: 2026-02-25
+    type: "PORTFOLIO - PRIORITY"
+    notes: "AFFO guidance critical. EXIT if Caesars miss or AFFO <$2.35."
+
+  - ticker: UHS
+    date: 2026-02-25
+    type: "PORTFOLIO"
+    notes: "Analysts expect EPS $5.91 (+20%). Adversarial FV $243."
 
   - ticker: DTE.DE
     date: 2026-02-26
+    type: "PORTFOLIO"
+    notes: "Stock rallying into earnings. TRIM if >EUR 33. Adversarial FV EUR 33-35."
 
-  - ticker: TEP.PA
-    date: 2026-02-26
-
-  - ticker: UHS
-    date: 2026-02-26
+  - ticker: DNLM.L
+    date: 2026-02-10
+    type: "WATCHLIST"
+    notes: "Interim results tomorrow. Sales +3.6% but PBT at lower end. Our trigger 750-800 GBp."
 
 # =============================================================================
-# STANDING ORDERS
+# STANDING ORDERS STATUS
 # =============================================================================
-standing_orders:
+standing_orders_proximity:
+  - ticker: DNLM.L
+    trigger: "750-800 GBp"
+    current: "~900-950 GBp"
+    distance: "~15-20%"
+    notes: "Interims Feb 10 may cause movement"
+
+  - ticker: BME.L
+    trigger: "169 GBp"
+    notes: "No recent news"
+
+  - ticker: UTG.L
+    trigger: "540 GBp"
+    notes: "Earnings Feb 24. Monitor."
+
   - ticker: ZIG.L
     trigger: "375 GBp"
-    current: "~389 GBp"
-    distance: "-3.6%"
+    notes: "No recent news"
 
-  - ticker: V
-    trigger: "$280"
-    current: "~$329"
-    distance: "-15%"
+  - ticker: GL
+    trigger: "$130 (ADD)"
+    notes: "Current ~$141. SEC/DOJ cleared. Class action ongoing."
 
   - ticker: EVO.ST
-    trigger: "600 SEK + UKGC favorable"
-    status: CONDICIONADO
+    trigger: "530 SEK + UKGC resolved"
+    notes: "UKGC still pending. Conditional."
+
+  - ticker: FGP.L
+    trigger: "165 GBp"
+    notes: "No recent news"
+
+  - ticker: BBWI
+    trigger: "$18.50"
+    notes: "Q4 earnings Feb 19. Monitor."
 
 # =============================================================================
-# RESUMEN
+# WATCHLIST QUALITY COMPOUNDERS
+# =============================================================================
+watchlist_news:
+  MA:
+    news: "No material news. Trading ~$551. Entry target $395 (-28% away)."
+    action: WAIT
+
+  V:
+    news: "No material news. Trading ~$329. Entry target $280 (-15% away)."
+    action: WAIT
+
+  GOOGL:
+    news: "Trading near ATH ~$340. P/E 33.6x. No entry opportunity."
+    action: WAIT
+
+# =============================================================================
+# RESUMEN EJECUTIVO
 # =============================================================================
 summary: |
-  SCAN 2026-02-05: 0 CRITICAS, 5 MATERIALES
+  SCAN 2026-02-09: 0 CRITICAS, 7 MATERIALES, 9 MENORES
 
-  EARNINGS (ultimas 48h):
-  - ALL: BEAT, combined ratio 72.9, $4B buyback - HOLD
-  - SHEL.L: MISS pero +4% div, $3.5B buyback - HOLD
-  - GL: MISS 7%, guidance maintained - HOLD
-  - HRB: BEAT revenue +11% - ADD EJECUTADO
-  - PFE: BEAT EPS - HOLD
+  CRITICAL ALERTS: NONE
 
-  MONITOREAR:
-  - LIGHT.AS: Downgrade + miss (-13% week pero +8.6% desde compra)
-  - VICI: Downgrade - earnings Feb 25
-  - EDEN.PA: Brasil regulation - earnings Feb 24
-  - TEP.PA: -16% month - earnings Feb 26
+  MATERIAL (thesis-relevant but not thesis-breaking):
+  1. ADBE: -10% in week on AI fears. THESIS-AWARE, creates more MoS. HOLD.
+  2. NVO: -17% crash Feb 4 (we bought post), +8% recovery Feb 7 (Hims pullback). NET POSITIVE.
+  3. ALL: Q4 record BUT Arity -50%, CEO sold $3.3M. Core strong. HOLD probation.
+  4. LULU: CEO departed Jan 31 (known at purchase). Co-CEOs interim. HOLD.
+  5. SAN.PA: Q4 beat, Dupixent +32%, EUR 1B buyback. POSITIVE.
+  6. EDEN.PA: Earnings Feb 24. Rebasing year. Monitor 2027-28 guidance.
+  7. DNLM.L: Interims Feb 10. PBT at lower end. Validates lower entry price.
 
-  STANDING ORDERS:
-  - ZIG.L @ -3.6% del trigger
+  EARNINGS WATCH (next 17 days):
+  - Feb 10: DNLM.L interims (watchlist)
+  - Feb 19: BBWI Q4 (standing order watchlist)
+  - Feb 23: MONY.L (portfolio, LOW conviction)
+  - Feb 24: EDEN.PA (portfolio, MEDIUM conviction)
+  - Feb 25: VICI (portfolio, LOW conviction) + UHS (portfolio, LOW conviction)
+  - Feb 26: DTE.DE (portfolio, MEDIUM conviction)
+
+  STANDING ORDERS: None near trigger. Closest is DNLM.L but still 15-20% away.
+
+  OVERALL ASSESSMENT: No action required. Portfolio stable. 5 earnings in next
+  2.5 weeks require preparation. DTE.DE approaching adversarial FV (EUR 33-35)
+  on rally - potential TRIM candidate if hits target.

@@ -110,6 +110,12 @@ El Quality Score es una herramienta de análisis, no un juez.
 
 **Tier D (QS <35) sigue siendo NO COMPRAR** - esto es un principio de calidad mínima, no un número arbitrario.
 
+**Regla QS Tool-First (Sesión 52):**
+- `quality_scorer.py` = FUENTE PRINCIPAL (dato base objetivo)
+- La thesis muestra SIEMPRE ambos: QS Tool y QS Ajustado (si difiere)
+- Ajustes > 5 puntos requieren evidencia cuantitativa documentada
+- El Tier se determina por el score AJUSTADO
+
 ---
 
 ## Principio 6: Vender Requiere Argumento, No Solo Regla

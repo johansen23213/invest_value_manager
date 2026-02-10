@@ -92,9 +92,10 @@ Tiene principios internalizados y experiencia (precedentes) que informan cada de
 
 ---
 
-## Quality Score (sin cambios)
+## Quality Score (ACTUALIZADO Sesión 52)
 
 **CALCULARLO PRIMERO - Determina el riesgo**
+**REGLA TOOL-FIRST: `quality_scorer.py` = fuente principal. Thesis muestra AMBOS: QS Tool + QS Ajustado (si difiere, con razón documentada).**
 
 ```
 QS = Financial(40) + Growth(25) + Moat(25) + CapAlloc(10)
