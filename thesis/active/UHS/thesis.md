@@ -5,6 +5,7 @@
 **Analyst:** Orchestrator (Framework v4.0)
 **Quality Score:** Tool 51/100 (Tier C) | Adjusted: 51 (no adjustment)
 **Recommendation:** HOLD LOW conviction — ON PROBATION through Feb 25 earnings
+**Fair Value:** $213 (v3.0, updated 2026-02-10)
 
 ---
 
@@ -382,6 +383,16 @@ Forward FY2026E EPS: ~$22.50-23.00 (consensus, pre-Medicaid impact)
 | KC#5 | FY2026 EPS guidance <$20.00 (Medicaid-driven miss) | CHECK Feb 25 | Earnings |
 | KC#6 | Goodwill impairment charge >$500M | OK | Annual |
 | KC#7 | Combined ratio (operating costs/revenue) >97% | OK (currently ~88%) | Quarterly |
+
+**Model Disruption Kill Conditions (added 2026-02-11):**
+
+| KC#8 | **Telehealth/AI therapy disrupts behavioral health volumes >10%** | MONITOR | Quarterly |
+
+If digital mental health platforms (Talkiatry, Cerebral, BetterHelp) combined with AI-assisted therapy achieve clinical equivalence to inpatient/PHP behavioral health AND payers (including Medicaid) begin reimbursing virtual behavioral at scale, UHS's behavioral health facilities (60% of EBITDA) face structural volume decline. The COVID-era telehealth boom faded, but AI-enhanced therapy is a different proposition. Monitor: payer telehealth reimbursement policies, UHS behavioral admission trends vs industry, digital therapy clinical trials.
+
+| KC#9 | **Single-payer/public option legislation passes with hospital rate setting** | MONITOR | Legislative |
+
+If federal legislation establishes rate-setting authority (Medicare rates for all) covering UHS's commercial payer mix (~40% of revenue at higher rates), operating margins compress permanently. The OBBBA Medicaid cuts are already law — the political risk is that a future administration responds by expanding public coverage WITH rate controls rather than private market solutions. This would eliminate the commercial payer premium that makes UHS profitable. Monitor: CBO scoring of Medicare-for-All variants, state-level public option programs (WA, CO).
 
 ---
 

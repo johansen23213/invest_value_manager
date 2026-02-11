@@ -11,6 +11,22 @@ alerts_by_level:
   red: []  # No thesis-killers detected this scan
 
   orange:
+    - ticker: DSY.PA
+      risk_type: CYBERSECURITY
+      description: >
+        NEW (added 2026-02-11): Data breach by threat actor "0APT" on Feb 3, 2026.
+        Scope of leak UNKNOWN. DSY serves defense customers including Naval Group
+        (French submarines). Naval Group also suffered separate cyberattack (combat
+        management source code allegedly leaked). Defense customers may demand
+        additional security assurance or diversify suppliers. Regulatory scrutiny
+        possible under EU NIS2 Directive. STANDING ORDER at EUR 15.50 is CONDITIONAL
+        on no breach escalation.
+      source: "risk-identifier agent scan, multiple sources"
+      date_detected: 2026-02-11
+      kill_condition_triggered: false
+      kill_condition_at_risk: "KC: Defense customer loss or regulatory fine >EUR 50M"
+      recommendation: "Monitor weekly. If breach scope includes defense-grade data, CANCEL standing order. If contained, downgrade to yellow."
+
     - ticker: SAN.PA
       risk_type: LEGAL
       description: >

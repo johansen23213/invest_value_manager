@@ -10,7 +10,9 @@ That would be rules disguised as questions.
 
 Usage:
   python3 tools/constraint_checker.py REPORT
+  python3 tools/constraint_checker.py REPORT --drawdown 30     # Custom drawdown %
   python3 tools/constraint_checker.py CHECK TICKER AMOUNT_EUR
+  python3 tools/constraint_checker.py CHECK TICKER AMOUNT_EUR --drawdown 30
 """
 import sys
 import os
@@ -54,14 +56,30 @@ def load_portfolio():
         return yaml.safe_load(f)
 
 def get_fx_rates():
+    defaults = {'EURUSD': 1.04, 'GBPEUR': 1.19}
+    fallbacks_used = []
+
     try:
-        eurusd = yf.Ticker('EURUSD=X').info.get('previousClose', 1.04)
+        eurusd = yf.Ticker('EURUSD=X').info.get('previousClose')
+        if not eurusd:
+            eurusd = defaults['EURUSD']
+            fallbacks_used.append(f"EUR/USD={eurusd}")
     except Exception:
-        eurusd = 1.04
+        eurusd = defaults['EURUSD']
+        fallbacks_used.append(f"EUR/USD={eurusd}")
     try:
-        gbpeur = yf.Ticker('GBPEUR=X').info.get('previousClose', 1.19)
+        gbpeur = yf.Ticker('GBPEUR=X').info.get('previousClose')
+        if not gbpeur:
+            gbpeur = defaults['GBPEUR']
+            fallbacks_used.append(f"GBP/EUR={gbpeur}")
     except Exception:
-        gbpeur = 1.19
+        gbpeur = defaults['GBPEUR']
+        fallbacks_used.append(f"GBP/EUR={gbpeur}")
+
+    if fallbacks_used:
+        print(f"FX WARNING: Using static fallback rates ({', '.join(fallbacks_used)}). "
+              f"EUR amounts may be inaccurate.")
+
     return eurusd, gbpeur
 
 def get_current_value_eur(ticker, shares, invested_usd, eurusd, gbpeur):
@@ -161,7 +179,7 @@ def analyze_context(state, new_ticker=None, amount_eur=0):
 
     return pos_list, sector_totals, geo_totals, cash, total, num_pos
 
-def print_report(state):
+def print_report(state, drawdown_pct=50):
     pos_list, sectors, geos, cash, total, num_pos = analyze_context(state)
 
     print("=" * 60)
@@ -169,11 +187,12 @@ def print_report(state):
     print("=" * 60)
 
     # Positions
-    print(f"\n{'Ticker':<10} {'Sector':<18} {'Geo':>3} {'EUR':>8} {'%':>6} {'50% Impact':>10}")
+    dd_label = f"{drawdown_pct}% Impact"
+    print(f"\n{'Ticker':<10} {'Sector':<18} {'Geo':>3} {'EUR':>8} {'%':>6} {dd_label:>10}")
     print("-" * 60)
     for p in sorted(pos_list, key=lambda x: -x['value_eur']):
         pct = (p['value_eur'] / total) * 100
-        impact = pct / 2
+        impact = pct * drawdown_pct / 100
         print(f"{p['ticker']:<10} {p['sector']:<18} {p['geo']:>3} {p['value_eur']:>8.0f} {pct:>5.1f}% {impact:>9.1f}%")
     print(f"{'CASH':<10} {'':<18} {'':<3} {cash:>8.0f} {(cash/total)*100:>5.1f}%")
     print("-" * 60)
@@ -194,7 +213,7 @@ def print_report(state):
     print(f"\nPositions: {num_pos} | Cash: {cash:.0f} EUR ({(cash/total)*100:.1f}%)")
     print("\n[Apply learning/principles.md to reason about this data]")
 
-def print_check(state, ticker, amount_eur):
+def print_check(state, ticker, amount_eur, drawdown_pct=50):
     print("=" * 60)
     print(f"SIMULATED: BUY {ticker} for {amount_eur:.0f} EUR")
     print("=" * 60)
@@ -207,8 +226,8 @@ def print_check(state, ticker, amount_eur):
     for p in pos_list:
         if p['ticker'] == ticker:
             pct = (p['value_eur'] / total) * 100
-            impact = pct / 2
-            print(f"\n{ticker}: {p['value_eur']:.0f} EUR ({pct:.1f}%) | 50% drop = -{impact:.1f}% portfolio")
+            impact = pct * drawdown_pct / 100
+            print(f"\n{ticker}: {p['value_eur']:.0f} EUR ({pct:.1f}%) | {drawdown_pct}% drop = -{impact:.1f}% portfolio")
             break
 
     sec = SECTOR_MAP.get(ticker, guess_sector(ticker))
@@ -223,11 +242,20 @@ def print_check(state, ticker, amount_eur):
 # ─── Main ────────────────────────────────────────────────────────────────────
 
 def main():
-    if len(sys.argv) < 2:
-        print(__doc__)
-        sys.exit(1)
+    import argparse as _argparse
 
-    mode = sys.argv[1].upper()
+    parser = _argparse.ArgumentParser(description=__doc__,
+                                       formatter_class=_argparse.RawDescriptionHelpFormatter)
+    parser.add_argument('mode', choices=['REPORT', 'CHECK', 'report', 'check'],
+                        help='REPORT for portfolio overview, CHECK for simulated buy')
+    parser.add_argument('ticker', nargs='?', help='Ticker for CHECK mode')
+    parser.add_argument('amount', nargs='?', type=float, help='Amount EUR for CHECK mode')
+    parser.add_argument('--drawdown', type=float, default=50,
+                        help='Drawdown %% for impact calculation (default: 50)')
+
+    args = parser.parse_args()
+    mode = args.mode.upper()
+
     portfolio = load_portfolio()
     print("Fetching data...")
     eurusd, gbpeur = get_fx_rates()
@@ -235,12 +263,12 @@ def main():
     state = build_portfolio_state(portfolio, eurusd, gbpeur)
 
     if mode == 'REPORT':
-        print_report(state)
+        print_report(state, drawdown_pct=args.drawdown)
     elif mode == 'CHECK':
-        if len(sys.argv) < 4:
-            print("Usage: constraint_checker.py CHECK TICKER AMOUNT_EUR")
+        if not args.ticker or args.amount is None:
+            print("Usage: constraint_checker.py CHECK TICKER AMOUNT_EUR [--drawdown 30]")
             sys.exit(1)
-        print_check(state, sys.argv[2], float(sys.argv[3]))
+        print_check(state, args.ticker, args.amount, drawdown_pct=args.drawdown)
     else:
         print(f"Unknown mode: {mode}")
         sys.exit(1)

@@ -15,8 +15,29 @@ def load_portfolio():
         return yaml.safe_load(f)
 
 def get_fx():
-    eurusd = yf.Ticker('EURUSD=X').info.get('previousClose', 1.04)
-    gbpusd = yf.Ticker('GBPUSD=X').info.get('previousClose', 1.38)
+    defaults = {'EURUSD': 1.04, 'GBPUSD': 1.38}
+    fallbacks_used = []
+
+    try:
+        eurusd = yf.Ticker('EURUSD=X').info.get('previousClose')
+        if not eurusd:
+            eurusd = defaults['EURUSD']
+            fallbacks_used.append(f"EUR/USD={eurusd}")
+    except Exception:
+        eurusd = defaults['EURUSD']
+        fallbacks_used.append(f"EUR/USD={eurusd}")
+    try:
+        gbpusd = yf.Ticker('GBPUSD=X').info.get('previousClose')
+        if not gbpusd:
+            gbpusd = defaults['GBPUSD']
+            fallbacks_used.append(f"GBP/USD={gbpusd}")
+    except Exception:
+        gbpusd = defaults['GBPUSD']
+        fallbacks_used.append(f"GBP/USD={gbpusd}")
+
+    if fallbacks_used:
+        print(f"FX WARNING: Using static fallback rates ({', '.join(fallbacks_used)}). Amounts may be inaccurate.")
+
     return eurusd, gbpusd
 
 def to_usd(price, currency, eurusd, gbpusd):
