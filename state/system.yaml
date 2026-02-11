@@ -7,7 +7,7 @@ system:
   system_version: "4.0.0"
   framework_version: "4.0"
   last_session: 2026-02-11
-  session_number: 53
+  session_number: 55
 
   # FRAMEWORK v4.0 - IMPLEMENTADO
   # =====================================
@@ -90,70 +90,49 @@ system:
   # Purged 2026-02-11 to reduce file size (~730 lines removed)
 
   last_session_summary: |
-    Sesion 53b - BUY-PIPELINE DSY.PA + PAYC/MORN EARNINGS PREP (2026-02-11)
+    Session 55 - EARNINGS FRAMEWORKS + STANDING ORDER AUDIT (2026-02-11)
 
     =====================================================
-    DSY.PA BUY-PIPELINE COMPLETED (4 rounds, 5 agents)
+    EARNINGS FRAMEWORKS CREATED
     =====================================================
-    Full adversarial buy-pipeline completed:
-    - R1: fundamental-analyst + moat-assessor + risk-identifier (PARALLEL)
-    - R1b: valuation-specialist (FV EUR 20.00)
-    - R2: devil's-advocate (MODERATE-STRONG COUNTER: 4 STRONG, 4 HIGH, 12 MOD, 2 LOW / 22)
-    - R4: investment-committee (10/10 gates PASS, 1 conditional)
-
-    VERDICT: APPROVE STANDING ORDER at EUR 15.50
-    - User directives adopted: Tier B (QS 70), EUR 15.50 entry, wait Q1 2026
-    - FV EUR 20.00 (valuation-specialist), MoS 22.5% at entry
-    - WIDE moat (22/25), HIGH risk (7 HIGH/CRITICAL)
-    - Category: "Wide-Moat Mature Software" (NOT quality compounder)
-    - 8 kill conditions defined
-    - Conditions: wait Q1, cancel if growth <3%, cancel if data breach escalates
-
-    KEY COUNTER-POINTS (devil's advocate):
-    - Adobe parallel fundamentally flawed (44% vs 6% ARR growth)
-    - Revenue deceleration 4-year structural trend
-    - Medidata value-destroying (EUR 5.8B, Life Sciences -6%)
-    - 3DEXPERIENCE DOWN 3% in Q4
+    - VICI Q4 (Feb 25): PROBATION. AFFO guide <$2.35 = SELL. Rent cut >10% = SELL (KC#7).
+      See thesis/active/VICI/earnings_framework_feb2026.md
+    - UHS Q4 (Feb 25-26): PROBATION. EPS guide <$20 = SELL (KC#5). BH volumes decline = SELL.
+      See thesis/active/UHS/earnings_framework_feb2026.md
+    - MONY.L (Feb 23) and EDEN.PA (Feb 24): frameworks already existed, confirmed valid.
 
     =====================================================
-    PAYC EARNINGS (not yet released)
+    TIERING CORRECTED
     =====================================================
-    - Reports Feb 11 after close — results not available yet
-    - Consensus: EPS $2.44, Rev $542.8M
-    - Pipeline: Ronda 1 complete, Rondas 2-4 pending post-earnings
-    - Entry target: $95-105 (thesis FV $130, QS 85)
-    - Price monitor set at $100
+    - AUTO.L reclassified Tier A → Tier B (QS 79→71 post-adversarial)
+    - Tier A: 3 (MONY.L 81, LULU 82, ADBE 76)
+    - Tier B: 5 (NVO 73, AUTO.L 71, BYIT.L 68, EDEN.PA 62, DOM.L 61)
+    - Tier C: 5 (ALL 56, VICI 54, GL 52, UHS 51, DTE.DE 48)
 
     =====================================================
-    MORN EARNINGS FRAMEWORK PREPARED
+    STANDING ORDERS RECALIBRATED
     =====================================================
-    - Reports Feb 12 after close (corrected from user's "today")
-    - Consensus: EPS $2.34, Rev $634.4M
-    - QS 83 Tier A, ROIC 20.5%, -53% from 52wH
-    - Bear: EPS <$2.15, Rev <$615M → wait for $130-135
-    - Base: EPS $2.30-2.45, Rev $630-650M → launch buy-pipeline
-    - Bull: EPS >$2.50, Rev >$660M → fast-track analysis
-    - Price monitor set at $145
+    - MA BUY: $395→$315 (MoS 6%→25%). Post-adversarial MoS standard.
+    - V BUY: $280→$220 (MoS 3%→24%).
+    - V ADD: $265→$200 (MoS 8%→31%).
+    - Pipeline warnings added to FGP.L, CMCSA, MA, V: "DO NOT EXECUTE without adversarial"
 
-    =====================================================
-    SYSTEM FILES UPDATED
-    =====================================================
-    - state/system.yaml: DSY.PA standing order, 3 price monitors, 3 calendar events
-    - state/risk_alerts.yaml: DSY.PA 0APT data breach (orange level)
-    - All 6 research files in thesis/research/DSY.PA/
+    PIPELINE AUDIT:
+    - Adversarial complete (ready to execute): DSY.PA, DNLM.L
+    - OK for ADD (active positions): GL, NVO
+    - Need pipeline before execution: FGP.L, CMCSA, MA, V
+    - Under review (Feb 19 Rose plan): WPP.L
 
     =====================================================
     WORK FOR NEXT SESSION
     =====================================================
-    1. PAYC Q4 earnings → evaluate beat/miss, guidance, entry target impact
+    1. PAYC Q4 earnings (published Feb 11 after close) → verify with price_checker + web search
     2. MORN Q4 earnings (Feb 12 after close) → evaluate per framework
-    3. Earnings prep week Feb 23-26: MONY.L, EDEN.PA, VICI, UHS, DTE.DE
-    4. WPP Rose plan Feb 19, BBWI Q4 Feb 19
-    5. Cash deployment (~44% cash) — pipeline: PAYC, MORN, DSY.PA, DNLM.L
-    6. ZIG.L cancelled, WKL.AS watchlist only — clean pipeline focus
+    3. WPP.L Rose plan Feb 19 → cancel/keep decision
+    4. Earnings week Feb 23-26: all frameworks ready
+    5. Cash deployment (~44%) — pipeline: PAYC, MORN, DSY.PA, DNLM.L
 
-    Previous session (53): System alignment, 3 process improvements, adversarial review COMPLETED.
-    - Tracker en state/system.yaml seccion adversarial_review
+    Previous session (53-54): DSY.PA buy-pipeline completed, PAYC R1 thesis, full universe screening.
     - 5 fases: earnings_urgentes → tier_c → standing_orders → tier_b → tier_a
     - ~6 sesiones estimadas (49-55)
     - Pipeline position-review actualizado a v2.0 (adversarial permanente)
