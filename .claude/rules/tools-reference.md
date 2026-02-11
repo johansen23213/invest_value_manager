@@ -6,6 +6,9 @@
 ## Principio Core
 **FUENTE ÚNICA de cálculos repetibles. NUNCA duplicar lógica inline.**
 
+**Principio v4.0:** Tools outputan DATOS CRUDOS. No juicios, no categorías, no recomendaciones.
+Todos los tools incluyen FX fallback warning si yfinance no responde.
+
 ---
 
 ## Core Tools (uso diario)
@@ -15,7 +18,7 @@
 python3 tools/price_checker.py TICKER1 TICKER2 ...
 ```
 - Obtiene precios via yfinance (única fuente autorizada)
-- Conversión automática EUR/USD/GBP
+- Conversión automática EUR/USD/GBP con FX fallback warning
 - Muestra: precio, 52w high/low, P/E, yield, market cap
 - **REGLA: NUNCA usar WebSearch para precios. NUNCA hardcodear precios.**
 
@@ -24,9 +27,8 @@ python3 tools/price_checker.py TICKER1 TICKER2 ...
 python3 tools/portfolio_stats.py
 ```
 - Lee portfolio/current.yaml
-- Calcula P&L real, allocation por sector/geo, Sharpe ratio
-- Compara vs benchmark (MSCI Europe)
-- Alertas de límites (sizing, concentración)
+- Calcula P&L real, allocation por sector/geo
+- FX fallback warning si yfinance no responde
 - **NUNCA calcular portfolio stats a mano**
 
 ### effectiveness_tracker.py - EVALUACIÓN DE EFECTIVIDAD
@@ -37,30 +39,33 @@ python3 tools/effectiveness_tracker.py --summary # Solo métricas
 - Trackea win rate, hit rate (FV reached), Sharpe ratio estimado
 - Attribution analysis por sector, geografía, tier, holding period
 - Evaluación retrospectiva de tesis (on track / off track)
-- Recomendaciones automáticas basadas en patrones
 - **REGLA: Ejecutar CADA sesión para detectar problemas temprano**
 - Complementar con portfolio/history.yaml para posiciones cerradas
 - Ver skill: effectiveness-evaluation para framework completo
 
 ### dynamic_screener.py - Screening cuantitativo programático (TOOL PRINCIPAL)
 ```bash
-python3 tools/dynamic_screener.py --index europe_all              # All European indices
+python3 tools/dynamic_screener.py --index europe_all              # All European indices (NO pe_max filter by default)
 python3 tools/dynamic_screener.py --index stoxx600 --pe-max 12 --yield-min 4
 python3 tools/dynamic_screener.py --index europe_all --near-low 15  # >15% below 52w high
-python3 tools/dynamic_screener.py --index europe_all --undiscovered # <10 analysts, <15B mcap
+python3 tools/dynamic_screener.py --index europe_all --undiscovered # Default: <10 analysts, <15B mcap
+python3 tools/dynamic_screener.py --index europe_all --undiscovered --undiscovered-analysts 5 --undiscovered-mcap 5
 python3 tools/dynamic_screener.py --index sp500 --pe-max 10
 python3 tools/dynamic_screener.py --index sp400 --pe-max 10 --yield-min 3  # US MidCap 400
 python3 tools/dynamic_screener.py --index us_all --undiscovered    # SP500+SP400+Russell1000
 python3 tools/dynamic_screener.py --index mib40 --min-fcf-yield 5
 ```
 - **Obtiene tickers PROGRAMÁTICAMENTE** de Wikipedia/yfinance (cero popularity bias)
+- **pe_max default = 999 (no filter)** — quality compounders often have high P/E
 - Índices US: sp500, sp400 (MidCap), russell1000, us_all, us_midcap
 - Índices EU: dax40, cac40, ibex35, aex25, ftse100, ftse250, mib40, omx_stockholm, bel20, stoxx600, europe_all, nordic
 - Otros: nikkei225, all, custom
 - Filtros: P/E, yield, FCF yield, debt/equity, market cap, distancia 52w high, num analistas
-- Flag `--undiscovered`: filtra <10 analistas Y mcap <15B (máxima ineficiencia)
+- Flag `--undiscovered`: parametrizable (`--undiscovered-analysts`, `--undiscovered-mcap`)
+- Outlier data flagged with neutral `[!]` marker (not "likely data error")
 - Sort: pe, fcf_yield, div_yield, mcap, analysts, dist_high
 - Cache de tickers con `--refresh` para forzar actualización
+- FX fallback warning
 - **REEMPLAZA screener.py y midcap_screener.py (ambos DEPRECATED)**
 
 ### dcf_calculator.py - DCF (Discounted Cash Flow) valuation
@@ -68,7 +73,10 @@ python3 tools/dynamic_screener.py --index mib40 --min-fcf-yield 5
 python3 tools/dcf_calculator.py AAPL                          # Default params (growth 5%, terminal 2.5%, WACC 9%)
 python3 tools/dcf_calculator.py AAPL --growth 8 --terminal 2 --wacc 10
 python3 tools/dcf_calculator.py AAPL --years 10               # 10-year projection (default: 5)
-python3 tools/dcf_calculator.py AAPL --scenarios              # Bear/Base/Bull scenarios
+python3 tools/dcf_calculator.py AAPL --scenarios              # Bear/Base/Bull with configurable deltas
+python3 tools/dcf_calculator.py AAPL --scenarios --bear-growth-delta -3 --bear-wacc-delta 2
+python3 tools/dcf_calculator.py AAPL --sensitivity            # Sensitivity matrix (Growth x WACC)
+python3 tools/dcf_calculator.py AAPL --scenarios --sensitivity # Both combined
 python3 tools/dcf_calculator.py AAPL MSFT GOOGL               # Batch analysis
 python3 tools/dcf_calculator.py AAPL --output results.csv     # Save to CSV
 ```
@@ -77,61 +85,68 @@ python3 tools/dcf_calculator.py AAPL --output results.csv     # Save to CSV
 - Proyecta FCF futuro (5-10 años configurable)
 - Terminal value via Gordon Growth Model
 - Calcula valor intrínseco por acción y Margin of Safety (MoS%)
-- **Flag `--scenarios`**: calcula Bear (growth -2pp, wacc +1pp), Base, Bull (growth +2pp, wacc -1pp)
-- Batch mode: múltiples tickers con tabla resumen
-- Waterfall detallado: muestra FCF histórico, proyección año a año, PV de cada flujo, terminal value
-- Conversión automática a EUR (consistente con otros tools)
-- **Resta net debt automáticamente** del Enterprise Value para obtener Equity Value correcto (fix Sesión 21)
+- **Flag `--scenarios`**: Bear/Base/Bull con deltas parametrizables:
+  - `--bear-growth-delta` (default: -2pp), `--bear-wacc-delta` (default: +1pp)
+  - `--bull-growth-delta` (default: +2pp), `--bull-wacc-delta` (default: -1pp)
+- **Flag `--sensitivity`**: matriz 5x3 de Growth x WACC mostrando FV en cada combinación
+  - Reports TV% of EV and FV Spread as raw data (no categorization)
+  - Combinable con `--scenarios` (ambos outputs se muestran)
+- Batch mode: summary table with MoS (no buy/hold/over categorization)
+- Conversión automática a EUR con FX fallback warning
+- **Resta net debt automáticamente** del Enterprise Value para obtener Equity Value correcto
 - **ADVERTENCIA**: DCF es sensible a inputs (GIGO). Siempre validar growth rate vs histórico y vs peers.
-- **ADVERTENCIA**: Para empresas con alta deuda (ej: GIS $13B net debt), el net debt puede reducir drásticamente el fair value. Siempre verificar que el resultado tiene sentido vs P/E y comparables.
 
-### quality_scorer.py - Quality Score (Framework v4.0)
+### quality_scorer.py - Quality Profile + Legacy Score (v4.0)
 ```bash
-python3 tools/quality_scorer.py TICKER                   # Score básico
-python3 tools/quality_scorer.py TICKER --detailed        # Breakdown por categoría
-python3 tools/quality_scorer.py TICKER1 TICKER2 ...      # Batch analysis con summary
+python3 tools/quality_scorer.py TICKER                   # Profile + legacy score
+python3 tools/quality_scorer.py TICKER --raw             # Profile only (no legacy score)
+python3 tools/quality_scorer.py TICKER --detailed        # Profile + legacy breakdown by category
+python3 tools/quality_scorer.py TICKER --legacy          # Legacy score only (backward compat)
+python3 tools/quality_scorer.py TICKER1 TICKER2 ...      # Batch analysis con summary table
 ```
-- Calcula Quality Score (0-100) con 4 componentes:
-  - Financial Quality (40 pts): ROIC spread, FCF margin, leverage, FCF consistency
-  - Growth Quality (25 pts): Revenue CAGR, EPS CAGR, GM trend
-  - Moat Evidence (25 pts): GM premium, market position, ROIC persistence
-  - Capital Allocation (10 pts): Shareholder returns, insider ownership
-- Asigna Quality Tier (DATOS, no recomendaciones):
-  - **Tier A** (75-100): Quality Compounder
-  - **Tier B** (55-74): Quality Value
-  - **Tier C** (35-54): Special Situation
-  - **Tier D** (<35): Calidad mínima insuficiente
+- **PRIMARY OUTPUT: Quantitative Profile** with multi-year trajectories:
+  - Returns on Capital: ROIC trajectory, ROE trajectory, WACC (real Kd + effective tax), ROIC-WACC spread
+  - Margins & Cash Flow: GM trajectory + trend + vs sector, OpM trajectory, FCF trajectory + consistency
+  - Leverage: Net Debt/EBITDA, interest coverage
+  - Growth: Revenue trajectory + CAGR, EPS trajectory + CAGR
+  - Capital Allocation: insider %, institutional %, dividend yield, payout ratio
+  - Data Gaps: explicitly reported at top (no silent inflation)
+- **WACC improvements v4.0**: Real cost of debt (interest_expense/total_debt), effective tax rate from financials
+- **ROIC improvements v4.0**: Proper NOPAT/Invested_Capital with actual tax rate
+- **N/A = 0 points** in legacy score (not inflated defaults)
+- **LEGACY SCORE (deprecating)**: at bottom, clearly marked. Uses arbitrary thresholds.
+  - Tier A (75-100), Tier B (55-74), Tier C (35-54), Tier D (<35): Below minimum threshold
 - **REGLA: Ejecutar SIEMPRE antes de cualquier análisis fundamental**
 - **REGLA: Tier D = calidad mínima insuficiente, no proceder**
-- **Framework v4.0**: El tool NO prescribe MoS. El MoS se razona caso a caso aplicando principios. Ver `learning/decisions_log.yaml` para precedentes.
+- **REGLA: QS Tool-First** — thesis muestra AMBOS: QS Tool + QS Ajustado (si difiere)
 
 ### constraint_checker.py - Portfolio Context Tool (Framework v4.0)
 ```bash
-python3 tools/constraint_checker.py CHECK TEP.PA 400    # Simula compra, muestra preguntas
-python3 tools/constraint_checker.py REPORT               # Contexto actual con preguntas
+python3 tools/constraint_checker.py REPORT                      # Default 50% drawdown
+python3 tools/constraint_checker.py REPORT --drawdown 30        # Custom drawdown %
+python3 tools/constraint_checker.py CHECK ADBE 400              # Simula compra
+python3 tools/constraint_checker.py CHECK ADBE 400 --drawdown 30
 ```
-- **Framework v4.0**: Provee INFORMACIÓN y PREGUNTAS, no juzga
+- **Framework v4.0**: Provee DATOS CRUDOS, no juzga
 - Muestra: concentración por posición, sector, geografía
-- Calcula impacto: "Si X cae 50%, portfolio pierde Y%"
-- Genera preguntas para razonamiento:
-  - "¿Es este impacto coherente con mi convicción?"
-  - "¿Qué evento afectaría a todas las posiciones de esta geografía?"
-  - "¿Cuáles son mis oportunidades concretas para el cash?"
+- Calcula impacto con drawdown parametrizable (default 50%)
+- FX fallback warning
 - **NO tiene "reference points" ni "warnings" - solo contexto para decidir**
 - Ver `learning/principles.md` para framework de decisión
 
-### forward_return.py - Forward Expected Return ranking (NUEVO)
+### forward_return.py - Forward Return Components (v4.0)
 ```bash
 python3 tools/forward_return.py                    # Todas las posiciones
 python3 tools/forward_return.py --ticker ADBE NVO  # Tickers específicos
+python3 tools/forward_return.py --active-only       # Solo posiciones activas
+python3 tools/forward_return.py --pipeline-only     # Solo pipeline research
 ```
-- Calcula Forward Expected Return por posición: MoS% + Growth% + Yield%
+- Muestra MoS%, Growth%, Yield% como **columnas separadas** (no composite FER)
 - Lee fair value de thesis files, precios actuales de yfinance
-- Incluye conviction y tailwind si están en portfolio/current.yaml
-- Ranking de mejor a peor retorno esperado
-- Muestra Bottom 3 posiciones y pipeline candidates
+- Incluye conviction como dato (no aplica multiplicadores)
+- **No hay TOP 3 / BOTTOM 3** — el display order es por MoS% descending
+- FX fallback warning
 - **Output: DATOS CRUDOS solamente (Framework v4.0)**
-- **NUNCA interpretar ranking como "vender bottom 3"**
 - Usado en FASE 2.5 (Rotation Check) del session-protocol
 - **REGLA: Ejecutar cada sesión como parte del Rotation Check**
 
@@ -144,6 +159,16 @@ python3 tools/correlation_matrix.py
 
 ---
 
+## FX Fallback Warning (transversal)
+
+Todos los tools que usan FX rates ahora reportan si caen a rates estáticas:
+```
+FX WARNING: Using static fallback rates (EUR/USD=1.04). EUR amounts may be inaccurate.
+```
+Esto permite detectar cuando los datos de precio/valor están basados en rates potencialmente desactualizadas.
+
+---
+
 ## Reglas de Tools
 
 1. **SIEMPRE usar tools existentes antes de hacer cálculos inline**
@@ -153,6 +178,7 @@ python3 tools/correlation_matrix.py
 5. **Screening sistemático SIEMPRE via dynamic_screener.py (NUNCA screener.py/midcap_screener.py que están DEPRECATED, NUNCA WebSearch manual)**
 6. **DCF valuation SIEMPRE via dcf_calculator.py (NUNCA cálculos inline)**
 7. **Tools deben ser agnósticos - parametrizables, reutilizables, documentados**
+8. **Tools outputan DATOS CRUDOS — no juicios, categorías ni recomendaciones**
 
 ---
 

@@ -1,56 +1,42 @@
 # AUTO.L - AutoTrader Group plc
 
-> Fecha: 2026-02-06
-> Analista: Claude (fundamental-analyst)
+> Fecha: 2026-02-06 (original) | Adversarial Review: 2026-02-11
+> Analista: Claude (fundamental-analyst) | Reviewer: Claude (review-agent, adversarial)
 > Status: ACTIVE - Position opened 2026-02-06 (65 shares @ 485.80 GBp)
 
 ---
 
 ## TL;DR
 
-AutoTrader Group is the dominant online car classifieds platform in the UK with 75%+ of all automotive classified minutes and 10x larger than its nearest competitor. Quality Score 79/100 (Tier A) driven by exceptional financials: 50% FCF margin, near-zero debt, 38% ROIC spread, and 62% operating margin. The stock has fallen 47% from its 52-week high of 920p to 486p, driven by dealer backlash over the mandatory Deal Builder rollout and multiple compression from a P/E of ~28x to ~15x. The business fundamentals remain intact: revenue growing 5-7%, ARPR rising 5% annually, and the UK car market recovering toward pre-pandemic levels. At current prices, Owner Earnings Yield + Growth provides an attractive spread vs WACC. **BUY with MoS 28-40% depending on scenario.**
+AutoTrader Group is the dominant online car classifieds platform in the UK with 75%+ of all automotive classified minutes and 10x larger than its nearest competitor. **Adversarial-adjusted QS 71/100 (Tier B, high-end)** -- downgraded from original 79 (Tier A) due to EPS data gaps and tool bias in moat scoring. Exceptional financials remain intact: 50% FCF margin, near-zero debt, +42pp ROIC spread, and 62% operating margin. Stock at 471p, down 49% from 52w high. Deal Builder pricing event deceleration (8% to 5.5%) is new evidence of constrained pricing power. **Adversarial FV 617p, MoS 23.7%.** HOLD with Medium conviction pending April 2026 pricing event and May 2026 FY results.
 
 ---
 
-## Quality Score: 79/100 - TIER A
+## Quality Score
 
-### Quality Score Breakdown
+### QS Tool: 63/100 (Tier B) -- data gaps in GM and EPS for 2025
+### QS Adjusted: 71/100 (Tier B, high-end)
 
-| Categoria | Puntos | Maximo | Detalle |
-|-----------|--------|--------|---------|
-| **Financial Quality** | 39 | 40 | ROIC 38%+, FCF Margin 50%, Near Net Cash, 4/5 FCF+ |
-| **Growth Quality** | 13 | 25 | Rev CAGR ~7%, EPS CAGR ~8%, GM Stable |
-| **Moat Evidence** | 22 | 25 | #1 UK auto classifieds by 10x, GM +29pp vs sector |
-| **Capital Allocation** | 5 | 10 | 10+ years dividends, low insider ownership (0.5%) |
-| **TOTAL** | **79** | **100** | **TIER A - Quality Compounder** |
+**Adjustment reasoning (+8 points):**
+- GM Premium: +10 pts (tool scores 0 due to nan in 2025; actual GM 72-84% vs 50% sector = +22-34pp premium)
+- Market Position: +8 pts (tool scores 0 default; actual #1 UK auto classifieds by 10x margin, 75%+ market share)
+- Offset: EPS CAGR unverifiable (nan in 2025), scored 0 by tool -- partially valid, cannot inflate
 
-### Detalle por Componente
+**Original thesis claimed 79 (Tier A). Adversarial adjustment: -8 points. Key differences:**
+- Growth Quality: thesis claimed 13/25, tool gives 11/25, adversarial gives 8-11/25 (EPS unverifiable)
+- Moat scoring: thesis manually overrode tool market_position from 5 to 8 -- justified by evidence but aggressive
 
-**Financial Quality (39/40):**
-- ROIC Spread: ~38% ROIC vs ~8-9% WACC = +29-30pp spread (15 pts)
-- FCF Margin: 50% = exceptional, among the best of any listed company (10 pts)
-- Leverage: 0.1x Net Debt/EBITDA = essentially net cash (10 pts)
-- FCF Consistency: 4/5 years positive (4 pts) - one year anomaly likely COVID-related
+### Quality Score Breakdown (Adversarial-Adjusted)
 
-**Growth Quality (13/25):**
-- Revenue CAGR 5yr: ~7% (5 pts) - moderate but consistent
-- EPS CAGR 5yr: ~8% (5 pts) - enhanced by buybacks
-- Gross Margin Trend: Stable (3 pts)
+| Category | Tool | Adjusted | Thesis (original) | Max |
+|----------|------|----------|-------------------|-----|
+| Financial Quality | 40 | 40 | 39 | 40 |
+| Growth Quality | 11 | 11 | 13 | 25 |
+| Moat Evidence | 7 | 25 | 22 | 25 |
+| Capital Allocation | 5 | 5 | 5 | 10 |
+| **TOTAL** | **63** | **71** | **79** | **100** |
 
-**Moat Evidence (22/25):**
-- Gross Margin Premium: ~79% GM vs ~50% Communication Services median = +29pp (10 pts)
-- Market Position: #1 in UK auto classifieds, undisputed (tool scored 5 pts conservatively; I assess 8 pts as #1 by huge margin - 10x nearest competitor)
-- ROIC Persistence: ROIC has been well above WACC for 10+ years since IPO (7 pts)
-
-**Capital Allocation (5/10):**
-- Shareholder Returns: 10+ years of dividends + ongoing buyback program (5 pts)
-- Insider Ownership: ~0.5% - low institutional/management ownership (0 pts)
-
-**Comparison with MONY.L (QS 81, also UK platform):**
-- AUTO.L has higher FCF margin (50% vs 23%) and wider ROIC spread
-- MONY.L has better insider ownership (10.5% vs 0.5%) and stronger capital allocation
-- Both are UK-dominant platform businesses with pricing power
-- AUTO.L's moat is arguably stronger: 75%+ market share vs MONY's #2 position
+Note: Financial Quality 40/40 is perfect score. ROIC-WACC spread +42pp, FCF margin 50%, leverage 0.1x, FCF positive 4/4 years. This is among the strongest financial profiles in the portfolio.
 
 ---
 
@@ -62,7 +48,7 @@ AutoTrader Group operates the UK's leading digital automotive marketplace. The p
 
 **Problem it solves:** Car buyers need a comprehensive, trusted marketplace to search inventory, compare prices, and initiate purchases. Dealers need the most eyeballs to sell their stock quickly.
 
-**This is a "must-have" for dealers:** With 75% of all automotive classified minutes on AutoTrader, dealers cannot afford not to advertise on the platform. This creates enormous pricing power.
+**This is a "must-have" for dealers:** With 75% of all automotive classified minutes on AutoTrader, dealers cannot afford not to advertise on the platform. This creates enormous pricing power -- though the April 2026 pricing deceleration (5.5% vs 8% prior year) suggests this power has limits.
 
 ### Revenue Model
 
@@ -74,167 +60,149 @@ AutoTrader Group operates the UK's leading digital automotive marketplace. The p
 
 **Revenue characteristics:**
 - ~90% recurring/subscription-based (dealer packages)
-- ARPR (Average Revenue Per Retailer) = GBP 2,994/month (H1 2026)
-- ~13,500 retailer forecourts on platform
-- Annual price increases implemented each April
+- ARPR (Average Revenue Per Retailer) = GBP 2,994/month (H1 2026, +5% YoY)
+- ~14,080 retailer forecourts on platform (H1 2026, +1% YoY)
+- Annual price increases implemented each April -- FY27 increase: 5.5% (vs 8% prior year)
 
 ### Unit Economics
 
 ```
-ARPR (Average Revenue Per Retailer): GBP 2,994/month = GBP 35,928/year
-Number of Retailer Forecourts: ~13,500
+ARPR: GBP 2,994/month = GBP 35,928/year
+Number of Retailer Forecourts: ~14,080
 Retailer Revenue: ~GBP 480M (FY2025)
 
-Customer Acquisition Cost: Near zero (dealers come to AutoTrader because buyers are there)
-Churn: Very low (dealers cannot afford to leave the dominant platform)
+Customer Acquisition Cost: Near zero (network effects)
+Churn: Very low (59 cancellations from Deal Builder = 0.4%)
 LTV/CAC: Effectively infinite for core dealer base
 
 Platform Metrics:
 - ~982M visits in 2025 (nearly 1 billion)
-- 32 site visits per second
+- 86.3M visits in January 2026 (strong engagement)
 - 75%+ of all automotive classified minutes
 ```
-
-The LTV/CAC ratio is exceptional because the business exhibits classic marketplace network effects: buyers go where the inventory is, dealers go where the buyers are. AutoTrader won this chicken-and-egg problem decisively years ago.
 
 ### Margin Structure
 
 ```
-Gross Margin:     ~79% (vs ~50% sector median = +29pp premium)
-Operating Margin: ~62-63% (core Auto Trader business: 70%)
+Gross Margin:     ~72-84% (varies by year; vs ~50% sector = +22-34pp premium)
+Operating Margin: ~62% (H1 2026)
 Net Margin:       ~47-48%
 FCF Margin:       ~50%
 
 Trend 5 years: STABLE to slightly EXPANDING
 ```
 
-This margin profile is extraordinary. Only a handful of listed companies globally achieve 50%+ FCF margins. The business model is almost pure software/marketplace with minimal COGS.
-
-### Capital Requirements
-
-| Type | Capex % Rev | Working Capital | Category |
-|------|-------------|-----------------|----------|
-| Ultra-light | ~2.5% (GBP 15M on GBP 600M rev) | Negative WC (cash generative) | Asset-light |
-
-- Maintenance capex is minimal (servers, platform maintenance)
-- Growth capex is also minimal (product development, AI features)
-- Working capital is negative: AutoTrader collects from dealers before needing to pay suppliers
-- FCF conversion from net income is very high (~100%)
-
 ---
 
-## Por Que Esta Barata
+## Por Que Esta Barata (Updated Feb 11)
 
 ### Price History
 
 - 52-week high: 920p (May 2025)
-- Current price: 486p
-- Decline: -47% from high, -16% from 52w low of 473p (close to trough)
+- Current price: 471p
+- 52-week low: 468.6p (touched Feb 2026)
+- Decline: -49% from high
 
 ### Narrativa del Mercado
 
-The market believes:
+1. **Deal Builder backlash** -- 59 dealers cancelled, 70+ downgraded, 180+ reduced spend. April 2026 pricing decelerated from 8% to 5.5%. Jefferies downgraded to HOLD (650p target), Berenberg cut target to 665p.
 
-1. **[X] Deal Builder backlash threatens ARPR growth** - AutoTrader mandated adoption of Deal Builder (online transaction tool) in November 2025, causing dealer revolt. 165 dealers cancelled contracts, 70% of surveyed dealers reduced/downgraded packages.
+2. **ARPR growth deceleration risk** -- Berenberg cut FY27 ARPR growth forecast from 7.5% to 5.2%. If pricing power is structurally constrained, the growth story weakens.
 
-2. **[X] Pricing power exhaustion** - After years of above-inflation price increases, dealers are pushing back. ARPR grew 5% in H1 2026 but the narrative is this growth rate will decelerate as dealers refuse to pay more.
+3. **AI/tech disintermediation anxiety** -- All UK classifieds (AUTO, RMV, MONY) lost ~40% in 6 months. Sector-wide derating.
 
-3. **[X] Multiple compression was overdue** - Stock traded at P/E ~28x at 920p, which was expensive for a 5-7% grower. The derating to ~15x is a normalization, not an anomaly.
-
-4. **[ ] UK car market weakness** - Some concern about macro, but the used car market actually grew 2% in 2025 and is forecast at +3% for 2026.
-
-### Mi Contra-Tesis
-
-**Mercado cree: Deal Builder will cause mass dealer defections**
-**Yo creo:** Dealer backlash is cyclical, not structural. AutoTrader is 10x larger than any competitor. Where would dealers go? The same pattern happens with Rightmove in property - agents complain about pricing every year, threaten boycotts, then stay because they need the platform. The 165 cancellations out of ~13,500 forecourts is ~1.2% - noise, not signal.
-**Mi evidencia:** ARPR still grew 5% in H1 2026 DESPITE the controversy. Revenue grew 5%. Operating profit grew 6%. The financial results contradict the bear narrative.
-**Prob I'm wrong:** 15% - Risk that dealer revolt accelerates materially
-
-**Mercado cree: Pricing power is exhausted**
-**Yo creo:** AutoTrader adds GBP 90-100/month pricing and GBP 70-80/month product value at each annual event. This is a ~5-6% annual ARPR growth rate. For a monopoly platform that delivers measurable ROI to dealers (speed of sale, buyer traffic), this is sustainable indefinitely. CEO Nathan Coe admitted "we know we are not cheap" but also "the best product isn't always the cheapest" - this is monopoly behavior.
-**Mi evidencia:** ARPR has grown every single year since IPO. Dealer count is stable to growing (+1% in H1 2026).
-**Prob I'm wrong:** 10% - Only if a viable alternative emerges
-
-**Mercado cree: P/E compression is permanent repricing**
-**Yo creo:** The derating from 28x to 15x overshoots on the downside. AutoTrader's structural characteristics (50% FCF margin, monopoly, recurring revenue) deserve a premium multiple vs. FTSE 100 average of ~14x. Rightmove (similar UK property classifieds monopoly) trades at 17x despite similar growth. Scout24 trades at ~16x EV/EBITDA. The current 12x EV/EBITDA for AUTO.L is a discount to all peers.
-**Mi evidencia:** Every peer classifieds platform trades at a premium to AUTO.L's current multiple.
-**Prob I'm wrong:** 20% - If growth decelerates to <3%
+4. **UK car market** -- Actually POSITIVE: 2025 used car sales +2.2%, 2026 forecast +3%. Platform visits at record levels.
 
 ### Value Trap Checklist
 
-| Factor | SI/NO | Comentario |
-|--------|-------|------------|
-| Industria en declive secular | NO | UK car market growing to pre-pandemic levels by 2026 |
-| Disrupcion tecnologica inminente | NO | AI enhances (not threatens) classifieds platforms |
-| Management destruyendo valor | NO | Consistent shareholder returns, disciplined M&A |
-| Balance deteriorandose | NO | Net cash position, low capex |
-| Insider selling masivo | NO | No evidence of material insider selling |
-| Dividend cut reciente/probable | NO | Dividend growing, payout ratio comfortable |
-| Perdida market share | NO | Still 75%+ of automotive minutes, 10x nearest competitor |
-| ROIC < WACC ultimos 3 anos | NO | ROIC 38%+ vs WACC ~9% - massive spread |
-| FCF negativo >2 anos | NO | FCF ~GBP 300M, FCF margin 50% |
-| Goodwill >50% equity | MAYBE | Legacy of past acquisitions, but irrelevant for asset-light platform |
+| Factor | SI/NO | Detail |
+|--------|-------|--------|
+| Industria en declive secular | NO | UK car market growing |
+| Disrupcion tecnologica | MAYBE | AI search is slow-burning threat |
+| Management destruyendo valor | NO | Active buybacks at depressed prices |
+| Balance deteriorandose | NO | Net cash position |
+| Insider selling masivo | NO | No evidence |
+| Dividend cut probable | NO | Payout 32%, well covered |
+| Perdida market share >2pp | NO | Still 75%+ minutes |
+| ROIC < WACC | NO | ROIC-WACC spread +42pp |
+| FCF negativo >2 anos | NO | FCF GBP 301M, 50% margin |
+| Goodwill >50% equity | POSSIBLE | Legacy, immaterial for asset-light |
 
-**TOTAL: 0-1/10 factors SI** - Very low value trap risk. This is a genuine quality business on sale.
+**TOTAL: 0-1/10** -- Very low value trap risk.
 
 ---
 
-## Valuation
+## Valuation (Adversarial-Revised, Feb 11)
 
 ### Method 1 (Primary, 60%): Owner Earnings Yield
 
 ```
-FCF (TTM): ~GBP 304M
-Owner Earnings = GBP 303M
-Market Cap at 486p: ~GBP 4.08B
-Owner Earnings Yield = 7.4%
-OEY + Growth = 7.4% + 8% = 15.4%
-WACC = 8.5%
-Spread = 6.9 percentage points
+FCF (TTM): GBP 301M
+Owner Earnings: ~GBP 299M
+Market Cap at 471p: ~GBP 3.95B
+OEY: 7.6%
+
+Adversarial growth assumption: 6% (5% organic + buyback)
+  - Down from thesis 8% based on:
+  - ARPR pricing deceleration (8% -> 5.5%)
+  - Berenberg FY27 ARPR growth cut (7.5% -> 5.2%)
+  - Dealer count growth modest (+1%)
+
+OEY + Growth = 7.6% + 6% = 13.6%
+WACC = 8.6% (tool-derived)
+Spread = 5.0pp (positive, still attractive)
+
+Implied FV: ~630p
 ```
 
-**Implied Fair Value from OEY method:** ~720p per share
+### Method 2 (Secondary, 40%): EV/EBIT Peers
 
-### Method 2 (Secondary, 40%): Reverse DCF + EV/EBIT Peers
-
-**EV/EBIT Peer Comparison:**
-- AUTO.L: 12x EV/EBITDA (discount to ALL peers)
-- Rightmove: 14.1x
-- Scout24: 15.7x
-
-**Applying Rightmove's multiple:** FV = 627-650p
+```
+Operating Profit (TTM): ~GBP 373M
+Applying 13-14x EV/EBIT (discount to Rightmove due to Deal Builder uncertainty):
+  FV range: 574-620p, midpoint 597p
+```
 
 ### Reconciliation
 
-| Metodo | Fair Value | Peso | Weighted |
-|--------|-----------|------|----------|
-| Owner Earnings Yield | 720p | 60% | 432p |
-| EV/EBIT Peers | 640p | 40% | 256p |
-| **Weighted Average** | | 100% | **688p** |
+| Method | FV (Original) | FV (Adversarial) | Delta |
+|--------|--------------|-------------------|-------|
+| OEY (60%) | 720p | 630p | -12.5% |
+| EV/EBIT Peers (40%) | 640p | 597p | -6.7% |
+| **Weighted Average** | **688p** | **617p** | **-10.3%** |
 
-**Entry price:** 485.80p
-**MoS vs Weighted FV:** 29%
+### DCF Cross-Check
 
----
+| Growth | WACC | Bear | Base | Bull |
+|--------|------|------|------|------|
+| 3% | 9.0% | 434p | 541p | 690p |
+| 5% | 8.5% | 532p | 679p | 891p |
+| 7% | 8.5% | 580p | 739p | 971p |
 
-## Scenarios
+### Scenarios (Revised)
 
-| Scenario | Prob | FV | MoS at Entry |
+| Scenario | Prob | FV | MoS at 471p |
 |----------|------|----|-------------|
-| Bear | 25% | 500p | 3% |
-| Base | 50% | 680p | 29% |
-| Bull | 25% | 880p | 45% |
-| Expected Value | | 685p | 29% |
+| Bear (3% growth, pricing hit) | 25% | 490p | 3.9% |
+| Base (6% growth, moderate impact) | 50% | 617p | 23.7% |
+| Bull (7%+ growth, Deal Builder resolves) | 25% | 740p | 36.4% |
+| **Expected Value** | 100% | **616p** | **23.5%** |
+
+**Adversarial FV: 617p | Price: 471p | MoS: 23.7%**
 
 ---
 
 ## Kill Conditions
 
-1. **Dealer count decline >5% in a year**
-2. **ARPR growth turns negative**
-3. **A credible competitor achieves >20% market share of classified minutes**
-4. **FCF margin declines below 35%**
-5. **Management pursues large M&A (>GBP 1B)**
+1. **Dealer count decline >5% in a year** -- OK (up 1% in H1 2026)
+2. **ARPR growth turns negative** -- OK (+5% H1 2026)
+3. **Competitor >20% market share** -- OK (Motors.co.uk ~5% at best)
+4. **FCF margin <35%** -- OK (50%)
+5. **Large M&A >GBP 1B** -- OK (none)
+6. **OEM direct >20% UK sales** -- OK (still <5%)
+7. **AI buying agents disintermediate search** -- OK (nascent, 3-5yr)
+
+**No kill conditions triggered or approaching.**
 
 ---
 
@@ -244,10 +212,32 @@ Spread = 6.9 percentage points
 |--------|-------|
 | Shares | 65 |
 | Entry Price | 485.80 GBp (~5.58 EUR) |
-| Total Invested | ~363 EUR (~$428 USD) |
+| Current Price | 471.00 GBp (Feb 11) |
+| P&L | -3.1% |
+| Total Invested | ~363 EUR |
 | Weight | ~3.4% |
-| ADD trigger | 450p (MoS >34%) |
-| Full position target | 4-5% if FY2026 results confirm (May 2026) |
+| Conviction | **MEDIUM** (was HIGH -- downgraded by adversarial review) |
+| ADD trigger | **CANCELLED** (was 450p; based on inflated FV 688p) |
+| Next review | After FY2026 results (May 2026) |
+
+---
+
+## Adversarial Review Summary (Feb 11)
+
+Full adversarial review: `thesis/research/AUTO.L/adversarial_thesis_review.md`
+
+**Key findings:**
+1. QS inflated: 79 (Tier A) -> 71 (Tier B) -- mainly growth scoring gap
+2. FV revised: 688p -> 617p (-10.3%) -- smallest delta among all adversarial reviews
+3. Growth assumption cut: 8% -> 6% (ARPR pricing deceleration)
+4. Financial quality remains exceptional: 40/40
+5. Monopoly position intact near-term, but pricing power has limits
+6. No kill conditions triggered
+7. **HOLD at medium conviction** -- wait for April pricing event and May FY results
+
+**What would change conviction:**
+- UPWARD: April 2026 pricing event accepted smoothly by dealers, ARPR >5% in H2
+- DOWNWARD: ARPR growth <4%, dealer count declines, competitor gains share
 
 ---
 
@@ -255,11 +245,19 @@ Spread = 6.9 percentage points
 
 ### Dudas/Incertidumbres
 
-- **Deal Builder resolution timeline is uncertain.** FY2026 results (May 2026) will be the true test.
-- **The -47% decline is steeper than pure fundamentals justify.** Deserves humility.
-- **Insider ownership at 0.5% is low.** Buybacks partially compensate.
+- April 2026 pricing event is the KEY near-term catalyst
+- ARPR growth trajectory FY27+ genuinely uncertain
+- Facebook Marketplace UK car market share unmeasurable
+- AI disintermediation timeline hard to forecast
 
 ### Sugerencias de Mejora
 
-- **Create online-classifieds/marketplaces sector view** - AUTO.L, RMV.L, and MONY.L are related businesses.
-- **Consider a "platform economics" analysis tool** - Recurring pattern in our analysis.
+- Create "UK digital platforms" sector view (AUTO.L, MONY.L, RMV.L)
+- Track ARPR growth at each reporting date as leading indicator
+- Fix quality_scorer.py nan handling for gross margin
+
+### Alertas para Orchestrator
+
+- ADD standing order CANCELLED (was based on inflated FV)
+- UK concentration: 4th UK position in portfolio
+- Tier downgrade from A to B -- future decisions use Tier B framework

@@ -9,11 +9,25 @@
 # Metadata
 metadata:
   created: 2026-02-03
-  last_updated: 2026-02-10
+  last_updated: 2026-02-11
   total_closed: 12
   total_pnl_eur: -90.85  # Previous -119.85 + IMB.L +29 = ~-90.85
   win_rate: 41.7  # 5 winners / 12 positions (IMB.L is winner +6.9%)
   avg_holding_days: 6
+
+# ADVERSARIAL FV ACCURACY TRACKING (added Session 53 per Devil's Advocate)
+# Purpose: Track whether adversarial FVs are accurate or systematically pessimistic
+# Check prices at 3mo, 6mo, 12mo after sale. Compare thesis FV vs adversarial FV vs market.
+adversarial_fv_tracking:
+  next_check: 2026-05-11  # 3 months from today
+  positions_to_track:
+    - { ticker: A2A.MI, sold: 2026-02-08, exit_price_eur: 2.54, thesis_fv: 2.70, adversarial_fv: 2.04, check_3mo: null, check_6mo: null, check_12mo: null }
+    - { ticker: VNA.DE, sold: 2026-02-08, exit_price_eur: 24.78, thesis_fv: 32.58, adversarial_fv: 24.35, check_3mo: null, check_6mo: null, check_12mo: null }
+    - { ticker: TATE.L, sold: 2026-02-08, exit_price_gbp: 393.60, thesis_fv: 551, adversarial_fv: 329, check_3mo: null, check_6mo: null, check_12mo: null }
+    - { ticker: SAN.PA, sold: 2026-02-09, exit_price_eur: 80.29, thesis_fv: 122, adversarial_fv: 78.69, check_3mo: null, check_6mo: null, check_12mo: null }
+    - { ticker: HRB, sold: 2026-02-09, exit_price_usd: 32.77, thesis_fv: 59.58, adversarial_fv: 33.94, check_3mo: null, check_6mo: null, check_12mo: null }
+    - { ticker: IMB.L, sold: 2026-02-09, exit_price_gbp: 2472.5, thesis_fv: 3701, adversarial_fv: 3409, check_3mo: null, check_6mo: null, check_12mo: null }
+  note: "If market price >> adversarial FV at 12mo for majority, adversarial is too pessimistic. If market price near or below adversarial FV, sells were correct."
 
 # Closed Positions
 closed_positions:

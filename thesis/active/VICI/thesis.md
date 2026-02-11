@@ -458,6 +458,10 @@ Sell immediately if ANY of these occur:
 | Rent cut >10% without compensation | **SELL (KC#7)** |
 | Positive surprise + acquisition announcement | HOLD, possible upgrade to MED conviction |
 
+### Model Disruption Kill Conditions (added 2026-02-11)
+| KC#8 | **iGaming/online gambling cannibalize physical casino GGR >15% in any VICI market** — VICI's entire thesis depends on physical casino visits growing. If iGaming (DraftKings, FanDuel, etc.) captures enough gambling spend that tenant GGR declines, rent coverage deteriorates structurally. The Caesars Regional 1.03x coverage is ALREADY fragile — any GGR decline makes it worse. Monitor: AGA iGaming revenue reports, state-by-state online gambling legislation, tenant GGR trends. |
+| KC#9 | **Las Vegas visitor count declines >10% YoY for 2+ consecutive years** — The adversarial review found visitors already DOWN 7.5% (thesis said record 42M+). If this is a trend rather than a blip — driven by remote entertainment, economic softness, or international travel shifts — VICI's Las Vegas Strip assets (56% of portfolio) face structural devaluation. Monitor: LVCVA monthly visitor statistics. |
+
 ### Standing Orders
 
 | Type | Trigger | Shares | Expiry |

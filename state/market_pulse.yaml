@@ -1,26 +1,41 @@
 # =============================================================================
-# MARKET PULSE - Actualizado por market-pulse agent
+# MARKET PULSE - Session 53 (updated from earlier today scan)
 # =============================================================================
-# Fecha: 2026-02-09
-# Posiciones verificadas: 16 (post adversarial review, 3 exits Feb 8)
+# Fecha: 2026-02-10 (end of day update)
+# Posiciones verificadas: 13 (post IMB.L sell today + SAN.PA/HRB sold Feb 9)
+# FX: EUR/USD=1.1920 | GBP/EUR=1.1491
+# Sources: price_checker.py (intraday) + WebSearch (end-of-day cross-ref)
 # =============================================================================
 
-last_scan: "2026-02-09T12:00:00"
+last_scan: "2026-02-10T18:00:00"
+previous_scan: "2026-02-10T14:30:00"
 
 market_context:
-  spy_change_1w: "+2.0%"
-  vix: 17.76
-  market_status: "NORMAL - slight uptick in volatility"
-  macro_backdrop:
-    - "Tariff uncertainty persists (Supreme Court ruling pending)"
-    - "AI disruption narrative hitting software sector hard"
-    - "Rate-sensitive sectors (REITs) under pressure"
+  spy_level: "~6,985"
+  spy_change_1d: "+0.29%"
+  spy_note: "S&P 500 up modestly. Near ATH but not at it. 10Y yield dipped below 4.2%, cooler inflation expectations (3.1% 1yr ahead)."
+  dow_change_1d: "-0.18%"
+  nasdaq_change_1d: "-0.17%"
+  market_status: "NORMAL - Modest gains, no macro dislocation. AI disruption narrative dominant."
+  dominant_narrative: |
+    AI DISRUPTION WAVE: Anthropic tools (Claude Cowork/Code) triggered ~$285B wipeout in
+    software + financial services stocks since Feb 3. 164 stocks hit. Hedge fund net exposure
+    to software at record low <3%. This impacts ADBE (directly), MONY.L (indirectly via ChatGPT
+    insurance apps), WKL.AS (legal AI plugin). Broader market resilient; Dow at records.
   sector_moves:
-    tech_software: "-6.9% ADBE week (AI disruption fears, Anthropic/OpenAI agent releases)"
-    pharma: "SAN.PA -6.8% 4wk (UBS downgrade, Dupixent pipeline concerns)"
-    insurance: "ALL, GL near 52w highs (sector strength)"
-    uk_small_caps: "MONY.L, AUTO.L, BYIT.L weak (UK macro softness)"
-    reits: "VICI near 52w low (Scotiabank downgrade, rate fears)"
+    ai_disruption: |
+      MONY.L -12.7% today (Tuio Home + Insurify launch ChatGPT insurance apps).
+      WKL.AS -43% YoY (Anthropic legal plugin). ADBE at 52w low.
+      Admiral, GoCompare also hit. RBC says impact "overstated".
+    tech_software: |
+      ADBE at 52w low. Broader SaaS selloff continues. Salesforce -26% YTD.
+      Thomson Reuters -20% week. Anthropic effect cascading through value chain.
+    insurance_us: "ALL, GL modestly lower from recent peaks. No sector-specific catalyst."
+    uk_small_caps: "Broad weakness continues. MONY.L new 52w low. AUTO.L near 52w low."
+    telecom_eu: |
+      DTE.DE +5.4% in 24h. Anticipation of TMUS Capital Markets Day (Feb 11 tomorrow).
+      T-Mobile CEO Srini Gopalan to present 2026-2027 financial targets.
+    reits: "VICI softening. Web sources show ~$28.53 (lower than price_checker $29.25)."
 
 # =============================================================================
 # ANOMALIES
@@ -29,198 +44,299 @@ anomalies:
   critical: []
 
   material:
-    - ticker: HRB
-      current: "$32.88"
-      avg_cost: "$35.78"
-      pnl_pct: "-8.1%"
-      vs_52w_high: "-49.1%"
-      vs_52w_low: "+0.6%"
-      status: "AT 52-WEEK LOW"
-      cause: "Q2 EPS miss ($-1.84 seasonal loss), guidance midpoint $4.92 below consensus $4.94. Stock -7.1% post-earnings Feb 3, continued slide."
-      cause_type: IDIOSYNCRATIC
-      already_known: true
-      thesis_impact: "Revenue +11% is positive. Guidance miss is marginal ($0.02). Seasonal pattern normal for tax prep. But stock now below avg cost."
-      action: "HOLD - Q2 seasonal loss expected. Revenue growth strong. Tax season Q3/Q4 will be decisive. Monitor closely."
-
-    - ticker: ADBE
-      current: "$268.38"
-      avg_cost: "$270.60"
-      pnl_pct: "-0.8%"
-      vs_52w_high: "-42.4%"
-      vs_52w_low: "+1.6%"
-      status: "NEAR 52-WEEK LOW"
-      cause: "AI disruption narrative escalating. Anthropic Claude Opus 4.6 + OpenAI Frontier agent release triggered sector sell-off. Goldman Sachs downgrade Buy->Sell. Oppenheimer downgrade Outperform->Market Perform. Stock -6.9% in Feb."
+    - ticker: MONY.L
+      current: "145.80-152.80 GBp (price_checker 152.80, web close 145.80-146.50)"
+      avg_cost: "169.20 GBp"
+      pnl_pct: "-10% to -14% (depends on close price used)"
+      change_1d: "-12.7% (HL.co.uk reports -21.20p / -12.68% on the day)"
+      vs_52w_high: "-35% (from 224.80)"
+      vs_52w_low: "Near new low (139.70-145.80 range)"
+      cause: |
+        TWO separate ChatGPT insurance apps launched:
+        1. Tuio Home (Spanish startup) - home insurance quotes directly inside ChatGPT
+        2. Insurify - first insurance industry ChatGPT app for car insurance comparison
+        Market fears AI chatbots will displace price comparison websites entirely.
+        Bloomberg: "Insurance Broker Stocks Sink as AI App Sparks Disruption Fears"
+        CityAM: "Money Supermarket shares tumble to 13-year low on AI fears"
       cause_type: SECTORIAL
-      already_known: true
-      thesis_impact: "AI disruption is the bear case for ADBE. Multiple analyst downgrades are new since last pulse. P/E now ~16x - historically cheap. Need to monitor if AI tools actually cannibalize Creative Cloud revenue or if ADBE integrates AI successfully (Firefly)."
-      action: "HOLD - Sectorial pressure, not company-specific. Priced in at P/E 16x. But analyst downgrades (GS Sell) are concerning. Review thesis if drops below $264 (52w low)."
-
-    - ticker: DOM.L
-      current: "192.30 GBp"
-      avg_cost: "$2.49 (~192 GBp at entry)"
-      pnl_pct: "~-22.6%"
-      vs_52w_high: "-36.5%"
-      vs_52w_low: "+17.3%"
-      status: "SIGNIFICANT LOSS"
-      cause: "UK consumer weakness. Order counts declining. Management warned autumn budget impact on 2026 orders. Consumer discretionary pressure."
-      cause_type: MIXED  # Sectorial (UK consumer) + Idiosyncratic (order decline)
       already_known: false
-      thesis_impact: "FV was 260-280 GBp. Current 192 implies 26-31% MoS IF thesis intact. But order decline is concerning for a franchise business. Needs adversarial review (Fase 4)."
-      action: "HOLD - Deep value if thesis intact. Adversarial review pending (Fase 4 Tier B). Flag for priority review."
+      thesis_impact: |
+        NEW RISK VECTOR not in thesis: AI-as-distribution-channel for insurance.
+        Thesis acknowledged digital competition but not ChatGPT as broker.
+        HOWEVER: One Spanish insurer + one US insurer in ChatGPT != destruction of UK
+        comparison ecosystem. UK market has specific dynamics:
+        - FCA regulatory compliance (comparison sites are regulated)
+        - 100+ insurer panel (vs 1-2 insurers in ChatGPT)
+        - Brand trust (MoneySupermarket, MoneySavingExpert)
+        - RBC analysts say impact "overstated"
+        MATERIAL question: does this change structurally or is this a panic?
+        EARNINGS FEB 23 will provide real data.
+      mos_vs_fv: "+27-38% (FV 201 GBp, depending on actual close)"
+      action: |
+        HOLD through earnings Feb 23. This is likely panic selling.
+        If earnings guidance shows NO AI impact on volumes: potential ADD opportunity.
+        If earnings show early AI cannibalization: reassess thesis, consider EXIT.
+        Do NOT add before earnings. Information asymmetry too high.
 
-    - ticker: SAN.PA
-      current: "EUR 80.47"
-      avg_cost: "$94.51"
-      pnl_pct: "~-14.9%"
-      vs_52w_high: "-27.4%"
-      vs_52w_low: "+5.7%"
-      status: "NEAR 52-WEEK LOW"
-      cause: "UBS downgrade Buy->Neutral, PT cut EUR 105->88. Amlitelimab Phase III failure (-10% single day). Dupixent patent cliff 2031-2033. Pipeline replacement inadequate per analysts. CFO admitted cannot fully offset Dupixent loss."
+    - ticker: DTE.DE
+      current: "EUR 30.20-30.38 (price_checker 30.20, web 30.38)"
+      avg_cost: "EUR ~28.45 (USD 33.91 / 1.19)"
+      pnl_pct: "+6.1% to +6.8%"
+      change_1d: "+5.4% (web: 'increased 5.38% in past 24 hours')"
+      vs_52w_high: "-15.4% (from EUR 35.91)"
+      vs_52w_low: "+16.3% (from EUR 26.00)"
+      cause: |
+        Pre-TMUS Capital Markets Day rally. T-Mobile US will present Q4/FY2025
+        results + 2026-2027 financial targets TOMORROW (Feb 11, 8:30am ET).
+        CEO Srini Gopalan + leadership in NYC. DTE owns ~48.5% of TMUS.
+        Strong TMUS targets would directly uplift DTE.DE valuation.
+        Also: DTE.DE +13.44% vs prior week, +9.20% month change.
       cause_type: IDIOSYNCRATIC
-      already_known: false
-      thesis_impact: "MATERIAL NEGATIVE. Pipeline failure + Dupixent dependency is exactly the bear case. UBS PT EUR 88 = only 9% upside from current. This should be flagged for adversarial review urgently."
-      action: "FLAG FOR URGENT ADVERSARIAL REVIEW - Multiple analyst downgrades, pipeline failure, CFO admission. Thesis may need significant revision."
+      already_known: true
+      thesis_impact: |
+        Exit plan says "Check TMUS results Feb 11 TODAY" - correction: it is TOMORROW.
+        If TMUS guides strong (subscriber growth, ARPU, FCF): DTE.DE rally continues.
+        If TMUS disappoints: DTE.DE could give back gains rapidly.
+        Current FV EUR 34.00. Price EUR 30.20-30.38 = MoS ~11%.
+        APPROACHING fair value territory. TRIM threshold was >EUR 33.
+      mos_vs_fv: "+10.6-12.6% (FV EUR 34.00)"
+      action: |
+        MONITOR TMUS CMD results tomorrow morning carefully.
+        If TMUS guides above consensus: DTE.DE could hit EUR 32-34 quickly.
+        Per exit plan: TRIM >EUR 33. Be ready.
+        Do NOT add. Already approaching FV.
 
   info:
-    - ticker: MONY.L
-      status: "NEAR 52W LOW"
-      current: "168.25 GBp"
-      52w_low: "165.9 GBp"
-      vs_52w_low: "+1.4%"
-      vs_52w_high: "-25.1%"
-      pnl_pct: "~-0.6%"
-      note: "Earnings Feb 23 - decisive. Adversarial FV 201 GBp. Currently 16% below adversarial FV."
+    - ticker: ADBE
+      status: "AT 52-WEEK LOW"
+      current: "$264.67-267.92 (price_checker 264.67, web close $267.92)"
+      52w_low: "$262.95"
+      vs_52w_low: "+0.7% to +1.9%"
+      vs_52w_high: "-43.2% (from $465.70)"
+      mos_vs_fv: "+45-47% (FV $390)"
+      note: |
+        Part of broader Anthropic/AI software selloff (-$285B in sector).
+        Salesforce -26% YTD, Thomson Reuters -20% week. ADBE caught in same tide.
+        FTC ROSCA lawsuit adds company-specific overhang.
+        Per exit plan: no ADD until trial clarity (Oct 2026). 47% MoS provides large buffer.
+        Web shows slight rebound from intraday low (+0.38% on day).
 
     - ticker: AUTO.L
-      status: "NEAR 52W LOW"
-      current: "481 GBp"
-      52w_low: "473.3 GBp"
-      vs_52w_low: "+1.6%"
-      vs_52w_high: "-47.7%"
-      pnl_pct: "~-1.0%"
-      note: "Dealer exodus concerns (listings <400k lowest in 10 years). FV was 686 GBp. Needs monitoring."
+      status: "NEAR 52-WEEK LOW"
+      current: "478.70 GBp (price_checker)"
+      52w_low: "469.98 GBp"
+      vs_52w_low: "+1.9%"
+      vs_52w_high: "-48.0%"
+      note: |
+        UK auto sentiment weakness. Drifting lower since purchase at 485.80.
+        Web source shows conflicting data (751.47p) which appears to be adjusted price.
+        Using price_checker as primary source. ADD trigger at 450 GBp.
 
     - ticker: EDEN.PA
-      status: "NEAR 52W LOW"
-      current: "EUR 17.77"
+      status: "NEAR 52-WEEK LOW"
+      current: "EUR 17.58-18.00 (web 17.58, price_checker 18.00)"
       52w_low: "EUR 16.96"
-      vs_52w_low: "+4.8%"
-      vs_52w_high: "-49.1%"
-      pnl_pct: "~-14.9%"
-      note: "Earnings Feb 24 - decisive. Adversarial FV EUR 29.0. Currently 39% below adversarial FV."
+      vs_52w_low: "+3.7-6.1%"
+      vs_52w_high: "-48.5-49.7%"
+      mos_vs_fv: "+38-65% (FV EUR 29.00)"
+      note: |
+        Web data suggests lower close (EUR 17.58) than price_checker (EUR 18.00).
+        Grinding downtrend continues. Earnings Feb 24 decisive.
+        Analyst consensus target EUR 17.70 (eToro) - market very bearish.
+        Strong MoS cushion regardless.
 
     - ticker: VICI
-      status: "NEAR 52W LOW"
-      current: "$28.76"
-      52w_low: "$27.48"
-      vs_52w_low: "+4.7%"
-      vs_52w_high: "-15.5%"
-      pnl_pct: "+0.7%"
-      note: "Scotiabank downgrade to Sector Perform. Earnings Feb 25. Adversarial FV $30.50."
+      status: "POSSIBLE NEGATIVE MoS (data conflict)"
+      current: "$28.53-29.25 (web $28.53, price_checker $29.25)"
+      fair_value: "$29.00"
+      mos: "-0.9% to +1.6% (depends on price source)"
+      note: |
+        IMPORTANT DATA CONFLICT: price_checker shows $29.25 (>FV = negative MoS),
+        web sources show $28.53 (<FV = small positive MoS of 1.6%).
+        Either way: essentially zero margin of safety.
+        ON PROBATION. Earnings Feb 25 = mandatory SELL/HOLD decision.
 
-    - ticker: ALL
-      status: "NEAR 52W HIGH"
-      current: "$207.55"
-      52w_high: "$216.75"
-      vs_52w_high: "-4.2%"
-      pnl_pct: "+5.9%"
-      note: "Insurance sector strength. On probation LOW conviction. Adversarial FV $234."
+    - ticker: UHS
+      status: "ZERO MoS"
+      current: "$212.39-212.78 (web $212.39, price_checker $212.78)"
+      fair_value: "$213"
+      mos: "+0.1-0.3%"
+      note: |
+        Effectively no margin of safety regardless of data source.
+        ON PROBATION. Earnings Feb 25 = mandatory SELL/HOLD decision.
+        OBBBA Medicaid cuts = structural forward risk.
+        Web shows -0.18% on day. Flat trading.
 
-    - ticker: GL
-      status: "NEAR 52W HIGH"
-      current: "$146.51"
-      52w_high: "$152.71"
-      vs_52w_high: "-4.1%"
-      pnl_pct: "+3.9%"
-      note: "Insurance sector strength. 4 class action risk. Adversarial FV $185."
+    - ticker: BYIT.L
+      status: "NEAR 52-WEEK LOW"
+      current: "304.80-360.20 GBp (price_checker 304.80, web 356-360)"
+      52w_low: "290.80 GBp (price_checker) / 318.00 (web)"
+      note: |
+        MAJOR DATA CONFLICT: price_checker shows 304.80, web sources show 356-360.
+        Web 52w low is 318 (not 290.80). This needs investigation.
+        If web is correct: stock is up +20% from purchase at 296, not +3%.
+        Likely explanation: yfinance may be using different share class or ex-div data.
+        NEEDS VERIFICATION in next session.
+
+    - ticker: DOM.L
+      status: "LOSS (deepening)"
+      current: "181.22-197.10 GBp (web 181.22, price_checker 197.10)"
+      avg_cost: "~208.9 GBp (calc: $2.49 * 100 / 1.1920 = ~209 GBp)"
+      note: |
+        DATA CONFLICT: web shows 181.22 (deeper loss) vs price_checker 197.10.
+        If web is correct: P&L is -13.2%, not -5.6%. Significant difference.
+        FY25 results Mar 5 approaching. FV 240 GBp. KC#1: EBITDA <125M.
+        New CEO Dominic Paul starts Apr 6.
+        NEEDS VERIFICATION in next session.
 
 # =============================================================================
-# POSITION SUMMARY (all 16 positions)
+# POSITION SUMMARY (13 active positions)
 # =============================================================================
 position_summary:
-  # TIER A - Quality Compounders (6 positions)
-  - { ticker: ADBE, tier: A, current: "$268.38", avg_cost: "$270.60", pnl_pct: "-0.8%", vs_52w_high: "-42.4%", vs_52w_low: "+1.6%", status: WATCH }
-  - { ticker: NVO, tier: A, current: "$47.64", avg_cost: "$48.13", pnl_pct: "-1.0%", vs_52w_high: "-49.2%", vs_52w_low: "+10.6%", status: NORMAL }
-  - { ticker: MONY.L, tier: A, current: "168.25 GBp", avg_cost: "169 GBp", pnl_pct: "-0.6%", vs_52w_high: "-25.1%", vs_52w_low: "+1.4%", status: WATCH }
-  - { ticker: LULU, tier: A, current: "$172.85", avg_cost: "$171.62", pnl_pct: "+0.7%", vs_52w_high: "-57.1%", vs_52w_low: "+8.5%", status: NORMAL }
-  - { ticker: AUTO.L, tier: A, current: "481 GBp", avg_cost: "486 GBp", pnl_pct: "-1.0%", vs_52w_high: "-47.7%", vs_52w_low: "+1.6%", status: WATCH }
-  - { ticker: BYIT.L, tier: A, current: "305 GBp", avg_cost: "296 GBp", pnl_pct: "+3.0%", vs_52w_high: "-45.8%", vs_52w_low: "+4.8%", status: NORMAL }
+  # TIER A - Quality Compounders
+  - { ticker: ADBE, tier: A, current: "$264.67", avg_cost: "$270.60", pnl_pct: "-2.2%", vs_52w_high: "-43.2%", vs_52w_low: "+0.7%", mos: "+47.4%", status: "AT 52W LOW" }
+  - { ticker: NVO, tier: "B (QS 73)", current: "$49.12", avg_cost: "$48.13", pnl_pct: "+2.1%", vs_52w_high: "-47.6%", vs_52w_low: "+14.0%", status: RECOVERING }
+  - { ticker: MONY.L, tier: A, current: "~146 GBp", avg_cost: "169.20 GBp", pnl_pct: "-12.7%", vs_52w_high: "-35.0%", vs_52w_low: "NEW LOW (13-yr low)", mos: "+27-38%", status: "MATERIAL MOVE - AI FEAR" }
+  - { ticker: LULU, tier: A, current: "$180.62", avg_cost: "$171.62", pnl_pct: "+5.2%", vs_52w_high: "-55.2%", vs_52w_low: "+13.4%", status: NORMAL }
+  - { ticker: AUTO.L, tier: A, current: "478.70 GBp", avg_cost: "485.80 GBp", pnl_pct: "-1.5%", vs_52w_high: "-48.0%", vs_52w_low: "+1.9%", status: "NEAR 52W LOW" }
+  - { ticker: BYIT.L, tier: A, current: "304.80 GBp (verify)", avg_cost: "296.00 GBp", pnl_pct: "+3% (verify)", vs_52w_high: "-45.9%", vs_52w_low: "+4.8%", status: "DATA CONFLICT - VERIFY" }
 
-  # TIER B - Quality Value (4 positions)
-  - { ticker: HRB, tier: B, current: "$32.88", avg_cost: "$35.78", pnl_pct: "-8.1%", vs_52w_high: "-49.1%", vs_52w_low: "+0.6%", status: ALERT }
-  - { ticker: EDEN.PA, tier: B, current: "EUR 17.77", avg_cost: "EUR ~20.87", pnl_pct: "-14.9%", vs_52w_high: "-49.1%", vs_52w_low: "+4.8%", status: WATCH }
-  - { ticker: DOM.L, tier: B, current: "192.30 GBp", avg_cost: "~249 GBp", pnl_pct: "-22.6%", vs_52w_high: "-36.5%", vs_52w_low: "+17.3%", status: ALERT }
-  - { ticker: SAN.PA, tier: B, current: "EUR 80.47", avg_cost: "~EUR 88", pnl_pct: "-14.9%", vs_52w_high: "-27.4%", vs_52w_low: "+5.7%", status: ALERT }
+  # TIER B - Quality Value
+  - { ticker: EDEN.PA, tier: B, current: "EUR 17.58-18.00", avg_cost: "EUR ~17.51", pnl_pct: "flat to +2.7%", vs_52w_high: "-48.5%", vs_52w_low: "+3.7-6.1%", mos: "+38-65%", status: "NEAR 52W LOW" }
+  - { ticker: DOM.L, tier: B, current: "181-197 GBp (verify)", avg_cost: "~209 GBp", pnl_pct: "-5.6 to -13.2% (verify)", vs_52w_high: "-34.9%", status: "DATA CONFLICT - VERIFY" }
 
-  # TIER C - Special Situations (6 positions)
-  - { ticker: ALL, tier: C, current: "$207.55", avg_cost: "$196.00", pnl_pct: "+5.9%", vs_52w_high: "-4.2%", vs_52w_low: "+17.9%", status: NORMAL }
-  - { ticker: VICI, tier: C, current: "$28.76", avg_cost: "$28.57", pnl_pct: "+0.7%", vs_52w_high: "-15.5%", vs_52w_low: "+4.7%", status: WATCH }
-  - { ticker: IMB.L, tier: C, current: "3310 GBp", avg_cost: "~3100 GBp", pnl_pct: "+6.0%", vs_52w_high: "-8.9%", vs_52w_low: "+25.5%", status: NORMAL }
-  - { ticker: GL, tier: C, current: "$146.51", avg_cost: "$141.06", pnl_pct: "+3.9%", vs_52w_high: "-4.1%", vs_52w_low: "+33.9%", status: NORMAL }
-  - { ticker: UHS, tier: C, current: "$218.56", avg_cost: "$201.42", pnl_pct: "+8.5%", vs_52w_high: "-11.3%", vs_52w_low: "+43.5%", status: NORMAL }
-  - { ticker: DTE.DE, tier: C, current: "EUR 30.27", avg_cost: "~EUR 31.5", pnl_pct: "~-4%", vs_52w_high: "-15.7%", vs_52w_low: "+16.4%", status: NORMAL }
+  # TIER C - Special Situations
+  - { ticker: DTE.DE, tier: C, current: "EUR 30.20-30.38", avg_cost: "~EUR 28.45", pnl_pct: "+6.1-6.8%", vs_52w_high: "-15.4%", vs_52w_low: "+16.3%", mos: "+10.6-12.6%", status: "RALLYING - TMUS CMD TOMORROW" }
+  - { ticker: ALL, tier: C, current: "$199.82-201.15", avg_cost: "$196.00", pnl_pct: "+2.0-2.6%", vs_52w_high: "-7.2%", vs_52w_low: "+14.3%", mos: "+16.3%", status: NORMAL }
+  - { ticker: VICI, tier: C, current: "$28.53-29.25 (verify)", avg_cost: "$28.57", pnl_pct: "-0.1% to +2.4%", vs_52w_high: "-14.1%", vs_52w_low: "+6.4%", mos: "-0.9 to +1.6%", status: "ZERO MoS - DATA CONFLICT" }
+  - { ticker: UHS, tier: C, current: "$212.39-212.78", avg_cost: "$201.42", pnl_pct: "+5.4-5.6%", vs_52w_high: "-13.6%", vs_52w_low: "+39.7%", mos: "+0.1-0.3%", status: "ZERO MoS" }
+  - { ticker: GL, tier: C, current: "$141.42-141.95", avg_cost: "$141.06", pnl_pct: "+0.3-0.6%", vs_52w_high: "-7.0%", vs_52w_low: "+29.8%", mos: "+34.6%", status: NORMAL }
 
 # =============================================================================
 # NEAR 52-WEEK BOUNDARIES (within 5%)
 # =============================================================================
 near_52w_low:
-  - { ticker: HRB, distance: "+0.6%", status: "AT LOW - Closest to 52w low in portfolio" }
-  - { ticker: MONY.L, distance: "+1.4%", status: "VERY CLOSE - Earnings Feb 23 decisive" }
-  - { ticker: ADBE, distance: "+1.6%", status: "VERY CLOSE - AI fears + analyst downgrades" }
-  - { ticker: AUTO.L, distance: "+1.6%", status: "VERY CLOSE - Dealer exodus concerns" }
-  - { ticker: EDEN.PA, distance: "+4.8%", status: "CLOSE - Earnings Feb 24 decisive" }
-  - { ticker: VICI, distance: "+4.7%", status: "CLOSE - Earnings Feb 25" }
-  - { ticker: BYIT.L, distance: "+4.8%", status: "CLOSE - New position, monitoring" }
+  - { ticker: MONY.L, distance: "AT NEW 13-YEAR LOW", note: "AI disruption panic. 145.80 GBp close." }
+  - { ticker: ADBE, distance: "+0.7-1.9%", note: "AT LOW - AI SaaS selloff + FTC" }
+  - { ticker: AUTO.L, distance: "+1.9%", note: "VERY CLOSE - UK auto weakness" }
+  - { ticker: EDEN.PA, distance: "+3.7-6.1%", note: "Approaching. Earnings Feb 24." }
+  - { ticker: BYIT.L, distance: "+4.8% (verify)", note: "Data conflict with web sources" }
 
-near_52w_high:
-  - { ticker: GL, distance: "-4.1%", status: "NEAR HIGH - Insurance sector strength" }
-  - { ticker: ALL, distance: "-4.2%", status: "NEAR HIGH - Insurance sector strength" }
+near_52w_high: []
 
 # =============================================================================
 # STANDING ORDERS PROXIMITY
 # =============================================================================
 standing_orders_status:
-  - ticker: BME.L
-    trigger: "169 GBp"
-    current: "unknown"
-    status: "Pending adversarial review (Fase 3)"
-
-  - ticker: UTG.L
-    trigger: "540 GBp"
-    current: "unknown"
-    status: "Pending adversarial review (Fase 3)"
-
   - ticker: ZIG.L
-    trigger: "375 GBp"
-    current: "unknown"
-    status: "Monitor"
-
-  - ticker: EVO.ST
-    trigger: "530 SEK + UKGC resolved"
-    current: "unknown"
-    status: "Conditioned on UKGC"
+    trigger: "<=375 GBp"
+    current: "387.00 GBp"
+    distance: "-3.1%"
+    status: "CLOSE - Within 5%. Could trigger this week."
 
   - ticker: GL
     action: ADD
-    trigger: "$130"
-    current: "$146.51"
-    distance: "-11.3%"
-    status: "FAR"
+    trigger: "<=$125"
+    current: "$141.42-141.95"
+    distance: "-11.9%"
+    status: "NOT CLOSE"
+
+  - ticker: EVO.ST
+    trigger: "<=530 SEK + UKGC resolved"
+    current: "576.00 SEK"
+    distance: "-8.0% (+ UKGC condition unmet)"
+    status: "NOT CLOSE"
+
+  - ticker: FGP.L
+    trigger: "<=165 GBp"
+    current: "190.50 GBp"
+    distance: "-13.4%"
+    status: "NOT CLOSE"
+
+# =============================================================================
+# WATCHLIST ALERTS
+# =============================================================================
+watchlist_alerts:
+  - ticker: WKL.AS
+    monitor_entry: "EUR 65"
+    current: "EUR 65.72"
+    distance: "-1.1%"
+    status: |
+      ESSENTIALLY AT TRIGGER. Only EUR 0.72 away.
+      Crashed on Anthropic AI legal plugin (-43% YoY).
+      Full-year results late Feb. P/E 13.8x, market cap EUR 14.8B.
+      52w low EUR 65.14 (almost there).
+      ACTION NEEDED: If it touches EUR 65, need thesis review immediately.
+
+  - ticker: BATS.L
+    monitor_entry: "4,200 GBp"
+    current: "4,370 GBp"
+    distance: "-3.9%"
+    status: |
+      CLOSE. Earnings Feb 12 (2 days from now).
+      Post-IMB.L sell, natural replacement candidate for tobacco exposure.
+      P/E 31.4x (appears high - verify).
+
+  - ticker: CVS
+    monitor_entry: "$70"
+    current: "$75.70"
+    distance: "-7.5%"
+    status: "Earnings Feb 11 (TOMORROW). Binary event. Not near trigger."
+
+  - ticker: DNLM.L
+    monitor_entry: "780 GBp"
+    current: "959.50 GBp"
+    distance: "-18.7%"
+    status: |
+      INTERIMS RELEASED TODAY Feb 10:
+      - Sales GBP 926M (+3.6% YoY). Q2 softer (+1.6%)
+      - PBT GBP 114M (-7.5% YoY). Higher costs (+9.6%)
+      - Guided to LOWER END of consensus FY PBT (~GBP 222M)
+      - Gross margin +60bps (FX benefit)
+      - Digital sales 41% participation
+      - Free cash flow GBP 171M. Net cash GBP 13M.
+      - Special dividend 25p/share + ordinary 17p (+3% YoY)
+      FV 1,008p (adversarial). Current 959.50. MoS +5%.
+      Trigger 750-800p still far away (-18.7%).
+      ASSESSMENT: Results mixed but not thesis-breaking. Guidance cautious.
+      Lower end of consensus = ~GBP 222M PBT. Thesis assumed GBP 230M+.
+      Modest negative for valuation but stock already well above trigger.
+
+# =============================================================================
+# KEY EVENTS TOMORROW (Feb 11)
+# =============================================================================
+events_tomorrow:
+  - event: "TMUS Capital Markets Day + Q4/FY2025 Earnings"
+    time: "8:30 AM ET (14:30 CET)"
+    impact_on: "DTE.DE (owns 48.5% of TMUS)"
+    scenario_bull: "Strong 2026-2027 FCF/subscriber targets. DTE.DE could rally to EUR 32-34."
+    scenario_bear: "Disappointing guide or capex increase. DTE.DE gives back 5.4% gain."
+    action: "Monitor closely. TRIM threshold EUR 33."
+
+  - event: "CVS Health Q4 Earnings"
+    time: "Pre-market"
+    impact_on: "CVS (watchlist)"
+    note: "Binary event. If guidance weak and price drops toward $70, evaluate."
 
 # =============================================================================
 # STATISTICS
 # =============================================================================
 stats:
-  positions_checked: 16
-  material_anomalies: 4
+  positions_checked: 13
+  watchlist_checked: 8
+  material_anomalies: 2  # MONY.L -12.7%, DTE.DE +5.4%
   critical_anomalies: 0
   movements_without_cause: 0
-  positions_near_52w_low: 7
-  positions_near_52w_high: 2
-  positions_in_loss: 8  # ADBE, NVO, MONY.L, AUTO.L, HRB, EDEN.PA, DOM.L, SAN.PA
-  positions_in_profit: 8  # LULU, BYIT.L, ALL, VICI, IMB.L, GL, UHS, DTE.DE
-  biggest_winner: "UHS +8.5%"
-  biggest_loser: "DOM.L -22.6%"
+  data_conflicts: 4  # BYIT.L, DOM.L, VICI, MONY.L (price_checker vs web divergence)
+  positions_near_52w_low: 4  # MONY.L (at new low), ADBE, AUTO.L, EDEN.PA (within 5%)
+  positions_negative_mos: 1  # VICI (possibly, data conflict)
+  positions_zero_mos: 1  # UHS
+  positions_in_loss: 4  # MONY.L, AUTO.L, DOM.L, ADBE (vs avg cost in local currency)
+  positions_in_profit: 9
+  biggest_winner_pct: "DTE.DE +6.1-6.8% (TMUS CMD anticipation)"
+  biggest_loser_pct: "MONY.L -12.7% (AI fear selloff, 13-year low)"
+  standing_orders_near_trigger: 1  # ZIG.L at -3.1%
+  watchlist_near_trigger: 2  # WKL.AS -1.1%, BATS.L -3.9%
 
 # =============================================================================
 # META-REFLECTION
@@ -228,53 +344,108 @@ stats:
 meta_reflection:
   movements_without_explanation: []
 
-  new_information_since_last_pulse:
-    - "ADBE: Goldman Sachs downgrade Buy->Sell, Oppenheimer downgrade. Multiple analyst downgrades NOT in previous pulse."
-    - "SAN.PA: UBS downgrade Buy->Neutral, PT cut 105->88. Amlitelimab Phase III FAILURE. CFO admission on Dupixent replacement gap. THIS IS MATERIAL AND NEW."
-    - "AUTO.L: Dealer listings <400k (10-year low). Dealer exodus narrative. NOT in original thesis."
-    - "HRB: Continued slide to 52w low post Q2 miss. Guidance miss marginal but market unforgiving."
-    - "VICI: Scotiabank downgrade to Sector Perform."
-
   correlations:
-    - "7 of 16 positions near 52w lows - portfolio skewed to 'falling knives'. This is by design (value approach) but concentration of downside risk is notable."
-    - "ALL + GL both near 52w highs - insurance sector strength (both on probation/low conviction)"
-    - "ADBE + LULU + NVO + AUTO.L + BYIT.L all >40% below 52w highs - 'fallen angel' cluster. This is intentional strategy."
-    - "UK positions (MONY.L, AUTO.L, BYIT.L, DOM.L, IMB.L, HRB-US-but-UK-like) showing broad weakness"
+    - |
+      UK small-cap cluster: MONY.L, AUTO.L, DOM.L, BYIT.L all near 52w lows.
+      4/13 positions (31%) UK-listed. Correlated risk if UK recession.
+      MONY.L hit hardest (-12.7%) on AI-specific fear, not UK macro.
+    - |
+      AI disruption theme (CROSS-PORTFOLIO RISK):
+      MONY.L (-12.7% today), WKL.AS (-43% YoY), ADBE (at 52w low).
+      Three names in our universe affected by same thematic risk.
+      Anthropic tools triggered $285B wipeout in software/financial services.
+      This is NOT just one company -- it is a structural market repricing of
+      "businesses that intermediate information" (comparison, software, legal data).
+      Our exposure: ADBE (direct), MONY.L (indirect), WKL.AS (watchlist).
+      Combined portfolio weight of ADBE + MONY.L: ~8-9%.
+    - |
+      Fallen angel cluster: ADBE, NVO, LULU, AUTO.L, BYIT.L all >40% below 52w highs.
+      This is by design (strategy), but concentration of beaten-down names = higher volatility.
+    - |
+      DTE.DE rallying while UK names sink. Geographic diversification providing some offset.
 
-  anomalies:
-    - "DOM.L -22.6% is largest loss in portfolio. No adversarial review done yet (Fase 4 Tier B pending). Should be prioritized."
-    - "SAN.PA -14.9% with pipeline failure + analyst downgrades. Needs urgent adversarial review before further decline."
+  data_anomalies:
+    - |
+      PRICE CHECKER vs WEB DIVERGENCE (4 tickers):
+      BYIT.L: price_checker 304.80 vs web 356-360. Possible ex-div/share class issue.
+      DOM.L: price_checker 197.10 vs web 181.22. Significant gap (8.8%).
+      MONY.L: price_checker 152.80 vs web close 145.80-146.50. ~5% gap.
+      VICI: price_checker $29.25 vs web $28.53. ~2.5% gap.
+      POSSIBLE CAUSE: yfinance pulling delayed or intraday snapshots vs EOD close.
+      Or: different data providers using different adjustment factors.
+      ACTION: Verify with eToro positions tab for actual P&L.
+    - "yfinance yield errors: UHS 38%, GL 76%. These are data artifacts."
+    - "BATS.L P/E 31.4x seems too high. Verify vs actual earnings data."
 
   suggestions:
-    - "URGENT: SAN.PA adversarial review - pipeline failure is potential kill condition for pharma thesis"
-    - "PRIORITIZE: DOM.L adversarial review - -22.6% is portfolio's worst performer"
-    - "MONITOR: HRB at 52w low - Q3 tax season will be make-or-break"
-    - "WATCH: AUTO.L dealer exodus narrative - validate with H1 results"
-    - "CONSIDER: ALL + GL near 52w highs on probation/low conviction - these are the best performing positions but lowest conviction. Paradox worth examining."
+    - |
+      PRIORITY 1 (TOMORROW): Monitor TMUS Capital Markets Day results (8:30 AM ET).
+      Direct impact on DTE.DE. If TMUS guides strong, DTE.DE could approach TRIM
+      threshold of EUR 33. Be prepared to execute.
+    - |
+      PRIORITY 2 (THIS WEEK): ZIG.L 3.1% from standing order trigger (375 GBp).
+      Prepare for execution if price drops.
+    - |
+      PRIORITY 3 (THIS WEEK): WKL.AS 1.1% from entry trigger (EUR 65).
+      If it touches EUR 65, need thesis review BEFORE buying.
+      Full-year results late Feb could be catalyst either way.
+    - |
+      PRIORITY 4 (THIS WEEK): BATS.L earnings Feb 12. Natural IMB.L replacement.
+      Monitor results. If good + price dips toward 4,200 GBp, potential entry.
+    - |
+      MONY.L: AI fear selloff at 13-year low. Do NOT act before Feb 23 earnings.
+      Key question: Is ChatGPT insurance app a real threat or panic?
+      RBC says "overstated". But market disagrees violently.
+      Earnings will reveal if volumes are actually impacted.
+    - |
+      VICI + UHS both at zero MoS with earnings Feb 25: these are the two positions
+      most likely to exit the portfolio within 2 weeks. Prepare bear/base/bull scenarios.
+    - |
+      DATA QUALITY: 4 tickers show meaningful divergence between price_checker and web.
+      Should investigate whether yfinance is reliable for UK-listed stocks in particular.
+      Consider cross-referencing with eToro API or LSE data for UK positions.
+    - |
+      DNLM.L interims: PBT -7.5%, guided to lower end of consensus.
+      Adversarial FV 1,008p still above current 959.50p (+5% MoS).
+      Trigger 750-800p remains appropriate. No action needed.
 
 # =============================================================================
-# RESUMEN
+# SUMMARY
 # =============================================================================
 summary: |
-  MARKET PULSE 2026-02-09
+  MARKET PULSE 2026-02-10 (End of Day)
 
-  MERCADO: NORMAL (SPY +2% week, VIX 17.76)
-  PORTFOLIO: 16 posiciones (6 Tier A, 4 Tier B, 6 Tier C)
-  ANOMALIAS CRITICAS: 0
-  ANOMALIAS MATERIALES: 4 (HRB at 52w low, ADBE near 52w low, DOM.L -22.6%, SAN.PA pipeline failure)
-  MOVIMIENTOS SIN EXPLICAR: 0
-  NEAR 52W LOW: 7 positions (HRB, MONY.L, ADBE, AUTO.L, EDEN.PA, VICI, BYIT.L)
-  NEAR 52W HIGH: 2 positions (ALL, GL)
+  MARKET: S&P 500 +0.29% (~6,985). Near ATH. AI disruption dominant narrative.
+  PORTFOLIO: 13 positions (5 Tier A, 1 NVO Tier B, 2 Tier B, 5 Tier C)
+  CASH: EUR 4,844 (~36%)
+  CRITICAL ANOMALIES: 0
+  MATERIAL ANOMALIES: 2 (MONY.L -12.7% AI fear, DTE.DE +5.4% TMUS CMD)
+  DATA CONFLICTS: 4 tickers (price_checker vs web divergence)
 
   KEY ALERTS:
-  - SAN.PA: NEW MATERIAL - UBS downgrade, Amlitelimab Phase III failure, Dupixent replacement gap. Urgent adversarial review needed.
-  - HRB: AT 52-WEEK LOW ($32.88). Post-Q2 slide continues. Revenue +11% positive but market focused on guidance miss.
-  - ADBE: NEAR 52W LOW. GS downgrade to Sell + Oppenheimer downgrade. AI disruption fears escalating.
-  - DOM.L: Portfolio's worst performer at -22.6%. UK consumer weakness. Adversarial review priority.
+  1. MONY.L -12.7% TODAY: 13-year low. ChatGPT insurance apps (Tuio + Insurify).
+     MoS still 27-38% to FV 201p. DO NOT act before Feb 23 earnings.
+  2. DTE.DE +5.4% TODAY: TMUS Capital Markets Day TOMORROW Feb 11.
+     Approaching FV EUR 34. TRIM threshold EUR 33. Monitor closely.
+  3. VICI: Zero MoS (data conflict: $28.53-29.25 vs FV $29.00).
+     Earnings Feb 25 = mandatory SELL/HOLD decision.
+  4. UHS: Zero MoS ($212.39-212.78 vs FV $213).
+     Earnings Feb 25 = mandatory SELL/HOLD decision.
+  5. ADBE: AT 52w low. Part of $285B Anthropic/AI software selloff.
+     MoS 47% wide. HOLD per exit plan.
+  6. WKL.AS: WATCHLIST 1.1% from entry. EUR 65.72 vs trigger EUR 65.
+  7. ZIG.L: Standing order 3.1% from trigger.
+  8. BATS.L: Earnings Feb 12. Near entry (3.9%). IMB.L replacement.
+
+  TOMORROW:
+  - TMUS Capital Markets Day (8:30 AM ET) -- direct impact on DTE.DE
+  - CVS Health Q4 Earnings -- watchlist item
 
   EARNINGS NEXT 2 WEEKS:
-  - MONY.L: Feb 23 (near 52w low, decisive)
-  - EDEN.PA: Feb 24 (near 52w low, decisive)
-  - VICI: Feb 25 (near 52w low)
-  - DTE.DE: Feb 26
-  - UHS: Feb 26
+  - CVS: Feb 11 (watchlist, binary)
+  - BATS.L: Feb 12 (watchlist, near entry)
+  - MONY.L: Feb 23 (position, AI thesis test)
+  - EDEN.PA: Feb 24 (position)
+  - UHS: Feb 25 (position, probation, mandatory decision)
+  - VICI: Feb 25 (position, probation, mandatory decision)
+  - DTE.DE: Feb 26 (position, post-TMUS CMD)

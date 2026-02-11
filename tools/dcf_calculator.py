@@ -13,6 +13,8 @@ Usage:
   python3 tools/dcf_calculator.py AAPL --growth 8 --terminal 2.5 --wacc 10
   python3 tools/dcf_calculator.py AAPL --years 10                # 10-year projection
   python3 tools/dcf_calculator.py AAPL --scenarios              # Bear/Base/Bull scenarios
+  python3 tools/dcf_calculator.py AAPL --sensitivity            # Sensitivity matrix (growth x WACC)
+  python3 tools/dcf_calculator.py AAPL --scenarios --sensitivity # Both combined
   python3 tools/dcf_calculator.py AAPL MSFT GOOGL               # Batch analysis
   python3 tools/dcf_calculator.py AAPL --output dcf_results.csv # Save to CSV
 
@@ -21,6 +23,7 @@ Examples:
   python3 tools/dcf_calculator.py ASML.AS --scenarios
   python3 tools/dcf_calculator.py BNP.PA BBVA.MC SAN.MC --output eu_banks_dcf.csv
   python3 tools/dcf_calculator.py WPP.L --scenarios              # LSE stock in GBp
+  python3 tools/dcf_calculator.py ADBE --growth 8 --wacc 9 --sensitivity
 """
 
 import sys
@@ -37,15 +40,25 @@ import pandas as pd
 # ==============================================================================
 
 def get_fx_rates() -> Dict[str, float]:
-    """Get FX rates for EUR conversion."""
+    """Get FX rates for EUR conversion. Reports fallback usage."""
     rates = {}
+    fallbacks_used = []
     pairs = {"USD": "EURUSD=X", "GBP": "GBPEUR=X"}
     defaults = {"USD": 1.04, "GBP": 1.19}
     for ccy, symbol in pairs.items():
         try:
-            rates[ccy] = yf.Ticker(symbol).info.get("previousClose", defaults[ccy])
+            rate = yf.Ticker(symbol).info.get("previousClose")
+            if rate:
+                rates[ccy] = rate
+            else:
+                rates[ccy] = defaults[ccy]
+                fallbacks_used.append(f"{ccy}={defaults[ccy]}")
         except Exception:
             rates[ccy] = defaults[ccy]
+            fallbacks_used.append(f"{ccy}={defaults[ccy]}")
+    if fallbacks_used:
+        print(f"FX WARNING: Using static fallback rates ({', '.join(fallbacks_used)}). "
+              f"EUR conversions may be inaccurate.", file=sys.stderr)
     return rates
 
 
@@ -290,15 +303,19 @@ def run_scenarios(
     base_terminal: float,
     base_wacc: float,
     projection_years: int,
+    bear_growth_delta: float = -2.0,
+    bear_wacc_delta: float = 1.0,
+    bull_growth_delta: float = 2.0,
+    bull_wacc_delta: float = -1.0,
 ) -> Dict[str, Dict]:
-    """Run Bear/Base/Bull scenarios. Bear: growth -2pp, wacc +1pp. Bull: growth +2pp, wacc -1pp."""
+    """Run Bear/Base/Bull scenarios with configurable deltas."""
     net_debt = data.get("net_debt", 0)
     scenarios = {}
 
     scenarios["bear"] = calculate_dcf(
         data["fcf_history"], data["shares"],
-        growth_rate=base_growth - 2, terminal_growth=base_terminal,
-        wacc=base_wacc + 1, projection_years=projection_years, net_debt=net_debt,
+        growth_rate=base_growth + bear_growth_delta, terminal_growth=base_terminal,
+        wacc=base_wacc + bear_wacc_delta, projection_years=projection_years, net_debt=net_debt,
     )
     scenarios["base"] = calculate_dcf(
         data["fcf_history"], data["shares"],
@@ -307,11 +324,163 @@ def run_scenarios(
     )
     scenarios["bull"] = calculate_dcf(
         data["fcf_history"], data["shares"],
-        growth_rate=base_growth + 2, terminal_growth=base_terminal,
-        wacc=base_wacc - 1, projection_years=projection_years, net_debt=net_debt,
+        growth_rate=base_growth + bull_growth_delta, terminal_growth=base_terminal,
+        wacc=base_wacc + bull_wacc_delta, projection_years=projection_years, net_debt=net_debt,
     )
 
+    # Store deltas for display
+    scenarios["_deltas"] = {
+        "bear_growth": bear_growth_delta, "bear_wacc": bear_wacc_delta,
+        "bull_growth": bull_growth_delta, "bull_wacc": bull_wacc_delta,
+    }
+
     return scenarios
+
+
+# ==============================================================================
+# Sensitivity Analysis
+# ==============================================================================
+
+def run_sensitivity(
+    data: Dict,
+    base_growth: float,
+    base_terminal: float,
+    base_wacc: float,
+    projection_years: int,
+) -> Dict:
+    """
+    Run sensitivity matrix: Growth (5 steps) x WACC (3 steps).
+
+    Growth steps:  base-3%, base-1.5%, base, base+1.5%, base+3%
+    WACC steps:    base-1.5%, base, base+1.5%
+
+    Returns dict with matrix of FV per share, base case DCF result,
+    and metadata for display.
+    """
+    net_debt = data.get("net_debt", 0)
+
+    growth_deltas = [-3.0, -1.5, 0.0, +1.5, +3.0]
+    wacc_deltas = [-1.5, 0.0, +1.5]
+
+    growth_values = [base_growth + d for d in growth_deltas]
+    wacc_values = [base_wacc + d for d in wacc_deltas]
+
+    # matrix[i][j] = FV per share for growth_values[i] x wacc_values[j]
+    # None if WACC <= terminal growth (invalid Gordon Growth)
+    matrix = []
+    all_fv = []
+
+    for g in growth_values:
+        row = []
+        for w in wacc_values:
+            if w <= base_terminal:
+                row.append(None)  # Invalid: WACC must exceed terminal growth
+            else:
+                dcf = calculate_dcf(
+                    data["fcf_history"], data["shares"],
+                    growth_rate=g, terminal_growth=base_terminal,
+                    wacc=w, projection_years=projection_years, net_debt=net_debt,
+                )
+                fv = dcf["fair_value_per_share"]
+                row.append(fv)
+                all_fv.append(fv)
+        matrix.append(row)
+
+    # Base case DCF (for TV% calculation)
+    base_dcf = calculate_dcf(
+        data["fcf_history"], data["shares"],
+        growth_rate=base_growth, terminal_growth=base_terminal,
+        wacc=base_wacc, projection_years=projection_years, net_debt=net_debt,
+    )
+
+    # FV Spread = (max - min) / base as percentage
+    base_fv = base_dcf["fair_value_per_share"]
+    if all_fv and base_fv > 0:
+        fv_spread = ((max(all_fv) - min(all_fv)) / base_fv) * 100
+    else:
+        fv_spread = 0.0
+
+    # Terminal Value as % of Enterprise Value
+    tv_pct = (
+        base_dcf["pv_terminal"] / base_dcf["enterprise_value"] * 100
+        if base_dcf["enterprise_value"] > 0 else 0
+    )
+
+    return {
+        "matrix": matrix,
+        "growth_values": growth_values,
+        "wacc_values": wacc_values,
+        "base_dcf": base_dcf,
+        "base_fv": base_fv,
+        "fv_spread": fv_spread,
+        "tv_pct": tv_pct,
+        "all_fv": all_fv,
+    }
+
+
+def print_sensitivity_matrix(ticker: str, data: Dict, sensitivity: Dict):
+    """Print the sensitivity analysis matrix and confidence assessment."""
+    display_currency = data["display_currency"]
+    price_display = data["price"]
+    price_normalized = data["price_normalized"]
+
+    base_fv_display, _ = format_price_and_currency(sensitivity["base_fv"], data)
+
+    print(f"\n{'='*80}")
+    print(f"Sensitivity Analysis: {ticker}")
+    print(f"Current Price: {price_display:.2f} {display_currency}")
+    print(f"Base Fair Value: {base_fv_display:.2f} {display_currency}")
+    print(f"{'='*80}")
+
+    matrix = sensitivity["matrix"]
+    growth_values = sensitivity["growth_values"]
+    wacc_values = sensitivity["wacc_values"]
+
+    # Header row: WACC values
+    wacc_header = f"{'Growth \\ WACC':>14}"
+    for w in wacc_values:
+        wacc_header += f"  {w:>8.1f}%"
+    print(f"\n{wacc_header}")
+    print("-" * (14 + len(wacc_values) * 10 + 2))
+
+    # Matrix rows
+    for i, g in enumerate(growth_values):
+        row_str = f"  {g:>8.1f}%    "
+        for j, w in enumerate(wacc_values):
+            fv = matrix[i][j]
+            if fv is None:
+                row_str += f"  {'N/A':>8}"
+            else:
+                fv_display, _ = format_price_and_currency(fv, data)
+                row_str += f"  {fv_display:>8.1f}"
+        print(row_str)
+
+    # Display currency note
+    print(f"\n  Values in {display_currency}")
+
+    # FV Range from the matrix
+    all_fv = sensitivity["all_fv"]
+    if all_fv:
+        min_fv_display, _ = format_price_and_currency(min(all_fv), data)
+        max_fv_display, _ = format_price_and_currency(max(all_fv), data)
+        print(f"\n  FV Range: {min_fv_display:.1f} - {max_fv_display:.1f} {display_currency}")
+
+    # FV Spread
+    fv_spread = sensitivity["fv_spread"]
+    print(f"  FV Spread: {fv_spread:.0f}% (max-min relative to base)")
+
+    # MoS at extremes
+    if all_fv:
+        mos_min = calculate_mos(min(all_fv), price_normalized)
+        mos_max = calculate_mos(max(all_fv), price_normalized)
+        print(f"  MoS Range: {mos_min:+.1f}% (worst) to {mos_max:+.1f}% (best)")
+
+    # Sensitivity Data
+    tv_pct = sensitivity["tv_pct"]
+    print(f"\nSensitivity Data:")
+    print(f"  Terminal Value as % of EV: {tv_pct:.1f}%")
+    print(f"  FV Spread: {fv_spread:.0f}%")
+    print(f"\n  [Apply learning/principles.md to interpret sensitivity]")
 
 
 # ==============================================================================
@@ -448,13 +617,12 @@ def print_summary_table(results: List[Dict], currency_tag: str = ""):
 
     n = len(results)
     avg_mos = sum(r["mos"] for r in results) / n
-    buy_count = sum(1 for r in results if r["mos"] > 25)
-    hold_count = sum(1 for r in results if 0 <= r["mos"] <= 25)
-    over_count = sum(1 for r in results if r["mos"] < 0)
+    mos_values = sorted([r["mos"] for r in results])
+    median_mos = mos_values[len(mos_values) // 2]
 
     print(f"\n{n} stocks analyzed")
-    print(f"Average MoS: {avg_mos:+.1f}%")
-    print(f"MoS >25%: {buy_count} | MoS 0-25%: {hold_count} | MoS <0%: {over_count}")
+    print(f"Average MoS: {avg_mos:+.1f}% | Median: {median_mos:+.1f}%")
+    print(f"\n[Apply learning/principles.md to reason about these valuations]")
 
 
 def save_csv(results: List[Dict], filepath: str):
@@ -493,6 +661,7 @@ Examples:
   python3 tools/dcf_calculator.py AAPL MSFT GOOGL --output results.csv
   python3 tools/dcf_calculator.py SAN.MC BNP.PA --scenarios
   python3 tools/dcf_calculator.py WPP.L --scenarios  # LSE stock in GBp
+  python3 tools/dcf_calculator.py ADBE --growth 8 --wacc 9 --sensitivity
         """,
     )
 
@@ -516,6 +685,26 @@ Examples:
     parser.add_argument(
         "--scenarios", action="store_true",
         help="Run Bear/Base/Bull scenario analysis",
+    )
+    parser.add_argument(
+        "--sensitivity", action="store_true",
+        help="Run sensitivity matrix (Growth x WACC)",
+    )
+    parser.add_argument(
+        "--bear-growth-delta", type=float, default=-2.0,
+        help="Bear scenario growth delta in pp (default: -2.0)",
+    )
+    parser.add_argument(
+        "--bear-wacc-delta", type=float, default=1.0,
+        help="Bear scenario WACC delta in pp (default: +1.0)",
+    )
+    parser.add_argument(
+        "--bull-growth-delta", type=float, default=2.0,
+        help="Bull scenario growth delta in pp (default: +2.0)",
+    )
+    parser.add_argument(
+        "--bull-wacc-delta", type=float, default=-1.0,
+        help="Bull scenario WACC delta in pp (default: -1.0)",
     )
     parser.add_argument("--output", type=str, help="Save results to CSV file")
 
@@ -558,6 +747,10 @@ Examples:
                 base_terminal=args.terminal,
                 base_wacc=args.wacc,
                 projection_years=args.years,
+                bear_growth_delta=args.bear_growth_delta,
+                bear_wacc_delta=args.bear_wacc_delta,
+                bull_growth_delta=args.bull_growth_delta,
+                bull_wacc_delta=args.bull_wacc_delta,
             )
             print_scenario_table(ticker, scenarios, price_normalized, currency, price_eur, data)
             dcf = scenarios["base"]
@@ -572,6 +765,17 @@ Examples:
                 net_debt=data.get("net_debt", 0),
             )
             print_dcf_waterfall(ticker, data, dcf, price_normalized, currency, price_eur)
+
+        # Sensitivity analysis (runs AFTER base waterfall or scenarios)
+        if args.sensitivity:
+            sensitivity = run_sensitivity(
+                data,
+                base_growth=args.growth,
+                base_terminal=args.terminal,
+                base_wacc=args.wacc,
+                projection_years=args.years,
+            )
+            print_sensitivity_matrix(ticker, data, sensitivity)
 
         fair_value = dcf["fair_value_per_share"]
         fair_value_display, _ = format_price_and_currency(fair_value, data)

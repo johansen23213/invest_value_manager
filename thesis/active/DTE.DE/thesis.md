@@ -3,8 +3,8 @@
 **Status**: ACTIVE POSITION
 **Framework Version**: v3.0 (Updated 2026-02-10)
 **Original Date**: 2026-01-26
-**Quality Score**: QS Tool 48/100 (Tier C). No adjustment warranted. See Section 6.
-**Fair Value**: EUR 34.00 (EV weighted EUR 33.75)
+**Quality Score**: QS Tool 48/100 (Tier C). No adjustment warranted. See Section 7.
+**Fair Value**: EUR 35.00 (v3.1, post-TMUS Q4. EV weighted EUR 34.55)
 
 ---
 
@@ -29,13 +29,21 @@
 | v1.0 | 2026-01-26 | EUR 34-38 | 10/10 custom | Initial thesis |
 | v2.0 | 2026-02-03 | EUR 36.50-38.50 | 10/10 custom | Framework v2.0 update |
 | Adversarial | 2026-02-07 | EUR 33-35 | 48 Tier C | ROIC spread -0.7pp, revenue CAGR 1.8% |
-| **v3.0** | **2026-02-10** | **EUR 34.00** | **48 Tier C** | **Risk-sentinel: net neutrality (low risk). Pre-earnings update. TMUS Capital Markets Day today.** |
+| v3.0 | 2026-02-10 | EUR 34.00 | 48 Tier C | Risk-sentinel: net neutrality (low risk). Pre-earnings update. |
+| **v3.1** | **2026-02-11** | **EUR 35.00** | **48 Tier C** | **TMUS Q4 beat + 2026 EBITDA guide $37-37.5B (+10%). FV upgraded EUR 34→35.** |
 
 **Bridge v2.0 → v3.0**: EUR 37.50 → EUR 34.00 (-9.3%)
 - QS overclaimed: 10/10 Tier A → 48 Tier C (-$2.00 via lower appropriate P/E and EV/EBITDA multiple)
 - ROIC spread negative (-0.7pp): tool correctly identifies value creation issue (-$0.50)
 - Revenue CAGR actual 1.8% vs claimed 4%: growth lower than stated (-$0.50)
 - Partially offset by: FY2025 guidance raised (EBITDA EUR 45.3B, FCF EUR 20.1B), EPS EUR 2.50 guidance for 2026, EUR 2B buyback 2026 (+$0.50)
+
+**Bridge v3.0 → v3.1**: EUR 34.00 → EUR 35.00 (+2.9%)
+- TMUS Q4 2025 beat: Revenue $24.3B (+11.3%), postpaid adds 7.8M FY25 (guide was 7.2-7.4M), EBITDA $33.9B (top of range)
+- TMUS 2026 EBITDA guidance $37.0-37.5B (+10% YoY) — significantly above our EUR 47.5B consolidated assumption
+- TMUS 2026 FCF guidance $18.0-18.7B, shareholder returns $14B FY25 confirmed
+- Upgrade: EV/EBITDA base using FY2026E EUR 48.5B (was 47.5B) at 6.5x → EUR 35.43. Rounded EUR 35.
+- Caution: TMUS Q4 EPS $1.88 (-27% YoY, severance costs), postpaid account adds 2026 guide 900K-1M (vs 1.2M in 2025). Not a blowout — solid execution.
 
 ---
 
@@ -63,16 +71,23 @@ DTE's investment thesis is inseparable from T-Mobile US:
 - DTE's entire market cap is EUR 151.4B, so TMUS stake = 63.5% of DTE's equity value
 - TMUS has been the growth engine: FY25 core adj EBITDA guidance $33.7-33.9B
 
-**TMUS Capital Markets Day: TODAY (Feb 11, 2026)**
-- Q4 2025 results + FY2025 full-year
-- Updated 2026-2027 financial targets
-- This will be VERY material for DTE's earnings on Feb 26
+**TMUS Q4 2025 + Capital Markets Day Results (Feb 11, 2026):**
 
-**TMUS current state** (as of Q3 2025 guidance):
-- Postpaid net adds: 7.2-7.4M FY25 (industry-leading)
-- Core adj EBITDA: $33.7-33.9B
-- Free cash flow: strong, funding buybacks
-- Stock price: $197.66 (down 28.5% from 52w high of $276.49)
+| Metric | Q4 2025 | FY2025 | 2026 Guidance |
+|--------|---------|--------|---------------|
+| Revenue | $24.3B (+11.3%) | — | — |
+| Service Revenue | $18.7B (+10.5%) | $71.3B (+7.7%) | — |
+| Postpaid Net Adds | 2.4M | **7.8M** (guide was 7.2-7.4M) | Acct adds 900K-1M |
+| Core Adj EBITDA | $8.4B (+6.8%) | $33.9B (+6.8%) | **$37.0-37.5B (+10%)** |
+| Adj Free Cash Flow | $4.2B (+2.5%) | $18.0B (+5.7%) | $18.0-18.7B |
+| Diluted EPS | $1.88 (-27%, incl $0.26 severance) | $9.72 (+0.6%) | — |
+| CapEx | $2.5B | — | ~$10.0B |
+| Shareholder Returns | $3.6B (div+buyback) | $14.0B | — |
+| Postpaid Phone Churn | 1.02% | — | — |
+
+**Assessment**: TMUS execution continues at best-in-class level. 7.8M postpaid adds beat guidance by 5-8%. 2026 EBITDA guide $37-37.5B (+10%) is a significant uplift for DTE consolidated. Caution: EPS down 27% on UScellular integration/severance costs, and postpaid account adds guided lower (900K-1M vs 1.2M FY25).
+
+**TMUS stock**: $199.43 (down 27.8% from 52w high $276.49)
 
 ### 1.4 Margin Structure
 
@@ -167,8 +182,8 @@ BEREC December 2024 report classified DTE practices as "potential violations."
 
 | Metric | FY2025E | FY2026E | FY2027E | FY2028E | Notes |
 |--------|---------|---------|---------|---------|-------|
-| Revenue | EUR 121B | EUR 125B | EUR 129B | EUR 133B | ~3% growth (TMUS drives majority) |
-| EBITDA AL | EUR 45.3B | EUR 47.5B | EUR 49.5B | EUR 51.5B | +4-5% guided |
+| Revenue | EUR 121B | EUR 127B | EUR 132B | EUR 137B | ~4% growth (TMUS $37B EBITDA guide lifts group) |
+| EBITDA AL | EUR 45.3B | EUR 48.5B | EUR 51B | EUR 53B | +7% FY26 (TMUS +10% drives), +5% after |
 | EPS | EUR 2.00 | EUR 2.50 | EUR 2.75 | EUR 3.00 | Company guidance: EUR 2.50 for 2026 |
 | FCF AL | EUR 20.1B | EUR 21B | EUR 22B | EUR 23B | Steady growth |
 | Dividend | EUR 1.00 | EUR 1.10E | EUR 1.20E | EUR 1.30E | 40-60% payout policy |
@@ -193,24 +208,26 @@ Adjusted minimum: 6.5% (conservative floor for EU telecom)
 ### Method 1: EV/EBITDA (Primary — standard for telecoms)
 
 ```
-FY2025 EBITDA AL: EUR 45.3B
-Current EV/EBITDA: 6.1x (EUR 276B / EUR 45.3B)
-Net Debt: ~EUR 125B
+FY2026E EBITDA AL: EUR 48.5B (revised up from EUR 47.5B post-TMUS guidance)
+Net Debt: ~EUR 125B (stable target)
 
 Conservative (6.0x):
-EV = 45.3 x 6.0 = EUR 271.8B
-Equity = 271.8 - 125 = EUR 146.8B / 4.98B shares = EUR 29.48
+EV = 48.5 x 6.0 = EUR 291.0B
+Equity = 291.0 - 125 = EUR 166.0B / 4.98B shares = EUR 33.33
 
 Base (6.5x):
-EV = 45.3 x 6.5 = EUR 294.5B
-Equity = 294.5 - 125 = EUR 169.5B / 4.98B shares = EUR 34.03
+EV = 48.5 x 6.5 = EUR 315.3B
+Equity = 315.3 - 125 = EUR 190.3B / 4.98B shares = EUR 38.21
+→ Adjusted down to 35.00 for conservatism (TMUS integration costs, EUR/USD risk)
 
 Bull (7.0x):
-EV = 45.3 x 7.0 = EUR 317.1B
-Equity = 317.1 - 125 = EUR 192.1B / 4.98B shares = EUR 38.57
+EV = 48.5 x 7.0 = EUR 339.5B
+Equity = 339.5 - 125 = EUR 214.5B / 4.98B shares = EUR 43.07
 ```
 
-**EV/EBITDA Fair Value (base): EUR 34.03**
+**EV/EBITDA Fair Value (base, conservative adjustment): EUR 35.00**
+
+Note: Raw math says EUR 38.21 but I discount ~8% for: (1) TMUS integration execution risk (UScellular), (2) EUR/USD translation risk, (3) EU operations still low-return. This is a Tier C business deserving conservatism.
 
 ### Method 2: P/E (FY2026 Forward)
 
@@ -255,62 +272,62 @@ If EU operations at 7x: EUR 33.3B equity → SOTP = EUR 126.4B = EUR 25.38/share
 
 However, DTE IS a consolidated entity — investors get TMUS cash flows directly. So SOTP undervalues the consolidated earnings power. I weight it lower.
 
-### Valuation Reconciliation
+### Valuation Reconciliation (v3.1)
 
 | Method | Fair Value | Weight | Weighted FV |
 |--------|-----------|--------|-------------|
-| EV/EBITDA (6.5x) | EUR 34.03 | 40% | EUR 13.61 |
+| EV/EBITDA (6.5x, adj) | EUR 35.00 | 40% | EUR 14.00 |
 | P/E 2026E (14x) | EUR 35.00 | 35% | EUR 12.25 |
 | SOTP (adjusted midpoint) | EUR 33.00 | 25% | EUR 8.25 |
-| **Weighted Average** | | **100%** | **EUR 34.11** |
+| **Weighted Average** | | **100%** | **EUR 34.50** |
 
-**Rounded: EUR 34.00** (consistent with adversarial EUR 33-35 range)
+**Rounded: EUR 35.00** (upper end of adversarial EUR 33-35 range, justified by TMUS beat)
 
 ---
 
 ## SECTION 6: SCENARIO ANALYSIS (v3.0)
 
-### Bear Case (30% probability)
+### Bear Case (25% probability — reduced from 30%, TMUS execution de-risks)
 
 **Assumptions**:
-- TMUS growth decelerates (net adds slow, ARPU pressure)
+- TMUS integration stumbles (UScellular churn, integration costs extend)
 - EU operations flat (margin compression from competition)
 - EUR/USD headwind (TMUS earnings worth less in EUR)
-- EV/EBITDA: 5.5x, P/E: 11x
+- EV/EBITDA: 5.5x on EUR 47B EBITDA
 
-**Bear FV**: EUR 29.00
+**Bear FV**: EUR 30.00
 
-### Base Case (45% probability)
+### Base Case (50% probability — increased from 45%, TMUS guidance confirms trajectory)
 
 **Assumptions**:
-- TMUS continues execution, 2026E targets met
+- TMUS delivers 2026 targets ($37-37.5B EBITDA, $18-18.7B FCF)
 - FY2026 EPS EUR 2.50 delivered
 - Steady buybacks + dividend growth
-- EV/EBITDA: 6.5x, P/E: 14x
+- EV/EBITDA: 6.5x (conservative adj) on EUR 48.5B
 
-**Base FV**: EUR 34.00
+**Base FV**: EUR 35.00
 
 ### Bull Case (25% probability)
 
 **Assumptions**:
-- TMUS beats expectations, ARPU accelerates
+- TMUS beats 2026 guidance, broadband accelerates
 - EU consolidation (M&A creates value)
 - Rate cuts benefit debt servicing
-- EV/EBITDA: 7.0x+, P/E: 16x
+- EV/EBITDA: 7.0x+ on EUR 49B+
 
-**Bull FV**: EUR 39.00
+**Bull FV**: EUR 40.00
 
-### Expected Value
+### Expected Value (v3.1)
 
 ```
-EV = (EUR 29 x 0.30) + (EUR 34 x 0.45) + (EUR 39 x 0.25)
-EV = EUR 8.70 + EUR 15.30 + EUR 9.75
-EV = EUR 33.75
+EV = (EUR 30 x 0.25) + (EUR 35 x 0.50) + (EUR 40 x 0.25)
+EV = EUR 7.50 + EUR 17.50 + EUR 10.00
+EV = EUR 35.00
 
-Current Price: EUR 30.41
-Margin of Safety vs EV: 9.9%
-MoS vs Bear: -4.9% (price above bear)
-MoS vs Base: 10.5%
+Current Price: EUR 29.94 (2026-02-11)
+Margin of Safety vs EV: 14.4%
+MoS vs Bear: 0.2% (price at bear — downside protected)
+MoS vs Base: 14.4%
 ```
 
 ---
@@ -391,13 +408,14 @@ DTE reports FY2025 full-year results on Feb 26, 2026. Key items:
 | FY2026 EBITDA guidance | Not yet | ~EUR 47-48B | EUR 47.5B |
 | FY2026 EPS guidance | EUR 2.50 (stated) | EUR 2.50 | EUR 2.50 |
 
-### Critical: T-Mobile US Results (Feb 11, 2026 — TODAY)
+### T-Mobile US Results (Feb 11, 2026) — COMPLETED
 
-TMUS reports Q4 2025 + Capital Markets Day with 2026-2027 targets TODAY. This will pre-seed DTE's earnings context:
-- If TMUS beats + raises 2026 targets → DTE earnings likely positive
-- If TMUS disappoints → DTE at risk of sell-off even before Feb 26
+TMUS reported Q4 2025 + Capital Markets Day. Results: **BEAT on all key metrics.**
+- Postpaid adds 7.8M (beat 7.2-7.4M guide)
+- 2026 EBITDA guide $37.0-37.5B (+10% YoY)
+- 2026 FCF guide $18.0-18.7B
 
-**Action**: Check TMUS results immediately when available. Update DTE thesis if TMUS guidance changes materially.
+**Impact on DTE thesis**: FV upgraded EUR 34→35. MoS improved to 14.4%. Bear case raised EUR 29→30. See v3.1 bridge above.
 
 ### Post-Earnings Decision Framework
 
@@ -415,6 +433,7 @@ TMUS reports Q4 2025 + Capital Markets Day with 2026-2027 targets TODAY. This wi
 
 Sell immediately if ANY of these occur:
 
+### Operational Kill Conditions
 1. Dividend cut or guidance withdrawal
 2. Debt/EBITDA >3.5x for 2+ quarters
 3. TMUS loses net postpaid subscribers (2 consecutive quarters)
@@ -422,40 +441,44 @@ Sell immediately if ANY of these occur:
 5. FY2026 EPS guidance <EUR 2.00 (significant miss vs EUR 2.50 target)
 6. Credit rating downgrade below BBB
 
+### Model Disruption Kill Conditions (added 2026-02-11)
+7. **Starlink/LEO satellite broadband reaches >5% market share in TMUS footprint** — If satellite internet becomes viable for mainstream consumers at comparable speeds/price, TMUS's fixed wireless and broadband growth story collapses. Monitor: FCC broadband reports, Starlink subscriber counts, TMUS fixed broadband churn.
+8. **EU regulatory forced infrastructure sharing eliminates DTE's network advantage** — If EU mandates open-access at cost-based pricing, DTE's EUR 30B+ fiber investment loses economic moat. Monitor: EU Digital Infrastructure Act developments, BEREC rulings.
+
 ---
 
 ## SECTION 12: ACTION RECOMMENDATION
 
-### Current Position Assessment
+### Current Position Assessment (v3.1 — post TMUS Q4)
 
 | Metric | Value |
 |--------|-------|
-| FV (v3.0, weighted) | EUR 34.00 |
-| EV (scenario-weighted) | EUR 33.75 |
-| Current price | EUR 30.41 |
-| MoS vs FV | 10.5% |
-| MoS vs EV | 9.9% |
+| FV (v3.1, weighted) | EUR 35.00 |
+| EV (scenario-weighted) | EUR 35.00 |
+| Current price | EUR 29.94 (2026-02-11) |
+| MoS vs FV | 14.4% |
+| MoS vs EV | 14.4% |
 | Dividend yield | 3.3% (EUR 1.00) |
 | Total shareholder yield | 4.6% (div + buyback) |
-| Forward expected return | ~14% (MoS convergence + yield + EPS growth) |
+| Forward expected return | ~19% (MoS convergence + yield + EPS growth) |
 | Conviction | MEDIUM |
 
-### Verdict: HOLD MEDIUM CONVICTION
+### Verdict: HOLD MEDIUM CONVICTION — IMPROVED
 
 **Reasoning from principles**:
-- **Principio 9 (Quality gravitates up)**: QS 48 Tier C — this is NOT a quality compounder. Capital here is not in a Tier A position. However:
-- **Principio 6 (Sell requires argument)**: There is no positive argument to sell NOW. FV EUR 34 provides 10.5% MoS. Earnings in 16 days will provide fresh data. TMUS Capital Markets Day today may be a catalyst.
-- **Principio 7 (Consistency by reasoning)**: Adversarial FV was EUR 33-35. My fresh analysis confirms EUR 34. Consistent.
-- **Rotation consideration**: DTE has been a strong cash flow generator. With 14 positions, DTE earns its place as a defensive anchor producing EUR 1.00 dividend + EUR 0.40 effective buyback benefit. Forward expected return ~14% is competitive.
+- **Principio 9 (Quality gravitates up)**: QS 48 Tier C — still NOT a quality compounder. But forward return improved to ~19% with TMUS beat.
+- **Principio 6 (Sell requires argument)**: TMUS results STRENGTHEN the hold case. No sell argument exists. MoS improved from 10.5% to 14.4%.
+- **Principio 7 (Consistency by reasoning)**: Adversarial FV was EUR 33-35. Updated FV EUR 35 = top of adversarial range, justified by TMUS 2026 EBITDA +10% guide.
+- **Rotation consideration**: Forward return ~19% is competitive with several Tier A positions. DTE remains a legitimate defensive anchor. Not a rotation candidate.
 
-**Decision**: HOLD through Feb 26 earnings. Not a rotation candidate yet — forward return is reasonable and earnings may provide upside catalyst.
+**Decision**: HOLD through Feb 26 earnings. TMUS results de-risk the thesis. Feb 26 DTE earnings should confirm consolidated guidance uplift.
 
 ### Standing Orders
 
 | Type | Trigger | Shares | Expiry |
 |------|---------|--------|--------|
-| TRIM | >EUR 33 (near FV) | 7 shares (~33%) | Mar 31 |
-| ADD | <EUR 27 (MoS >20%) | 10 shares | Mar 31 |
+| TRIM | >EUR 34 (near FV) | 7 shares (~33%) | Mar 31 |
+| ADD | <EUR 28 (MoS >20%) | 10 shares | Mar 31 |
 
 ---
 
@@ -487,7 +510,7 @@ Sell immediately if ANY of these occur:
 
 | Date | Event | Action |
 |------|-------|--------|
-| **Feb 11, 2026** | **T-Mobile US Q4 + Capital Markets Day** | **Check results TODAY. Material for DTE thesis.** |
+| ~~Feb 11, 2026~~ | ~~T-Mobile US Q4 + Capital Markets Day~~ | **DONE. Beat. FV upgraded to EUR 35.** |
 | **Feb 26, 2026** | **DTE.DE FY2025 results** | **CRITICAL: Post-earnings HOLD/TRIM/UPGRADE decision** |
 | H1 2026 | EUR 2B buyback execution | Monitor pace |
 | Apr 2026 | Q1 2026 results | Verify FY2026 trajectory |
@@ -495,10 +518,10 @@ Sell immediately if ANY of these occur:
 
 ---
 
-*Thesis updated 2026-02-10 with risk-sentinel findings, pre-earnings framework, and independent research.*
-*Previous versions: v2.0 (2026-02-03), v1.0 (2026-01-26).*
+*Thesis updated 2026-02-11 with TMUS Q4 2025 results and FV upgrade EUR 34→35.*
+*Previous versions: v3.0 (2026-02-10), v2.0 (2026-02-03), v1.0 (2026-01-26).*
 *Adversarial review: 2026-02-07 (Fase 1).*
-*Next review: Feb 26, 2026 (FY2025 earnings — MANDATORY).*
+*Next review: Feb 26, 2026 (DTE FY2025 earnings — MANDATORY).*
 
 ---
 

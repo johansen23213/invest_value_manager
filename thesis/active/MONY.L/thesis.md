@@ -636,6 +636,10 @@ python3 tools/constraint_checker.py CHECK MONY.L 400
 5. ROIC < WACC for 2+ years
 6. Google AI Overviews >25% of MONY-relevant queries
 
+### Model Disruption Kill Conditions (added 2026-02-11)
+7. **Embedded insurance via platforms bypasses comparison** — If Apple, Amazon, or a BNPL provider (Klarna, etc.) launches integrated insurance at checkout capturing >10% of UK home/auto insurance distribution, MONY's comparison model loses relevance. The threat is disintermediation: customers never search if insurance is bundled.
+8. **Agentic AI brokers replace comparison sites** — Distinct from KC#6 (Google AI Overviews). If a standalone AI agent (ChatGPT, Gemini) can autonomously compare, recommend, AND purchase insurance policies end-to-end with >20% UK consumer adoption, the "comparison website" model is obsolete. Monitor: AI agent insurance capabilities, UK FCA regulatory stance on AI-mediated insurance.
+
 ### Version History Update
 | Version | Date | Change |
 |---------|------|--------|

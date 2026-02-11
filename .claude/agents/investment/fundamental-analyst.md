@@ -53,44 +53,31 @@ Análisis fundamental profundo con Framework v4.0. Quality Score PRIMERO. Razona
 > Este agente se centra en el análisis fundamental del negocio y la thesis completa.
 > El devil's-advocate desafiará esta thesis después.
 
-### Fase 0: QUALITY SCORE (NUEVO - PRIMERO)
+### Fase 0: QUALITY SCORE — TOOL-FIRST (OBLIGATORIO)
 
-**Antes de cualquier otro análisis:**
+**Antes de cualquier otro análisis, ejecutar el tool:**
 
 ```bash
-python3 tools/quality_scorer.py TICKER
+python3 tools/quality_scorer.py TICKER --detailed
 ```
 
-O calcular manualmente:
+**REGLA QS TOOL-FIRST (Sesión 52 — post-adversarial):**
 
-```
-FINANCIAL (40 pts):
-- ROIC Spread: ___pp → pts: ___
-- FCF Margin: ___% → pts: ___
-- Leverage: ___x → pts: ___
-- FCF Consistency: ___/5 → pts: ___
-Subtotal: ___/40
-
-GROWTH (25 pts):
-- Revenue CAGR 5yr: ___% → pts: ___
-- EPS CAGR 5yr: ___% → pts: ___
-- GM Trend: ___ → pts: ___
-Subtotal: ___/25
-
-MOAT (25 pts):
-- GM Premium: ___pp → pts: ___
-- Market Position: #___ → pts: ___
-- ROIC Persistence: ___/10 → pts: ___
-Subtotal: ___/25
-
-CAPALLOC (10 pts):
-- Shareholder Returns: ___yr → pts: ___
-- Insider Ownership: ___% → pts: ___
-Subtotal: ___/10
-
-TOTAL QUALITY SCORE: ___/100
-TIER: [A/B/C/D]
-```
+1. `quality_scorer.py` = FUENTE PRINCIPAL del QS. Ejecutar SIEMPRE, sin excepción.
+2. **NO estimar QS manualmente.** El patrón del adversarial (Sesiones 48-52) mostró que
+   la estimación manual infló el QS en 5/6 posiciones Tier A (promedio +12 puntos).
+3. La thesis DEBE mostrar AMBOS números:
+   ```
+   QS Tool: XX/100 (Tier X)
+   QS Ajustado: YY/100 (Tier Y) — Ajuste: [razón cuantitativa documentada]
+   ```
+4. Si NO hay ajuste, escribir: "QS Ajustado: XX/100 — No adjustment warranted."
+5. Ajustes >5 puntos vs tool requieren EVIDENCIA CUANTITATIVA específica:
+   - VÁLIDO: "Forward growth deterioration: H1 revenue -8% vs tool's historical +12% CAGR"
+   - VÁLIDO: "REIT structural distortion: D/E inflated by IFRS16, real leverage 0.33x vs 3.18x"
+   - NO VÁLIDO: "El negocio me parece mejor de lo que dice el tool"
+   - NO VÁLIDO: "El moat es más fuerte de lo que el tool captura"
+6. El Tier se determina por el score AJUSTADO, no el del tool.
 
 **REGLA:**
 - Tier D (QS <35) → **STOP. NO PROCEDER. Documentar y archivar.**
@@ -145,11 +132,16 @@ TIER: [A/B/C/D]
 
 **Tools:**
 ```bash
-python3 tools/dcf_calculator.py TICKER --scenarios
+python3 tools/dcf_calculator.py TICKER --scenarios --sensitivity
 python3 tools/price_checker.py TICKER
 ```
 
-**Output:** Fair value con 2+ métodos, reconciliación
+**OBLIGATORIO: Ejecutar DCF con `--sensitivity` para ver la matriz de sensibilidad.**
+- Si FV Spread >60% o TV >70% del EV → el DCF es UNRELIABLE como punto. Usar rango.
+- Documentar en thesis: "Sensitivity: FV Spread X%, TV Y% of EV → [HIGH/MODERATE/LOW]"
+- Si HIGH SENSITIVITY → MoS requerido debe ser mayor (razonar cuánto más)
+
+**Output:** Fair value con 2+ métodos, reconciliación, sensitivity assessment
 
 ---
 

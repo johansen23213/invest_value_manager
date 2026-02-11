@@ -587,3 +587,39 @@ lessons:
       enfrentando disruption estructural (AI en BPO). EV/EBIT method → MoS solo 17%.
       Leccion: El MoS no es un dato fijo. Cambia si cambia el metodo de valoracion.
       Siempre cuestionar el metodo usado, especialmente si la thesis se debilita.
+
+  - date: 2026-02-11
+    lesson: "44% cash post-adversarial review is capital preservation, not cash drag"
+    from_decision: "System Devil's Advocate Challenge #3: Cash vs Deployment Pressure"
+    impact: |
+      Jan 26→Feb 3: deployed from 2 to 18 positions in 8 days. Result: 8 sold for losses.
+      Feb 7→Feb 11: adversarial review sold 8 positions → 44% cash.
+      The pressure to redeploy quickly is the SAME pressure that caused the original problem.
+      Session-protocol "mentalidad competitiva" REMOVED — replaced with "mentalidad de gestor".
+      Precedent: holding cash when pipeline lacks Tier A at discount is the correct decision.
+      Cash drag (est. 4.5pp/yr) is LESS costly than deploying into positions that lose 13% (HRB).
+
+  - date: 2026-02-11
+    lesson: "UK geographic concentration creates correlated risk — require justification for new UK positions"
+    from_decision: "System Devil's Advocate Challenge #1: UK Concentration Bias"
+    impact: |
+      4/13 positions UK-listed (30% of invested capital). UK = 3.5% of global market cap.
+      3/4 are UK digital platforms (MONY.L, AUTO.L, BYIT.L) correlated through UK consumer spending.
+      FTSE250 screening produces more "fallen angel" candidates → availability bias.
+      GBP -15% scenario = -4.5% portfolio loss from FX alone.
+      New rule: before adding ANY new UK position, document why non-UK comparable is inferior.
+      Does NOT mean selling existing UK positions — they're there for quality.
+
+  - date: 2026-02-11
+    lesson: "quality_scorer.py has structural biases — market_position default +5 and asset-light overrating"
+    from_decision: "System Devil's Advocate Challenge #2: QS Tool Bias"
+    impact: |
+      6 biases identified in quality_scorer.py code:
+      1. market_position default = 5/8 (free points for ALL companies)
+      2. Paying ANY dividend = 5/5 for shareholder returns
+      3. Asset-light businesses mechanically score higher (FCF margin, ROIC, leverage all max)
+      4. Only 3-4 years growth data (insufficient for full cycles)
+      5. Static sector GM medians
+      6. N/A defaults inflate some sub-scores
+      Action: Fix market_position default to 0. Review dividend scoring.
+      This explains why 12/13 positions had overstated QS — the tool itself overrates.

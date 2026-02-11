@@ -367,6 +367,10 @@ Expected Value = $29 + $105 + $59 = $193
 5. **Underwriting margins compress below 35%** (life segment) → Pricing power lost
 6. **Premium growth turns negative** for 2+ quarters → Client base eroding
 
+**Model Disruption Kill Conditions (added 2026-02-11):**
+7. **Direct-to-consumer digital life insurance captures >15% of GL's target demographic** — GL's moat is the captive agent model (exclusive agents selling door-to-door to underserved demographics). If Ladder, Ethos, Haven Life, or a fintech achieves significant penetration in the same low/middle-income segment with cheaper digital distribution, GL's agent model becomes a cost disadvantage instead of a moat. Monitor: DTC life insurance market share in underserved demographics, GL agent productivity trends, digital life insurance advertising spend.
+8. **AI underwriting eliminates human agent value-add for simple life products** — If AI can assess risk and issue small-face-value life policies instantly (GL's bread and butter), the need for a human agent disappears. GL's agents don't just sell — they identify needs. But if an AI chatbot can do that for a demographic increasingly comfortable with digital finance, the 10,000+ agent network becomes overhead. Monitor: insurtech underwriting automation, chatbot insurance sales conversion rates, GL agent attrition rates.
+
 ---
 
 ## 10. INVESTMENT COMMITTEE GATES (v3.0)

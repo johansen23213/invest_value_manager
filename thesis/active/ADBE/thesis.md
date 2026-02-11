@@ -196,6 +196,10 @@ TOTAL expected annual impact: ~$334M/yr = ~3.4% of revenue
 5. **Insider selling masivo (>10% de holdings)** -> ratas abandonan barco
 6. **FTC trial loss con mandatory one-click AND churn spikes >5pp** -> modelo de suscripcion danado materialmente (NUEVO v2.0)
 
+**Model Disruption Kill Conditions (added 2026-02-11):**
+7. **Open-source AI creative tools reach professional quality** — If Stability AI, Midjourney, or an open-source alternative achieves Photoshop/Illustrator-level quality with enterprise features (collaboration, brand assets, compliance) AND captures >15% of creative professional workflows, Adobe's 89% gross margin is structurally threatened. The moat is switching costs + ecosystem lock-in; free/cheap alternatives with AI-native workflows could erode both. Monitor: Figma AI features post-IPO, Canva enterprise adoption, open-source model benchmarks vs Adobe Firefly.
+8. **AI agents automate creative workflows end-to-end** — Distinct from KC#7. If an AI agent can take a brief ("design a campaign for Product X") and autonomously produce professional-quality creative assets without human designers using Adobe tools, the "creative professional" customer base shrinks. Adobe becomes a commodity rendering engine rather than an essential tool. Monitor: AI agent creative capabilities (Devin for design), enterprise adoption of AI-generated marketing content.
+
 ### Fit Macro
 
 **World View (2-Feb-2026):**

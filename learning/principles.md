@@ -45,6 +45,7 @@ El riesgo país NO es igual para todos los países.
 2. ¿Cuál es el riesgo de divisa?
 3. ¿Cuál es la profundidad del mercado?
 4. ¿Qué exposición total tengo a países con riesgo similar?
+5. **¿Estoy seleccionando esta geografía por calidad o por sesgo de screening?** (FTSE250 produce más "fallen angels" que otras bolsas → sesgo de disponibilidad)
 
 **Categorías de riesgo país (orientativas, no límites fijos):**
 - Desarrollados estables (US, UK, Germany, France, Netherlands, Switzerland, Denmark): Mayor tolerancia
@@ -53,6 +54,9 @@ El riesgo país NO es igual para todos los países.
 - Frontera: Muy limitada
 
 **NO hay un "35% máximo por geografía" fijo.** Hay razonamiento sobre si mi exposición total a riesgos similares es prudente.
+
+**Nota de concentración (Sesión 53, Devil's Advocate):**
+UK = 4/13 posiciones (~30% invested capital). Correlación alta entre MONY.L, AUTO.L, BYIT.L (UK digital platforms, UK consumer spending, GBP). Antes de añadir cualquier nueva posición UK: documentar por qué la alternativa no-UK comparable es inferior.
 
 ---
 

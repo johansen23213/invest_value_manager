@@ -1,6 +1,6 @@
 # Sector: Technology / Software
 
-> Ultima actualizacion: 2026-02-05
+> Ultima actualizacion: 2026-02-11
 > Analista: Claude
 > Status: **NEUTRAL** (selectivo en quality compounders, evitar growth sin fundamentales)
 
@@ -8,9 +8,11 @@
 
 El sector Technology/Software es el mercado mas grande y dinamico del mundo, con un TAM de SaaS de $376B en 2026 creciendo al 18%+ CAGR. Sin embargo, la valoracion del sector sigue elevada tras el rally de 2024-2025 impulsado por narrativas de IA. El P/E forward del sector (~25-30x) esta por encima de promedios historicos, lo que limita las oportunidades para value investors.
 
-**Mi tesis sobre el sector:** El mercado esta polarizado. Mega-caps (MSFT, GOOGL, NVDA) cotizan a valoraciones de "AI hype" dificiles de justificar. Pero dentro del sector existen bolsas de valor en: (1) **Quality compounders castigados por miedo a disrupcion** (ej: ADBE), (2) **Mid-caps de IT services con baja cobertura de analistas** (ej: DOX, G), y (3) **Software enterprise europeo post-correction** (ej: DASTY).
+**Mi tesis sobre el sector:** El mercado esta polarizado. Mega-caps (MSFT, GOOGL, NVDA) cotizan a valoraciones de "AI hype" dificiles de justificar. Pero dentro del sector existen bolsas de valor en: (1) **Quality compounders castigados por miedo a disrupcion** (ej: ADBE), (2) **Mid-caps de IT services con baja cobertura de analistas** (ej: DOX, G), y (3) **Software enterprise europeo post-correction** (ej: DSY.PA, ahora a 15-year low valuation tras Q4 miss).
 
-La IA generativa es tanto amenaza como oportunidad. Los incumbentes con datos propietarios y ecosistemas (Adobe, Microsoft, SAP) tienen ventaja sobre startups de IA. El riesgo real es para software commoditizado sin moat.
+La IA generativa es tanto amenaza como oportunidad. Los incumbentes con datos propietarios y ecosistemas (Adobe, Microsoft, SAP, Dassault Systemes) tienen ventaja sobre startups de IA. El riesgo real es para software commoditizado sin moat.
+
+**NOTA (2026-02-11):** Dassault Systemes (DSY.PA) cayo 21% hoy tras Q4 revenue miss (+1% vs +3% expected) y guidance decepcionante (3-5% vs 5.8% consensus). Analisis completo realizado. WATCHLIST con entry EUR 16.50-17.00. Ver thesis/research/DSY.PA/thesis.md.
 
 ---
 
@@ -20,11 +22,12 @@ La IA generativa es tanto amenaza como oportunidad. Los incumbentes con datos pr
 |---------|-------|-------------|-----------|
 | TAM Global SaaS | $376B (2026) | +19% YoY | Creciendo 18.7% CAGR |
 | TAM Enterprise Software | $264B | | +12.1% CAGR |
+| TAM PLM Software | $46-75B (scope-dependent) | | +5.9-8.8% CAGR |
 | P/E sector (forward) | 25-30x | vs 20x (10y avg) | Elevated |
 | EV/Sales sector | 5-7x | vs 4x (10y avg) | Above avg |
 | Dividend yield | <1% | | Sector no paga dividendos |
 
-**Fuentes:** [Fortune Business Insights](https://www.fortunebusinessinsights.com/software-as-a-service-saas-market-102222), [Grand View Research](https://www.grandviewresearch.com/industry-analysis/enterprise-software-market), [Statista](https://www.statista.com/outlook/tmo/software/enterprise-software/worldwide)
+**Fuentes:** [Fortune Business Insights](https://www.fortunebusinessinsights.com/software-as-a-service-saas-market-102222), [Grand View Research](https://www.grandviewresearch.com/industry-analysis/enterprise-software-market), [Statista](https://www.statista.com/outlook/tmo/software/enterprise-software/worldwide), [Mordor Intelligence: PLM](https://www.mordorintelligence.com/industry-reports/product-lifecycle-management-software-market)
 
 ---
 
@@ -41,6 +44,7 @@ La IA generativa es tanto amenaza como oportunidad. Los incumbentes con datos pr
 | SAP | ERP | #1 tied | Enterprise lock-in |
 | Oracle | Database/Cloud | #3 | Legacy + cloud transition |
 | Tyler Technologies | Gov Software | #1 (11.2% share) | Switching costs, 98% retention |
+| **Dassault Systemes** | **PLM/3D Design** | **#1 (16.5% PLM)** | **90% aircraft, 80% autos, NVIDIA partnership** |
 
 **Barreras de entrada:** Altas en enterprise, Medias-Bajas en prosumer/SMB
 - Switching costs (datos, integraciones, training)
@@ -48,7 +52,13 @@ La IA generativa es tanto amenaza como oportunidad. Los incumbentes con datos pr
 - Economias de escala en R&D
 - Brand recognition y trust
 
-**Fuente:** [Synergy Research Group](https://www.srgresearch.com/articles/microsoft-leads-saas-market-salesforce-adobe-oracle-and-sap-follow), [IDC](https://www.cio.com/article/2496985/sap-salesforce-lead-356-billion-enterprise-applications-market-idc.html)
+**PLM Competitive Landscape (2026):**
+- Siemens Teamcenter: #1 overall leader per ABI Research. Altair acquisition ($10.6B, 2025) strengthened AI/simulation.
+- PTC Windchill: #2, strong in digital thread, IoT (ThingWorx)
+- Dassault 3DEXPERIENCE/ENOVIA: #3 in pure PLM rankings, but #1 in CAD (CATIA/SOLIDWORKS) and aerospace/auto design
+- Ansys joining Synopsys ($35B deal) strengthens simulation competitive landscape
+
+**Fuente:** [Synergy Research Group](https://www.srgresearch.com/articles/microsoft-leads-saas-market-salesforce-adobe-oracle-and-sap-follow), [IDC](https://www.cio.com/article/2496985/sap-salesforce-lead-356-billion-enterprise-applications-market-idc.html), [ABI Research PLM Rankings](https://finance.yahoo.com/news/siemens-ptc-dassault-syst-mes-163100831.html)
 
 ---
 
@@ -76,6 +86,7 @@ La IA generativa es tanto amenaza como oportunidad. Los incumbentes con datos pr
 | AI agents reemplazan software | Media-Baja | Muy Alto | 5-10 anos | CRM, Analytics |
 | AI coding asistants | Alta | Medio | Ya ocurriendo | IDEs, dev tools |
 | **AI bundles commoditizan FSS** | **Alta** | **Alto** | **Ya ocurriendo** | **Dropbox, Box** |
+| AI enhances PLM/simulation | **Baja** | **Positivo** | 2-4 anos | **Dassault, Siemens (BENEFICIARIES)** |
 
 **Fuentes:** [StartupHub: AI Agents Threat](https://www.startuphub.ai/ai-news/ai-video/2026/ai-agents-trigger-software-stock-collapse-salesforce-and-adobe-face-new-existential-threat/), [Investing.com: Adobe SWOT](https://www.investing.com/news/swot-analysis/adobes-swot-analysis-ai-integration-drives-growth-amid-competitive-pressures-93CH-4278458)
 
@@ -84,6 +95,7 @@ La IA generativa es tanto amenaza como oportunidad. Los incumbentes con datos pr
 - Empresas con **ecosistemas enterprise** (Salesforce, SAP) tienen switching costs como defensa
 - Software **commoditizado sin moat** (generic SaaS, FSS) es el mas vulnerable
 - **Government software** (Tyler) INMUNE a AI disruption - regulatory requirements, data sensitivity
+- **PLM/simulation software** (Dassault, Siemens) = AI es NET POSITIVE. NVIDIA partnership validates this thesis. Physics-accurate simulation + AI = faster product design, not replacement.
 
 ### Regulatorios
 
@@ -98,12 +110,13 @@ La IA generativa es tanto amenaza como oportunidad. Los incumbentes con datos pr
 - **Nuevos entrantes:** Startups IA (OpenAI, Anthropic) amenazan verticalmente
 - **Sustitutos:** Open source ganando share en infra (no tanto en apps)
 - **Canva vs Adobe:** [Canva AI disruption threat](https://entrepreneurloop.com/canva-ai-tools-challenge-adobe/)
+- **Siemens Altair vs Dassault Simulia:** Consolidation in simulation creates stronger competition
 
 ---
 
 ## Sentimiento de Mercado
 
-**Sentimiento actual:** Querido/Near-Burbuja en mega-caps, Neutral en mid-caps
+**Sentimiento actual:** Querido/Near-Burbuja en mega-caps, Neutral en mid-caps, **ODIADO en EU software (DSY.PA -56% from high)**
 
 **Narrativa dominante:**
 "AI lo cambia todo. Solo invierte en los winners de AI (NVDA, MSFT). El resto es disruptable."
@@ -137,21 +150,19 @@ La IA generativa es tanto amenaza como oportunidad. Los incumbentes con datos pr
 ### BYIT.L - Bytes Technology Group plc (UK IT Services/VAR)
 
 - **Holding:** 110 shares, ~$444 invested
-- **Quality Score:** 81/100 (Tier A)
-- **Thesis:** UK #1 software VAR (value-added reseller). Net cash, 30% FCF margin, 9.6% insider ownership. Fallen angel -47% due to Microsoft partner incentive restructuring (FY26). Cyclical problem, not structural.
+- **Quality Score:** 68-72/100 (Tier B, adversarial-adjusted from 81)
+- **Thesis:** UK #1 software VAR (value-added reseller). Net cash, 30% FCF margin. Fallen angel -47% due to Microsoft partner incentive restructuring (FY26). Cyclical problem, not structural.
 - **Por que nos gusta:**
-  - Quality Compounder at near-52w low (296p vs 295p low)
-  - OEY + Growth = 14.4% >> 9% WACC
+  - ROIC >> WACC, net cash, small position
   - 80%+ recurring revenue, >95% implied customer retention
   - Services +40% growth provides structural offset to margin pressure
-  - 0/10 value trap, director bought shares at 402p
   - Softcat comparable trades at 25x P/E vs BYIT at 14x
 - **Riesgos:**
   - Microsoft incentive restructuring ongoing (FY27 could bring further changes)
-  - Concentration risk: heavily dependent on Microsoft ecosystem
+  - Insider ownership 0.4% (corrected from 9.6% in original thesis)
+  - Microsoft EA disintermediation structural risk
   - UK mid-cap, lower liquidity
-- **Status:** HOLD. Entry at 296 GBp, FV 455 GBp, MoS 35%
-- **ADD trigger:** 260p (MoS >43%)
+- **Status:** HOLD ON PROBATION. Entry at 296 GBp, FV 345 GBp (adversarial), MoS 14%
 - **Thesis:** `/home/angel/value_invest2/thesis/active/BYIT.L/thesis.md`
 
 ---
@@ -163,9 +174,10 @@ La IA generativa es tanto amenaza como oportunidad. Los incumbentes con datos pr
 | Tipo | Ticker | Thesis Path | Ultima Eval | Status |
 |------|--------|-------------|-------------|--------|
 | Portfolio | ADBE | thesis/active/ADBE/thesis.md | 2026-02-04 | HOLD |
-| **Portfolio** | **BYIT.L** | **thesis/active/BYIT.L/thesis.md** | **2026-02-06** | **HOLD - Sixth Tier A** |
+| Portfolio | BYIT.L | thesis/active/BYIT.L/thesis.md | 2026-02-11 | HOLD ON PROBATION |
 | Watchlist | TYL | thesis/research/TYL/thesis.md | 2026-02-04 | Entry $250 |
 | Watchlist | DBX | thesis/research/DBX/thesis.md | 2026-02-05 | Entry $18-20 |
+| **Watchlist** | **DSY.PA** | **thesis/research/DSY.PA/thesis.md** | **2026-02-11** | **Entry EUR 16.50-17.00** |
 
 ### Protocolo de Cambio Material
 
@@ -182,7 +194,6 @@ Cuando actualices este sector view con cambio MATERIAL:
 
 | Ticker | Empresa | Razon | P/E | Priority | Notas |
 |--------|---------|-------|-----|----------|-------|
-| DASTY | Dassault Systemes | 15-year low P/E, PLM leader, 20% upside potential | ~20x | Alta | EU software, post-correction |
 | DOX | Amdocs Limited | IT services, 4 analysts only, 31% upside to targets | 14.7x | Alta | Low coverage = inefficiency |
 | BR | Broadridge Financial | 32% undervalued vs FV $290, fintech B2B | ~18x | Media | Investor communications |
 | G | Genpact | IT services/BPO, P/E 12.6x, low coverage (11 analysts) | 12.6x | Media | Business services overlap |
@@ -206,6 +217,7 @@ Cuando actualices este sector view con cambio MATERIAL:
 |--------|---------|-----|-------|---------|--------|----------------|
 | TYL | Tyler Technologies | $280 | $250-260 | 20% (Tier B) | Wide moat gov software, QS 72, overvalued at $332 | 2026-02-04 |
 | DBX | Dropbox | $33 | $18-20 | 35-40% | **Value trap risk alto**. QS 73 pero declive estructural, users -1.5%/yr, commoditized FSS, equity negativo. FCF yield 12.8% atractivo pero insostenible. Solo comprar con MoS extremo. | 2026-02-05 |
+| **DSY.PA** | **Dassault Systemes** | **EUR 21.00** | **EUR 16.50-17.00** | **20-25%** | **#1 PLM globally, QS 78 (Tier A borderline), wide moat (Morningstar). -56% from high, -21% today on Q4 miss. Cloud transition pain (Adobe 2012-14 parallel). NVIDIA partnership. 84% GM, 24% FCF margin, net cash EUR 1.5B, 49% insider. Revenue CAGR 3.2% is the concern. OEY+Growth 11.8%.** | **2026-02-11** |
 
 ---
 
@@ -216,8 +228,10 @@ Cuando actualices este sector view con cambio MATERIAL:
 | Q1 2026 | Adobe Q1 earnings (Mar) | Validate Firefly monetization |
 | Q1 2026 | Tyler Q4 2025 earnings | Cloud transition progress |
 | Q1 2026 | Dropbox Q4 2025 earnings | Dash metrics, user trends |
+| **Q1-Q2 2026** | **DSY.PA Q1 earnings** | **First datapoint on FY2026 3-5% guide. Cloud acceleration?** |
 | H1 2026 | Fed rate cuts? | Re-rating de software growth |
 | 2026 | Canva/Figma IPO | Clarify competitive landscape |
+| **2027-28** | **NVIDIA-Dassault partnership revenue** | **Potential re-rating catalyst** |
 | Ongoing | Enterprise AI adoption | Pricing power para incumbentes |
 
 ---
@@ -230,7 +244,9 @@ Cuando actualices este sector view con cambio MATERIAL:
 | 2026-02-04 | ADBE anadido a posiciones | Compra aprobada, primer Quality Compounder tech |
 | 2026-02-04 | TYL analizado -> Watchlist | QS 72 (Tier B, no A). Wide moat pero overvalued. Entry $250-260 |
 | 2026-02-05 | DBX analizado -> Watchlist | QS 73 pero 5/10 value trap factors. Entry agresivo $18-20 requerido |
-| **2026-02-06** | **BYIT.L comprado - Sixth Tier A** | **UK IT services VAR, QS 81, MoS 35%. Fallen angel -47% por Microsoft incentive restructuring.** |
+| 2026-02-06 | BYIT.L comprado - Sixth Tier A | UK IT services VAR, QS 81, MoS 35%. Fallen angel -47% por Microsoft incentive restructuring. |
+| 2026-02-11 | BYIT.L updated to HOLD ON PROBATION | Adversarial review: QS 68-72 Tier B, FV 345p (from 455p). Insider 0.4% not 9.6%. |
+| **2026-02-11** | **DSY.PA analizado -> Watchlist** | **Full fundamental analysis post -21% crash. QS 78 (Tier A borderline). FV EUR 21.00, entry EUR 16.50-17.00. PLM #1, wide moat, cloud transition pain. Not BUY at current price due to thin MoS vs Tier A precedents.** |
 
 ---
 
@@ -263,17 +279,25 @@ Cuando actualices este sector view con cambio MATERIAL:
 - [Fortune Business Insights: SaaS Market](https://www.fortunebusinessinsights.com/software-as-a-service-saas-market-102222)
 - [Grand View Research: Enterprise Software](https://www.grandviewresearch.com/industry-analysis/enterprise-software-market)
 - [Statista: Enterprise Software](https://www.statista.com/outlook/tmo/software/enterprise-software/worldwide)
+- [Mordor Intelligence: PLM Market](https://www.mordorintelligence.com/industry-reports/product-lifecycle-management-software-market)
 
 ### Market Share & Competition
 - [Synergy Research: SaaS Market Share](https://www.srgresearch.com/articles/microsoft-leads-saas-market-salesforce-adobe-oracle-and-sap-follow)
 - [IDC: Enterprise Applications Market](https://www.cio.com/article/2496985/sap-salesforce-lead-356-billion-enterprise-applications-market-idc.html)
 - [CX Today: Salesforce CRM Dominance](https://www.cxtoday.com/crm/salesforce-still-dominates-the-crm-space-leads-on-revenue-for-the-12th-straight-year/)
+- [ABI Research: PLM Rankings](https://finance.yahoo.com/news/siemens-ptc-dassault-syst-mes-163100831.html)
 
 ### AI Disruption & Adobe Analysis
 - [Stocktwits: Adobe vs AI Upstarts](https://stocktwits.com/news-articles/markets/equity/adobe-now-tested-by-ai-upstarts-and-a-figma-sized-shadow/cLIxdFgREVC)
 - [Investing.com: Adobe SWOT Analysis](https://www.investing.com/news/swot-analysis/adobes-swot-analysis-ai-integration-drives-growth-amid-competitive-pressures-93CH-4278458)
 - [EntrepreneurLoop: Canva AI Disruption](https://entrepreneurloop.com/canva-ai-tools-challenge-adobe/)
 - [StartupHub: AI Agents Threat](https://www.startuphub.ai/ai-news/ai-video/2026/ai-agents-trigger-software-stock-collapse-salesforce-and-adobe-face-new-existential-threat/)
+
+### Dassault Systemes Analysis
+- [Dassault Q4 2025 Press Release](https://www.3ds.com/newsroom/press-releases/dassault-systemes-q4-revenue-growth-1-solid-operating-margin-and-eps-expansion-initiating-2026-revenue-guidance-3-5-growth)
+- [Morningstar: Wide Moat Assessment](https://www.morningstar.com/company-reports/1204660-dassault-systemes-wide-moat-would-be-challenging-for-new-entrants-to-replicate)
+- [NVIDIA Partnership](https://nvidianews.nvidia.com/news/dassault-systemes-nvidia-industrial-ai)
+- [Generative Value: Physical Design Software Moats](https://www.generativevalue.com/p/physical-design-software-the-strongest)
 
 ### Tyler Technologies Analysis
 - [Morningstar: Tyler's Modernizing Its Market](https://www.morningstar.com/stocks/tylers-modernizing-its-market)
@@ -296,4 +320,4 @@ Cuando actualices este sector view con cambio MATERIAL:
 
 ---
 
-*Proxima revision: 2026-03-05 o ante cambio material (AI regulation, major earnings, Fed action)*
+*Proxima revision: 2026-03-05 o ante cambio material (AI regulation, major earnings, Fed action, DSY.PA Q1 2026 results)*

@@ -220,6 +220,10 @@ Divergence: 0.9% (excellent convergence)
 4. CEO departure without succession plan
 5. Market share drops below 9% in auto
 
+**Model Disruption Kill Conditions (added 2026-02-11):**
+6. **Autonomous vehicles eliminate personal auto insurance TAM >10%** — If AVs (Waymo, Tesla FSD, Cruise) achieve Level 4+ deployment at scale AND shift liability to manufacturers/fleet operators, personal auto insurance premiums decline structurally. ALL gets ~80% of premiums from auto. Even a 10% TAM reduction = $4-5B premium loss. Monitor: AV deployment rates, state-by-state liability law changes, L4 regulatory approvals.
+7. **Embedded insurance at point-of-sale disintermediates carriers** — If Tesla, Apple Car, or auto dealers bundle insurance at purchase with captive carriers (Tesla Insurance model expanding), ALL loses customer acquisition channel. The moat is brand + agent network; if insurance is bundled and invisible, brand doesn't matter. Monitor: Tesla Insurance state expansion, OEM embedded insurance programs, ALL agent count trends.
+
 ---
 
 ## Position Parameters

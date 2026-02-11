@@ -1,14 +1,11 @@
 #!/usr/bin/env python3
 """
-Forward Return Ranking - Calculates Forward Expected Return (FER) for portfolio positions.
+Forward Return Components - Shows MoS%, Growth%, Yield% for portfolio positions.
 
-Enables systematic ranking and rotation decisions.
-Outputs RAW DATA only. NO judgments, warnings, or recommendations.
+Outputs RAW DATA as separate columns. NO composite scores, rankings, or recommendations.
+The user reasons about these components applying principles.
 
-Formula:
-  FER% = Current_MoS% + Expected_Growth% + Dividend_Yield%
-
-Where:
+Components:
   - MoS% = (Fair_Value - Current_Price) / Current_Price * 100
   - Growth% = Expected earnings/FCF growth rate (from thesis or yfinance)
   - Yield% = Current dividend yield (from yfinance)
@@ -102,19 +99,38 @@ def get_conviction_for_ticker(decisions_log, ticker):
 
 
 def get_fx_rates():
-    """Get EUR/USD and GBP/EUR and DKK/EUR exchange rates."""
+    """Get EUR/USD and GBP/EUR and DKK/EUR exchange rates. Reports fallback usage."""
+    defaults = {'EURUSD': 1.04, 'GBPEUR': 1.19, 'DKKEUR': 0.134}
+    fallbacks_used = []
+
     try:
-        eurusd = yf.Ticker('EURUSD=X').info.get('previousClose', 1.04)
+        eurusd = yf.Ticker('EURUSD=X').info.get('previousClose')
+        if not eurusd:
+            eurusd = defaults['EURUSD']
+            fallbacks_used.append(f"EUR/USD={eurusd}")
     except Exception:
-        eurusd = 1.04
+        eurusd = defaults['EURUSD']
+        fallbacks_used.append(f"EUR/USD={eurusd}")
     try:
-        gbpeur = yf.Ticker('GBPEUR=X').info.get('previousClose', 1.19)
+        gbpeur = yf.Ticker('GBPEUR=X').info.get('previousClose')
+        if not gbpeur:
+            gbpeur = defaults['GBPEUR']
+            fallbacks_used.append(f"GBP/EUR={gbpeur}")
     except Exception:
-        gbpeur = 1.19
+        gbpeur = defaults['GBPEUR']
+        fallbacks_used.append(f"GBP/EUR={gbpeur}")
     try:
-        dkkeur = yf.Ticker('DKKEUR=X').info.get('previousClose', 0.134)
+        dkkeur = yf.Ticker('DKKEUR=X').info.get('previousClose')
+        if not dkkeur:
+            dkkeur = defaults['DKKEUR']
+            fallbacks_used.append(f"DKK/EUR={dkkeur}")
     except Exception:
-        dkkeur = 0.134
+        dkkeur = defaults['DKKEUR']
+        fallbacks_used.append(f"DKK/EUR={dkkeur}")
+
+    if fallbacks_used:
+        print(f"FX WARNING: Using static fallback rates ({', '.join(fallbacks_used)}). MoS% may be inaccurate.")
+
     return eurusd, gbpeur, dkkeur
 
 
@@ -467,13 +483,10 @@ def process_position(ticker, thesis_path, eurusd, gbpeur, dkkeur, decisions_log,
         'ticker': ticker,
         'qs': None,
         'tier': None,
-        'fer': None,
         'mos_pct': None,
         'growth_pct': None,
         'yield_pct': None,
-        'conviction': 'medium',
-        'tailwind': 1.0,
-        'adj_fer': None,
+        'conviction': None,
         'fv_source': None,
         'growth_source': None,
         'price': None,
@@ -548,21 +561,8 @@ def process_position(ticker, thesis_path, eurusd, gbpeur, dkkeur, decisions_log,
             result['growth_pct'] = 0
             result['growth_source'] = 'none'
 
-    # Calculate FER
-    if result['mos_pct'] is not None:
-        result['fer'] = result['mos_pct'] + result['growth_pct'] + result['yield_pct']
-    else:
-        result['fer'] = None
-
-    # Conviction from decisions_log
-    conv = get_conviction_for_ticker(decisions_log, ticker)
-    result['conviction'] = conv
-
-    # Adjusted FER
-    conv_multipliers = {'high': 1.2, 'medium': 1.0, 'low': 0.8}
-    conv_mult = conv_multipliers.get(conv, 1.0)
-    if result['fer'] is not None:
-        result['adj_fer'] = result['fer'] * conv_mult * result['tailwind']
+    # Conviction from portfolio or decisions_log (raw data, no multiplier)
+    result['conviction'] = get_conviction_for_ticker(decisions_log, ticker)
 
     if is_research:
         result['status'] = extract_status_from_research(thesis_content)
@@ -584,79 +584,58 @@ def find_research_tickers():
 
 
 def print_ranking(active_results, research_results, show_active=True, show_pipeline=True):
-    """Print the formatted ranking tables."""
+    """Print the formatted data tables. No composite scores, no ranking highlights."""
     conv_short = {'high': 'H', 'medium': 'M', 'low': 'L'}
 
     if show_active and active_results:
-        ranked = sorted(active_results, key=lambda x: x['fer'] if x['fer'] is not None else -999, reverse=True)
+        # Sort by MoS% descending (largest upside first), but this is just display order
+        ranked = sorted(active_results, key=lambda x: x['mos_pct'] if x['mos_pct'] is not None else -999, reverse=True)
 
         print()
-        print("=" * 105)
-        print("FORWARD RETURN RANKING -- ACTIVE POSITIONS")
-        print("=" * 105)
-        print(f"{'Ticker':<10} {'QS':>3} {'Tier':>4} {'FER%':>7} {'MoS%':>7} {'Grw%':>6} {'Yld%':>6} {'Conv':>4} {'GrSrc':>7}  {'FV':>16}")
-        print("-" * 105)
+        print("=" * 100)
+        print("FORWARD RETURN COMPONENTS -- ACTIVE POSITIONS")
+        print("=" * 100)
+        print(f"{'Ticker':<10} {'QS':>3} {'Tier':>4} {'MoS%':>7} {'Grw%':>6} {'Yld%':>6} {'Conv':>4} {'GrSrc':>7}  {'FV':>16}")
+        print("-" * 100)
 
         for r in ranked:
             qs_str = str(r['qs']) if r['qs'] is not None else '?'
             tier_str = r['tier'] if r['tier'] else '?'
-            fer_str = f"{r['fer']:+.1f}" if r['fer'] is not None else 'N/A'
             mos_str = f"{r['mos_pct']:+.1f}" if r['mos_pct'] is not None else 'N/A'
             grw_str = f"{r['growth_pct']:.1f}" if r['growth_pct'] is not None else 'N/A'
             yld_str = f"{r['yield_pct']:.1f}" if r['yield_pct'] is not None else '0.0'
-            conv_str = conv_short.get(r['conviction'], 'M')
+            conv_str = conv_short.get(r['conviction'], '?') if r['conviction'] else '?'
             gr_src_str = r['growth_source'] or '-'
             fv_str = r['fv_source'] if r['fv_source'] else 'N/A'
 
             if r['error']:
-                print(f"{r['ticker']:<10} {'':>3} {'':>4} {'ERR':>7} {'':>7} {'':>6} {'':>6} {'':>4} {'':>7}  {r['error']}")
+                print(f"{r['ticker']:<10} {'':>3} {'':>4} {'ERR':>7} {'':>6} {'':>6} {'':>4} {'':>7}  {r['error']}")
             else:
-                print(f"{r['ticker']:<10} {qs_str:>3} {tier_str:>4} {fer_str:>7} {mos_str:>7} {grw_str:>6} {yld_str:>6} {conv_str:>4} {gr_src_str:>7}  {fv_str:>16}")
+                print(f"{r['ticker']:<10} {qs_str:>3} {tier_str:>4} {mos_str:>7} {grw_str:>6} {yld_str:>6} {conv_str:>4} {gr_src_str:>7}  {fv_str:>16}")
 
-        valid = [r for r in ranked if r['fer'] is not None]
-        if valid:
-            fer_values = sorted([r['fer'] for r in valid])
-            avg_fer = sum(fer_values) / len(fer_values)
-            median_fer = fer_values[len(fer_values) // 2]
-            print("-" * 105)
-            print(f"{'STATS':<10} {'':>3} {'':>4} {'':>7} {'':>7} {'':>6} {'':>6} {'':>4} Avg FER: {avg_fer:+.1f}%  Median: {median_fer:+.1f}%  N={len(valid)}")
+        print("-" * 100)
+        print(f"  {len(active_results)} positions | [Apply learning/principles.md to reason about this data]")
 
-        if len(valid) >= 3:
-            print()
-            print("TOP 3:")
-            for i, r in enumerate(valid[:3], 1):
-                mos_part = f"MoS {r['mos_pct']:+.1f}%" if r['mos_pct'] is not None else "MoS N/A"
-                print(f"  {i}. {r['ticker']:<10} FER {r['fer']:+.1f}%   ({mos_part}, Growth {r['growth_pct']:.1f}%, Yield {r['yield_pct']:.1f}%)")
-
-            print()
-            print("BOTTOM 3:")
-            bottom = list(reversed(valid[-3:]))
-            for i, r in enumerate(bottom, 1):
-                mos_part = f"MoS {r['mos_pct']:+.1f}%" if r['mos_pct'] is not None else "MoS N/A"
-                print(f"  {i}. {r['ticker']:<10} FER {r['fer']:+.1f}%   ({mos_part}, Growth {r['growth_pct']:.1f}%, Yield {r['yield_pct']:.1f}%)")
-
-        no_fv = [r for r in ranked if r['fer'] is None and r['error'] is None]
+        no_fv = [r for r in ranked if r['mos_pct'] is None and r['error'] is None]
         if no_fv:
-            print()
-            print(f"FV NOT FOUND IN THESIS: {', '.join(r['ticker'] for r in no_fv)}")
+            print(f"  FV not found in thesis: {', '.join(r['ticker'] for r in no_fv)}")
 
     if show_pipeline and research_results:
-        valid_research = [r for r in research_results if r['fer'] is not None]
-        invalid_research = [r for r in research_results if r['fer'] is None]
+        valid_research = [r for r in research_results if r['mos_pct'] is not None]
+        invalid_research = [r for r in research_results if r['mos_pct'] is None]
 
-        valid_research.sort(key=lambda x: x['fer'], reverse=True)
+        valid_research.sort(key=lambda x: x['mos_pct'], reverse=True)
 
         print()
-        print("=" * 105)
+        print("=" * 100)
         print("PIPELINE -- RESEARCH THESIS")
-        print("=" * 105)
-        print(f"{'Ticker':<10} {'QS':>3} {'Tier':>4} {'FER%':>7} {'MoS%':>7} {'Grw%':>6} {'Yld%':>6} {'GrSrc':>7}  {'FV':>16} {'Status'}")
-        print("-" * 105)
+        print("=" * 100)
+        print(f"{'Ticker':<10} {'QS':>3} {'Tier':>4} {'MoS%':>7} {'Grw%':>6} {'Yld%':>6} {'GrSrc':>7}  {'FV':>16} {'Status'}")
+        print("-" * 100)
 
         for r in valid_research:
             qs_str = str(r['qs']) if r['qs'] is not None else '?'
             tier_str = r['tier'] if r['tier'] else '?'
-            fer_str = f"{r['fer']:+.1f}" if r['fer'] is not None else 'N/A'
             mos_str = f"{r['mos_pct']:+.1f}" if r['mos_pct'] is not None else 'N/A'
             grw_str = f"{r['growth_pct']:.1f}" if r['growth_pct'] is not None else 'N/A'
             yld_str = f"{r['yield_pct']:.1f}" if r['yield_pct'] is not None else '0.0'
@@ -664,7 +643,7 @@ def print_ranking(active_results, research_results, show_active=True, show_pipel
             fv_str = r['fv_source'] if r['fv_source'] else 'N/A'
             status = (r['status'] or '')[:45]
 
-            print(f"{r['ticker']:<10} {qs_str:>3} {tier_str:>4} {fer_str:>7} {mos_str:>7} {grw_str:>6} {yld_str:>6} {gr_src_str:>7}  {fv_str:>16} {status}")
+            print(f"{r['ticker']:<10} {qs_str:>3} {tier_str:>4} {mos_str:>7} {grw_str:>6} {yld_str:>6} {gr_src_str:>7}  {fv_str:>16} {status}")
 
         if invalid_research:
             print()

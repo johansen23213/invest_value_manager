@@ -20,9 +20,9 @@ positions:
     date_opened: 2026-01-26
     thesis: thesis/active/DTE.DE/thesis.md
     conviction: medium
-    fair_value: "EUR 34.00 (v3.0. QS Tool 48 Tier C, no adj. Was EUR 33-35 adversarial)"
-    last_review: 2026-02-10
-    exit_plan: "HOLD through Feb 26 earnings. TRIM >EUR 33. ADD <EUR 27. SELL if div cut or FY2026 EPS guide <EUR 2.00. Check TMUS results Feb 11 TODAY."
+    fair_value: "EUR 35.00 (v3.1 post-TMUS Q4 beat. QS Tool 48 Tier C. Was EUR 34.00 v3.0)"
+    last_review: 2026-02-11
+    exit_plan: "HOLD through Feb 26 DTE earnings. TRIM >EUR 34. ADD <EUR 28. SELL if div cut or FY2026 EPS guide <EUR 2.00."
 
   - ticker: ALL
     name: "Allstate Corporation"
@@ -163,7 +163,11 @@ positions:
     avg_cost_usd: 4.04  # 444 / 110
     date_opened: 2026-02-07
     thesis: thesis/active/BYIT.L/thesis.md
-    notes: "Sixth Tier A Quality Compounder. QS 81, MoS 35%. UK #1 software VAR. Net cash, 30% FCF margin, 9.6% insider. Capital rotation from TEP.PA+LIGHT.AS+PFE."
+    conviction: low
+    fair_value: "345 GBp (adversarial, was 455. QS Tool 68, Adj 69-72 Tier B. Was 81 Tier A.)"
+    exit_plan: "HOLD ON PROBATION. EXIT if FY2026 full-year OP < GBP 66M (~May 2026). ADD at 240p. SELL if Tier A needs capital and better opportunity exists."
+    last_review: 2026-02-11
+    notes: "Adversarial review 2026-02-11: FV 455->345 (-24.2%), QS 81->68-72 (Tier A->B). Insider ownership 0.4% not 9.6%. Microsoft EA disintermediation structural. Moat NARROW (14/25). HOLD because ROIC>>WACC, net cash, small position."
 
 transactions:
   - date: 2026-01-26

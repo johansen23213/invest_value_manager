@@ -395,6 +395,10 @@ v2.0 said "trending WIDE" — but store opening deceleration suggests franchise 
 5. **Dividend cut** (signals management concern about cash flow)
 6. **DPZ parent renegotiates royalty >5%** (currently ~4.25%; increase destroys unit economics)
 
+**Model Disruption Kill Conditions (added 2026-02-11):**
+7. **Ghost kitchen/virtual brands capture >10% of UK pizza delivery market** — If CloudKitchen, Deliveroo Editions, or virtual pizza brands operating from shared kitchens achieve significant market share at lower prices (no storefront overhead), Domino's franchisees face margin pressure from non-traditional competitors. DOM.L's moat is the franchise + delivery infrastructure; ghost kitchens replicate delivery without the store costs. Monitor: UK ghost kitchen market share, Deliveroo/Just Eat virtual brand growth, DOM.L order volume trends.
+8. **Aggregator platforms disintermediate Domino's direct ordering** — If >40% of Domino's UK orders shift to Just Eat/Deliveroo/Uber Eats (from current ~25-30%), DOM.L loses the direct customer relationship AND pays 15-30% commission, destroying unit economics for franchisees. The moat is the owned app/ordering infrastructure; aggregator dominance turns Domino's into a commodity supplier. Monitor: Domino's own-app vs aggregator order split, aggregator market share in UK food delivery, franchisee profitability trends.
+
 ---
 
 ## SECTION 9: PRE-EARNINGS FRAMEWORK (FY25 Results — March 5, 2026)
