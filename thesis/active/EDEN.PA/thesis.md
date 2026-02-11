@@ -6,6 +6,7 @@
 **Quality Score:** 62/100 -- Tier B
 **Recommendation:** HOLD / WAIT FOR EARNINGS FEB 24
 **Framework Version:** 4.0 (Principios Adaptativos)
+**Fair Value:** EUR 29.0 (adversarial, updated 2026-02-07)
 
 ---
 
@@ -437,6 +438,10 @@ EARNINGS FEB 24
 8. Regulation extends to 3rd major market (after Italy + Brazil)
 9. Credit rating downgrade to BBB+ or below
 10. 2027-28 EBITDA growth delivered at <3% (not just guided)
+
+### Model Disruption Kill Conditions (added 2026-02-11)
+11. **Digital wallets eliminate meal voucher model** — If Apple Pay/Google Wallet or a fintech launches employer-subsidized meal payments directly via wallet (bypassing Edenred's closed-loop network) AND captures >15% of any market where Edenred operates, the intermediation model is broken. The moat IS the closed network; direct wallet payments destroy it. Monitor: Apple/Google employer benefit partnerships, fintech meal benefit startups.
+12. **Corporate expense platforms absorb Edenred's mobility/corporate payments** — If Brex, Ramp, SAP Concur, or similar expand to cover meal+mobility+corporate benefits in a single platform with >10% penetration in France or LATAM, Edenred's multi-product bundle loses cross-sell advantage. Monitor: corporate card platform expansion into benefits.
 
 ---
 

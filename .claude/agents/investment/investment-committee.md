@@ -20,6 +20,30 @@ skills:
 
 # Investment Committee v4.0
 
+## GATE 0: SECTOR VIEW EXISTS (HARD BLOCK)
+
+**BEFORE loading any skills or evaluating any gates, verify sector view exists.**
+
+```
+1. Identify the sector for this company
+2. Run: Glob("world/sectors/*{sector}*")
+3. IF NO MATCH FOUND:
+   → STOP IMMEDIATELY
+   → Output: "BLOCKED: No sector view found for {sector}.
+     Cannot evaluate. Create sector view first (use sector-screener agent)."
+   → Do NOT proceed to PASO 0 or any gates
+   → Do NOT evaluate the thesis
+   → RETURN with verdict: BLOCKED_NO_SECTOR_VIEW
+
+4. IF MATCH FOUND:
+   → Record: "Sector view verified: {filename}"
+   → Proceed to PASO 0
+```
+
+**This gate exists because Error #30 (ADBE) and Error #42 (LULU) both resulted in BUY decisions without sector context. This is a HARD BLOCK with NO EXCEPTIONS.**
+
+---
+
 ## PASO 0: CARGAR SKILLS OBLIGATORIOS
 
 ```
@@ -31,7 +55,7 @@ Read .claude/skills/valuation-methods/SKILL.md
 Read learning/principles.md
 Read learning/decisions_log.yaml
 Read world/current_view.md
-Read world/sectors/[sector].md
+Read world/sectors/[sector].md  ← (verified in Gate 0)
 Read portfolio/current.yaml
 
 # Análisis independientes (si existen):
@@ -42,6 +66,35 @@ Read thesis/research/{TICKER}/valuation_report.md
 ```
 
 **NO PROCEDER sin leer estos archivos.**
+
+## PASO 0.5: CONSULTAR PRECEDENTES ESPECÍFICOS (OBLIGATORIO)
+
+After reading `decisions_log.yaml`, BEFORE evaluating gates:
+
+```
+1. IDENTIFY the 2-3 most similar precedents to this decision:
+   - Same tier (A/B/C)
+   - Same type of decision (BUY/ADD/SELL/TRIM)
+   - Same sector or similar business model
+   - Similar MoS range
+
+2. EXTRACT from each precedent:
+   - What MoS was accepted and why?
+   - What sizing was used and why?
+   - What kill conditions were set?
+   - Did the decision work out? (check if position is still active or was sold)
+
+3. DOCUMENT in the committee_decision.md:
+   "Precedentes consultados:
+    - [TICKER1]: [tier], [MoS]%, [sizing]%, [outcome]. Relevance: [why similar]
+    - [TICKER2]: [tier], [MoS]%, [sizing]%, [outcome]. Relevance: [why similar]
+    If I deviate from these precedents: [explain WHY the context justifies it]"
+
+4. If NO similar precedent exists: document that this is a novel decision
+   and be MORE conservative (higher MoS, smaller sizing) as a result.
+```
+
+**The purpose is NOT to copy precedents mechanically — it is to ensure CONSISTENCY in reasoning. If I accept 15% MoS for a Tier B company here but rejected 18% MoS for a similar Tier B before, I must explain the difference.**
 
 ---
 

@@ -1,6 +1,6 @@
 # Sector: Utilities (European)
 
-> Última actualización: 2026-02-04
+> Última actualización: 2026-02-08
 > Status: SOBREPONDERAR (selectivo en integradas con exposición renovables)
 
 ## Resumen Ejecutivo
@@ -99,7 +99,7 @@ Las utilities integradas (generación + distribución + retail) como A2A, Enel y
 ### Para análisis profundo
 | Ticker | Razón | Priority |
 |--------|-------|----------|
-| A2A.MI | Ya en portfolio. MS top pick, 11x P/E, 4.2% yield, TSR 12% | HOLD |
+| A2A.MI | SOLD 2026-02-08. Adversarial: QS 37, ROIC -3.0pp, FV inflated 24% | ARCHIVED |
 | ENEL.MI | Líder renovables, CMD Feb 23. FV €11-12, entry €8.50 | Media |
 | ENGI.PA | Yield 6.6%, diversificada, earnings Feb 28 | Media |
 | IBE.MC | US exposure via Avangrid, premium justified? | Baja |
@@ -113,41 +113,13 @@ Las utilities integradas (generación + distribución + retail) como A2A, Enel y
 
 ---
 
-## Nuestra Posición: A2A.MI
+## Posiciones Históricas
 
-**Datos actuales:**
-- Shares: 134
-- Avg cost: €2.54
-- Current: ~€3.02
-- P&L: +1%
-- Allocation: 3.6%
-
-**Thesis status:** HOLD
-- P/E 11x vs 13x peers = undervalued
-- Yield 4.2% > BTP 3.4% = attractive spread
-- MS price target €3.25 = 8% upside + 4% yield = 12% TSR
-- Waste-to-energy provides hedge + circular economy theme
-
-**Kill conditions:**
-- Dividend cut
-- Debt/EBITDA >4x
-- Italian regulatory change negative
-- FCF yield <3% post-capex
-
----
-
-## Sub-Sector: Energy (Oil & Gas)
-
-Tenemos SHEL.L en portfolio. Energy es distinto de utilities tradicionales.
-
-**Status:** NEUTRAL (exposed to commodity volatility)
-
-**SHEL.L position:**
-- Shares: 10.85
-- Allocation: 3.6%
-- P&L: +4%
-
-Shell está well-managed pero commodity-dependent. Mantener como hedge inflación/geopolítica pero no incrementar exposición >5%.
+### A2A.MI (SOLD 2026-02-08)
+- **Entry:** 134 shares @ EUR 2.54, invested ~EUR 343
+- **Exit:** EUR 2.54, P&L: -1.5% (EUR -5)
+- **Reason:** Adversarial review - QS 37 Tier C (thesis claimed Tier A). ROIC -3.0pp (destroying value). EBIT overstated 25%. FV inflated 24% (thesis EUR 2.70 vs adversarial EUR 2.04). MoS -24.5%.
+- **Lesson:** Thesis self-assigned quality tier must match quality_scorer.py. ROIC < WACC = exit signal. DDM unreliable when FCF is negative.
 
 ---
 
@@ -167,6 +139,7 @@ Shell está well-managed pero commodity-dependent. Mantener como hedge inflació
 | Fecha | Cambio | Razón |
 |-------|--------|-------|
 | 2026-02-04 | Status inicial: SOBREPONDERAR | Valuaciones atractivas, yield spread positivo, exposición estructural a electrificación |
+| 2026-02-08 | A2A.MI SOLD | Adversarial review: QS 37 Tier C, ROIC -3.0pp, FV inflated 24%. Position closed. |
 
 ---
 

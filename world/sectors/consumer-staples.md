@@ -20,9 +20,11 @@ Consumer Staples es el sector defensivo por excelencia: alimentos, bebidas, taba
 - Entorno macroeconomico incierto favorece defensivos si hay shock
 
 **Nuestras posiciones actuales:**
-- IMB.L (Imperial Brands) - Tobacco, P/E ~9x fwd, yield 5.3%
-- DOM.L (Domino's Pizza UK) - QSR franchise, caido 40% 52w, yield 6.4%
-- TATE.L (Tate & Lyle) - Food ingredients, caido ~40% desde maximos
+- DOM.L (Domino's Pizza UK) - QS 61 Tier B, FV 240 GBp. FY25 results Mar 5.
+
+**Vendidas:**
+- IMB.L (Imperial Brands) - SOLD 2026-02-10 (+6.9%). QS 54 Tier C, MoS -14.6%.
+- TATE.L (Tate & Lyle) - SOLD 2026-02-08 (+3.5%). QS 45 Tier C, adversarial FV -40%.
 
 ---
 
@@ -266,9 +268,9 @@ Consumer Staples es el sector defensivo por excelencia: alimentos, bebidas, taba
 
 | Tipo | Ticker | Thesis Path | Ultima Eval | Status |
 |------|--------|-------------|-------------|--------|
-| Portfolio | IMB.L | thesis/active/IMB.L | 2026-02-03 | HOLD |
+| Historial | IMB.L | thesis/archive/IMB.L | 2026-02-10 | SOLD +6.9%. QS 54 Tier C, MoS -14.6%. |
 | Portfolio | DOM.L | thesis/active/DOM.L | 2026-02-02 | REVIEW |
-| Portfolio | TATE.L | thesis/active/TATE.L | 2026-02-03 | HOLD |
+| Historial | TATE.L | thesis/archive/TATE.L | 2026-02-08 | SOLD +3.5%. QS 45 Tier C, adversarial FV -40%. |
 | Watchlist | GIS | thesis/research/GIS | 2026-02-04 | Entry $35-38 |
 | Watchlist | BATS.L | thesis/research/BATS.L | 2026-02-04 | Entry 4000-4200 GBp |
 | Watchlist | RI.PA | thesis/research/RI.PA | 2026-02-04 | Entry EUR 55-60 |
@@ -281,11 +283,11 @@ Consumer Staples es el sector defensivo por excelencia: alimentos, bebidas, taba
 
 ### Posiciones Actuales
 
-**IMB.L (Imperial Brands):**
-- MANTENER - P/E 9x fwd, yield 5.3%, beta 0.15 (ultra-defensivo)
-- Thesis intacta: cash cow, buybacks, ESG outflows crean oportunidad
-- Risk: regulacion, volumenes declining
-- Sizing: OK como posicion defensiva
+**IMB.L (Imperial Brands) — SOLD 2026-02-10 (+6.9%):**
+- Adversarial review: QS 54 Tier C (thesis claimed Tier A 9.5/10)
+- FV revised 3,701→2,796p (-24.4%), MoS -14.6% at exit
+- Key gaps: $400M HMRC payment, UK generational ban, dividend cut history (2016)
+- Lesson: excise tax pass-through inflates revenue but distorts quality metrics
 
 **DOM.L (Domino's Pizza UK):**
 - REVISAR - Caido 40%, yield 6.4%, pero forward P/E alto (993x?)
@@ -314,8 +316,8 @@ Consumer Staples es el sector defensivo por excelencia: alimentos, bebidas, taba
    - **Tier B (4/10 value trap factors)** - requires 25% MoS
    - Current MoS: 12-17% vs blended FV 5163 GBp
    - **Entry target: 4000-4200 GBp** (~10% below current)
-   - Tobacco concentration risk: already own IMB.L at 5.4%
-   - IMB.L is better value (cheaper, simpler, ROIC > WACC)
+   - IMB.L sold 2026-02-10 — no tobacco concentration risk anymore
+   - If entry 4000-4200p, could be sole tobacco position
 
 3. **Pernod Ricard (RI.PA)** - WATCHLIST (Analizado 2026-02-04)
    - P/E 12.4x, yield 6.2%, #2 global spirits

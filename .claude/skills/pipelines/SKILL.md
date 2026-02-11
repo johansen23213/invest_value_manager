@@ -131,8 +131,31 @@ FVs inflados, riesgos omitidos y errores factuales (como se demostro con DNLM.L:
 | 4 | Auditar tools por reglas hardcodeadas | Orchestrator/grep | tools/*.py, skills/*.md | Issues encontrados |
 | 5 | Verificar sector views staleness | Orchestrator | world/sectors/*.md timestamps | Sectors >30 dias flagged |
 | 6 | Verificar thesis completas | `health-check` agent | thesis/active/ | Missing conviction/exit_plan |
+| 7 | Check system_challenge.md staleness | Orchestrator | state/system_challenge.md | Flag si >35 dias |
 
 **Condicion de salida:** Health score calculado. Issues corregidos o documentados.
+
+---
+
+### 6b. `system-challenge` | MENSUAL (cada 4 semanas)
+
+**Objetivo:** Cuestionar las asunciones SISTÉMICAS, no empresas individuales.
+
+| Paso | Accion | Ejecutor | Input | Output |
+|------|--------|----------|-------|--------|
+| 1 | Recopilar datos: world view, FER, QS batch, coverage | Orchestrator | Multiple tools | Data package |
+| 2 | Buscar mejor argumento contrario al world view | WebSearch | Contrarian views | Counter-evidence |
+| 3 | Lanzar devil's-advocate en SYSTEM CHALLENGE MODE | `devil's-advocate` agent | Data package + skill | Challenge report |
+| 4 | Integrar: ¿qué asunciones son incorrectas? | Orchestrator | Challenge report | state/system_challenge.md |
+| 5 | Implementar cambios si asunción invalidada | Orchestrator | Challenge findings | World view, strategy updates |
+
+**Skill:** `.claude/skills/system-devils-advocate/SKILL.md`
+
+**5 áreas obligatorias:** World view, Strategy, Sector coverage, Portfolio assumptions, Process effectiveness.
+
+**Trigger alternativo:** Cuando el humano pregunta "¿qué está mal?" → ejecutar inmediatamente.
+
+**Condicion de salida:** 5 asunciones cuestionadas con evidencia. Acciones tomadas o documentadas.
 
 ---
 

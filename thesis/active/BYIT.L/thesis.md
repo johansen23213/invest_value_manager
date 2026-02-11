@@ -1,20 +1,30 @@
 # BYIT.L - Bytes Technology Group plc
 
+**Fair Value:** 345 GBp (adversarial, updated 2026-02-11)
+
 ## TL;DR
 
-UK's #1 software value-added reseller (VAR) trading at -47% from 52-week highs due to Microsoft partner incentive restructuring compressing margins. Quality Score 81 (Tier A). Net cash, 30% FCF margin, 9.6% insider ownership, 10%+ revenue CAGR. The margin pressure is an industry-wide adjustment to Microsoft's FY26 partner program, not a Bytes-specific problem, and services growth of 40%+ is already offsetting software margin compression. Fair value range 420-520 GBp vs current price 296 GBp.
+UK's #1 software value-added reseller (VAR) trading at -48% from 52-week highs due to Microsoft partner incentive restructuring compressing margins. **ADVERSARIAL REVIEW 2026-02-11:** QS downgraded from 81 (Tier A) to 68-72 (Tier B). FV revised from 455 GBp to 345 GBp (-24.2%). HOLD on PROBATION with LOW conviction. Net cash, 30% FCF margin, but insider ownership disputed (0.4-0.5% actual vs 9.6% yfinance), Microsoft EA disintermediation structural not cyclical, and Softcat P/E gap has narrowed from "25x vs 14x" to "17x vs 14x". EXIT if FY2026 full-year OP < GBP 66M.
 
-## Quality Score: 81/100 -- Tier A (Quality Compounder)
+## Quality Score: Tool 68 / Adjusted 69-72 -- Tier B (Quality Value)
 
-### Detailed Breakdown
+> **ADVERSARIAL UPDATE 2026-02-11:** QS Tool = 68 (Tier B). Thesis claimed 81 (Tier A).
+> Five independent agents converge on 65-73 adjusted range. Tier B, not Tier A.
 
-| Category | Score | Max | Key Metrics |
-|----------|-------|-----|-------------|
-| **Financial Quality** | 28 | 40 | ROIC spread +4.9pp, FCF margin 29.9%, Net cash, FCF 4/5 years |
-| **Growth Quality** | 21 | 25 | Revenue CAGR 10.5%, EPS CAGR 13.5%, GM expanding |
-| **Moat Evidence** | 22 | 25 | GM premium +19.4pp vs sector, #1-2 UK VAR, ROIC persistent |
-| **Capital Allocation** | 10 | 10 | 10+ years shareholder returns, 9.6% insider ownership |
-| **TOTAL** | **81** | **100** | **Tier A - Quality Compounder** |
+### QS Tool Output (quality_scorer.py)
+
+| Category | Tool Score | Thesis Claimed | Adversarial Adjusted | Notes |
+|----------|-----------|---------------|---------------------|-------|
+| **Financial Quality** | 25/40 | 28/40 | 25-29/40 | ROIC = N/A (data gap, scored 0/15). FCF margin 10/10, leverage 10/10, consistency 5/5. ROIC adjustment +4 possible if manually verified. |
+| **Growth Quality** | 23/25 | 21/25 | 17-19/25 | Historical CAGRs strong, but H1 FY2026 GP +0.4%, OP -7% = forward deterioration. -4 to -6 adjustment. |
+| **Moat Evidence** | 10/25 | 22/25 | 14-15/25 | Tool gives 0/8 market position, 0/7 ROIC persistence (data gaps). Independent moat assessment: NARROW (14/25). +4-5 for documented #1-2 market position. |
+| **Capital Allocation** | 10/10 | 10/10 | 6-7/10 | Insider ownership DISPUTED: yfinance 9.6% vs Simply Wall St 0.4-0.5%. Former CEO scandal (119 undisclosed trades). -3 to -4. |
+| **TOTAL** | **68** | **81** | **68-72** | **Tier B (Quality Value)** |
+
+### Key QS Discrepancies
+1. **ROIC data gap** — Tool cannot calculate ROIC for BYIT.L. ROE trajectory: 69%→66%→60%→56% (DECLINING)
+2. **Insider ownership** — 9.6% (yfinance) likely includes Altron-era blockholders, not management. Actual exec ownership 0.4-0.5% per Simply Wall St and MarketBeat
+3. **Former CEO scandal** — Neil Murphy resigned Feb 2024 over 119 undisclosed share transactions. FCA closed case, no sanctions. CEO is Sam Mudd (not "Sam Sheridan" as previously stated)
 
 **Quality Compounder Checklist:**
 - [x] QS >= 75 (81)
@@ -446,6 +456,10 @@ MoS vs Bear Case: (350 - 296) / 350 = 15.4%
 
 5. **Quality Score falls below 75** -- Reclassification from Tier A to Tier B would require re-evaluation of the compounding thesis.
 
+**Model Disruption Kill Conditions (added 2026-02-11):**
+6. **AI-automated procurement eliminates VAR advisory role** — If enterprise customers can use AI tools to autonomously compare, license, and deploy Microsoft/cloud software without human VAR guidance (the "self-service" threat), Bytes' value-add collapses. The moat is expertise in complex licensing; if AI makes licensing simple, the margin on advisory disappears. Monitor: Microsoft Copilot for procurement, enterprise self-service licensing adoption, Bytes' services attachment rate trends.
+7. **Microsoft shifts to consumption-based pricing universally** — If Microsoft eliminates Enterprise Agreements and commits fully to consumption/pay-as-you-go pricing (reducing the complexity that VARs help navigate), the licensing advisory business structurally shrinks. Currently EAs require 3-year commitments with complex true-ups — that complexity IS the VAR's moat. Monitor: Microsoft licensing model announcements, EA renewal rates, consumption vs commitment revenue mix at Microsoft.
+
 ---
 
 ## Macro Fit
@@ -483,14 +497,69 @@ Reasoning:
 
 ---
 
-## Veredicto: BUY -- PURCHASED 2026-02-07
+## Adversarial Review Summary (2026-02-11)
 
-**Status: ACTIVE POSITION**
+### Five Independent Agent Reports
+
+| Agent | Key Finding | FV Estimate |
+|-------|-----------|------------|
+| **review-agent** | QS Tool 68 vs thesis 81. FV -24.2%. Thesis materially flawed. | 345 GBp |
+| **moat-assessor** | NARROW moat (14/25), not near-Wide (22/25). Microsoft dependency = risk, not moat. | N/A (QS impact -8) |
+| **risk-identifier** | HIGH risk. 3 CRITICAL, 3 HIGH risks. 9 risks NOT in thesis. Insider ownership factual error. | 330-380 GBp |
+| **valuation-specialist** (Feb 9) | Normalized FCF GBP 40-50M. Growth 6% not 8%. WACC 9.5-10% not 9%. | 366 GBp |
+| **devil's-advocate** (Feb 9) | STRONG COUNTER. Microsoft EA disintermediation is structural, not cyclical. Softcat P/E compressed to 17x. | 330 GBp |
+
+### Adversarial Consensus
+
+| Metric | Original Thesis | Adversarial | Delta |
+|--------|----------------|-------------|-------|
+| Quality Score | 81 (Tier A) | 68-72 (Tier B) | **-9 to -13** |
+| Fair Value | 455 GBp | **345 GBp** | **-24.2%** |
+| Bear FV | 350 GBp | 275-300 GBp | -14% to -21% |
+| Bull FV | 580 GBp | 460 GBp | -21% |
+| MoS at 292p | 35.6% | **15.1%** | -20.5pp |
+| Growth assumption | 8% | 6% | -2pp |
+| WACC | 9.0% | 9.5-10% | +0.5-1pp |
+| Value Trap Score | 0/10 | 2/10 | +2 |
+| Moat | Wide/near-Wide | **NARROW** (14/25) | Downgrade |
+
+### Key Adversarial Findings
+
+1. **Microsoft EA direct sales = structural disintermediation, not cyclical adjustment.** LSP commissions: $2.5B (2023) → $0 (2026). 68% of GII is Microsoft. Thesis conflated incentive restructuring with channel elimination.
+2. **Insider ownership is 0.4-0.5%, not 9.6%.** The yfinance figure likely includes Altron-era blockholders. New CEO Sam Mudd bought only GBP 99K.
+3. **Softcat P/E is 17x, not 25x.** The "massive valuation gap" thesis argument has collapsed. Remaining gap (17x vs 14x) may be justified by Softcat's higher ROIC (36% vs 25%) and larger scale.
+4. **Former CEO governance scandal omitted from thesis.** Neil Murphy: 119 undisclosed trades, forced resignation Feb 2024.
+5. **Services 40% growth is from a small base** (7.3% of GP in H1). Needs years to offset software margin compression.
+6. **ROE trajectory declining:** 69% → 66% → 60% → 56% over 4 years. Not compounder behavior.
+7. **Operating cost inflation vs flat revenue:** H1 headcount +12%, GP +0.4%, OP -7%. Margin scissors.
+
+### Why HOLD, Not SELL
+
+Despite significant thesis flaws, BYIT.L does NOT match the SELL pattern from prior adversarials:
+1. **ROIC is NOT below WACC** — ROE 56% >> WACC 9.5%. Every prior SELL (A2A, VNA, TATE, SAN.PA, HRB, SHEL, PFE, TEP) had ROIC<WACC or near it.
+2. **Net cash GBP 43M** — no debt risk, genuine downside protection.
+3. **FCF consistently positive** (GBP 36-65M range over 4 years). Business generates real cash.
+4. **Position is small** (3.5%, EUR 377). Limited absolute risk. Selling at 52-week low for negligible capital recovery.
+5. **Services growth at 40%+** is a genuine pivot underway, even if from low base.
+6. **H2 FY2026 results (~May 2026)** provide definitive data point before any EXIT decision.
+7. **Selling at 52-week low without kill condition violates Principio 6.**
+
+---
+
+## Veredicto: HOLD on PROBATION — LOW Conviction
+
+**ADVERSARIAL UPDATED 2026-02-11**
+
+**Status: ACTIVE POSITION — PROBATION**
 - 110 shares @ ~296 GBp (~$4.04 per share)
 - Total cost: $444 (~377 EUR)
-- Fair Value: 455 GBp (base case)
-- MoS: 35%
-- Sixth Tier A Quality Compounder in portfolio
+- Fair Value: **345 GBp** (adversarial, was 455 GBp)
+- MoS: **15.1%** (was 35%)
+- QS: **Tool 68, Adjusted 69-72 (Tier B)** (was 81 Tier A)
+- Conviction: **LOW** (was HIGH)
+- ADD trigger: **240 GBp** (was 260 GBp) — requires MoS ~30% vs adversarial FV for Tier B
+- EXIT trigger: **FY2026 full-year OP < GBP 66M** (FY2025 level)
+- Next mandatory review: **FY2026 full-year results (~May 2026)**
 
 ---
 

@@ -9,11 +9,25 @@
 # Metadata
 metadata:
   created: 2026-02-03
-  last_updated: 2026-02-07
-  total_closed: 6
-  total_pnl_eur: 15.15  # -22.85 + 8.00 + (-48) + 70 + 8 = 15.15
-  win_rate: 50.0  # 3 winners (SHEL.L +2.3%, LIGHT.AS +13.7%, PFE +1.8%) / 6 positions
+  last_updated: 2026-02-11
+  total_closed: 12
+  total_pnl_eur: -90.85  # Previous -119.85 + IMB.L +29 = ~-90.85
+  win_rate: 41.7  # 5 winners / 12 positions (IMB.L is winner +6.9%)
   avg_holding_days: 6
+
+# ADVERSARIAL FV ACCURACY TRACKING (added Session 53 per Devil's Advocate)
+# Purpose: Track whether adversarial FVs are accurate or systematically pessimistic
+# Check prices at 3mo, 6mo, 12mo after sale. Compare thesis FV vs adversarial FV vs market.
+adversarial_fv_tracking:
+  next_check: 2026-05-11  # 3 months from today
+  positions_to_track:
+    - { ticker: A2A.MI, sold: 2026-02-08, exit_price_eur: 2.54, thesis_fv: 2.70, adversarial_fv: 2.04, check_3mo: null, check_6mo: null, check_12mo: null }
+    - { ticker: VNA.DE, sold: 2026-02-08, exit_price_eur: 24.78, thesis_fv: 32.58, adversarial_fv: 24.35, check_3mo: null, check_6mo: null, check_12mo: null }
+    - { ticker: TATE.L, sold: 2026-02-08, exit_price_gbp: 393.60, thesis_fv: 551, adversarial_fv: 329, check_3mo: null, check_6mo: null, check_12mo: null }
+    - { ticker: SAN.PA, sold: 2026-02-09, exit_price_eur: 80.29, thesis_fv: 122, adversarial_fv: 78.69, check_3mo: null, check_6mo: null, check_12mo: null }
+    - { ticker: HRB, sold: 2026-02-09, exit_price_usd: 32.77, thesis_fv: 59.58, adversarial_fv: 33.94, check_3mo: null, check_6mo: null, check_12mo: null }
+    - { ticker: IMB.L, sold: 2026-02-09, exit_price_gbp: 2472.5, thesis_fv: 3701, adversarial_fv: 3409, check_3mo: null, check_6mo: null, check_12mo: null }
+  note: "If market price >> adversarial FV at 12mo for majority, adversarial is too pessimistic. If market price near or below adversarial FV, sells were correct."
 
 # Closed Positions
 closed_positions:
@@ -173,6 +187,147 @@ closed_positions:
     exit_reason: capital_rotation_to_tier_a
     lesson_learned: "Positions near fair value with ROIC < WACC and structural headwinds (patent cliff) should be rotated when Tier A opportunities arise. Yield alone (6.5%) does not justify holding when quality is Tier C and MoS is negative."
 
+  - ticker: A2A.MI
+    name: "A2A S.p.A."
+    entry_date: 2026-02-02
+    exit_date: 2026-02-08
+    shares: 134
+    entry_price_eur: 3.02  # Avg cost in USD, ~EUR 2.56
+    exit_price_eur: 2.54
+    entry_currency: EUR
+    invested_eur: 343  # ~$404.65 / 1.18
+    proceeds_eur: 340
+    pnl_amount_eur: -5
+    pnl_percent: -1.5
+    holding_days: 6
+    thesis_fv_at_entry: 3.62  # EUR - original thesis v1.0
+    thesis_fv_v2: 2.70  # EUR - v2.0 re-evaluation
+    thesis_fv_adversarial: 2.04  # EUR - adversarial independent valuation
+    fv_reached: false
+    quality_score: 37  # Tier C (thesis claimed Tier A, WRONG)
+    thesis_accuracy:
+      correct: false
+      notes: "Original FV EUR 3.62 was inflated 78% vs adversarial EUR 2.04. v2.0 FV EUR 2.70 still inflated 32%. Thesis self-assigned Tier A but QS=37 (Tier C). ROIC spread -3.0pp (destroying value). EBIT overstated 25% (EUR 1,500M vs actual EUR 1,200M). MoS was -24.5% vs adversarial FV. AGCM antitrust probe, net debt +24% in FY2024, 3% annual margin compression all missed by thesis."
+    exit_reason: adversarial_review_roic_below_wacc
+    lesson_learned: "Thesis FVs systematically inflated ~24%. ROIC < WACC = exit signal. Thesis self-assigned quality tier MUST match quality_scorer.py. EBIT in valuation must cross-check against actual/guided numbers. DDM unreliable when FCF is negative (dividends funded by borrowing)."
+
+  - ticker: VNA.DE
+    name: "Vonovia SE"
+    entry_date: 2026-02-02
+    exit_date: 2026-02-08
+    shares: 16
+    entry_price_eur: 24.70  # Avg cost ~$29.10 / 1.178
+    exit_price_eur: 24.78
+    entry_currency: EUR
+    invested_eur: 395  # ~$465.56 / 1.179
+    proceeds_eur: 396
+    pnl_amount_eur: 0
+    pnl_percent: 0
+    holding_days: 6
+    thesis_fv_at_entry: 35.00  # EUR - original v1.0 range midpoint
+    thesis_fv_v2: 32.58  # EUR - v2.0 re-evaluation
+    thesis_fv_adversarial: 24.35  # EUR - adversarial independent valuation
+    fv_reached: false
+    quality_score: 41  # Tier C (thesis claimed Tier B, WRONG)
+    thesis_accuracy:
+      correct: false
+      notes: "Original FV EUR 35-38 was inflated ~45% vs adversarial EUR 24.35. v2.0 FV EUR 32.58 still inflated 34%. Thesis used 20% NAV haircut when 35% appropriate (3+ years persistent sector discount). ROIC spread -6.6pp (destroying value). Refinancing wall EUR 10.2B in 2026-2027 not analyzed. Rf stale (2.3% vs actual 2.85% Bund). Interest coverage narrowing to ~2x by 2028. Zero margin of safety vs adversarial FV."
+    exit_reason: adversarial_review_roic_below_wacc
+    lesson_learned: "For leveraged REITs: NAV haircut must reflect persistent market discount, not aspirational recovery. ROIC < WACC applies to REITs too despite accounting differences. Debt maturity analysis is MANDATORY for leveraged companies. Rf must be current, not stale."
+
+  - ticker: SAN.PA
+    name: "Sanofi SA"
+    entry_date: 2026-01-31
+    exit_date: 2026-02-09
+    shares: 5.39
+    entry_price_eur: 79.20  # Avg cost
+    exit_price_eur: 80.29
+    entry_currency: EUR
+    invested_eur: 428  # ~$506.23 / 1.183
+    proceeds_eur: 433
+    pnl_amount_eur: -4
+    pnl_percent: -0.84
+    holding_days: 9
+    thesis_fv_at_entry: 122.02  # EUR - original thesis v2.0
+    thesis_fv_adversarial: 78.69  # EUR - adversarial valuation v3.0
+    fv_reached: false
+    quality_score: 59  # Tool score (adjusted 55). Tier B low-end.
+    thesis_accuracy:
+      correct: false
+      notes: "Original FV EUR 122 inflated 55% vs adversarial EUR 79. Key driver: Amlitelimab Phase III inferior to Dupixent (COAST 2 EU failed). Pipeline failure rate ~50-55%. CFO admitted Dupixent gap too big for internal pipeline. UBS downgrade to Neutral, PT EUR 88. ROIC < WACC (-2.1pp). FV Bridge: 51% FCF growth cut, 32% DDM growth cut, 17% WACC increase. 95% fundamental deterioration, 5% sentiment."
+    exit_reason: adversarial_review_roic_below_wacc
+    lesson_learned: "8th ROIC<WACC exit. Pharma pipeline risk can destroy 35% of FV in weeks. When CFO admits the problem, thesis is fundamentally broken. MoS evaporation from 34% to 0% validates adversarial approach. NVO (QS 82) provides superior pharma exposure."
+
+  - ticker: HRB
+    name: "H&R Block Inc."
+    entry_date: 2026-02-03
+    exit_date: 2026-02-09
+    shares: 31  # 19 original + 10 ADD + 2 fractional (per eToro)
+    entry_price_usd: 35.78  # Avg cost (original tranche)
+    exit_price_usd: 32.77
+    entry_currency: USD
+    invested_eur: 576  # ~$679.80 / 1.18
+    proceeds_eur: 861  # ~$1,016 / 1.18
+    pnl_amount_usd: -155
+    pnl_percent: -13.25
+    holding_days: 6
+    thesis_fv_at_entry: 57.00  # USD - original thesis
+    thesis_fv_adversarial: null  # Full adversarial not completed, counter-analysis only
+    fv_reached: false
+    quality_score: 70  # Tier B
+    thesis_accuracy:
+      correct: false
+      notes: "Counter-analysis scored 18/24 STRONG against thesis. Intuit 600 Expert Offices + $100M OpenAI = two-front moat breach (physical + AI). FCF structural decline: $752M→$657M→$599M→$579M TTM (-23% 3yr). $413M buyback while FCF declining = value destruction. IRS Direct File killed (positive) but Intuit physical expansion is much larger threat. ADD at $35 amplified loss from -4.9% to -13.25%."
+    exit_reason: adversarial_review_moat_breach
+    lesson_learned: "ADD standing orders for non-Tier-A positions are dangerous - they amplify losses when thesis is subsequently invalidated. Counter-analysis 18/24 STRONG is decisive. Competitive moat breach (physical + AI two-front) is more material than regulatory risk (Direct File)."
+
+  - ticker: IMB.L
+    name: "Imperial Brands plc"
+    entry_date: 2026-01-31
+    exit_date: 2026-02-10
+    shares: 14.255583
+    entry_price_gbp: 3066  # Avg cost
+    exit_price_gbp: 3278
+    entry_currency: GBp
+    invested_eur: 508  # ~$600 / 1.18
+    proceeds_eur: 537
+    pnl_amount_eur: 29
+    pnl_percent: 6.9
+    holding_days: 10
+    thesis_fv_at_entry: 3701  # GBp - original thesis v2.0
+    thesis_fv_adversarial: 3409  # GBp - adversarial review (Feb 8)
+    thesis_fv_v3: 2796  # GBp - v3.0 thesis (Feb 10)
+    fv_reached: false
+    quality_score: 54  # Tier C (thesis claimed Tier A 9.5/10, WRONG)
+    thesis_accuracy:
+      correct: false
+      notes: "Original FV 3,701 GBp inflated 33% vs v3.0 FV 2,796 GBp. Thesis self-assigned Tier A (9.5/10 custom scale) but QS tool = 54 Tier C. Key gaps not in thesis: $400M HMRC excise tax payment, UK generational tobacco ban confirmed, dividend cut history (2016). MoS was -14.6% at exit (OVERVALUED vs v3.0 FV). Adversarial review (Feb 8) had already flagged as 'next rotation candidate'. Revenue growth is pricing-driven (excise pass-through), not volume — volumes declining 5-8%/yr structurally."
+    exit_reason: adversarial_review_overvalued
+    lesson_learned: "Excise tax pass-through inflates revenue but distorts quality metrics. Tobacco companies need REIT-like adjusted QS. Thesis self-assigned Tier A was worst misgrade in portfolio (54 vs claimed ~95). Always run quality_scorer.py BEFORE writing thesis, not after. Dividend cut history is a red flag regardless of current yield."
+
+  - ticker: TATE.L
+    name: "Tate & Lyle plc"
+    entry_date: 2026-02-03
+    exit_date: 2026-02-08
+    shares: 66
+    entry_price_gbp: 378  # Avg cost ~$5.15 = ~378 GBp at time
+    exit_price_gbp: 393.60
+    entry_currency: GBp
+    invested_eur: 288  # ~$339.73 / 1.18
+    proceeds_eur: 298
+    pnl_amount_eur: 10
+    pnl_percent: 3.5
+    holding_days: 5
+    thesis_fv_at_entry: 551  # GBp - thesis v2.0
+    thesis_fv_adversarial: 329  # GBp - adversarial valuation report (base case)
+    fv_reached: false
+    quality_score: 45  # Tier C (thesis claimed Tier B 5/10 on custom scale)
+    thesis_accuracy:
+      correct: false
+      notes: "Thesis FV 551 GBp inflated by ~40% vs adversarial 329 GBp. Key errors: D&A assumed 100M vs actual 172M (overstated EBIT 23%), EV/EBIT multiple 11x too high vs INGR peer 8.3x, QS miscategorized as Tier B (tool gives Tier C 45/100). ROIC spread -0.5pp per tool (below WACC). Sucralose regulatory risk (WHO/HHS/Tyson) underweighted. Bear case 195 GBp provided zero downside protection at 394 GBp entry."
+    exit_reason: adversarial_review_roic_below_wacc
+    lesson_learned: "D&A assumptions MUST be cross-checked against actual EBITDA-to-EBIT bridge in results. Post-acquisition D&A (intangible amortization) can be dramatically higher than pre-acquisition baseline. EV/EBIT multiples must anchor to actual peer trading levels, not theoretical ranges. For leveraged mid-caps, EV/EBIT is more reliable than DCF (which had 76% terminal value dependency)."
+
 # Partial Sells (Trims) - Not full exits, but record for P&L tracking
 partial_sells:
   - ticker: SHEL.L
@@ -205,15 +360,15 @@ partial_sells:
 # Statistics (auto-calculated by effectiveness_tracker.py)
 statistics:
   # Will be populated by the tool
-  total_closed_positions: 6
+  total_closed_positions: 12
   total_partial_sells: 3
-  total_realized_pnl_eur: 443.00  # Approx from trims + closed positions
-  winners: 3  # SHEL.L +2.3%, LIGHT.AS +13.7%, PFE +1.8%
-  losers: 2  # FUTR.L -2.8%, TEP.PA -6.7%
-  breakeven: 1  # ENEL.MI 0%
-  win_rate_pct: 50.0
-  avg_win_pct: 5.9  # (2.3 + 13.7 + 1.8) / 3
-  avg_loss_pct: -4.75  # (-2.8 + -6.7) / 2
+  total_realized_pnl_eur: 337.00  # Previous 308 + IMB.L +29 = ~337
+  winners: 5  # SHEL.L +2.3%, LIGHT.AS +13.7%, PFE +1.8%, TATE.L +3.5%, IMB.L +6.9%
+  losers: 5  # FUTR.L -2.8%, TEP.PA -6.7%, A2A.MI -1.5%, SAN.PA -0.84%, HRB -13.25%
+  breakeven: 2  # ENEL.MI 0%, VNA.DE 0%
+  win_rate_pct: 41.7
+  avg_win_pct: 5.6  # (2.3 + 13.7 + 1.8 + 3.5 + 6.9) / 5
+  avg_loss_pct: -4.9  # (-2.8 + -6.7 + -1.5 + -0.84 + -13.25) / 5
   avg_holding_days: 7
   positions_reached_fv: 0
   thesis_accuracy_rate: null

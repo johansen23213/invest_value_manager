@@ -1,84 +1,92 @@
 # Allstate Corporation (ALL)
 
-> Actualizado: 2026-02-03 (Re-evaluación Framework v2.0)
-> Status: HOLD - MODERATELY UNDERVALUED
-> Confianza: MEDIA-ALTA
+> Actualizado: 2026-02-08 (Adversarial Review v4.0)
+> Status: HOLD ON PROBATION
+> Confianza: LOW
+> Quality Score: 56/100 (Tier B)
+
+**Fair Value:** $234 (adversarial, was $240 thesis)
 
 ## TL;DR
 
-Allstate es el #2 en seguros de hogar US y #4 en auto, cotizando a P/E 6.5x con ROE 37% y combined ratio 80% (Q3 2025). **Re-evaluación v2.0:** Fair value $240, MoS 16% (bajó de 21% por subida de precio). Value trap checklist: 0-1 factores (OK). Valoración P/B vs ROE confirma thesis. HOLD posición actual, esperar earnings 5-feb antes de añadir.
-
-**STATUS:** HOLD - Earnings Q4 en 2 días (5-feb-2026)
+Allstate is #2 US homeowners and #4 auto insurer. Q4 2025 earnings were exceptional ($14.31 EPS vs $9.85 consensus, combined ratio 72.9%), but this is PEAK CYCLE. Adversarial review found: QS 56 Tier B (thesis claimed "8/10 Tier A" -- WRONG), normalized ROE 15-18% (not 37%), Arity data privacy litigation completely absent from thesis, Senate claims fraud hearing absent, voluntary 17% rate cuts for 7.8M customers. Independent FV $234, risk-adjusted FV $214. MoS 3-11% -- thin for Tier B. HOLD ON PROBATION because position is tiny (3.5%, $400), freed capital marginal, no specific replacement. Q1 2026 earnings is the decision point.
 
 ---
 
-## Re-Evaluación Framework v2.0 (2026-02-03)
+## Adversarial Review Summary (2026-02-08)
 
-### Value Trap Checklist
+### Quality Score Correction
 
-| Factor | Status | Evidencia |
-|--------|--------|-----------|
-| Industria en declive secular | NO | P&C insurance estable |
-| Disrupción tecnológica | NO | InsurTech threat pero incumbents adaptando |
-| Management destruyendo valor | NO | Turnaround exitoso 2022→2025 |
-| Balance deteriorándose | NO | BV creciendo +20% YoY |
-| Insider selling masivo | ⚠️ MIXTO | CEO vendiendo bajo 10b5-1 plan (pre-planificado) |
-| Dividend cut probable | NO | 33 años consecutivos |
-| Pérdida market share | NO | Estable #2 home, #4 auto |
-| ROIC < WACC | NO | ROE 37% >> WACC ~10% |
-| FCF negativo | NO | Net income $3.7B Q3 |
-| Goodwill >50% equity | NO | Insurance tangible business |
+| Component | Thesis Claimed | Actual Score | Gap |
+|-----------|---------------|-------------|-----|
+| Financial Quality | ~32/40 | 23/40 | -9 pts |
+| Growth Quality | ~20/25 | 13/25 | -7 pts |
+| Moat Evidence | ~20/25 | 14/25 | -6 pts |
+| Capital Allocation | ~8/10 | 6/10 | -2 pts |
+| **TOTAL** | **~80/100 (Tier A)** | **56/100 (Tier B)** | **-24 pts** |
 
-**Resultado:** 0-1/10 factores → NO es value trap
+Key issue: ROIC spread only 0.4pp (barely above WACC). ROE 37% is leverage-amplified and peak-cycle.
 
-### WACC Derivado
+### Fair Value Revision
 
-```
-Risk-Free Rate (Rf): 4.5%
-Beta: 1.0 (insurance is market-like)
-Equity Risk Premium: 5.5%
-Cost of Equity (Ke) = 4.5% + 1.0 × 5.5% = 10.0%
-```
+| Source | Fair Value | MoS at $207.55 |
+|--------|-----------|----------------|
+| Original Thesis | $240 | 13.5% |
+| Independent Valuation (base) | $234 | 11.3% |
+| Risk-adjusted | $214 | 3.1% |
+| Bear case | $166 | -25.0% |
 
-### Valoración Multi-Método
+Methods: P/B vs ROE (60%, normalized ROE 16%, BV $108.45) + P/E normalized (40%, 10x on $23.30 EPS). Excellent convergence ($235 vs $233).
 
-**Método 1: P/B vs ROE (60% peso)** - Apropiado para financieras
-```
-P/B Justified = (ROE - g) / (Ke - g)
-Base Case (ROE 22%): P/B = 3.0x → FV = $80 × 3.0 = $240
-Bear (ROE 15%): P/B = 1.83x → FV = $147
-Bull (ROE 30%): P/B = 4.33x → FV = $347
-```
+### Risks NOT in Original Thesis
 
-**Método 2: P/E Comparativo (40% peso)**
-```
-EPS 2026E: $24 (consensus normalizado)
-P/E Target: 10x (conservative vs sector 12.9x)
-Fair Value: $240
-```
+1. **Arity/Data Privacy Litigation** (CRITICAL) -- TX AG first-ever TDPSA enforcement + class actions, 45M consumers, $7,500/violation theoretical exposure
+2. **Senate hearing on "systematic fraud" in claims handling** (HIGH) -- bipartisan congressional scrutiny
+3. **Voluntary 17% premium cuts for 7.8M customers** (HIGH) -- material margin compression 2026
+4. **Morgan Stanley + TD Cowen downgrades Jan 2026** (MEDIUM)
+5. **Progressive market share surge to 17% vs ALL 10.2%** (MEDIUM) -- gap accelerating
+6. **California wildfire $1.1B exposure (Jan 2025)** not quantified in thesis
 
-**Reconciliación:**
-| Método | Fair Value | Peso | Weighted |
-|--------|-----------|------|----------|
-| P/B vs ROE | $240 | 60% | $144 |
-| P/E (10x) | $240 | 40% | $96 |
-| **WEIGHTED** | | 100% | **$240** |
+### Peak Cycle Evidence
 
-**Precio actual:** $200.76
-**Margen de Seguridad:** **16.4%**
-
-### Comparación: Thesis Original vs v2.0
-
-| Métrica | Original | Framework v2.0 |
-|---------|----------|----------------|
-| Fair Value | $240 | $240 |
-| MoS | 21% | 16.4% |
-| Método | P/E informal | P/B + P/E derivados |
-| Veredicto | "Barata" | Moderadamente undervalued |
-
-**Causa diferencia MoS:** Precio subió de $197.65 → $200.76 (+1.6%)
+- Combined ratio FY2025: 85.2% vs 10-year average ~97%. Not sustainable.
+- ROE FY2025: ~38% vs 10-year median 11.5%, normalized 15-18%
+- Consensus EPS drops 39% from $38 (2025) to $23 (2026)
+- Management guiding mid-90s auto combined ratio for 2026
+- P&C sector entering soft market (2025-2026 transition)
 
 ---
+
+## EXIT Protocol Applied (2026-02-08)
+
+```yaml
+exit_analysis:
+  ticker: ALL
+  date: 2026-02-08
+
+  gates:
+    gate_1_kill_condition: "NO -- None of 5 kill conditions triggered"
+    gate_2_thesis_valid: "DEBILITADA -- QS overstated, peak-cycle profitability, undocumented risks"
+    gate_3_mos_current: "3-11% -- thin for Tier B. Precedent MoS for Tier B: 20-25% typical"
+    gate_4_opportunity_score: "OS ~3.8 vs generic Tier A -- but freed capital ($340) is marginal"
+    gate_5_dead_money: "NO -- up 6% in 12 days, fresh position"
+    gate_6_friction: "~1-2% -- low but meaningful vs tiny position"
+
+  recommendation: "HOLD ON PROBATION"
+
+  rationale: |
+    Thesis debilitated but not invalidated. Position tiny (3.5%, $400).
+    Freed capital ($340) would add to already-large cash pile ($2,715).
+    No specific Tier A alternative that needs this exact capital.
+    Q1 2026 earnings will be decisive for cycle turn assessment.
+    LIGHT.AS precedent (QS 56, SOLD) differs because there was a specific replacement.
+    DTE.DE precedent (QS 48, HOLD) is more similar -- small position, no replacement.
+
+  precedents_consulted:
+    - "LIGHT.AS - QS 56, MoS 8.4%, SOLD for BYIT.L (specific replacement)"
+    - "DTE.DE - QS 48, HOLD MEDIUM (no immediate replacement, similar situation)"
+    - "SHEL.L - QS 36, SOLD for AUTO.L (specific replacement available)"
+```
 
 ---
 
@@ -88,458 +96,179 @@ Fair Value: $240
 
 **Revenue Breakdown (2024):**
 - Property-Liability Insurance: Core business (auto + hogar)
-- Auto Insurance: Fuente principal, #4 US con 10.4% market share
+- Auto Insurance: Fuente principal, #4 US con 10.2% market share
 - Homeowners Insurance: #2 US con 8.9% market share
 - Protection Services: $2.0B revenue anual, 160M policies
 - Investment Income: $3.1B (2024, +24.8% YoY)
 
 **Escala:**
-- Revenue Q3 2025: $17.3B (+5.8% YoY)
-- Annual revenue 2023: $57.09B
-- Premiums earned 2023: $48.43B (+10% YoY)
-- Market cap: ~$54B (P/E 6.3x)
-
-**Distribución:**
-- Multi-channel: Agentes exclusivos + directo + independientes
-- Brand fuerte: "You're In Good Hands With Allstate"
-- 33 años consecutivos pagando dividendos
+- FY2025 Net Income: $10.2B (exceptional)
+- FY2025 EPS: $38.06 (peak cycle)
+- Market cap: ~$54B (P/E 5.5x TTM)
+- Book Value/share: $108.45 (Q4 2025)
 
 **Competidores:**
-1. State Farm (líder)
-2. Progressive (#3 auto, agresivo pricing)
+1. State Farm (leader, private)
+2. Progressive (#3 auto, 17% market share, gaining aggressively)
 3. GEICO (Berkshire, pricing bajo)
-4. Liberty Mutual, USAA, otros
+4. Liberty Mutual, USAA, others
 
 ---
 
 ## Moat
 
-**Rating: NARROW**
+**Rating: NARROW (unchanged)**
 
-**Ventajas competitivas:**
+**Strengths:**
+- Brand Recognition: "You're In Good Hands" + AM Best A+ rating
+- Scale: #2 homeowners, #4 auto, $57B revenue base
+- Distribution: Multi-channel (agents + direct)
+- Data: Arity subsidiary for telematics (BUT under litigation)
 
-1. **Brand Recognition (Fuerte):**
-   - "You're In Good Hands" slogan icónico
-   - AM Best A+ (Superior) rating
-   - 33 años dividendo consecutivo = confianza
-
-2. **Escala (Moderada):**
-   - #2 homeowners, #4 auto
-   - Database propietaria + pricing algorithms
-   - Spread de costes sobre $57B revenue
-
-3. **Distribución Multi-Channel:**
-   - Red de agentes exclusivos
-   - Canales directos
-   - Reach amplio
-
-**Limitaciones del moat:**
-
-❌ **Pricing Power LIMITADO:**
-- P&C insurance es commodity altamente competitivo
-- Progressive/GEICO pricing más bajo típicamente
-- Clientes cambian fácil por precio (comparison tools)
-- Regulatory limitations en pricing
-
-❌ **Switching Costs BAJOS:**
-- Consumidores pueden cambiar aseguradora fácilmente
-- Comparación online trivial (Zebra, Progressive compare, etc)
-- No lock-in contracts largo plazo
-
-❌ **Producto Comoditizado:**
-- Auto insurance es similar entre carriers
-- Diferenciación limitada a servicio/brand
-
-**Conclusión Moat:**
-- Narrow moat por brand + escala
-- NO wide moat como Admiral UK (combined ratio 77% vs industry ~95%)
-- Compensa con ROE 37% y execution mejorada
+**Weaknesses:**
+- Pricing Power LIMITED: P&C insurance is commodity-like
+- Switching Costs LOW: Online comparison trivial
+- Progressive gaining share faster (17% vs 10.2%)
+- Arity competitive advantage at risk from litigation
 
 ---
 
-## Financials
+## Financials (Updated Q4 2025)
 
-| Métrica | Valor Actual | vs 5Y avg | vs Peers | Comentario |
-|---------|--------------|-----------|----------|------------|
-| **P/E (TTM)** | 6.3x | Bajo | Sector 12.9x | **73% DESCUENTO vs peers** |
-| **P/B** | 2.59x | Normal | - | Book value $75-83/share |
-| **ROE** | 37.23% | Muy alto | Admiral 56% | Excelente, mejoró fuerte |
-| **Combined Ratio Q3** | 80.1% | Muy bueno | Industry ~95% | Beat industry 15 pts |
-| **Combined Ratio Auto** | 82.0% | Bueno | - | Mejoró 12.8 pts YoY |
-| **Combined Ratio 2025E** | 88.1% | Bueno | Industry ~95% | Target 2026: mid-90s auto |
-| **Dividend Yield** | 2.06% | Bajo | Admiral 2.5% | $4/share anual |
-| **Payout Ratio** | Bajo | - | - | ROE 37% permite crecimiento |
+| Metric | FY2025 | FY2024 | FY2023 | Notes |
+|--------|--------|--------|--------|-------|
+| Net Income | $10.2B | $4.6B | -$0.3B | Peak cycle 2025 |
+| EPS (diluted) | $38.06 | $30.84 | N/A | -39% expected 2026 |
+| Combined Ratio | 85.2% | 94.3% | 104.5% | Exceptional 2025 |
+| ROE | ~38% | ~23% | ~-1% | Normalized: 15-18% |
+| Book Value/share | $108.45 | ~$80 | ~$72 | Grew 35% in FY2025 |
+| Investment Income | $3.1B+ | $3.1B | - | Stable with rates |
+| Dividend | $4.32/yr | $4.00/yr | - | 33yr streak, +8% raise |
+| Buyback program | $4B new | - | - | Capital returns strong |
 
-**Momentum Financiero:**
-
-Q3 2025:
-- Net income: **$3.7B** (más que triplicó YoY) ⭐
-- Revenue: $17.3B (+5.8% YoY)
-- Combined ratio: 80.1% (mejoró 16 pts YoY)
-- Investment income fuerte
-
-Histórico reciente:
-- 2022: **$1.4B pérdida** (catastrophe losses altos)
-- 2023-2025: **Turnaround completado**
-- Pricing discipline + underwriting mejora = rentabilidad sostenible
-
-**Balance Sheet:**
-- Book value: $75-83/share (discrepancia fuentes)
-- A+ rating AM Best
-- Capital adecuado
+**Critical note:** FY2025 earnings are NOT repeatable. Management guided mid-90s auto CR for 2026. Consensus EPS FY2026: $23.30 (range $19.85-$28.67).
 
 ---
 
-## Management
+## Valoracion (Adversarial -- 2026-02-08)
 
-**CEO: Tom Wilson**
-- En cargo desde 2007 (19 años)
-- Chair of Board desde 2008
-- 28 años experiencia total Allstate
+### Method 1: P/B vs ROE (60% weight)
 
-**Capital Allocation:**
+```
+Normalized ROE: 16% (range 13-20%, vs thesis 22%, vs peak 38%)
+Ke: 9.0% (Rf 4.3% + Beta 0.85 * ERP 5.5%)
+g: 3%
+P/B Justified: (16% - 3%) / (9% - 3%) = 2.17x
+BV/share: $108.45
+FV = 2.17 * $108.45 = $235
+```
 
-✅ **AGRESIVO retorno capital:**
-- **$42.8B buybacks desde 1995** (789M shares)
-- $2.5B buybacks en 2022 PESE A $1.4B pérdida (cuestionable timing)
-- $1.5B buyback program anunciado 2025
-- Dividendo subido 5% en 2023 a $3.56/share
-- Q4 2025: $1.00/share quarterly dividend
-- 2023: $3.4B retornados vía dividendos + buybacks
+### Method 2: P/E Normalized (40% weight)
 
-❌ **Buybacks en pérdidas es red flag:**
-- 2022: Gastó $2.5B buybacks mientras perdía $1.4B
-- Board aplaudió "$3.4B retornados" pese a pérdidas
-- Sugiere presión shareholder vs disciplina capital
+```
+Normalized EPS: $23.30 (FY2026 consensus)
+P/E Justified: 10x (conservative vs sector 10-13x)
+FV = 10 * $23.30 = $233
+```
 
-✅ **Execution turnaround:**
-- 2022 losses → 2025 strong profitability
-- Combined ratio mejorado fuertemente
-- Auto business recuperado
+### Reconciliation
 
-**Compensación:**
-- Wilson: $26.1M (2024), vs $16.5M (2023)
-- Criticado por $15M en "one of worst years" (2022)
-- Skin in the game: posee acciones, pero no detalles en búsqueda
+| Method | Bear | Base | Bull | Weight |
+|--------|------|------|------|--------|
+| P/B vs ROE | $170 | $235 | $347 | 60% |
+| P/E Normalized | $160 | $233 | $312 | 40% |
+| **Weighted** | **$166** | **$234** | **$333** | **100%** |
 
-**Assessment Management:**
-- Track record turnaround: ✅ BUENO
-- Capital allocation: ⚠️ MIXTO (buybacks agresivos, timing cuestionable)
-- Compensación: ❌ Alta vs shareholders en años malos
+Divergence: 0.9% (excellent convergence)
 
----
+### Margin of Safety
 
-## Valoración
-
-**Precio Actual:** $197.65 (13-ene-2026)
-
-### Comparables
-
-| Comparable | P/E | ROE | Combined Ratio | Prima/Descuento |
-|-----------|-----|-----|----------------|-----------------|
-| **Admiral (ADM.L)** | 22.8x | 56% | 77% | ALL **-72%** más barato |
-| **Progressive (PGR)** | 11.3x | 34% | 89.5% | ALL **-44%** más barato |
-| **Intact (IFC.TO)** | 18.5x | 16-20% | 86% | ALL **-66%** más barato |
-| **Sector P&C** | 12.9x | - | - | ALL **-51%** más barato |
-
-**ALL cotiza 51-72% más barato que peers con quality comparable o superior.**
-
-### Analistas Wall Street
-
-- **Consenso price target 2026:** $236-238 (+19-20% upside)
-- **Rango:** $199.98 low - $288.75 high
-- **Fair value estimates:**
-  - Seeking Alpha: $229.82 (ALL trading -19.77% discount)
-  - Macroaxis: $239.13
-  - Peter Lynch model: $800.40 (probablemente erróneo)
-
-### Escenarios Valoración
-
-**Metodología:** P/E múltiplos conservadores basado en quality/execution
-
-| Escenario | Asunción | P/E Target | EPS 2026E | Valor | Upside |
-|-----------|----------|------------|-----------|-------|--------|
-| **Pesimista** | Combined ratio 95%, competencia intensa | 8x | $24 | $192 | -3% |
-| **Base** | Combined ratio 90%, pricing hold, execution OK | 10x | $24 | $240 | +21% |
-| **Optimista** | Re-rating a sector average, execution strong | 12x | $24 | $288 | +46% |
-
-**EPS 2026 Consenso:** $24.13 (vs $30.88 TTM 2025, baja por normalización)
-
-**P/E Justificado:**
-- ROE 37% + combined ratio 88% justifica P/E 10-12x MÍNIMO
-- Sector promedio 12.9x parece razonable
-- Admiral ROE 56% → P/E 22.8x
-- ALL ROE 37% → P/E 10-12x conservador
-
-### Margen de Seguridad
-
-**Valor intrínseco base:** $240 (P/E 10x, conservador)
-**Precio actual:** $197.65
-
-**Margen de seguridad:** **21.4%**
-
-Si uso fair value analistas $236:
-**Margen seguridad:** **19.4%**
-
-**PROBLEMA:** Margen 19-21% < 25% requerido standard
-
-**AJUSTE:** Para insurance P&C:
-- Combined ratio 80% es excelente vs industry 95%
-- ROE 37% vs sector típico 15-20%
-- Turnaround validado (no es speculative)
-- Moat narrow pero execution comprobada
-
-**Margen aceptable rebajado a >20% para exceptional execution.**
-
-✅ Margen 21% apenas pasa, pero quality execution lo justifica.
+| vs Benchmark | FV | MoS |
+|-------------|-----|------|
+| Base Weighted | $234 | 11.3% |
+| Risk-adjusted | $214 | 3.1% |
+| Bear case | $166 | -25.0% |
+| Expected (prob-weighted) | $242 | 14.2% |
 
 ---
 
-## Riesgos
+## Riesgos (Adversarial Assessment -- 10 risks identified)
 
-### 1. **Intensificación Competencia → Pricing Pressure (Probabilidad: ALTA 60%, Impacto: ALTO)**
+### CRITICAL (2)
+1. **Arity/Data Privacy Litigation** -- TX AG + class actions, 45M consumers. Settlement range $200M-$1B. If Arity model banned = moat erosion.
+2. **Competitive Pricing + Voluntary Rate Cuts** -- 7.8M customers avg 17% rate cut. Progressive at 17% share vs ALL 10.2%. Soft market approaching.
 
-**Descripción:**
-- P&C insurance 2026: pricing momentum cooling
-- Progressive/GEICO agresivos en pricing
-- Commercial P&C rates moderating a low single-digit%
-- Property rates incluso bajaron (first time since 2017)
+### HIGH (2)
+3. **Climate/CAT Losses Structural Trend** -- $1.1B CA fires (Jan 2025). 6th year >$100B global insured losses. +5-7% annual trend.
+4. **Senate hearing / federal claims legislation** -- Bipartisan scrutiny, adjusters testifying about estimate manipulation.
 
-**Impacto:**
-- Combined ratio target 2026 mid-90s (vs 80% Q3 2025)
-- Presión márgenes si pricing no sigue loss costs
-- Crecimiento PIF (policies in force) puede caer si no compete
+### MEDIUM (3)
+5. **CEO $26M compensation + claims controversy** -- Governance/reputational risk.
+6. **Softening P&C market cycle (2026-2028)** -- Combined ratio normalizing upward.
+7. **State-level rate regulation** -- Limits pricing flexibility.
 
-**Mitigación:**
-- Management guió "mid-90s" combined ratio 2026 (realistic)
-- Pricing algorithms + data proprietary ayudan
-- Track record ejecutar pricing discipline
-
-**Invalidaría thesis si:**
-- Combined ratio sube a >100% (underwriting losses)
-- Market share cae >2 pts por pricing no competitivo
+### LOW (3)
+8. **Limited MoS after price appreciation** -- Near 52-week high.
+9. **Insider selling pattern** -- CEO monthly under 10b5-1 plan.
+10. **Tariffs on auto parts** -- Pass-through to premiums with lag.
 
 ---
 
-### 2. **Catastrophe Losses por Climate Change (Probabilidad: MEDIA-ALTA 50%, Impacto: ALTO)**
+## Kill Conditions (Updated)
 
-**Descripción:**
-- Q1 2025: $2.2B catastrophe losses pre-tax
-- Climate change aumenta frecuencia/severidad eventos
-- Wildfires, hurricanes, severe weather = "new normal"
-- Coastal exposure alto (Eastern seaboard, Gulf)
+1. Combined ratio > 100% for 2 consecutive quarters
+2. Arity business model permanently banned across multiple states
+3. Federal claims practice legislation passes
+4. CEO departure without succession plan
+5. Market share drops below 9% in auto
 
-**Impacto:**
-- Spikes en combined ratio en quarters con CAT losses altos
-- Presión reinsurance costs
-- Erosión rentabilidad si trend continúa
-
-**Mitigación:**
-- Allstate compra reinsurance para CAT exposure
-- Q4 2025 CAT losses: $209M (bajo vs Q1 $2.2B) - volatilidad
-- Homeowners generó $1.3B underwriting income 2024 (pricing adecuado)
-- Management ajusta pricing post-eventos
-
-**Invalidaría thesis si:**
-- CAT losses estructuralmente >$2B/quarter
-- Inability to price adequately for climate risk
-- Reinsurance costs explotan
+**Model Disruption Kill Conditions (added 2026-02-11):**
+6. **Autonomous vehicles eliminate personal auto insurance TAM >10%** — If AVs (Waymo, Tesla FSD, Cruise) achieve Level 4+ deployment at scale AND shift liability to manufacturers/fleet operators, personal auto insurance premiums decline structurally. ALL gets ~80% of premiums from auto. Even a 10% TAM reduction = $4-5B premium loss. Monitor: AV deployment rates, state-by-state liability law changes, L4 regulatory approvals.
+7. **Embedded insurance at point-of-sale disintermediates carriers** — If Tesla, Apple Car, or auto dealers bundle insurance at purchase with captive carriers (Tesla Insurance model expanding), ALL loses customer acquisition channel. The moat is brand + agent network; if insurance is bundled and invisible, brand doesn't matter. Monitor: Tesla Insurance state expansion, OEM embedded insurance programs, ALL agent count trends.
 
 ---
 
-### 3. **Regulación Limita Pricing Power (Probabilidad: MEDIA 40%, Impacto: MEDIO)**
+## Position Parameters
 
-**Descripción:**
-- Insurance pricing sujeto a regulatory approval state-by-state
-- Regulatory limitations pueden impedir rate increases necesarios
-- Political pressure para mantener rates bajos (consumer protection)
+```
+Conviction: LOW
+Fair Value: $234 (independent base)
+Risk-Adjusted FV: $214
+Price: $207.55
+MoS vs Base: 11.3%
+MoS vs Risk-Adjusted: 3.1%
+Position Size: 3.5% ($400 invested)
 
-**Impacto:**
-- Lag entre loss cost inflation y rate increases
-- Compressed margins en estados con regulación estricta
-- Potential market exits (como California wildfires)
+Exit Plan:
+  - SELL if Q1 2026 combined ratio > 97%
+  - SELL if Arity settlement > $1B or model permanently restricted
+  - SELL if Tier A alternative identified that specifically needs capital
+  - ADD trigger: $180 or below (MoS > 23%, appropriate for Tier B)
 
-**Mitigación:**
-- Diversificación 50 estados reduce single-state risk
-- Track record navegar regulatory environment
-- Puede exit mercados unprofitable (California ejemplo industry)
-
-**Invalidaría thesis si:**
-- Multiple large states bloquean necessary rate increases
-- Forced to exit >5% of business por regulatory issues
-
----
-
-### Otros Riesgos Monitoreados
-
-- **Recession 2026:** Auto insurance demand baja, pero homeowners stable
-- **Interest rates:** Investment income sensitivity (mitigated by current high rates)
-- **Execution risk:** Turnaround podría revertir, pero 2023-2025 track record sólido
-
----
-
-## Contexto Macro Relevante
-
-**De world/current_view.md (actualizado 2026-01-26):**
-
-✅ **Favorable:**
-- Recession poco probable (US 2% growth, EU 1.2%)
-- Tipos Fed estables 3.5-3.75% → investment income alto mantiene
-- P&C insurance industry profitability strong (Fitch outlook)
-
-➡️ **Neutral:**
-- Competition increasing pero pricing still adequate (industry combined ratio 98-99% 2026E)
-- US consumer stable → auto/home insurance demand OK
-
-⚠️ **Riesgos:**
-- Climate events frecuencia aumentando (geopolítica secondary para insurance)
-- Fed no bajará tipos hasta Q2 2026 → no tailwind de rate cuts
-
-**Sector Insurance P&C 2026 Outlook:**
-- Industry combined ratio: 99% (2026E) vs Allstate target mid-90s = **OUTPERFORMANCE**
-- Pricing adequate pero cooling
-- CAT losses volatility continúa
-- Competition rising pero carriers disciplined
-
-**Conclusión Macro:** Entorno neutral-to-favorable. Allstate posicionada para outperform industry dado combined ratio 88% vs 99% sector.
-
----
-
-## Decisión
-
-**ANÁLISIS COMPLETADO - Pendiente validación Investment Committee (/decide)**
-
-### Caso Preliminar: COMPRAR
-
-**Razones:**
-
-1. **Valuación Excepcional:**
-   - P/E 6.3x vs sector 12.9x = 51% descuento
-   - 72% más barato que Admiral con quality comparable
-   - Margen seguridad 21% (marginal pero acceptable)
-
-2. **Quality Execution Comprobada:**
-   - Combined ratio 80% Q3 vs industry 95%
-   - ROE 37% excelente
-   - Turnaround validado 2022 → 2025
-
-3. **Catalysts:**
-   - Re-rating a P/E 10-12x (sector average) = +21-46% upside
-   - Continued buybacks + dividends
-   - 2026 earnings beat si combined ratio <mid-90s target
-
-4. **Diversificación Portfolio:**
-   - Defensive sector (insurance)
-   - US exposure (tengo EU/UK heavy)
-   - Diferente de utilities/pharma
-
-**Concerns:**
-
-1. **Margen Seguridad 21% marginal** (<25% standard)
-   - Mitigado por: quality execution, ROE 37%, combined ratio excelente
-   - Comparable Admiral P/E 22.8x valida que quality merece premium
-   - ALL a P/E 6.3x es anomalía vs fundamentals
-
-2. **Moat Narrow** (no Wide como Admiral)
-   - Mitigado por: escala, brand, track record execution
-   - ROE 37% demuestra pricing discipline funciona
-
-3. **CAT Losses Volatility**
-   - Monitoreado, no deal-breaker
-   - Homeowners profitable $1.3B pese a CAT exposure
-
-4. **Management Buybacks en Pérdidas**
-   - Red flag 2022, pero turnaround validó decisión retrospectivamente
-   - $42.8B buybacks histórico = shareholder-friendly
-
----
-
-## Clasificación Portfolio (Sistema V2.0)
-
-**Tipo:** **DEFENSIVE**
-
-**Razón clasificación:**
-- Insurance P&C es defensive sector
-- Combined ratio 80-90% = earnings estables
-- Drawdown típico insurance -20-30% en crisis (vs -40% cyclical)
-- ROE 37% + dividendo $4/share = stability + income
-- Comparable utilities/pharma en portfolio
-
-**Sizing Recomendado:**
-
-- **Standard Defensive:** 5% portfolio
-- **Justificación:** Quality excelente (ROE 37%) pero moat narrow → no core conviction
-- **Amount:** €500 (5% de €10,000)
-
-**Balance Portfolio Post-Compra:**
-
-ACTUAL:
-- Defensive: 11% (Enel 6% + Pfizer 5%)
-- Cyclical: 27% (Shell 15% + DTE 12%)
-- Cash: 62%
-
-POST ALL €500:
-- Defensive: **16%** (Enel 6% + Pfizer 5% + ALL 5%)
-- Cyclical: 27%
-- Cash: 57%
-
-**Check Targets:**
-- Defensive 16% vs target 35-40% → **GAP 19-24% persiste** ✅ Correcto
-- Cyclical 27% vs target 45-50% → GAP 18-23%
-- ✅ Dentro de rangos, progreso hacia diversificación
-
----
-
-## Seguimiento
-
-**Próximo earnings:** 5-feb-2026 (Q4 2025)
-- **CRÍTICO:** Validar combined ratio Q4, guidance 2026, CAT losses Q4
-
-**Métricas Clave Monitorear:**
-1. **Combined ratio:** Target mid-90s 2026, watch por deterioro
-2. **Policies in force (PIF):** Growth rate, retention
-3. **CAT losses:** Quarterly volatility, reinsurance costs
-4. **Pricing:** Rate increases vs loss cost trends
-5. **ROE:** Mantener >30%
-
-**Revisar thesis si:**
-- Combined ratio supera 100% (underwriting loss)
-- Q4 2025 earnings miss significantly
-- Management revierte a unprofitable pricing (chase market share)
-- CAT losses estructuralmente >$2B/quarter
-
-**Eventos Calendario:**
-- 5-feb-2026: Q4 2025 earnings ← **Inmediato, en 9 días**
-- Quarterly earnings subsecuentes: monitor execution
+Next Review: Q1 2026 earnings (~May 2026)
+```
 
 ---
 
 ## Fuentes
 
-**Valuation & Financials:**
-- [Allstate Stock Price Yahoo Finance](https://finance.yahoo.com/quote/ALL/)
-- [Allstate P/E Ratio](https://companiesmarketcap.com/allstate/pe-ratio/)
-- [Allstate Valuation Statistics](https://finance.yahoo.com/quote/ALL/key-statistics/)
-- [Allstate Price Targets 2026](https://www.marketbeat.com/stocks/NYSE/ALL/forecast/)
-- [Allstate Book Value](https://www.gurufocus.com/term/book-value-per-share/ALL)
+### Q4 2025 Earnings
+- [Allstate Q4 Insurance Journal](https://www.insurancejournal.com/news/national/2026/02/05/856975.htm)
+- [Allstate $10.2B Net Income](https://collisionweek.com/2026/02/05/allstate-reports-10-2-billion-net-income-2025/)
+- [Allstate Q4 Earnings Call](https://seekingalpha.com/article/4866513-the-allstate-corporation-all-q4-2025-earnings-call-transcript)
 
-**Business & Operations:**
-- [Allstate Business Model Revenue](https://www.allstateinvestors.com/static-files/54eca026-32d6-43c0-9783-ebeb65305fa1)
-- [Allstate Market Share](https://www.valuepenguin.com/largest-auto-insurance-companies)
-- [Allstate Q3 2025 Earnings](https://www.allstateinvestors.com/static-files/7211698c-c913-4c99-98e5-82a4836b85a4)
-- [Allstate More Than Triples Q3 Net Income](https://www.insurancejournal.com/news/national/2025/11/06/846627.htm)
+### Arity/Data Privacy
+- [Texas AG Sues Allstate and Arity](https://www.texasattorneygeneral.gov/news/releases/attorney-general-ken-paxton-sues-allstate-and-arity-unlawfully-collecting-using-and-selling-over-45)
+- [Class Action Consolidated](https://www.bfalaw.com/cases/in-re-allstate-arity-consumer-privacy-litigation)
 
-**Competitive Position:**
-- [Allstate SWOT Analysis](https://finance.yahoo.com/news/decoding-allstate-corp-strategic-swot-050220178.html)
-- [Allstate Competitive Landscape](https://matrixbcg.com/blogs/competitors/allstate)
+### Senate Hearing / Claims
+- [Allstate Blasted at Senate Hearing](https://www.spglobal.com/market-intelligence/en/news-insights/articles/2025/5/allstate-state-farm-blasted-at-senate-hearing-over-claims-practices-88993421)
+- [Systematic Fraud Alleged](https://insurancenewsnet.com/innarticle/systematic-fraud-alleged-in-property-casualty-claims-practices)
 
-**Management & Capital Allocation:**
-- [Tom Wilson CEO Allstate](https://www.allstateinvestors.com/management/thomas-wilson)
-- [Allstate Buybacks History](https://www.chicagobusiness.com/insurance/allstate-stock-buybacks-losses-shrinking-capital)
-- [Allstate CEO Compensation](https://www.chicagobusiness.com/insurance/allstate-ceo-tom-wilson-collects-15-million-after-terrible-year)
+### Competition
+- [Morgan Stanley Downgrades ALL](https://www.investing.com/news/analyst-ratings/morgan-stanley-downgrades-allstate-stock-to-equalweight-amid-competitive-auto-market-93CH-4409870)
 
-**Risks & Industry:**
-- [Allstate Climate Change Risks](https://simplywall.st/stocks/us/insurance/nyse-all/allstate/news/are-easing-catastrophe-losses-reframing-allstates-all-risk-a)
-- [Allstate SWOT Challenges](https://uk.investing.com/news/swot-analysis/allstates-swot-analysis-insurance-giants-stock-faces-growth-challenges-93CH-4296436)
-- [US P&C Insurance 2026 Outlook](https://beinsure.com/outlook-us-pc-insurance-sector-fitch/)
-- [Property Casualty Pricing 2026](https://www.swissre.com/institute/research/sigma-research/Insurance-Monitoring/us-property-casualty-outlook-april-2025.html)
+### Valuation Data
+- [Allstate ROE Historical](https://www.macrotrends.net/stocks/charts/ALL/allstate/roe)
+- [Allstate BV/share GuruFocus](https://www.gurufocus.com/term/book-value-per-share/ALL)
+- [Allstate Combined Ratio GuruFocus](https://www.gurufocus.com/term/combined-ratio_pct/ALL)

@@ -468,15 +468,25 @@ def _load_custom_file(filepath: str) -> list:
 # ==============================================================================
 
 def get_fx_rates():
-    """Get FX rates for EUR conversion."""
+    """Get FX rates for EUR conversion. Reports fallback usage."""
     rates = {}
+    fallbacks_used = []
     pairs = {"USD": "EURUSD=X", "GBP": "GBPEUR=X"}
     defaults = {"USD": 1.04, "GBP": 1.19}
     for ccy, symbol in pairs.items():
         try:
-            rates[ccy] = yf.Ticker(symbol).info.get("previousClose", defaults[ccy])
+            rate = yf.Ticker(symbol).info.get("previousClose")
+            if rate:
+                rates[ccy] = rate
+            else:
+                rates[ccy] = defaults[ccy]
+                fallbacks_used.append(f"{ccy}={defaults[ccy]}")
         except Exception:
             rates[ccy] = defaults[ccy]
+            fallbacks_used.append(f"{ccy}={defaults[ccy]}")
+    if fallbacks_used:
+        print(f"  FX WARNING: Using static fallback rates ({', '.join(fallbacks_used)}). "
+              f"EUR amounts may be inaccurate.", file=sys.stderr)
     return rates
 
 
@@ -564,7 +574,7 @@ def screen(tickers: list, workers: int = 10, **filters) -> list:
     """
     Screen tickers in parallel. Returns filtered, enriched list of dicts.
     """
-    pe_max = filters.get("pe_max", 15)
+    pe_max = filters.get("pe_max", 999)
     pe_min = filters.get("pe_min", 0)
     yield_min = filters.get("yield_min", 0)
     mcap_min = filters.get("mcap_min", 0)  # in billions EUR
@@ -575,9 +585,13 @@ def screen(tickers: list, workers: int = 10, **filters) -> list:
     max_analysts = filters.get("max_analysts", 999999)
     undiscovered = filters.get("undiscovered", False)
 
+    # --undiscovered uses explicit CLI values for max_analysts and mcap_max
+    # (defaults: 10 analysts, 15B EUR — overrideable via --max-analysts and --mcap-max)
+    undiscovered_analysts = filters.get("undiscovered_analysts", 10)
+    undiscovered_mcap = filters.get("undiscovered_mcap", 15)
     if undiscovered:
-        max_analysts = min(max_analysts, 10)
-        mcap_max = min(mcap_max, 15)  # 15B EUR
+        max_analysts = min(max_analysts, undiscovered_analysts)
+        mcap_max = min(mcap_max, undiscovered_mcap)
 
     rates = get_fx_rates()
     results = []
@@ -635,37 +649,37 @@ def screen(tickers: list, workers: int = 10, **filters) -> list:
 
 def validate_results(results: list) -> dict:
     """
-    Validate screening results for likely data errors.
-    Returns dict mapping ticker -> list of warning strings.
-    Also sets a '_warnings' key on each result dict for use in display.
+    Flag outlier data points for manual verification.
+    Returns dict mapping ticker -> list of flag strings.
+    Flags are NEUTRAL observations, not judgments — REITs with 15%+ yield
+    or cyclicals with P/E <2 may be legitimate.
     """
-    warnings = {}  # ticker -> [warning_str, ...]
+    flags = {}  # ticker -> [flag_str, ...]
 
     for r in results:
         ticker = r["ticker"]
         issues = []
 
         if r["div_yield"] > 15:
-            issues.append(f"Div yield {r['div_yield']:.1f}% (>15%, likely data error)")
+            issues.append(f"Div yield {r['div_yield']:.1f}% — verify source")
         if r["pe"] < 2:
-            issues.append(f"P/E {r['pe']:.1f} (<2, likely data error)")
+            issues.append(f"P/E {r['pe']:.1f} — verify (one-off earnings?)")
         if r["pe"] > 200:
-            issues.append(f"P/E {r['pe']:.1f} (>200, likely data error)")
+            issues.append(f"P/E {r['pe']:.1f} — verify (depressed earnings?)")
         if r["fcf_yield"] > 50:
-            issues.append(f"FCF yield {r['fcf_yield']:.1f}% (>50%, likely IFRS16 distortion or data error)")
+            issues.append(f"FCF yield {r['fcf_yield']:.1f}% — verify (IFRS16? one-off?)")
 
         if issues:
-            warnings[ticker] = issues
-            # Store flag set on the result for display
-            r["_warn_yield"] = r["div_yield"] > 15
-            r["_warn_pe"] = r["pe"] < 2 or r["pe"] > 200
-            r["_warn_fcf"] = r["fcf_yield"] > 50
+            flags[ticker] = issues
+            r["_flag_yield"] = r["div_yield"] > 15
+            r["_flag_pe"] = r["pe"] < 2 or r["pe"] > 200
+            r["_flag_fcf"] = r["fcf_yield"] > 50
         else:
-            r["_warn_yield"] = False
-            r["_warn_pe"] = False
-            r["_warn_fcf"] = False
+            r["_flag_yield"] = False
+            r["_flag_pe"] = False
+            r["_flag_fcf"] = False
 
-    return warnings
+    return flags
 
 
 # ==============================================================================
@@ -705,14 +719,14 @@ def print_table(results: list, sort_by: str = "pe", warnings: dict = None):
         if r["num_analysts"] < 5:
             coverage += " *"  # flag low coverage
 
-        # Add warning markers to suspicious metrics
-        w_pe = "\u26a0" if r.get("_warn_pe") else ""
-        w_yld = "\u26a0" if r.get("_warn_yield") else ""
-        w_fcf = "\u26a0" if r.get("_warn_fcf") else ""
+        # Add flag markers to outlier metrics
+        f_pe = "[!]" if r.get("_flag_pe") else ""
+        f_yld = "[!]" if r.get("_flag_yield") else ""
+        f_fcf = "[!]" if r.get("_flag_fcf") else ""
 
-        pe_str = f"{r['pe']:>5.1f}{w_pe}"
-        yld_str = f"{r['div_yield']:>4.1f}{w_yld}"
-        fcf_str = f"{r['fcf_yield']:>4.1f}{w_fcf}"
+        pe_str = f"{r['pe']:>5.1f}{f_pe}"
+        yld_str = f"{r['div_yield']:>4.1f}{f_yld}"
+        fcf_str = f"{r['fcf_yield']:>4.1f}{f_fcf}"
 
         print(f"{r['ticker']:<14} {r['name']:<30} {r['price']:>8.2f} "
               f"{r['price_eur']:>7.2f}e "
@@ -741,14 +755,14 @@ def print_table(results: list, sort_by: str = "pe", warnings: dict = None):
             print(f"  {r['ticker']:<14} {r['name']:<30} {r['num_analysts']} analysts | "
                   f"P/E={r['pe']:.1f} | Yield={r['div_yield']:.1f}% | MCap={r['mcap_eur_b']:.1f}B")
 
-    # Data validation warnings section
+    # Outlier data flags section
     if warnings:
         print(f"\n{'='*60}")
-        print(f"WARNING: {len(warnings)} stock(s) with suspicious data - verify before acting:")
+        print(f"OUTLIER DATA [!]: {len(warnings)} stock(s) — verify before using:")
         print(f"{'='*60}")
         for ticker, issues in sorted(warnings.items()):
             for issue in issues:
-                print(f"  \u26a0 {ticker:<14} {issue}")
+                print(f"  [!] {ticker:<14} {issue}")
         print(f"{'='*60}")
 
 
@@ -797,7 +811,7 @@ Examples:
                         help="Force refresh cache from Wikipedia")
 
     # Filters
-    parser.add_argument("--pe-max", type=float, default=15, help="Max trailing P/E (default: 15)")
+    parser.add_argument("--pe-max", type=float, default=999, help="Max trailing P/E (default: 999 = no filter)")
     parser.add_argument("--pe-min", type=float, default=0, help="Min trailing P/E (default: 0)")
     parser.add_argument("--yield-min", type=float, default=0, help="Min dividend yield %% (default: 0)")
     parser.add_argument("--mcap-min", type=float, default=0, help="Min market cap EUR billions (default: 0)")
@@ -808,7 +822,11 @@ Examples:
     parser.add_argument("--min-fcf-yield", type=float, default=0, help="Min FCF yield %%")
     parser.add_argument("--max-analysts", type=int, default=999999, help="Max analyst coverage")
     parser.add_argument("--undiscovered", action="store_true",
-                        help="Filter: <10 analysts AND mcap <15B EUR")
+                        help="Filter: low analyst coverage AND small mcap (defaults: <10 analysts, <15B EUR)")
+    parser.add_argument("--undiscovered-analysts", type=int, default=10,
+                        help="Max analysts for --undiscovered (default: 10)")
+    parser.add_argument("--undiscovered-mcap", type=float, default=15,
+                        help="Max mcap EUR billions for --undiscovered (default: 15)")
 
     # Output
     parser.add_argument("--sort", choices=list(SORT_KEYS.keys()), default="pe",
@@ -829,7 +847,7 @@ Examples:
 
     # Build filter description
     filters_desc = []
-    if args.pe_max < 999: filters_desc.append(f"P/E<{args.pe_max}")
+    if args.pe_max < 998: filters_desc.append(f"P/E<{args.pe_max}")
     if args.yield_min > 0: filters_desc.append(f"Yield>{args.yield_min}%")
     if args.mcap_min > 0: filters_desc.append(f"MCap>{args.mcap_min}B")
     if args.mcap_max < 999999: filters_desc.append(f"MCap<{args.mcap_max}B")
@@ -853,6 +871,8 @@ Examples:
         min_fcf_yield=args.min_fcf_yield,
         max_analysts=args.max_analysts,
         undiscovered=args.undiscovered,
+        undiscovered_analysts=args.undiscovered_analysts,
+        undiscovered_mcap=args.undiscovered_mcap,
     )
 
     # Validate data before display

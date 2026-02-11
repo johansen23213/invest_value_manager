@@ -398,6 +398,54 @@ MoS vs Bear Case: +20%
 
 **Score: 5/10 = Tier B. MoS requirement: 25%. Current MoS: 54%. PASS.**
 
+**QS Tool-First Reconciliation (Sesion 52):**
+- **QS Tool:** 70/100 (Tier B) — Financial Quality 32/40, Growth 13/25, Moat 19/25, CapAlloc 6/10
+- **QS Thesis (old):** 5/10 custom scale (Tier B)
+- **QS Ajustado:** 70/100 (Tier B) — Tool scores HRB HIGHER than old thesis. Financial Quality 32/40 is strong (high FCF margin, negative equity = high ROIC). Moat 19/25 reflects tax prep duopoly. Old /10 scale underscored HRB by penalizing for small cap / low coverage.
+- **Tier Efectivo:** B (Quality Value) — Near top of Tier B (70, threshold for A is 75).
+
+---
+
+## ADVERSARIAL ADDENDUM (Session 52 - 2026-02-09)
+
+**Pipeline:** risk-identifier + valuation-specialist + devil's-advocate (all 3 independent)
+
+### QS Reassessment
+- **QS Tool:** 70/100 (Tier B)
+- **QS Adversarial:** 45-55 (Tier C) — Adjustments: FCF declining 3yr (-10), negative equity (-5), capital allocation destruction (-5), moat under siege from Intuit (-5)
+- **QS Efectivo:** ~50-55 (Tier C)
+
+### Fair Value Revision
+| Metric | Thesis v2.0 | Adversarial | Delta |
+|--------|-------------|-------------|-------|
+| FV Base | $59.58 | $33.94 | **-43%** |
+| FV Bear | $46.53 | $24.30 | -48% |
+| FV Bull | $75.96 | $47.13 | -38% |
+| WACC | 8.5% | 10.5% | +2pp |
+| Net Debt | $1.05B | $2.59B (seasonal peak) / ~$1.7B (normalized) | +$0.65-1.54B |
+| MoS vs Base | 54% | 3-6% | -48-51pp |
+
+### Key Findings
+1. **Net debt $2.59B** (thesis used $1.05B) — Even normalized ~$1.7B is $650M higher
+2. **Intuit launched 600 Expert Offices + 20 TurboTax stores (Jan 2026)** — Invalidates "unreplicable physical network" moat claim
+3. **FCF structural decline:** $752M→$657M→$599M→$524M TTM despite revenue growth
+4. **$413M value destruction** via buybacks at avg $55, stock now $33
+5. **Value trap score 7-8/10** (thesis said 2-3)
+6. **Counter score: 18/24 STRONG COUNTER**
+7. **Risk score: HIGH** (1 CRITICAL + 2 HIGH)
+
+### Verdict: SELL
+- Thesis moat invalidated (Intuit physical expansion)
+- FV approximately equal to current price (no MoS)
+- Tier C quality in portfolio gravitating toward Tier A
+- Capital better deployed in existing Tier A positions (OS >2.0)
+- Precedent: A2A.MI, VNA.DE, TATE.L sold for similar reasons
+
+### Reports
+- `thesis/research/HRB/risk_assessment.md` — 1 CRITICAL (buyback destruction) + 2 HIGH
+- `thesis/research/HRB/valuation_report.md` — FV $33.94, -43% vs thesis
+- `thesis/research/HRB/counter_analysis.md` — 18/24 STRONG COUNTER
+
 ---
 
 ## Autocritica (Obligatoria)

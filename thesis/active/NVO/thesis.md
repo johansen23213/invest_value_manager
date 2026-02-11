@@ -5,6 +5,8 @@
 > **Status:** RESEARCH
 > **Ticker:** NOVO-B.CO (Copenhagen) / NVO (NYSE ADR)
 
+**Fair Value:** DKK 491 (weighted OEY + DCF + Reverse DCF)
+
 ---
 
 ## TL;DR
@@ -13,7 +15,7 @@ Novo Nordisk, the GLP-1 pioneer behind Ozempic and Wegovy, has collapsed 50%+ fr
 
 ---
 
-## Quality Score: 82/100 - Tier A (Quality Compounder)
+## Quality Score: QS Tool 73/100 (Tier B) | QS Thesis 82/100 | QS Ajustado 73 (Tier B)
 
 ### Detailed Breakdown
 
@@ -55,7 +57,13 @@ Novo Nordisk, the GLP-1 pioneer behind Ozempic and Wegovy, has collapsed 50%+ fr
 
 ### QUALITY SCORE TOTAL: 82/100 - TIER A
 
-**Interpretation:** Elite Quality Compounder experiencing temporary competitive headwinds. Tier A status means MoS requirement is 10-15%, but given recent guidance shock and uncertainty, I apply Tier A + Adjustment = 15-20% MoS.
+**QS Tool-First Reconciliation (Sesion 52):**
+- **QS Tool:** 73/100 (Tier B) — Capital Allocation 5/10 (Foundation structure, low insider buying)
+- **QS Thesis:** 82/100 (Tier A) — Manual override +9 pts
+- **QS Ajustado:** 73/100 (Tier B) — Accepting tool score. The +9pt gap came from manually scoring Financial Quality 36/40 and Moat 19/25 higher than tool calculates. Tool penalizes: Capital Allocation (Foundation ownership ≠ insider alignment), Growth (GM declining from 85%→76%). No quantitative evidence justifies overriding the tool.
+- **Tier Efectivo:** B (Quality Value)
+
+**Interpretation:** Quality pharma company with strong fundamentals but competitive headwinds and declining gross margins. Tier B status, not Tier A as originally claimed.
 
 ---
 
@@ -166,6 +174,10 @@ LTV/CAC: Estimated >10x (exceptional)
 3. **Gross margin falls below 70%** - indicates moat erosion
 4. **Dividend cut** - would signal management pessimism
 5. **ROIC falls below WACC for 2+ years** - value destruction
+
+**Model Disruption Kill Conditions (added 2026-02-11):**
+6. **Oral GLP-1 achieves comparable efficacy to injectable at scale** — If Novo's own oral semaglutide OR a competitor's oral GLP-1 (Pfizer danuglipron, Viking VKTX, etc.) achieves >80% of injectable weight loss efficacy with better convenience, the premium injectable franchise faces margin compression. Oral is cheaper to manufacture and distribute. Paradoxically, even Novo's OWN oral success could cannibalize higher-margin injectable revenue. Monitor: oral GLP-1 Phase III data, Rybelsus vs Wegovy head-to-head, pricing differentials.
+7. **Gene therapy or one-shot obesity cure eliminates chronic dosing model** — NVO's entire revenue model depends on CHRONIC treatment (patients take GLP-1 indefinitely). If a gene therapy, one-time injection, or surgical innovation achieves permanent weight loss, the recurring revenue model collapses. Low probability (<5% in 5 years) but catastrophic impact. Monitor: obesity gene therapy trials, bariatric surgery innovation, GLP-1 discontinuation studies.
 
 ---
 

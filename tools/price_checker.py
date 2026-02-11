@@ -8,8 +8,29 @@ import sys
 import yfinance as yf
 
 def get_fx_rates():
-    eurusd = yf.Ticker('EURUSD=X').info.get('previousClose', 1.04)
-    gbpeur = yf.Ticker('GBPEUR=X').info.get('previousClose', 1.19)
+    defaults = {'EURUSD': 1.04, 'GBPEUR': 1.19}
+    fallbacks_used = []
+
+    try:
+        eurusd = yf.Ticker('EURUSD=X').info.get('previousClose')
+        if not eurusd:
+            eurusd = defaults['EURUSD']
+            fallbacks_used.append(f"EUR/USD={eurusd}")
+    except Exception:
+        eurusd = defaults['EURUSD']
+        fallbacks_used.append(f"EUR/USD={eurusd}")
+    try:
+        gbpeur = yf.Ticker('GBPEUR=X').info.get('previousClose')
+        if not gbpeur:
+            gbpeur = defaults['GBPEUR']
+            fallbacks_used.append(f"GBP/EUR={gbpeur}")
+    except Exception:
+        gbpeur = defaults['GBPEUR']
+        fallbacks_used.append(f"GBP/EUR={gbpeur}")
+
+    if fallbacks_used:
+        print(f"FX WARNING: Using static fallback rates ({', '.join(fallbacks_used)}). EUR amounts may be inaccurate.")
+
     return eurusd, gbpeur
 
 def get_price(ticker, eurusd, gbpeur):
