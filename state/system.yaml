@@ -6,8 +6,8 @@
 system:
   system_version: "4.0.0"
   framework_version: "4.0"
-  last_session: 2026-02-11
-  session_number: 55
+  last_session: 2026-02-12
+  session_number: 58
 
   # FRAMEWORK v4.0 - IMPLEMENTADO
   # =====================================
@@ -54,18 +54,18 @@ system:
     date: 2026-02-11
     summary:
       total_positions: 13
-      tier_a_count: 3  # MONY.L(81), LULU(82), ADBE(76 tool, 73 adj borderline)
+      tier_a_count: 3  # MONY.L(75 adj, borderline), LULU(82), ADBE(76 tool, 73 adj borderline)
       tier_b_count: 5  # AUTO.L(71 adj), NVO(73), BYIT.L(68-72), EDEN.PA(62), DOM.L(61). VICI REIT-adj ~60 borderline.
       tier_c_count: 5  # ALL(56), VICI(54), GL(52), UHS(51), DTE.DE(48)
       tier_d_count: 0
     positions:
       # TIER A - Quality Compounders (3 positions)
-      - { ticker: MONY.L, score: 81, tier: A, status: "UK price comparison. Adversarial FV 201 GBp. HOLD LOW through Feb 23 earnings." }
+      - { ticker: MONY.L, score: 75, tier: A, status: "AI Disruption Re-eval 2026-02-12: QS Tool 83, Adj 75 (borderline Tier A). FV 201→190 GBp. Moat erosion prob 30-35%. ON PROBATION. HOLD LOW through Feb 23 earnings. KC#9 added (AI strategy)." }
       - { ticker: LULU, score: 82, tier: A, status: "Adversarial 2026-02-11: FV $261→$202 (-22.6%). QS 80-81 Tier A. HOLD LOW-MEDIUM." }
       - { ticker: ADBE, score: 76, tier: A, status: "QS Tool 76. Adj 73 (Tier B borderline) per FTC risk. Thesis v2.0 2026-02-10." }
       # TIER B - Quality Value (5 positions)
       - { ticker: NVO, score: 73, tier: B, status: "QS Tool 73 (Tier B). Thesis overclaimed 82 Tier A." }
-      - { ticker: AUTO.L, score: 71, tier: B, status: "Adversarial 2026-02-11: QS 79→71 (Tier A→B). FV 688→617p (-10.3%). HOLD MEDIUM." }
+      - { ticker: AUTO.L, score: 71, tier: B, status: "Re-eval 2026-02-12: QS Tool 63, Adj 71 (Tier B). FV 617→580p. Dealer revolt + 52wL. HOLD LOW. April 2026 pricing = make-or-break." }
       - { ticker: BYIT.L, score: 68, tier: B, status: "Adversarial 2026-02-11: QS 81→68-72 (Tier A→B). FV 455→345 GBp (-24.2%). HOLD PROBATION LOW." }
       - { ticker: EDEN.PA, score: 62, tier: B, status: "Adversarial FV EUR 29.0. HOLD MEDIUM through Feb 24 earnings." }
       - { ticker: DOM.L, score: 61, tier: B, status: "Adversarial FV 240 GBp. HOLD LOW through Mar 5 results." }
@@ -82,78 +82,61 @@ system:
       Tier B count: 5 (NVO 73, AUTO.L 71, BYIT.L 68, EDEN.PA 62, DOM.L 61).
       Tier C count: 5 (ALL 56, VICI 54, GL 52, UHS 51, DTE.DE 48).
       8 positions sold + 3 standing orders cancelled through adversarial program.
-      Cash EUR 4,844 (~44%) — quality deployment is PRIORITY.
-      Pipeline: DSY.PA (standing order EUR 15.50 approved), PAYC (earnings today, entry $95-105), MORN ($145 watchlist, earnings Feb 12), DNLM.L (750-800p).
-      Earnings week Feb 23-26: MONY.L, EDEN.PA, VICI (PROBATION), UHS (PROBATION), DTE.DE, WKL.AS. Frameworks ready for all 4 critical positions.
+      Cash EUR 4,844 (~48%) — quality deployment is PRIORITY.
+      Pipeline: DSY.PA (standing order EUR 15.50 approved), PAYC (earnings Feb 11, entry $95-105), MORN ($145 watchlist, earnings Feb 12), DNLM.L (750-800p).
+      Earnings week Feb 23-26: MONY.L, EDEN.PA, VICI (PROBATION), UHS (PROBATION), DTE.DE. Frameworks ready for all 5 positions.
+      SYSTEM FIX: forward_return.py FV parsing corrected — 9/13 stale FVs fixed.
 
   # Archived session summaries (sessions 31-52) moved to state/session_summaries_archive.yaml
   # Purged 2026-02-11 to reduce file size (~730 lines removed)
 
   last_session_summary: |
-    Session 55 - EARNINGS FRAMEWORKS + STANDING ORDER AUDIT (2026-02-11)
+    Session 58 (continued) - SYSTEM FIX + VIGILANCE (2026-02-12)
 
     =====================================================
-    EARNINGS FRAMEWORKS CREATED
+    CRITICAL SYSTEM FIX
     =====================================================
-    - VICI Q4 (Feb 25): PROBATION. AFFO guide <$2.35 = SELL. Rent cut >10% = SELL (KC#7).
-      See thesis/active/VICI/earnings_framework_feb2026.md
-    - UHS Q4 (Feb 25-26): PROBATION. EPS guide <$20 = SELL (KC#5). BH volumes decline = SELL.
-      See thesis/active/UHS/earnings_framework_feb2026.md
-    - MONY.L (Feb 23) and EDEN.PA (Feb 24): frameworks already existed, confirmed valid.
+    forward_return.py stale FV parsing FIXED:
+    - Root cause: regex pattern priority. Pattern #1 (Weighted Average table) matched OLD
+      values before the generic "Fair Value:" pattern (last priority).
+    - Fix: (1) Added priority-0 pattern for canonical `**Fair Value:**` headers,
+      (2) Added re.MULTILINE flag, (3) Standardized ALL 13 thesis files with canonical headers.
+    - 9/13 FVs corrected. Biggest: MONY.L 277→190, EDEN.PA 38.4→29.0, GL 225→191.
+    - Rotation check data now accurate for first time since adversarial reviews.
 
     =====================================================
-    TIERING CORRECTED
+    VIGILANCE (Feb 12)
     =====================================================
-    - AUTO.L reclassified Tier A → Tier B (QS 79→71 post-adversarial)
-    - Tier A: 3 (MONY.L 81, LULU 82, ADBE 76)
-    - Tier B: 5 (NVO 73, AUTO.L 71, BYIT.L 68, EDEN.PA 62, DOM.L 61)
-    - Tier C: 5 (ALL 56, VICI 54, GL 52, UHS 51, DTE.DE 48)
+    - 0 CRITICAL, 11 MATERIAL alerts
+    - LULU: Elliott Investment $1B+ activist stake + Chip Wilson proxy. POSITIVE for thesis.
+    - NVO: Sued Hims & Hers, patent through 2032. Wegovy pill uptake strong.
+    - DSY.PA: Q4 FY2025 results, 2026 guidance 3-5% growth (in-line with thesis).
+    - DNLM.L: Jefferies upgrade to Buy, PT 1,075p (validates 1,008p adversarial FV).
+    - AUTO.L: Actual cancellations ~60 (vs 180+ headline). Buybacks >1M shares.
+    - UHS: CEO contract extended. UBS says less exposed to NY Medicaid limits.
 
     =====================================================
-    STANDING ORDERS RECALIBRATED
+    EARNINGS STATUS
     =====================================================
-    - MA BUY: $395→$315 (MoS 6%→25%). Post-adversarial MoS standard.
-    - V BUY: $280→$220 (MoS 3%→24%).
-    - V ADD: $265→$200 (MoS 8%→31%).
-    - Pipeline warnings added to FGP.L, CMCSA, MA, V: "DO NOT EXECUTE without adversarial"
+    - PAYC: Reports after close Feb 11. Check results next session.
+    - MORN: Reports after close Feb 12. Price $155 (6.6% from $145 entry).
+    - Earnings week Feb 23-26: MONY.L, EDEN.PA, VICI, UHS, DTE.DE. All frameworks ready.
 
-    PIPELINE AUDIT:
-    - Adversarial complete (ready to execute): DSY.PA, DNLM.L
-    - OK for ADD (active positions): GL, NVO
-    - Need pipeline before execution: FGP.L, CMCSA, MA, V
-    - Under review (Feb 19 Rose plan): WPP.L
+    =====================================================
+    ROTATION CHECK (CORRECTED DATA)
+    =====================================================
+    Bottom 3: UHS -7.9% MoS, VICI -0.6%, LULU +13.9%
+    Top 3: EDEN.PA +64%, NVO +60.4%, ADBE +51.2%
+    No standing orders near trigger. DSY.PA closest at 12.8%.
 
     =====================================================
     WORK FOR NEXT SESSION
     =====================================================
-    1. PAYC Q4 earnings (published Feb 11 after close) → verify with price_checker + web search
-    2. MORN Q4 earnings (Feb 12 after close) → evaluate per framework
+    1. PAYC Q4 earnings verification (results available by now)
+    2. MORN Q4 earnings evaluation (reported Feb 12 after close)
     3. WPP.L Rose plan Feb 19 → cancel/keep decision
-    4. Earnings week Feb 23-26: all frameworks ready
-    5. Cash deployment (~44%) — pipeline: PAYC, MORN, DSY.PA, DNLM.L
-
-    Previous session (53-54): DSY.PA buy-pipeline completed, PAYC R1 thesis, full universe screening.
-    - 5 fases: earnings_urgentes → tier_c → standing_orders → tier_b → tier_a
-    - ~6 sesiones estimadas (49-55)
-    - Pipeline position-review actualizado a v2.0 (adversarial permanente)
-
-    =====================================================
-    SYSTEM CHANGES
-    =====================================================
-    - state/system.yaml: adversarial_review tracker creado
-    - pipelines/SKILL.md: position-review v2.0 (adversarial por defecto)
-    - MEMORY.md: ACTIVE PROJECT section para persistencia
-    - DNLM.L price monitor: 900p → 780p (midpoint 750-800)
-    - 6 ficheros audit trail en thesis/research/DNLM.L/
-
-    =====================================================
-    PROXIMA SESION (49)
-    =====================================================
-    1. Adversarial review FASE 1: MONY.L + EDEN.PA (earnings Feb 23-24)
-    2. Triage: forward_return.py + price_checker.py para priorizar
-    3. Branch feature/refactor_claude_md: commit + merge aun pendiente
-    4. DNLM.L interinos Feb 10: monitorear resultado
-    5. CVS earnings Feb 11 (watchlist)
+    4. Earnings week Feb 23-26: final prep
+    5. Cash deployment (~48%) — pipeline: PAYC, MORN, DSY.PA, DNLM.L
 
   status: active
 
@@ -359,7 +342,7 @@ calendar:
       ticker: MONY.L
       event: "MONY.L FY2025 Results"
       priority: high
-      action: "FRAMEWORK READY. Consensus EBITDA £142.7m. Bull >£145m, Base £140-145m, Bear <£140m. Kill: ROIC<20%, revenue decline >5%, dividend cut. See thesis/active/MONY.L/earnings_framework_feb2026.md"
+      action: "FRAMEWORK UPDATED v3.0. FV 190 GBp (was 201). QS Adj 75 (borderline Tier A). KC#9 added: SELL if no AI strategy presented. Consensus EBITDA £142.7m. SELL if revenue <435M or Insurance -5%+. See thesis and earnings_framework."
 
     - date: 2026-02-24
       type: earnings
@@ -1248,14 +1231,14 @@ pipeline_tracker:
   # DIARIOS
   vigilance:
     frequency: daily
-    last_run: 2026-02-11
-    next_due: 2026-02-12
-    last_result: "TMUS earnings today (post-close). DTE.DE framework ready. ZIG.L 3.1% from trigger. No critical news."
+    last_run: 2026-02-12
+    next_due: 2026-02-13
+    last_result: "0 CRITICAL, 11 MATERIAL. LULU Elliott $1B activist (positive). NVO sued Hims patent. DSY.PA Q4 in-line. DNLM.L Jefferies upgrade Buy PT 1075p. AUTO.L cancellations 60 not 180. PAYC reports Feb 11 after close. MORN Feb 12."
   rotation_check:
     frequency: daily
-    last_run: 2026-02-11
-    next_due: 2026-02-12
-    last_result: "13 positions. Cash 44%. TMUS impact on DTE.DE pending tonight. Earnings dense week Feb 23-26."
+    last_run: 2026-02-12
+    next_due: 2026-02-13
+    last_result: "13 positions. Cash 48%. forward_return.py FV FIX: 9/13 corrected (was parsing stale weighted-avg tables). Bottom 3: UHS -7.9%, VICI -0.6%, LULU +13.9%. Top: EDEN.PA +64%, NVO +60%. No standing orders near trigger."
   # SEMANALES
   opportunity_scan:
     frequency: weekly
@@ -1381,7 +1364,7 @@ adversarial_review:
     positions:
       - { ticker: ADBE, score: 76, reviewed: true, date: "2026-02-10", verdict: "HOLD MEDIUM", fv_revision: "394→390 USD (-1%)", notes: "FTC/DOJ ROSCA lawsuit integrated. QS Tool 76→Adj 73. KC#6 added. Trial Oct 19 2026." }
       - { ticker: NVO, score: 73, reviewed: true, note: "QS Tool-First: 73 Tier B (was 82 Tier A). Adversarial FV 68-70. Reviewed session 51." }
-      - { ticker: MONY.L, score: 81, reviewed: true, note: "Reviewed in fase_1. FV 277→201 GBp. HOLD LOW." }
+      - { ticker: MONY.L, score: 75, reviewed: true, date: "2026-02-12", verdict: "HOLD LOW PROBATION", fv_revision: "277→201→190 GBp (-31.4% total)", notes: "AI Disruption re-eval. QS Tool 83, Adj 75 (borderline Tier A). Insurify ChatGPT proof-of-concept. Moat erosion prob 30-35%. Bear -9.8% underwater. KC#9 added (AI strategy at earnings). Feb 23 MANDATORY." }
       - { ticker: LULU, score: 82, reviewed: true, date: "2026-02-11", verdict: "HOLD LOW-MED", fv_revision: "261→202 USD (-22.6%)", notes: "QS Tool 80-81 (Tier A maintained). Moat NARROW 14/25. Tariffs $320M, governance chaos. ADD conditional on Q4 + CEO." }
-      - { ticker: AUTO.L, score: 79, reviewed: true, date: "2026-02-11", verdict: "HOLD MEDIUM", fv_revision: "688→617p (-10.3%)", notes: "QS Tool 63→Adj 71 (Tier A→B). Financial Quality 40/40 perfect. DMCC Act risk. ADD 450p CANCELLED." }
+      - { ticker: AUTO.L, score: 71, reviewed: true, date: "2026-02-12", verdict: "HOLD LOW", fv_revision: "688→617→580p (-15.7% total)", notes: "QS Tool 63, Adj 71 (Tier B). Dealer revolt re-eval: FV 617→580p. Bear 30%, growth 6→5%. 2 new KCs (CMA, ARPR<3%). April 2026 pricing = make-or-break. Financial quality 40/40." }
       - { ticker: BYIT.L, score: 68, reviewed: true, date: "2026-02-11", verdict: "HOLD PROBATION LOW", fv_revision: "455→345 GBp (-24.2%)", notes: "QS Tool 68→Adj 69-72 (Tier A→B). Insider 0.4% not 9.6%. Microsoft EA structural. Moat NARROW 14/25. ADD 260→240p." }

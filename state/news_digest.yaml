@@ -1,11 +1,11 @@
 # =============================================================================
-# NEWS DIGEST - Actualizado 2026-02-11
+# NEWS DIGEST - Actualizado 2026-02-12 (Session 59 scan)
 # =============================================================================
 
-last_scan: "2026-02-11T10:00:00"
+last_scan: "2026-02-12T10:00:00"
 next_scan: "Inicio proxima sesion"
-tickers_scanned: 14
-scan_type: "Quick scan: 13 active positions + ZIG.L standing order"
+tickers_scanned: 19
+scan_type: "Full scan: 13 active positions + 6 watchlist (PAYC, MORN, DSY.PA, DNLM.L, WKL.AS, WPP.L)"
 
 # =============================================================================
 # ALERTAS
@@ -15,331 +15,659 @@ alerts:
     # NINGUNA ALERTA CRITICA
 
   material:
-    - ticker: DTE.DE
-      headline: "TMUS Capital Markets Day + Q4/FY2025 results TODAY Feb 11. Earnings release at 7:35am ET, call 8:30-10:30am ET."
+    - ticker: WPP.L
+      headline: "CORRECTION: WPP strategic update + FY2025 results moved to Feb 26 (was Feb 19). Creative restructuring leaked: Ogilvy/VML/AKQA under 'WPP Creative' umbrella. McKinsey advising. Cindy Rose calls performance 'unacceptable'."
       classification: MATERIAL
-      source: "T-Mobile Newsroom, BusinessWire"
+      source: "Financial Times, MediaPost, Campaign, Storyboard18"
       impact: |
-        HAPPENING TODAY: T-Mobile US reports Q4/FY2025 and provides updated
-        2026-2027 financial targets. DTE.DE owns 51% of TMUS.
-        Wall Street expects TMUS Q4 EPS $2.11 (-17.9% YoY).
-        TMUS has beaten estimates in all prior 4 quarters (avg surprise +9%).
-        DTE.DE stock ~EUR 30.26 — approaching adversarial FV EUR 33-35.
-        DTE.DE own results Feb 26.
-        KEY: If TMUS raises 2026-2027 targets, DTE.DE continues rally toward
-        adversarial FV (TRIM consideration). If disappoints, pullback opportunity.
-      action_needed: true
+        DATE CORRECTION CRITICAL: Previous digest had Rose plan Feb 19. Actual date is Feb 26.
+        This changes our standing order review timeline.
+        NEW INFO: FT reports creative agency restructuring plan leaked (Feb 9-10):
+        - Ogilvy, VML, AKQA to be aligned under "WPP Creative" umbrella
+        - Individual brands retained in market
+        - Sits alongside WPP Media and WPP Production divisions
+        - McKinsey advising on strategic review
+        - Rose described performance as "unacceptable"
+        - Goal: simplify, drive AI-led growth, restore profitability
+        Standing order decision should now be based on Feb 26 results + strategic update.
+      action: "CALENDAR CORRECTION: Update WPP review date from Feb 19 to Feb 26. Standing order review deferred."
 
-    - ticker: MONY.L
-      headline: "Post AI-disruption selloff: stock partially recovered to ~167p (from 147p low on Feb 10). Still -26% from pre-crash levels. Earnings Feb 23."
+    - ticker: PAYC
+      headline: "Q4 2025 earnings released after close Feb 11. Actual results NOT YET indexed by search engines (as of Feb 12 morning). Stock was ~$119 pre-report. Consensus was EPS $2.44, revenue $542.7M."
       classification: MATERIAL
-      source: "Investing.com, Yahoo Finance, Sharecast"
+      source: "Paycom IR, Investing.com, Zacks, Benzinga"
       impact: |
-        FOLLOW-UP from Feb 10 scan: MONY.L hit 147.46p on Insurify ChatGPT
-        insurance app news. Has bounced to ~167p but remains well below
-        pre-crash levels (~224p 52-week high). 52-week low is now 166p.
-        AI disruption threat to comparison websites is STRUCTURAL and NEW.
-        Earnings Feb 23 — this will dominate the call.
-        Adversarial FV was 201 GBp but may need downward revision if AI
-        threat is confirmed as structural.
-        THESIS REASSESSMENT REQUIRED BEFORE FEB 23.
-      action_needed: true
+        PIPELINE CRITICAL: Results were released after close Feb 11 but search engines
+        have not yet indexed the actual numbers. Conference call was at 5pm ET Feb 11.
+        Pre-report context:
+        - Stock at ~$119 (down from ~$129 prior week = -7.6%)
+        - Consensus: EPS $2.44 (+5.2% YoY), Revenue $542.7M (+9.9% YoY)
+        - BMO Capital expects 8-9% rev growth guidance, ~43% EBITDA margin for FY2026
+        - Paycom has beat Zacks consensus 3 of last 4 quarters (avg surprise 9.8%)
+        - Investing.com notes guidance will be key -- can it stabilize battered stock?
+        Our entry target: $95-105. Current ~$119 = still 13-25% above target.
+        MUST verify actual results before any action.
+      action: "CHECK ACTUAL RESULTS via IR page or price_checker.py for market reaction."
 
-    - ticker: AUTO.L
-      headline: "NEW 52-WEEK LOW at 469.98p (Feb 10). Jefferies downgrade to Hold. Deal Builder dealer revolt. JPM underweight."
+    - ticker: MORN
+      headline: "Q4 2025 earnings TONIGHT after close (Feb 12). Stock at $154.32 near 52-week low ($150). Only 6.4% from our $145 entry. Consensus EPS $2.34-2.36, revenue $627-634M."
       classification: MATERIAL
-      source: "MarketBeat, The Markets Daily, Car Dealer Magazine"
+      source: "BusinessWire, MarketBeat, StockStory, Investing.com"
       impact: |
-        NEW DEVELOPMENT since last scan: AUTO.L hit fresh 52-week low.
-        Multiple analyst downgrades:
-        - Jefferies: Buy to Hold, PT cut 895p to 650p (Deal Builder concerns)
-        - Berenberg: PT cut 830p to 665p
-        - JPMorgan: reaffirmed Underweight
-        Dealer revolt: 180+ dealers downgraded subscriptions after mandatory
-        Deal Builder rollout. Dealers threatening "mass cancellations."
-        April 2026 pricing event is key: Deal Builder was supposed to be the
-        "tent pole" supporting price increases. Uncertainty now acute.
-        CEO Coe denied Deal Builder is responsible, blamed AI uncertainty.
-        Our adversarial review flagged "Moat under active siege" as a risk.
-        Stock now ~472p vs our entry. Buyback ongoing (800K shares at 479p).
-        THIS IS THE MOAT SIEGE RISK MATERIALIZING IN REAL TIME.
-      action_needed: true
+        PIPELINE CANDIDATE approaching entry zone:
+        - Stock at ~$154 (down from $161.50 last scan = -4.5%)
+        - 52-week range: $150-$330. Near 52-week LOW.
+        - Only ~6.4% above our $145 entry target
+        - QS 83 Tier A. Avg analyst PT $280.67 (74% upside from here)
+        - Last quarter: beat revenue estimates by 2.4% (revenue $617.4M, +8.4% YoY)
+        - Does NOT hold analyst conference calls -- submits written Q&A
+        - PitchBook private market indexes = new revenue stream catalyst
+        If earnings disappoint, stock could reach $145 quickly.
+        If earnings beat, still a quality compounder at extreme discount.
+      action: "CHECK RESULTS TOMORROW MORNING. If at/near $145, accelerate buy-pipeline."
 
-    - ticker: GL
-      headline: "Q4 EPS $3.39 (miss vs $3.44). FY2026 guide $14.95-$15.65. EVP sold $4.4M shares. Stock at 1-year high."
+    - ticker: LULU
+      headline: "Elliott ($1B+ stake) pushing Jane Nielsen as CEO. Chip Wilson proxy battle for 3 board seats. Co-CEO interim structure (Frank + Maestrini). Strategic update calls expected Feb-Mar. Stock ~$154-179."
       classification: MATERIAL
-      source: "PRNewswire, MarketBeat, InsuranceNewsNet"
+      source: "CNBC, Business of Fashion, Chain Store Age, SGB Media"
       impact: |
-        Already documented in Feb 10 scan. No new developments.
-        Q4 slight miss but FY2025 above midpoint of guidance.
-        FY2026 guide $14.95-$15.65 (+3-8% growth).
-        Class action lawsuit still ongoing (no SEC/DOJ enforcement).
-        Stock at 1-year high despite Q4 miss. HOLD per plan.
-      action_needed: false
+        NO CHANGE FROM LAST SCAN. Situation remains in flux:
+        - Elliott Investment Management: $1B+ (~5% stake), pushing Jane Nielsen
+          (ex-Ralph Lauren CFO/COO) as CEO candidate
+        - Chip Wilson (founder): nominating 3 directors (Marc Maurer ex-On Holding co-CEO,
+          Laura Gentile ex-ESPN CMO, Eric Hirshberg ex-Activision CEO)
+        - Strategic update calls expected in Feb-Mar from interim team
+        - Product reset: 35% new styles for spring, dev cycle shortened to 12-14 months
+        - 2026 AGM will be contentious proxy battle
+        Kill condition "bad CEO hire" remains dominant risk.
+        Elliott involvement generally positive (proven operator at struggling companies).
+        Nielsen has strong track record (Ralph Lauren turnaround).
+      action: "MONITOR. No action until CEO clarity. Stock near our $171.62 entry."
+
+    - ticker: DSY.PA
+      headline: "Q4 FY2025 results (Feb 11): Revenue +1% Q4, FY +4%. 2026 guidance 3-5% growth (below market 5.89%). EPS EUR 1.31 (+7%). OpM 32.0%. Subscription +11%. NVIDIA AI partnership."
+      classification: MATERIAL
+      source: "Dassault Systemes IR (3ds.com), GlobeNewsWire, StockTitan, Investing.com"
+      impact: |
+        STANDING ORDER UPDATE: Full FY2025 results released Feb 11.
+        KEY NUMBERS:
+        - Q4 rev +1% (soft), FY rev +4% to EUR 6.24B
+        - FY25 EPS EUR 1.31 (non-IFRS diluted, +7% cc)
+        - FY25 OpM 32.0% (+40bps)
+        - 2026 GUIDANCE: Rev EUR 6.29-6.41B (+3-5%), OpM 32.2-32.6%, EPS EUR 1.30-1.34
+        - Recurring revenue 82% of software. Subscription +11%. Cloud +8%.
+        - 3DEXPERIENCE platform on cloud +38% Q4, +32% FY
+        - ARR EUR 4.5B
+        - NVIDIA partnership for industrial AI Virtual Twins
+        - European automotive headwinds cited as drag
+        ASSESSMENT: Growth 3-5% is above our 3% cancel threshold but below market expectations.
+        Margin expansion intact. Cloud/subscription mix improving.
+        Standing order EUR 15.50 REMAINS VALID.
+        Guidance miss could push price toward trigger in coming weeks.
+      action: "STANDING ORDER MAINTAINED. Watch price reaction to below-consensus guidance."
 
     - ticker: NVO
-      headline: "CagriSema REIMAGINE 2: SUPERIOR in diabetes (14.2% vs 10.2% weight loss). NDA filed. 2026 guidance weak (-5 to -13%)."
+      headline: "Hims lawsuit: patent through 2032, Hims pulled compounded pill after 2 days. NVO +5%. Wegovy pill 50K weekly scripts. TrumpRx $149/mo. CSO sold shares (tax-related). Stock ~$48."
       classification: MATERIAL
-      source: "GlobeNewsWire, BioPharma Dive"
+      source: "Motley Fool, CNBC, Bloomberg"
       impact: |
-        Already documented. CagriSema data continues best-in-class.
-        2026 revenue weakness already priced in (we bought post-crash).
-        NDA under FDA review. Pipeline strong long-term.
-        No change to thesis. HOLD.
-      action_needed: false
+        NET POSITIVE DEVELOPMENTS (updating from last scan):
+        - Patent covers ALL forms of semaglutide (oral, injectable) through 2032
+        - Hims pulled $49 compounded pill after 2 days under FDA/DOJ pressure
+        - NVO shares surged 6.65% on Hims halting copycat pill
+        - Wegovy pill 50K weekly prescriptions by late Jan (strong uptake)
+        - TrumpRx confirmed: starting dose $149/month
+        - CSO Lange sold 22K B-shares (DKK 7M) Feb 9 -- tax on LTI vesting (routine)
+        - NVO is predicting 13% sales drop in 2026 (already in guidance, priced in)
+        - Stock at ~$48.40 as of Feb 11
+        THESIS IMPACT: Compounder risk SIGNIFICANTLY reduced. IP defense strong.
+        CagriSema data March 2026 remains next major catalyst.
+      action: "NONE. Positive developments. HOLD."
+
+    - ticker: MONY.L
+      headline: "EARNINGS CONFIRMED Feb 23 before market open (TipRanks confirms). Stock ~187p vs FV 190p = thin MoS. ON PROBATION. AI disruption re-eval completed Session 58."
+      classification: MATERIAL
+      source: "TipRanks, Investing.com, Yahoo Finance"
+      impact: |
+        EARNINGS DATE CONFIRMED: Feb 23, 2026 before market open.
+        Previous uncertainty (Feb 16 vs Feb 23) is RESOLVED -- it is Feb 23.
+        Reassessment completed Session 58: QS Tool 83, Adj 75, FV 190p.
+        Stock at ~187p vs FV 190p = MoS only ~1.6% (very thin).
+        ON PROBATION through earnings. No ADD while on probation.
+        Key metrics for Feb 23:
+        - Revenue vs GBP 435M (KC#1 sell threshold)
+        - Insurance revenue trend (KC#2: -5%+ H2 = sell)
+        - Dividend (KC#3: cut = sell)
+        - AI strategy disclosure (KC#9: no strategy = sell)
+      action: "EARNINGS DATE RESOLVED (Feb 23). Framework ready. HOLD ON PROBATION."
+
+    - ticker: AUTO.L
+      headline: "CEO Coe denies Deal Builder caused share decline (blames AI). Company: <100 actual cancellations from 14K dealers. Buybacks >1M shares in 10 days. Advisory Groups launched."
+      classification: MATERIAL
+      source: "AM-Online, Car Dealer Magazine, TipRanks"
+      impact: |
+        NO MATERIAL CHANGE from last scan. Nuance continues to build:
+        - CEO attributes share decline to AI uncertainty, not Deal Builder
+        - Company: ~60 cancellations + 70 downgrades (vs IMDA claim of 165 cancellations)
+        - Company launched Customer Advisory Groups
+        - Buybacks: 700K shares at 475p (Feb 10) + 430K at 536p (Feb 2) = >1M shares
+        - Already reassessed Sessions 56-57: FV 580p, HOLD LOW
+        CONTEXT: Buyback activity at 475p (Feb 10) suggests management buying below our FV 580p.
+        April 2026 pricing event remains decisive.
+      action: "NO CHANGE. HOLD LOW. April = make-or-break."
+
+    - ticker: UHS
+      headline: "CEO contract extended through 2029. UBS: less exposed than Acadia to NY Medicaid limits. OBBBA structural risk persists. Q4 earnings Feb 25."
+      classification: MATERIAL
+      source: "UHS IR, Investing.com, UBS"
+      impact: |
+        INCREMENTAL UPDATE:
+        - CEO contract extension through 2029 ($1.575M base) = stability signal
+        - UBS: UHS less exposed than Acadia to NY Medicaid interstate limits
+        - NY creates $25-30M EBITDA headwind for ACADIA, UHS facility mix protects
+        - HOWEVER: broader OBBBA Medicaid cuts ($1T over 10yr) still structural risk
+        - Work requirements starting fall 2026 will limit enrollment
+        - Behavioral health (~40% rev) most exposed
+        - Consensus Q4 EPS $5.91 (+20.1% YoY)
+        ON PROBATION. Feb 25 earnings DECISIVE.
+        Kill conditions: FY2026 guide <$20 (KC#5), behavioral volumes decline (KC#4),
+        ROIC<WACC (KC#1).
+      action: "Feb 25 MANDATORY SELL/HOLD decision. Framework ready."
+
+    - ticker: DNLM.L
+      headline: "Jefferies UPGRADES to Buy (PT 1,075p) post-H1 after 20% share slide. Stock at ~931p. Consensus PT 1,217p. 7 Buy / 1 Hold / 1 Sell. Dividend declared Feb 10."
+      classification: MATERIAL
+      source: "Investing.com, Defense World, MarketBeat, Proactive Investors"
+      impact: |
+        POSITIVE UPDATE:
+        - Jefferies upgrade from Hold to Buy, PT maintained at 1,075p
+        - Upgrade triggered by 20% share price slide (seen as disproportionate)
+        - Trading at ~11x FY27 earnings, ~30% below long-term avg valuation
+        - Q2 weakness: revenue growth slowed to 1.6% (from 6.2% Q1)
+        - But: FY26 PBT guidance reiterated, Q3 sales growth improving
+        - Product availability issues resolved
+        - Dividend: ex-div Mar 12, pay Apr 7
+        - Stock at ~931p, our trigger 750-800p = 16-19% away
+        Jefferies upgrade VALIDATES our adversarial thesis (FV 1,008p).
+      action: "STANDING ORDER MAINTAINED. Thesis validated by consensus."
+
+    - ticker: WKL.AS
+      headline: "CEO Nancy McKinstry retiring Feb 2026, Stacey Caywood successor. Share buyback EUR 13.5M (Jan 29-Feb 4). Barclays reaffirms Buy. FY2025 results Feb 25."
+      classification: MATERIAL
+      source: "GlobeNewsWire, Wolters Kluwer IR, CNBC, Barclays"
+      impact: |
+        CEO TRANSITION:
+        - Nancy McKinstry (long-tenured, highly regarded) retiring Feb 2026
+        - Stacey Caywood nominated as successor
+        - Share buyback program: EUR 200M (Nov 2025 - Feb 23 2026)
+        - Repurchased 177,617 shares at avg EUR 76.20 in recent week
+        - Barclays reaffirms Buy rating
+        - FY2025 results Feb 25
+        ASSESSMENT: CEO transition is a RISK for continuity of strategy.
+        McKinstry was exceptional operator. Caywood needs to prove herself.
+        FY2025 results + CEO transition commentary will be important.
+        Our entry target EUR 50-55 vs current ~EUR 76 = still far above entry.
+      action: "MONITOR Feb 25 results. CEO transition adds uncertainty. Entry far away."
 
 # =============================================================================
-# NEWS BY TICKER (13 active positions + ZIG.L)
+# NEWS BY TICKER (13 active positions + 6 watchlist)
 # =============================================================================
 news_by_ticker:
 
-  # ===================== TODAY'S KEY EVENT =====================
+  # ===================== ACTIVE POSITIONS =====================
 
   DTE.DE:
     earnings_date: 2026-02-26
-    catalyst_today: "TMUS Capital Markets Day + Q4/FY2025 results (Feb 11, 7:35am ET release)"
-    classification: MATERIAL
+    classification: MINOR
     headlines:
-      - "TMUS Q4/FY2025 results + Capital Markets Day TODAY Feb 11"
-      - "TMUS consensus Q4 EPS $2.11. 4 consecutive beats (avg +9% surprise)"
-      - "DTE.DE stock ~EUR 30.26, buyback ongoing (EUR 2B program)"
-      - "DTE.DE own FY2025 results Feb 26"
-      - "AI collaboration with OpenAI announced"
-    impact: "TMUS event today is the biggest catalyst for DTE.DE. Results + updated 2026-2027 targets will determine trajectory."
-    action_needed: true
+      - "Stock ~EUR 28.69-30.26 range. EUR 2B buyback program for 2026 underway."
+      - "TMUS Q4 beat and 2026 EBITDA guide already in thesis v3.1"
+      - "No sale of T-Mobile shares planned in 2026 (confirmed)"
+      - "UBS PT EUR 35.70 maintained, notes potential sentiment improvement ahead of results"
+      - "Stock slipped 1.1% to EUR 30.26 on Feb 7 despite buybacks"
+    impact: "No new material news. Buyback ongoing. DTE earnings Feb 26 is next catalyst. HOLD MEDIUM."
+    action_needed: false
 
-  # ===================== EARNINGS IMMINENT (12-15 days) =====================
-
-  MONY.L:
-    earnings_date: 2026-02-23
-    classification: MATERIAL
+  ALL:
+    classification: MINOR
     headlines:
-      - "Stock bounced to ~167p from 147p crash low (Feb 10)"
-      - "52-week low now 166p (set Feb 10-11)"
-      - "AI disruption via Insurify ChatGPT app — structural threat"
-      - "Earnings Feb 23 will be dominated by AI disruption questions"
-    impact: "AI disruption risk is NEW and NOT in thesis. Must reassess before earnings."
-    action_needed: true
+      - "Q4 record: Adj EPS $14.31 (vs $9.60 consensus = massive beat). Revenue $17.3B."
+      - "FY2025 net income $10.2B (more than doubled 2024)"
+      - "ROE 38.3% FY2025 (record). Book value/share surged 50% YoY to $108.45"
+      - "CEO Wilson sold $3.3M shares Feb 2 (pre-arranged 10b5-1 plan)"
+      - "$4B buyback + dividend raised to $1.08/quarter (+8%)"
+      - "Premium cuts for 7.8M customers (affordability initiative)"
+    impact: |
+      Q4 was MASSIVE beat. Already processed. No new developments in last 48h.
+      ROE 38.3% = peak cycle confirms thesis note. Premium cuts signal
+      awareness of regulatory/political pressure. ON PROBATION LOW.
+    action_needed: false
+
+  VICI:
+    earnings_date: 2026-02-25
+    classification: MINOR
+    headlines:
+      - "Q4 results Feb 25 after close, call Feb 26 10am ET"
+      - "Las Vegas Locals market acquisition (7 casino properties)"
+      - "80% analysts bullish. Consensus PT $35. Expected Q4 AFFO $0.60/share"
+      - "National Pension Service increased stake"
+      - "Scotiabank downgrade to Sector Perform, PT $36->$30 (Caesars lease uncertainty)"
+    impact: "No new developments. ON PROBATION. Feb 25 earnings decisive. AFFO guidance critical."
+    action_needed: false
 
   EDEN.PA:
     earnings_date: 2026-02-24
     classification: NO_NEWS
     headlines:
-      - "Share capital disclosure Feb 6: 236.97M shares outstanding"
-      - "Stock ~EUR 18.08 (+5.1% past week)"
-    impact: "No material news. Routine disclosure only. Earnings Feb 24 is next catalyst."
+      - "Share capital disclosure: 236.97M shares outstanding (Jan 31)"
+      - "Analyst consensus PT EUR 33.09 (+87.7% upside from ~EUR 17.77)"
+      - "No new company-specific news in last 48h"
+    impact: "Quiet period before earnings. Feb 24 is next catalyst. EXIT if 2027-28 guidance <5%."
     action_needed: false
 
-  VICI:
-    earnings_date: 2026-02-25
+  DOM.L:
+    earnings_date: "2026-03-05 (or Mar 11 per some sources)"
     classification: NO_NEWS
     headlines:
-      - "Q4/FY2025 results Feb 25 after close, call Feb 26"
-      - "Scotiabank downgrade to Sector Perform, PT $30 (already known)"
-      - "National Pension Service increased stake +8.6%"
-    impact: "No new news since last scan. Institutional accumulation is mildly positive."
+      - "Stock ~182p. PE ratio 9.8x."
+      - "78% institutional ownership. Abrams Capital largest at 10.0%."
+      - "New CEO Dominic Paul starts Apr 6"
+      - "Dividend yield 5.81%"
+      - "No new company-specific news in last 48h"
+    impact: "Quiet period. FY25 results Mar 5-11 is next catalyst. SELL if EBITDA <GBP 125M."
     action_needed: false
 
   UHS:
     earnings_date: 2026-02-25
-    classification: NO_NEWS
+    classification: MATERIAL
     headlines:
-      - "Q4 results Feb 25 after close, call Feb 26 9am"
-      - "UBS: NY Medicaid changes do NOT affect UHS (positive vs Acadia)"
-      - "Analysts expect Q4 EPS $5.91 (+20.1% YoY)"
-      - "National Pension Service bought 14,478 shares"
-    impact: "UBS note differentiates UHS from Acadia on Medicaid. Mildly positive. No material change."
+      - "CEO contract extended through 2029 ($1.575M base)"
+      - "UBS: UHS less exposed than Acadia to NY Medicaid interstate limits"
+      - "OBBBA Medicaid cuts structural risk ($1T over 10 years)"
+      - "Work requirements will limit enrollment starting fall 2026"
+      - "Consensus Q4 EPS $5.91 (+20.1% YoY)"
+    impact: "CEO stability positive. NY-specific risk mitigated but OBBBA persists. ON PROBATION. Feb 25 MANDATORY."
+    action_needed: true
+
+  GL:
+    classification: MINOR
+    headlines:
+      - "Q4 net operating EPS $3.39 (+8% YoY), slightly below consensus $3.44"
+      - "FY2025 net operating EPS $14.52 (+17.4% YoY), above guidance midpoint"
+      - "FY2026 guide $14.95-$15.65 net operating EPS"
+      - "Net life sales +11% Q4, net health sales +71% Q4"
+      - "Premium revenue +5% Q4, guided +7-8% FY2026"
+      - "JPM PT $180->$181, Overweight. EVP sold $4.4M, Director $258K"
+    impact: "Already processed. Slight Q4 miss but full year above midpoint. Guidance solid. HOLD."
     action_needed: false
 
-  # ===================== NON-EARNINGS POSITIONS =====================
-
   ADBE:
-    classification: NO_NEWS
+    classification: MINOR
     headlines:
-      - "Trading near 52-week low (~$267, low $262.95)"
-      - "FTC/DOJ ROSCA case pending in N.D. California, no trial date"
-      - "21 analysts Buy, avg PT $417"
-    impact: "No new developments. FTC case progressing slowly. Stock near lows."
+      - "Stock ~$270, down 23.5% YTD."
+      - "AI fears persist: stock fell 3.1% on Feb 5 after new models from Anthropic/OpenAI"
+      - "Boosted ad spending +30% to $1.4B in 2025 (Bloomberg) as competitive response"
+      - "Buy consensus: 21 analysts, avg PT $429"
+      - "FTC trial remains Oct 2026. No new developments."
+      - "Wilson Asset Management cut stake (minor institutional rebalancing)"
+    impact: "AI narrative continues to weigh but no new fundamental developments. FTC unchanged. HOLD."
     action_needed: false
 
   NVO:
     classification: MATERIAL
     headlines:
-      - "CagriSema REIMAGINE 2 (Feb 2): Superior in diabetes"
-      - "NDA filed Dec 2025 for obesity, FDA review 2026"
-      - "2026 guidance: sales -5% to -13%"
-    impact: "CagriSema pipeline strengthening. Revenue weakness priced in. No change."
+      - "Sued Hims & Hers: patent through 2032, all semaglutide forms"
+      - "Hims pulled $49 compounded pill after 2 days (FDA/DOJ pressure)"
+      - "NVO +6.65% on news. Hims -20%."
+      - "Compounded semaglutide impurities: 86% injectable, 75% oral"
+      - "Wegovy pill 50K weekly prescriptions by late Jan (strong)"
+      - "TrumpRx: $149/month starting dose"
+      - "CSO sold 22K B-shares (DKK 7M) -- tax on LTI vesting"
+      - "NVO predicting 13% sales drop 2026 (already in guidance)"
+    impact: |
+      NET POSITIVE: IP defense + FDA backing significantly reduces compounder risk.
+      Wegovy pill adoption strong. CSO sale routine. 2026 weakness priced in.
+      CagriSema March 2026 = next major catalyst. HOLD.
     action_needed: false
 
-  LULU:
-    classification: NO_NEWS
+  MONY.L:
+    earnings_date: 2026-02-23
+    classification: MATERIAL
     headlines:
-      - "Stock ~$182 (+6% from our entry)"
-      - "New 'Unrestricted Power' training line launched (Lewis Hamilton collab)"
-      - "Entering 6 new international markets in 2026"
-      - "Team Canada Olympic apparel provider"
-      - "Q4 earnings expected March"
-    impact: "International expansion + product launches on track. No negative surprises."
+      - "EARNINGS CONFIRMED Feb 23 before market open"
+      - "Stock ~187p, recovered from 147p crash"
+      - "AI disruption re-eval completed Session 58: QS 83->75 adj, FV 190p"
+      - "BlackRock reduced stake 5.36%->5.29% (minor, routine)"
+      - "PDMRs acquired shares via SIP (positive)"
+      - "Berenberg Buy/275p maintained"
+    impact: |
+      Earnings date CONFIRMED: Feb 23 pre-market (not Feb 16).
+      Stock ~187p vs FV 190p = MoS only 1.6% (very thin).
+      ON PROBATION. Framework ready with 4 kill conditions.
+    action_needed: true
+
+  LULU:
+    classification: MATERIAL
+    headlines:
+      - "Elliott: $1B+ stake (~5%), pushing Jane Nielsen (ex-Ralph Lauren) as CEO"
+      - "Chip Wilson: proxy battle, 3 directors (Maurer, Gentile, Hirshberg)"
+      - "Co-CEO interim: Meghan Frank + Celeste Maestrini (since Jan 31)"
+      - "Strategic update calls expected Feb-Mar"
+      - "Product reset: 35% new styles spring, dev cycle 12-14mo (was 18-24)"
+      - "Stock ~$154-179 range, near 52w low ~$150"
+    impact: |
+      NO CHANGE from last scan. Activist + founder proxy battle ongoing.
+      Elliott generally positive catalyst. Nielsen strong candidate.
+      But proxy fight = uncertainty until 2026 AGM resolution.
+      Kill condition "bad CEO hire" dominant risk. Stock near entry price.
     action_needed: false
 
   AUTO.L:
     classification: MATERIAL
     headlines:
-      - "NEW 52-WEEK LOW: 469.98p (Feb 10)"
-      - "Jefferies downgrade Buy to Hold, PT 895p to 650p"
-      - "Berenberg PT cut 830p to 665p"
-      - "JPMorgan reaffirmed Underweight"
-      - "Deal Builder dealer revolt: 180+ dealers downgraded subscriptions"
-      - "Dealers threatening 'mass cancellations'"
-      - "CEO denied Deal Builder to blame, cited AI uncertainty"
-      - "April 2026 pricing event = key test"
-      - "Visits +24.7% MoM to 86.3M (Jan) — engagement strong"
-      - "Buyback ongoing: 800K shares @ 479p"
+      - "CEO Coe: AI uncertainty caused share decline, not Deal Builder"
+      - "Company: <100 cancellations from 14,000 dealers"
+      - "Data: ~60 cancellations + 70 downgrades. IMDA claims 165 (disputed)"
+      - "Buybacks: 700K shares at 475p (Feb 10) + 430K at 536p (Feb 2)"
+      - "Customer Advisory Groups launched"
     impact: |
-      MOAT SIEGE RISK MATERIALIZING. The adversarial review flagged dealer revolt
-      as a key risk. 180+ dealers downgraded. April pricing event is make-or-break.
-      Stock hitting new lows despite strong engagement data (visits +24.7%).
-      Multiple analyst downgrades create negative momentum.
-      However: engagement remains very strong, buyback ongoing, and supply
-      constraint (5-7yr old cars -25-30% in 2026) actually favors AUTO.L pricing.
-      THIS NEEDS THESIS REVIEW — is the moat siege temporary or structural?
-    action_needed: true
+      Incrementally positive: actual cancellations lower than feared.
+      Management buying >1M shares in 10 days at ~475p (below our FV 580p).
+      Reassessed Sessions 56-57. HOLD LOW. April = decisive.
+    action_needed: false
 
   BYIT.L:
     classification: NO_NEWS
     headlines:
-      - "Hit new 12-month low in early Feb"
-      - "Stock -14% over 3 months"
-      - "Jefferies downgrade to Hold, PT 447p to 400p (January)"
-      - "Strong fundamentals: double-digit growth, 44% payout ratio"
-    impact: "Price weakness continues but fundamentals intact. No new company news."
+      - "12-month low reached early Feb. Stock down ~14% over 3 months."
+      - "Jefferies downgrade to Hold, PT 447->400p (Jan, already known)"
+      - "Simply Wall St: weakness may be temporary given strong financials"
+      - "Double-digit revenue growth, GII >GBP 2B, dividend increased"
+      - "Payout ratio 44% (well covered)"
+    impact: "No new company-specific news. Price weakness without new catalyst. HOLD PROBATION. FY2026 results ~May 2026."
     action_needed: false
 
-  ALL:
-    classification: NO_NEWS
-    headlines:
-      - "Q4 already reported: record net income $3.8B, ROE 38.3%"
-      - "$4B buyback, div +8%"
-      - "Wells Fargo PT $228, JPM PT $263"
-      - "No new news since earnings Feb 5"
-    impact: "Record Q4 already documented. No developments since. HOLD on probation."
-    action_needed: false
+  # ===================== WATCHLIST =====================
 
-  GL:
+  PAYC:
     classification: MATERIAL
     headlines:
-      - "Q4 EPS $3.39 miss vs $3.44 est"
-      - "FY2026 guide: $14.95-$15.65"
-      - "EVP Majors sold $4.4M shares Feb 6"
-      - "Stock at 1-year high despite Q4 miss"
-      - "SEC/DOJ investigations CLOSED with no enforcement (July 2025)"
-      - "Class action ongoing"
-    impact: "Slight Q4 miss overshadowed by strong full-year and clean SEC/DOJ exit. HOLD."
+      - "Q4 2025 earnings released after close Feb 11 -- RESULTS NOT YET INDEXED"
+      - "Consensus: EPS $2.44 (+5.2% YoY), revenue $542.7M (+9.9%)"
+      - "Stock at ~$119 (down from ~$129 prior week = -7.6%)"
+      - "BMO: expects 8-9% rev growth guidance, ~43% EBITDA margin FY2026"
+      - "Historical: beat Zacks consensus 3 of last 4 quarters (avg surprise 9.8%)"
+      - "Investing.com: guidance key to stabilize battered stock"
+    impact: |
+      RESULTS RELEASED but not yet searchable. Stock ~$119, still above our entry $95-105.
+      Significant price decline (-7.6% last week) toward entry zone.
+      MUST verify actual numbers before any pipeline action.
+    action_needed: true
+
+  MORN:
+    classification: MATERIAL
+    headlines:
+      - "Q4 2025 earnings TONIGHT after close (Feb 12)"
+      - "Consensus: EPS $2.34-2.36, revenue $627-634M"
+      - "Stock at ~$154 (-4.5% from last scan). Near 52w low $150."
+      - "Only 6.4% above our $145 entry"
+      - "Last Q: beat revenue by 2.4% ($617.4M, +8.4% YoY)"
+      - "No analyst conference calls (written Q&A only)"
+      - "PitchBook private market indexes = new revenue catalyst"
+      - "Avg analyst PT $280.67 (74% upside)"
+    impact: |
+      APPROACHING ENTRY: Stock at $154, only 6.4% from $145 target.
+      QS 83 Tier A. Massive analyst upside consensus.
+      Earnings tonight will determine trajectory.
+      BUY-PIPELINE should be high priority.
+    action_needed: true
+
+  DSY.PA:
+    classification: MATERIAL
+    headlines:
+      - "Q4 FY2025 results published Feb 11"
+      - "Q4 rev +1%, FY rev +4% to EUR 6.24B"
+      - "2026 guidance: 3-5% growth (below mkt consensus 5.89%)"
+      - "OpM 32.0% FY25 (+40bps), guided 32.2-32.6% 2026"
+      - "EPS EUR 1.31 (+7%), guided EUR 1.30-1.34 2026"
+      - "Subscription +11%, 3DEXPERIENCE +10%, Cloud +8%"
+      - "NVIDIA AI Virtual Twins partnership"
+      - "European automotive headwinds"
+    impact: |
+      Standing order EUR 15.50 VALIDATED: 2026 growth 3-5% > our 3% cancel threshold.
+      Guidance slightly below market. May push price toward trigger.
+      Subscription/cloud mix improving. Margin expansion intact.
     action_needed: false
 
-  DOM.L:
-    classification: NO_NEWS
+  DNLM.L:
+    classification: MATERIAL
     headlines:
-      - "No new news in past 48h"
-      - "Q3 already reported: sales +2.1%, orders -1.5%"
-      - "FY25 results Mar 5"
-      - "New CEO Dominic Paul starts Apr 6"
-    impact: "Quiet period. Next catalyst is FY25 results Mar 5."
+      - "Jefferies UPGRADES to Buy, PT 1,075p (Feb 10)"
+      - "Q2 rev growth slowed to 1.6% (from 6.2% Q1) -- 20% share slide"
+      - "FY26 PBT guidance reiterated, Q3 sales growth improving"
+      - "Product availability issues resolved"
+      - "Trading at ~11x FY27 earnings (~30% below long-term avg)"
+      - "7 Buy / 1 Hold / 1 Sell. Consensus PT 1,217p"
+      - "Dividend: ex-div Mar 12, pay Apr 7"
+      - "Stock ~931p (our trigger 750-800p = 16-19% away)"
+    impact: |
+      Jefferies upgrade validates thesis. Stock 16-19% above our trigger.
+      Q2 weakness was product availability (resolved) + competition.
+      Standing order 750-800p maintained for MoS ~25%.
+    action_needed: false
+
+  WPP.L:
+    classification: MATERIAL
+    headlines:
+      - "CORRECTION: Strategic update + FY2025 results now Feb 26 (NOT Feb 19)"
+      - "FT leaked: Ogilvy/VML/AKQA to be unified under 'WPP Creative'"
+      - "McKinsey advising on strategic review"
+      - "Cindy Rose calls performance 'unacceptable'"
+      - "Global pay reviews deferred to 2026"
+      - "Goal: simplify, drive AI-led growth, restore profitability"
+    impact: |
+      DATE CORRECTION: Feb 26 not Feb 19. Changes our review timeline.
+      Creative restructuring leaked -- ambitious simplification.
+      McKinsey involvement suggests deep restructuring.
+      Standing order review now deferred to Feb 26 results + strategy update.
+    action_needed: true
+
+  WKL.AS:
+    classification: MINOR
+    headlines:
+      - "CEO Nancy McKinstry retiring Feb 2026. Stacey Caywood successor."
+      - "Share buyback: 177,617 shares at avg EUR 76.20 (Jan 29-Feb 4)"
+      - "Buyback program EUR 200M (Nov 2025 - Feb 23 2026)"
+      - "Barclays reaffirms Buy"
+      - "FY2025 results Feb 25"
+    impact: "CEO transition adds uncertainty. Stock at ~EUR 76 vs our entry EUR 50-55. Far from trigger. Feb 25 results important."
     action_needed: false
 
 # =============================================================================
-# STANDING ORDERS
+# STANDING ORDERS PROXIMITY
 # =============================================================================
 standing_orders_proximity:
-  - ticker: ZIG.L
-    trigger: "375 GBp"
-    current: "~386.5 GBp"
-    distance: "~3%"
-    notes: |
-      CLOSEST TO TRIGGER. Stock at 386.5p vs 375p trigger.
-      52-week range: 273.50 to 395.00 GBp.
-      Revenue growth +2.9%, div yield 6.78%.
-      Analysts avg PT 503p (4 buy, 1 hold).
-      FY2025 showed -37% profit decline but beat expectations.
-      AGM update: solid start to FY2026, outlook unchanged.
-      MONITOR CLOSELY — could trigger within days.
+  - ticker: FGP.L
+    trigger: "165 GBp"
+    current: "~175-180 GBp"
+    distance: "~3-6%"
+    notes: "CLOSEST. WARNING: No adversarial pipeline. DO NOT execute without full 4-round pipeline."
+
+  - ticker: WPP.L
+    trigger: "200 GBp"
+    current: "~215 GBp"
+    distance: "~7%"
+    notes: "CORRECTED: Review date Feb 26 (NOT Feb 19). Tier C + no moat. Under review."
+
+  - ticker: DSY.PA
+    trigger: "EUR 15.50"
+    current: "~EUR 17.50"
+    distance: "~11.4%"
+    notes: "Q4 results validate thesis. 2026 guidance miss may push price lower. Standing order VALID."
+
+  - ticker: CMCSA
+    trigger: "$26"
+    current: "~$30"
+    distance: "~13%"
+    notes: "WARNING: No adversarial pipeline completed."
+
+  - ticker: GL
+    trigger: "$125"
+    current: "~$147"
+    distance: "~15%"
+    notes: "Stock at 1-year high area. Far from trigger."
+
+  - ticker: DNLM.L
+    trigger: "750-800 GBp"
+    current: "~931 GBp"
+    distance: "~16-19%"
+    notes: "Jefferies upgrade validates thesis. Need further weakness."
+
+  - ticker: NVO
+    trigger: "CagriSema positive (Mar) OR <=$40"
+    current: "~$48"
+    distance: "~17% from price trigger"
+    notes: "IP defense strengthened. CagriSema March 2026."
 
 # =============================================================================
 # EARNINGS CALENDAR - NEXT 21 DAYS
 # =============================================================================
 earnings_upcoming:
-  - ticker: TMUS
+  - ticker: PAYC
     date: 2026-02-11
-    type: "CRITICAL CATALYST (DTE.DE owns 51%)"
-    notes: "Capital Markets Day + Q4/FY2025 results TODAY. 7:35am ET release, 8:30am call."
+    type: "WATCHLIST - PIPELINE CRITICAL"
+    status: "REPORTED (results pending verification)"
+    notes: "Q4 after close Feb 11. Results not yet indexed. Stock ~$119. Entry $95-105."
 
-  - ticker: BBWI
-    date: 2026-02-19
-    type: "Standing order watchlist"
-    notes: "Q4 after close. Trigger $18.50."
+  - ticker: MORN
+    date: 2026-02-12
+    type: "WATCHLIST - PIPELINE CANDIDATE"
+    status: "REPORTING TONIGHT after close"
+    notes: "Q4 after close TODAY. QS 83 Tier A. Stock ~$154 near 52w low. Entry $145."
+
+  - ticker: BATS.L
+    date: 2026-02-12
+    type: "WATCHLIST"
+    notes: "BAT FY2025 results."
 
   - ticker: MONY.L
     date: 2026-02-23
     type: "PORTFOLIO - HIGH PRIORITY"
-    notes: "AI disruption fears. MUST REASSESS thesis before this date."
+    status: "ON PROBATION. CONFIRMED Feb 23 pre-market."
+    notes: "AI disruption re-eval completed. FV 190p. Stock ~187p = thin MoS. 4 kill conditions."
 
   - ticker: EDEN.PA
     date: 2026-02-24
     type: "PORTFOLIO - PRIORITY"
     notes: "Rebasing year. EXIT if 2027-28 guidance <5%."
 
+  - ticker: UTG.L
+    date: 2026-02-24
+    type: "WATCHLIST"
+    notes: "Unite Group FY2025. Sector intel."
+
   - ticker: VICI
     date: 2026-02-25
     type: "PORTFOLIO - ON PROBATION"
-    notes: "AFFO guidance critical. EXIT if AFFO <$2.35."
+    notes: "AFFO guidance critical. EXIT if AFFO <$2.35. Las Vegas Locals acquisition."
 
   - ticker: UHS
     date: 2026-02-25
     type: "PORTFOLIO - ON PROBATION"
+    status: "CEO extended through 2029. UBS mitigates NY risk. OBBBA persists."
     notes: "Post-earnings SELL/HOLD decision MANDATORY."
 
   - ticker: WKL.AS
     date: 2026-02-25
-    type: "Standing order watchlist"
-    notes: "FY2025 results. Trigger EUR 65."
+    type: "WATCHLIST"
+    notes: "FY2025 results. CEO McKinstry retiring. Entry EUR 50-55 (far above)."
+
+  - ticker: WPP.L
+    date: 2026-02-26
+    type: "STANDING ORDER - REVIEW TRIGGER"
+    status: "CORRECTED from Feb 19. Strategy update + FY2025 results."
+    notes: "Creative restructuring leaked. McKinsey advising. Decision: keep or cancel SO."
 
   - ticker: DTE.DE
     date: 2026-02-26
     type: "PORTFOLIO"
-    notes: "FY2025 results. TMUS CMD today will front-run much of the info."
+    notes: "FY2025 results. TMUS beat already in thesis. EUR 2B buyback 2026."
+
+  - ticker: CS.PA
+    date: 2026-02-26
+    type: "WATCHLIST"
+    notes: "AXA FY2025. Entry 34.50-35.50 post-earnings."
 
   - ticker: DOM.L
-    date: 2026-03-05
+    date: "2026-03-05 (or Mar 11)"
     type: "PORTFOLIO"
-    notes: "FY25 results. SELL if EBITDA <GBP 125M."
+    notes: "FY25 results. SELL if EBITDA <GBP 125M. New CEO starts Apr 6."
 
 # =============================================================================
 # RESUMEN EJECUTIVO
 # =============================================================================
 summary: |
-  SCAN 2026-02-11: 0 CRITICAL, 5 MATERIAL, 9 NO NEWS/MINOR
-  Tickers scanned: 14 (13 portfolio + ZIG.L standing order)
+  SCAN 2026-02-12 10:00: 0 CRITICAL, 12 MATERIAL, 7 MINOR/NO_NEWS
+  Tickers scanned: 19 (13 portfolio + 6 watchlist)
 
   CRITICAL ALERTS: NONE
 
-  MATERIAL ALERTS (action needed on 3):
-  1. [HIGH] DTE.DE: TMUS Capital Markets Day + Q4 results TODAY.
-     DTE.DE at EUR 30.26, approaching adversarial FV EUR 33-35.
-     Monitor TMUS output for 2026-2027 targets.
-  2. [HIGH] MONY.L: Post AI-crash recovery to ~167p (from 147p low).
-     AI disruption threat is structural and NEW. Must reassess thesis
-     before earnings Feb 23.
-  3. [HIGH] AUTO.L: NEW 52-WEEK LOW at 470p. Multiple analyst downgrades.
-     Deal Builder dealer revolt (180+ dealers downgraded). April 2026
-     pricing event is make-or-break. MOAT SIEGE RISK MATERIALIZING.
-     Needs thesis review.
-  4. [LOW] GL: Q4 slight miss, FY2026 guide solid. No action.
-  5. [LOW] NVO: CagriSema data positive. No change to thesis.
+  KEY CHANGES SINCE LAST SCAN:
+  1. [CORRECTION] WPP.L: Strategic update is Feb 26, NOT Feb 19. Restructuring leaked.
+  2. [RESOLVED] MONY.L: Earnings CONFIRMED Feb 23 pre-market (not Feb 16).
+  3. [PENDING] PAYC: Q4 results released after close Feb 11 -- not yet indexed.
+  4. [TONIGHT] MORN: Q4 results after close TODAY Feb 12. Stock at $154, near entry $145.
+  5. [NEW] DSY.PA: Full FY2025 results out. Growth 3-5% guidance validates SO. Below market.
+  6. [NEW] DNLM.L: Jefferies upgrade to Buy. Validates thesis. Stock 16% above trigger.
+  7. [NEW] WKL.AS: CEO McKinstry retiring. Caywood successor. FY2025 results Feb 25.
 
-  STANDING ORDERS: ZIG.L at ~386p vs 375p trigger (~3% away). CLOSEST.
+  PROBATION POSITIONS (3):
+  - MONY.L: Earnings Feb 23. Stock near FV. 4 kill conditions ready.
+  - VICI: Earnings Feb 25. AFFO guidance critical.
+  - UHS: Earnings Feb 25. Medicaid risk. MANDATORY SELL/HOLD.
 
-  ACTIONS REQUIRED:
-  1. [TODAY] Monitor TMUS Capital Markets Day output (DTE.DE catalyst)
-  2. [THIS WEEK] Reassess AUTO.L thesis — is dealer revolt temporary or structural?
-  3. [BEFORE FEB 23] Reassess MONY.L thesis for AI disruption risk
-  4. [MONITOR] ZIG.L approaching trigger (3% away)
+  STANDING ORDERS:
+  - FGP.L closest (~3-6%) but NO adversarial pipeline
+  - WPP.L ~7% but review DEFERRED to Feb 26 (not Feb 19)
+  - DSY.PA ~11%, guidance miss may push price lower
+
+  ACTIONS REQUIRED (priority):
+  1. [IMMEDIATE] Verify PAYC Q4 actual results (check price reaction)
+  2. [TONIGHT] MORN Q4 results -- if stock drops to $145, accelerate buy-pipeline
+  3. [FEB 23] MONY.L earnings -- ON PROBATION, framework ready
+  4. [FEB 24] EDEN.PA earnings -- EXIT if guidance <5%
+  5. [FEB 25] UHS + VICI -- PROBATION decisions MANDATORY
+  6. [FEB 25] WKL.AS FY2025 + CEO transition
+  7. [FEB 26] DTE.DE earnings + WPP.L strategy update (SO review)
+  8. [ONGOING] LULU CEO proxy battle -- monitor Elliott vs Wilson
+
+# =============================================================================
+# META-REFLECTION
+# =============================================================================
+meta_reflection: |
+  ## Coverage
+  - Tickers scanned: 19/19 (13 active + 6 watchlist)
+  - All 13 active positions covered
+  - All 6 key watchlist items covered (PAYC, MORN, DSY.PA, DNLM.L, WKL.AS, WPP.L)
+
+  ## Key Findings This Scan
+  1. WPP.L date correction (Feb 26 not Feb 19) is operationally significant --
+     changes our standing order review timeline by 7 days.
+  2. MONY.L earnings confirmed Feb 23 -- resolves previous ambiguity.
+  3. PAYC results still not indexed -- limitation of news aggregator lag.
+     Should check via price_checker.py for market reaction as proxy.
+  4. DSY.PA full results provide concrete data for standing order validation.
+
+  ## Limitations
+  - PAYC actual Q4 results not available in any search engine yet (released <12h ago)
+  - MORN results not available yet (reports tonight)
+  - Price data from search results may be delayed; use price_checker.py for live quotes
+
+  ## Anomalies
+  - None detected
+
+  ## Suggestions
+  - Run price_checker.py on PAYC to see post-earnings market reaction as proxy for results
+  - If PAYC dropped to ~$105 or below, the results may have disappointed -- accelerate pipeline
+  - If PAYC stayed flat/up, results likely in-line or beat -- wait for our $95-105 entry
+  - MORN results tonight could create immediate opportunity if stock drops to $145

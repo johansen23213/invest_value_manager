@@ -4,7 +4,7 @@
 **Framework Version**: v3.0 (Updated 2026-02-10)
 **Original Date**: 2026-01-31
 **Quality Score**: QS Tool 54/100 (Tier C). REIT-Adj ~60 (Tier B). See Section 6.
-**Adversarial Fair Value**: $29.00 (EV weighted)
+**Fair Value:** $29.00 (v3.0 adversarial, EV weighted)
 
 ---
 

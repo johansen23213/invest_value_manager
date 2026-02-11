@@ -5,6 +5,8 @@
 > **52-week range:** $159.25 - $400.01
 > **Entry:** $171.62 on 2026-02-05
 
+**Fair Value:** $202 (adversarial, was $261 original. QS 82 Tier A)
+
 ---
 
 ## ADVERSARIAL REVIEW UPDATE (2026-02-11)

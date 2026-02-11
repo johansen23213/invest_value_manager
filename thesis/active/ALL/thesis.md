@@ -5,6 +5,8 @@
 > Confianza: LOW
 > Quality Score: 56/100 (Tier B)
 
+**Fair Value:** $234 (adversarial, was $240 thesis)
+
 ## TL;DR
 
 Allstate is #2 US homeowners and #4 auto insurer. Q4 2025 earnings were exceptional ($14.31 EPS vs $9.85 consensus, combined ratio 72.9%), but this is PEAK CYCLE. Adversarial review found: QS 56 Tier B (thesis claimed "8/10 Tier A" -- WRONG), normalized ROE 15-18% (not 37%), Arity data privacy litigation completely absent from thesis, Senate claims fraud hearing absent, voluntary 17% rate cuts for 7.8M customers. Independent FV $234, risk-adjusted FV $214. MoS 3-11% -- thin for Tier B. HOLD ON PROBATION because position is tiny (3.5%, $400), freed capital marginal, no specific replacement. Q1 2026 earnings is the decision point.

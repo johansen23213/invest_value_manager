@@ -11,8 +11,8 @@
 
 Globe Life (NYSE: GL) is a US-based life and health insurance holding company specializing in underserved markets (low-to-middle income). The stock trades at P/E 10x — a discount to peers (14-15x) — following the 2024 Fuzzy Panda short-seller attack. The two most serious overhangs (SEC + DOJ) have been **fully cleared** (Jul 2025, no enforcement). Q4 2025 confirmed strong fundamentals: FY25 operating EPS $14.52, FY26 guidance $14.95-$15.65 (+5%), BV $74.17, ROE 20.9%.
 
+**Fair Value:** $191 (v3.0, weighted P/B vs ROE + P/E normalized)
 **Current Price:** $141.42 (10-Feb-2026)
-**Fair Value v3.0:** $191 (weighted P/B vs ROE + P/E normalized)
 **Margin of Safety:** 25.9%
 **QS Tool:** 52/100 (Tier C)
 **QS Ajustado:** 55/100 (Tier B borderline) — Ajuste: +3 puntos por SEC/DOJ clearance removing regulatory overhang

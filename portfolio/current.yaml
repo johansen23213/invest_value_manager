@@ -2,7 +2,7 @@
 # PORTFOLIO - Fuente de verdad: eToro
 # =============================================================================
 # Actualizar después de cada operación en eToro
-# Última actualización: 2026-02-09
+# Última actualización: 2026-02-11
 # NOTA: eToro muestra TODO en USD. invested = monto original, avg_cost = invested/shares
 # =============================================================================
 
@@ -36,7 +36,7 @@ positions:
     last_review: 2026-02-08
     exit_plan: "HOLD ON PROBATION. SELL if Q1 2026 CR >97% or Arity settlement >$1B. SELL if Tier A needs capital. ADD at $180. Next review: Q1 2026 earnings."
 
-  # SAN.PA REMOVED 2026-02-09 - SOLD. Adversarial review: QS 59 Tier B (low-end), ROIC < WACC (-2.1pp), FV -35.5% (EUR 122→79). Amlitelimab inferior to Dupixent. P&L -0.84%.
+  # SAN.PA REMOVED 2026-02-09 - SOLD. Adversarial review: QS 59 Tier B (low-end), ROIC < WACC (-2.1pp), FV -35.5% (EUR 122->79). Amlitelimab inferior to Dupixent. P&L -0.84%.
 
   - ticker: VICI
     name: "VICI Properties Inc."
@@ -76,7 +76,7 @@ positions:
     conviction: low
     fair_value: "240 GBp (v3.0. QS Tool 61 Tier B, no adj. Was 294p v2.0, -18.4%. EV/EBIT 60% + P/E 40%)"
     last_review: 2026-02-10
-    exit_plan: "HOLD through FY25 results Mar 5. SELL if EBITDA <£125M (KC#1). HOLD if base (£130-137M). Conviction LOW — MoS 19.2% marginal for Tier B. New CEO Dominic Paul starts Apr 6."
+    exit_plan: "HOLD through FY25 results Mar 5. SELL if EBITDA <GBP125M (KC#1). HOLD if base (GBP130-137M). Conviction LOW -- MoS 19.2% marginal for Tier B. New CEO Dominic Paul starts Apr 6."
 
   - ticker: UHS
     name: "Universal Health Services Inc."
@@ -132,11 +132,11 @@ positions:
     avg_cost_usd: 2.32  # 473 / 204 (169 GBp in USD)
     date_opened: 2026-02-04
     thesis: thesis/active/MONY.L/thesis.md
-    notes: "Third Tier A Quality Compounder. QS 81. UK price comparison #2. ROIC 29%."
+    notes: "AI Disruption Re-eval 2026-02-12: QS Tool 83, Adj 75 (borderline Tier A). Moat NARROW, erosion prob 30-35%. Insurify ChatGPT proof-of-concept (US-only). ROIC 31.8% >> WACC 9.2%. Financial quality 40/40. CEO bought 170.6p Feb 5."
     conviction: low
-    last_review: 2026-02-07
-    fair_value: "201 GBp (adversarial, was 277)"
-    exit_plan: "HOLD through earnings Feb 23. SELL if revenue <435M or insurance -5%+. Probation if cautious guidance."
+    last_review: 2026-02-12
+    fair_value: "190 GBp (v3.0 AI disruption re-eval, was 201 adversarial, 277 original)"
+    exit_plan: "HOLD ON PROBATION through Feb 23 earnings. SELL if revenue <435M (KC#1) or Insurance -5%+ H2 (KC#2) or dividend cut (KC#3). SELL if management has no AI strategy (KC#9). If earnings base/bull + AI strategy: maintain. If cautious guidance: 60-day probation with exit at 130p. No ADD while on probation."
 
   - ticker: LULU
     name: "Lululemon Athletica Inc."
@@ -154,7 +154,11 @@ positions:
     avg_cost_usd: 6.58  # 427.60 / 65
     date_opened: 2026-02-06
     thesis: thesis/active/AUTO.L/thesis.md
-    notes: "Fifth Tier A Quality Compounder. QS 79, MoS 29%. UK car classifieds monopoly. 75% market share, 50% FCF margin, net cash. Capital rotation from SHEL.L (QS 36)."
+    conviction: low
+    fair_value: "580 GBp (re-eval Feb 11, was 617p adversarial, 688p original. QS Tool 63, Adj 71 Tier B. Was 79 Tier A.)"
+    last_review: 2026-02-11
+    exit_plan: "HOLD LOW conviction. April 2026 pricing event = MAKE-OR-BREAK. May 2026 FY results = MANDATORY REVIEW. EXIT if April causes >200 cancellations or dealer count -3%+. EXIT if CMA formal investigation. EXIT if ARPR <3%. If Tier A opportunity needs capital, candidate for rotation."
+    notes: "Adversarial + urgent re-eval 2026-02-11: QS 79->71 (Tier A->B). FV 688->617->580p. Moat under active siege (180+ downgrades, Jefferies/Berenberg downgrade). Financial quality 40/40 exceptional. ROIC +42pp. Position small (3.4%), loss manageable (-3.3%)."
 
   - ticker: BYIT.L
     name: "Bytes Technology Group plc"
@@ -176,7 +180,7 @@ transactions:
     shares: 40.8
     price_gbp: 26.89
     total_eur: 1500.00
-    notes: "Primera posición - energía tradicional, hedge geopolítico"
+    notes: "Primera posicion - energia tradicional, hedge geopolitico"
 
   - date: 2026-01-26
     action: BUY
@@ -184,7 +188,7 @@ transactions:
     shares: 37.62
     price_eur: 26.88
     total_eur: 1200.00
-    notes: "Segunda posición - telecom líder EU, T-Mobile US hidden value"
+    notes: "Segunda posicion - telecom lider EU, T-Mobile US hidden value"
 
   - date: 2026-01-27
     action: BUY
@@ -238,7 +242,7 @@ transactions:
     ticker: SHEL.L
     shares: 20
     price_gbx: 2689
-    pnl_approx: "+€285"
+    pnl_approx: "+EUR285"
     notes: "TRIM - Position 23.9% >> 7% max. Sold 20/40.85 shares."
 
   - date: 2026-01-31
@@ -266,28 +270,28 @@ transactions:
     action: SELL
     ticker: SHEL.L
     shares: 10
-    notes: "TRIM 2 - Rebalanceo 20.85→10.85. Reducir concentración."
+    notes: "TRIM 2 - Rebalanceo 20.85->10.85. Reducir concentracion."
 
   - date: 2026-02-02
     action: BUY
     ticker: A2A.MI
     shares: 134
     total_usd: 404.65
-    notes: "Italian utility. FV €3.62, MoS 30%. Entry €2.55."
+    notes: "Italian utility. FV EUR3.62, MoS 30%. Entry EUR2.55."
 
   - date: 2026-02-02
     action: BUY
     ticker: EDEN.PA
     shares: 22
     total_usd: 459.18
-    notes: "Edenred. FV €33-36, MoS 46-51%. Entry €17.67."
+    notes: "Edenred. FV EUR33-36, MoS 46-51%. Entry EUR17.67."
 
   - date: 2026-02-02
     action: BUY
     ticker: VNA.DE
     shares: 16
     total_usd: 465.56
-    notes: "Vonovia. FV €35-38, MoS 31%. Entry €24.55."
+    notes: "Vonovia. FV EUR35-38, MoS 31%. Entry EUR24.55."
 
   - date: 2026-02-03
     action: BUY
@@ -315,7 +319,7 @@ transactions:
     ticker: DTE.DE
     shares: 14
     total_usd: 396.96
-    notes: "TRIM - Position 11.3% >> 7% max. Sold 14/37.62 shares. Rebalanceo concentración."
+    notes: "TRIM - Position 11.3% >> 7% max. Sold 14/37.62 shares. Rebalanceo concentracion."
 
   - date: 2026-02-03
     action: BUY
@@ -408,7 +412,7 @@ transactions:
     shares: 10
     price_usd: 34.50
     total_usd: 345.00
-    notes: "ADD - Standing order triggered @ $35. Q2 revenue +11%, guidance maintained. MoS 42%. Position 2.7%→5.5%. Investment Committee 9/9 PASS."
+    notes: "ADD - Standing order triggered @ $35. Q2 revenue +11%, guidance maintained. MoS 42%. Position 2.7%->5.5%. Investment Committee 9/9 PASS."
 
   - date: 2026-02-05
     action: BUY
@@ -512,7 +516,7 @@ transactions:
     total_eur: 433
     pnl_eur: -4
     pnl_pct: -0.84
-    notes: "EXIT - Adversarial review. QS 55-59 Tier B (low-end). ROIC < WACC (-2.1pp). Amlitelimab Phase III inferior to Dupixent (COAST 2 EU failed). UBS downgrade. CFO admits Dupixent gap too big for pipeline. FV revised EUR 122→79 (-35.5%). MoS ~0%. 4/6 EXIT gates SELL. 8th ROIC<WACC exit."
+    notes: "EXIT - Adversarial review. QS 55-59 Tier B (low-end). ROIC < WACC (-2.1pp). Amlitelimab Phase III inferior to Dupixent (COAST 2 EU failed). UBS downgrade. CFO admits Dupixent gap too big for pipeline. FV revised EUR 122->79 (-35.5%). MoS ~0%. 4/6 EXIT gates SELL. 8th ROIC<WACC exit."
 
   - date: 2026-02-09
     action: SELL
@@ -522,7 +526,7 @@ transactions:
     total_usd: 1016
     pnl_usd: -155
     pnl_pct: -13.25
-    notes: "EXIT - Adversarial review. Intuit 600 Expert Offices + $100M OpenAI = moat breach. FCF structural decline $752M→$579M (-23% 3yr). Devil's advocate counter 18/24 STRONG. IRS Direct File death does NOT change verdict. QS 70 Tier B but forward deterioration."
+    notes: "EXIT - Adversarial review. Intuit 600 Expert Offices + $100M OpenAI = moat breach. FCF structural decline $752M->$579M (-23% 3yr). Devil's advocate counter 18/24 STRONG. IRS Direct File death does NOT change verdict. QS 70 Tier B but forward deterioration."
 
   - date: 2026-02-10
     action: SELL

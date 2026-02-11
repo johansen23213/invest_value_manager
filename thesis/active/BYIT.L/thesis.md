@@ -1,5 +1,7 @@
 # BYIT.L - Bytes Technology Group plc
 
+**Fair Value:** 345 GBp (adversarial, updated 2026-02-11)
+
 ## TL;DR
 
 UK's #1 software value-added reseller (VAR) trading at -48% from 52-week highs due to Microsoft partner incentive restructuring compressing margins. **ADVERSARIAL REVIEW 2026-02-11:** QS downgraded from 81 (Tier A) to 68-72 (Tier B). FV revised from 455 GBp to 345 GBp (-24.2%). HOLD on PROBATION with LOW conviction. Net cash, 30% FCF margin, but insider ownership disputed (0.4-0.5% actual vs 9.6% yfinance), Microsoft EA disintermediation structural not cyclical, and Softcat P/E gap has narrowed from "25x vs 14x" to "17x vs 14x". EXIT if FY2026 full-year OP < GBP 66M.

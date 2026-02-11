@@ -5,6 +5,7 @@
 **Analyst:** Orchestrator (Framework v4.0)
 **Quality Score:** Tool 51/100 (Tier C) | Adjusted: 51 (no adjustment)
 **Recommendation:** HOLD LOW conviction — ON PROBATION through Feb 25 earnings
+**Fair Value:** $213 (v3.0, updated 2026-02-10)
 
 ---
 

@@ -6,6 +6,7 @@
 **Quality Score:** 62/100 -- Tier B
 **Recommendation:** HOLD / WAIT FOR EARNINGS FEB 24
 **Framework Version:** 4.0 (Principios Adaptativos)
+**Fair Value:** EUR 29.0 (adversarial, updated 2026-02-07)
 
 ---
 

@@ -228,6 +228,8 @@ def extract_fair_value(thesis_content, ticker, currency='USD'):
 
     # Pattern priority (most specific first):
     patterns = [
+        # PRIORITY 0: Header declaration "**Fair Value:** XXX" at start of line (canonical, placed in thesis header)
+        (r'^>?\s*\*\*Fair Value:\*\*\s*' + curr_prefix + r'([0-9,]+(?:\.\d+)?)\s*' + curr_suffix, 'single'),
         # "Weighted FV/Average" in table: | **Weighted ...** | ... | **$394** or **455p**
         (r'\*\*Weighted\s+(?:Avg|Average|FV|Fair Value)\*\*\s*\|[^|]*\|[^|]*\|\s*\*\*\s*' + curr_prefix + r'([0-9,]+(?:\.\d+)?)\s*' + curr_suffix + r'\s*\*\*', 'single'),
         # "Blended Fair Value" in table: | **Blended Fair Value** | ... | **3,701p**
@@ -265,7 +267,7 @@ def extract_fair_value(thesis_content, ticker, currency='USD'):
     ]
 
     for pat, pat_type in patterns:
-        m = re.search(pat, thesis_content, re.IGNORECASE)
+        m = re.search(pat, thesis_content, re.IGNORECASE | re.MULTILINE)
         if m:
             groups = m.groups()
             if pat_type == 'range' and len(groups) >= 2:
