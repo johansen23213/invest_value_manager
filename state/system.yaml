@@ -7,7 +7,7 @@ system:
   system_version: "4.0.0"
   framework_version: "4.0"
   last_session: 2026-02-12
-  session_number: 61
+  session_number: 62
 
   # FRAMEWORK v4.0 - IMPLEMENTADO
   # =====================================
@@ -91,58 +91,41 @@ system:
   # Purged 2026-02-11 to reduce file size (~730 lines removed)
 
   last_session_summary: |
-    Session 61 - ROP FULL PIPELINE R1-R4 COMPLETE + CDM EXPANSION (2026-02-12)
+    Session 62 - VIGILANCE + FV FIX + ROTATION CHECK (2026-02-12)
+    (Continuation session — Session 61 ran out of context)
 
     =====================================================
-    ROP (ROPER TECHNOLOGIES) — FULL BUY-PIPELINE R1-R4
+    VIGILANCE (news + market pulse)
     =====================================================
-    R1 (3 agents parallel): QS 48 Tool / 76 Adj (+28 serial acquirer). FV $420.
-    - WIDE moat (20/25). 29 vertical software monopolies. 75-80% recurring rev.
-    - HIGH risk (14 risks, 2 CRITICAL: DOGE/Deltek + AI per-seat pricing).
-
-    R2 (devil's advocate): MODERATE COUNTER (7/16 HIGH, 0 wins / 2 partial / 3 losses).
-    - CEO NET SELLER $8.8M (thesis misrepresented). FV $372.
-    - AI per-seat pricing = real structural risk (SaaSpocalypse).
-
-    R3 (conflict resolution): QS 76→70 (Tier B). FV $420→$385.
-    - Entry $290-310, standing order $300 (22% MoS).
-    - Partial-goodwill ROIC methodology: 50% goodwill as capital, ROIC ~12%, spread +3pp.
-
-    R4 (investment committee): ALL 10 GATES PASSED. APPROVED standing order $300.
-    - EUR 400 (~4%), ~1.3 shares. Valid until Q1 2026 earnings (Apr 2026).
-    - 7 kill conditions. 3 precedent-setting decisions documented.
+    0 CRITICAL, 12 MATERIAL across 13 positions + pipeline.
+    Key: ROP Q4 beat EPS miss rev (-10%). RACE.MI massive Q4 beat (+9-11%).
+    NVO IP win vs Hims. DSY.PA -21% crash. EDEN.PA Brazil reg risk.
+    ADBE at 52wL ($257, MoS 34.1%). UHS ABOVE FV. VICI AT FV.
+    CPI Jan 2026 tomorrow Feb 13 08:30 ET. VIX 21.77 elevated.
 
     =====================================================
-    SECTOR SCREENINGS — Industrial Tech + TIC
+    AUTO-IMPROVEMENT: forward_return.py FV PARSING FIX
     =====================================================
-    Industrial Tech: GGG (QS 71, ROIC-WACC +13.3pp, at ATH), ROR.L (QS 73, +12.7pp, at ATH).
-    TIC (Testing/Inspection/Cert): BVI.PA (QS 69, organic growth 10.2%, P/E 18.6x).
-    All scored and added to quality_universe.yaml. Entry requires pullback.
+    Bug: ROP $420 (stale) instead of $385 (R3). DNLM.L 1328p instead of 1008p.
+    Fix: Added canonical `> **Fair Value:** $XXX` headers to thesis files.
+    Learning: ALL thesis files need this header when FV is corrected post-adversarial.
 
     =====================================================
-    PRECEDENTS SET (decisions_log.yaml)
+    ROTATION CHECK
     =====================================================
-    1. Serial acquirer QS adjustment: +22 with per-item documentation. Max +20 without committee.
-    2. Partial-goodwill ROIC exception: 50% goodwill as capital, spread >2pp required.
-    3. SaaSpocalypse per-seat pricing risk: KC#7 for all software positions.
-
-    =====================================================
-    FILES CREATED/MODIFIED
-    =====================================================
-    Created: thesis/research/ROP/thesis.md, moat_assessment.md, risk_assessment.md, devils_advocate.md, committee_decision.md
-    Created: world/sectors/industrial-technology.md
-    Created: tools/quality_universe.py, state/quality_universe.yaml
-    Updated: state/system.yaml (ROP standing order, session 61, tools_count 8)
-    Updated: learning/decisions_log.yaml (ROP precedent + 2 lessons)
+    Bottom 3: UHS -7.9% (EXIT candidate Feb 25), VICI -0.6% (EXIT candidate Feb 25), DTE.DE +11.1%.
+    Top 3: EDEN.PA +61%, NVO +60%, ADBE +52%.
+    Pipeline: 7 thesis ready (healthy).
 
     =====================================================
     WORK FOR NEXT SESSION
     =====================================================
-    1. MORN Q4 results (reported Feb 12 after close) — EVALUATE
-    2. Earnings week Feb 23-26: MONY.L (probation), EDEN.PA, VICI (probation), UHS (probation), DTE.DE, INTU
-    3. WPP.L Rose plan Feb 26 → review standing order
-    4. Cash deployment (~44%) — pipeline: PAYC ($95-105), MORN ($145), DSY.PA (EUR 15.50), DNLM.L (780p), RACE.MI (EUR 270), ROP ($300), INTU ($330-365)
-    5. Standing orders needing pipeline: FGP.L, CMCSA, MA, V (WARNING)
+    1. MORN Q4 — EVALUATE (not yet indexed, 12-24h delay)
+    2. CPI Jan 2026 — Feb 13 08:30 ET. Impact analysis needed.
+    3. Earnings week Feb 23-26: MONY.L, EDEN.PA, VICI, UHS, DTE.DE, INTU, WPP.L
+    4. EDEN.PA Brazil regulation — FV reassessment post Feb 24 earnings
+    5. DSY.PA standing order — do NOT execute. Wait Q1.
+    6. Standing orders needing pipeline: FGP.L, CMCSA, MA, V (WARNING)
 
   status: active
 
@@ -1322,12 +1305,12 @@ pipeline_tracker:
     frequency: daily
     last_run: 2026-02-12
     next_due: 2026-02-13
-    last_result: "Session 60: 0 CRITICAL, 12 MATERIAL. DSY.PA -21.7% crash (Q4 miss). NVO sued Hims. LULU Elliott $1B stake. MONY.L AI crash 13yr low. GL Q4 OK. MORN Q4 after close today. CPI Jan tomorrow."
+    last_result: "Session 62: 0 CRITICAL, 12 MATERIAL. ROP Q4 beat EPS miss rev (-10%). RACE.MI massive Q4 beat (+9-11%). NVO IP win vs Hims. LULU Elliott proxy. DSY.PA -21% post-crash. GL EVP sold 39%. EDEN.PA Brazil reg risk. CPI Jan tomorrow 08:30 ET."
   rotation_check:
     frequency: daily
     last_run: 2026-02-12
     next_due: 2026-02-13
-    last_result: "Session 60: Bottom 3: UHS -7.9% (ABOVE FV), VICI -0.6%, ALL +14%. Top: EDEN.PA +64%, NVO +60%, ADBE +52%. DSY.PA standing order now 11.8% away (was ~15%). Pipeline 6 thesis ready."
+    last_result: "Session 62: Bottom 3: UHS -7.9% (ABOVE FV, EXIT candidate Feb 25), VICI -0.6% (AT FV, EXIT candidate Feb 25), DTE.DE +11.1% (HOLD through Feb 26). Top: EDEN.PA +61%, NVO +60%, ADBE +52%. FV fix: ROP $420→$385, DNLM.L 1328→1008. Pipeline 7 thesis ready."
   # SEMANALES
   opportunity_scan:
     frequency: weekly

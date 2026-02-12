@@ -1,8 +1,9 @@
 # ROP - Roper Technologies, Inc.
 
-> **Status:** R3 COMPLETE (conflict resolution) | Date: 2026-02-12
-> **Pipeline:** R1 (fundamental + moat + risk) -> R2 (devil's advocate) -> R3 (resolution) DONE
-> **Pending:** R4 (investment-committee) for standing order approval
+> **Fair Value:** $385
+> **Status:** R4 APPROVED | Date: 2026-02-12
+> **Pipeline:** R1 -> R2 -> R3 -> R4 COMPLETE
+> **Standing Order:** $300 (22% MoS). EUR 400 (~4%)
 
 ---
 
