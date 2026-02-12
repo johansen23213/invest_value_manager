@@ -13,7 +13,8 @@ Usage:
   python3 tools/quality_universe.py remove TICKER
   python3 tools/quality_universe.py coverage             # Sector coverage vs gaps
   python3 tools/quality_universe.py refresh              # Update prices for all companies (batch, rate-limit spaced)
-  python3 tools/quality_universe.py stats                # Pipeline health metrics
+  python3 tools/quality_universe.py stale                # Companies needing re-evaluation (by days since last scored)
+  python3 tools/quality_universe.py stats                # Pipeline health metrics (raw data, no fixed targets)
 """
 
 import sys
@@ -559,8 +560,60 @@ def cmd_refresh(args):
     print_fx_warning()
 
 
+def cmd_stale(args):
+    """Show companies that may need re-evaluation, sorted by days since last scored."""
+    data = load_universe()
+    companies = data["quality_universe"]["companies"]
+
+    if not companies:
+        print("Quality Universe is empty.")
+        return
+
+    today = date.today()
+    stale_list = []
+
+    for c in companies:
+        last_scored = c.get("last_scored")
+        if last_scored:
+            try:
+                scored_date = datetime.strptime(str(last_scored), "%Y-%m-%d").date()
+                days_ago = (today - scored_date).days
+            except (ValueError, TypeError):
+                days_ago = 999
+        else:
+            days_ago = 999
+
+        stale_list.append((c, days_ago))
+
+    # Sort by days_ago descending (most stale first)
+    stale_list.sort(key=lambda x: -x[1])
+
+    print(f"\nUniverse Staleness Report | {today}")
+    print("=" * 100)
+    print(f"{'Ticker':<10} {'Name':<25} {'QS':>3} {'Tier':>4} {'Last Scored':>12} {'Days Ago':>9} {'Pipeline':<16}")
+    print("-" * 100)
+
+    for c, days_ago in stale_list:
+        last_scored = c.get("last_scored", "never")
+        days_str = str(days_ago) if days_ago < 999 else "never"
+        qs_display = c.get("qs_adj", c.get("qs_tool", "?"))
+
+        print(
+            f"{c['ticker']:<10} "
+            f"{c.get('name', c['ticker'])[:25]:<25} "
+            f"{qs_display:>3} "
+            f"{c.get('tier', '?'):>4} "
+            f"{str(last_scored):>12} "
+            f"{days_str:>9} "
+            f"{c.get('pipeline_status', 'UNKNOWN'):<16}"
+        )
+
+    print(f"\nTotal: {len(companies)} companies")
+    print(f"Use judgment: earnings, regulatory changes, or material events warrant earlier re-evaluation.")
+
+
 def cmd_stats(args):
-    """Pipeline health metrics."""
+    """Pipeline health metrics — raw data, no fixed targets."""
     data = load_universe()
     companies = data["quality_universe"]["companies"]
 
@@ -568,7 +621,6 @@ def cmd_stats(args):
     portfolio = load_portfolio()
     cash_amount = 0
     cash_currency = "EUR"
-    total_portfolio_eur = 0
 
     if portfolio:
         cash_info = portfolio.get("cash", {})
@@ -608,16 +660,37 @@ def cmd_stats(args):
     # Actionable
     actionable = sum(1 for c in companies if c.get("distance_to_entry") is not None and c.get("distance_to_entry") <= 15.0)
 
+    # Staleness
+    today = date.today()
+    stale_30 = 0
+    stale_90 = 0
+    for c in companies:
+        last_scored = c.get("last_scored")
+        if last_scored:
+            try:
+                scored_date = datetime.strptime(str(last_scored), "%Y-%m-%d").date()
+                days_ago = (today - scored_date).days
+                if days_ago > 90:
+                    stale_90 += 1
+                elif days_ago > 30:
+                    stale_30 += 1
+            except (ValueError, TypeError):
+                stale_90 += 1
+        else:
+            stale_90 += 1
+
     print(f"\nPipeline Health Metrics | {date.today()}")
     print("=" * 50)
-    print(f"Universe size:       {total:>5} / 150 target")
-    print(f"Tier A count:        {tier_a:>5}")
-    print(f"Tier B count:        {tier_b:>5}")
-    print(f"R1+ thesis:          {r1_plus:>5} / 15 target")
-    print(f"Approved (R4+):      {approved:>5} / 8 target")
-    print(f"Standing orders:     {standing_orders_count:>5} / 10 target")
-    print(f"Sectors covered:     {len(sectors):>5} / 20 target")
+    print(f"Universe size:       {total:>5}")
+    print(f"  Tier A:            {tier_a:>5}")
+    print(f"  Tier B:            {tier_b:>5}")
+    print(f"R1+ thesis:          {r1_plus:>5}")
+    print(f"Approved (R4+):      {approved:>5}")
+    print(f"Standing orders:     {standing_orders_count:>5}")
+    print(f"Sectors covered:     {len(sectors):>5}")
     print(f"Actionable now:      {actionable:>5}")
+    print(f"Scored >30d ago:     {stale_30:>5}")
+    print(f"Scored >90d ago:     {stale_90:>5}")
     print(f"Cash available:      {cash_currency} {cash_amount:,.0f}")
     print()
 
@@ -703,8 +776,8 @@ def _print_pipeline_health(companies):
     actionable = sum(1 for c in companies if c.get("distance_to_entry") is not None and c.get("distance_to_entry") <= 15.0)
 
     print("Pipeline Health:")
-    print(f"  R1+ thesis: {r1_plus} / 15 target  |  Approved: {approved} / 8 target  |  Standing orders: {standing_orders_count} / 10 target")
-    print(f"  Sectors covered: {sectors} / 20 target  |  Actionable now: {actionable}")
+    print(f"  R1+ thesis: {r1_plus}  |  Approved: {approved}  |  Standing orders: {standing_orders_count}")
+    print(f"  Sectors covered: {sectors}  |  Actionable now: {actionable}")
 
 
 # ---------------------------------------------------------------------------
@@ -760,8 +833,11 @@ Commands:
     # refresh
     subparsers.add_parser("refresh", help="Refresh prices for all companies")
 
+    # stale
+    subparsers.add_parser("stale", help="Companies needing re-evaluation (by days since last scored)")
+
     # stats
-    subparsers.add_parser("stats", help="Pipeline health metrics")
+    subparsers.add_parser("stats", help="Pipeline health metrics (raw data)")
 
     args = parser.parse_args()
 
@@ -776,6 +852,7 @@ Commands:
         "remove": cmd_remove,
         "coverage": cmd_coverage,
         "refresh": cmd_refresh,
+        "stale": cmd_stale,
         "stats": cmd_stats,
     }
 

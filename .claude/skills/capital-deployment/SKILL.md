@@ -1,33 +1,41 @@
 # Capital Deployment Machine Pipeline
 
 > **PRIORIDAD #1** mientras cash > 25% del portfolio.
-> Mas importante que vigilance, rotation-check, o cualquier otro pipeline.
 > Framework v4.0 - Principios Adaptativos.
+> El universe es un ORGANISMO VIVO, no una lista estática.
 
 ---
 
 ## Trigger
 
 **Activacion:** Cash > 25% del portfolio total.
-**Desactivacion:** Cash < 15% O pipeline tiene 15+ thesis listas.
-**Frecuencia:** CADA SESION (diario, primera prioridad).
+**Desactivacion:** Nunca se desactiva completamente — el universe siempre necesita mantenimiento.
+**Intensidad:** Con cash > 25%, priorizar análisis nuevos. Con cash < 15%, mantener universe pero sin urgencia.
 
 ---
 
 ## Objetivo
 
-Transformar cash idle en posiciones de Quality Compounders (Tier A, QS >= 75).
-El sistema debe ser una MAQUINA que:
-1. Conoce TODAS las empresas de calidad del universo invertible
-2. Monitoriza TODAS para detectar oportunidades de precio
-3. Tiene thesis pre-escritas para actuar en horas, no dias
-4. Nunca pierde una oportunidad porque "no habiamos analizado esa empresa"
+El sistema conoce TODAS las empresas de calidad del universo invertible.
+Cuando cualquier empresa de calidad cae a precio atractivo, tenemos thesis lista para actuar en horas.
+
+Esto requiere un **ciclo continuo** — no un proyecto que se "completa":
+
+```
+SCREENING → SCORING → THESIS → MONITORING → RE-SCORING → SALIDA/MANTENIMIENTO
+     ↑                                                          |
+     └──────────────────────────────────────────────────────────┘
+```
+
+**El universe nunca está "terminado".** Empresas entran, salen, se re-evalúan, se actualizan.
+Yo puedo trabajar en esto cada sesión sin cansarme. No hay excusa para tener gaps.
 
 ---
 
 ## Quality Universe (state/quality_universe.yaml)
 
 Base de datos persistente de empresas con QS >= 65 (candidatas a pipeline).
+**Target mínimo: 150+ empresas.** Pero de calidad — nunca meter relleno por alcanzar un número.
 
 ### Estructura
 
@@ -36,16 +44,16 @@ companies:
   - ticker: PAYC
     name: Paycom Software
     qs_tool: 85
-    qs_adj: 85
+    qs_adj: 75
     tier: A
     sector: HCM/Payroll
-    fair_value: 200  # USD
-    entry_price: 100  # USD
+    fair_value: 115
+    entry_price: 92
     currency: USD
-    pipeline_status: R1_COMPLETE  # UNSCREENED | SCORED | R1_COMPLETE | R2_COMPLETE | APPROVED | REJECTED
+    pipeline_status: R3_COMPLETE
     thesis_path: thesis/research/PAYC/thesis.md
-    last_scored: 2026-02-11
-    notes: "Zero debt, 91% retention, EBITDA 43%"
+    last_scored: 2026-02-13
+    notes: "R3 resolution: QS 85->75, FV $130->$115"
 ```
 
 ### Pipeline Status Progression
@@ -54,6 +62,8 @@ companies:
 UNSCREENED → SCORED → R1_COMPLETE → R2_COMPLETE → R3_COMPLETE → APPROVED → STANDING_ORDER
                 ↓                                                    ↓
             REJECTED                                             REJECTED
+                                                                     ↓
+                                                                 STALE (needs refresh)
 ```
 
 ### Tool: quality_universe.py
@@ -65,185 +75,164 @@ python3 tools/quality_universe.py add TICKER --qs 75 --fv 200 --entry 150 --sect
 python3 tools/quality_universe.py remove TICKER
 python3 tools/quality_universe.py coverage             # Gaps de cobertura sectorial
 python3 tools/quality_universe.py refresh              # Update precios (batch)
+python3 tools/quality_universe.py stale                # Empresas que necesitan re-evaluación
+python3 tools/quality_universe.py stats                # Métricas de salud del pipeline
 ```
 
 ---
 
-## Fases del Pipeline
+## Ciclo de Vida del Universe (CONTINUO)
 
-### FASE A: Universe Building (one-time, refresh mensual)
+### ENTRADA: Cómo entran empresas
 
-**Objetivo:** Mapear TODAS las empresas QS >= 65 del universo invertible.
-**Target:** 150-300 empresas en quality_universe.yaml.
-
-| Paso | Accion | Herramienta | Cadencia |
-|------|--------|-------------|----------|
-| A1 | Screen indices US (sp500+sp400+russell1000) | dynamic_screener.py | Mensual |
-| A2 | Screen indices EU (stoxx600+europe_all) | dynamic_screener.py | Mensual |
-| A3 | Screen indices UK (ftse100+ftse250) | dynamic_screener.py | Mensual |
-| A4 | Screen Nordic (omx_stockholm+nordic) | dynamic_screener.py | Mensual |
-| A5 | quality_scorer.py en batches de 5-8 | quality_scorer.py | Por batch |
-| A6 | Almacenar en quality_universe.yaml | quality_universe.py add | Tras scoring |
+| Fuente | Método | Filtro |
+|--------|--------|--------|
+| Screening de índices | dynamic_screener.py | QS >= 65 via quality_scorer.py |
+| Sector deep-dives | sector-screener agent | Candidatas de sector views |
+| Oportunidades detectadas | opportunity-hunter, news | Empresas que caen fuerte con calidad |
+| Conocimiento propio | VALIDAR con datos | Anti-popularity-bias: solo si pasa screening |
 
 **Anti-bias:** Usar --undiscovered flag. No depender de "empresas que conozco".
-**Rate limit:** Max 5-8 tickers por batch de quality_scorer. Espaciar 30s entre batches.
 
-### FASE B: Price Sweep (cada sesion)
+### MANTENIMIENTO: Cómo se mantienen vivas
 
-**Objetivo:** Detectar CUALQUIER empresa QS >= 70 que entre en zona de compra.
+Cada sesión, como parte natural del flujo:
+- **Mirar qué está stale** — `quality_universe.py stale` muestra qué necesita atención
+- **Re-evaluar unas pocas** — re-ejecutar quality_scorer, verificar si FV/entry siguen vigentes
+- **Actualizar precios** — `quality_universe.py refresh` para ver proximidad a entry
+- No hace falta hacer todo cada sesión — pero algo siempre
 
-| Paso | Accion | Herramienta |
-|------|--------|-------------|
-| B1 | Refresh precios del quality universe | quality_universe.py refresh |
-| B2 | Filtrar: distancia a entry < 15% | quality_universe.py actionable |
-| B3 | Cross-reference con thesis existentes | Orchestrator |
-| B4 | ALERTA si Tier A en zona de entry | Orchestrator → humano |
+**Staleness:** Una empresa sin re-evaluar pierde fiabilidad progresivamente.
+No hay un "límite de meses" fijo — uso juicio: si hubo earnings, cambio regulatorio,
+o cambio material, re-evaluar antes. Si nada cambió, puede esperar más.
 
-**Criterio "actionable":** Precio actual dentro del 15% del entry price.
-**Criterio "execute":** Precio actual <= entry price + thesis aprobada + standing order.
+### SALIDA: Cómo salen empresas
 
-### FASE C: Analysis Factory (cada sesion, paralelo)
+| Razón | Acción |
+|-------|--------|
+| QS cae < 65 en re-evaluación | Remover del universe |
+| Kill condition activada | Remover + documentar |
+| Sector se deteriora estructuralmente | Re-evaluar todas las del sector |
+| Empresa comprada → portfolio | Mover a posición activa |
+| Thesis rechazada en R4 | Marcar REJECTED, mantener para referencia |
 
-**Objetivo:** Mantener 15-20 thesis listas para ejecucion rapida.
-**Meta:** Producir 2-3 R1 por sesion.
+---
 
-| Paso | Accion | Agentes | Cadencia |
-|------|--------|---------|----------|
-| C1 | Priorizar candidatos por QS x proximidad x catalizador | Orchestrator | Cada sesion |
-| C2 | Lanzar 2-3 R1 en paralelo | fundamental-analyst + moat-assessor + risk-identifier | Cada sesion |
-| C3 | Valuation post-R1 | valuation-specialist | Secuencial tras C2 |
-| C4 | Almacenar en quality_universe con status R1_COMPLETE | quality_universe.py | Tras C3 |
+## Fases de Trabajo (cada sesión)
 
-**Prioridad de analisis:**
+### FASE A: Price Sweep (rápido, cada sesión)
+
+```bash
+python3 tools/quality_universe.py actionable
+```
+
+- ¿Algo cerca de entry? → Priorizar análisis/ejecución
+- ¿Algo recién llegado a zona? → Alerta
+
+### FASE B: Analysis Factory (si hay candidatos)
+
+Prioridad de análisis:
 1. Tier A con precio cerca de entry (< 20% away)
-2. Tier A con catalizador proximo (earnings, guidance)
-3. Tier A recien descubierto (screening nuevo)
+2. Tier A con catalizador próximo (earnings, guidance)
+3. Tier A recién descubierto (screening nuevo)
 4. Tier B excepcional (QS 70-74 con moat wide)
 
-### FASE D: Sector Coverage (sistematico)
+Agentes: fundamental-analyst + moat-assessor + risk-identifier (PARALELO) → valuation-specialist
 
-**Objetivo:** Sector view para TODOS los sectores GICS relevantes.
-**Meta:** 2 sectores nuevos por sesion hasta cobertura 100%.
+### FASE C: Universe Expansion (continuo)
 
-| Sector | Status | Sector View |
-|--------|--------|-------------|
-| Telecom | CUBIERTO | telecom.md |
-| Insurance | CUBIERTO | insurance.md |
-| Pharma/Healthcare | CUBIERTO | pharma-healthcare.md |
-| Real Estate | CUBIERTO | real-estate.md |
-| Business Services | CUBIERTO | business-services.md |
-| Consumer Staples | CUBIERTO | consumer-staples.md |
-| Industrials | CUBIERTO | industrials.md |
-| Utilities | CUBIERTO | utilities.md |
-| Energy | PARCIAL | energy.md (WARNING) |
-| Media/Publishing | CUBIERTO | media-publishing.md |
-| Technology | CUBIERTO | technology.md |
-| Financial Data | CUBIERTO | financial-data-analytics.md |
-| Luxury Goods | CUBIERTO | luxury-goods.md |
-| Industrial Technology | PENDIENTE | Screening en curso |
-| Testing/Inspection/Cert | PENDIENTE | Screening en curso |
-| Semiconductors/Equipment | PENDIENTE | - |
-| Defense/Aerospace | PENDIENTE | - |
-| Healthcare Equipment | PENDIENTE | - |
-| Professional Services | PENDIENTE | - |
-| Payments/Fintech | PENDIENTE | - |
-| Environmental/Water | PENDIENTE | - |
-| Consumer Brands | PENDIENTE | - |
-| Digital Infrastructure | PENDIENTE | - |
+- Screenear sectores con gaps (coverage command)
+- Añadir empresas de calidad descubiertas
+- No hay "2 sectores por sesión" fijo — hacer lo que tenga sentido ese día
 
-**Agente:** sector-screener (SIEMPRE, nunca manual).
+### FASE D: Universe Maintenance (continuo)
+
+- Re-evaluar empresas stale
+- Actualizar FV/entry tras earnings
+- Quitar empresas que se deterioraron
+- Verificar que thesis existentes siguen vigentes
 
 ### FASE E: Execution Readiness (event-driven)
-
-**Objetivo:** De senal de precio a recomendacion en HORAS, no dias.
 
 ```
 TRIGGER: Precio toca entry de empresa con pipeline status >= R1_COMPLETE
 
 SI R1_COMPLETE:
   → Lanzar R2 (devil's-advocate) INMEDIATAMENTE
-  → R3 (conflictos) misma sesion
-  → R4 (investment-committee 10 gates) misma sesion
+  → R3 (conflictos) misma sesión
+  → R4 (investment-committee 10 gates) misma sesión
   → Presentar al humano para ejecutar
-  → Sizing via position-calculator
 
 SI APPROVED (standing order existe):
   → Informar al humano: EJECUTAR
-  → Post-ejecucion: portfolio-ops actualiza sistema
+  → Post-ejecución: portfolio-ops actualiza sistema
 
 SI SCORED (solo QS, sin R1):
   → Lanzar R1 completa (3 agentes paralelo + valuation)
   → Si resultados positivos: continuar con R2-R4
-  → Target: thesis completa en 1-2 sesiones
 ```
 
 ---
 
-## Metricas de Salud del Pipeline
+## Métricas de Salud (datos crudos, sin juicios fijos)
 
-| Metrica | Target | Alerta |
-|---------|--------|--------|
-| Thesis listas (R1+) | >= 15 | < 10 = pipeline debil |
-| Thesis aprobadas (R4+) | >= 8 | < 5 = execution pipeline debil |
-| Standing orders activos | >= 10 | < 6 = pocos triggers |
-| Sectores cubiertos | >= 18 | < 15 = gaps de cobertura |
-| Universe size (QS > 65) | >= 150 | < 50 = universe incompleto |
-| Actionable (< 15% entry) | >= 5 | 0 = mercado caro, paciencia |
+| Métrica | Dato |
+|---------|------|
+| Universe size (QS >= 65) | Cuántas empresas mapeadas |
+| Tier A count | Cuántas QS >= 75 |
+| Thesis listas (R1+) | Cuántas con análisis hecho |
+| Thesis aprobadas (R4+) | Cuántas listas para ejecutar |
+| Standing orders activos | Cuántos triggers listos |
+| Sectores cubiertos | Cuántos de 23 GICS |
+| Actionable (< 15% entry) | Cuántas cerca de precio |
+| Stale (sin re-eval reciente) | Cuántas necesitan atención |
+
+El target de 150 empresas es un **piso mínimo de cobertura**, no un techo.
+Tener 200 o 300 es mejor. Pero siempre de calidad — nunca relleno.
 
 ---
 
-## Integracion con Otros Pipelines
+## Sector Coverage
 
-```
-INICIO DE SESION (mientras cash > 25%):
+| Sector | Status |
+|--------|--------|
+| Telecom | VIEW |
+| Insurance | VIEW |
+| Pharma/Healthcare | VIEW |
+| Real Estate | VIEW |
+| Business Services | VIEW |
+| Consumer Staples | VIEW |
+| Industrials | VIEW |
+| Utilities | VIEW |
+| Energy | VIEW |
+| Media/Publishing | VIEW |
+| Technology | VIEW + COMPANIES |
+| Financial Data | VIEW + COMPANIES |
+| Luxury Goods | VIEW + COMPANIES |
+| Industrial Technology | VIEW + COMPANIES |
+| Payments/Fintech | VIEW + COMPANIES |
+| Testing/Inspection/Cert | COMPANIES ONLY |
+| Semiconductors/Equipment | GAP |
+| Defense/Aerospace | GAP |
+| Healthcare Equipment | GAP |
+| Professional Services | GAP |
+| Environmental/Water | GAP |
+| Consumer Brands | VIEW |
+| Digital Infrastructure | VIEW |
 
-1. CAPITAL-DEPLOYMENT:
-   a. quality_universe.py actionable → algo cerca de entry?
-   b. Si hay actionable → priorizar analisis/ejecucion
-   c. Si no hay → FASE C (2-3 R1 nuevas) + FASE D (sector nuevo)
-
-2. VIGILANCE (en paralelo):
-   a. news-monitor + market-pulse
-   b. Si noticia CRITICA afecta pipeline → ajustar
-
-3. ROTATION-CHECK:
-   a. forward_return.py → bottom 3 candidates for rotation
-   b. Cross-reference con pipeline: hay Tier A de reemplazo?
-
-4. Resto de pipelines segun cadencia
-```
+**"VIEW" sin COMPANIES = trabajo pendiente.** La sector view existe pero no se han mapeado empresas QS >= 65.
 
 ---
 
 ## Principios v4.0 Aplicados
 
-- **Principio 4 (Cash como Posicion Activa):** 44% cash es suboptimo. Este pipeline lo soluciona.
-- **Principio 9 (Quality Gravitation):** Solo desplegar en Tier A (QS >= 75).
-- **Principio 7 (Consistencia):** Precedentes de sizing: 3-5% Tier A (ADBE 4.8%, NVO 3.4%).
-- **Anti-bias:** NUNCA sugerir de "conocimiento implicito". SIEMPRE systematic screening.
-- **Paciencia:** No desplegar por presion. Solo cuando calidad + MoS justifican.
-
----
-
-## Razonamiento sobre Cash Level
-
-NO hay un "target" fijo de cash. Hay razonamiento:
-
-```
-Cash 44% AHORA es aceptable porque:
-- Post-adversarial: vendimos 8 posiciones para preservar capital (correcto)
-- Pipeline tiene 6 candidatos pero todos sobre entry (paciencia)
-- Mercado no ofrece calidad con descuento suficiente (paciencia = alpha)
-
-Cash 44% DEJA de ser aceptable cuando:
-- Pipeline tiene < 10 thesis listas (no es problema de mercado, es problema NUESTRO)
-- Llevamos > 3 meses sin desplegar nada (coste oportunidad real)
-- No estamos haciendo screening activo (inaccion injustificada)
-```
-
-**La diferencia:** Cash alto por falta de oportunidades = correcto. Cash alto por falta de analisis = error nuestro.
+- **Principio 4 (Cash como Posición Activa):** Cash alto por falta de oportunidades = correcto. Cash alto por falta de análisis = error nuestro.
+- **Principio 9 (Quality Gravitation):** Priorizar Tier A (QS >= 75) para despliegue.
+- **Anti-bias:** NUNCA sugerir de "conocimiento implícito". SIEMPRE systematic screening.
+- **Paciencia:** No desplegar por presión. Solo cuando calidad + MoS justifican.
+- **Autonomía:** Yo opero esto cada sesión. No espero a que me lo pidan. No pongo cadencias fijas.
 
 ---
 
 **Creado:** 2026-02-12
-**Framework:** v4.0
+**Actualizado:** 2026-02-13 (v2.0 — universe como organismo vivo, sin cadencias fijas)

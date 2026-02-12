@@ -6,8 +6,8 @@
 system:
   system_version: "4.0.0"
   framework_version: "4.0"
-  last_session: 2026-02-13
-  session_number: 63
+  last_session: 2026-02-12
+  session_number: 64
 
   # FRAMEWORK v4.0 - IMPLEMENTADO
   # =====================================
@@ -906,7 +906,7 @@ alerts:
     - { ticker: WKL.AS, entry_eur: 50, note: "STRONG ENTRY. Committee FV EUR 72. At EUR 50 = MoS 44%. Only if FY2025 shows 5%+ organic growth + healthy cloud metrics." }
     - { ticker: DSY.PA, entry_eur: 15.50, note: "Dassault Systemes. Committee APPROVED 2026-02-11. FV EUR 20.00. QS 70 Tier B. WIDE moat. HIGH risk. Standing order EUR 15.50 = MoS 22.5%. CONDITIONAL on Q1 2026 results. Cancel if growth <3%. 0APT data breach monitoring." }
     - { ticker: PAYC, entry_usd: 92, note: "Paycom. QS Tool 85, Adj 75 (Tier A borderline). R3 COMPLETE 2026-02-13. FV $130→$115. Entry $95-105→$88-95. Growth decel 9%→6-7%. Governance discount -5%. KC#8 per-seat pricing. R4 DEFERRED until price approaches $95 or Q1 FY2026 (Apr). Price ~$120." }
-    - { ticker: MORN, entry_usd: 145, note: "Morningstar. QS 83 Tier A. Earnings Feb 12. Pipeline candidate #3. ROIC 20.5%, 45% insider. -53% from highs. Preliminary — buy-pipeline not started." }
+    - { ticker: MORN, entry_usd: 145, note: "Morningstar. QS 80 adj (83 tool) Tier A. R1 COMPLETE. Q4 2025 BEAT: EPS $2.71 vs $2.36 (+14.83%), FY EPS $9.86 (+25%), FCF $442.6M, Rev $2.4B (+7.5%). CRSP acquired Feb 2. Entry $145 = MoS ~26% vs FV $197. R2-R4 needed before execution." }
 
 # -----------------------------------------------------------------------------
 # STANDING ORDERS (pre-aprobadas, ejecutar cuando precio toque trigger)
@@ -988,9 +988,9 @@ standing_orders:
     thesis: thesis/research/WPP.L/thesis.md
     fair_value: "380 GBp"
     mos_at_trigger: "47%"
-    notes: "WPP turnaround. Tier C. No moat, AI disruption. Altman Z 1.06. Wait for Rose plan Feb 19."
+    notes: "WPP turnaround. Tier C. No moat, AI disruption. Altman Z 1.06. Wait for Rose plan Feb 26. CEO+chair bought 100K shares (insider confidence)."
     expiry: 2026-04-01
-    status: "UNDER REVIEW — Tier C + no moat + AI disruption. Principio 9 says cancel. BUT Rose plan Feb 19 could be transformative. Decision: KEEP until Feb 19, evaluate Rose plan, then cancel if no upgrade path to Tier B."
+    status: "UNDER REVIEW — Tier C + no moat + AI disruption. Principio 9 says cancel. BUT Rose plan Feb 26 could be transformative. Decision: KEEP until Feb 26, evaluate Rose plan, then cancel if no upgrade path to Tier B."
 
   # NVO ADD - CONDITIONAL on CagriSema data or price drop
   - ticker: NVO

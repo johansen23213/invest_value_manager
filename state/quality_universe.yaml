@@ -10,12 +10,12 @@ quality_universe:
     fair_value: 115.0
     entry_price: 92.0
     currency: USD
-    current_price: null
-    distance_to_entry: null
+    current_price: 119.76
+    distance_to_entry: 30.2
     pipeline_status: R3_COMPLETE
     thesis_path: thesis/research/PAYC/thesis.md
     last_scored: '2026-02-13'
-    last_price_check: null
+    last_price_check: '2026-02-12'
     notes: 'R3 resolution: QS 85->75, FV $130->$115, entry $95-105->$88-95. Wait Q1 FY2026 (Apr).'
   - ticker: MORN
     name: Morningstar Inc.
@@ -171,12 +171,12 @@ quality_universe:
     fair_value: 100.0
     entry_price: 80.0
     currency: USD
-    current_price: null
-    distance_to_entry: null
+    current_price: 94.28
+    distance_to_entry: 17.9
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-12'
-    last_price_check: null
+    last_price_check: '2026-02-12'
     notes: ROIC-WACC +13.3pp, net cash. At ATH. Wait for pullback to 0.
   - ticker: ROR.L
     name: ROTORK PLC ORD 0.5P
@@ -187,12 +187,12 @@ quality_universe:
     fair_value: 450.0
     entry_price: 320.0
     currency: GBP
-    current_price: null
-    distance_to_entry: null
+    current_price: 374.4
+    distance_to_entry: 17.0
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-12'
-    last_price_check: null
+    last_price_check: '2026-02-12'
     notes: ROIC-WACC +12.7pp, net cash. At ATH. Wait for pullback to 320p.
   - ticker: BVI.PA
     name: BUREAU VERITAS
@@ -203,10 +203,10 @@ quality_universe:
     fair_value: 35.0
     entry_price: 24.0
     currency: EUR
-    current_price: null
-    distance_to_entry: null
+    current_price: 27.02
+    distance_to_entry: 12.6
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-12'
-    last_price_check: null
+    last_price_check: '2026-02-12'
     notes: Best TIC candidate. ROIC-WACC +11.8pp, organic growth 10.2%, P/E 18.6x. LEAP 28 strategy.

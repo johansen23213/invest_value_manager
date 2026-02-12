@@ -1,11 +1,11 @@
 # =============================================================================
-# NEWS DIGEST - Session 63 (2026-02-13)
+# NEWS DIGEST - Session 64 (2026-02-13)
 # =============================================================================
 
 last_scan: "2026-02-13"
-session: 63
+session: 64
 tickers_scanned: 21
-classification: "0 CRITICAL | 14 MATERIAL | 7 MINOR"
+classification: "0 CRITICAL | 11 MATERIAL | 10 MINOR"
 
 # =============================================================================
 # MACRO EVENT
@@ -15,52 +15,368 @@ macro:
   CPI_Jan_2026:
     classification: MATERIAL
     date: "2026-02-13 08:30 ET"
-    status: NOT_YET_RELEASED
-    consensus: "+0.3% MoM, 2.5% YoY (headline). Core 2.5% YoY."
-    context: "Delayed from Feb 11 by gov shutdown. Cleveland Fed nowcast 2.6% core (hotter)."
+    status: RELEASING_TODAY
+    consensus: "Headline +0.3% MoM, 2.4-2.5% YoY. Core +0.3% MoM, 2.5% YoY."
+    context: |
+      Delayed from Feb 11 by gov shutdown. Cleveland Fed nowcast 2.6% core (hotter).
+      FactSet projects 2.4% YoY headline (below Dow Jones 2.5% consensus).
+      HOT print would hurt rate-sensitive (VICI, DTE.DE) and growth (ADBE, LULU).
+      COOL print would benefit all risk assets. Release at 08:30 ET today.
+    impact_map:
+      hot_print: "Negative for VICI (REIT), DTE.DE (leverage), ADBE/LULU (duration). Positive for cash/USD."
+      cool_print: "Positive across board. Rate cut expectations rise."
+      inline: "Neutral. Status quo maintained."
 
 # =============================================================================
-# ACTIVE POSITIONS
+# ACTIVE POSITIONS (13)
 # =============================================================================
 
 positions:
-  DTE.DE: { class: MINOR, headline: "Stock EUR 32.22 (+1.9%). Buyback continuing. Feb 26 earnings." }
-  ALL: { class: MINOR, headline: "No new developments. Wells Fargo PT $228. Stock ~$206." }
-  VICI: { class: MATERIAL, headline: "Scotiabank downgrade Sector Perform, PT $36→$30. Caesars lease uncertainty. Feb 25 decisive." }
-  EDEN.PA: { class: MATERIAL, headline: "Brazil interchange cap 2%, settlement 30→15 days. Judge suspended temporarily. Gov appealing. Feb 24 earnings." }
-  DOM.L: { class: MINOR, headline: "Stock ~198p. Q3 orders -1.5%. New CEO Apr 6. Mar 5 FY results." }
-  UHS: { class: MATERIAL, headline: "Stock $234 = ABOVE FV $213 (-9.9% MoS). OBBBA $1T Medicaid cuts now law. Feb 25 MANDATORY decision." }
-  GL: { class: MATERIAL, headline: "EVP Majors sold $4.4M (38.9% of position). Post-SEC clearance profit-taking. Still holds $6.9M." }
-  ADBE: { class: MATERIAL, headline: "Stock ~$262 (-23.5% YTD). Intraday 52wL $251.10. MoS 32.7%. Firefly 70M MAU. P/E 15.7x historically cheap." }
-  NVO: { class: MINOR, headline: "Hims lawsuit processed. IP defense strong. Wegovy pill 50K scripts/week." }
-  MONY.L: { class: MATERIAL, headline: "Insurify ChatGPT app caused 13.8% crash, recovered ~148p. RBC: impact overstated. Feb 23 earnings." }
-  LULU: { class: MATERIAL, headline: "Jane Nielsen CEO frontrunner. Elliott vs Wilson proxy fight. -3.6% today." }
-  AUTO.L: { class: MINOR, headline: "<100 actual cancellations (vs 165 claimed). Buyback at 475p. April decisive." }
-  BYIT.L: { class: MINOR, headline: "At 12-month low. No new company-specific news." }
+  DTE.DE:
+    classification: MINOR
+    headlines:
+      - "Stock EUR 31.32 (+3.71% Feb 12) on volume surge — momentum building"
+      - "EUR 2B 2026 buyback program underway — 250,873 shares bought Feb 7 at avg EUR 30.40"
+      - "Confirmed no sale of T-Mobile shares in 2026"
+      - "Feb 26 earnings — FY2025 results. Div EUR 0.90, ex-div Apr 2"
+    impact: "All known and positive. Buyback supports price. No new negative."
+    action: MONITOR
+    context: "Stock recovering toward fair value EUR 35. MoS shrinking as price rises."
+
+  ALL:
+    classification: MATERIAL
+    headlines:
+      - "Q4 EPS $14.31 BEAT (vs $9.60 est) — massive 49% beat"
+      - "Revenue $17.3B slightly above consensus $17.29B"
+      - "Wells Fargo PT raised $228, JPMorgan $263, Keefe Bruyette $260"
+      - "CEO Wilson sold $3.3M stock (10b5-1 plan, pre-arranged)"
+      - "$4B share repurchase program authorized, div $1.08/Q"
+    impact: |
+      Q4 was blow-out beat but THIS IS PEAK CYCLE — ROE 37% = historical peak.
+      CEO selling under 10b5-1 plan (pre-arranged, not alarming).
+      Stock ~$206 vs adversarial FV $234 = MoS ~12% (thin for Tier C).
+      $4B buyback is positive capital allocation signal.
+    action: MONITOR
+    context: "ON PROBATION LOW. The beat confirms peak profitability — question is sustainability into normalization."
+
+  VICI:
+    classification: MATERIAL
+    headlines:
+      - "Scotiabank downgrade to Sector Perform, PT $36 to $30 (from last session)"
+      - "Expected Q4 EPS $0.60 (+5.26% YoY) — moderate growth"
+      - "Feb 25 earnings AFTER CLOSE — decisive for probation"
+    impact: "No new developments since last session. The key event is Feb 25 earnings."
+    action: MONITOR_CLOSELY
+    context: "ON PROBATION. EXIT candidate. FV $29, stock ~$29 = MoS ~0%. Feb 25 is MANDATORY decision day."
+
+  EDEN.PA:
+    classification: MINOR
+    headlines:
+      - "Share capital disclosure: 236.97M shares outstanding as of Jan 31"
+      - "Feb 24 earnings — consensus EPS +16.82% growth, revenue +3.92%"
+    impact: "Routine disclosure. No new material developments. Earnings framework ready."
+    action: MONITOR
+    context: "HOLD MEDIUM. FV EUR 29. Brazil regulation risk flagged. Feb 24 = next catalyst."
+
+  DOM.L:
+    classification: MINOR
+    headlines:
+      - "Stock ~173p (-0.17%). No company-specific news."
+      - "New CEO Dominic Paul starts Apr 6"
+      - "FY25 results Mar 5 — MANDATORY review"
+    impact: "Quiet. No new information. Focus on Mar 5 results."
+    action: MONITOR
+    context: "HOLD LOW. FV 240p, MoS ~28% at current price. CEO transition catalyst."
+
+  UHS:
+    classification: MATERIAL
+    headlines:
+      - "BofA DOWNGRADE with PT cut, now 6.7x 2026E EBITDA (was 7.7x)"
+      - "OBBBA Medicaid $1T cuts: most cuts 2027+ but changes rolling out Jan 2026 to Jan 2028"
+      - "UHS + Acadia identified as MOST EXPOSED to Medicaid enrollment drop"
+      - "NY Medicaid interstate restrictions — UBS says limited UHS impact"
+      - "Feb 25 earnings — ON PROBATION, MANDATORY SELL/HOLD decision"
+    impact: |
+      BofA downgrade confirms structural headwind thesis. UHS is explicitly named as
+      most exposed to OBBBA Medicaid cuts (behavioral health reliance).
+      Cuts begin rolling 2026 but most pain 2027+. Still, guidance will reflect this.
+      FV $213, stock ~$234 = MoS -9.9% (ABOVE FAIR VALUE). EXIT candidate.
+    action: PREPARE_EXIT
+    context: "ON PROBATION. Stock ABOVE FV. BofA downgrade validates EXIT thesis. Feb 25 = LAST CHANCE to hold."
+
+  GL:
+    classification: MINOR
+    headlines:
+      - "No new developments. Class action lawsuits (2024) still pending."
+      - "SEC/DOJ investigations cleared Jul 2025 — no new legal action."
+      - "Robbins LLP class action ongoing (May 2019 to Apr 2024 period)"
+    impact: "Status quo. No new legal threats. Class actions are known and priced in."
+    action: MONITOR
+    context: "HOLD MEDIUM. FV $191. Stock ~$141. Good MoS. Waiting for class action resolution."
+
+  ADBE:
+    classification: MATERIAL
+    headlines:
+      - "Stock ~$257, down 21.5% in <1 month, -23.5% YTD"
+      - "New 52-week low at $251.10 (intraday Feb 12)"
+      - "Piper Sandler DOWNGRADE to Neutral, PT $330"
+      - "Motley Fool/Trefis bullish articles: 'AI fears overdone', '48% discount'"
+      - "Firefly 70M+ MAU, OCF >$10B in FY2025, Semrush acquisition H1 2026"
+      - "21 analysts: Buy consensus, avg PT $419.14"
+    impact: |
+      ADBE continues grinding lower on AI narrative — now at ~$257, our cost basis $270.60.
+      MoS vs FV $390 = 34% (improving). P/E ~15x = historically cheapest EVER for ADBE.
+      Firefly adoption strong (70M MAU). Cash flow generation excellent ($10B OCF).
+      Piper Sandler downgrade is opinion, not new fundamental info.
+      THESIS INTACT: moat holding, numbers strong, price is narrative-driven fear.
+    action: MONITOR
+    context: "HOLD MEDIUM. FV $390. Unrealized loss ~-5% but thesis intact. Oct 2026 FTC trial = binary risk."
+
+  NVO:
+    classification: MINOR
+    headlines:
+      - "Board/executive insider share trades Feb 11 (routine regulatory disclosure)"
+      - "Wegovy pill launch going well — 170K on pill after 4 weeks in US"
+      - "No new fundamental news since earnings Feb 4"
+    impact: "Wegovy pill traction is bullish micro-signal. No thesis change."
+    action: MONITOR
+    context: "HOLD. FV $66. Stock ~$48. MoS ~27%. CagriSema data March 2026 = next catalyst."
+
+  MONY.L:
+    classification: MATERIAL
+    headlines:
+      - "Insurify ChatGPT app crash Feb 10: -11.8% to 147p (from last session)"
+      - "Berenberg: selloff OVERDONE, maintains BUY, PT 275p"
+      - "CEO Peter Duffy appointed non-exec at Great Portland Estates (distraction?)"
+      - "Feb 23 earnings — ON PROBATION, 4 kill conditions including KC#9 (AI strategy)"
+    impact: |
+      Berenberg defending MONY is somewhat reassuring but AI risk is REAL.
+      CEO taking external board seat is minor but shows bandwidth split.
+      Feb 23 is MAKE-OR-BREAK: must hear AI strategy, revenue/Insurance KPIs.
+      FV 190p, stock ~148p. MoS ~22% but on probation.
+    action: PREPARE_EARNINGS_REVIEW
+    context: "ON PROBATION LOW. KC#9 (AI strategy) is THE question for Feb 23. No upgrade without credible AI response."
+
+  LULU:
+    classification: MATERIAL
+    headlines:
+      - "Stock ~$172, down 20.1% since Jan 6"
+      - "Meghan Frank now listed as CEO (interim) after Calvin MacDonald departed Jan 31"
+      - "Elliott $1B stake + Wilson proxy fight ongoing"
+      - "CFO: '2026 operating profit negatives outweigh positives'"
+      - "Mar 31 Q4 earnings — MANDATORY review"
+    impact: |
+      CFO guidance that 2026 OP negatives outweigh positives is a BEARISH signal.
+      Governance chaos continues (no permanent CEO, Elliott vs Wilson).
+      Stock grinding lower. FV $196, stock ~$172. MoS ~12% but declining quality confidence.
+      ON PROBATION. Mar 31 Q4 = MAKE-OR-BREAK.
+    action: MONITOR
+    context: "ON PROBATION LOW. Governance unresolved. CFO bearish on 2026 OP. Need Q4 + CEO clarity by Mar 31."
+
+  AUTO.L:
+    classification: MINOR
+    headlines:
+      - "Stock 471p (-1.2% 24h, -6% weekly)"
+      - "Buyback continues: 700K shares at 475p (Feb 10) + 430K at 536p (Feb 2)"
+      - "No new dealer revolt developments"
+    impact: |
+      Stock continuing to drift lower toward 52wL territory.
+      Company buying back shares at higher prices (475-536p) vs market ~471p.
+      No new dealer revolt news — April pricing event remains key catalyst.
+    action: MONITOR
+    context: "HOLD LOW. FV 580p. Stock ~471p. MoS ~19%. April 2026 pricing = make-or-break."
+
+  BYIT.L:
+    classification: MINOR
+    headlines:
+      - "Stock ~358p at 12-month lows. No new company-specific news."
+      - "HSBC UPGRADE to Buy, PT 625p (vs Jefferies downgrade to Hold Jan 16, PT 400p)"
+      - "7 Buy, 3 Hold, 0 Sell from analysts"
+    impact: |
+      HSBC upgrade to Buy with 625p target is a positive counter to Jefferies downgrade.
+      Split analyst opinion reflects uncertainty about Microsoft EA risk.
+      Stock near our entry but no new fundamental data.
+    action: MONITOR
+    context: "HOLD PROBATION LOW. FV 345p. Stock ~358p. Slight MoS negative. Need FY2026 OP > GBP66M (May 2026)."
 
 # =============================================================================
-# PIPELINE / WATCHLIST
+# PIPELINE / WATCHLIST (8)
 # =============================================================================
 
 pipeline:
-  PAYC: { class: MATERIAL, headline: "Q4 beat but FY2026 guide 6-7% (vs 9%). Stock -7.9% to ~$109. R3 complete: FV $115, entry $88-95." }
-  MORN: { class: MATERIAL, headline: "Q4 reported after close Feb 12. NOT YET INDEXED. Stock ~$154, entry $145 = 6.2% away." }
-  DSY.PA: { class: MATERIAL, headline: "-21% crash Feb 11. Now ~EUR 18. Trigger EUR 15.50 = 14% away. WAIT Q1." }
-  DNLM.L: { class: MATERIAL, headline: "DUAL UPGRADE: Jefferies (Buy) + JPMorgan (Overweight). H1: Sales +3.6%, GM 53.4%. Thesis validated." }
-  RACE.MI: { class: MINOR, headline: "Q4 beat EBITDA EUR 700M. Stock +9-11%. Far from entry (EUR 270)." }
-  ROP: { class: MATERIAL, headline: "52wL $342. Director bought $502K. Mixed Q4. Trigger $300 = 6.6% away. CONVERGING FAST." }
-  INTU: { class: MINOR, headline: "Stock ~$394. Feb 26 Q2 earnings. R1 done. Entry $330-365." }
-  WPP.L: { class: MATERIAL, headline: "Feb 26: Rose strategic plan + FY results. WPP Creative restructuring. Job cuts expected." }
+  MORN:
+    classification: MATERIAL
+    headlines:
+      - "Q4 EPS $2.71 BEAT vs $2.36 est (+14.8% surprise)"
+      - "Revenue up $50M YoY. 2025 revenue $2.4B (+7.5%)"
+      - "CEO: AI scaling research/data capabilities, ChatGPT integration"
+      - "Stock ~$154-155 post-earnings (-1.7% reaction). Entry trigger $145 = 6.2% away."
+      - "Chairman Mansueto sold 3,214 shares (routine)"
+      - "Avg analyst PT $280-285 vs price $155 = 82% upside per consensus"
+    impact: |
+      BEAT on both EPS and revenue but stock FELL -1.7%. Market not rewarding.
+      Broader tech/data selloff weighing on shares (-24.7% last month).
+      At $155, MORN is trading at massive discount to consensus PTs.
+      Entry trigger $145 = 6.2% away. CONVERGING but not actionable yet.
+      Standing order approved. Pipeline-ready.
+    action: MONITOR_CLOSELY
+    context: "Standing order at $145. Stock $155. QS 83 Tier A. Committee approved. 6.2% from trigger."
+
+  ROP:
+    classification: MATERIAL
+    headlines:
+      - "Stock ~$335-351 (volatile, near 52wL $331)"
+      - "Director Joyce bought $502K at $358 (insider confidence signal)"
+      - "Multiple analyst PT cuts: Mizuho $365 (Underperform), Barclays $409 (Underweight)"
+      - "Mixed Q4: App/Network Software missed, Tech Enabled slight beat"
+      - "2026 guidance 5-6% organic growth"
+      - "Trigger $300 = 11-14% away depending on price source"
+    impact: |
+      ROP is in freefall territory (-19% 3mo). 52wL $331 hit.
+      Director insider buy at $358 = confidence signal at these levels.
+      However, Mizuho Underperform + Barclays Underweight are notable bears.
+      At $335-351, trigger $300 is 11-14% away. LESS CLOSE than Session 63's 6.6%.
+      Price may have bounced from lows, widening gap from trigger.
+    action: MONITOR
+    context: "Standing order at $300 (R4 committee approved). Gap wider than thought. 52wL $331 is support. Insider buying."
+
+  PAYC:
+    classification: MATERIAL
+    headlines:
+      - "Q4 revenue $517M vs $543M est — MISS. 2025 revenue $2.05B"
+      - "FY2026 guide $2.18-2.20B (6-7% growth) with 44% EBITDA margin"
+      - "Stock fell -11.4% to ~$105 pre-market after earnings"
+      - "Multiple PT cuts: Guggenheim $210->$180, Mizuho $180->$120, BTIG $195->$140, BMO $175->$137"
+      - "Reinhart Partners bought $95M (537K shares) — institution doubling down"
+      - "Client retention improved to 91%"
+    impact: |
+      Revenue MISS is concerning — our R3 had FV $115 with entry $88-95.
+      Post-earnings stock ~$105 is within the upper range of R3 entry zone.
+      Massive institutional buy ($95M) = smart money entering.
+      Per-seat pricing risk (KC#8) not triggered — no evidence of seat erosion yet.
+      R4 deferred to price near $95 or Q1 FY2026. If stock hits $95, need to be ready.
+    action: MONITOR_CLOSELY
+    context: "R3 complete. FV $115, entry $88-95. Stock ~$105 = 10% above upper entry bound. Getting close. R4 decision pending."
+
+  DSY.PA:
+    classification: MATERIAL
+    headlines:
+      - "STOCK CRASHED -18 to -21% on Feb 11 — worst day EVER"
+      - "Q4 software revenue -5% YoY. FY revenue flat EUR 6.24B"
+      - "2026 guidance 3-5% growth (vs consensus 5.9%) — DISAPPOINTING"
+      - "JPMorgan: 'worse than even the most negative had feared'"
+      - "Jefferies: 2026 outlook offers 'no silver lining'"
+      - "Stock ~EUR 18. Standing order trigger EUR 15.50 = 14% below current"
+      - "NVIDIA AI partnership announced Feb 3 — industrial AI platform"
+    impact: |
+      MASSIVE CRASH validates our caution. Standing order condition was 'WAIT Q1'.
+      At EUR 18, stock is 14% above trigger EUR 15.50. But the CANCEL conditions are flashing:
+      Q1 growth <3% condition is now in play since FY guidance is 3-5%.
+      ARR growth only 6% = 'underwhelming' per Jefferies (SaaSPocalypse trade).
+      This is EXACTLY the pattern we flagged: execution risk + anemic growth.
+      NVIDIA partnership is a positive but won't move needle near-term.
+    action: REVIEW_STANDING_ORDER
+    context: |
+      Standing order EUR 15.50 with condition: 'Cancel if Q1 growth <3%.'
+      FY guidance 3-5% = Q1 might be <3%. Monitor Q1 results before executing.
+      If stock falls further toward EUR 15.50, need to re-evaluate whether CANCEL
+      is appropriate given the severity of the selloff and analyst reactions.
+
+  DNLM.L:
+    classification: MATERIAL
+    headlines:
+      - "H1 sales +3.6%, gross margin 53.4% (+60bps) — STRONG"
+      - "H1 FCF GBP 171M. Interim div 17p + special div 25p + buyback"
+      - "But PBT GBP 114M (down GBP 9M) on cost inflation"
+      - "11 Buy, 1 Hold, 1 Sell. Avg PT 1,195-1,217p"
+      - "Stock ~952p. Insider family (Adderley 38.5%)"
+      - "Standing order trigger 780p = 18% below current"
+    impact: |
+      Financial results STRONG: sales growing, margins expanding, generous capital returns.
+      PBT decline is cost-driven, not structural. FCF impressive.
+      Analyst consensus overwhelmingly bullish. Thesis validating.
+      But stock at 952p is well above our 780p trigger. Need pullback.
+    action: MONITOR
+    context: "Standing order 780p, committee approved. Stock 952p = 18% away. Quality confirmed. Patient wait."
+
+  RACE.MI:
+    classification: MINOR
+    headlines:
+      - "Q4 BEAT: EBITDA EUR 700M vs EUR 662M est"
+      - "FY2025 revenue EUR 7.146B (+7%), EBIT margin 29.5%, FCF +50% to EUR 1.538B"
+      - "FY2026 guide: revenue ~EUR 7.5B, EBITDA >EUR 2.93B (above consensus)"
+      - "Stock surged 9-11% on results"
+      - "Standing order EUR 270 = FAR from current (~EUR 320+)"
+    impact: |
+      EXCEPTIONAL results. Revenue, margins, FCF all strong. Guidance beats consensus.
+      This VALIDATES our Tier A thesis (QS 82-84). Quality is confirmed.
+      But the beat pushes stock FURTHER from our entry. EUR 270 is very far.
+      Monitor for broader market selloff or tariff headline that could bring opportunity.
+    action: MONITOR
+    context: "Standing order EUR 270. Stock rallied post-earnings. Quality confirmed, price not yet actionable."
+
+  INTU:
+    classification: MATERIAL
+    headlines:
+      - "Stock ~$421, down -29.5% past month, -35.7% from Dec high"
+      - "Feb 26 Q2 FY2026 earnings — consensus EPS $3.65 (+10% YoY)"
+      - "Zacks Rank #4 (Sell) — unusual for high-quality company"
+      - "AI moat concerns, tax-season uncertainty, fintech financing risk"
+      - "New product: Enterprise Suite Construction Edition + Mailchimp AI tools"
+      - "R1 done. Entry $330-365."
+    impact: |
+      INTU in significant selloff (-35% from peak). AI fears dominating.
+      At ~$421, still above upper entry range ($365). But converging.
+      Feb 26 earnings = critical catalyst. Poor results could push toward entry zone.
+      Zacks Sell rating is notable contrarian signal for a quality compounder.
+    action: MONITOR
+    context: "R1 complete. Entry $330-365. Stock $421 = 13% above upper entry. Feb 26 earnings = catalyst."
+
+  WPP.L:
+    classification: MATERIAL
+    headlines:
+      - "Rose strategic review + FY2025 results Feb 26 (NOT Feb 19 as previously noted)"
+      - "WPP Creative: Ogilvy + VML + AKQA under single holding structure"
+      - "Fresh AI investment plans expected"
+      - "CEO + chair bought 100K shares (insider confidence)"
+      - "Stock ~271p, down 66% over past year. Standing order trigger 200p."
+    impact: |
+      DATE CORRECTION: Rose plan is Feb 26, NOT Feb 19 as our standing order notes.
+      Creative agency restructuring is BOLD but execution risk remains.
+      CEO + chair insider buying = management conviction signal.
+      At 271p vs trigger 200p, still 26% above trigger. Wait for Feb 26.
+      Standing order status: UNDER REVIEW until Rose plan evaluated.
+    action: WAIT_FEB_26
+    context: "Standing order 200p UNDER REVIEW. Feb 26: Rose plan + FY results. Key decision point."
 
 # =============================================================================
-# PRIORITIES
+# SUMMARY & PRIORITIES
 # =============================================================================
+
+alerts:
+  critical: []
+  material:
+    - "CPI Jan 2026 releasing today 08:30 ET — market-moving event"
+    - "DSY.PA crashed -21% — standing order conditions may trigger CANCEL"
+    - "PAYC post-earnings at $105 — approaching R3 entry zone $88-95"
+    - "UHS: BofA downgrade + OBBBA impact = EXIT thesis strengthening"
+    - "ADBE grinding to new 52wL $251 — thesis intact, MoS expanding"
+    - "MORN beat EPS but stock flat at $155 — trigger $145 is 6.2% away"
+    - "LULU CFO: '2026 OP negatives outweigh positives' — bearish signal"
+    - "ROP near 52wL $331 with insider buying — trigger $300 still 11-14% away"
+    - "RACE.MI Q4 smashed — quality validated but price far from entry"
+    - "WPP.L Rose plan date corrected to Feb 26"
+    - "INTU -35% from peak, approaching entry zone for Feb 26 earnings"
 
 priorities:
-  - "1. [IMMEDIATE] Check MORN price for post-earnings reaction"
-  - "2. [TODAY 08:30 ET] CPI impact analysis"
-  - "3. [MONITOR] ROP converging on trigger (6.6% from $300)"
-  - "4. [FEB 23] MONY.L earnings — ON PROBATION, 4 kill conditions"
-  - "5. [FEB 24] EDEN.PA earnings — Brazil regulation focus"
-  - "6. [FEB 25] UHS + VICI — MANDATORY probation decisions"
-  - "7. [FEB 26] DTE.DE + WPP.L + INTU — triple event day"
+  - "1. [TODAY 08:30 ET] CPI January result — rate-sensitive impact analysis"
+  - "2. [IMMEDIATE] DSY.PA standing order review — cancel conditions may apply"
+  - "3. [MONITOR] PAYC $105 approaching entry zone $88-95. R4 decision pending."
+  - "4. [MONITOR] MORN $155, entry $145 = 6.2% away"
+  - "5. [MONITOR] ROP near 52wL $331, trigger $300 = 11-14% away"
+  - "6. [FEB 23] MONY.L earnings — ON PROBATION, KC#9 (AI strategy)"
+  - "7. [FEB 24] EDEN.PA earnings — Brazil regulation focus"
+  - "8. [FEB 25] UHS + VICI — MANDATORY EXIT/HOLD decisions"
+  - "9. [FEB 26] DTE.DE + WPP.L + INTU — triple event day"
+  - "10. [MAR 5] DOM.L FY25 results"
+  - "11. [MAR 31] LULU Q4 — MAKE-OR-BREAK"

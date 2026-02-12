@@ -159,22 +159,24 @@ Ver `rotation-engine` skill para el framework completo.
 
 ---
 
-## Capital Deployment Machine (NUEVO - Sesion 61)
+## Capital Deployment Machine (ACTUALIZADO Sesion 64)
 
-**PRIORIDAD #1 mientras cash > 25%.** Pipeline sistematico para desplegar cash en Quality Compounders.
+**PRIORIDAD #1 mientras cash > 25%.** El quality universe es un ORGANISMO VIVO, no una lista estática.
 
 - **Skill:** `.claude/skills/capital-deployment/SKILL.md`
 - **Tool:** `tools/quality_universe.py` (base de datos persistente de empresas QS >= 65)
 - **Data:** `state/quality_universe.yaml`
 
-Cada sesion:
+**Ciclo continuo (cada sesión, como respirar):**
 1. `quality_universe.py actionable` — algo cerca de entry?
-2. Si actionable → priorizar analisis/ejecucion (R2-R4)
-3. Si no → Analysis Factory: 2-3 R1 en paralelo
-4. Sector coverage: 2 sectores nuevos por sesion hasta 100%
-5. Universe building: añadir empresas de screenings al universe
+2. Si actionable → priorizar análisis/ejecución (R2-R4)
+3. `quality_universe.py stale` — algo necesita re-evaluación?
+4. Expandir universe: screenear sectores con gaps, añadir empresas de calidad
+5. Mantener: re-evaluar empresas, quitar las que se deterioran
 
-**Meta:** 150+ empresas mapeadas, 15+ thesis listas, 20+ sectores cubiertos.
+**El universe nunca está "terminado".** Empresas entran, salen, se re-evalúan.
+Target mínimo 150+ empresas de calidad — pero sin meter relleno por alcanzar un número.
+Sin cadencias fijas. Yo opero esto autónomamente cada sesión.
 
 ---
 

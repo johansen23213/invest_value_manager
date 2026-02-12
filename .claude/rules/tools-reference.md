@@ -158,7 +158,8 @@ python3 tools/quality_universe.py add TICKER --qs 75 --fv 200 --entry 150 --sect
 python3 tools/quality_universe.py remove TICKER
 python3 tools/quality_universe.py coverage             # Gaps de cobertura sectorial
 python3 tools/quality_universe.py refresh              # Update precios (batch con rate limiting)
-python3 tools/quality_universe.py stats                # Metricas de salud del pipeline
+python3 tools/quality_universe.py stale                # Empresas que necesitan re-evaluación (por días desde último scoring)
+python3 tools/quality_universe.py stats                # Métricas de salud del pipeline (datos crudos, sin targets fijos)
 ```
 - Base de datos persistente de empresas QS >= 65 en `state/quality_universe.yaml`
 - Parte del pipeline `capital-deployment` (PRIORIDAD #1 mientras cash > 25%)

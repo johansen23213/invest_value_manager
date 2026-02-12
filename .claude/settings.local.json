@@ -27,7 +27,14 @@
       "Bash(echo:*)",
       "Bash(else)",
       "Bash(fi:*)",
-      "Bash(done)"
+      "Bash(done)",
+      "WebFetch(domain:www.businesswire.com)",
+      "WebFetch(domain:www.investing.com)",
+      "WebFetch(domain:seekingalpha.com)",
+      "WebFetch(domain:www.bls.gov)",
+      "WebFetch(domain:newsroom.morningstar.com)",
+      "Bash(git push:*)",
+      "WebFetch(domain:www.kiplinger.com)"
     ]
   }
 }
