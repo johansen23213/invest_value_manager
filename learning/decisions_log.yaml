@@ -7,7 +7,7 @@
 # Creado: 2026-02-05 | Framework v4.0
 
 version: "4.0"
-last_updated: 2026-02-09
+last_updated: 2026-02-12
 
 # =============================================================================
 # DECISIONES DE SIZING (BUY/ADD)
@@ -484,6 +484,35 @@ geography_decisions:
       consideraría comprar con argumento explícito.
       Por ahora, priorizar US/UK para diversificar geografía.
 
+  - date: 2026-02-12
+    ticker: ROP
+    action: "STANDING ORDER (BUY at $300)"
+    sizing: "4% (~EUR 400)"
+    context:
+      quality_score: "48 tool / 70 adjusted (+22)"
+      tier: "B (upper)"
+      mos: "22% at $300 vs FV $385"
+      price_vs_52w: "-44% from ATH ($595), current $334"
+      conviction: "Low"
+      macro: "Mid-cycle US, SaaSpocalypse ongoing, DOGE structural"
+      pipeline: "R1+R2+R3+R4 complete (4 rounds, 6 agents)"
+    reasoning: |
+      FIRST serial acquirer in system. QS 48 SEVERELY distorted by $22B goodwill.
+      R3 resolution: +22 adjustment (not +28 from thesis, not +15-20 from DA).
+      Partial-goodwill ROIC ~12%, spread +3pp vs WACC — positive but modest.
+      WIDE moat 20/25 (switching costs 9/10, network effects 5/5).
+      HIGH risk (14 risks, 2 CRITICAL: balance sheet fragility + DOGE structural).
+      DO NOT buy at current $334 (13% MoS insufficient for Tier B).
+      Standing order $300 = 22% MoS, adequate given:
+        (a) Wide moat vs HRB narrow moat (only Tier B BUY precedent, failed)
+        (b) Growing FCF ($2.47B) vs HRB declining FCF
+        (c) Standing order provides price discipline
+      CEO is net seller by $8.8M — NEUTRAL-NEGATIVE insider signal.
+      AI per-seat pricing erosion = biggest unresolved risk (25% prob, 3-5yr).
+      PRECEDENT SET: Serial acquirer QS adjustment protocol (+22 max with documentation).
+      PRECEDENT SET: Partial-goodwill ROIC exception (50% goodwill as capital, spread >2pp required).
+    outcome: "Standing order pending. Valid until Q1 2026 earnings (April 2026)."
+
 # =============================================================================
 # PATRONES IDENTIFICADOS
 # =============================================================================
@@ -541,6 +570,29 @@ lessons:
     lesson: "Distinguir crecimiento orgánico vs sobrecompra"
     from_decision: "DTE.DE, SHEL.L trims"
     impact: "TRIM de sobrecompra es correcto; TRIM de ganador orgánico requiere más análisis"
+
+  - date: 2026-02-12
+    lesson: "Serial acquirers need special QS treatment — goodwill distorts ROIC but full stripping overstates quality"
+    from_decision: "ROP analysis: QS 48 tool vs 76 thesis vs 70 R3-resolved (+22)"
+    impact: |
+      quality_scorer.py reports ROIC < WACC for ALL serial acquirers (CSU.TO, DHR, TDG, ROP)
+      because goodwill from acquisitions inflates invested capital. But full stripping
+      also overstates quality (ignoring that acquisitions required real capital).
+      SOLUTION: Partial-goodwill approach (50% goodwill as capital). ROIC on this basis
+      shows true economic picture. ROP: 12% ROIC, +3pp spread (positive but modest).
+      Applies to: CSU.TO, DHR, TDG, HLMA.L, DPLM.L, JDG.L, NIBE.ST.
+      Max QS adjustment: +20 without committee approval, +22 with per-item documentation.
+
+  - date: 2026-02-12
+    lesson: "SaaSpocalypse introduces per-seat pricing risk for ALL software positions"
+    from_decision: "ROP devil's advocate uncovered switching-cost-protects-platform-but-not-pricing insight"
+    impact: |
+      AI agents reduce headcount at customer firms. Software retains the customer
+      (switching costs protect platform) but LOSES seats (per-seat pricing unprotected).
+      This is NOT the same as customer churn — it is SAME customer, LESS revenue.
+      Affects: ROP (Deltek, Aderant, Vertafore), ADBE (Creative Cloud seats),
+      BYIT.L (Microsoft licenses per user), INTU (QBO per employee), PAYC (per employee).
+      Kill condition KC#7 added for ROP. Should consider for all software positions.
 
   - date: 2026-02-05
     lesson: "Aprovechar pánico de mercado en quality compounders"

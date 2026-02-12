@@ -145,7 +145,11 @@ positions:
     avg_cost_usd: 171.62  # 343.24 / 2
     date_opened: 2026-02-05
     thesis: thesis/active/LULU/thesis.md
-    notes: "Fourth Tier A Quality Compounder. QS 82, MoS 34%. Fallen angel -58%, problema ciclico no estructural."
+    conviction: low
+    last_review: 2026-02-12
+    fair_value: "$196 (governance re-eval Feb 12, was $202 adversarial, $261 original. QS Tool 80, Adj 78 Tier A low-end.)"
+    exit_plan: "HOLD ON PROBATION through Mar 31 Q4 earnings. No ADD. SELL if negative global comps or GM <57% or poor CEO appointment. UPGRADE if US improves + GM stable + credible CEO. Kill conditions: 8 active, 2 approaching/elevated."
+    notes: "Governance Re-eval 2026-02-12: QS 82→78, FV $261→$196 (-25%). CEO out Jan 31, Elliott $1B activist, Wilson proxy fight, bonuses below target. ROIC 47% exceptional but thesis weakened on 3/6 assumptions. Position small ($343). Mar 31 MAKE-OR-BREAK."
 
   - ticker: AUTO.L
     name: "AutoTrader Group plc"

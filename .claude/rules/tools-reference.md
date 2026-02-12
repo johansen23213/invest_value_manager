@@ -150,6 +150,27 @@ python3 tools/forward_return.py --pipeline-only     # Solo pipeline research
 - Usado en FASE 2.5 (Rotation Check) del session-protocol
 - **REGLA: Ejecutar cada sesión como parte del Rotation Check**
 
+### quality_universe.py - Capital Deployment Machine (NUEVO Sesion 61)
+```bash
+python3 tools/quality_universe.py report              # Full universe con precios y distancia a entry
+python3 tools/quality_universe.py actionable           # Empresas dentro del 15% del entry
+python3 tools/quality_universe.py add TICKER --qs 75 --fv 200 --entry 150 --sector "Tech" --tier A
+python3 tools/quality_universe.py remove TICKER
+python3 tools/quality_universe.py coverage             # Gaps de cobertura sectorial
+python3 tools/quality_universe.py refresh              # Update precios (batch con rate limiting)
+python3 tools/quality_universe.py stats                # Metricas de salud del pipeline
+```
+- Base de datos persistente de empresas QS >= 65 en `state/quality_universe.yaml`
+- Parte del pipeline `capital-deployment` (PRIORIDAD #1 mientras cash > 25%)
+- `report`: Muestra universe completo con precios live, distancia a entry, pipeline status
+- `actionable`: Filtra solo empresas dentro del 15% del entry price
+- `coverage`: Mapea 23 sectores GICS, muestra cuales tienen sector view y empresas
+- `stats`: Pipeline health metrics vs targets (universe size, R1+ count, sectors, actionable)
+- FX conversion automatica + fallback warning
+- **Output: DATOS CRUDOS solamente (Framework v4.0)**
+- **REGLA: Ejecutar `actionable` al inicio de cada sesion (FASE 0 del Capital Deployment)**
+- Skill completo: `.claude/skills/capital-deployment/SKILL.md`
+
 ### correlation_matrix.py - Correlaciones entre posiciones
 ```bash
 python3 tools/correlation_matrix.py

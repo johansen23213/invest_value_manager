@@ -159,7 +159,26 @@ Ver `rotation-engine` skill para el framework completo.
 
 ---
 
-## Rotation Engine (NUEVO)
+## Capital Deployment Machine (NUEVO - Sesion 61)
+
+**PRIORIDAD #1 mientras cash > 25%.** Pipeline sistematico para desplegar cash en Quality Compounders.
+
+- **Skill:** `.claude/skills/capital-deployment/SKILL.md`
+- **Tool:** `tools/quality_universe.py` (base de datos persistente de empresas QS >= 65)
+- **Data:** `state/quality_universe.yaml`
+
+Cada sesion:
+1. `quality_universe.py actionable` — algo cerca de entry?
+2. Si actionable → priorizar analisis/ejecucion (R2-R4)
+3. Si no → Analysis Factory: 2-3 R1 en paralelo
+4. Sector coverage: 2 sectores nuevos por sesion hasta 100%
+5. Universe building: añadir empresas de screenings al universe
+
+**Meta:** 150+ empresas mapeadas, 15+ thesis listas, 20+ sectores cubiertos.
+
+---
+
+## Rotation Engine
 
 Protocolo de optimización continua. Cada sesión:
 1. Ejecutar `forward_return.py` para ranking de posiciones

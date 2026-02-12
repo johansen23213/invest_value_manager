@@ -1,0 +1,211 @@
+quality_universe:
+  last_updated: '2026-02-12'
+  companies:
+  - ticker: PAYC
+    name: Paycom Software Inc.
+    qs_tool: 85
+    qs_adj: 85
+    tier: A
+    sector: HCM/Payroll
+    fair_value: 200
+    entry_price: 100
+    currency: USD
+    current_price: 118.71
+    distance_to_entry: 18.7
+    pipeline_status: R1_COMPLETE
+    thesis_path: thesis/research/PAYC/thesis.md
+    last_scored: '2026-02-11'
+    last_price_check: '2026-02-12'
+    notes: Zero debt, 91% retention, EBITDA 43%
+  - ticker: MORN
+    name: Morningstar Inc.
+    qs_tool: 83
+    qs_adj: 83
+    tier: A
+    sector: Financial Data
+    fair_value: 205
+    entry_price: 145
+    currency: USD
+    current_price: 155.35
+    distance_to_entry: 7.1
+    pipeline_status: R1_COMPLETE
+    thesis_path: thesis/research/MORN/thesis.md
+    last_scored: '2026-02-11'
+    last_price_check: '2026-02-12'
+    notes: Wide moat, data+ratings+PitViperX. Q4 results Feb 12.
+  - ticker: DSY.PA
+    name: Dassault Systemes SE
+    qs_tool: 70
+    qs_adj: 70
+    tier: B
+    sector: Enterprise Software
+    fair_value: 20
+    entry_price: 15.5
+    currency: EUR
+    current_price: 18.25
+    distance_to_entry: 17.8
+    pipeline_status: APPROVED
+    thesis_path: thesis/research/DSY.PA/thesis.md
+    last_scored: '2026-02-10'
+    last_price_check: '2026-02-12'
+    notes: Standing order EUR 15.50. 3DEXPERIENCE platform.
+  - ticker: DNLM.L
+    name: Dunelm Group PLC
+    qs_tool: 79
+    qs_adj: 79
+    tier: A
+    sector: Retail
+    fair_value: 1008
+    entry_price: 780
+    currency: GBp
+    current_price: 959.5
+    distance_to_entry: 23.0
+    pipeline_status: APPROVED
+    thesis_path: thesis/research/DNLM.L/thesis.md
+    last_scored: '2026-02-09'
+    last_price_check: '2026-02-12'
+    notes: 'Standing order 780p. UK homewares #1, 8.8% market share.'
+  - ticker: RACE.MI
+    name: Ferrari N.V.
+    qs_tool: 82
+    qs_adj: 82
+    tier: A
+    sector: Luxury Goods
+    fair_value: 355
+    entry_price: 270
+    currency: EUR
+    current_price: 326.9
+    distance_to_entry: 21.1
+    pipeline_status: APPROVED
+    thesis_path: thesis/research/RACE.MI/thesis.md
+    last_scored: '2026-02-11'
+    last_price_check: '2026-02-12'
+    notes: Standing order EUR 270 BUY + EUR 260 ADD. Ultra-luxury moat.
+  - ticker: INTU
+    name: Intuit Inc.
+    qs_tool: 77
+    qs_adj: 75
+    tier: A
+    sector: Tax/Accounting Software
+    fair_value: 465
+    entry_price: 350
+    currency: USD
+    current_price: 399.64
+    distance_to_entry: 14.2
+    pipeline_status: R1_COMPLETE
+    thesis_path: thesis/research/INTU/thesis.md
+    last_scored: '2026-02-12'
+    last_price_check: '2026-02-12'
+    notes: QBO switching costs + network effects. SBC 39% FCF flag. Q2 FY26 Feb 26.
+  - ticker: FICO
+    name: Fair Isaac Corporation
+    qs_tool: 70
+    qs_adj: 70
+    tier: B
+    sector: Financial Data
+    fair_value: 900
+    entry_price: 775
+    currency: USD
+    current_price: 1363.31
+    distance_to_entry: 75.9
+    pipeline_status: R1_COMPLETE
+    thesis_path: thesis/research/FICO/thesis.md
+    last_scored: '2026-02-12'
+    last_price_check: '2026-02-12'
+    notes: Credit scoring monopoly. R1 complete.
+  - ticker: MA
+    name: Mastercard Inc.
+    qs_tool: 86
+    qs_adj: 86
+    tier: A
+    sector: Payments
+    fair_value: 420
+    entry_price: 315
+    currency: USD
+    current_price: 537.46
+    distance_to_entry: 70.6
+    pipeline_status: SCORED
+    thesis_path: null
+    last_scored: '2026-02-10'
+    last_price_check: '2026-02-12'
+    notes: 'WARNING: no buy-pipeline. Needs R1-R4.'
+  - ticker: V
+    name: Visa Inc.
+    qs_tool: 80
+    qs_adj: 80
+    tier: A
+    sector: Payments
+    fair_value: 283
+    entry_price: 220
+    currency: USD
+    current_price: 329.24
+    distance_to_entry: 49.7
+    pipeline_status: SCORED
+    thesis_path: null
+    last_scored: '2026-02-10'
+    last_price_check: '2026-02-12'
+    notes: 'WARNING: no buy-pipeline. Needs R1-R4.'
+  - ticker: ROP
+    name: Roper Technologies, Inc.
+    qs_tool: 48
+    qs_adj: 70
+    tier: B
+    sector: Industrial Technology
+    fair_value: 385.0
+    entry_price: 300.0
+    currency: USD
+    current_price: 333.80
+    distance_to_entry: 11.3
+    pipeline_status: R4_APPROVED
+    thesis_path: thesis/research/ROP/thesis.md
+    last_scored: '2026-02-12'
+    last_price_check: '2026-02-12'
+    notes: 'R3 DONE. QS 48→70 (+22 serial acquirer adj). FV $385. WIDE moat 20/25. HIGH risk. Standing order $300 pending R4. SaaSpocalypse + DOGE risks.'
+  - ticker: GGG
+    name: Graco Inc.
+    qs_tool: 71
+    qs_adj: 71
+    tier: B
+    sector: Industrial Technology
+    fair_value: 100.0
+    entry_price: 80.0
+    currency: USD
+    current_price: null
+    distance_to_entry: null
+    pipeline_status: SCORED
+    thesis_path: null
+    last_scored: '2026-02-12'
+    last_price_check: null
+    notes: ROIC-WACC +13.3pp, net cash. At ATH. Wait for pullback to 0.
+  - ticker: ROR.L
+    name: ROTORK PLC ORD 0.5P
+    qs_tool: 73
+    qs_adj: 73
+    tier: B
+    sector: Industrial Technology
+    fair_value: 450.0
+    entry_price: 320.0
+    currency: GBP
+    current_price: null
+    distance_to_entry: null
+    pipeline_status: SCORED
+    thesis_path: null
+    last_scored: '2026-02-12'
+    last_price_check: null
+    notes: ROIC-WACC +12.7pp, net cash. At ATH. Wait for pullback to 320p.
+  - ticker: BVI.PA
+    name: BUREAU VERITAS
+    qs_tool: 69
+    qs_adj: 69
+    tier: B
+    sector: Testing/Inspection/Cert
+    fair_value: 35.0
+    entry_price: 24.0
+    currency: EUR
+    current_price: null
+    distance_to_entry: null
+    pipeline_status: SCORED
+    thesis_path: null
+    last_scored: '2026-02-12'
+    last_price_check: null
+    notes: Best TIC candidate. ROIC-WACC +11.8pp, organic growth 10.2%, P/E 18.6x. LEAP 28 strategy.

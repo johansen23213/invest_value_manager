@@ -116,11 +116,12 @@ Event-driven: `buy-pipeline`, `sell-pipeline`, `earnings-pipeline`
 ### 4. Sugerencias del Dia (basadas en pipelines + estado)
 
 Prioridad automatica:
-1. **Pipelines OVERDUE** (se sugieren primero)
-2. **Standing orders cerca de trigger** (<5%)
-3. **Earnings proximos 7 dias**
-4. **Cash deployment si prolongado**
-5. **Alertas de precio activas**
+1. **Capital Deployment** (si cash > 25%: actionable companies, R1 factory, sector gaps)
+2. **Pipelines OVERDUE** (se sugieren primero)
+3. **Standing orders cerca de trigger** (<5%)
+4. **Earnings proximos 7 dias**
+5. **Cash deployment si prolongado**
+6. **Alertas de precio activas**
 
 **Formato:**
 ```

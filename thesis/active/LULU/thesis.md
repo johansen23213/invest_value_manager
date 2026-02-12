@@ -1,82 +1,82 @@
 # LULU - Lululemon Athletica Inc.
 
-> **Fecha:** 2026-02-05 | **Adversarial Review:** 2026-02-11
-> **Precio actual:** $178.90 / EUR 150.38 (as of 2026-02-11)
+> **Fecha:** 2026-02-05 | **Adversarial Review:** 2026-02-11 | **Governance Re-Eval:** 2026-02-12
+> **Precio actual:** $175.86 / EUR 148.06 (as of 2026-02-12)
 > **52-week range:** $159.25 - $400.01
 > **Entry:** $171.62 on 2026-02-05
 
-**Fair Value:** $202 (adversarial, was $261 original. QS 82 Tier A)
+**Fair Value:** $196 (governance re-eval, was $202 adversarial, was $261 original. QS 78 adj Tier A low-end)
 
 ---
 
-## ADVERSARIAL REVIEW UPDATE (2026-02-11)
+## GOVERNANCE RE-EVALUATION UPDATE (2026-02-12)
 
-**Full adversarial review:** `thesis/research/LULU/adversarial_thesis_review.md`
+**Full review:** `thesis/active/LULU/review_feb2026.md`
 
 ### Key Findings
 
-| Metric | Original Thesis | Adversarial Review | Delta |
-|--------|----------------|-------------------|-------|
-| QS Tool | 82 | 80 | -2 |
-| QS Adjusted | 82 | 81 (Tier A) | -1 |
-| Fair Value | $261 | **$202** | **-22.6%** |
-| MoS at entry | 34% | 15% | -19pp |
-| MoS at current ($179) | 31% | **11%** | -20pp |
-| Growth assumption | 8-10% | 5% | -3-5pp |
-| P/E multiple | 20x | 17x | -3x |
-| Tariff impact | "marginal ~100bp" | **$320M (~13% of OpInc)** | Material |
-| Conviction | HIGH | **LOW-MEDIUM** | Downgrade |
+| Metric | Original Thesis | Adversarial (Feb 11) | Re-Eval (Feb 12) |
+|--------|----------------|---------------------|---------------------|
+| QS Tool | 82 | 80 | 80 |
+| QS Adjusted | 82 | 81 (Tier A) | **78 (Tier A low-end)** |
+| Fair Value | $261 | $202 | **$196** |
+| MoS at current | 34% | 11.4% | **10.3%** |
+| Growth assumption | 8-10% | 5% | 5% (no change) |
+| P/E multiple | 20x | 17x | **16x** |
+| Conviction | HIGH | LOW-MEDIUM | LOW-MEDIUM |
+| Status | HOLD | HOLD LOW-MED | **HOLD PROBATION** |
 
-### Revised Status: **HOLD -- Low-Medium Conviction**
+### Revised Status: **ON PROBATION -- Low-Medium Conviction**
 
-**Why HOLD (not SELL):**
-- ROIC 47% with +37pp spread over WACC -- one of highest in portfolio
-- GM 59.2% EXPANDING (all-time high) -- moat intact TODAY
+**Why PROBATION (upgrade from clean HOLD):**
+- Bloomberg (Feb 11): Employee bonuses tracking below target -- confirms operational underperformance
+- Thesis weakened on 3/6 key assumptions (tariffs, governance, cyclical certainty)
+- MoS 10.3% is below minimum observed for any Tier A entry in portfolio history
+- QS 78 is only 3 points above Tier A/B boundary -- fragile
+- Two kill conditions APPROACHING/ELEVATED (global comps, Wilson proxy)
+
+**Why still HOLD (not SELL):**
+- ROIC 47% with +37pp spread over WACC -- exceptional, best in portfolio category
+- GM 59.2% EXPANDING (all-time high) -- moat intact at financial level
 - FCF $1.6B, net cash -- fortress balance sheet
-- MoS still positive (+11%) on adversarial FV
+- MoS still positive (+10.3%) -- not overpaying
 - No kill conditions triggered
-- Elliott $1B stake = positive activist catalyst
-- Position small (3.5%) -- limited downside impact
+- Position small (3.5%, $343 invested) -- limited risk
+- No compelling rotation candidate (OS < 2.0 vs all pipeline)
+- Inconsistent with all 8 SELL precedents (all had ROIC<WACC or negative MoS)
 
-**Why conviction reduced to LOW-MEDIUM:**
-- Tariff impact $320M is 3-4x thesis assumption
-- DTC market share loss 6pp in 10 months (30% to 24%)
-- Product quality failures (Get Low, Breezethrough)
-- FY2025 EPS declining -11% YoY
-- Dual activist pressure (Elliott + Wilson) + interim co-CEOs
-- Proxy fight June 2026 creates governance risk
+### Standing Orders
+- **ADD:** SUSPENDED -- no ADD while on probation
+- **SELL:** No standing order -- monitor kill conditions
+- **Review date:** Mar 31, 2026 (Q4 FY2025 earnings -- MANDATORY)
 
-### Updated Standing Orders
-- **CANCEL** previous ADD triggers ($160, $145)
-- **New ADD trigger:** $155 (MoS >30% on adversarial FV), conditional on Q4 US comp improvement + CEO clarity
-- **No SELL order** -- MoS positive, no kill conditions triggered
-
-### Next Review Triggers
-1. Q4 FY2025 earnings (Mar 31, 2026) -- CRITICAL
-2. CEO announcement
-3. Annual meeting / proxy vote (June 2026)
+### Probation Exit Criteria
+**UPGRADE to HOLD MEDIUM if Q4 shows:** (a) US comp improvement, (b) GM stable >57%, (c) credible CEO appointed
+**SELL if Q4 shows:** (a) negative GLOBAL comps, (b) GM below 57%, or (c) poor CEO appointment
 
 ---
 
 ## TL;DR
 
-Quality Compounder (QS Tool 80, Adjusted 81, Tier A) cotizando a P/E 12x vs historico 40x. La caida (-58%) se debe a problemas CICLICOS (producto stale, US debil) NO estructurales, though with increased risk from tariffs ($320M impact), product quality issues, and governance complexity. International crece +33%, China moderating but still 20%+. MoS 11% on adversarial FV $202. **HOLD with Low-Medium conviction. Watch Q4 earnings (Mar 31) closely.**
+Quality Compounder (QS Tool 80, Adjusted 78, Tier A low-end) cotizando a P/E 12x vs historico 40x. ON PROBATION due to governance chaos (dual activists, no CEO, proxy fight), tariff impact $320M, bonuses below target. Core quality intact (ROIC 47%, GM 59.2%, FCF $1.6B, net cash). MoS 10.3% on revised FV $196. Position small (3.5%). **Mar 31 Q4 earnings is MAKE-OR-BREAK for continued holding.**
 
 ---
 
 ## Quality Score
 
-**QS Tool: 80/100 | QS Adjusted: 81/100 -- TIER A (Quality Compounder)**
+**QS Tool: 80/100 | QS Adjusted: 78/100 -- TIER A (Low-End, Quality Compounder)**
 
 | Categoria | Tool Score | Adjusted | Notas |
 |-----------|-----------|----------|-------|
 | **Financial Quality** | 35/40 | 35/40 | ROIC spread +37pp, FCF Margin 15%, Net Cash |
-| **Growth Quality** | 25/25 | 25/25 | Revenue CAGR 19%, EPS CAGR 25%, GM expanding |
-| **Moat Evidence** | 17/25 | 18/25 | GM +24pp vs sector, market position eroding (#2 but declining share) |
+| **Growth Quality** | 25/25 | 23/25 | -2: Forward growth 2-5%, EPS declining -11%. Historical CAGR backward-looking. |
+| **Moat Evidence** | 17/25 | 17/25 | +3 market position #2, -3 eroding share (30->24%), -1 product quality issues x2, -2 Alo surge |
 | **Capital Allocation** | 3/10 | 3/10 | No dividendo, insider 4.6% |
-| **TOTAL** | **80/100** | **81/100** | **TIER A** |
+| **TOTAL** | **80/100** | **78/100** | **TIER A (low-end, 3 points above boundary)** |
 
-**Adjustment rationale:** +3 for market position #2 in athleisure (tool defaults to 0/8), -2 for competitive pressure (DTC share loss 6pp in 10 months, product quality issues).
+**Adjustment rationale (quantitative evidence):**
+- Growth -2: FY2025 EPS $12.97 vs FY2024 $14.64 = -11.4% decline. Guided FY2026 rev +2-4%.
+- Moat net 0 vs tool: Market position +3 (#2 DTC, 21% share) minus competitive erosion -3 (6pp DTC loss in 10 months, Alo surge 8->14%, product quality x2).
 
 ### Key Quality Metrics (from quality_scorer.py)
 - **ROIC trajectory:** 44.1% -> 37.4% -> 48.9% -> 46.7% (strong, stable)
@@ -107,70 +107,72 @@ Lululemon es retailer de athleisure premium con modelo **Direct-to-Consumer (DTC
 1. **Brand Power (#2 en athleisure US)**: 21.2% market share, BUT declining from 30% DTC share to 24% in 10 months
 2. **Premium Positioning**: Pricing power demonstrated -- GM +24pp vs sector and EXPANDING
 3. **Community/Cult Following**: Brand ambassadors, yoga instructors, eventos locales
-4. **Product Innovation**: Fabric technology (Luon, Nulu, Everlux) propietaria -- BUT recent quality issues (Get Low, Breezethrough)
+4. **Product Innovation**: Fabric technology (Luon, Nulu, Everlux, PowerLu) propietaria -- BUT recent quality issues (Get Low Jan 2026, Breezethrough mid-2025). New "Unrestricted Power" line launched Feb 10 with Lewis Hamilton.
 5. **Vertical DTC**: Sin dependencia de terceros, control de experiencia
 
 ### Por Que Esta Barata - Narrativa del Mercado
 1. **US Growth ha terminado** - Americas comparable sales negative 4+ quarters
 2. **Competencia erosiona el moat** - Alo Yoga surged 8% to 14% DTC share in 3 months
 3. **Producto se volvio "stale" + quality issues** - Get Low pulled (see-through), Breezethrough pulled
-4. **CEO departure + governance chaos** - Two activists (Elliott $1B, Wilson proxy fight), interim co-CEOs
+4. **CEO departure + governance chaos** - Two activists (Elliott $1B, Wilson proxy fight), interim co-CEOs, bonuses below target
 5. **Tariffs massive** - $320M FY2026 impact on operating income
+6. **EPS declining** - FY2025 EPS -11% YoY
 
 ### Value Trap Checklist: 1.5/10 -- Low risk
 
 ---
 
-## Valuation (Adversarial, 2026-02-11)
+## Valuation (Governance Re-Eval, 2026-02-12)
 
 ### Method 1: DCF (50% weight)
 Growth 5%, WACC 10%, Terminal 2.5%
-- Base FV: $208/share, MoS +16%
+- Base FV: $208/share, MoS +18.2%
 
 ### Method 2: P/E Normalized (30% weight)
-17x * $12.50 FY2026e EPS = $213/share, MoS +19%
+16x * $12.50 FY2026e EPS = $200/share, MoS +13.7%
+- Reduced from 17x to 16x: governance premium (no CEO, dual activists, bonuses below target)
 
 ### Method 3: Bear Floor (20% weight)
-Growth 3%, WACC 10.5%, Terminal 2%
-- Base FV: $170/share, MoS -5%
+Growth 2-3%, WACC 11%
+- Bear FV: $165/share, MoS -6.2%
 
-### Weighted FV: $202
+### Weighted FV: $196
 
 | Method | Fair Value | Weight | Weighted |
 |--------|-----------|--------|----------|
-| DCF (5% growth) | $208 | 50% | $104 |
-| P/E (17x normalized) | $213 | 30% | $64 |
-| Bear Floor (3% growth) | $170 | 20% | $34 |
-| **Weighted FV** | | 100% | **$202** |
+| DCF (5% growth) | $208 | 50% | $104.0 |
+| P/E (16x normalized) | $200 | 30% | $60.0 |
+| Bear Floor | $165 | 20% | $33.0 |
+| **Weighted FV** | | 100% | **$196** |
 
-**Current Price: $178.90 | MoS: +11.4%**
+**Current Price: $175.86 | MoS: +10.3%**
 
 ---
 
 ## Escenarios
 
-### Bear Case (25% prob) - $155
+### Bear Case (30% prob, up from 25%) - $155
 - US business does not recover, negative comps 2+ years
 - Tariffs escalate further, GM compresses below 55%
 - Alo/Vuori take 5pp+ share, brand weakens
 - CEO appointment is poor, Wilson gains board control
-- FV: ~$155 | Loss from current: -13%
+- FV: ~$155 | Loss from current: -12%
 
-### Base Case (50% prob) - $202
+### Base Case (45% prob, down from 50%) - $196
 - US stabilizes low-single-digit in FY2027
 - International maintains 15-20% growth
 - Tariffs moderate or get mitigated over 2 years
 - Competent CEO appointed (Jane Nielsen or similar)
-- FV: $202 | Upside: +13%
+- FV: $196 | Upside: +11%
 
 ### Bull Case (25% prob) - $265
 - Product refresh succeeds, US comps turn positive
 - China exceeds expectations (30%+ growth)
 - Tariffs reduced via trade negotiations
 - Elliott drives operational improvements, strong CEO appointed
-- FV: $265 | Upside: +48%
+- FV: $265 | Upside: +51%
 
-**Expected Value: 0.25*$155 + 0.50*$202 + 0.25*$265 = $206**
+**Expected Value: 0.30*$155 + 0.45*$196 + 0.25*$265 = $201**
 
 ---
 
@@ -178,22 +180,37 @@ Growth 3%, WACC 10.5%, Terminal 2%
 
 | Riesgo | Probabilidad | Impacto | Status vs Thesis |
 |--------|-------------|---------|-----------------|
-| US no se recupera 2+ anos | 30% | Alto | **Increased** (was 25%) |
-| New CEO ejecuta mal | 15% | Medio-Alto | Similar |
-| Alo/Vuori erosionan moat | 25% | Alto | **Increased** (was 15%) |
-| Tariffs escalan mas | 40% | Alto | **Increased** (was 30% / "Bajo") |
+| US no se recupera 2+ anos | 30% | Alto | **Increased** |
+| New CEO ejecuta mal | 20% | Medio-Alto | **Increased** (CEO vacuum longer) |
+| Alo/Vuori erosionan moat | 25% | Alto | **Increased** |
+| Tariffs escalan mas | 40% | Alto | **Increased** |
 | China political/growth risk | 15% | Medio | Similar |
-| Governance chaos (dual activists) | 30% | Medio | **NEW** |
-| Product quality failures continue | 20% | Medio | **NEW** |
+| Governance chaos (dual activists) | 35% | Medio-Alto | **Increased** (bonuses below target, no CEO 6 weeks in) |
+| Product quality failures continue | 25% | Medio | **Increased** |
 
-### Kill Conditions
+### Kill Conditions (Updated Feb 12)
 1. **Gross Margin cae <50%** - indica perdida de pricing power
-2. **3 trimestres consecutivos de negative comps global** (no solo Americas) -- APPROACHING
+2. **3 trimestres consecutive negative comps global** (no solo Americas) -- **APPROACHING**
 3. **FCF turns negative por 2+ trimestres**
-4. **New CEO es insider con track record malo o outsider sin retail experience** -- PENDING
-5. **Founder Chip Wilson gains board control y implementa cambios disruptivos** -- ELEVATED (proxy fight active)
+4. **New CEO es insider con track record malo o outsider sin retail experience** -- **PENDING**
+5. **Founder Chip Wilson gains board control y implementa cambios disruptivos** -- **ELEVATED**
 6. **DTC channel commoditized by platform shift** (>25% premium athleisure DTC via platforms)
 7. **Chinese athleisure brands achieve quality parity at 40%+ discount** in Western markets
+8. **NEW: Bonuses below target 2+ consecutive years AND CEO search >6 months without resolution**
+
+---
+
+## EXIT Protocol Summary (Feb 12)
+
+| Gate | Question | Result |
+|------|----------|--------|
+| 1 | Kill Condition? | NO (2 elevated/approaching) |
+| 2 | Thesis Valid? | WEAKENED (not invalidated) |
+| 3 | MoS Current? | +10.3% (thin for risk level) |
+| 4 | Better Opportunity? | No compelling OS > 2.0 |
+| 5 | Dead Money? | No (7 days, catalysts ahead) |
+| 6 | Friction? | Low |
+| **Verdict** | | **HOLD ON PROBATION** |
 
 ---
 
@@ -203,25 +220,30 @@ Growth 3%, WACC 10.5%, Terminal 2%
 - **Tariffs**: MAJOR headwind - $320M FY2026 impact, affects all sourcing countries
 - **Consumer Discretionary**: Sector neutral, selective opportunities in fallen angels
 - **Fit**: LULU es consumer cyclical pero con moat premium. Affluent consumers more resilient.
+- **CPI Jan (Feb 13)**: If high -> rates higher longer -> consumer pain (negative for LULU)
 
 ---
 
 ## Sizing & Position
 
 **Current:** 2 shares, $171.62 avg cost, ~3.5% of portfolio
-**Conviction:** LOW-MEDIUM (downgraded from HIGH)
-**Exit Plan:** Reassess at Q4 earnings (Mar 31). Exit if kill conditions trigger or CEO appointment is poor.
+**Conviction:** LOW-MEDIUM
+**Status:** ON PROBATION
+**Exit Plan:** Mar 31 Q4 earnings is MANDATORY review. Exit if kill conditions trigger, CEO poor, or negative global comps.
 
 ---
 
 ## Sources
 
-See `thesis/research/LULU/adversarial_thesis_review.md` for full source list.
+See `thesis/active/LULU/review_feb2026.md` and `thesis/research/LULU/adversarial_thesis_review.md` for full source lists.
 
-### Key Recent Sources
-- [Lululemon ICR Conference Q4 Update (Jan 12, 2026)](https://corporate.lululemon.com/media/press-releases/2026/01-12-2026-113012292)
+### Key Recent Sources (Feb 12)
+- [Bloomberg: Employee Bonuses Below Target](https://www.bloomberg.com/news/articles/2026-02-11/lululemon-warns-employees-bonuses-are-likely-to-be-below-target)
+- [Lululemon: Unrestricted Power Launch](https://corporate.lululemon.com/media/press-releases/2026/02-10-2026-133015993)
 - [Elliott Takes $1B Stake](https://www.businessoffashion.com/news/sports/activist-investor-takes-over-1-billion-stake-in-lululemon/)
 - [Chip Wilson Proxy Fight](https://chainstoreage.com/lululemon-founder-launches-proxy-fight-overhaul-board)
+- [CNBC: Elliott at Lululemon](https://www.cnbc.com/2026/01/10/how-activist-elliott-can-help-reinvigorate-athleisure-giant-lululemon.html)
+- [Yahoo Finance: Tariff Margin Erosion](https://finance.yahoo.com/news/lululemon-halt-margin-erosion-amid-181300080.html)
 - [Get Low Leggings Pulled](https://www.cbsnews.com/news/lululemon-see-through-leggings-get-low/)
-- [Alo Yoga, Vuori Gaining Share](https://www.retaildive.com/news/alo-yoga-vuori-gaining-activewear-market-share/714384/)
-- [Tariff Impact Analysis](https://supplychaindigital.com/news/lululemon-tariffs-sales-impact)
+- [Globe and Mail: 100 Customer Service Layoffs](https://www.theglobeandmail.com/business/article-lululemon-layoffs-customer-care-part-time-work/)
+- [Lululemon ICR Q4 Update](https://corporate.lululemon.com/media/press-releases/2026/01-12-2026-113012292)

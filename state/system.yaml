@@ -7,7 +7,7 @@ system:
   system_version: "4.0.0"
   framework_version: "4.0"
   last_session: 2026-02-12
-  session_number: 58
+  session_number: 61
 
   # FRAMEWORK v4.0 - IMPLEMENTADO
   # =====================================
@@ -54,14 +54,14 @@ system:
     date: 2026-02-11
     summary:
       total_positions: 13
-      tier_a_count: 3  # MONY.L(75 adj, borderline), LULU(82), ADBE(76 tool, 73 adj borderline)
+      tier_a_count: 3  # MONY.L(75 adj, borderline), LULU(78 adj, low-end), ADBE(76 tool, 73 adj borderline)
       tier_b_count: 5  # AUTO.L(71 adj), NVO(73), BYIT.L(68-72), EDEN.PA(62), DOM.L(61). VICI REIT-adj ~60 borderline.
       tier_c_count: 5  # ALL(56), VICI(54), GL(52), UHS(51), DTE.DE(48)
       tier_d_count: 0
     positions:
       # TIER A - Quality Compounders (3 positions)
       - { ticker: MONY.L, score: 75, tier: A, status: "AI Disruption Re-eval 2026-02-12: QS Tool 83, Adj 75 (borderline Tier A). FV 201→190 GBp. Moat erosion prob 30-35%. ON PROBATION. HOLD LOW through Feb 23 earnings. KC#9 added (AI strategy)." }
-      - { ticker: LULU, score: 82, tier: A, status: "Adversarial 2026-02-11: FV $261→$202 (-22.6%). QS 80-81 Tier A. HOLD LOW-MEDIUM." }
+      - { ticker: LULU, score: 78, tier: A, status: "Governance Re-eval 2026-02-12: QS Tool 80, Adj 78 (Tier A low-end, 3pts above B). FV $202→$196 (-3%). ON PROBATION. MoS 10.3% thin. Mar 31 Q4 earnings = MAKE-OR-BREAK. No ADD." }
       - { ticker: ADBE, score: 76, tier: A, status: "QS Tool 76. Adj 73 (Tier B borderline) per FTC risk. Thesis v2.0 2026-02-10." }
       # TIER B - Quality Value (5 positions)
       - { ticker: NVO, score: 73, tier: B, status: "QS Tool 73 (Tier B). Thesis overclaimed 82 Tier A." }
@@ -91,52 +91,58 @@ system:
   # Purged 2026-02-11 to reduce file size (~730 lines removed)
 
   last_session_summary: |
-    Session 58 (continued) - SYSTEM FIX + VIGILANCE (2026-02-12)
+    Session 61 - ROP FULL PIPELINE R1-R4 COMPLETE + CDM EXPANSION (2026-02-12)
 
     =====================================================
-    CRITICAL SYSTEM FIX
+    ROP (ROPER TECHNOLOGIES) — FULL BUY-PIPELINE R1-R4
     =====================================================
-    forward_return.py stale FV parsing FIXED:
-    - Root cause: regex pattern priority. Pattern #1 (Weighted Average table) matched OLD
-      values before the generic "Fair Value:" pattern (last priority).
-    - Fix: (1) Added priority-0 pattern for canonical `**Fair Value:**` headers,
-      (2) Added re.MULTILINE flag, (3) Standardized ALL 13 thesis files with canonical headers.
-    - 9/13 FVs corrected. Biggest: MONY.L 277→190, EDEN.PA 38.4→29.0, GL 225→191.
-    - Rotation check data now accurate for first time since adversarial reviews.
+    R1 (3 agents parallel): QS 48 Tool / 76 Adj (+28 serial acquirer). FV $420.
+    - WIDE moat (20/25). 29 vertical software monopolies. 75-80% recurring rev.
+    - HIGH risk (14 risks, 2 CRITICAL: DOGE/Deltek + AI per-seat pricing).
+
+    R2 (devil's advocate): MODERATE COUNTER (7/16 HIGH, 0 wins / 2 partial / 3 losses).
+    - CEO NET SELLER $8.8M (thesis misrepresented). FV $372.
+    - AI per-seat pricing = real structural risk (SaaSpocalypse).
+
+    R3 (conflict resolution): QS 76→70 (Tier B). FV $420→$385.
+    - Entry $290-310, standing order $300 (22% MoS).
+    - Partial-goodwill ROIC methodology: 50% goodwill as capital, ROIC ~12%, spread +3pp.
+
+    R4 (investment committee): ALL 10 GATES PASSED. APPROVED standing order $300.
+    - EUR 400 (~4%), ~1.3 shares. Valid until Q1 2026 earnings (Apr 2026).
+    - 7 kill conditions. 3 precedent-setting decisions documented.
 
     =====================================================
-    VIGILANCE (Feb 12)
+    SECTOR SCREENINGS — Industrial Tech + TIC
     =====================================================
-    - 0 CRITICAL, 11 MATERIAL alerts
-    - LULU: Elliott Investment $1B+ activist stake + Chip Wilson proxy. POSITIVE for thesis.
-    - NVO: Sued Hims & Hers, patent through 2032. Wegovy pill uptake strong.
-    - DSY.PA: Q4 FY2025 results, 2026 guidance 3-5% growth (in-line with thesis).
-    - DNLM.L: Jefferies upgrade to Buy, PT 1,075p (validates 1,008p adversarial FV).
-    - AUTO.L: Actual cancellations ~60 (vs 180+ headline). Buybacks >1M shares.
-    - UHS: CEO contract extended. UBS says less exposed to NY Medicaid limits.
+    Industrial Tech: GGG (QS 71, ROIC-WACC +13.3pp, at ATH), ROR.L (QS 73, +12.7pp, at ATH).
+    TIC (Testing/Inspection/Cert): BVI.PA (QS 69, organic growth 10.2%, P/E 18.6x).
+    All scored and added to quality_universe.yaml. Entry requires pullback.
 
     =====================================================
-    EARNINGS STATUS
+    PRECEDENTS SET (decisions_log.yaml)
     =====================================================
-    - PAYC: Reports after close Feb 11. Check results next session.
-    - MORN: Reports after close Feb 12. Price $155 (6.6% from $145 entry).
-    - Earnings week Feb 23-26: MONY.L, EDEN.PA, VICI, UHS, DTE.DE. All frameworks ready.
+    1. Serial acquirer QS adjustment: +22 with per-item documentation. Max +20 without committee.
+    2. Partial-goodwill ROIC exception: 50% goodwill as capital, spread >2pp required.
+    3. SaaSpocalypse per-seat pricing risk: KC#7 for all software positions.
 
     =====================================================
-    ROTATION CHECK (CORRECTED DATA)
+    FILES CREATED/MODIFIED
     =====================================================
-    Bottom 3: UHS -7.9% MoS, VICI -0.6%, LULU +13.9%
-    Top 3: EDEN.PA +64%, NVO +60.4%, ADBE +51.2%
-    No standing orders near trigger. DSY.PA closest at 12.8%.
+    Created: thesis/research/ROP/thesis.md, moat_assessment.md, risk_assessment.md, devils_advocate.md, committee_decision.md
+    Created: world/sectors/industrial-technology.md
+    Created: tools/quality_universe.py, state/quality_universe.yaml
+    Updated: state/system.yaml (ROP standing order, session 61, tools_count 8)
+    Updated: learning/decisions_log.yaml (ROP precedent + 2 lessons)
 
     =====================================================
     WORK FOR NEXT SESSION
     =====================================================
-    1. PAYC Q4 earnings verification (results available by now)
-    2. MORN Q4 earnings evaluation (reported Feb 12 after close)
-    3. WPP.L Rose plan Feb 19 → cancel/keep decision
-    4. Earnings week Feb 23-26: final prep
-    5. Cash deployment (~48%) — pipeline: PAYC, MORN, DSY.PA, DNLM.L
+    1. MORN Q4 results (reported Feb 12 after close) — EVALUATE
+    2. Earnings week Feb 23-26: MONY.L (probation), EDEN.PA, VICI (probation), UHS (probation), DTE.DE, INTU
+    3. WPP.L Rose plan Feb 26 → review standing order
+    4. Cash deployment (~44%) — pipeline: PAYC ($95-105), MORN ($145), DSY.PA (EUR 15.50), DNLM.L (780p), RACE.MI (EUR 270), ROP ($300), INTU ($330-365)
+    5. Standing orders needing pipeline: FGP.L, CMCSA, MA, V (WARNING)
 
   status: active
 
@@ -316,11 +322,11 @@ calendar:
 
     # PAYC + MORN EARNINGS (ADDED 2026-02-11)
     - date: 2026-02-11
-      type: earnings_pending
+      type: earnings_completed
       ticker: PAYC
-      event: "PAYC Q4 2025 Earnings (after close)"
-      priority: high
-      action: "Consensus EPS $2.44, Rev $542.7M. Entry $95-105 post-earnings. Ronda 1 complete. Rondas 2-4 PAUSED pending results."
+      event: "DONE - PAYC Q4 2025: BEAT. Rev $544.3M (+0.3%), EPS $2.45 (+0.4%)"
+      priority: completed
+      action: "FY2026 guidance Rev $2.175-2.195B (+6-7%), EBITDA 44%. Entry $95-105 MAINTAINED. Price $118.71 = too high. Monitor for pullback. Full review-agent if price approaches $105-110."
 
     - date: 2026-02-12
       type: earnings_pending
@@ -476,6 +482,13 @@ calendar:
       event: "DONE - BUY UHS 2 shares"
       priority: high
       action: "Bought 2 shares UHS, $402.84 invested. Behavioral health leader, P/E 9.6x."
+
+    - date: 2026-02-26
+      type: earnings_pipeline
+      ticker: INTU
+      event: "INTU Q2 FY2026 earnings (after close Feb 26)"
+      priority: high
+      action: "Pipeline candidate. QS 75 Tier A borderline. FV $465, entry $330-365. R1 COMPLETE. R2-R4 DEFERRED pending Q2 results. Bear <10% rev growth, Base 12-13%, Bull >14%. Watch: TurboTax customer count, QBO Advanced growth, Mailchimp trajectory, SBC as % FCF. If Q2 disappoints + stock drops to $330-365 → accelerate R2-R4."
 
     - date: 2026-02-26
       type: earnings
@@ -701,6 +714,24 @@ watchlist:
       notes: "Telecom belga. EV/EBITDA 3.1x. FV 12 base. WAIT strategic plan 27-feb. DIGI risk."
 
   on_watch:
+    - ticker: RACE.MI
+      entry: "EUR 260-290 (reconciled R3)"
+      fair_value: "EUR 355 (reconciled: EV/EBIT 30x 40%, P/E 37-39x 30%, OEY 30%). Pre-recon: thesis EUR 377, adversarial EUR 335."
+      notes: "R3 COMPLETE. QS 82/84 Tier A. WIDE moat 23/25 EXPANDING. Risk MEDIUM-HIGH (upgraded). FV EUR 355. Bear EUR 270, Deep Bear EUR 220. MoS at EUR 270 = 24%, at EUR 260 = 27%. OEY+Growth < WACC = known limitation for luxury compounders. Pricing: EUR 270 entry for 3% initial, EUR 260 for full 3-4%. R4 investment-committee PENDING."
+      kill: "P/E <25x sustained 6mo, Luce brand contagion, EBIT <25% 2Q, US tariffs >35% + volumes -15%, FY2026 rev <EUR 7.3B"
+      thesis: thesis/research/RACE.MI/thesis.md
+    - ticker: FICO
+      entry: "$700-850 (requires -38 to -49% decline from current $1,363)"
+      fair_value: "$900 (R1 consensus. OEY 50%, EV/EBIT 30%, Reverse DCF 20%)"
+      notes: "R1 COMPLETE (3 agents). QS 75 Tool / 70 Adj (Tier B, was Tier A). WIDE moat ERODING (18/25). Risk HIGH. FV ~$900, current $1,363 = -51% OVERVALUED. VantageScore threat real but slow-moving (3-5yr). 127 insider sales / 0 purchases. Negative equity (-$1.4B). R2-R4 DEFERRED - stock too far from entry. Re-evaluate if price approaches $1,000 or VantageScore H1 2026 data released."
+      kill: "VantageScore >25% GSE mortgage share 18mo, FICO revenue negative 2Q, DOJ formal antitrust investigation, Net Debt/EBITDA >4x, P/E <25x sustained with declining growth"
+      thesis: thesis/research/FICO/thesis.md
+    - ticker: INTU
+      entry: "$330-365 (MoS 22-29% vs FV $465)"
+      fair_value: "$465 (OEY 60%, DCF 40%). Bear $330, Base $465, Bull $590."
+      notes: "R1 COMPLETE (3 agents). QS 77 Tool / 75 Adj (Tier A borderline). WIDE moat (QBO switching costs + network effects). Risk MEDIUM-HIGH. AI net positive (TurboTax Live +51%, $100M OpenAI). 90/0 insider selling concern. SBC 39% FCF = quality flag. IRS Direct File killed. Q2 earnings Feb 26. R2-R4 DEFERRED — price $400, need $330-365. If Q2 disappoints + drops → accelerate pipeline."
+      kill: "QBO customers -5% YoY 2Q, TurboTax share loss >5pp, FCF <$4B, IRS Direct File reinstated, ROIC < WACC, Goodwill impairment >$2B, Revenue growth <8% 2Q"
+      thesis: thesis/research/INTU/thesis.md
     - ticker: ENEL.MI
       entry: "7.00-7.50"
       notes: "Vendida breakeven. CMD 23-feb catalyst."
@@ -887,7 +918,7 @@ alerts:
     - { ticker: WKL.AS, entry_eur: 55, note: "REVISED 2026-02-11. Committee FV EUR 72 (was 94.28). Entry EUR 50-55 post FY2025 results Feb 25. MoS 31-44% at target. HARD GATE: create sector view first. See committee_decision.md." }
     - { ticker: WKL.AS, entry_eur: 50, note: "STRONG ENTRY. Committee FV EUR 72. At EUR 50 = MoS 44%. Only if FY2025 shows 5%+ organic growth + healthy cloud metrics." }
     - { ticker: DSY.PA, entry_eur: 15.50, note: "Dassault Systemes. Committee APPROVED 2026-02-11. FV EUR 20.00. QS 70 Tier B. WIDE moat. HIGH risk. Standing order EUR 15.50 = MoS 22.5%. CONDITIONAL on Q1 2026 results. Cancel if growth <3%. 0APT data breach monitoring." }
-    - { ticker: PAYC, entry_usd: 100, note: "Paycom. QS 85 Tier A. Ronda 1 complete. WATCHLIST. Earnings Feb 11 after close. Entry $95-105 post-earnings. Buy-pipeline Rondas 2-4 pending post-earnings." }
+    - { ticker: PAYC, entry_usd: 100, note: "Paycom. QS 85 Tier A. Ronda 1 complete. WATCHLIST. Q4 FY2025 REPORTED: Rev $544.3M (+0.3% beat), EPS $2.45 (+0.4% beat). FY2025: Rev $2.05B, EBITDA 43%. 2026 GUIDANCE: Rev $2.175-2.195B (+6-7%, NOT 10%), EBITDA $950-970M (44% margin expansion). Zero debt, $370M cash, 91% retention. Entry $95-105 MAINTAINED. Price $118.71. If price drops to $105-110, launch full review-agent for FV recalculation." }
     - { ticker: MORN, entry_usd: 145, note: "Morningstar. QS 83 Tier A. Earnings Feb 12. Pipeline candidate #3. ROIC 20.5%, 45% insider. -53% from highs. Preliminary — buy-pipeline not started." }
 
 # -----------------------------------------------------------------------------
@@ -1056,6 +1087,36 @@ standing_orders:
     kill_conditions: "Insider ownership <25%, FCF negative 2+ years, gross margin <45%, store closures >10%"
     expiry: 2026-06-01
 
+  # RACE.MI - Tier A luxury compounder. COMMITTEE APPROVED 2026-02-11 (CONDITIONAL)
+  - ticker: RACE.MI
+    action: BUY
+    trigger: "<=EUR 270"
+    size_eur: 350
+    shares_approx: 1
+    thesis: thesis/research/RACE.MI/thesis.md
+    fair_value: "EUR 355 (R3 reconciled. Pre-recon: thesis EUR 377, adversarial EUR 335)"
+    mos_at_trigger: "24% at EUR 270"
+    tier: "A (QS 82 tool, 84 adj)"
+    notes: "Ferrari. WIDE moat 23/25 EXPANDING. Risk MEDIUM-HIGH. OEY+Growth < WACC (luxury compounder limitation). Bear EUR 270, Deep Bear EUR 220. Luxury goods not auto. FY2025 strong. CMD growth reset to 5%. 4 rondas completas. Committee: CONDITIONAL APPROVE."
+    kill_conditions: "Volume >15K units/yr, EBIT margin <25% 2Q, order book <12mo, P/E <30x 6mo, FY2026 rev <EUR 7.3B, Luce brand contagion"
+    expiry: 2026-08-01
+    conditions:
+      - "Monitor Luce full reveal (May 25, 2026) before executing"
+      - "Monitor US-EU tariff deadline (June 1, 2026)"
+      - "If Q1 2026 misses guidance, cancel"
+
+  - ticker: RACE.MI
+    action: ADD
+    trigger: "<=EUR 260"
+    size_eur: 350
+    shares_approx: 1
+    thesis: thesis/research/RACE.MI/thesis.md
+    fair_value: "EUR 355"
+    mos_at_trigger: "27% at EUR 260"
+    tier: "A (QS 82/84)"
+    notes: "ADD to 6% total if initial position at EUR 270 already executed. EUR 260 = near 52wL (EUR 276). MoS 27% approaching Tier A precedent floor (29%)."
+    expiry: 2026-08-01
+
   # WKL.AS CANCELLED 2026-02-11 - Investment Committee Ronda 4: WATCHLIST verdict.
   # FV revised EUR 94.28→72 (-24%). MoS at EUR 65 only 9.6% (insufficient for Tier B + STRONG COUNTER).
   # 3 gates FAILED (no sector view, MoS insufficient, no sector understanding).
@@ -1088,6 +1149,24 @@ standing_orders:
     notes: "REVISED adversarial. ADD only after H2 FY2026 OP confirms recovery (>GBP 66M). If OP declines, EXIT instead."
     expiry: 2026-06-01
 
+  # ROP - Serial acquirer vertical software. COMMITTEE APPROVED 2026-02-12 (standing order)
+  - ticker: ROP
+    action: BUY
+    trigger: "<=$300"
+    size_eur: 400
+    shares_approx: 1.3
+    thesis: thesis/research/ROP/thesis.md
+    fair_value: "$385 (R3 reconciled. Pre-recon: thesis $420, adversarial $372)"
+    mos_at_trigger: "22% at $300"
+    tier: "B (QS Tool 48, Adj 70 — serial acquirer goodwill distortion +22)"
+    notes: "Roper Technologies. 29 vertical software monopolies. 75-80% recurring rev, 70% GM, $2.47B FCF. WIDE moat 20/25. HIGH risk (14 risks, 2 CRITICAL: balance sheet + DOGE). CEO net seller $8.8M. SaaSpocalypse per-seat pricing risk. FIRST serial acquirer in system — precedent-setting QS adjustment."
+    kill_conditions: "KC#1 organic growth <3% 2Q, KC#2 NRR <100% 2Q, KC#3 leverage >3.5x, KC#4 acquisition >$3B while leverage >2.5x, KC#5 DOGE budget +Deltek rev -15%, KC#6 goodwill writedown >$3B, KC#7 per-seat pricing erosion >10% rev in major vertical"
+    expiry: 2026-05-15
+    conditions:
+      - "Cancel if any KC triggered before execution"
+      - "Review after Q1 2026 earnings (April 2026)"
+      - "Review if SaaSpocalypse deepens materially"
+
 # -----------------------------------------------------------------------------
 # MACRO (resumen)
 # -----------------------------------------------------------------------------
@@ -1117,7 +1196,7 @@ maintenance:
   memory_status: ok
   agents_count: 24  # Added devil's-advocate for adversarial counter-analysis
   skills_count: 21  # Added: news-classification, error-detector, recommendation-context
-  tools_count: 7
+  tools_count: 8  # Added quality_universe.py Session 61
   rules_count: 6   # Added: meta-reflection-integration
   evolution_tracking:
     last_evaluation: 2026-02-05
@@ -1228,17 +1307,27 @@ maintenance:
 # Ver .claude/skills/pipelines/SKILL.md para definicion completa
 # -----------------------------------------------------------------------------
 pipeline_tracker:
+  # PRIORIDAD #1 - CAPITAL DEPLOYMENT (mientras cash > 25%)
+  capital_deployment:
+    frequency: daily
+    priority: 1
+    trigger: "cash > 25%"
+    last_run: 2026-02-12
+    next_due: 2026-02-13
+    last_result: "Session 61: Pipeline CREATED. Universe 13 companies. ROP full pipeline R1-R4 COMPLETE (standing order $300 approved). Sector screenings: Industrial Tech (GGG, ROR.L scored) + TIC (BVI.PA scored). quality_universe.yaml + quality_universe.py created. MORN Q4 not yet available."
+    skill: ".claude/skills/capital-deployment/SKILL.md"
+    tool: "tools/quality_universe.py"
   # DIARIOS
   vigilance:
     frequency: daily
     last_run: 2026-02-12
     next_due: 2026-02-13
-    last_result: "0 CRITICAL, 11 MATERIAL. LULU Elliott $1B activist (positive). NVO sued Hims patent. DSY.PA Q4 in-line. DNLM.L Jefferies upgrade Buy PT 1075p. AUTO.L cancellations 60 not 180. PAYC reports Feb 11 after close. MORN Feb 12."
+    last_result: "Session 60: 0 CRITICAL, 12 MATERIAL. DSY.PA -21.7% crash (Q4 miss). NVO sued Hims. LULU Elliott $1B stake. MONY.L AI crash 13yr low. GL Q4 OK. MORN Q4 after close today. CPI Jan tomorrow."
   rotation_check:
     frequency: daily
     last_run: 2026-02-12
     next_due: 2026-02-13
-    last_result: "13 positions. Cash 48%. forward_return.py FV FIX: 9/13 corrected (was parsing stale weighted-avg tables). Bottom 3: UHS -7.9%, VICI -0.6%, LULU +13.9%. Top: EDEN.PA +64%, NVO +60%. No standing orders near trigger."
+    last_result: "Session 60: Bottom 3: UHS -7.9% (ABOVE FV), VICI -0.6%, ALL +14%. Top: EDEN.PA +64%, NVO +60%, ADBE +52%. DSY.PA standing order now 11.8% away (was ~15%). Pipeline 6 thesis ready."
   # SEMANALES
   opportunity_scan:
     frequency: weekly

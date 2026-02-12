@@ -1,6 +1,6 @@
 # Sector: Technology / Software
 
-> Ultima actualizacion: 2026-02-11
+> Ultima actualizacion: 2026-02-12
 > Analista: Claude
 > Status: **NEUTRAL** (selectivo en quality compounders, evitar growth sin fundamentales)
 
@@ -8,9 +8,11 @@
 
 El sector Technology/Software es el mercado mas grande y dinamico del mundo, con un TAM de SaaS de $376B en 2026 creciendo al 18%+ CAGR. Sin embargo, la valoracion del sector sigue elevada tras el rally de 2024-2025 impulsado por narrativas de IA. El P/E forward del sector (~25-30x) esta por encima de promedios historicos, lo que limita las oportunidades para value investors.
 
-**Mi tesis sobre el sector:** El mercado esta polarizado. Mega-caps (MSFT, GOOGL, NVDA) cotizan a valoraciones de "AI hype" dificiles de justificar. Pero dentro del sector existen bolsas de valor en: (1) **Quality compounders castigados por miedo a disrupcion** (ej: ADBE), (2) **Mid-caps de IT services con baja cobertura de analistas** (ej: DOX, G), y (3) **Software enterprise europeo post-correction** (ej: DSY.PA, ahora a 15-year low valuation tras Q4 miss).
+**Mi tesis sobre el sector:** El mercado esta polarizado. Mega-caps (MSFT, GOOGL, NVDA) cotizan a valoraciones de "AI hype" dificiles de justificar. Pero dentro del sector existen bolsas de valor en: (1) **Quality compounders castigados por miedo a disrupcion** (ej: ADBE, INTU), (2) **Mid-caps de IT services con baja cobertura de analistas** (ej: DOX, G), y (3) **Software enterprise europeo post-correction** (ej: DSY.PA, ahora a 15-year low valuation tras Q4 miss).
 
-La IA generativa es tanto amenaza como oportunidad. Los incumbentes con datos propietarios y ecosistemas (Adobe, Microsoft, SAP, Dassault Systemes) tienen ventaja sobre startups de IA. El riesgo real es para software commoditizado sin moat.
+La IA generativa es tanto amenaza como oportunidad. Los incumbentes con datos propietarios y ecosistemas (Adobe, Microsoft, SAP, Intuit, Dassault Systemes) tienen ventaja sobre startups de IA. El riesgo real es para software commoditizado sin moat.
+
+**NOTA (2026-02-12):** Intuit (INTU) analizado. QS 75 (Tier A borderline). Down 51% from high. FV $465, entry $330-365. Q2 earnings Feb 26. WATCHLIST. Ver thesis/research/INTU/thesis.md.
 
 **NOTA (2026-02-11):** Dassault Systemes (DSY.PA) cayo 21% hoy tras Q4 revenue miss (+1% vs +3% expected) y guidance decepcionante (3-5% vs 5.8% consensus). Analisis completo realizado. WATCHLIST con entry EUR 16.50-17.00. Ver thesis/research/DSY.PA/thesis.md.
 
@@ -23,6 +25,7 @@ La IA generativa es tanto amenaza como oportunidad. Los incumbentes con datos pr
 | TAM Global SaaS | $376B (2026) | +19% YoY | Creciendo 18.7% CAGR |
 | TAM Enterprise Software | $264B | | +12.1% CAGR |
 | TAM PLM Software | $46-75B (scope-dependent) | | +5.9-8.8% CAGR |
+| TAM SMB Accounting/Tax/Finance | $272B+ (Intuit addressable) | | +8-10% CAGR |
 | P/E sector (forward) | 25-30x | vs 20x (10y avg) | Elevated |
 | EV/Sales sector | 5-7x | vs 4x (10y avg) | Above avg |
 | Dividend yield | <1% | | Sector no paga dividendos |
@@ -43,6 +46,7 @@ La IA generativa es tanto amenaza como oportunidad. Los incumbentes con datos pr
 | Adobe | Creative/Docs | #1 (80%+ graphics) | Moat profesional, Firefly AI |
 | SAP | ERP | #1 tied | Enterprise lock-in |
 | Oracle | Database/Cloud | #3 | Legacy + cloud transition |
+| **Intuit** | **SMB Accounting + Tax** | **#1 (81% QBO, ~60% DIY tax)** | **Ecosystem, AI integration, IRS Direct File killed** |
 | Tyler Technologies | Gov Software | #1 (11.2% share) | Switching costs, 98% retention |
 | **Dassault Systemes** | **PLM/3D Design** | **#1 (16.5% PLM)** | **90% aircraft, 80% autos, NVIDIA partnership** |
 
@@ -87,6 +91,7 @@ La IA generativa es tanto amenaza como oportunidad. Los incumbentes con datos pr
 | AI coding asistants | Alta | Medio | Ya ocurriendo | IDEs, dev tools |
 | **AI bundles commoditizan FSS** | **Alta** | **Alto** | **Ya ocurriendo** | **Dropbox, Box** |
 | AI enhances PLM/simulation | **Baja** | **Positivo** | 2-4 anos | **Dassault, Siemens (BENEFICIARIES)** |
+| **AI tax filing agents** | **Media** | **Medio** | **3-5 anos** | **TurboTax DIY segment (Intuit EMBEDDING AI = defense)** |
 
 **Fuentes:** [StartupHub: AI Agents Threat](https://www.startuphub.ai/ai-news/ai-video/2026/ai-agents-trigger-software-stock-collapse-salesforce-and-adobe-face-new-existential-threat/), [Investing.com: Adobe SWOT](https://www.investing.com/news/swot-analysis/adobes-swot-analysis-ai-integration-drives-growth-amid-competitive-pressures-93CH-4278458)
 
@@ -96,6 +101,7 @@ La IA generativa es tanto amenaza como oportunidad. Los incumbentes con datos pr
 - Software **commoditizado sin moat** (generic SaaS, FSS) es el mas vulnerable
 - **Government software** (Tyler) INMUNE a AI disruption - regulatory requirements, data sensitivity
 - **PLM/simulation software** (Dassault, Siemens) = AI es NET POSITIVE. NVIDIA partnership validates this thesis. Physics-accurate simulation + AI = faster product design, not replacement.
+- **SMB accounting/tax** (Intuit) = AI es NET POSITIVE. $100M OpenAI partnership, GenOS platform, TurboTax Live +51% growth. AI enables "done-for-you" at DIY prices. IRS Direct File killed Nov 2025 removes government competition.
 
 ### Regulatorios
 
@@ -116,7 +122,7 @@ La IA generativa es tanto amenaza como oportunidad. Los incumbentes con datos pr
 
 ## Sentimiento de Mercado
 
-**Sentimiento actual:** Querido/Near-Burbuja en mega-caps, Neutral en mid-caps, **ODIADO en EU software (DSY.PA -56% from high)**
+**Sentimiento actual:** Querido/Near-Burbuja en mega-caps, Neutral en mid-caps, **ODIADO en EU software (DSY.PA -56% from high)**, **CASTIGADO en US quality (INTU -51%, ADBE -51%)**
 
 **Narrativa dominante:**
 "AI lo cambia todo. Solo invierte en los winners de AI (NVDA, MSFT). El resto es disruptable."
@@ -177,7 +183,8 @@ La IA generativa es tanto amenaza como oportunidad. Los incumbentes con datos pr
 | Portfolio | BYIT.L | thesis/active/BYIT.L/thesis.md | 2026-02-11 | HOLD ON PROBATION |
 | Watchlist | TYL | thesis/research/TYL/thesis.md | 2026-02-04 | Entry $250 |
 | Watchlist | DBX | thesis/research/DBX/thesis.md | 2026-02-05 | Entry $18-20 |
-| **Watchlist** | **DSY.PA** | **thesis/research/DSY.PA/thesis.md** | **2026-02-11** | **Entry EUR 16.50-17.00** |
+| **Watchlist** | **DSY.PA** | **thesis/research/DSY.PA/thesis.md** | **2026-02-11** | **Entry EUR 15.50** |
+| **Watchlist** | **INTU** | **thesis/research/INTU/thesis.md** | **2026-02-12** | **Entry $330-365** |
 
 ### Protocolo de Cambio Material
 
@@ -217,7 +224,8 @@ Cuando actualices este sector view con cambio MATERIAL:
 |--------|---------|-----|-------|---------|--------|----------------|
 | TYL | Tyler Technologies | $280 | $250-260 | 20% (Tier B) | Wide moat gov software, QS 72, overvalued at $332 | 2026-02-04 |
 | DBX | Dropbox | $33 | $18-20 | 35-40% | **Value trap risk alto**. QS 73 pero declive estructural, users -1.5%/yr, commoditized FSS, equity negativo. FCF yield 12.8% atractivo pero insostenible. Solo comprar con MoS extremo. | 2026-02-05 |
-| **DSY.PA** | **Dassault Systemes** | **EUR 21.00** | **EUR 16.50-17.00** | **20-25%** | **#1 PLM globally, QS 78 (Tier A borderline), wide moat (Morningstar). -56% from high, -21% today on Q4 miss. Cloud transition pain (Adobe 2012-14 parallel). NVIDIA partnership. 84% GM, 24% FCF margin, net cash EUR 1.5B, 49% insider. Revenue CAGR 3.2% is the concern. OEY+Growth 11.8%.** | **2026-02-11** |
+| **DSY.PA** | **Dassault Systemes** | **EUR 21.00** | **EUR 15.50-17.00** | **20-25%** | **#1 PLM globally, QS 78 (Tier A borderline), wide moat. -56% from high. Cloud transition pain. NVIDIA partnership.** | **2026-02-11** |
+| **INTU** | **Intuit Inc.** | **$465** | **$330-365** | **20-30%** | **#1 SMB accounting + tax prep. QS 75 (Tier A borderline). -51% from high. 80% GM, 32% FCF margin. AI is net positive ($100M OpenAI deal). IRS Direct File killed. 81% QuickBooks market share. Q2 earnings Feb 26. Insider selling 90/0 is concern.** | **2026-02-12** |
 
 ---
 
@@ -228,6 +236,7 @@ Cuando actualices este sector view con cambio MATERIAL:
 | Q1 2026 | Adobe Q1 earnings (Mar) | Validate Firefly monetization |
 | Q1 2026 | Tyler Q4 2025 earnings | Cloud transition progress |
 | Q1 2026 | Dropbox Q4 2025 earnings | Dash metrics, user trends |
+| **Feb 26, 2026** | **INTU Q2 FY2026 earnings** | **Tax season guidance critical. QBO Advanced growth, Mailchimp trajectory.** |
 | **Q1-Q2 2026** | **DSY.PA Q1 earnings** | **First datapoint on FY2026 3-5% guide. Cloud acceleration?** |
 | H1 2026 | Fed rate cuts? | Re-rating de software growth |
 | 2026 | Canva/Figma IPO | Clarify competitive landscape |
@@ -246,7 +255,8 @@ Cuando actualices este sector view con cambio MATERIAL:
 | 2026-02-05 | DBX analizado -> Watchlist | QS 73 pero 5/10 value trap factors. Entry agresivo $18-20 requerido |
 | 2026-02-06 | BYIT.L comprado - Sixth Tier A | UK IT services VAR, QS 81, MoS 35%. Fallen angel -47% por Microsoft incentive restructuring. |
 | 2026-02-11 | BYIT.L updated to HOLD ON PROBATION | Adversarial review: QS 68-72 Tier B, FV 345p (from 455p). Insider 0.4% not 9.6%. |
-| **2026-02-11** | **DSY.PA analizado -> Watchlist** | **Full fundamental analysis post -21% crash. QS 78 (Tier A borderline). FV EUR 21.00, entry EUR 16.50-17.00. PLM #1, wide moat, cloud transition pain. Not BUY at current price due to thin MoS vs Tier A precedents.** |
+| **2026-02-11** | **DSY.PA analizado -> Watchlist** | **Full fundamental analysis post -21% crash. QS 78 (Tier A borderline). FV EUR 21.00, entry EUR 16.50-17.00.** |
+| **2026-02-12** | **INTU analizado -> Watchlist** | **QS 75 (Tier A borderline). FV $465, entry $330-365. -51% from high. Quality compounder with AI net positive thesis. Q2 earnings Feb 26 = wait for clarity before entry. Insider selling 90/0 is concern.** |
 
 ---
 
@@ -293,6 +303,12 @@ Cuando actualices este sector view con cambio MATERIAL:
 - [EntrepreneurLoop: Canva AI Disruption](https://entrepreneurloop.com/canva-ai-tools-challenge-adobe/)
 - [StartupHub: AI Agents Threat](https://www.startuphub.ai/ai-news/ai-video/2026/ai-agents-trigger-software-stock-collapse-salesforce-and-adobe-face-new-existential-threat/)
 
+### Intuit Analysis
+- [Intuit Q1 FY2026 Earnings](https://investors.intuit.com/news-events/press-releases/detail/1286/intuit-reports-strong-first-quarter-results-and-reiterates-full-year-guidance)
+- [Intuit-OpenAI Partnership](https://openai.com/index/intuit-partnership/)
+- [IRS Direct File Eliminated](https://www.nextgov.com/digital-government/2025/11/direct-file-wont-happen-2026-irs-tells-states/409309/)
+- [TIKR: INTU Analysis](https://www.tikr.com/blog/down-25-in-last-12-months-can-intuit-nasdaq-intu-stock-deliver-strong-returns-in-2026)
+
 ### Dassault Systemes Analysis
 - [Dassault Q4 2025 Press Release](https://www.3ds.com/newsroom/press-releases/dassault-systemes-q4-revenue-growth-1-solid-operating-margin-and-eps-expansion-initiating-2026-revenue-guidance-3-5-growth)
 - [Morningstar: Wide Moat Assessment](https://www.morningstar.com/company-reports/1204660-dassault-systemes-wide-moat-would-be-challenging-for-new-entrants-to-replicate)
@@ -320,4 +336,4 @@ Cuando actualices este sector view con cambio MATERIAL:
 
 ---
 
-*Proxima revision: 2026-03-05 o ante cambio material (AI regulation, major earnings, Fed action, DSY.PA Q1 2026 results)*
+*Proxima revision: 2026-03-05 o ante cambio material (AI regulation, major earnings, Fed action, DSY.PA Q1 2026 results, INTU Q2 Feb 26)*
