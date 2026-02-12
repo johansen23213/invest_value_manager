@@ -2,21 +2,21 @@ quality_universe:
   last_updated: '2026-02-12'
   companies:
   - ticker: PAYC
-    name: Paycom Software Inc.
+    name: Paycom Software, Inc.
     qs_tool: 85
-    qs_adj: 85
+    qs_adj: 75
     tier: A
-    sector: HCM/Payroll
-    fair_value: 200
-    entry_price: 100
+    sector: Technology
+    fair_value: 115.0
+    entry_price: 92.0
     currency: USD
-    current_price: 118.71
-    distance_to_entry: 18.7
-    pipeline_status: R1_COMPLETE
+    current_price: null
+    distance_to_entry: null
+    pipeline_status: R3_COMPLETE
     thesis_path: thesis/research/PAYC/thesis.md
-    last_scored: '2026-02-11'
-    last_price_check: '2026-02-12'
-    notes: Zero debt, 91% retention, EBITDA 43%
+    last_scored: '2026-02-13'
+    last_price_check: null
+    notes: 'R3 resolution: QS 85->75, FV $130->$115, entry $95-105->$88-95. Wait Q1 FY2026 (Apr).'
   - ticker: MORN
     name: Morningstar Inc.
     qs_tool: 83
@@ -154,13 +154,14 @@ quality_universe:
     fair_value: 385.0
     entry_price: 300.0
     currency: USD
-    current_price: 333.80
+    current_price: 333.8
     distance_to_entry: 11.3
     pipeline_status: R4_APPROVED
     thesis_path: thesis/research/ROP/thesis.md
     last_scored: '2026-02-12'
     last_price_check: '2026-02-12'
-    notes: 'R3 DONE. QS 48→70 (+22 serial acquirer adj). FV $385. WIDE moat 20/25. HIGH risk. Standing order $300 pending R4. SaaSpocalypse + DOGE risks.'
+    notes: R3 DONE. QS 48→70 (+22 serial acquirer adj). FV $385. WIDE moat 20/25. HIGH risk. Standing order $300 pending R4.
+      SaaSpocalypse + DOGE risks.
   - ticker: GGG
     name: Graco Inc.
     qs_tool: 71

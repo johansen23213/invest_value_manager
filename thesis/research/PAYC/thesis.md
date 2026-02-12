@@ -1,5 +1,58 @@
 # PAYC - Paycom Software, Inc.
 
+> **Fair Value:** $115
+> **Status:** R3 COMPLETE (conflict resolution) | Date: 2026-02-13
+> **Pipeline:** R1 (thesis + moat + risk) -> R2 (devil's advocate) -> R3 (resolution) DONE
+> **Pending:** R4 (investment-committee) for standing order approval
+> **Entry:** $88-95 (23-24% MoS vs $115 FV). Requires Q1 FY2026 confirmation (Apr 2026).
+
+---
+
+## R3 RESOLUTION (Orchestrator, 2026-02-13)
+
+**QS Tool: 85 | QS R1: 80 (Tier A) | QS R3: 75 (Tier A borderline) | Adjustment: -10 from tool**
+**FV R1: $130 | FV DA: $110-120 | FV R3: $115**
+**Entry R1: $95-105 | Entry DA: $85-95 | Entry R3: $88-95**
+**Current Price: ~$119 | MoS at current: 0% (INSUFFICIENT)**
+**Verdict: WATCHLIST. Wait Q1 FY2026 (Apr 2026) for growth stabilization data.**
+
+### Key R3 Decisions
+
+1. **QS 75 (not 80 or 85):** DA correctly flagged growth deceleration (FY2026 guide 6-7% vs thesis 8-9%). Growth Quality should be 8-10/25 (not 15-20/25). GM declining 2.5pp over 4 years. Governance discount warranted (CEO/Chair duality, 128:1 sell:buy ratio, $211M comp, no succession). Market position +5 from tool default accepted. Net: 75 = Tier A borderline.
+
+2. **FV $115 (not $130 or $110):** Using 6.5% growth (management guidance midpoint, not thesis 8-9%):
+   - OEY at 6% target yield: ~$149, but at 7% conservative: ~$127. Adjust for governance discount (-5%): ~$121
+   - DCF at 6.5% growth, 10% WACC: ~$109-128 (sensitive, TV% high)
+   - Peer comparison: 18x TTM FCF = $128, but growth underperformance vs peers → 15-16x = ~$107-114
+   - Weighted (OEY 50%, DCF 20%, Peer 30%): ~$116. Round to $115.
+   - R1 $130 used 8-9% growth → overstated. DA $110-120 range reasonable. $115 = calibrated midpoint.
+
+3. **Entry $88-95:** At FV $115, 20% MoS = $92, 23% MoS = $88. Borderline Tier A requires 20-25% MoS per precedents (DNLM.L at Tier A required 22.6% MoS, ROP at Tier B required 22%). Range $88-95 gives 17-23% MoS.
+
+4. **SaaSpocalypse per-seat risk (KC#8):** PAYC prices per-employee. AI reduces client headcount → direct revenue impact. Added as kill condition: Revenue per client declining 2+ consecutive Qs (ex-recession) = EXIT. Aligns with KC#7 established for ROP.
+
+5. **Governance discount (-5% to FV):** 128:1 sell:buy ratio, $211M comp, CEO/Chair duality, no succession plan, WARN Act incident. Partially mitigated by 12% ownership ($700M+) and 26 years of value creation.
+
+6. **Buyback quality discount:** $370M/yr buybacks at 6-7% organic growth = EPS inflation masking slowing business. Strip buyback effect from growth projections. Organic EPS growth ≈ revenue growth (6-7%), not the buyback-enhanced 10-15%.
+
+### What Thesis Got RIGHT (unchanged)
+- WATCHLIST verdict (correct — MoS insufficient)
+- Business quality is genuine (ROIC 32.5% >> WACC, net cash, must-have product)
+- Competitive risks well-identified (Rippling, ADP)
+- Kill conditions well-defined (7 of 8 already present)
+- Single-database architecture IS a real differentiator
+
+### What R3 Changed
+| Item | R1 | R3 | Reason |
+|------|----|----|--------|
+| QS | 80 (Tier A) | 75 (Tier A borderline) | Growth deceleration + governance |
+| FV | $130 | $115 | 6-7% guidance (not 8-9%) + governance discount |
+| Entry | $95-105 | $88-95 | Higher MoS required for borderline Tier A |
+| Moat | NARROW (18/25) | NARROW (18/25) | No change — correctly assessed |
+| Risk | HIGH | HIGH + KC#8 added | Per-seat pricing risk formalized |
+
+---
+
 ## TL;DR
 
 Paycom is a founder-led (Chad Richison, 12% ownership), single-platform HCM/payroll SaaS company with exceptional unit economics (82% gross margin, 33.7% operating margin, 32.5% ROIC). The stock is -55% from its 52-week high because revenue growth decelerated from 25%+ to ~9% as BETI (employee self-service payroll) cannibalized legacy service fees. At ~$120 and P/E 15x, the market prices in permanent deceleration. The thesis is that BETI cannibalization is largely behind the company, margins are expanding (EBITDA margin guiding to 43%), and 9-10% revenue growth compounding at 32.5% ROIC with aggressive buybacks ($1.5B program) creates a quality compounder at a value price. However, the MoS is thin and earnings report TODAY (Feb 11, 2026 after close) introduces binary event risk. WATCHLIST pending earnings clarity.

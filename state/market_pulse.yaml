@@ -1,84 +1,88 @@
 # =============================================================================
-# MARKET PULSE - Session 62 (2026-02-12)
+# MARKET PULSE - Session 63 (2026-02-13 pre-CPI)
 # =============================================================================
 # FX: EUR/USD=1.1878 | GBP/EUR=1.1471
-# CPI Jan 2026: TOMORROW Feb 13 08:30 ET. MORN Q4: reported after close, not yet indexed.
+# CPI Jan 2026: TODAY Feb 13 08:30 ET. Consensus +2.5% YoY, +0.3% MoM.
+# SPY $681.28 (+0.3%). VIX 20.74 (down from 21.77, still elevated pre-CPI).
+# MORN Q4: reported after close Feb 12, NOT YET INDEXED.
 # =============================================================================
 
-last_scan: "2026-02-12"
+last_scan: "2026-02-12 EOD"
 
 market_context:
-  spy: 691.96 (near 52wH $697.84)
-  vix: 21.77 (ELEVATED, pre-CPI)
-  ten_year: "4.15-4.17%"
+  spy: "$681.28 (+0.3%, near 52wH $697.84)"
+  vix: "20.74 (down from 21.77, elevated pre-CPI)"
+  ten_year: "~4.15-4.17%"
   fed_rate: "3.50-3.75%"
-  gold: "$5,056 (near ATH)"
-  cpi_tomorrow: "Consensus 2.5-2.6% YoY. Hot=selloff growth/REIT. Cool=rally."
+  cpi_today: "Jan 2026 CPI due TODAY 08:30 ET. Consensus +2.5% YoY. Hot=selloff growth/REIT. Cool=rally."
 
-# 13 positions sorted by MoS descending
-positions:
-  - { ticker: ADBE, price: "$257.16", pnl: "-5.0%", mos: "34.1%", status: AT_52W_LOW, note: "P/E 15.4x. FTC Oct 2026." }
-  - { ticker: NVO, price: "$48.74", pnl: "+1.3%", mos: "26.2%", status: OK, note: "IP defense strengthened. CagriSema Mar." }
-  - { ticker: GL, price: "$143.93", pnl: "+2.0%", mos: "24.6%", status: OK, note: "Near 52wH. Rates positive." }
-  - { ticker: MONY.L, price: "150.9p", pnl: "-10.8%", mos: "20.6%", status: PROBATION, note: "Feb 23 earnings decisive." }
-  - { ticker: AUTO.L, price: "466.1p", pnl: "-4.1%", mos: "19.6%", status: AT_52W_LOW, note: "Dealer revolt. April decisive." }
-  - { ticker: DOM.L, price: "197.8p", pnl: "-8.8%", mos: "17.6%", status: OK, note: "Mar 5 results." }
-  - { ticker: BYIT.L, price: "294.4p", pnl: "-2.4%", mos: "14.7%", status: NEAR_52W_LOW, note: "UK tech weak." }
-  - { ticker: ALL, price: "$204.73", pnl: "+4.5%", mos: "12.5%", status: PROBATION, note: "Peak cycle ROE." }
-  - { ticker: LULU, price: "$175.86", pnl: "+2.5%", mos: "10.3%", status: PROBATION, note: "Governance. Mar 31 make-or-break." }
-  - { ticker: DTE.DE, price: "EUR 31.61", pnl: "+10.7%", mos: "9.7%", status: OK, note: "Feb 26 earnings. +4.1% move." }
-  - { ticker: EDEN.PA, price: "EUR 17.91", pnl: "+1.9%", mos: "38.3%*", status: NEAR_52W_LOW, note: "*FV under review (Brazil reg)." }
-  - { ticker: VICI, price: "$29.17", pnl: "+2.1%", mos: "-0.6%", status: AT_FV, note: "EXIT candidate. Feb 25 earnings." }
-  - { ticker: UHS, price: "$231.32", pnl: "+14.8%", mos: "-8.6%", status: ABOVE_FV, note: "EXIT candidate. Feb 25 earnings." }
+# =============================================================================
+# POSITION SUMMARY (sorted by MoS descending)
+# =============================================================================
+
+position_summary:
+  - { ticker: EDEN.PA, price: "EUR 18.28", pnl: "+4.0%", fv: "EUR 29.0", mos: "37.0%", status: "Near 52wL" }
+  - { ticker: ADBE, price: "$262.50", pnl: "-3.0%", fv: "$390", mos: "32.7%", status: "Bounced from 52wL $251" }
+  - { ticker: NVO, price: "$48.94", pnl: "+1.7%", fv: "$66", mos: "25.8%", status: OK }
+  - { ticker: GL, price: "$144.13", pnl: "+2.2%", fv: "$191", mos: "24.5%", status: OK }
+  - { ticker: MONY.L, price: "148.4p", pnl: "-12.3%", fv: "190p", mos: "21.9%", status: "PROBATION, near 52wL" }
+  - { ticker: AUTO.L, price: "457.1p", pnl: "-5.9%", fv: "580p", mos: "21.2%", status: "AT 52wL (454.5p)" }
+  - { ticker: DOM.L, price: "198.4p", pnl: "-6.9%", fv: "240p", mos: "17.3%", status: OK }
+  - { ticker: BYIT.L, price: "291.4p", pnl: "-1.6%", fv: "345p", mos: "15.5%", status: "Near 52wL (288.8p)" }
+  - { ticker: LULU, price: "$169.53", pnl: "-1.2%", fv: "$196", mos: "13.5%", status: "PROBATION, -3.6% today" }
+  - { ticker: ALL, price: "$206.49", pnl: "+5.3%", fv: "$234", mos: "11.8%", status: PROBATION }
+  - { ticker: DTE.DE, price: "EUR 32.22", pnl: "+12.8%", fv: "EUR 35", mos: "7.9%", status: "Approaching FV" }
+  - { ticker: VICI, price: "$29.06", pnl: "+1.7%", fv: "$29.00", mos: "-0.2%", status: EXIT_CANDIDATE }
+  - { ticker: UHS, price: "$234.12", pnl: "+16.2%", fv: "$213", mos: "-9.9%", status: EXIT_CANDIDATE }
+
+# =============================================================================
+# MATERIAL DAILY CHANGES
+# =============================================================================
+
+material_changes:
+  - { ticker: LULU, change: "-3.6%", flag: "MATERIAL — governance + pre-CPI growth selloff" }
+  - { ticker: ROP, change: "-4.2%", flag: "MATERIAL — pipeline. $319.82, 6.6% from $300 trigger (was 11.3%)" }
+  - { ticker: ADBE, change: "+2.1%", flag: "Bounced from intraday 52wL $251.10" }
+  - { ticker: DTE.DE, change: "+1.9%", flag: "Continued rally, approaching FV EUR 35" }
+  - { ticker: EDEN.PA, change: "+2.1%", flag: "Recovery from 52wL" }
+  - { ticker: AUTO.L, change: "-1.9%", flag: "New 52wL touched (454.5p)" }
+
+# =============================================================================
+# STANDING ORDER PROXIMITY
+# =============================================================================
 
 standing_order_proximity:
-  - { ticker: MORN, price: "$155.35", trigger: "$145", distance: "+7.1%", status: CLOSEST }
-  - { ticker: ROP, price: "$333.80", trigger: "$300", distance: "+11.3%", status: APPROACHING }
-  - { ticker: DSY.PA, price: "EUR 18.11", trigger: "EUR 15.50", distance: "+16.8%", status: "CONDITIONAL -- wait Q1" }
-  - { ticker: FGP.L, trigger: "165p", distance: "~13%", status: "WARNING: no pipeline" }
-  - { ticker: PAYC, price: "$118.71", trigger: "$95-105", distance: "+13-25%", status: FAR }
-  - { ticker: GL, price: "$143.93", trigger: "$125", distance: "+15.1%", status: FAR }
-  - { ticker: NVO, price: "$48.74", trigger: "$40", distance: "+21.9%", status: FAR }
-  - { ticker: RACE.MI, price: "EUR 328.50", trigger: "EUR 270/260", distance: "+21.7%/26.3%", status: FAR }
-  - { ticker: DNLM.L, price: "967p", trigger: "780p", distance: "+24.0%", status: FAR }
-  - { ticker: BYIT.L, price: "294.4p", trigger: "240p", distance: "+22.7%", status: FAR }
-  - { ticker: ROP, price: "$333.80", trigger: "$300", distance: "+11.3%", status: FAR }
-  - { ticker: CMCSA, trigger: "$26", status: "FAR -- WARNING no pipeline" }
-  - { ticker: MA, trigger: "$315", status: "FAR -- WARNING no pipeline" }
-  - { ticker: V, trigger: "$220/$200", status: "FAR -- WARNING no pipeline" }
-  - { ticker: WPP.L, trigger: "200p", status: "UNDER REVIEW -- Feb 26" }
+  - { ticker: MORN, price: "$154.01", trigger: "$145", distance: "+6.2%", status: "CLOSEST. Q4 not indexed." }
+  - { ticker: ROP, price: "$319.82", trigger: "$300", distance: "+6.6%", status: "APPROACHING FAST. -4.2% today." }
+  - { ticker: INTU, price: "$397.96", trigger: "$330-365", distance: "+9-21%", status: "Feb 26 earnings." }
+  - { ticker: PAYC, price: "$119.89", trigger: "$88-95", distance: "+26-36%", status: "R3 complete. FAR." }
+  - { ticker: DSY.PA, price: "EUR 18.14", trigger: "EUR 15.50", distance: "+17%", status: "CONDITIONAL — wait Q1." }
 
-pipeline_prices:
-  - { ticker: MORN, price: "$155.35", entry: "$145", distance: "+7.1%", qs: 83 }
-  - { ticker: ROP, price: "$333.80", entry: "$300", distance: "+11.3%", qs: "70 adj" }
-  - { ticker: PAYC, price: "$118.71", entry: "$95-105", distance: "+13-25%", qs: 85 }
-  - { ticker: DSY.PA, price: "EUR 18.11", entry: "EUR 15.50", distance: "+16.8%", qs: 70 }
-  - { ticker: INTU, price: "$399.64", entry: "$330-365", distance: "+9.5-21.1%", qs: "75 adj" }
-  - { ticker: RACE.MI, price: "EUR 328.50", entry: "EUR 270", distance: "+21.7%", qs: 82 }
-  - { ticker: DNLM.L, price: "967p", entry: "780p", distance: "+24.0%", qs: 79 }
+# =============================================================================
+# CPI SCENARIOS
+# =============================================================================
 
-correlations:
-  - "AI disruption: MONY.L + ADBE + BYIT.L + DSY.PA (4 names same theme)"
-  - "UK stress: AUTO.L + BYIT.L + MONY.L all near 52wL"
-  - "5/13 (38%) in stress. Earnings Feb 23-26 resolves 3."
-  - "CPI hedge: hot helps ALL/GL, hurts VICI/growth"
+cpi_scenarios:
+  hot_above_2_6:
+    probability: "30%"
+    impact: "Hurts VICI, LULU, ADBE. Helps ALL, GL. EXIT thesis for UHS/VICI strengthened."
+  inline_2_4_to_2_6:
+    probability: "50%"
+    impact: "Relief rally. Muted portfolio impact."
+  cool_below_2_4:
+    probability: "20%"
+    impact: "Rally growth+REITs. VICI bounces (complicates EXIT). ALL/GL mild negative."
+
+# =============================================================================
+# RISK CLUSTERS
+# =============================================================================
+
+risk_clusters:
+  - "AI disruption: MONY.L + ADBE + BYIT.L + DSY.PA (4 names, all near 52wL)"
+  - "UK stress: AUTO.L + BYIT.L + MONY.L all at/near 52wL"
+  - "EXIT cluster: UHS + VICI both at/above FV, both report Feb 25"
+  - "5/13 positions (38%) in stress (near/at 52wL or probation)"
+  - "Earnings Feb 23-26 resolves 5 positions"
 
 data_anomalies:
-  - "GL yield 75% -- yfinance error (actual ~2.1%)"
-  - "UHS yield 35% -- yfinance error (actual ~0.5%)"
-  - "RACE.MI yield 93% -- yfinance error"
-
-news_highlights:
-  - "NVO: sued Hims, patent 2032. Hims pulled product. +6.65%. NET POSITIVE."
-  - "DNLM.L: Jefferies upgrade to Buy, PT 1075p. Validates thesis."
-  - "AUTO.L: <100 real cancellations. Buyback >1M shares at 475p."
-  - "UHS: CEO extended to 2029. UBS mitigates NY Medicaid risk."
-  - "DSY.PA: Q4 rev +1%, FY +4%. Guide 3-5% (below market). SO valid."
-  - "WPP.L: CORRECTED Feb 26 not Feb 19. Restructuring leaked."
-  - "LULU: Elliott $1B, Nielsen CEO candidate. Proxy fight ongoing."
-
-priorities:
-  - "1. CPI TOMORROW 08:30 ET -- key for VICI, growth, insurance"
-  - "2. MORN Q4 -- evaluate when indexed (12-24h delay)"
-  - "3. Earnings prep Feb 23-26: MONY.L, EDEN.PA, VICI, UHS, DTE.DE, INTU"
-  - "4. DSY.PA -- do NOT execute standing order. Wait Q1."
+  - "GL yield 75%, UHS yield 35%, RACE.MI yield 93% — yfinance errors (known)"
