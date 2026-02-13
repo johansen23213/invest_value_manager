@@ -160,8 +160,8 @@ quality_universe:
     thesis_path: thesis/research/ROP/thesis.md
     last_scored: '2026-02-12'
     last_price_check: '2026-02-12'
-    notes: R3 DONE. QS 48→70 (+22 serial acquirer adj). FV $385. WIDE moat 20/25. HIGH risk. Standing order $300 pending R4.
-      SaaSpocalypse + DOGE risks.
+    notes: R3 DONE. QS 48->70 (+22 serial acquirer adj). FV $385. WIDE moat 20/25. HIGH risk. Standing order $300 pending
+      R4. SaaSpocalypse + DOGE risks.
   - ticker: GGG
     name: Graco Inc.
     qs_tool: 71
@@ -210,3 +210,340 @@ quality_universe:
     last_scored: '2026-02-12'
     last_price_check: '2026-02-12'
     notes: Best TIC candidate. ROIC-WACC +11.8pp, organic growth 10.2%, P/E 18.6x. LEAP 28 strategy.
+  - ticker: RMD
+    name: ResMed Inc.
+    qs_tool: 67
+    qs_adj: 67
+    tier: B
+    sector: Healthcare/MedTech
+    fair_value: 290.0
+    entry_price: 210.0
+    currency: USD
+    current_price: 245.73
+    distance_to_entry: 17.0
+    pipeline_status: SCORED
+    thesis_path: null
+    last_scored: '2026-02-12'
+    last_price_check: '2026-02-12'
+    notes: ''
+  - ticker: AON
+    name: Aon plc
+    qs_tool: 72
+    qs_adj: 72
+    tier: B
+    sector: Insurance/Broker
+    fair_value: 300.0
+    entry_price: 270.0
+    currency: USD
+    current_price: 314.49
+    distance_to_entry: 16.5
+    pipeline_status: SCORED
+    thesis_path: null
+    last_scored: '2026-02-12'
+    last_price_check: '2026-02-12'
+    notes: ''
+  - ticker: MMC
+    name: Marsh & McLennan Companies, Inc
+    qs_tool: 68
+    qs_adj: 68
+    tier: B
+    sector: Insurance/Broker
+    fair_value: 180.0
+    entry_price: 160.0
+    currency: USD
+    current_price: 182.7
+    distance_to_entry: 14.2
+    pipeline_status: SCORED
+    thesis_path: null
+    last_scored: '2026-02-12'
+    last_price_check: '2026-02-12'
+    notes: ''
+  - ticker: WRB
+    name: W.R. Berkley Corporation
+    qs_tool: 67
+    qs_adj: 67
+    tier: B
+    sector: Insurance/Specialty P&C
+    fair_value: 70.0
+    entry_price: 60.0
+    currency: USD
+    current_price: 71.65
+    distance_to_entry: 19.4
+    pipeline_status: SCORED
+    thesis_path: null
+    last_scored: '2026-02-12'
+    last_price_check: '2026-02-12'
+    notes: ''
+  - ticker: BRO
+    name: Brown & Brown, Inc.
+    qs_tool: 65
+    qs_adj: 65
+    tier: B
+    sector: Insurance/Broker
+    fair_value: 66.0
+    entry_price: 57.0
+    currency: USD
+    current_price: 69.53
+    distance_to_entry: 22.0
+    pipeline_status: SCORED
+    thesis_path: null
+    last_scored: '2026-02-12'
+    last_price_check: '2026-02-12'
+    notes: ''
+  - ticker: ADM.L
+    name: ADMIRAL GROUP PLC ORD 0.1P
+    qs_tool: 65
+    qs_adj: 65
+    tier: B
+    sector: Insurance/Personal Auto
+    fair_value: 3000.0
+    entry_price: 2350.0
+    currency: USD
+    current_price: 2824.0
+    distance_to_entry: 20.2
+    pipeline_status: SCORED
+    thesis_path: null
+    last_scored: '2026-02-12'
+    last_price_check: '2026-02-12'
+    notes: ''
+  - ticker: ZTS
+    name: Zoetis Inc.
+    qs_tool: 73
+    qs_adj: 78
+    tier: A
+    sector: Animal Health
+    fair_value: 140.0
+    entry_price: 115.0
+    currency: USD
+    current_price: 125.64
+    distance_to_entry: 9.3
+    pipeline_status: R1_COMPLETE
+    thesis_path: thesis/research/ZTS/thesis.md
+    last_scored: '2026-02-12'
+    last_price_check: '2026-02-12'
+    notes: 'R1 COMPLETE. QS 73->78 (+5 market position adj). FV $140. Global #1 animal health, ROIC 30%, GM 70%+. 7 compounder
+      criteria met. Entry $110-115. Near 52wL at $126. Librela safety + 2026 guidance decel = narrative headwinds.'
+  - ticker: VEEV
+    name: Veeva Systems Inc.
+    qs_tool: 72
+    qs_adj: 72
+    tier: B
+    sector: Health IT/SaaS
+    fair_value: 265.0
+    entry_price: 168.0
+    currency: USD
+    current_price: 171.99
+    distance_to_entry: 2.4
+    pipeline_status: SCORED
+    thesis_path: null
+    last_scored: '2026-02-12'
+    last_price_check: '2026-02-12'
+    notes: ''
+  - ticker: RO.SW
+    name: ROCHE I
+    qs_tool: 72
+    qs_adj: 72
+    tier: B
+    sector: Pharma/Diagnostics
+    fair_value: 380.0
+    entry_price: 300.0
+    currency: USD
+    current_price: 372.4
+    distance_to_entry: 24.1
+    pipeline_status: SCORED
+    thesis_path: null
+    last_scored: '2026-02-12'
+    last_price_check: '2026-02-12'
+    notes: ''
+  - ticker: AZN
+    name: AstraZeneca PLC
+    qs_tool: 66
+    qs_adj: 66
+    tier: B
+    sector: Pharma/Oncology
+    fair_value: 205.0
+    entry_price: 168.0
+    currency: USD
+    current_price: 204.52
+    distance_to_entry: 21.7
+    pipeline_status: SCORED
+    thesis_path: null
+    last_scored: '2026-02-12'
+    last_price_check: '2026-02-12'
+    notes: ''
+  - ticker: GMAB
+    name: Genmab A/S
+    qs_tool: 65
+    qs_adj: 65
+    tier: B
+    sector: Pharma/Biotech
+    fair_value: 36.0
+    entry_price: 25.0
+    currency: USD
+    current_price: 29.59
+    distance_to_entry: 18.4
+    pipeline_status: R1_COMPLETE
+    thesis_path: thesis/research/GMAB/thesis.md
+    last_scored: '2026-02-12'
+    last_price_check: '2026-02-12'
+    notes: R1 COMPLETE. QS 77->65 post-Merus acquisition. FV $36. NARROW moat (17/25). Darzalex patent cliff. Entry $25.
+  - ticker: ACGL
+    name: Arch Capital Group Ltd.
+    qs_tool: 68
+    qs_adj: 68
+    tier: B
+    sector: Insurance/Specialty
+    fair_value: 120.0
+    entry_price: 92.0
+    currency: USD
+    current_price: 99.85
+    distance_to_entry: 8.5
+    pipeline_status: R1_COMPLETE
+    thesis_path: thesis/research/ACGL/thesis.md
+    last_scored: '2026-02-12'
+    last_price_check: '2026-02-12'
+    notes: R1 COMPLETE. QS 57->68 (insurer adj). FV $120. WIDE moat (22/25). Best-quality insurer. Entry $92. MoS 20% at $99.
+  - ticker: MNST
+    name: Monster Beverage Corporation
+    qs_tool: 78
+    qs_adj: 78
+    tier: A
+    sector: Beverages
+    fair_value: 50.0
+    entry_price: 48.0
+    currency: USD
+    current_price: 81.17
+    distance_to_entry: 69.1
+    pipeline_status: SCORED
+    thesis_path: null
+    last_scored: '2026-02-12'
+    last_price_check: '2026-02-12'
+    notes: ''
+  - ticker: OR.PA
+    name: L'OREAL
+    qs_tool: 77
+    qs_adj: 77
+    tier: A
+    sector: Personal Care
+    fair_value: 300.0
+    entry_price: 310.0
+    currency: USD
+    current_price: 465.2
+    distance_to_entry: 50.1
+    pipeline_status: SCORED
+    thesis_path: null
+    last_scored: '2026-02-12'
+    last_price_check: '2026-02-12'
+    notes: ''
+  - ticker: CL
+    name: Colgate-Palmolive Company
+    qs_tool: 71
+    qs_adj: 71
+    tier: B
+    sector: Household Products
+    fair_value: 88.0
+    entry_price: 75.0
+    currency: USD
+    current_price: 96.17
+    distance_to_entry: 28.2
+    pipeline_status: SCORED
+    thesis_path: null
+    last_scored: '2026-02-12'
+    last_price_check: '2026-02-12'
+    notes: ''
+  - ticker: HSY
+    name: The Hershey Company
+    qs_tool: 70
+    qs_adj: 70
+    tier: B
+    sector: Consumer Staples
+    fair_value: 187.0
+    entry_price: 162.0
+    currency: USD
+    current_price: 226.26
+    distance_to_entry: 39.7
+    pipeline_status: SCORED
+    thesis_path: null
+    last_scored: '2026-02-12'
+    last_price_check: '2026-02-12'
+    notes: ''
+  - ticker: BEI.DE
+    name: BEIERSDORF AG                 I
+    qs_tool: 70
+    qs_adj: 70
+    tier: B
+    sector: Consumer Staples
+    fair_value: 89.0
+    entry_price: 84.0
+    currency: USD
+    current_price: 124.9
+    distance_to_entry: 48.7
+    pipeline_status: SCORED
+    thesis_path: null
+    last_scored: '2026-02-12'
+    last_price_check: '2026-02-12'
+    notes: ''
+  - ticker: CCH.L
+    name: COCA-COLA HBC AG ORD CHF6.70 (C
+    qs_tool: 69
+    qs_adj: 69
+    tier: B
+    sector: Consumer Staples
+    fair_value: 4050.0
+    entry_price: 3650.0
+    currency: USD
+    current_price: 4722.0
+    distance_to_entry: 29.4
+    pipeline_status: SCORED
+    thesis_path: null
+    last_scored: '2026-02-12'
+    last_price_check: '2026-02-12'
+    notes: ''
+  - ticker: LOTB.BR
+    name: LOTUS BAKERIES
+    qs_tool: 68
+    qs_adj: 68
+    tier: B
+    sector: Consumer Staples
+    fair_value: 5640.0
+    entry_price: 6750.0
+    currency: USD
+    current_price: 12543.06
+    distance_to_entry: 85.8
+    pipeline_status: SCORED
+    thesis_path: null
+    last_scored: '2026-02-12'
+    last_price_check: '2026-02-12'
+    notes: ''
+  - ticker: PM
+    name: Philip Morris International Inc
+    qs_tool: 65
+    qs_adj: 65
+    tier: B
+    sector: Consumer Staples
+    fair_value: 110.0
+    entry_price: 150.0
+    currency: USD
+    current_price: 188.95
+    distance_to_entry: 26.0
+    pipeline_status: SCORED
+    thesis_path: null
+    last_scored: '2026-02-12'
+    last_price_check: '2026-02-12'
+    notes: ''
+  - ticker: COKE
+    name: Coca-Cola Consolidated, Inc.
+    qs_tool: 65
+    qs_adj: 65
+    tier: B
+    sector: Consumer Staples
+    fair_value: 126.0
+    entry_price: 115.0
+    currency: USD
+    current_price: 163.7
+    distance_to_entry: 42.3
+    pipeline_status: SCORED
+    thesis_path: null
+    last_scored: '2026-02-12'
+    last_price_check: '2026-02-12'
+    notes: ''

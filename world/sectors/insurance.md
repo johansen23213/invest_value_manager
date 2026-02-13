@@ -1,13 +1,15 @@
 # Sector: Insurance
 
-> Ultima actualizacion: 2026-02-04
+> Ultima actualizacion: 2026-02-12
 > Status: **NEUTRAL** (Seleccionar empresas especificas)
 
 ## Resumen Ejecutivo
 
 El sector asegurador global se encuentra en un punto de inflexion tras dos anos de outperformance. Las aseguradoras P&C (Property & Casualty) han alcanzado combined ratios cercanos a 94-97% (los mejores en 15+ anos), impulsados por aumentos de primas post-pandemia y repricing de riesgo climatico. Sin embargo, el mercado esta entrando en fase de softening con mayor competencia y presion sobre margenes en 2026.
 
-La tesis sectorial es **selectiva**: las valuaciones europeas (Allianz P/E ~10x, AXA P/E ~10x, yield 4-6%) ofrecen mejor relacion riesgo/retorno que las US (P/E 10-15x, yields 1-3%). En US, las aseguradoras de vida/salud como Globe Life (P/E 10x, ROE 20%) ofrecen value; las P&C como Allstate han tenido rally significativo pero mantienen fundamentos solidos.
+**Actualizacion Febrero 2026:** Reinsurance pricing softening CONFIRMADO. Jan 2026 renewals: property cat rates -14.7% (largest decline since 2014), retrocession -16.5%. KBW expects approaching -20%. Sin embargo, rentabilidad absoluta sigue siendo buena -- ejecutivos describen 2026 como potencialmente el "quinto mejor ano" para cat reinsurance. Las aseguradoras con disciplina de underwriting (ACGL) mantendran margenes; las indisciplinadas sufriran.
+
+La tesis sectorial es **selectiva**: en US, ACGL (specialty/reinsurance, QS 68 adj, P/E 8.6x, P/B 1.53x, ROE 17-21%) emerge como la mejor oportunidad de calidad en el sector. Las europeas (Allianz, AXA) ofrecen yield pero menor calidad de underwriting. ALL y GL siguen en portfolio como posiciones Tier C.
 
 El riesgo principal es el clima: 2025 fue el sexto ano consecutivo con perdidas aseguradas >$100B. Las aseguradoras con disciplina de underwriting y exposicion controlada a catastrofes seran ganadoras. El otro driver clave son los tipos de interes: investment income se beneficia mientras las tasas se mantengan elevadas.
 
@@ -24,6 +26,7 @@ El riesgo principal es el clima: 2025 fue el sexto ano consecutivo con perdidas 
 | Combined Ratio US (2025e) | 98.5% | vs 97.2% (2024) | Deteriorando |
 | Combined Ratio US (2026e) | 99% | | Softening |
 | Investment Yield US | 4.0-4.2% (2025-26) | | Estable/Rising |
+| **Reinsurance Rate Change Jan 2026** | **-14.7% prop cat** | **Largest decline since 2014** | **Softening** |
 
 ---
 
@@ -44,10 +47,13 @@ El riesgo principal es el clima: 2025 fue el sexto ano consecutivo con perdidas 
 - Crecimiento moderado (~1.5% real)
 - Medicare y repricing de primas como drivers
 
-### Reinsurance
-- Mercado softening en 2026 tras buenos resultados 2024-25
+### Reinsurance (UPDATED Feb 2026)
+- **Mercado en softening acelerado en 2026** tras buenos resultados 2024-25
+- Jan 2026 renewals: prop cat -14.7%, retrocession -16.5% (Howden Re data)
 - Cat bonds en record ($58B)
 - Attachment points mas altos = menos exposicion pero menos premium
+- **A pesar del softening, rentabilidad absoluta sigue siendo buena** -- ejecutivos ACGL/RNR/Everest describen 2026 como aun altamente profitable
+- Key: disciplined underwriters (ACGL) shed volume; undisciplined ones chase premium
 
 ---
 
@@ -58,6 +64,7 @@ El riesgo principal es el clima: 2025 fue el sexto ano consecutivo con perdidas 
 
 | Empresa | Segmento | Market Cap | P/E | Yield | Fortaleza |
 |---------|----------|------------|-----|-------|-----------|
+| **Arch Capital (ACGL)** | **Specialty/Reinsurance/MI** | **$36B** | **8.6x** | **0%** | **Best underwriting discipline, 15%+ BVPS CAGR since 2001** |
 | Allianz (ALV.DE) | Multi-line | ~$125B | 10x | 4.2% | Lider global, estabilidad |
 | AXA (CS.PA) | Multi-line | ~$80B | 10x | 5-6% | Valor, alto yield |
 | Berkshire (BRK.B) | P&C/Multi | ~$950B | 23x | 0% | Float + compounding |
@@ -143,6 +150,7 @@ El riesgo principal es el clima: 2025 fue el sexto ano consecutivo con perdidas 
 1) La disciplina de underwriting ganada en el hard market (no volveran a 2017-2019 CR facil)
 2) El beneficio estructural de investment income con tipos >4%
 3) Las oportunidades en segmentos despreciados (life, specialty)
+4) **ACGL especificamente es la mejor expresion de esta tesis** -- P/E 8.6x con ROE 17% y 15% BVPS CAGR es mispriced
 
 Las europeas (Allianz, AXA) estan mas baratas que las US con mejores yields."
 
@@ -186,6 +194,7 @@ Las europeas (Allianz, AXA) estan mas baratas que las US con mejores yields."
 ### Analizadas - En Watchlist
 | Ticker | Empresa | QS | Thesis Path | Entry Target | Status |
 |--------|---------|-----|-------------|--------------|--------|
+| **ACGL** | **Arch Capital** | **68 adj (B)** | **thesis/research/ACGL** | **$92** | **R1 complete, WATCHLIST** |
 | KMPR | Kemper Corp | 42 (C) | thesis/research/KMPR | $28 | Wait for turnaround confirmation |
 
 ### Evitar
@@ -201,6 +210,7 @@ Las europeas (Allianz, AXA) estan mas baratas que las US con mejores yields."
 
 | Fecha | Evento | Impacto esperado |
 |-------|--------|------------------|
+| 2026-02-09 | **ACGL Q4 2025 earnings REPORTED** | Beat EPS, 80.6% CR, $65.11 BVPS, $1.9B buybacks |
 | 2026-02-04 | GL Q4 earnings | Critical - confirmation of normalized ops |
 | 2026-02-04 | KMPR Q4 earnings | Watch - turnaround progress |
 | 2026-02-05 | ALL Q4 earnings | Important - CR sustainability |
@@ -214,11 +224,12 @@ Las europeas (Allianz, AXA) estan mas baratas que las US con mejores yields."
 
 **Status: NEUTRAL - Stock picking selectivo**
 
-1. **Mantener** ALL y GL - ambas bien posicionadas, esperar earnings
-2. **Watchlist** ALV.DE y CS.PA con targets de entrada (pullback 10%+)
-3. **Watchlist** KMPR at $28 - requires turnaround confirmation
-4. **NO incrementar** exposicion total al sector mas alla del 8-10%
-5. **Monitorear** cat season 2026 - oportunidades si hay overreaction
+1. **Mantener** ALL y GL - ambas bien posicionadas
+2. **ACGL is top insurance pick** - R1 complete, QS 68 adj, FV $120, entry $92. Proceed to R2 if price approaches entry.
+3. **Watchlist** ALV.DE y CS.PA con targets de entrada (pullback 10%+)
+4. **Watchlist** KMPR at $28 - requires turnaround confirmation
+5. **Considerar rotation** ALL/GL -> ACGL if capital needed (Principio 9: Quality Gravitation). ACGL QS 68 > ALL 56 > GL 52.
+6. **Monitorear** cat season 2026 - oportunidades si hay overreaction
 
 ---
 
@@ -228,6 +239,7 @@ Las europeas (Allianz, AXA) estan mas baratas que las US con mejores yields."
 |------|--------|-------------|-------------|--------|
 | Portfolio | ALL | thesis/active/ALL | 2026-02-03 | HOLD |
 | Portfolio | GL | thesis/active/GL | 2026-02-03 | HOLD |
+| Watchlist | **ACGL** | **thesis/research/ACGL** | **2026-02-12** | **Entry $92** |
 | Watchlist | KMPR | thesis/research/KMPR | 2026-02-04 | Entry $28 |
 
 ---
@@ -236,8 +248,9 @@ Las europeas (Allianz, AXA) estan mas baratas que las US con mejores yields."
 
 | Fecha | Cambio | Razon |
 |-------|--------|-------|
+| 2026-02-12 | **Added ACGL R1 analysis** | QS 68 adj Tier B, FV $120, entry $92. Best-in-class specialty insurer. Updated reinsurance softening data (Jan 2026 renewals -14.7% prop cat). |
 | 2026-02-04 | Added KMPR analysis | QS 42 Tier C, WATCHLIST at $28 entry |
-| 2026-02-03 | Status inicial: NEUTRAL | Sector en transicion hard→soft market |
+| 2026-02-03 | Status inicial: NEUTRAL | Sector en transicion hard->soft market |
 
 ---
 
@@ -251,3 +264,6 @@ Las europeas (Allianz, AXA) estan mas baratas que las US con mejores yields."
 - [J.P. Morgan European Insurance Analysis](https://www.investing.com/news/stock-market-news/jp-morgan-names-best-european-insurance-stocks-for-2026-as-sector-slows-93CH-4395349)
 - [Simply Wall St Insurance Analysis](https://simplywall.st/markets/us/financials/insurance)
 - [NYU Stern P/E Data](https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/pedata.html)
+- [Reinsurance Pricing Softening Jan 2026 - Artemis/Howden Re](https://www.artemis.bm/news/property-cat-reinsurance-down-14-7-retrocession-down-16-5-at-jan-2026-renewals-howden-re/)
+- [KBW Property Cat Rate Decline](https://beinsure.com/news/drop-cat-reinsurance-rates-renewals/)
+- [Arch Capital Q4 2025 Results](https://www.stocktitan.net/news/ACGL/arch-capital-group-ltd-reports-2025-fourth-quarter-xyveznrieped.html)
