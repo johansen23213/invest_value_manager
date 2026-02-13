@@ -326,19 +326,19 @@ quality_universe:
   - ticker: GMAB
     name: Genmab A/S
     qs_tool: 65
-    qs_adj: 65
+    qs_adj: 60
     tier: B
     sector: Pharma/Biotech
-    fair_value: 36.0
-    entry_price: 25.0
+    fair_value: 28.0
+    entry_price: 20.0
     currency: USD
     current_price: 29.59
-    distance_to_entry: 18.4
-    pipeline_status: R1_COMPLETE
+    distance_to_entry: 47.9
+    pipeline_status: R3_COMPLETE
     thesis_path: thesis/research/GMAB/thesis.md
-    last_scored: '2026-02-12'
+    last_scored: '2026-02-13'
     last_price_check: '2026-02-13'
-    notes: R1 COMPLETE. QS 77->65 post-Merus acquisition. FV $36. NARROW moat (17/25). Darzalex patent cliff. Entry $25.
+    notes: R3 COMPLETE. DA 14/20 STRONG COUNTER (highest ever). FV $36->$28 (-22%). QS 65->60 transformation discount. Entry $25->$20. Risk HIGH. Moat NARROW. DEPRIORITIZED — special situation, not quality compounder. Effectively Tier C forward-looking.
   - ticker: MNST
     name: Monster Beverage Corporation
     qs_tool: 78

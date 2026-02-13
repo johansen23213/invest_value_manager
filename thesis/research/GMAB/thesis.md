@@ -1,9 +1,11 @@
 # GMAB - Genmab A/S
 
-> **Fair Value:** $36
-> **Date:** 2026-02-12
-> **Stage:** R1 (Fundamental Analysis)
-> **Analyst:** fundamental-analyst
+> **Fair Value:** $28
+> **Entry:** $20
+> **Date:** 2026-02-13 (R3 resolved)
+> **Status:** R3 COMPLETE - DEPRIORITIZED (needs R4 if price approaches $20)
+> **Pipeline:** R1 ✓ | R2 ✓ (DA 14/20 STRONG COUNTER — highest ever) | R3 ✓ (resolution) | R4 pending
+> **R3 Resolution (2026-02-13):** FV $36→$28 (-22%). STRONG COUNTER 14/20. DA found: (1) Humira analogy structurally flawed — Darzalex erosion likely faster, (2) EPKINLY 50/50 profit share = only 20% of Darzalex profit replacement, (3) Petosemtamab 70%→50% probability (base rate 40%), (4) AbbVie is partner AND legal adversary (trade secrets), (5) $5.5B debt during triple transformation, (6) Pipeline attrition 6 programs/18mo. QS 65→60. Entry $25→$20 (28.6% MoS). Risk MEDIUM-HIGH→HIGH. Effectively a special situation bet, not a quality compounder. DEPRIORITIZE vs Tier A candidates.
 
 ## TL;DR
 

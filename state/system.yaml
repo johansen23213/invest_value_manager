@@ -94,41 +94,50 @@ system:
     Session 69 - WAVE CONTINUATION (2026-02-13)
 
     =====================================================
-    R3 RESOLUTIONS COMPLETED (3 companies — from Session 68 agents)
+    R3 RESOLUTIONS COMPLETED (4 companies)
     =====================================================
-    FDS: FV $225→$210 (-7%). CEO Snow retired Sep 2025 (CRITICAL miss in thesis).
-      Entry $180→$170 (19% MoS). Correlated AI+competition+headcount risk. HARD GATE Q2 Mar 2026.
-    BVI.PA: FV EUR 33→EUR 29 (-12%). QS 73→70 (-3 governance). Wendel STRUCTURAL.
-      Entry EUR 24→EUR 22 (24% MoS). HARD GATE Feb 25 earnings.
-    MMC: FV $190 confirmed (val-specialist). Entry $160→$155 (18.4% MoS).
-      Greensill A$7B trial Aug 2026 = SIZING CONSTRAINT. DA 13/20 MODERATE COUNTER.
+    FDS: FV $225→$210 (-7%). CEO Snow retired Sep 2025 (CRITICAL miss).
+      Entry $180→$170 (19% MoS). HARD GATE Q2 Mar 2026.
+    BVI.PA: FV EUR 33→EUR 29 (-12%). QS 73→70. Wendel STRUCTURAL.
+      Entry EUR 24→EUR 22 (24% MoS). HARD GATE Feb 25.
+    MMC: FV $190. Entry $160→$155 (18.4% MoS). DA 13/20 MODERATE.
+      Greensill A$7B trial Aug 2026 = SIZING CONSTRAINT.
+    GMAB: FV $36→$28 (-22%). DA 14/20 STRONG COUNTER (HIGHEST EVER).
+      QS 65→60. Entry $25→$20 (28.6% MoS). Risk HIGH.
+      Key: EPKINLY 50/50 profit share = only 20% of Darzalex profit replacement.
+      Pipeline attrition: 6 programs killed in 18 months. DEPRIORITIZED.
+
+    =====================================================
+    EARNINGS FRAMEWORKS CREATED
+    =====================================================
+    RSG: thesis/research/RSG/earnings_framework_feb17.md
+    CDNS: thesis/research/CDNS/earnings_framework_feb17.md
+    VRSK: Already existed (Feb 18)
 
     =====================================================
     VIGILANCE (0 CRITICAL, 9 MATERIAL)
     =====================================================
-    CORRECTIONS: ROP 10.6% from trigger (NOT 5%), GL Q4 MISS (NOT beat),
-    NVO CagriSema NDA already filed Dec 2025 (NOT "expected Q1").
-    LULU 2nd see-through in 3 weeks (KC#3 pattern). GL insider selling escalation.
-    ADBE all-time low P/E 15x. SaaS selloff continuing.
+    ROP 10.6% from trigger (NOT 5%). GL Q4 MISS. NVO CagriSema NDA filed.
+    LULU 2nd see-through. GL insider selling. ADBE all-time low P/E.
 
     =====================================================
     PIPELINE STATUS
     =====================================================
-    11 R3-complete candidates: IT(A), MORN(A), PAYC(A), VRSK(A), ROP(B-R4),
-      VLTO(B), ACGL(B), FDS(B), BVI.PA(B), INTU(B), ZTS(B), MMC(B).
+    12 R3-complete: IT(A), MORN(A), PAYC(A), VRSK(A), VLTO(B), ACGL(B),
+      FDS(B), BVI.PA(B), INTU(B), ZTS(B), MMC(B), GMAB(B).
     4 R4-approved: DSY.PA, DNLM.L, RACE.MI, ROP.
-    Closest actionable: RSG 6.4% (R1, earnings Mon), ROP 10.6% (R4 APPROVED).
-    Earnings wall Feb 17-26 blocks most pipeline advancement.
+    5 R1-complete: RSG, CDNS, VEEV, BAH, FICO (last 2 deprioritized).
+    Actionable: RSG 6.4% (earnings Mon), ROP 6.6% (R4), IT 13.8%.
 
     =====================================================
     NEXT PRIORITIES
     =====================================================
-    1. Feb 17 (Mon): RSG + CDNS dual earnings → post-earnings R2 decision
-    2. Feb 18 (Tue): VRSK earnings → R4 committee if results confirm thesis
-    3. Feb 23: MONY.L earnings → KC#9 AI strategy fate
-    4. Feb 24-26: EDEN.PA, DTE.DE, INTU triple earnings week
-    5. ROP $300 trigger monitoring (10.6% away)
-    6. Pipeline: Consider IT R4 (Tier A, 13.8% from entry, no hard gate)
+    1. Feb 17 (Mon): RSG + CDNS dual earnings → R2 decision
+    2. Feb 18 (Tue): VRSK earnings → R4 decision
+    3. Feb 23: MONY.L earnings → KC#9 AI strategy
+    4. Feb 24-26: EDEN.PA, DTE.DE, INTU triple week
+    5. ROP $300 trigger monitoring (10.6%)
+    6. IT R4 deferred until price approaches $135
 
   status: active
 
@@ -1328,7 +1337,7 @@ pipeline_tracker:
     trigger: "cash > 25%"
     last_run: 2026-02-13
     next_due: 2026-02-14
-    last_result: "Session 69: R3 resolved FDS ($210 entry $170), BVI.PA (EUR 29 entry EUR 22), MMC ($190 entry $155). Pipeline: 11 R3-complete, 4 R4-approved. Actionable: RSG 6.4%, ROP 6.6% (R4 APPROVED), IT 13.8%, MMC 14.2%. Cash 57%."
+    last_result: "Session 69 continued: GMAB R2+R3 complete (14/20 STRONG COUNTER, FV $36->$28, QS 65->60, entry $20). Earnings frameworks created: RSG+CDNS (Feb 17). Pipeline: 12 R3-complete, 4 R4-approved. Actionable: RSG 6.4% (hard gate Mon), ROP 6.6% (R4), IT 13.8%. Cash 57%."
     skill: ".claude/skills/capital-deployment/SKILL.md"
     tool: "tools/quality_universe.py"
   # DIARIOS
