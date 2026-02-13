@@ -9,11 +9,11 @@
 # Metadata
 metadata:
   created: 2026-02-03
-  last_updated: 2026-02-11
-  total_closed: 12
-  total_pnl_eur: -90.85  # Previous -119.85 + IMB.L +29 = ~-90.85
-  win_rate: 41.7  # 5 winners / 12 positions (IMB.L is winner +6.9%)
-  avg_holding_days: 6
+  last_updated: 2026-02-13
+  total_closed: 14
+  total_pnl_eur: -26.85  # Previous -90.85 + UHS +55 + VICI +9 = ~-26.85
+  win_rate: 50.0  # 7 winners / 14 positions (UHS +16.2%, VICI +1.7% are winners)
+  avg_holding_days: 7
 
 # ADVERSARIAL FV ACCURACY TRACKING (added Session 53 per Devil's Advocate)
 # Purpose: Track whether adversarial FVs are accurate or systematically pessimistic
@@ -27,6 +27,8 @@ adversarial_fv_tracking:
     - { ticker: SAN.PA, sold: 2026-02-09, exit_price_eur: 80.29, thesis_fv: 122, adversarial_fv: 78.69, check_3mo: null, check_6mo: null, check_12mo: null }
     - { ticker: HRB, sold: 2026-02-09, exit_price_usd: 32.77, thesis_fv: 59.58, adversarial_fv: 33.94, check_3mo: null, check_6mo: null, check_12mo: null }
     - { ticker: IMB.L, sold: 2026-02-09, exit_price_gbp: 2472.5, thesis_fv: 3701, adversarial_fv: 3409, check_3mo: null, check_6mo: null, check_12mo: null }
+    - { ticker: UHS, sold: 2026-02-13, exit_price_usd: 234.05, thesis_fv: 283.74, adversarial_fv: 213, check_3mo: null, check_6mo: null, check_12mo: null }
+    - { ticker: VICI, sold: 2026-02-13, exit_price_usd: 29.06, thesis_fv: 33.75, adversarial_fv: 29.00, check_3mo: null, check_6mo: null, check_12mo: null }
   note: "If market price >> adversarial FV at 12mo for majority, adversarial is too pessimistic. If market price near or below adversarial FV, sells were correct."
 
 # Closed Positions
@@ -305,6 +307,54 @@ closed_positions:
     exit_reason: adversarial_review_overvalued
     lesson_learned: "Excise tax pass-through inflates revenue but distorts quality metrics. Tobacco companies need REIT-like adjusted QS. Thesis self-assigned Tier A was worst misgrade in portfolio (54 vs claimed ~95). Always run quality_scorer.py BEFORE writing thesis, not after. Dividend cut history is a red flag regardless of current yield."
 
+  - ticker: UHS
+    name: "Universal Health Services Inc."
+    entry_date: 2026-02-02
+    exit_date: 2026-02-13
+    shares: 2
+    entry_price_usd: 201.42
+    exit_price_usd: 234.05
+    entry_currency: USD
+    invested_eur: 340  # ~$402.84 / 1.185
+    proceeds_eur: 394
+    pnl_amount_eur: 55
+    pnl_percent: 16.2
+    holding_days: 11
+    thesis_fv_at_entry: 283.74  # USD - original thesis
+    thesis_fv_adversarial: 243  # USD - adversarial (Feb 7)
+    thesis_fv_v3: 213  # USD - v3.0 (Feb 10)
+    fv_reached: false
+    quality_score: 51  # Tier C
+    thesis_accuracy:
+      correct: false
+      notes: "Original FV $283.74 inflated 33% vs v3.0 $213. Sold ABOVE FV at $234 (+16.2% gain). Medicaid cuts (OBBBA Jul 2025) are LAW = structural risk not in original thesis. Behavioral volumes stalled (Q1 declined, Q2-Q3 barely positive). ROIC spread only 1.2pp (fragile). BofA downgraded to UNDERPERFORM PT $185. 4/6 EXIT gates SELL. 5/5 Tier C MoS<=0 precedents = SOLD."
+    exit_reason: exit_protocol_above_fv_structural_risk
+    lesson_learned: "Sell when ABOVE FV with structural risk. Don't wait for earnings to confirm what analysis already shows. Locking +16.2% pre-earnings was the correct risk-adjusted decision. Medicaid cuts as LAW = permanent headwind, not cyclical. BofA PT $185 = 21% further downside from sale price."
+
+  - ticker: VICI
+    name: "VICI Properties Inc."
+    entry_date: 2026-01-31
+    exit_date: 2026-02-13
+    shares: 21.00105
+    entry_price_usd: 28.57
+    exit_price_usd: 29.06
+    entry_currency: USD
+    invested_eur: 506  # ~$600 / 1.185
+    proceeds_eur: 514
+    pnl_amount_eur: 9
+    pnl_percent: 1.7
+    holding_days: 13
+    thesis_fv_at_entry: 33.75  # USD - original thesis v2.0
+    thesis_fv_adversarial: 30.50  # USD - adversarial (Feb 8)
+    thesis_fv_v3: 29.00  # USD - v3.0 (Feb 10)
+    fv_reached: false
+    quality_score: 54  # Tier C (REIT-adj ~60)
+    thesis_accuracy:
+      correct: false
+      notes: "Original FV $33.75 inflated 16% vs v3.0 $29.00. Thesis v2.0 claimed 'rent coverage 1.5-2.0x' as homogeneous — Caesars Regional at 1.03x means 25% of NOI at risk. LV tourism declining (thesis claimed record visitors — wrong). MoS evaporated from 15.4% to 0%. Scotiabank downgraded to Sector Perform PT $30. 5/5 zero-MoS-weakened-thesis precedents = SOLD."
+    exit_reason: exit_protocol_zero_mos_weakened_thesis
+    lesson_learned: "Rent coverage must be analyzed per-tenant, not blended. 25% of NOI at 1.03x coverage is binary risk. Original thesis missed critical tenant-level data. When MoS evaporates to 0% and thesis is weakened on 5/7 assumptions, selling is the clear precedent. REIT yield alone (6.1%) does not justify holding vs pipeline Tier A alternatives."
+
   - ticker: TATE.L
     name: "Tate & Lyle plc"
     entry_date: 2026-02-03
@@ -360,14 +410,14 @@ partial_sells:
 # Statistics (auto-calculated by effectiveness_tracker.py)
 statistics:
   # Will be populated by the tool
-  total_closed_positions: 12
+  total_closed_positions: 14
   total_partial_sells: 3
-  total_realized_pnl_eur: 337.00  # Previous 308 + IMB.L +29 = ~337
-  winners: 5  # SHEL.L +2.3%, LIGHT.AS +13.7%, PFE +1.8%, TATE.L +3.5%, IMB.L +6.9%
+  total_realized_pnl_eur: 401.00  # Previous 337 + UHS +55 + VICI +9 = ~401
+  winners: 7  # SHEL.L +2.3%, LIGHT.AS +13.7%, PFE +1.8%, TATE.L +3.5%, IMB.L +6.9%, UHS +16.2%, VICI +1.7%
   losers: 5  # FUTR.L -2.8%, TEP.PA -6.7%, A2A.MI -1.5%, SAN.PA -0.84%, HRB -13.25%
   breakeven: 2  # ENEL.MI 0%, VNA.DE 0%
-  win_rate_pct: 41.7
-  avg_win_pct: 5.6  # (2.3 + 13.7 + 1.8 + 3.5 + 6.9) / 5
+  win_rate_pct: 50.0
+  avg_win_pct: 6.4  # (2.3 + 13.7 + 1.8 + 3.5 + 6.9 + 16.2 + 1.7) / 7
   avg_loss_pct: -4.9  # (-2.8 + -6.7 + -1.5 + -0.84 + -13.25) / 5
   avg_holding_days: 7
   positions_reached_fv: 0

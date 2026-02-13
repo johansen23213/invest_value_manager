@@ -1,6 +1,23 @@
 quality_universe:
-  last_updated: '2026-02-12'
+  last_updated: '2026-02-13'
   companies:
+  - ticker: INTU
+    name: Intuit Inc.
+    qs_tool: 77
+    qs_adj: 72
+    tier: B
+    sector: Financial Technology
+    fair_value: 395.0
+    entry_price: 290.0
+    currency: USD
+    current_price: 398.0
+    distance_to_entry: 37.2
+    pipeline_status: R3_COMPLETE
+    thesis_path: thesis/research/INTU/thesis.md
+    last_scored: '2026-02-13'
+    last_price_check: '2026-02-13'
+    notes: 'R3: DA STRONG COUNTER 14/19. FV $465->$395 (-15%). QS 75->72 (Tier A->B). SBC-adjusted FCF. Entry $285-300. WAIT
+      Feb 26 Q2 earnings.'
   - ticker: PAYC
     name: Paycom Software, Inc.
     qs_tool: 85
@@ -15,24 +32,8 @@ quality_universe:
     pipeline_status: R3_COMPLETE
     thesis_path: thesis/research/PAYC/thesis.md
     last_scored: '2026-02-13'
-    last_price_check: '2026-02-12'
+    last_price_check: '2026-02-13'
     notes: 'R3 resolution: QS 85->75, FV $130->$115, entry $95-105->$88-95. Wait Q1 FY2026 (Apr).'
-  - ticker: MORN
-    name: Morningstar Inc.
-    qs_tool: 83
-    qs_adj: 83
-    tier: A
-    sector: Financial Data
-    fair_value: 205
-    entry_price: 145
-    currency: USD
-    current_price: 155.35
-    distance_to_entry: 7.1
-    pipeline_status: R1_COMPLETE
-    thesis_path: thesis/research/MORN/thesis.md
-    last_scored: '2026-02-11'
-    last_price_check: '2026-02-12'
-    notes: Wide moat, data+ratings+PitViperX. Q4 results Feb 12.
   - ticker: DSY.PA
     name: Dassault Systemes SE
     qs_tool: 70
@@ -42,12 +43,12 @@ quality_universe:
     fair_value: 20
     entry_price: 15.5
     currency: EUR
-    current_price: 18.25
-    distance_to_entry: 17.8
+    current_price: 18.14
+    distance_to_entry: 17.0
     pipeline_status: APPROVED
     thesis_path: thesis/research/DSY.PA/thesis.md
     last_scored: '2026-02-10'
-    last_price_check: '2026-02-12'
+    last_price_check: '2026-02-13'
     notes: Standing order EUR 15.50. 3DEXPERIENCE platform.
   - ticker: DNLM.L
     name: Dunelm Group PLC
@@ -58,12 +59,12 @@ quality_universe:
     fair_value: 1008
     entry_price: 780
     currency: GBp
-    current_price: 959.5
-    distance_to_entry: 23.0
+    current_price: 955.0
+    distance_to_entry: 22.4
     pipeline_status: APPROVED
     thesis_path: thesis/research/DNLM.L/thesis.md
     last_scored: '2026-02-09'
-    last_price_check: '2026-02-12'
+    last_price_check: '2026-02-13'
     notes: 'Standing order 780p. UK homewares #1, 8.8% market share.'
   - ticker: RACE.MI
     name: Ferrari N.V.
@@ -74,29 +75,13 @@ quality_universe:
     fair_value: 355
     entry_price: 270
     currency: EUR
-    current_price: 326.9
-    distance_to_entry: 21.1
+    current_price: 328.8
+    distance_to_entry: 21.8
     pipeline_status: APPROVED
     thesis_path: thesis/research/RACE.MI/thesis.md
     last_scored: '2026-02-11'
-    last_price_check: '2026-02-12'
+    last_price_check: '2026-02-13'
     notes: Standing order EUR 270 BUY + EUR 260 ADD. Ultra-luxury moat.
-  - ticker: INTU
-    name: Intuit Inc.
-    qs_tool: 77
-    qs_adj: 75
-    tier: A
-    sector: Tax/Accounting Software
-    fair_value: 465
-    entry_price: 350
-    currency: USD
-    current_price: 399.64
-    distance_to_entry: 14.2
-    pipeline_status: R1_COMPLETE
-    thesis_path: thesis/research/INTU/thesis.md
-    last_scored: '2026-02-12'
-    last_price_check: '2026-02-12'
-    notes: QBO switching costs + network effects. SBC 39% FCF flag. Q2 FY26 Feb 26.
   - ticker: FICO
     name: Fair Isaac Corporation
     qs_tool: 70
@@ -106,12 +91,12 @@ quality_universe:
     fair_value: 900
     entry_price: 775
     currency: USD
-    current_price: 1363.31
-    distance_to_entry: 75.9
+    current_price: 1337.64
+    distance_to_entry: 72.6
     pipeline_status: R1_COMPLETE
     thesis_path: thesis/research/FICO/thesis.md
     last_scored: '2026-02-12'
-    last_price_check: '2026-02-12'
+    last_price_check: '2026-02-13'
     notes: Credit scoring monopoly. R1 complete.
   - ticker: MA
     name: Mastercard Inc.
@@ -122,12 +107,12 @@ quality_universe:
     fair_value: 420
     entry_price: 315
     currency: USD
-    current_price: 537.46
-    distance_to_entry: 70.6
+    current_price: 527.46
+    distance_to_entry: 67.4
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-10'
-    last_price_check: '2026-02-12'
+    last_price_check: '2026-02-13'
     notes: 'WARNING: no buy-pipeline. Needs R1-R4.'
   - ticker: V
     name: Visa Inc.
@@ -138,12 +123,12 @@ quality_universe:
     fair_value: 283
     entry_price: 220
     currency: USD
-    current_price: 329.24
-    distance_to_entry: 49.7
+    current_price: 324.18
+    distance_to_entry: 47.4
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-10'
-    last_price_check: '2026-02-12'
+    last_price_check: '2026-02-13'
     notes: 'WARNING: no buy-pipeline. Needs R1-R4.'
   - ticker: ROP
     name: Roper Technologies, Inc.
@@ -154,12 +139,12 @@ quality_universe:
     fair_value: 385.0
     entry_price: 300.0
     currency: USD
-    current_price: 333.8
-    distance_to_entry: 11.3
+    current_price: 319.82
+    distance_to_entry: 6.6
     pipeline_status: R4_APPROVED
     thesis_path: thesis/research/ROP/thesis.md
     last_scored: '2026-02-12'
-    last_price_check: '2026-02-12'
+    last_price_check: '2026-02-13'
     notes: R3 DONE. QS 48->70 (+22 serial acquirer adj). FV $385. WIDE moat 20/25. HIGH risk. Standing order $300 pending
       R4. SaaSpocalypse + DOGE risks.
   - ticker: GGG
@@ -176,7 +161,7 @@ quality_universe:
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-12'
-    last_price_check: '2026-02-12'
+    last_price_check: '2026-02-13'
     notes: ROIC-WACC +13.3pp, net cash. At ATH. Wait for pullback to 0.
   - ticker: ROR.L
     name: ROTORK PLC ORD 0.5P
@@ -192,24 +177,24 @@ quality_universe:
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-12'
-    last_price_check: '2026-02-12'
+    last_price_check: '2026-02-13'
     notes: ROIC-WACC +12.7pp, net cash. At ATH. Wait for pullback to 320p.
   - ticker: BVI.PA
     name: BUREAU VERITAS
     qs_tool: 69
-    qs_adj: 69
+    qs_adj: 70
     tier: B
     sector: Testing/Inspection/Cert
-    fair_value: 35.0
-    entry_price: 24.0
+    fair_value: 29.0
+    entry_price: 22.0
     currency: EUR
-    current_price: 27.02
-    distance_to_entry: 12.6
-    pipeline_status: SCORED
-    thesis_path: null
-    last_scored: '2026-02-12'
-    last_price_check: '2026-02-12'
-    notes: Best TIC candidate. ROIC-WACC +11.8pp, organic growth 10.2%, P/E 18.6x. LEAP 28 strategy.
+    current_price: 27.2
+    distance_to_entry: 23.6
+    pipeline_status: R3_COMPLETE
+    thesis_path: thesis/research/BVI.PA/thesis.md
+    last_scored: '2026-02-13'
+    last_price_check: '2026-02-13'
+    notes: R3 COMPLETE. QS 69->70 adj (+4 market -3 governance). FV EUR 29 (was 33, -12pct). Wendel STRUCTURAL. Entry EUR 22. HARD GATE Feb 25 earnings.
   - ticker: RMD
     name: ResMed Inc.
     qs_tool: 67
@@ -224,7 +209,7 @@ quality_universe:
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-12'
-    last_price_check: '2026-02-12'
+    last_price_check: '2026-02-13'
     notes: ''
   - ticker: AON
     name: Aon plc
@@ -240,24 +225,24 @@ quality_universe:
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-12'
-    last_price_check: '2026-02-12'
+    last_price_check: '2026-02-13'
     notes: ''
   - ticker: MMC
     name: Marsh & McLennan Companies, Inc
-    qs_tool: 68
+    qs_tool: 64
     qs_adj: 68
     tier: B
     sector: Insurance/Broker
-    fair_value: 180.0
-    entry_price: 160.0
+    fair_value: 190.0
+    entry_price: 155.0
     currency: USD
     current_price: 182.7
-    distance_to_entry: 14.2
-    pipeline_status: SCORED
-    thesis_path: null
-    last_scored: '2026-02-12'
-    last_price_check: '2026-02-12'
-    notes: ''
+    distance_to_entry: 17.9
+    pipeline_status: R3_COMPLETE
+    thesis_path: thesis/research/MMC/thesis.md
+    last_scored: '2026-02-13'
+    last_price_check: '2026-02-13'
+    notes: R3 COMPLETE. QS 64->68 adj. FV $190. Entry $155 (was $160). Greensill A$7B trial Aug 2026 = sizing constraint. DA 13/20 MODERATE COUNTER.
   - ticker: WRB
     name: W.R. Berkley Corporation
     qs_tool: 67
@@ -272,7 +257,7 @@ quality_universe:
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-12'
-    last_price_check: '2026-02-12'
+    last_price_check: '2026-02-13'
     notes: ''
   - ticker: BRO
     name: Brown & Brown, Inc.
@@ -288,7 +273,7 @@ quality_universe:
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-12'
-    last_price_check: '2026-02-12'
+    last_price_check: '2026-02-13'
     notes: ''
   - ticker: ADM.L
     name: ADMIRAL GROUP PLC ORD 0.1P
@@ -304,40 +289,7 @@ quality_universe:
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-12'
-    last_price_check: '2026-02-12'
-    notes: ''
-  - ticker: ZTS
-    name: Zoetis Inc.
-    qs_tool: 73
-    qs_adj: 78
-    tier: A
-    sector: Animal Health
-    fair_value: 140.0
-    entry_price: 115.0
-    currency: USD
-    current_price: 125.64
-    distance_to_entry: 9.3
-    pipeline_status: R1_COMPLETE
-    thesis_path: thesis/research/ZTS/thesis.md
-    last_scored: '2026-02-12'
-    last_price_check: '2026-02-12'
-    notes: 'R1 COMPLETE. QS 73->78 (+5 market position adj). FV $140. Global #1 animal health, ROIC 30%, GM 70%+. 7 compounder
-      criteria met. Entry $110-115. Near 52wL at $126. Librela safety + 2026 guidance decel = narrative headwinds.'
-  - ticker: VEEV
-    name: Veeva Systems Inc.
-    qs_tool: 72
-    qs_adj: 72
-    tier: B
-    sector: Health IT/SaaS
-    fair_value: 265.0
-    entry_price: 168.0
-    currency: USD
-    current_price: 171.99
-    distance_to_entry: 2.4
-    pipeline_status: SCORED
-    thesis_path: null
-    last_scored: '2026-02-12'
-    last_price_check: '2026-02-12'
+    last_price_check: '2026-02-13'
     notes: ''
   - ticker: RO.SW
     name: ROCHE I
@@ -353,7 +305,7 @@ quality_universe:
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-12'
-    last_price_check: '2026-02-12'
+    last_price_check: '2026-02-13'
     notes: ''
   - ticker: AZN
     name: AstraZeneca PLC
@@ -369,7 +321,7 @@ quality_universe:
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-12'
-    last_price_check: '2026-02-12'
+    last_price_check: '2026-02-13'
     notes: ''
   - ticker: GMAB
     name: Genmab A/S
@@ -385,24 +337,8 @@ quality_universe:
     pipeline_status: R1_COMPLETE
     thesis_path: thesis/research/GMAB/thesis.md
     last_scored: '2026-02-12'
-    last_price_check: '2026-02-12'
+    last_price_check: '2026-02-13'
     notes: R1 COMPLETE. QS 77->65 post-Merus acquisition. FV $36. NARROW moat (17/25). Darzalex patent cliff. Entry $25.
-  - ticker: ACGL
-    name: Arch Capital Group Ltd.
-    qs_tool: 68
-    qs_adj: 68
-    tier: B
-    sector: Insurance/Specialty
-    fair_value: 120.0
-    entry_price: 92.0
-    currency: USD
-    current_price: 99.85
-    distance_to_entry: 8.5
-    pipeline_status: R1_COMPLETE
-    thesis_path: thesis/research/ACGL/thesis.md
-    last_scored: '2026-02-12'
-    last_price_check: '2026-02-12'
-    notes: R1 COMPLETE. QS 57->68 (insurer adj). FV $120. WIDE moat (22/25). Best-quality insurer. Entry $92. MoS 20% at $99.
   - ticker: MNST
     name: Monster Beverage Corporation
     qs_tool: 78
@@ -417,7 +353,7 @@ quality_universe:
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-12'
-    last_price_check: '2026-02-12'
+    last_price_check: '2026-02-13'
     notes: ''
   - ticker: OR.PA
     name: L'OREAL
@@ -428,12 +364,12 @@ quality_universe:
     fair_value: 300.0
     entry_price: 310.0
     currency: USD
-    current_price: 465.2
-    distance_to_entry: 50.1
+    current_price: 464.98
+    distance_to_entry: 50.0
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-12'
-    last_price_check: '2026-02-12'
+    last_price_check: '2026-02-13'
     notes: ''
   - ticker: CL
     name: Colgate-Palmolive Company
@@ -449,7 +385,7 @@ quality_universe:
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-12'
-    last_price_check: '2026-02-12'
+    last_price_check: '2026-02-13'
     notes: ''
   - ticker: HSY
     name: The Hershey Company
@@ -465,7 +401,7 @@ quality_universe:
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-12'
-    last_price_check: '2026-02-12'
+    last_price_check: '2026-02-13'
     notes: ''
   - ticker: BEI.DE
     name: BEIERSDORF AG                 I
@@ -476,12 +412,12 @@ quality_universe:
     fair_value: 89.0
     entry_price: 84.0
     currency: USD
-    current_price: 124.9
-    distance_to_entry: 48.7
+    current_price: 124.84
+    distance_to_entry: 48.6
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-12'
-    last_price_check: '2026-02-12'
+    last_price_check: '2026-02-13'
     notes: ''
   - ticker: CCH.L
     name: COCA-COLA HBC AG ORD CHF6.70 (C
@@ -497,7 +433,7 @@ quality_universe:
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-12'
-    last_price_check: '2026-02-12'
+    last_price_check: '2026-02-13'
     notes: ''
   - ticker: LOTB.BR
     name: LOTUS BAKERIES
@@ -508,12 +444,12 @@ quality_universe:
     fair_value: 5640.0
     entry_price: 6750.0
     currency: USD
-    current_price: 12543.06
-    distance_to_entry: 85.8
+    current_price: 12537.1
+    distance_to_entry: 85.7
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-12'
-    last_price_check: '2026-02-12'
+    last_price_check: '2026-02-13'
     notes: ''
   - ticker: PM
     name: Philip Morris International Inc
@@ -529,7 +465,7 @@ quality_universe:
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-12'
-    last_price_check: '2026-02-12'
+    last_price_check: '2026-02-13'
     notes: ''
   - ticker: COKE
     name: Coca-Cola Consolidated, Inc.
@@ -545,5 +481,494 @@ quality_universe:
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-12'
-    last_price_check: '2026-02-12'
+    last_price_check: '2026-02-13'
     notes: ''
+  - ticker: ROL
+    name: Rollins, Inc.
+    qs_tool: 79
+    qs_adj: 79
+    tier: A
+    sector: Pest Control/Business Services
+    fair_value: 65.0
+    entry_price: 42.0
+    currency: USD
+    current_price: 58.69
+    distance_to_entry: 39.7
+    pipeline_status: SCORED
+    thesis_path: null
+    last_scored: '2026-02-13'
+    last_price_check: '2026-02-13'
+    notes: ''
+  - ticker: WKL.AS
+    name: WKL.AS
+    qs_tool: 77
+    qs_adj: 77
+    tier: A
+    sector: Information Services
+    fair_value: 26.0
+    entry_price: 20.0
+    currency: USD
+    current_price: null
+    distance_to_entry: null
+    pipeline_status: SCORED
+    thesis_path: null
+    last_scored: '2026-02-13'
+    last_price_check: '2026-02-13'
+    notes: ''
+  - ticker: ASML
+    name: ASML Holding N.V. - New York Re
+    qs_tool: 81
+    qs_adj: 81
+    tier: A
+    sector: Semiconductors/Equipment
+    fair_value: 935.0
+    entry_price: 700.0
+    currency: USD
+    current_price: 1406.87
+    distance_to_entry: 101.0
+    pipeline_status: SCORED
+    thesis_path: null
+    last_scored: '2026-02-13'
+    last_price_check: '2026-02-13'
+    notes: ''
+  - ticker: CDNS
+    name: Cadence Design Systems, Inc.
+    qs_tool: 82
+    qs_adj: 82
+    tier: A
+    sector: Semiconductors/Equipment
+    fair_value: 260.0
+    entry_price: 235.0
+    currency: USD
+    current_price: 299.03
+    distance_to_entry: 27.2
+    pipeline_status: R1_COMPLETE
+    thesis_path: null
+    last_scored: '2026-02-13'
+    last_price_check: '2026-02-13'
+    notes: 'Entry revised 60->35 (export control compliance risk margin). FV 60 unchanged. HARD GATE: Feb 17 earnings.'
+  - ticker: KLAC
+    name: KLA Corporation
+    qs_tool: 67
+    qs_adj: 67
+    tier: B
+    sector: Semiconductors/Equipment
+    fair_value: 1200.0
+    entry_price: 900.0
+    currency: USD
+    current_price: 1450.85
+    distance_to_entry: 61.2
+    pipeline_status: SCORED
+    thesis_path: null
+    last_scored: '2026-02-13'
+    last_price_check: '2026-02-13'
+    notes: ''
+  - ticker: MPWR
+    name: Monolithic Power Systems, Inc.
+    qs_tool: 68
+    qs_adj: 68
+    tier: B
+    sector: Semiconductors/Power
+    fair_value: 900.0
+    entry_price: 650.0
+    currency: USD
+    current_price: 1155.93
+    distance_to_entry: 77.8
+    pipeline_status: SCORED
+    thesis_path: null
+    last_scored: '2026-02-13'
+    last_price_check: '2026-02-13'
+    notes: ''
+  - ticker: LRCX
+    name: Lam Research Corporation
+    qs_tool: 64
+    qs_adj: 64
+    tier: B
+    sector: Semiconductors/Equipment
+    fair_value: 200.0
+    entry_price: 150.0
+    currency: USD
+    current_price: 231.29
+    distance_to_entry: 54.2
+    pipeline_status: SCORED
+    thesis_path: null
+    last_scored: '2026-02-13'
+    last_price_check: '2026-02-13'
+    notes: ''
+  - ticker: MORN
+    name: Morningstar, Inc.
+    qs_tool: 83
+    qs_adj: 78
+    tier: A
+    sector: Financial Data
+    fair_value: 180.0
+    entry_price: 130.0
+    currency: USD
+    current_price: 154.01
+    distance_to_entry: 18.5
+    pipeline_status: R3_COMPLETE
+    thesis_path: thesis/research/MORN/thesis.md
+    last_scored: '2026-02-13'
+    last_price_check: '2026-02-13'
+    notes: 'R3 resolution: DA 13/19 STRONG COUNTER. FV 05->80. CRSP conflict. Growth 9%->7.5%. Entry 30-135. R4 deferred.'
+  - ticker: IT
+    name: Gartner, Inc.
+    qs_tool: 73
+    qs_adj: 78
+    tier: A
+    sector: Research/Advisory
+    fair_value: 190.0
+    entry_price: 135.0
+    currency: USD
+    current_price: 153.63
+    distance_to_entry: 13.8
+    pipeline_status: R3_COMPLETE
+    thesis_path: thesis/research/IT/thesis.md
+    last_scored: '2026-02-13'
+    last_price_check: '2026-02-13'
+    notes: 'R3 resolution: DA 14/19 STRONG COUNTER. FV 45->90. FCF .4B->.2B. AI disruption NOW. Entry 30-135. R4 deferred
+      until 35 or Q1 FY26.'
+  - ticker: VEEV
+    name: Veeva Systems Inc.
+    qs_tool: 72
+    qs_adj: 80
+    tier: A
+    sector: Health IT/SaaS
+    fair_value: 205.0
+    entry_price: 150.0
+    currency: USD
+    current_price: 175.71
+    distance_to_entry: 17.1
+    pipeline_status: R1_COMPLETE
+    thesis_path: thesis/research/VEEV/thesis.md
+    last_scored: '2026-02-13'
+    last_price_check: '2026-02-13'
+    notes: 'R1 COMPLETE. QS 72->80 adj. FV R3: analyst 20, specialist 95, orchestrator 05. WIDE moat 19/25. Entry 40-150.
+      R2 deferred.'
+  - ticker: ISRG
+    name: Intuitive Surgical, Inc.
+    qs_tool: 55
+    qs_adj: 71
+    tier: B
+    sector: Healthcare Equipment
+    fair_value: 330.0
+    entry_price: 310.0
+    currency: USD
+    current_price: 494.17
+    distance_to_entry: 59.4
+    pipeline_status: SCORED
+    thesis_path: null
+    last_scored: '2026-02-13'
+    last_price_check: '2026-02-13'
+    notes: QS 55->71 (+8 surgical robotics monopoly, +8 market position). ROIC 17%, ROIC-WACC +3.3pp, GM 66%, net cash. 17%
+      rev CAGR. P/E 61x too expensive. Need -35% correction.
+  - ticker: SYK
+    name: Stryker Corporation
+    qs_tool: 59
+    qs_adj: 67
+    tier: B
+    sector: Healthcare Equipment
+    fair_value: 310.0
+    entry_price: 275.0
+    currency: USD
+    current_price: 374.0
+    distance_to_entry: 36.0
+    pipeline_status: SCORED
+    thesis_path: null
+    last_scored: '2026-02-13'
+    last_price_check: '2026-02-13'
+    notes: QS 59->67 (+8 ortho oligopoly market position). ROIC 11-14% improving, GM 64%, 5.4% insider, 11% organic growth.
+      P/E 44x. Need -25% correction.
+  - ticker: PODD
+    name: Insulet Corporation
+    qs_tool: 61
+    qs_adj: 66
+    tier: B
+    sector: Healthcare Equipment
+    fair_value: 200.0
+    entry_price: 170.0
+    currency: USD
+    current_price: 246.54
+    distance_to_entry: 45.0
+    pipeline_status: SCORED
+    thesis_path: null
+    last_scored: '2026-02-13'
+    last_price_check: '2026-02-13'
+    notes: 'QS 61->66 (+5 Omnipod market position). Fastest medtech grower: 24% rev CAGR, ROIC 16%, GM 70%. FCF just turning
+      positive. P/E 70x. Near 52wL (-32%). Still too expensive.'
+  - ticker: ACGL
+    name: Arch Capital Group Ltd.
+    qs_tool: 57
+    qs_adj: 68
+    tier: B
+    sector: Insurance/Specialty
+    fair_value: 110.0
+    entry_price: 88.0
+    currency: USD
+    current_price: 98.22
+    distance_to_entry: 18.3
+    pipeline_status: R3_COMPLETE
+    thesis_path: thesis/research/ACGL/thesis.md
+    last_scored: '2026-02-13'
+    last_price_check: '2026-02-13'
+    notes: R3 COMPLETE. DA 12/19 MODERATE. FV $120->$110. Social inflation gap, chairman $3.5M sale, soft market timing. QS
+      57->68 (insurer adj). WIDE moat 22/25. Entry $88.
+  - ticker: ZTS
+    name: Zoetis Inc.
+    qs_tool: 73
+    qs_adj: 73
+    tier: B
+    sector: Animal Health
+    fair_value: 120.0
+    entry_price: 95.0
+    currency: USD
+    current_price: 128.4
+    distance_to_entry: 38.1
+    pipeline_status: R3_COMPLETE
+    thesis_path: thesis/research/ZTS/thesis.md
+    last_scored: '2026-02-13'
+    last_price_check: '2026-02-13'
+    notes: R3 COMPLETE. DA 14/19 STRONG COUNTER. FV $140->$120. QS 78->73 (Tier A->B). Librela 9x adverse events, Apoquel
+      patent Nov 2026, vet visit decline. Entry $95.
+  - ticker: VRSK
+    name: Verisk Analytics, Inc.
+    qs_tool: 80
+    qs_adj: 80
+    tier: A
+    sector: Insurance Data
+    fair_value: 185.0
+    entry_price: 140.0
+    currency: USD
+    current_price: 181.13
+    distance_to_entry: 31.3
+    pipeline_status: R3_COMPLETE
+    thesis_path: thesis/research/VRSK/thesis.md
+    last_scored: '2026-02-13'
+    last_price_check: '2026-02-13'
+    notes: R3 COMPLETE. DA 13/19 STRONG COUNTER. FV $205->$185. Monopoly premium $30 indefensible. OEY+Growth 9.6% lowest
+      Tier A. Entry $135-140. Earnings Feb 18 = hard gate.
+  - ticker: AM.PA
+    name: DASSAULT AVIATION
+    qs_tool: 75
+    qs_adj: 75
+    tier: A
+    sector: Defense & Aerospace
+    fair_value: 0.0
+    entry_price: 0.0
+    currency: USD
+    current_price: 391.55
+    distance_to_entry: null
+    pipeline_status: SCORED
+    thesis_path: null
+    last_scored: '2026-02-13'
+    last_price_check: '2026-02-13'
+    notes: ''
+  - ticker: TDG
+    name: Transdigm Group Incorporated
+    qs_tool: 69
+    qs_adj: 69
+    tier: B
+    sector: Defense & Aerospace
+    fair_value: 0.0
+    entry_price: 0.0
+    currency: USD
+    current_price: 1305.71
+    distance_to_entry: null
+    pipeline_status: SCORED
+    thesis_path: null
+    last_scored: '2026-02-13'
+    last_price_check: '2026-02-13'
+    notes: ''
+  - ticker: HEI
+    name: Heico Corporation
+    qs_tool: 73
+    qs_adj: 73
+    tier: B
+    sector: Defense & Aerospace
+    fair_value: 0.0
+    entry_price: 0.0
+    currency: USD
+    current_price: 332.84
+    distance_to_entry: null
+    pipeline_status: SCORED
+    thesis_path: null
+    last_scored: '2026-02-13'
+    last_price_check: '2026-02-13'
+    notes: ''
+  - ticker: RHM.DE
+    name: RHEINMETALL AG                I
+    qs_tool: 70
+    qs_adj: 70
+    tier: B
+    sector: Defense & Aerospace
+    fair_value: 0.0
+    entry_price: 0.0
+    currency: USD
+    current_price: 1910.25
+    distance_to_entry: null
+    pipeline_status: SCORED
+    thesis_path: null
+    last_scored: '2026-02-13'
+    last_price_check: '2026-02-13'
+    notes: ''
+  - ticker: HWM
+    name: Howmet Aerospace Inc.
+    qs_tool: 66
+    qs_adj: 66
+    tier: B
+    sector: Defense & Aerospace
+    fair_value: 0.0
+    entry_price: 0.0
+    currency: USD
+    current_price: 250.99
+    distance_to_entry: null
+    pipeline_status: SCORED
+    thesis_path: null
+    last_scored: '2026-02-13'
+    last_price_check: '2026-02-13'
+    notes: ''
+  - ticker: GE
+    name: GE Aerospace
+    qs_tool: 66
+    qs_adj: 66
+    tier: B
+    sector: Defense & Aerospace
+    fair_value: 0.0
+    entry_price: 0.0
+    currency: USD
+    current_price: 315.82
+    distance_to_entry: null
+    pipeline_status: SCORED
+    thesis_path: null
+    last_scored: '2026-02-13'
+    last_price_check: '2026-02-13'
+    notes: ''
+  - ticker: IDR.MC
+    name: INDRA SISTEMAS S.A., SERIE A
+    qs_tool: 65
+    qs_adj: 65
+    tier: B
+    sector: Defense & Aerospace
+    fair_value: 0.0
+    entry_price: 0.0
+    currency: USD
+    current_price: 60.67
+    distance_to_entry: null
+    pipeline_status: SCORED
+    thesis_path: null
+    last_scored: '2026-02-13'
+    last_price_check: '2026-02-13'
+    notes: ''
+  - ticker: HO.PA
+    name: THALES
+    qs_tool: 63
+    qs_adj: 63
+    tier: B
+    sector: Defense & Aerospace
+    fair_value: 0.0
+    entry_price: 0.0
+    currency: USD
+    current_price: 291.11
+    distance_to_entry: null
+    pipeline_status: SCORED
+    thesis_path: null
+    last_scored: '2026-02-13'
+    last_price_check: '2026-02-13'
+    notes: ''
+  - ticker: CTAS
+    name: Cintas Corporation
+    qs_tool: 78
+    qs_adj: 78
+    tier: A
+    sector: Environmental Services/Facility
+    fair_value: 250.0
+    entry_price: 160.0
+    currency: USD
+    current_price: 194.78
+    distance_to_entry: 21.7
+    pipeline_status: SCORED
+    thesis_path: null
+    last_scored: '2026-02-13'
+    last_price_check: '2026-02-13'
+    notes: ''
+  - ticker: RSG
+    name: Republic Services, Inc.
+    qs_tool: 68
+    qs_adj: 68
+    tier: B
+    sector: Environmental Services
+    fair_value: 255.0
+    entry_price: 210.0
+    currency: USD
+    current_price: 223.4
+    distance_to_entry: 6.4
+    pipeline_status: R1_COMPLETE
+    thesis_path: thesis/research/RSG/thesis.md
+    last_scored: '2026-02-13'
+    last_price_check: '2026-02-13'
+    notes: 'R1 complete. FV $255 (EV/EBITDA 16x). MoS 12.5% insufficient. Duopoly US waste. HARD GATE: Feb 17 earnings. SBC
+      immaterial.'
+  - ticker: ECL
+    name: Ecolab Inc.
+    qs_tool: 65
+    qs_adj: 65
+    tier: B
+    sector: Water Treatment/Chemicals
+    fair_value: 340.0
+    entry_price: 240.0
+    currency: USD
+    current_price: 301.25
+    distance_to_entry: 25.5
+    pipeline_status: SCORED
+    thesis_path: null
+    last_scored: '2026-02-13'
+    last_price_check: '2026-02-13'
+    notes: ''
+  - ticker: VLTO
+    name: Veralto Corp
+    qs_tool: 52
+    qs_adj: 66
+    tier: B
+    sector: Environmental/Water
+    fair_value: 100.0
+    entry_price: 80.0
+    currency: USD
+    current_price: 93.26
+    distance_to_entry: 16.6
+    pipeline_status: R3_COMPLETE
+    thesis_path: thesis/research/VLTO/thesis.md
+    last_scored: '2026-02-13'
+    last_price_check: '2026-02-13'
+    notes: R3 COMPLETE. QS 52->66 adj (+14 spinoff). FV $100. NARROW moat (leaning WIDE pending 5yr data). Risk MEDIUM. Entry $80.
+  - ticker: BAH
+    name: Booz Allen Hamilton Holding Cor
+    qs_tool: 68
+    qs_adj: 68
+    tier: B
+    sector: Defense/Aerospace
+    fair_value: 88.0
+    entry_price: 60.0
+    currency: USD
+    current_price: 79.86
+    distance_to_entry: 33.1
+    pipeline_status: R1_COMPLETE
+    thesis_path: thesis/research/BAH/thesis.md
+    last_scored: '2026-02-13'
+    last_price_check: '2026-02-13'
+    notes: R1 COMPLETE. QS 73->68 adj. FV $88. VERY HIGH risk (DOGE). NARROW moat. NOT advancing to R2 until DOGE stabilizes.
+  - ticker: FDS
+    name: FactSet Research Systems Inc.
+    qs_tool: 73
+    qs_adj: 73
+    tier: B
+    sector: Financial Data
+    fair_value: 210.0
+    entry_price: 170.0
+    currency: USD
+    current_price: 203.84
+    distance_to_entry: 19.9
+    pipeline_status: R3_COMPLETE
+    thesis_path: thesis/research/FDS/thesis.md
+    last_scored: '2026-02-13'
+    last_price_check: '2026-02-13'
+    notes: R3 COMPLETE. QS 73. FV $210 (was $225, -7pct). CEO Snow retired Sep 2025. Correlated AI+competition+headcount risk. Entry $170. HARD GATE Q2 FY2026 Mar 2026.

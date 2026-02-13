@@ -1,8 +1,9 @@
 # ZTS - Zoetis Inc.
 
-> **Fair Value:** $140
-> **Date:** 2026-02-12
-> **Pipeline Stage:** R1 (Fundamental Analysis)
+> **Fair Value:** $120
+> **Date:** 2026-02-13
+> **Pipeline Stage:** R3_COMPLETE (Post-Adversarial Resolution)
+> **R3 Resolution:** Analyst $140, DA $115-125, Weighted → $120. Librela 9x adverse events, Apoquel patent Nov 2026, vet visit decline. QS 78→73 (Tier A→B).
 > **Analyst:** fundamental-analyst (Claude)
 
 ## TL;DR

@@ -1,8 +1,9 @@
 # ACGL - Arch Capital Group Ltd.
 
-> **Fair Value:** $120
-> **Analysis Date:** 2026-02-12
-> **Pipeline Stage:** R1 (Fundamental Analysis)
+> **Fair Value:** $110
+> **Analysis Date:** 2026-02-13
+> **Pipeline Stage:** R3_COMPLETE (Post-Adversarial Resolution)
+> **R3 Resolution:** Analyst $120, DA $105-110, Weighted → $110. Social inflation gap, chairman sale, soft market timing.
 > **Analyst:** fundamental-analyst
 
 ## TL;DR

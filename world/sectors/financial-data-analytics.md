@@ -1,6 +1,6 @@
 # Sector: Financial Data & Analytics
 
-> Ultima actualizacion: 2026-02-11
+> Ultima actualizacion: 2026-02-13
 > Status: NEUTRAL-SELECTIVO - Moats excepcionales pero valuaciones premium. Oportunidad selectiva en names castigados.
 
 ## Resumen Ejecutivo
@@ -9,7 +9,7 @@ El sector de datos financieros y analitica es uno de los negocios mas atractivos
 
 El subsegmento de credit scoring esta en un momento de inflexion historico: VantageScore 4.0 fue aceptado por FHFA (Jul 2025) como primera alternativa real a FICO en scoring hipotecario. Esto rompe un monopolio de 30+ anos y ha causado una re-evaluacion fundamental de FICO (-39% desde maximos). La pregunta clave: es una correccion de multiplo saludable (oportunidad) o el inicio de una erosion estructural del moat?
 
-Los jugadores clave (S&P Global, MSCI, Moody's, ICE, FICO, Verisk) comparten caracteristicas: datos propietarios, switching costs elevados, efectos de red, y margenes excepcionales. La diferencia esta en la durabilidad del moat: ratings y indices tienen moats casi inexpugnables, mientras que scoring y analytics enfrentan disrupcion mas real.
+Los jugadores clave (S&P Global, MSCI, Moody's, ICE, FICO, Verisk, FactSet) comparten caracteristicas: datos propietarios, switching costs elevados, efectos de red, y margenes excepcionales. La diferencia esta en la durabilidad del moat: ratings y indices tienen moats casi inexpugnables, mientras que scoring y analytics/terminals enfrentan disrupcion mas real (VantageScore para FICO, AI/Bloomberg para FDS).
 
 ---
 
@@ -20,8 +20,9 @@ Los jugadores clave (S&P Global, MSCI, Moody's, ICE, FICO, Verisk) comparten car
 | TAM Credit Scoring (US) | ~$4-5B (2025) | Growing | CAGR 6-8% |
 | TAM Financial Data Global | ~$50B (2025) | Growing | CAGR 8-10% |
 | P/E FICO | ~50x trailing | vs 55x (3y avg) | Compressing |
-| P/E SPGI | ~37x | vs 30x (5y avg) | Premium |
-| P/E MSCI | ~42x | vs 45x (3y avg) | Stable |
+| P/E SPGI | ~28x | vs 30x (5y avg) | Stable |
+| P/E MSCI | ~34x | vs 45x (3y avg) | Compressing |
+| P/E FDS | ~13x | vs 30x (3y avg) | Severely compressed |
 | Operating Margin (sector avg) | 35-55% | Highest quality | Stable-expanding |
 
 ---
@@ -39,6 +40,7 @@ Los jugadores clave (S&P Global, MSCI, Moody's, ICE, FICO, Verisk) comparten car
 | Moody's (MCO) | Ratings + Analytics | #2 ratings | WIDE |
 | ICE (Intercontinental Exchange) | Data + Exchanges + Mortgage Tech | Diversificado | WIDE |
 | Verisk (VRSK) | Insurance Analytics | #1 | WIDE |
+| **FactSet (FDS)** | **Financial Data/Analytics Terminals** | **#2 (22% share, vs Bloomberg 33%)** | **NARROW-WIDE** |
 | VantageScore | Credit Scoring (US) | <10% (pero creciendo) | NARROW (backed by 3 bureaus) |
 
 ---
@@ -65,6 +67,7 @@ Los jugadores clave (S&P Global, MSCI, Moody's, ICE, FICO, Verisk) comparten car
 | AI en credit scoring | Media | Alto | 3-5 anos |
 | Open banking / alternative data | Media | Medio | 2-4 anos |
 | Blockchain en settlement | Baja | Medio | 5-10 anos |
+| AI reducing analyst seat count (SaaSpocalypse) | Media | Alto para FDS | 3-5 anos |
 
 ### Regulatorios
 | Regulacion | Probabilidad | Impacto |
@@ -79,18 +82,21 @@ Los jugadores clave (S&P Global, MSCI, Moody's, ICE, FICO, Verisk) comparten car
 - Credit bureaus (EFX, TRU, EXPN): Financial incentive to displace FICO and keep scoring in-house.
 - Fintech lenders: Some using alternative data (Upstart, etc.) but still niche.
 - FICO Direct License Program (Oct 2025): FICO counter-attacking by bypassing bureaus. Could generate $300M+ incremental revenue CY2026.
+- Bloomberg AI tools and Capital IQ Chat IQ: Both developing AI-native financial data products that compete with FDS Mercury.
 
 ---
 
 ## Sentimiento de Mercado
 
-**Sentimiento actual:** FICO: Odiado/Temido (pricing backlash + VantageScore). Resto del sector: Querido (premium multiples).
+**Sentimiento actual:** FICO: Odiado/Temido (pricing backlash + VantageScore). FDS: Odiado (margin compression + growth deceleration + AI fear). Resto del sector: Querido (premium multiples).
 
 **Narrativa dominante:**
 "FICO's monopoly is finally under threat. VantageScore + bureau revolt + CFPB pressure = moat erosion."
+"FDS is a low-growth utility stuck in margin compression from cloud/AI investment, losing pricing power."
 
 **Mi contra-tesis (si aplica):**
-"Monopolies die slowly. FICO's 30-year entrenchment (model validation, lender systems, regulatory compliance) creates switching costs measured in years, not months. VantageScore acceptance != VantageScore adoption. The -39% drop may be overpricing a threat that takes 5-10 years to materialize. BUT the stock at 50x P/E still prices in monopoly growth -- not enough correction yet."
+"Monopolies die slowly. FICO's 30-year entrenchment creates switching costs measured in years, not months. BUT the stock at 50x P/E still prices in monopoly growth -- not enough correction yet."
+"FDS at 13x P/E for a 95%+ retention business with 27% FCF margins is anomalously cheap. Margin compression is investment-driven (cloud transition) and should normalize in FY2028. But need $180 entry for adequate MoS."
 
 ---
 
@@ -105,6 +111,7 @@ Los jugadores clave (S&P Global, MSCI, Moody's, ICE, FICO, Verisk) comparten car
 | Tipo | Ticker | Thesis Path | Ultima Eval | Status |
 |------|--------|-------------|-------------|--------|
 | Research | FICO | thesis/research/FICO | 2026-02-11 | R1 COMPLETE -- WATCHLIST (~$900 FV, entry $700-850) |
+| Research | FDS | thesis/research/FDS | 2026-02-13 | R1 COMPLETE -- WATCHLIST ($230 FV, entry $180) |
 
 ---
 
@@ -115,12 +122,12 @@ Los jugadores clave (S&P Global, MSCI, Moody's, ICE, FICO, Verisk) comparten car
 |--------|-------|----------|
 | SPGI | QS ~85+ probable. WIDE moat indices+ratings. Premium valuation. | Media |
 | MSCI | QS ~80+ probable. WIDE moat indices. Premium valuation. | Media |
-| VRSK | QS ~75+ probable. Insurance analytics monopoly. | Baja |
 
 ### Analizadas
 | Ticker | Razon | Resultado |
 |--------|-------|-----------|
 | FICO | QS 75 Tool / 70 Adj (Tier B). -39% from high. FV ~$900, price $1,363. | WATCHLIST -- overvalued at current price. Entry $700-850. |
+| FDS | QS 73 (Tier B). -57% from ATH. FV $230, price $204. | WATCHLIST -- insufficient MoS at current price. Entry $180. |
 
 ### Evitar
 | Ticker | Razon |
@@ -135,6 +142,7 @@ Los jugadores clave (S&P Global, MSCI, Moody's, ICE, FICO, Verisk) comparten car
 | Ticker | Empresa | FV | Entry | MoS Req | Thesis | Fecha Analisis |
 |--------|---------|-----|-------|---------|--------|----------------|
 | FICO | Fair Isaac Corp | ~$900 | $700-850 | 20-25% | thesis/research/FICO | 2026-02-11 |
+| FDS | FactSet Research Systems | $230 | $180 | 20-22% | thesis/research/FDS | 2026-02-13 |
 
 ---
 
@@ -142,10 +150,11 @@ Los jugadores clave (S&P Global, MSCI, Moody's, ICE, FICO, Verisk) comparten car
 
 | Fecha | Evento | Impacto esperado |
 |-------|--------|------------------|
+| Mar 2026 | FDS Q2 FY2026 earnings | Margin trajectory key -- is trough forming? |
 | Q2 FY2026 (Apr 2026) | FICO Q2 results | Software Platform ARR growth key metric |
 | H1 2026 | VantageScore adoption data from GSEs | Key metric for moat erosion speed |
 | Ongoing | CFPB pricing review / DOJ investigation | Regulatory overhang |
-| H2 2026 | Fed rate cuts (if) | Positive for mortgage origination volumes |
+| H2 2026 | Fed rate cuts (if) | Positive for mortgage origination + capital markets activity |
 
 ---
 
@@ -155,6 +164,7 @@ Los jugadores clave (S&P Global, MSCI, Moody's, ICE, FICO, Verisk) comparten car
 |-------|--------|-------|
 | 2026-02-11 | Sector view creado. Status: NEUTRAL-SELECTIVO | FICO pipeline activo. QS 75 Tier A, -39% from high. |
 | 2026-02-11 | FICO R1 complete. Moved to Analizadas. WATCHLIST $700-850 | FV ~$900, current $1,363 = -51% overvalued. Quality excellent but price not right. |
+| 2026-02-13 | FDS R1 complete. Added to Analizadas + Dependencias. WATCHLIST $180 | QS 73 Tier B. FV $230 vs $204 = 13% MoS (insufficient). VRSK moved from Empresas Objetivo to tracked in universe only (R3 complete elsewhere). |
 
 ---
 
@@ -163,5 +173,7 @@ Los jugadores clave (S&P Global, MSCI, Moody's, ICE, FICO, Verisk) comparten car
 - FICO Investor Relations
 - FHFA VantageScore Acceptance (Jul 2025)
 - S&P Global, MSCI, Moody's public filings
+- [FactSet Q1 FY2026 Earnings Release](https://investor.factset.com/news-releases/news-release-details/factset-reports-results-first-quarter-fiscal-2026/)
+- [FactSet FY2025 Annual Results](https://investor.factset.com/news-releases/news-release-details/factset-reports-results-fourth-quarter-and-fiscal-2025)
 - [Equifax Statement on FICO Price Increase](https://www.equifax.com/newsroom/all-news/-/story/equifax-statement-on-fico-2x-price-increase-for-2026-and-mortgage-direct-license-program/)
 - [Senator Hawley DOJ Investigation Call](https://www.hawley.senate.gov/senator-hawley-calls-on-doj-to-investigate-fico-for-anticompetitive-practices-repeated-price-hikes/)

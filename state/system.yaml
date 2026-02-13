@@ -6,8 +6,8 @@
 system:
   system_version: "4.0.0"
   framework_version: "4.0"
-  last_session: 2026-02-12
-  session_number: 64
+  last_session: 2026-02-13
+  session_number: 69
 
   # FRAMEWORK v4.0 - IMPLEMENTADO
   # =====================================
@@ -48,16 +48,16 @@ system:
     replaced_by: "v4.0"
     original_document: docs/framework_v3.0_final_design.md
 
-  # QUALITY SCORE - PORTFOLIO ANALYSIS (Updated 2026-02-11)
+  # QUALITY SCORE - PORTFOLIO ANALYSIS (Updated 2026-02-13)
   # ===============================================
   portfolio_quality_analysis:
-    date: 2026-02-11
+    date: 2026-02-13
     summary:
-      total_positions: 13
+      total_positions: 11
       tier_a_count: 3  # MONY.L(75 adj, borderline), LULU(78 adj, low-end), ADBE(76 tool, 73 adj borderline)
-      tier_b_count: 5  # AUTO.L(71 adj), NVO(73), BYIT.L(68-72), EDEN.PA(62), DOM.L(61). VICI REIT-adj ~60 borderline.
-      tier_c_count: 5  # ALL(56), VICI(54), GL(52), UHS(51), DTE.DE(48)
-      tier_d_count: 0
+      tier_b_count: 5  # NVO(73), AUTO.L(71 adj), BYIT.L(68-72), EDEN.PA(62), DOM.L(61)
+      tier_c_count: 3  # ALL(56), GL(52), DTE.DE(48)
+      tier_d_count: 0  # UHS+VICI SOLD Session 66
     positions:
       # TIER A - Quality Compounders (3 positions)
       - { ticker: MONY.L, score: 75, tier: A, status: "AI Disruption Re-eval 2026-02-12: QS Tool 83, Adj 75 (borderline Tier A). FV 201→190 GBp. Moat erosion prob 30-35%. ON PROBATION. HOLD LOW through Feb 23 earnings. KC#9 added (AI strategy)." }
@@ -69,15 +69,15 @@ system:
       - { ticker: BYIT.L, score: 68, tier: B, status: "Adversarial 2026-02-11: QS 81→68-72 (Tier A→B). FV 455→345 GBp (-24.2%). HOLD PROBATION LOW." }
       - { ticker: EDEN.PA, score: 62, tier: B, status: "Adversarial FV EUR 29.0. HOLD MEDIUM through Feb 24 earnings." }
       - { ticker: DOM.L, score: 61, tier: B, status: "Adversarial FV 240 GBp. HOLD LOW through Mar 5 results." }
-      # TIER C - Special Situations (5 positions)
+      # TIER C - Special Situations (3 positions)
       - { ticker: ALL, score: 56, tier: C, status: "ON PROBATION LOW. ROE 37% = peak cycle." }
-      - { ticker: VICI, score: 54, tier: C, status: "REIT-Adj ~60 Tier B borderline. ON PROBATION through Feb 25 earnings." }
       - { ticker: GL, score: 52, tier: C, status: "Adj 55 Tier B borderline. SEC+DOJ cleared. FV $191." }
-      - { ticker: UHS, score: 51, tier: C, status: "ON PROBATION. FV $213. Medicaid cuts = structural risk. Feb 25 earnings decisive." }
       - { ticker: DTE.DE, score: 48, tier: C, status: "FV EUR 35.00 (v3.1 post-TMUS beat). Feb 26 DTE earnings. MoS 14.4%." }
     diagnosis: |
-      Session 54: 13 positions active. Adversarial review ALL 5 FASES COMPLETED.
-      AUTO.L reclassified Tier A→B (QS 79→71). BYIT.L Tier A→B (QS 81→68-72).
+      Session 66: 11 positions active. SOLD UHS (+16.2%) and VICI (+1.7%) pre-earnings.
+      UHS above FV, Medicaid structural risk. VICI zero MoS, Caesars lease risk.
+      Tier C reduced from 5 to 3. Portfolio quality improving per Principio 9.
+      3 ON PROBATION: MONY.L, LULU, ALL. Cash 53%.
       True Tier A count: 3 (MONY.L 81, LULU 82, ADBE 76/adj 73 borderline).
       Tier B count: 5 (NVO 73, AUTO.L 71, BYIT.L 68, EDEN.PA 62, DOM.L 61).
       Tier C count: 5 (ALL 56, VICI 54, GL 52, UHS 51, DTE.DE 48).
@@ -91,55 +91,44 @@ system:
   # Purged 2026-02-11 to reduce file size (~730 lines removed)
 
   last_session_summary: |
-    Session 64 - VIGILANCE + UNIVERSE EXPANSION + R1 FACTORY (2026-02-13)
-    (Multi-context session — Sess 63 + continuation + continuation 2)
+    Session 69 - WAVE CONTINUATION (2026-02-13)
 
     =====================================================
-    VIGILANCE (news + market pulse)
+    R3 RESOLUTIONS COMPLETED (3 companies — from Session 68 agents)
     =====================================================
-    0 CRITICAL, 11 MATERIAL across 21 tickers.
-    Key: DSY.PA crashed -21% Feb 11 (standing order conditions holding).
-    PAYC $105 approaching R3 entry $88-95. ALL Q4 blowout +49% EPS beat.
-    MORN Q4 beat confirmed (EPS $2.71 vs $2.36, +14.83%). CRSP acquired Feb 2.
-    AUTO.L + BYIT.L both at 52-week lows.
-    SaaSpocalypse cluster: DSY.PA/PAYC/ADBE/INTU/BYIT.L hit by AI narrative.
+    FDS: FV $225→$210 (-7%). CEO Snow retired Sep 2025 (CRITICAL miss in thesis).
+      Entry $180→$170 (19% MoS). Correlated AI+competition+headcount risk. HARD GATE Q2 Mar 2026.
+    BVI.PA: FV EUR 33→EUR 29 (-12%). QS 73→70 (-3 governance). Wendel STRUCTURAL.
+      Entry EUR 24→EUR 22 (24% MoS). HARD GATE Feb 25 earnings.
+    MMC: FV $190 confirmed (val-specialist). Entry $160→$155 (18.4% MoS).
+      Greensill A$7B trial Aug 2026 = SIZING CONSTRAINT. DA 13/20 MODERATE COUNTER.
 
     =====================================================
-    ROTATION CHECK
+    VIGILANCE (0 CRITICAL, 9 MATERIAL)
     =====================================================
-    Bottom 3: UHS -9.0% (EXIT Feb 25), VICI -0.2% (EXIT Feb 25), DTE.DE +8.6%.
-    Portfolio: EUR 10,061 total, EUR 4,844 cash (48.1%), P&L +$147 (+2.4%).
+    CORRECTIONS: ROP 10.6% from trigger (NOT 5%), GL Q4 MISS (NOT beat),
+    NVO CagriSema NDA already filed Dec 2025 (NOT "expected Q1").
+    LULU 2nd see-through in 3 weeks (KC#3 pattern). GL insider selling escalation.
+    ADBE all-time low P/E 15x. SaaS selloff continuing.
 
     =====================================================
-    UNIVERSE EXPANSION (Capital Deployment Machine)
+    PIPELINE STATUS
     =====================================================
-    4 SECTORS SCREENED: Insurance (25 cos, 6 qualify), Pharma/HC (30, 6),
-    Consumer Staples (30, 9), Business Services (pending).
-    Universe: 34 companies (was 13). 23 sectors covered. 8 actionable.
+    11 R3-complete candidates: IT(A), MORN(A), PAYC(A), VRSK(A), ROP(B-R4),
+      VLTO(B), ACGL(B), FDS(B), BVI.PA(B), INTU(B), ZTS(B), MMC(B).
+    4 R4-approved: DSY.PA, DNLM.L, RACE.MI, ROP.
+    Closest actionable: RSG 6.4% (R1, earnings Mon), ROP 10.6% (R4 APPROVED).
+    Earnings wall Feb 17-26 blocks most pipeline advancement.
 
     =====================================================
-    R1 ANALYSIS FACTORY (3 companies, 9 agents)
+    NEXT PRIORITIES
     =====================================================
-    GMAB: QS 77→65 (post-Merus $8B acquisition). FV $36. NARROW moat. WATCHLIST $25.
-    ACGL: QS 57→68 (insurer adj). FV $120. WIDE moat (22/25). WATCHLIST $92.
-    ZTS: QS 73→78 (Tier A). FV $140. WIDE moat (22/25). WATCHLIST $110-115.
-    All 3 → quality_universe updated, thesis files written, sector views updated.
-
-    =====================================================
-    DSY.PA STANDING ORDER REVIEW
-    =====================================================
-    Standing order EUR 15.50 REMAINS (conditional on Q1 2026). No action.
-
-    =====================================================
-    WORK FOR NEXT SESSION
-    =====================================================
-    1. CPI Jan 2026 impact (released Feb 13 08:30 ET)
-    2. VEEV R1 priority (only 2.4% from entry, SCORED only!)
-    3. Earnings week Feb 23-26: MONY.L, EDEN.PA, VICI, UHS, DTE.DE, INTU, WPP.L
-    4. ROP approaching trigger ($300, 11.3% away)
-    5. MORN R2-R4 needed ($145, 7.1% away)
-    6. Business Services screening results
-    7. Standing orders needing pipeline: CMCSA, MA, V (WARNING)
+    1. Feb 17 (Mon): RSG + CDNS dual earnings → post-earnings R2 decision
+    2. Feb 18 (Tue): VRSK earnings → R4 committee if results confirm thesis
+    3. Feb 23: MONY.L earnings → KC#9 AI strategy fate
+    4. Feb 24-26: EDEN.PA, DTE.DE, INTU triple earnings week
+    5. ROP $300 trigger monitoring (10.6% away)
+    6. Pipeline: Consider IT R4 (Tier A, 13.8% from entry, no hard gate)
 
   status: active
 
@@ -317,6 +306,21 @@ calendar:
       priority: high
       action: "BUY 110 shares BYIT.L @ 296 GBp. Total $444 (~377 EUR). QS 81 Tier A, MoS 35%. UK #1 software VAR. ADD trigger 260p."
 
+    # SESSION 66 - SELLS (2026-02-13)
+    - date: 2026-02-13
+      type: action_completed
+      ticker: UHS
+      event: "DONE - SOLD UHS 2 shares @ $234.05"
+      priority: high
+      action: "EXIT - EXIT Protocol 4/6 gates SELL. ABOVE FV -9% ($234 vs $213). BofA UNDERPERFORM PT $185. Medicaid structural. 5/5 precedents = SOLD. P&L +16.2% (+EUR 55). Cash +EUR 394."
+
+    - date: 2026-02-13
+      type: action_completed
+      ticker: VICI
+      event: "DONE - SOLD VICI 21 shares @ $29.06"
+      priority: high
+      action: "EXIT - EXIT Protocol 4/6 gates SELL. MoS 0%, thesis weakened 5/7 assumptions. Caesars 1.03x. 5/5 precedents = SOLD. P&L +1.7% (+EUR 9). Cash +EUR 514."
+
     # PAYC + MORN EARNINGS (ADDED 2026-02-11)
     - date: 2026-02-11
       type: earnings_completed
@@ -358,9 +362,9 @@ calendar:
     - date: 2026-02-25
       type: earnings
       ticker: VICI
-      event: "VICI Q4 2025 / FY2025 earnings (after close)"
-      priority: critical
-      action: "FRAMEWORK READY. ON PROBATION. FV $29.00. AFFO guide <$2.35 = SELL. Caesars rent cut >10% w/o comp = SELL (KC#7). Div cut = SELL. Guide $2.45+ = HOLD/UPGRADE. See thesis/active/VICI/earnings_framework_feb2026.md"
+      event: "VICI Q4 2025 / FY2025 earnings (POSITION SOLD 2026-02-13)"
+      priority: low
+      action: "NO LONGER HOLDING. Sold at $29.06 (+1.7%). Monitor for adversarial FV tracking only."
 
     - date: 2026-02-25
       type: watchlist_review
@@ -490,9 +494,9 @@ calendar:
     - date: 2026-02-26
       type: earnings
       ticker: UHS
-      event: "UHS Q4 2025 / FY2025 earnings (estimated Feb 25-26)"
-      priority: critical
-      action: "FRAMEWORK READY. ON PROBATION. FV $213, price $227 = OVERVALUED. FY26 guide <$20 = SELL (KC#5). BH volumes decline = SELL (KC#4). Guide $20-22 = HOLD LOW. Guide >$22 + volumes up = UPGRADE. See thesis/active/UHS/earnings_framework_feb2026.md"
+      event: "UHS Q4 2025 / FY2025 earnings (POSITION SOLD 2026-02-13)"
+      priority: low
+      action: "NO LONGER HOLDING. Sold at $234.05 (+16.2%). Monitor for adversarial FV tracking only."
 
     - date: 2026-02-04
       type: action_cancelled
@@ -512,6 +516,13 @@ calendar:
       event: "CVS Health Q4 2025"
       priority: high
       action: "BEAT (EPS >$6.70, margin >8%) - ready_to_buy 300. MISS - descartar."
+
+    - date: 2026-02-18
+      type: earnings_pipeline
+      ticker: VRSK
+      event: "VRSK Q4 2025 earnings (after close Feb 18)"
+      priority: high
+      action: "HARD GATE before R4. R3 FV $185, entry $135-140. At ~$179 = 3% below FV (fairly valued). Watch: organic growth (deceleration Q1 7%→Q3 5.9%), FY2026 guide (5-7% range), EBITDA margin (55%+), soft market P&C commentary, AccuLynx update. BEAR scenario: -10-15% to $150-165 → approach entry. BASE: no action. BULL: stock moves away. Framework: thesis/research/VRSK/earnings_framework_feb18.md"
 
     - date: 2026-02-19
       type: earnings
@@ -729,6 +740,12 @@ watchlist:
       notes: "R1 COMPLETE (3 agents). QS 77 Tool / 75 Adj (Tier A borderline). WIDE moat (QBO switching costs + network effects). Risk MEDIUM-HIGH. AI net positive (TurboTax Live +51%, $100M OpenAI). 90/0 insider selling concern. SBC 39% FCF = quality flag. IRS Direct File killed. Q2 earnings Feb 26. R2-R4 DEFERRED — price $400, need $330-365. If Q2 disappoints + drops → accelerate pipeline."
       kill: "QBO customers -5% YoY 2Q, TurboTax share loss >5pp, FCF <$4B, IRS Direct File reinstated, ROIC < WACC, Goodwill impairment >$2B, Revenue growth <8% 2Q"
       thesis: thesis/research/INTU/thesis.md
+    - ticker: VEEV
+      entry: "$140-150"
+      fair_value: "$205 (R3 reconciled: analyst $220, specialist $195)"
+      notes: "R1 COMPLETE (4 agents). QS Tool 72, Adj 80 (Tier A). WIDE moat 19/25. MEDIUM-HIGH risk (2 CRITICAL correlated: CRM defection to Salesforce + per-seat pricing). Entry $140-150. At $172 = 14-19% above entry. R2 DEFERRED until price approaches $150 or Q4 earnings Mar 4. Per-seat 47% declining (R&D per-module growing). $6.5B net cash."
+      kill: "Vault CRM retention <12 top-20 pharma, top-20 defects from Vault R&D, revenue growth <8% 2Q, ROIC < WACC, per-seat CRM rev/customer -5% YoY"
+      thesis: thesis/research/VEEV/thesis.md
     - ticker: ENEL.MI
       entry: "7.00-7.50"
       notes: "Vendida breakeven. CMD 23-feb catalyst."
@@ -916,7 +933,7 @@ alerts:
     - { ticker: WKL.AS, entry_eur: 50, note: "STRONG ENTRY. Committee FV EUR 72. At EUR 50 = MoS 44%. Only if FY2025 shows 5%+ organic growth + healthy cloud metrics." }
     - { ticker: DSY.PA, entry_eur: 15.50, note: "Dassault Systemes. Committee APPROVED 2026-02-11. FV EUR 20.00 (may revise post-Q1). QS 70 Tier B. WIDE moat. HIGH risk. CRASHED -21% Feb 11. FY2026 guide 3-5% (borderline on <3% cancel). Standing order EUR 15.50 = MoS 22.5%. CONDITIONAL on Q1 2026 results. Cancel if growth <3%. 0APT data breach monitoring." }
     - { ticker: PAYC, entry_usd: 92, note: "Paycom. QS Tool 85, Adj 75 (Tier A borderline). R3 COMPLETE 2026-02-13. FV $130→$115. Entry $95-105→$88-95. Growth decel 9%→6-7%. Governance discount -5%. KC#8 per-seat pricing. R4 DEFERRED until price approaches $95 or Q1 FY2026 (Apr). Price ~$120." }
-    - { ticker: MORN, entry_usd: 145, note: "Morningstar. QS 80 adj (83 tool) Tier A. R1 COMPLETE. Q4 2025 BEAT: EPS $2.71 vs $2.36 (+14.83%), FY EPS $9.86 (+25%), FCF $442.6M, Rev $2.4B (+7.5%). CRSP acquired Feb 2. Entry $145 = MoS ~26% vs FV $197. R2-R4 needed before execution." }
+    - { ticker: MORN, entry_usd: 133, note: "Morningstar. R3 COMPLETE. QS 80 Tier A. FV $205→$180 (DA 13/19 STRONG COUNTER, FV $163). CRSP $365M conflict omitted in thesis. FCF -1.4%. Insider selling $30M+. Growth 9%→7.5%. Entry $145→$130-135. At $154 = MoS only 14% (insufficient Tier A). R4 deferred until price approaches $135. Q4 beat: EPS $2.83." }
 
 # -----------------------------------------------------------------------------
 # STANDING ORDERS (pre-aprobadas, ejecutar cuando precio toque trigger)
@@ -1311,7 +1328,7 @@ pipeline_tracker:
     trigger: "cash > 25%"
     last_run: 2026-02-13
     next_due: 2026-02-14
-    last_result: "Session 64: Universe 34 companies (was 13). 4 sectors screened (Insurance, Pharma/HC, Consumer Staples, Business Services). R1 factory: GMAB (QS 65, WATCHLIST $25), ACGL (QS 68, WATCHLIST $92), ZTS (QS 78 Tier A!, WATCHLIST $110-115). 23 sectors covered. 8 actionable (VEEV 2.4% from entry!). Consumer Staples: 9 qualifying (MNST 78 A, OR.PA 77 A)."
+    last_result: "Session 69: R3 resolved FDS ($210 entry $170), BVI.PA (EUR 29 entry EUR 22), MMC ($190 entry $155). Pipeline: 11 R3-complete, 4 R4-approved. Actionable: RSG 6.4%, ROP 6.6% (R4 APPROVED), IT 13.8%, MMC 14.2%. Cash 57%."
     skill: ".claude/skills/capital-deployment/SKILL.md"
     tool: "tools/quality_universe.py"
   # DIARIOS
@@ -1319,12 +1336,12 @@ pipeline_tracker:
     frequency: daily
     last_run: 2026-02-13
     next_due: 2026-02-14
-    last_result: "Session 64: 0 CRITICAL, 11 MATERIAL. DSY.PA crashed -21% (standing order conditions holding). PAYC $105 approaching R3 entry $88-95. ALL Q4 blowout +49% EPS beat. MORN Q4 beat confirmed (EPS +14.83%). AUTO.L + BYIT.L at 52wL. LULU CFO bearish on 2026 OP. ROP insider buying. CPI Jan tomorrow 08:30 ET."
+    last_result: "Session 69: 0 CRITICAL, 9 MATERIAL. CORRECTIONS: ROP 10.6% from trigger (not 5%), GL Q4 MISS (not beat), NVO CagriSema NDA already filed Dec 2025. LULU 2nd see-through incident (KC#3 pattern). GL insider selling escalation. ADBE all-time low P/E 15x. SaaS selloff."
   rotation_check:
     frequency: daily
     last_run: 2026-02-13
     next_due: 2026-02-14
-    last_result: "Session 64: Bottom 3: UHS -9.0% (EXIT candidate Feb 25), VICI -0.2% (EXIT candidate Feb 25), DTE.DE +8.6% (HOLD Feb 26). Top: NVO +59.4%, EDEN.PA +58.6%, ADBE +48.6%. Pipeline healthy: 7 thesis ready. SaaSpocalypse cluster: DSY.PA/PAYC/ADBE/INTU/BYIT.L."
+    last_result: "Session 69: Bottom 3: DTE.DE (8.6%), LULU (11.5%), ALL (13.7%). All have earnings gates (Feb 26, Mar 31, Q1 respectively). No immediate rotation action. Cash 57%. Pipeline: 11 R3-complete (4 Tier A: IT, MORN, PAYC, VRSK). Earnings wall Feb 17-26 blocks most advancement."
   # SEMANALES
   opportunity_scan:
     frequency: weekly
@@ -1333,9 +1350,9 @@ pipeline_tracker:
     last_result: "V2 full universe scan. 2,052 tickers screened. 5 Tier A: PAYC(85), FSG.L(83), NFLX(75), PAYX(75), RMV.L(69adj). DSY.PA buy-pipeline COMPLETED (APPROVED EUR 15.50). PAYC R1 done, awaiting earnings. MORN framework ready. Pipeline HEALTHY."
   risk_review:
     frequency: weekly
-    last_run: 2026-02-09
-    next_due: 2026-02-16
-    last_result: "Risk-sentinel first run: 0 RED, 5 ORANGE. 12 gaps found. Top: SAN.PA CTCL lawsuits, IMB.L $400M payment. Positive: GL SEC cleared, HRB Direct File dead."
+    last_run: 2026-02-13
+    next_due: 2026-02-20
+    last_result: "Session 68 scan #2: 0 RED, 7 ORANGE, 7 YELLOW. LULU ESCALATED (3 KCs approaching). GL insider selling 39%. ROP Deltek weak. AUTO.L 59-165 cancellations. 3 ON PROBATION with earnings in 45 days. UK 4/11 concentration."
   # QUINCENALES
   position_review:
     frequency: biweekly

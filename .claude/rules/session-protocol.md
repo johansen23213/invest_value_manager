@@ -1,13 +1,39 @@
-# Session Protocol v3.2
+# Session Protocol v3.3
 
 > Este archivo se carga automáticamente junto con CLAUDE.md
-> VERSIÓN 3.2 - Pipelines + Dashboard mode + Calibración v4.0 + vigilancia proactiva
+> VERSIÓN 3.3 - WAVE System + Pipelines + Dashboard mode + Calibración v4.0 + vigilancia proactiva
+
+---
+
+## MODO DE SESIÓN (DECISIÓN AL INICIO)
+
+Al inicio de cada sesión, tras el saludo del humano:
+
+| Señal del humano | Modo |
+|------------------|------|
+| Instrucción específica ("analiza X", "compra Y") | **DIRECTO** — ejecutar |
+| "wave", "autónomo", "trabaja", "me voy a dormir" | **WAVE** — proponer waves |
+| Saludo genérico sin instrucción | **DASHBOARD** — presentar ambas opciones |
+
+### En modo DASHBOARD, ofrecer ambas opciones:
+```
+[Estado rápido 3-4 líneas]
+
+Puedo:
+  A) Presentarte el dashboard paso a paso (tú diriges)
+  B) Proponerte un WAVE de trabajo autónomo (yo dirijo, tú apruebas)
+```
+
+### En modo WAVE:
+Leer `.claude/skills/wave-system/SKILL.md` y ejecutar el protocolo completo.
+El WAVE system se autoensambla leyendo el estado del momento — no tiene waves fijas.
+Ver el skill para el motor de prioridades, estructura de waves, y protocolo de ejecución.
 
 ---
 
 ## MODO DASHBOARD (SALUDO SIN INSTRUCCIÓN ESPECÍFICA)
 
-Cuando el usuario saluda sin dar instrucción específica ("hola", "buenos días", etc.):
+Cuando el usuario pide dashboard o paso a paso:
 
 **RESPONDER COMO CENTRO DE MANDO:**
 

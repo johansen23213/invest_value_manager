@@ -12,7 +12,7 @@ El sector Technology/Software es el mercado mas grande y dinamico del mundo, con
 
 La IA generativa es tanto amenaza como oportunidad. Los incumbentes con datos propietarios y ecosistemas (Adobe, Microsoft, SAP, Intuit, Dassault Systemes) tienen ventaja sobre startups de IA. El riesgo real es para software commoditizado sin moat.
 
-**NOTA (2026-02-12):** Intuit (INTU) analizado. QS 75 (Tier A borderline). Down 51% from high. FV $465, entry $330-365. Q2 earnings Feb 26. WATCHLIST. Ver thesis/research/INTU/thesis.md.
+**NOTA (2026-02-13):** Intuit (INTU) R3 COMPLETE. DA STRONG COUNTER 14/19. FV $465→$395 (-15%). QS 75→72 (Tier A→B). SBC-adjusted FCF key correction. Entry $285-300. WAIT Feb 26 Q2 earnings. Per-seat pricing KC#8 added. Ver thesis/research/INTU/thesis.md.
 
 **NOTA (2026-02-11):** Dassault Systemes (DSY.PA) cayo 21% hoy tras Q4 revenue miss (+1% vs +3% expected) y guidance decepcionante (3-5% vs 5.8% consensus). Analisis completo realizado. WATCHLIST con entry EUR 16.50-17.00. Ver thesis/research/DSY.PA/thesis.md.
 
@@ -184,7 +184,7 @@ La IA generativa es tanto amenaza como oportunidad. Los incumbentes con datos pr
 | Watchlist | TYL | thesis/research/TYL/thesis.md | 2026-02-04 | Entry $250 |
 | Watchlist | DBX | thesis/research/DBX/thesis.md | 2026-02-05 | Entry $18-20 |
 | **Watchlist** | **DSY.PA** | **thesis/research/DSY.PA/thesis.md** | **2026-02-11** | **Entry EUR 15.50** |
-| **Watchlist** | **INTU** | **thesis/research/INTU/thesis.md** | **2026-02-12** | **Entry $330-365** |
+| **Watchlist** | **INTU** | **thesis/research/INTU/thesis.md** | **2026-02-13** | **Entry $285-300 (R3: FV $395, QS 72 Tier B)** |
 
 ### Protocolo de Cambio Material
 
@@ -225,7 +225,7 @@ Cuando actualices este sector view con cambio MATERIAL:
 | TYL | Tyler Technologies | $280 | $250-260 | 20% (Tier B) | Wide moat gov software, QS 72, overvalued at $332 | 2026-02-04 |
 | DBX | Dropbox | $33 | $18-20 | 35-40% | **Value trap risk alto**. QS 73 pero declive estructural, users -1.5%/yr, commoditized FSS, equity negativo. FCF yield 12.8% atractivo pero insostenible. Solo comprar con MoS extremo. | 2026-02-05 |
 | **DSY.PA** | **Dassault Systemes** | **EUR 21.00** | **EUR 15.50-17.00** | **20-25%** | **#1 PLM globally, QS 78 (Tier A borderline), wide moat. -56% from high. Cloud transition pain. NVIDIA partnership.** | **2026-02-11** |
-| **INTU** | **Intuit Inc.** | **$465** | **$330-365** | **20-30%** | **#1 SMB accounting + tax prep. QS 75 (Tier A borderline). -51% from high. 80% GM, 32% FCF margin. AI is net positive ($100M OpenAI deal). IRS Direct File killed. 81% QuickBooks market share. Q2 earnings Feb 26. Insider selling 90/0 is concern.** | **2026-02-12** |
+| **INTU** | **Intuit Inc.** | **$395 (R3)** | **$285-300** | **24-28%** | **R3 COMPLETE: DA 14/19 STRONG COUNTER. QS 72 Tier B (was 75 Tier A). SBC-adjusted FCF reduces OEY from 5.4% to 3.6%. Per-seat pricing KC#8 added. Insider selling $100M Cook, zero buying at -50%. Mailchimp 400bps drag. WAIT Feb 26 Q2 earnings.** | **2026-02-13** |
 
 ---
 

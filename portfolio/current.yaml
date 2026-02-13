@@ -7,7 +7,7 @@
 # =============================================================================
 
 cash:
-  amount: 4844  # Post SELL IMB.L (~EUR 537 proceeds) on 2026-02-10. Previous 4307 + 537 = ~4844
+  amount: 5752  # Post SELL UHS (~EUR 394) + SELL VICI (~EUR 514) on 2026-02-13. Previous 4844 + 908 = ~5752
   currency: EUR
 
 positions:
@@ -38,17 +38,7 @@ positions:
 
   # SAN.PA REMOVED 2026-02-09 - SOLD. Adversarial review: QS 59 Tier B (low-end), ROIC < WACC (-2.1pp), FV -35.5% (EUR 122->79). Amlitelimab inferior to Dupixent. P&L -0.84%.
 
-  - ticker: VICI
-    name: "VICI Properties Inc."
-    shares: 21.00105
-    invested_usd: 600.00
-    avg_cost_usd: 28.57  # 600 / 21.00105
-    date_opened: 2026-01-31
-    thesis: thesis/active/VICI/thesis.md
-    conviction: low
-    fair_value: "$29.00 (v3.0. QS Tool 54, REIT-Adj ~60 Tier B. Was $30.50 adversarial, $33.75 thesis)"
-    last_review: 2026-02-10
-    exit_plan: "HOLD ON PROBATION through Feb 25 earnings. SELL if AFFO guidance <$2.35 or rent cut >10% without compensation (KC#7). TRIM at $32. Post-earnings: SELL/HOLD/UPGRADE decision based on guidance + Caesars lease disclosure."
+  # VICI REMOVED 2026-02-13 - SOLD. EXIT analysis: MoS 0%, thesis weakened 5/7 assumptions, 5/5 precedents = SOLD. Caesars Regional 1.03x coverage risk. P&L +1.7%.
 
   # IMB.L REMOVED 2026-02-10 - SOLD. Adversarial review: QS 54 Tier C (thesis claimed Tier A 9.5/10). FV 2,796p (v3.0) vs 3,274p = MoS -14.6%. $400M HMRC payment + UK generational ban. P&L +6.9%.
 
@@ -78,17 +68,7 @@ positions:
     last_review: 2026-02-10
     exit_plan: "HOLD through FY25 results Mar 5. SELL if EBITDA <GBP125M (KC#1). HOLD if base (GBP130-137M). Conviction LOW -- MoS 19.2% marginal for Tier B. New CEO Dominic Paul starts Apr 6."
 
-  - ticker: UHS
-    name: "Universal Health Services Inc."
-    shares: 2
-    invested_usd: 402.84
-    avg_cost_usd: 201.42  # 402.84 / 2
-    date_opened: 2026-02-02
-    thesis: thesis/active/UHS/thesis.md
-    conviction: low
-    fair_value: "$213 (v3.0. QS Tool 51 Tier C, no adj. Was $243 adversarial, $283.74 thesis)"
-    last_review: 2026-02-10
-    exit_plan: "HOLD ON PROBATION through Feb 25 earnings. SELL if FY2026 guide <$20 (KC#5) or behavioral volumes decline (KC#4) or ROIC<WACC (KC#1). TRIM at $240. Post-earnings SELL/HOLD decision MANDATORY. Medicaid cuts (OBBBA) = structural risk."
+  # UHS REMOVED 2026-02-13 - SOLD. EXIT analysis: ABOVE FV -9% ($234 vs $213), BofA UNDERPERFORM PT $185, Medicaid cuts structural. 5/5 precedents Tier C MoS<=0 = SOLD. P&L +16.2%.
 
   - ticker: GL
     name: "Globe Life Inc."
@@ -541,3 +521,23 @@ transactions:
     pnl_eur: 29
     pnl_pct: 6.9
     notes: "EXIT - Adversarial review thesis v3.0. QS 54 Tier C (thesis claimed Tier A 9.5/10). FV 2,796p vs price 3,274p = MoS -14.6% (OVERVALUED). $400M HMRC payment + UK generational ban not in thesis. Dividend cut history (2016). ROIC 17% but excise tax distorts. Next rotation candidate confirmed."
+
+  - date: 2026-02-13
+    action: SELL
+    ticker: UHS
+    shares: 2
+    price_usd: 234.05
+    total_eur: 394
+    pnl_eur: 55
+    pnl_pct: 16.2
+    notes: "EXIT - EXIT Protocol 4/6 gates SELL. ABOVE FV -9% ($234 vs $213). BofA downgrade UNDERPERFORM PT $185. Medicaid cuts (OBBBA) structural. ON PROBATION Tier C (QS 51). 5/5 precedents Tier C MoS<=0 = SOLD. Locked +16.2% gain pre-earnings."
+
+  - date: 2026-02-13
+    action: SELL
+    ticker: VICI
+    shares: 21.00105
+    price_usd: 29.06
+    total_eur: 514
+    pnl_eur: 9
+    pnl_pct: 1.7
+    notes: "EXIT - EXIT Protocol 4/6 gates SELL. MoS 0% ($29.06 vs FV $29.00). Thesis weakened 5/7 assumptions. Caesars Regional 1.03x coverage. ON PROBATION Tier C (QS 54). 5/5 precedents = SOLD. Pre-earnings exit."

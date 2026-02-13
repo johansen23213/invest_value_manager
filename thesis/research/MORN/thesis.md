@@ -1,8 +1,9 @@
 # MORN - Morningstar, Inc.
 
-> Fundamental Analysis - Buy Pipeline Round 1
-> Date: 2026-02-12
-> Price at analysis: $155.35 (EUR 130.79)
+> **Fair Value:** $180 (R3 reconciled: thesis $205, DA $163)
+> Fundamental Analysis - Buy Pipeline Round 1 + R2 Devil's Advocate + R3 Resolution
+> Date: 2026-02-13 (R3)
+> Price at analysis: $154 (EUR 130)
 > 52-week range: $150.00 - $330.55
 
 ## TL;DR

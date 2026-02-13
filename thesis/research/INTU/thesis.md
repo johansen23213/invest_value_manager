@@ -1,13 +1,42 @@
 # INTU - Intuit Inc.
 
-> Analysis Date: 2026-02-12
-> Analyst: fundamental-analyst (Claude)
+> **Fair Value:** $395
+> **Entry Target:** $285-300
+> **Pipeline Status:** R3_COMPLETE (R2 DA: STRONG COUNTER 14/19)
+> Analysis Date: 2026-02-12 | R3 Resolution: 2026-02-13
+> Analyst: fundamental-analyst (Claude) | DA: devil's-advocate (Claude)
 > Framework: v4.0
-> Q2 FY2026 Earnings: February 26, 2026 (14 days away)
+> Q2 FY2026 Earnings: February 26, 2026
 
-## TL;DR
+## R3 Resolution Summary
 
-Intuit is a Quality Compounder (QS Tool 77, Adjusted 75, Tier A) trading at $399.69, down 51% from its 52-week high of $813.70. The drop is driven by software sector P/E compression and AI disruption fears, not fundamental deterioration. Q1 FY2026 showed 18% revenue growth, 34% EPS growth, and guidance reaffirmed at 12-13% revenue growth. At current price, implied growth is ~10% -- below management guidance and historical trajectory. However, with Q2 earnings 14 days away and high DCF sensitivity, the prudent approach is WATCHLIST with entry at $330-365, providing 20-30% MoS to base case FV of ~$460.
+**STRONG COUNTER (14/19)** — FV revised $465 → $395 (-15.1%). QS revised 75 → 72 (Tier A → Tier B).
+
+| Metric | R1 (Analyst) | R2 (DA) | R3 (Resolution) |
+|--------|-------------|---------|-----------------|
+| Fair Value | $465 | $385 | **$395** |
+| QS Adjusted | 75 (Tier A) | 70-72 (Tier B) | **72 (Tier B)** |
+| Entry | $330-365 | $270-310 | **$285-300** |
+
+**Key DA corrections accepted:**
+1. SBC-adjusted FCF: OEY on headline $6.1B FCF overstates value. Partial SBC deduction (buybacks offset dilution) → effective FCF ~$4.7-5.2B. Risk assessment ($384) and DA ($385) converge vs analyst ($465).
+2. QS Financial Quality -2 (SBC distortion of FCF margin), CapAlloc -2 (insider selling: $100M Cook concentrated sales, zero buying at -50%), Market Position +7 not +8 (forward AI risk).
+3. Per-seat pricing KC#8 added — QBO charges per user; AI agents reduce headcount = structural threat.
+4. Bear case deepened: thesis bear $330 is "mild disappointment"; real bear at $261-280 (P/E 15-18x if growth slows to 6-8%).
+5. Mailchimp drag 400bps (not 150bps thesis claims) — GBS 16% vs ex-Mailchimp 20% from Q1 FY26.
+
+**Unresolved DA items (partially accepted):**
+- SBC treatment: DA deducts 100%, I use ~60-70% (buybacks genuinely offset dilution)
+- AI disruption probability: DA 35-45%, thesis 20%, R3 resolution 25-30%
+- QS: DA 70-72, resolution 72 (splitting on SBC financial quality)
+
+**WAIT for Feb 26 Q2 FY2026 earnings before any action.** No standing order pre-earnings.
+
+---
+
+## TL;DR (Original, superseded by R3 above)
+
+Intuit is a Quality Compounder (QS Tool 77, R3 Adjusted 72, Tier B) trading at ~$398, down 51% from its 52-week high of $813.70. The drop is driven by software sector P/E compression and AI disruption fears. Q1 FY2026 showed 18% revenue growth, 34% EPS growth, and guidance reaffirmed at 12-13% revenue growth. R3 FV of $395 reflects SBC-adjusted FCF and DA corrections. Entry at $285-300 (28-24% MoS), WAIT through Feb 26 earnings.
 
 ---
 

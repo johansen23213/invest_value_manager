@@ -180,6 +180,21 @@ Sin cadencias fijas. Yo opero esto autónomamente cada sesión.
 
 ---
 
+## WAVE System — Trabajo Autónomo Intensivo
+
+Sistema de ejecución autónoma. Al inicio de sesión, si el humano lo solicita ("wave", "autónomo", "trabaja"),
+el sistema lee TODO el estado, genera waves de trabajo priorizadas, y ejecuta sin interacción.
+
+- **Skill:** `.claude/skills/wave-system/SKILL.md`
+- **Motor de prioridades:** P0 (crisis) → P1 (earnings) → P2 (capital deployment) → P3 (pipelines) → P4 (rotation) → P5 (universe) → P6 (orders) → P7 (system)
+- **Autoconsciente:** entre waves evalúa si resultados cambian prioridades de waves siguientes
+- **Principio-based:** cada wave referencia principios de `learning/principles.md`
+- **Restricción:** NO ejecuta operaciones financieras — documenta recomendaciones para confirmación humana
+
+El WAVE system no reemplaza el dashboard — es un modo alternativo. El humano elige.
+
+---
+
 ## Rotation Engine
 
 Protocolo de optimización continua. Cada sesión:
@@ -394,6 +409,7 @@ El humano concede permiso para modificar:
 | Precedentes | `learning/decisions_log.yaml` |
 | EXIT Protocol | `.claude/skills/exit-protocol/SKILL.md` |
 | Rotation Engine | `.claude/skills/rotation-engine/SKILL.md` |
+| WAVE System | `.claude/skills/wave-system/SKILL.md` |
 | Forward Return Tool | `tools/forward_return.py` |
 | **VIGILANCIA** | |
 | Clasificar noticias | `.claude/skills/news-classification/SKILL.md` |

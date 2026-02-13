@@ -266,7 +266,7 @@ El sector Pharma/Healthcare esta en un momento de transicion historica. Por un l
 |--------|----------|-------|--------|
 | ~~PFE~~ | ~~Activa~~ | ~~Yield 6.5%, M&A firepower~~ | **SOLD 2026-02-06** - QS 47, ROIC < WACC, MoS -3.2% (overvalued near 52w high) |
 | SAN.PA | Activa | Dupixent growth, pipeline diversificado | HOLD - valuacion expandida |
-| UHS | Activa | Behavioral health growth, valuacion razonable | HOLD - defensive exposure |
+| ~~UHS~~ | ~~Activa~~ | ~~Behavioral health growth~~ | **SOLD 2026-02-13** - QS 51, ABOVE FV -9%, Medicaid cuts structural, BofA PT $185. P&L +16.2% |
 | **NVO** | **Activa (NEW 2026-02-05)** | **QS 82 Tier A, GLP-1 pioneer, MoS 38%** | **HOLD - Framework v3.0 validated, ADD on CagriSema positive** |
 
 ### Analizadas - En Watchlist
