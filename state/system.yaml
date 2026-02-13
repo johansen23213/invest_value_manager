@@ -91,53 +91,55 @@ system:
   # Purged 2026-02-11 to reduce file size (~730 lines removed)
 
   last_session_summary: |
-    Session 69 - WAVE CONTINUATION (2026-02-13)
+    Session 69 - WAVE CONTINUATION (2026-02-13) [CRASHED - Bun segfault]
 
     =====================================================
     R3 RESOLUTIONS COMPLETED (4 companies)
     =====================================================
-    FDS: FV $225→$210 (-7%). CEO Snow retired Sep 2025 (CRITICAL miss).
-      Entry $180→$170 (19% MoS). HARD GATE Q2 Mar 2026.
-    BVI.PA: FV EUR 33→EUR 29 (-12%). QS 73→70. Wendel STRUCTURAL.
-      Entry EUR 24→EUR 22 (24% MoS). HARD GATE Feb 25.
-    MMC: FV $190. Entry $160→$155 (18.4% MoS). DA 13/20 MODERATE.
-      Greensill A$7B trial Aug 2026 = SIZING CONSTRAINT.
-    GMAB: FV $36→$28 (-22%). DA 14/20 STRONG COUNTER (HIGHEST EVER).
-      QS 65→60. Entry $25→$20 (28.6% MoS). Risk HIGH.
-      Key: EPKINLY 50/50 profit share = only 20% of Darzalex profit replacement.
-      Pipeline attrition: 6 programs killed in 18 months. DEPRIORITIZED.
+    FDS: FV $225→$210 (-7%). Entry $170 (19% MoS). HARD GATE Q2 Mar 2026.
+    BVI.PA: FV EUR 29 (-12%). Entry EUR 22 (24% MoS). HARD GATE Feb 25.
+    MMC: FV $190. Entry $155 (18.4% MoS). Greensill SIZING CONSTRAINT.
+    GMAB: FV $28 (-22%). DA 14/20 HIGHEST EVER. DEPRIORITIZED.
 
     =====================================================
     EARNINGS FRAMEWORKS CREATED
     =====================================================
-    RSG: thesis/research/RSG/earnings_framework_feb17.md
-    CDNS: thesis/research/CDNS/earnings_framework_feb17.md
-    VRSK: Already existed (Feb 18)
+    RSG + CDNS (both Feb 17). VRSK already existed (Feb 18).
 
     =====================================================
     VIGILANCE (0 CRITICAL, 9 MATERIAL)
     =====================================================
-    ROP 10.6% from trigger (NOT 5%). GL Q4 MISS. NVO CagriSema NDA filed.
+    ROP 10.6% from trigger. GL Q4 MISS. NVO CagriSema NDA filed.
     LULU 2nd see-through. GL insider selling. ADBE all-time low P/E.
+
+    =====================================================
+    THESIS HEADER FIXES (forward_return.py parsing)
+    =====================================================
+    MORN: Added canonical headers (FV $180, Entry $135, R3 resolved)
+    ZTS: Added canonical headers (FV $120, Entry $95, R3 resolved)
+
+    =====================================================
+    R4 COMMITTEES LOST TO CRASH
+    =====================================================
+    VLTO R4: Was running when Bun crashed. MUST RE-RUN next session.
+    MMC R4: Was running when Bun crashed. MUST RE-RUN next session.
 
     =====================================================
     PIPELINE STATUS
     =====================================================
     12 R3-complete: IT(A), MORN(A), PAYC(A), VRSK(A), VLTO(B), ACGL(B),
-      FDS(B), BVI.PA(B), INTU(B), ZTS(B), MMC(B), GMAB(B).
+      FDS(B), BVI.PA(B), INTU(B), ZTS(B), MMC(B), GMAB(deprioritized).
     4 R4-approved: DSY.PA, DNLM.L, RACE.MI, ROP.
-    5 R1-complete: RSG, CDNS, VEEV, BAH, FICO (last 2 deprioritized).
-    Actionable: RSG 6.4% (earnings Mon), ROP 6.6% (R4), IT 13.8%.
+    2 R4-PENDING (lost to crash): VLTO, MMC.
 
     =====================================================
-    NEXT PRIORITIES
+    NEXT SESSION PRIORITIES
     =====================================================
-    1. Feb 17 (Mon): RSG + CDNS dual earnings → R2 decision
-    2. Feb 18 (Tue): VRSK earnings → R4 decision
-    3. Feb 23: MONY.L earnings → KC#9 AI strategy
-    4. Feb 24-26: EDEN.PA, DTE.DE, INTU triple week
+    1. RE-RUN: VLTO R4 + MMC R4 (lost to crash)
+    2. Feb 17 (Mon): RSG + CDNS dual earnings → post-earnings review
+    3. Feb 18 (Tue): VRSK earnings → R4 decision
+    4. Feb 23: MONY.L earnings → KC#9 AI strategy
     5. ROP $300 trigger monitoring (10.6%)
-    6. IT R4 deferred until price approaches $135
 
   status: active
 

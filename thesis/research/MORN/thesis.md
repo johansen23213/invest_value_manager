@@ -1,10 +1,11 @@
 # MORN - Morningstar, Inc.
 
-> **Fair Value:** $180 (R3 reconciled: thesis $205, DA $163)
-> Fundamental Analysis - Buy Pipeline Round 1 + R2 Devil's Advocate + R3 Resolution
-> Date: 2026-02-13 (R3)
-> Price at analysis: $154 (EUR 130)
-> 52-week range: $150.00 - $330.55
+> **Fair Value:** $180
+> **Entry:** $135
+> **Date:** 2026-02-13 (R3 resolved)
+> **Status:** R3 COMPLETE - WATCHLIST (R4 deferred — 18% above entry)
+> **Pipeline:** R1 ✓ | R2 ✓ (DA 13/19 STRONG COUNTER) | R3 ✓ (resolution) | R4 deferred
+> **R3 Resolution (2026-02-13):** FV $205→$180 (-12%). DA 13/19 STRONG COUNTER. CRSP conflict of interest, growth 9%→7.5%, index fund fee pressure. QS 83→78 (Tier A). Entry $130-135 (25-28% MoS).
 
 ## TL;DR
 
