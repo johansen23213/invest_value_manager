@@ -641,14 +641,14 @@ def cmd_stats(args):
     r1_plus = sum(1 for c in companies if c.get("pipeline_status", "") in ("R1_COMPLETE", "R2_COMPLETE", "R3_COMPLETE", "APPROVED", "STANDING_ORDER"))
     approved = sum(1 for c in companies if c.get("pipeline_status", "") in ("APPROVED", "STANDING_ORDER"))
 
-    # Standing orders: count from system.yaml if available
+    # Standing orders: count from standing_orders.yaml
     standing_orders_count = 0
-    system_path = os.path.join(PROJECT_ROOT, "state", "system.yaml")
-    if os.path.exists(system_path):
+    so_path = os.path.join(PROJECT_ROOT, "state", "standing_orders.yaml")
+    if os.path.exists(so_path):
         try:
-            with open(system_path, "r") as f:
-                system = yaml.safe_load(f) or {}
-            so = system.get("standing_orders", [])
+            with open(so_path, "r") as f:
+                so_data = yaml.safe_load(f) or {}
+            so = so_data.get("active_orders", [])
             if so:
                 standing_orders_count = len(so)
         except Exception:
@@ -759,14 +759,14 @@ def _print_pipeline_health(companies):
     r1_plus = sum(1 for c in companies if c.get("pipeline_status", "") in ("R1_COMPLETE", "R2_COMPLETE", "R3_COMPLETE", "APPROVED", "STANDING_ORDER"))
     approved = sum(1 for c in companies if c.get("pipeline_status", "") in ("APPROVED", "STANDING_ORDER"))
 
-    # Standing orders from system.yaml
+    # Standing orders from standing_orders.yaml
     standing_orders_count = 0
-    system_path = os.path.join(PROJECT_ROOT, "state", "system.yaml")
-    if os.path.exists(system_path):
+    so_path = os.path.join(PROJECT_ROOT, "state", "standing_orders.yaml")
+    if os.path.exists(so_path):
         try:
-            with open(system_path, "r") as f:
-                system = yaml.safe_load(f) or {}
-            so = system.get("standing_orders", [])
+            with open(so_path, "r") as f:
+                so_data = yaml.safe_load(f) or {}
+            so = so_data.get("active_orders", [])
             if so:
                 standing_orders_count = len(so)
         except Exception:
