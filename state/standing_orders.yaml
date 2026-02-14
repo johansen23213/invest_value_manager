@@ -2,7 +2,7 @@
 # The human can execute in eToro without waiting for a session.
 # Updated: 2026-02-14
 
-active_orders:
+standing_orders:
   # ADD ORDERS (existing positions)
   - ticker: GL
     action: ADD

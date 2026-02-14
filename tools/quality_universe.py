@@ -648,7 +648,7 @@ def cmd_stats(args):
         try:
             with open(so_path, "r") as f:
                 so_data = yaml.safe_load(f) or {}
-            so = so_data.get("active_orders", [])
+            so = so_data.get("standing_orders", [])
             if so:
                 standing_orders_count = len(so)
         except Exception:
@@ -766,7 +766,7 @@ def _print_pipeline_health(companies):
         try:
             with open(so_path, "r") as f:
                 so_data = yaml.safe_load(f) or {}
-            so = so_data.get("active_orders", [])
+            so = so_data.get("standing_orders", [])
             if so:
                 standing_orders_count = len(so)
         except Exception:
