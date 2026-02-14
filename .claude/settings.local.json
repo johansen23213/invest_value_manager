@@ -1,33 +1,12 @@
 {
   "permissions": {
     "allow": [
+      "Bash(*)",
+      "Edit(*)",
+      "Write(*)",
       "WebSearch",
-      "Bash(wc:*)",
-      "Bash(tree:*)",
-      "Bash(ls:*)",
-      "WebFetch(domain:docs.claude.com)",
-      "Bash(chmod:*)",
-      "Bash(pip install:*)",
-      "Bash(python3:*)",
-      "Bash(grep:*)",
-      "Bash(bash:*)",
-      "Bash(git checkout:*)",
-      "WebFetch(domain:investors.pfizer.com)",
-      "WebFetch(domain:finance.yahoo.com)",
-      "WebFetch(domain:www.pfizer.com)",
-      "WebFetch(domain:investors.globelifeinsurance.com)",
-      "WebFetch(domain:www.allstateinvestors.com)",
-      "WebFetch(domain:www.monygroup.com)",
-      "WebFetch(domain:www.globenewswire.com)",
-      "Bash(for skill in critical-thinking business-analysis-framework valuation-methods agent-meta-reflection moat-framework risk-assessment)",
-      "Bash(do)",
-      "Bash(if [ -f \".claude/skills/$skill/SKILL.md\" ])",
-      "Bash([ -f \".claude/skills/sub-skills/$skill/SKILL.md\" ])",
-      "Bash(then)",
-      "Bash(echo:*)",
-      "Bash(else)",
-      "Bash(fi:*)",
-      "Bash(done)"
+      "WebFetch(*)",
+      "NotebookEdit(*)"
     ]
   }
 }

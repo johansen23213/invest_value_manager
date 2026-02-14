@@ -1,5 +1,10 @@
 # DNLM.L - Dunelm Group plc
 
+> **Fair Value:** 1,008p
+> **Pipeline Stage:** R4_APPROVED
+> **Status:** R4 APPROVED | Committee-adopted FV (was 1,328p thesis, -24% correction)
+> **Standing Order:** 780p (22.6% MoS). Entry approved by investment-committee.
+
 ## TL;DR
 
 UK's #1 homewares retailer (7.9% market share, targeting 10%) trading at 936p, down 25% from 52-week high after subdued Christmas trading and profit guidance to lower end of consensus. Quality Score 79 (Tier A, confirmed by tool) with ROIC spread +16.8pp, gross margin 52.4% (+17pp vs sector), 38.5% insider ownership (founder family), and FCF yield 11.1%. Owner Earnings Yield + Growth of 16-17% vs 9% WACC represents the best spread of any Tier A candidate in our pipeline. Interim results on 10 February 2026 (3 days away) are a near-term catalyst -- RBC recently upgraded to "outperform" with 1,300p target, and a 25p special dividend is expected to be announced.

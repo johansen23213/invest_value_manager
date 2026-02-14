@@ -135,7 +135,7 @@ El sector Real Estate/REITs atraviesa un punto de inflexion tras el shock de tip
 
 | Tipo | Ticker | Thesis Path | Ultima Eval | Status |
 |------|--------|-------------|-------------|--------|
-| Portfolio | VICI | thesis/active/VICI | 2026-02-03 | HOLD |
+| Archive | VICI | thesis/archive/VICI | 2026-02-13 | SOLD +1.7%. MoS 0%, Caesars 1.03x, 5/5 precedents |
 | Watchlist | SRE.L | thesis/research/SRE.L | 2026-02-04 | Entry 75p |
 
 ### Protocolo de Cambio Material

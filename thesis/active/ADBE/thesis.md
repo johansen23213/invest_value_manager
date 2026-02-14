@@ -1,11 +1,13 @@
 # ADBE - Adobe Inc. (v2.0 - Regulatory Risk Update)
 
+> **Analysis Date:** 2026-02-10 (v2.0 update) | **Original:** 2026-02-04
+
 ## TL;DR
 
 Adobe cotiza a P/E 16x (-43% de maximos), el mercado teme disrupcion por IA pero los fundamentales cuentan otra historia: 89% gross margin, 30% ROIC, $9.8B FCF creciendo +10%/ano. Quality Score Tool 76 (Tier A). MoS ~25% tras ajuste regulatorio. Oportunidad de Quality Compounder con riesgo FTC/DOJ conocido y acotable.
 
 **CAMBIO v2.0 (10-Feb-2026):** Integra FTC/DOJ ROSCA lawsuit (trial Oct 2026), ajusta FV -6%, anade Kill Condition #6 (FTC churn impact). Corrige formato a QS Tool-First.
-**Fair Value:** $390 (FTC-adjusted, weighted DCF + EV/EBIT + P/E)
+> **Fair Value:** $390 (FTC-adjusted, weighted DCF + EV/EBIT + P/E)
 
 ---
 

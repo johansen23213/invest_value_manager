@@ -16,6 +16,25 @@ El orchestrator consulta `pipeline_tracker` al inicio de cada sesion para determ
 
 ## PIPELINES PERIODICOS
 
+### 0. `capital-deployment` | DIARIO (PRIORIDAD #1 mientras cash > 25%)
+
+**Objetivo:** Desplegar cash en Quality Compounders de forma sistematica.
+**Skill completo:** `.claude/skills/capital-deployment/SKILL.md`
+**Tool:** `tools/quality_universe.py`
+
+| Paso | Accion | Ejecutor | Input | Output |
+|------|--------|----------|-------|--------|
+| 0a | Price sweep del quality universe | `quality_universe.py actionable` | state/quality_universe.yaml | Empresas near entry |
+| 0b | Si actionable → priorizar analisis | Orchestrator | Actionable list | Decision: R2-R4 o nuevo R1 |
+| 0c | Si no actionable → FASE C (2-3 R1 nuevas) | fundamental-analyst x2-3 (paralelo) | Candidatos priorizados | thesis/research/ |
+| 0d | Si sectores con gaps → FASE D (sector nuevo) | sector-screener | Coverage gaps | world/sectors/ |
+| 0e | Actualizar quality_universe.yaml | quality_universe.py add | Resultados de scoring | Universe actualizado |
+
+**Condicion de salida:** Universe actualizado, pipeline health reportado, al menos 1 nueva R1 iniciada.
+**Desactivacion:** Cash < 15% O pipeline >= 15 thesis listas.
+
+---
+
 ### 1. `vigilance` | DIARIO
 
 **Objetivo:** Detectar eventos que requieran accion inmediata.

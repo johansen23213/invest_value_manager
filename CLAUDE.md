@@ -159,7 +159,43 @@ Ver `rotation-engine` skill para el framework completo.
 
 ---
 
-## Rotation Engine (NUEVO)
+## Capital Deployment Machine (ACTUALIZADO Sesion 64)
+
+**Cuando el cash es elevado (patrón histórico: >25%), capital deployment es prioridad natural. No es regla fija — es razonamiento desde Principio 4 (Cash como Posición Activa).** El quality universe es un ORGANISMO VIVO, no una lista estática.
+
+- **Skill:** `.claude/skills/capital-deployment/SKILL.md`
+- **Tool:** `tools/quality_universe.py` (base de datos persistente de empresas QS >= 65)
+- **Data:** `state/quality_universe.yaml`
+
+**Ciclo continuo (cada sesión, como respirar):**
+1. `quality_universe.py actionable` — algo cerca de entry?
+2. Si actionable → priorizar análisis/ejecución (R2-R4)
+3. `quality_universe.py stale` — algo necesita re-evaluación?
+4. Expandir universe: screenear sectores con gaps, añadir empresas de calidad
+5. Mantener: re-evaluar empresas, quitar las que se deterioran
+
+**El universe nunca está "terminado".** Empresas entran, salen, se re-evalúan.
+Target mínimo 150+ empresas de calidad — pero sin meter relleno por alcanzar un número.
+Sin cadencias fijas. Yo opero esto autónomamente cada sesión.
+
+---
+
+## WAVE System — Trabajo Autónomo Intensivo
+
+Sistema de ejecución autónoma. Al inicio de sesión, si el humano lo solicita ("wave", "autónomo", "trabaja"),
+el sistema lee TODO el estado, genera waves de trabajo priorizadas, y ejecuta sin interacción.
+
+- **Skill:** `.claude/skills/wave-system/SKILL.md`
+- **Motor de prioridades:** P0 (crisis) → P1 (earnings) → P2 (capital deployment) → P3 (pipelines) → P4 (rotation) → P5 (universe) → P6 (orders) → P7 (system)
+- **Autoconsciente:** entre waves evalúa si resultados cambian prioridades de waves siguientes
+- **Principio-based:** cada wave referencia principios de `learning/principles.md`
+- **Restricción:** NO ejecuta operaciones financieras — documenta recomendaciones para confirmación humana
+
+El WAVE system no reemplaza el dashboard — es un modo alternativo. El humano elige.
+
+---
+
+## Rotation Engine
 
 Protocolo de optimización continua. Cada sesión:
 1. Ejecutar `forward_return.py` para ranking de posiciones
@@ -373,7 +409,10 @@ El humano concede permiso para modificar:
 | Precedentes | `learning/decisions_log.yaml` |
 | EXIT Protocol | `.claude/skills/exit-protocol/SKILL.md` |
 | Rotation Engine | `.claude/skills/rotation-engine/SKILL.md` |
+| WAVE System | `.claude/skills/wave-system/SKILL.md` |
 | Forward Return Tool | `tools/forward_return.py` |
+| Re-evaluación de posiciones | `.claude/skills/re-evaluation-protocol/SKILL.md` |
+| Pensamiento crítico | `.claude/skills/critical-thinking/SKILL.md` |
 | **VIGILANCIA** | |
 | Clasificar noticias | `.claude/skills/news-classification/SKILL.md` |
 | Evitar errores | `.claude/skills/error-detector/SKILL.md` |
@@ -383,15 +422,31 @@ El humano concede permiso para modificar:
 | Quality Compounders | `.claude/skills/quality-compounders/SKILL.md` |
 | Business Analysis | `.claude/skills/business-analysis-framework/SKILL.md` |
 | Valoración | `.claude/skills/valuation-methods/SKILL.md` |
+| Proyecciones bottom-up | `.claude/skills/projection-framework/SKILL.md` |
+| Constraints de portfolio | `.claude/skills/portfolio-constraints/SKILL.md` |
+| **RESEARCH** | |
+| Screening sistemático | `.claude/skills/screening-protocol/SKILL.md` |
+| Sector deep dive | `.claude/skills/sector-deep-dive/SKILL.md` |
+| Marco macro/geopolítico | `.claude/skills/macro-framework/SKILL.md` |
+| **CAPITAL DEPLOYMENT** | |
+| Capital Deployment Machine | `.claude/skills/capital-deployment/SKILL.md` |
 | **OPERACIONES** | |
 | Pipelines (rutinas) | `.claude/skills/pipelines/SKILL.md` |
 | Pipeline tracker | `state/system.yaml` seccion `pipeline_tracker` |
+| Coordinación inter-agente | `.claude/skills/agent-coordination/SKILL.md` |
+| Reglas de ficheros | `.claude/skills/file-system-rules/SKILL.md` |
 | **SISTEMA** | |
 | Meta-Reflexión | `.claude/skills/agent-meta-reflection/SKILL.md` |
+| Registro de agentes | `.claude/skills/agent-registry/SKILL.md` |
 | Qué agente usar | `.claude/rules/agent-protocol.md` |
 | Protocolo sesión | `.claude/rules/session-protocol.md` |
 | Errores a evitar | `.claude/rules/error-patterns.md` |
 | Tools | `.claude/rules/tools-reference.md` |
+| Evaluación de efectividad | `.claude/skills/effectiveness-evaluation/SKILL.md` |
+| Auto-evolución del sistema | `.claude/skills/evolution-protocol/SKILL.md` |
+| Gestión de memoria | `.claude/skills/memory-management-rules/SKILL.md` |
+| Contexto del sistema | `.claude/skills/system-context/SKILL.md` |
+| Devil's advocate del sistema | `.claude/skills/system-devils-advocate/SKILL.md` |
 
 ---
 

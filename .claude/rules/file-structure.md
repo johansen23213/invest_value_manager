@@ -33,16 +33,30 @@ Análisis profundos por sector que complementan la visión macro. Ubicados en `w
 ### Sectores documentados actuales
 | Sector | Posiciones |
 |--------|------------|
-| telecom.md | DTE.DE |
+| auto-eu.md | (pipeline only) |
+| automotive.md | (pipeline only) |
+| business-services.md | EDEN.PA |
+| consumer-discretionary.md | LULU |
+| consumer-staples.md | DOM.L |
+| defense-aerospace.md | (pipeline only) |
+| digital-marketplaces.md | MONY.L, AUTO.L |
+| energy.md | (pipeline only) |
+| environmental-water.md | (pipeline only) |
+| financial-data-analytics.md | (pipeline only) |
+| healthcare-equipment.md | (pipeline only) |
+| industrial-technology.md | (pipeline only) |
+| industrials.md | (pipeline only) |
 | insurance.md | ALL, GL |
-| pharma-healthcare.md | PFE, SAN.PA, UHS |
-| real-estate.md | VICI, VNA.DE |
-| business-services.md | TEP.PA, EDEN.PA, HRB |
-| consumer-staples.md | IMB.L, TATE.L, DOM.L |
-| industrials.md | LIGHT.AS |
-| utilities.md | A2A.MI |
-| energy.md | SHEL.L |
-| media-publishing.md | FUTR.L |
+| luxury-goods.md | (pipeline only) |
+| media-publishing.md | (pipeline only) |
+| payments-fintech.md | (pipeline only) |
+| pharma-healthcare.md | NVO |
+| real-estate.md | (pipeline only) |
+| semiconductors-equipment.md | (pipeline only) |
+| technology.md | ADBE, BYIT.L |
+| telecom.md | DTE.DE |
+| testing-inspection-certification.md | (pipeline only) |
+| utilities.md | (pipeline only) |
 
 ### Protocolo de Uso
 

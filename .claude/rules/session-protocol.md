@@ -1,13 +1,39 @@
-# Session Protocol v3.2
+# Session Protocol v3.3
 
 > Este archivo se carga automáticamente junto con CLAUDE.md
-> VERSIÓN 3.2 - Pipelines + Dashboard mode + Calibración v4.0 + vigilancia proactiva
+> VERSIÓN 3.3 - WAVE System + Pipelines + Dashboard mode + Calibración v4.0 + vigilancia proactiva
+
+---
+
+## MODO DE SESIÓN (DECISIÓN AL INICIO)
+
+Al inicio de cada sesión, tras el saludo del humano:
+
+| Señal del humano | Modo |
+|------------------|------|
+| Instrucción específica ("analiza X", "compra Y") | **DIRECTO** — ejecutar |
+| "wave", "autónomo", "trabaja", "me voy a dormir" | **WAVE** — proponer waves |
+| Saludo genérico sin instrucción | **DASHBOARD** — presentar ambas opciones |
+
+### En modo DASHBOARD, ofrecer ambas opciones:
+```
+[Estado rápido 3-4 líneas]
+
+Puedo:
+  A) Presentarte el dashboard paso a paso (tú diriges)
+  B) Proponerte un WAVE de trabajo autónomo (yo dirijo, tú apruebas)
+```
+
+### En modo WAVE:
+Leer `.claude/skills/wave-system/SKILL.md` y ejecutar el protocolo completo.
+El WAVE system se autoensambla leyendo el estado del momento — no tiene waves fijas.
+Ver el skill para el motor de prioridades, estructura de waves, y protocolo de ejecución.
 
 ---
 
 ## MODO DASHBOARD (SALUDO SIN INSTRUCCIÓN ESPECÍFICA)
 
-Cuando el usuario saluda sin dar instrucción específica ("hola", "buenos días", etc.):
+Cuando el usuario pide dashboard o paso a paso:
 
 **RESPONDER COMO CENTRO DE MANDO:**
 
@@ -116,11 +142,12 @@ Event-driven: `buy-pipeline`, `sell-pipeline`, `earnings-pipeline`
 ### 4. Sugerencias del Dia (basadas en pipelines + estado)
 
 Prioridad automatica:
-1. **Pipelines OVERDUE** (se sugieren primero)
-2. **Standing orders cerca de trigger** (<5%)
-3. **Earnings proximos 7 dias**
-4. **Cash deployment si prolongado**
-5. **Alertas de precio activas**
+1. **Capital Deployment** (si cash > 25%: actionable companies, R1 factory, sector gaps)
+2. **Pipelines OVERDUE** (se sugieren primero)
+3. **Standing orders cerca de trigger** (<5%)
+4. **Earnings proximos 7 dias**
+5. **Cash deployment si prolongado**
+6. **Alertas de precio activas**
 
 **Formato:**
 ```
@@ -352,6 +379,42 @@ Para posiciones con noticias materiales o earnings recientes:
 
 ---
 
+## FASE 2.7: UNIVERSE WORK (ORGANISMO VIVO - Sesión 64)
+
+> El quality universe es un organismo vivo que necesita atención cada sesión.
+> No hay cadencia fija. Siempre hay algo que hacer. Yo puedo trabajar sin cansarme.
+
+### Paso 2.7.1: Universe Health Check
+```bash
+python3 tools/quality_universe.py stats
+python3 tools/quality_universe.py stale
+```
+¿Cuántas empresas tengo? ¿Cuántas necesitan atención? ¿Qué sectores tienen gaps?
+
+### Paso 2.7.2: Decidir qué hacer HOY
+```
+Mirar los datos y decidir UNA o más acciones de universe work:
+
+OPCIONES (elegir lo que tenga más sentido hoy):
+a) Screenear un sector con gaps → sector-screener agent
+b) Scoring de 2-3 empresas nuevas → quality_scorer.py
+c) Re-evaluar algo stale → quality_scorer.py + actualizar FV/entry
+d) Avanzar pipeline de un candidato → R1, R2, R3, o R4
+e) Quitar empresas deterioradas → quality_universe.py remove
+f) Actualizar precios → quality_universe.py refresh
+
+No hace falta hacer todo. Pero hacer ALGO siempre.
+Si la sesión tiene urgencias (earnings, alertas), esto puede ser breve.
+Si la sesión está tranquila, esto debería ser el trabajo principal.
+```
+
+### Paso 2.7.3: Ejecutar
+```
+Lanzar el trabajo elegido. No pedir permiso. Informar al humano qué estoy haciendo.
+```
+
+---
+
 ## FASE 3: VERIFICACIONES
 
 ### Paso 3.1: Standing Orders
@@ -474,7 +537,29 @@ El objetivo NO es perfección. Es VISIBILIDAD.
 La vergüenza acumulada de "Error #3: reincidencia #6" es la fricción.
 ```
 
-### Paso 5.1c: AUTO-MEJORA OBLIGATORIA (anti-Error #4)
+### Paso 5.1c: UNIVERSE WORK CHECK (anti-estancamiento)
+```
+ANTES de cerrar sesión:
+
+[ ] ¿Hice algo por el quality universe hoy? (SI/NO)
+
+SI → Documentar qué:
+  - Empresas añadidas: ___
+  - Empresas re-evaluadas: ___
+  - Sectores screeneados: ___
+  - Pipeline avanzado: ___
+  - Empresas removidas: ___
+
+NO → ¿Por qué?
+  - "Sesión dominada por urgencias (earnings, alertas)" → OK si es verdad
+  - "No tuve tiempo" → NO ACEPTABLE. El universe es parte del trabajo.
+  - "No se me ocurrió" → ERROR. El session-protocol lo incluye.
+
+El universe con 13 empresas no es suficiente. Si no crece sesión a sesión,
+estoy fallando en mi trabajo de gestor autónomo.
+```
+
+### Paso 5.1d: AUTO-MEJORA OBLIGATORIA (anti-Error #4)
 ```
 ANTES de cerrar sesión, responder OBLIGATORIAMENTE:
 
