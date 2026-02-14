@@ -237,12 +237,12 @@ quality_universe:
     fair_value: 190.0
     entry_price: 155.0
     currency: USD
-    current_price: null
-    distance_to_entry: null
+    current_price: 182.7
+    distance_to_entry: 17.9
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-14'
-    last_price_check: null
+    last_price_check: '2026-02-14'
     notes: 'R4 APPROVED 2026-02-14. #1 global insurance broker. Standing order 55 HALF POSITION (EUR 200). Greensill sizing
       constraint. 7 KCs. Valid until Q1 2026.'
   - ticker: WRB
@@ -714,8 +714,8 @@ quality_universe:
     thesis_path: thesis/research/ACGL/thesis.md
     last_scored: '2026-02-13'
     last_price_check: '2026-02-14'
-    notes: R4 APPROVED 2026-02-14. Standing order $88, EUR 400 (4%). 10/10 gates. FV $110. DA 12/19 MODERATE. QS
-      57->68 (insurer adj). WIDE moat 22/25. Conviction MEDIUM-LOW. Valid until Q2 2026.
+    notes: R4 APPROVED 2026-02-14. Standing order $88, EUR 400 (4%). 10/10 gates. FV $110. DA 12/19 MODERATE. QS 57->68 (insurer
+      adj). WIDE moat 22/25. Conviction MEDIUM-LOW. Valid until Q2 2026.
   - ticker: ZTS
     name: Zoetis Inc.
     qs_tool: 73
@@ -936,12 +936,12 @@ quality_universe:
     fair_value: 100.0
     entry_price: 80.0
     currency: USD
-    current_price: null
-    distance_to_entry: null
+    current_price: 92.54
+    distance_to_entry: 15.7
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-14'
-    last_price_check: null
+    last_price_check: '2026-02-14'
     notes: R4 APPROVED 2026-02-14. Danaher spinoff. Standing order 0. QS Tool 52, Adj 66 (+14). Valid until Q1 FY2026 earnings.
   - ticker: BAH
     name: Booz Allen Hamilton Holding Cor
@@ -985,13 +985,14 @@ quality_universe:
     fair_value: 35.0
     entry_price: 26.0
     currency: USD
-    current_price: null
-    distance_to_entry: null
+    current_price: 31.57
+    distance_to_entry: 21.4
     pipeline_status: PRE_R1
     thesis_path: null
     last_scored: null
-    last_price_check: null
-    notes: Standing order at $26. FV $33-38. Broadband moat eroding (FWA, fiber). SUSPENDED_PRE_PIPELINE. Needs QS scoring + full pipeline.
+    last_price_check: '2026-02-14'
+    notes: Standing order at $26. FV $33-38. Broadband moat eroding (FWA, fiber). SUSPENDED_PRE_PIPELINE. Needs QS scoring
+      + full pipeline.
   - ticker: WPP.L
     name: WPP plc
     qs_tool: null
@@ -1001,10 +1002,10 @@ quality_universe:
     fair_value: 380.0
     entry_price: 200.0
     currency: GBP
-    current_price: null
-    distance_to_entry: null
+    current_price: 272.9
+    distance_to_entry: 36.4
     pipeline_status: PRE_R1
     thesis_path: null
     last_scored: null
-    last_price_check: null
+    last_price_check: '2026-02-14'
     notes: Standing order at 200 GBp. FV 380p. UNDER REVIEW — Tier C + no moat + AI disruption. Wait Rose plan Feb 26.
