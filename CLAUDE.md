@@ -105,6 +105,7 @@ El humano concede permiso para modificar: CLAUDE.md, agentes, skills, rules, too
 | Re-evaluacion de posiciones | `.claude/skills/re-evaluation-protocol/SKILL.md` |
 | Pensamiento critico | `.claude/skills/critical-thinking/SKILL.md` |
 | **VIGILANCIA** | |
+| Pre-execution check | `.claude/skills/pre-execution-check/SKILL.md` |
 | Clasificar noticias | `.claude/skills/news-classification/SKILL.md` |
 | Evitar errores | `.claude/skills/error-detector/SKILL.md` |
 | Contextualizar recomendacion | `.claude/skills/recommendation-context/SKILL.md` |

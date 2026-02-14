@@ -1,6 +1,6 @@
 # PIPELINE TRACKER + MAINTENANCE
 # Operational metadata for the fund
-# Updated: 2026-02-14
+# Updated: 2026-02-15
 
 # PRIORITY #1 - CAPITAL DEPLOYMENT (while cash > 25%)
 capital_deployment:
@@ -9,7 +9,7 @@ capital_deployment:
   trigger: "cash > 25%"
   last_run: 2026-02-14
   next_due: 2026-02-15
-  last_result: "7 R4-approved. 16 standing orders. Actionable: RSG 6.3%, ROP 7.1%, ACGL 10.6%. Cash 57%."
+  last_result: "12 R4-approved/watchlist. 21 standing orders. New R1: ORNBV.HE, FOUR.L. V R3 in progress. Cash ~57%."
   skill: ".claude/skills/capital-deployment/SKILL.md"
   tool: "tools/quality_universe.py"
 
@@ -75,13 +75,13 @@ system_challenge:
 
 # MAINTENANCE
 maintenance:
-  last_health_check: 2026-02-04
-  next_health_check_due: 2026-02-18
-  health_score: 9.1/10
+  last_health_check: 2026-02-14
+  next_health_check_due: 2026-02-28
+  health_score: 10.0/10
   last_compact: 2026-02-01
   memory_status: ok
   agents_count: 24
-  skills_count: 23  # +2 session-dashboard, session-phases
+  skills_count: 30
   tools_count: 8
   rules_count: 6
   evolution_tracking_summary: |

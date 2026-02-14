@@ -7,8 +7,8 @@
 system:
   system_version: "4.0.0"
   framework_version: "4.0"
-  last_session: 2026-02-14
-  session_number: 71
+  last_session: 2026-02-15
+  session_number: 72
   status: active
 
   framework_v4_status:
@@ -17,12 +17,12 @@ system:
     implementation_date: 2026-02-05
 
   portfolio_quality_analysis:
-    date: 2026-02-13
+    date: 2026-02-15
     summary:
-      total_positions: 11
+      total_positions: 10
       tier_a_count: 3
-      tier_b_count: 5
-      tier_c_count: 3
+      tier_b_count: 6
+      tier_c_count: 1
       tier_d_count: 0
     positions:
       - { ticker: MONY.L, score: 75, tier: A, status: "ON PROBATION. FV 190 GBp. Feb 23 earnings." }
@@ -33,17 +33,37 @@ system:
       - { ticker: BYIT.L, score: 68, tier: B, status: "FV 345 GBp. HOLD LOW." }
       - { ticker: EDEN.PA, score: 62, tier: B, status: "FV EUR 29. Feb 24 earnings." }
       - { ticker: DOM.L, score: 61, tier: B, status: "FV 240 GBp. Mar 5 results." }
-      - { ticker: ALL, score: 56, tier: C, status: "ON PROBATION. ROE 37% peak." }
+      - { ticker: DTE.DE, score: 69, tier: B, status: "FV EUR 35. Feb 26 earnings." }
       - { ticker: GL, score: 52, tier: C, status: "FV $191. SEC+DOJ cleared." }
-      - { ticker: DTE.DE, score: 48, tier: C, status: "FV EUR 35. Feb 26 earnings." }
 
   last_session_summary: |
-    Session 71 - SCALABILITY REFACTORING (2026-02-14)
-    REFACTORING: Auto-loaded context 110KB→33KB (-70%). system.yaml split into 5 files.
-    PARANOIA VERIFICATION: 10-step full session simulation. 7 bugs found and fixed.
-    CRITICAL FIXES: standing_orders key rename, 2 agent active_orders refs, 5 pipeline stale refs.
-    MERGED TO MASTER: 8 commits on feature/refactor_claude_md.
-    NO INVESTMENT ACTIONS this session — pure system work.
+    Session 72 - CRASH RECOVERY + PIPELINE + SYSTEM IMPROVEMENTS (2026-02-15)
+    CRASH RECOVERY: Diagnosed S72a crash (7 agents overflow). Recovered all state files.
+    PIPELINE: V R3 done (FV $305, entry $260). V R4 APPROVED (4 hard gates). FOUR.L R3 done (FV 4400p).
+    ORNBV.HE R1 complete (FV EUR 55, OVERVALUED at EUR 67.85). Universe expanded to 76 (5 new sectors).
+    Standing orders: V BUY $260 + ADD $235 created. 22 total active.
+    SYSTEM: Pre-execution-check skill created (6 gates). Fixed vs principles.md (removed 5% fixed threshold).
+    Strategic direction system added to system.yaml with mandatory re-evaluation protocol.
+    KEY LEARNING: Skills must be audited against principles.md before deployment. No fixed numbers.
+
+  # STRATEGIC DIRECTION — Re-evaluate EVERY session start with fresh data.
+  # This is NOT a plan. It's a compass bearing. Replace when context changes.
+  # Ask: "Given what I know TODAY, is this still the right priority?"
+  strategic_direction:
+    current: "Capital deployment — expand universe + advance pipeline + standing orders"
+    rationale: "57% cash is drag. 22 standing orders active. Pipeline bottleneck at R3→R4."
+    set_date: 2026-02-15
+    review_protocol: |
+      Every Fase 0, BEFORE executing anything, ask:
+      1. Has something changed that invalidates this direction?
+         (market crash, earnings surprise, new macro risk, position blow-up)
+      2. Is there a MORE IMPORTANT priority I'm ignoring?
+         (position on fire, kill condition triggered, better use of time)
+      3. Is the rationale still true?
+         (still 57% cash? still pipeline bottleneck? still same opportunity set?)
+      If ANY answer is YES → update this direction FIRST, then act.
+      If all NO → continue current direction.
+    anti_bias: "This direction was set Feb 15. Do NOT anchor to it. Fresh eyes each session."
 
 macro_snapshot:
   last_update: 2026-02-02

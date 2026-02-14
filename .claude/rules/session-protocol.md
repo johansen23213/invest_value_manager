@@ -21,6 +21,13 @@
 ```
 FASE 0: Calibracion v4.0
   → Leer principles.md + precedentes recientes + pipeline_tracker
+  → **STRATEGIC DIRECTION CHECK** (system.yaml → strategic_direction)
+    → ¿Sigue siendo valida la direccion actual? ¿Algo cambio?
+    → Si cambio → ACTUALIZAR direccion ANTES de actuar
+  → **PRE-EXECUTION CHECK** (`.claude/skills/pre-execution-check/SKILL.md`)
+    → price_checker.py ALL standing order tickers
+    → Si TRIGGERED: pre-flight 6 gates → PRIORIDAD MAXIMA
+    → Si NEAR (razonar sobre contexto): alerta + pre-flight preparado
   → Self-check: listo para razonar desde principios?
 
 FASE 1: Vigilancia

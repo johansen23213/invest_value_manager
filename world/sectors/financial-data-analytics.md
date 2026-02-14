@@ -128,6 +128,7 @@ Los jugadores clave (S&P Global, MSCI, Moody's, ICE, FICO, Verisk, FactSet) comp
 |--------|-------|-----------|
 | FICO | QS 75 Tool / 70 Adj (Tier B). -39% from high. FV ~$900, price $1,363. | WATCHLIST -- overvalued at current price. Entry $700-850. |
 | FDS | QS 73 (Tier B). -57% from ATH. FV $230, price $204. | WATCHLIST -- insufficient MoS at current price. Entry $180. |
+| MORN | QS 60 Tool / 78 Adj (Tier A low-end). FV $180, price $160. | WATCHLIST R4 -- Entry $135 (25% MoS). CRSP conflict risk. Standing order set. |
 
 ### Evitar
 | Ticker | Razon |
@@ -142,7 +143,8 @@ Los jugadores clave (S&P Global, MSCI, Moody's, ICE, FICO, Verisk, FactSet) comp
 | Ticker | Empresa | FV | Entry | MoS Req | Thesis | Fecha Analisis |
 |--------|---------|-----|-------|---------|--------|----------------|
 | FICO | Fair Isaac Corp | ~$900 | $700-850 | 20-25% | thesis/research/FICO | 2026-02-11 |
-| FDS | FactSet Research Systems | $230 | $180 | 20-22% | thesis/research/FDS | 2026-02-13 |
+| FDS | FactSet Research Systems | $210 | $170 | 19% | thesis/research/FDS | 2026-02-14 |
+| MORN | Morningstar Inc. | $180 | $135 | 25% | thesis/research/MORN | 2026-02-14 |
 
 ---
 
@@ -165,6 +167,8 @@ Los jugadores clave (S&P Global, MSCI, Moody's, ICE, FICO, Verisk, FactSet) comp
 | 2026-02-11 | Sector view creado. Status: NEUTRAL-SELECTIVO | FICO pipeline activo. QS 75 Tier A, -39% from high. |
 | 2026-02-11 | FICO R1 complete. Moved to Analizadas. WATCHLIST $700-850 | FV ~$900, current $1,363 = -51% overvalued. Quality excellent but price not right. |
 | 2026-02-13 | FDS R1 complete. Added to Analizadas + Dependencias. WATCHLIST $180 | QS 73 Tier B. FV $230 vs $204 = 13% MoS (insufficient). VRSK moved from Empresas Objetivo to tracked in universe only (R3 complete elsewhere). |
+| 2026-02-14 | MORN R4 WATCHLIST. Standing order $135. | QS 78 adj Tier A. FV $180. CRSP conflict risk. 10 kill conditions. Pre-execution condition: CRSP thesis update. |
+| 2026-02-14 | FDS R4 WATCHLIST. Standing order $170. | QS 73 Tier B. FV $210 (was $230). NARROW moat. Hard gate Q2 FY2026 (Mar). VRSK preferred over FDS. |
 
 ---
 

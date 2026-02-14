@@ -46,13 +46,13 @@ standing_orders:
 
   - ticker: V
     action: ADD
-    trigger: "<=$200"
+    trigger: "<=$235"
     size_eur: 300
-    shares_approx: 1.5
-    fair_value: "$275-290"
-    mos_at_trigger: "31%"
-    status: "SUSPENDED_PRE_PIPELINE"
-    notes: "No R1-R4 pipeline. DO NOT execute without full pipeline."
+    shares_approx: 1.3
+    fair_value: "$305"
+    mos_at_trigger: "22.9%"
+    tier: "A (QS 82)"
+    notes: "R4 APPROVED. ADD after initial BUY at $260. R3 FV $305. 4 hard gates apply."
     expiry: 2026-08-01
 
   # BUY ORDERS (new positions)
@@ -87,20 +87,21 @@ standing_orders:
     action: BUY
     trigger: "<=$315"
     size_eur: 500
-    fair_value: "$420"
-    mos_at_trigger: "25%"
+    fair_value: "$400"
+    mos_at_trigger: "21.3%"
     tier: "A (QS 86)"
-    status: "SUSPENDED_PRE_PIPELINE"
+    notes: "R4 APPROVED. WIDE 22/25. Hard gates: CCCA floor vote + Wero <5% + rev growth >=8%. ADD at $280."
     expiry: 2026-08-01
 
   - ticker: V
     action: BUY
-    trigger: "<=$220"
-    size_eur: 500
-    fair_value: "$275-290"
-    mos_at_trigger: "24%"
-    tier: "A (QS 80)"
-    status: "SUSPENDED_PRE_PIPELINE"
+    trigger: "<=$260"
+    size_eur: 400
+    fair_value: "$305"
+    mos_at_trigger: "14.8%"
+    tier: "A (QS 82)"
+    notes: "R4 APPROVED. FV $305 (R3). 4 HARD GATES: DOJ no structural remedies, CCCA no floor vote, rev growth >=8%, client incentives <48%. MA is FIRST priority. 10 kill conditions."
+    hard_gates: "DOJ, CCCA, rev_growth>=8%, incentives<48%"
     expiry: 2026-08-01
 
   - ticker: DSY.PA
@@ -171,5 +172,46 @@ standing_orders:
     tier: "B (QS 57/68 adj)"
     notes: "Bermuda specialty insurer. Entering soft market."
     expiry: 2026-07-31
+
+  - ticker: MORN
+    action: BUY
+    trigger: "<=$135"
+    size_eur: 400
+    fair_value: "$180"
+    mos_at_trigger: "25%"
+    tier: "A (QS 60/78 adj)"
+    notes: "R4 WATCHLIST. CRSP conflict thesis update REQUIRED pre-execution. 10 kill conditions."
+    pre_execution_condition: "Thesis must include CRSP acquisition analysis + insider selling correction"
+    expiry: 2026-05-31
+
+  - ticker: PAYC
+    action: BUY
+    trigger: "<=$88"
+    size_eur: 400
+    fair_value: "$115"
+    mos_at_trigger: "23.5%"
+    tier: "A (QS 68/75 adj)"
+    notes: "R4 WATCHLIST. Per-seat pricing KC#8. Requires -30% from current. Patient order."
+    expiry: 2026-05-31
+
+  - ticker: FDS
+    action: BUY
+    trigger: "<=$170"
+    size_eur: 400
+    fair_value: "$210"
+    mos_at_trigger: "19%"
+    tier: "B (QS 73)"
+    notes: "R4 WATCHLIST. NARROW moat. Hard gate Q2 FY2026 (Mar 2026). VRSK preferred if both reach entry."
+    expiry: 2026-06-30
+
+  - ticker: ZTS
+    action: BUY
+    trigger: "<=$95"
+    size_eur: 400
+    fair_value: "$120"
+    mos_at_trigger: "20.8%"
+    tier: "A (QS 78/80 adj)"
+    notes: "R4 WATCHLIST. FV corrected from thesis $140. Librela + Apoquel generic risks. 7 kill conditions."
+    expiry: 2026-06-30
 
 # Cancelled orders history: see state/calendar_archive.yaml

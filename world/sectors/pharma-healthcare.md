@@ -276,7 +276,7 @@ El sector Pharma/Healthcare esta en un momento de transicion historica. Por un l
 | ~~NOVO-B.CO~~ | ~~QS 82, Quality Compounder distressed~~ | ~~DKK 307~~ | **PURCHASED 2026-02-05** | thesis/active/NVO |
 | **HIK.L** | **QS 46 Tier C, Generics/Injectables, family ownership** | **1400-1450 GBp** | **WATCHLIST - MoS 23% < 30% required** | thesis/research/HIK.L |
 | **GSK.L** | **QS 59 Tier B, HIV + Vaccines + Oncology** | **1850p** | **WATCHLIST - MoS 10% < 20% required** | thesis/research/GSK.L |
-| **ZTS** | **QS 73 tool, 78 adj (Tier A). #1 Animal Health, ROIC 30%, GM 70%+** | **$110-115** | **WATCHLIST - MoS 10% < 15-20% required. Needs R2-R4.** | thesis/research/ZTS |
+| **ZTS** | **QS 78/80 adj (Tier A low-end). #1 Animal Health, ROIC 26%+, GM 71%+** | **$95 (R4 corrected from $110-115)** | **R4 WATCHLIST. FV $120 (was $140). Standing order $95. Librela + Apoquel risks.** | thesis/research/ZTS |
 
 ### Para Analisis Profundo
 

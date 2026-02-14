@@ -49,7 +49,7 @@ Análisis profundos por sector que complementan la visión macro. Ubicados en `w
 | healthcare-equipment.md | (pipeline only) |
 | industrial-technology.md | (pipeline only) |
 | industrials.md | (pipeline only) |
-| insurance.md | ALL, GL |
+| insurance.md | GL |
 | luxury-goods.md | (pipeline only) |
 | media-publishing.md | (pipeline only) |
 | payments-fintech.md | (pipeline only) |

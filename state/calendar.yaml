@@ -151,6 +151,14 @@ events:
     priority: CRITICAL
     action: "ON PROBATION. SELL if negative global comps or GM <57%."
 
+  # REGULATORY WATCH
+  - date: 2026-06-30
+    type: regulatory
+    ticker: MA
+    event: "CCCA (Credit Card Competition Act) — monitor legislative progress"
+    priority: high
+    action: "Trump endorsed Jan 2026, bipartisan. Could reduce US scheme fees 15-25%. Affects MA + V standing orders. Re-evaluate if committee vote scheduled."
+
   # Q2+ (major events only)
   - date: 2026-04-15
     type: watchlist_review
