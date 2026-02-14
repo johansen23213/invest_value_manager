@@ -4,7 +4,7 @@
 **Framework Version**: v3.0 (Updated 2026-02-10)
 **Original Date**: 2026-01-26
 **Quality Score**: QS Tool 48/100 (Tier C). No adjustment warranted. See Section 7.
-**Fair Value:** EUR 35.00 (v3.1, post-TMUS Q4. EV weighted EUR 34.55)
+> **Fair Value:** EUR 35.00 (v3.1, post-TMUS Q4. EV weighted EUR 34.55)
 
 ---
 

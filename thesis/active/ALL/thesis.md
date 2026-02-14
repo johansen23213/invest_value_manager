@@ -5,7 +5,7 @@
 > Confianza: LOW
 > Quality Score: 56/100 (Tier B)
 
-**Fair Value:** $234 (adversarial, was $240 thesis)
+> **Fair Value:** $234 (adversarial, was $240 thesis)
 
 ## TL;DR
 

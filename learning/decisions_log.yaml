@@ -7,7 +7,7 @@
 # Creado: 2026-02-05 | Framework v4.0
 
 version: "4.0"
-last_updated: 2026-02-09
+last_updated: 2026-02-14
 
 # =============================================================================
 # DECISIONES DE SIZING (BUY/ADD)
@@ -484,6 +484,112 @@ geography_decisions:
       consideraría comprar con argumento explícito.
       Por ahora, priorizar US/UK para diversificar geografía.
 
+  - date: 2026-02-12
+    ticker: ROP
+    action: "STANDING ORDER (BUY at $300)"
+    sizing: "4% (~EUR 400)"
+    context:
+      quality_score: "48 tool / 70 adjusted (+22)"
+      tier: "B (upper)"
+      mos: "22% at $300 vs FV $385"
+      price_vs_52w: "-44% from ATH ($595), current $334"
+      conviction: "Low"
+      macro: "Mid-cycle US, SaaSpocalypse ongoing, DOGE structural"
+      pipeline: "R1+R2+R3+R4 complete (4 rounds, 6 agents)"
+    reasoning: |
+      FIRST serial acquirer in system. QS 48 SEVERELY distorted by $22B goodwill.
+      R3 resolution: +22 adjustment (not +28 from thesis, not +15-20 from DA).
+      Partial-goodwill ROIC ~12%, spread +3pp vs WACC — positive but modest.
+      WIDE moat 20/25 (switching costs 9/10, network effects 5/5).
+      HIGH risk (14 risks, 2 CRITICAL: balance sheet fragility + DOGE structural).
+      DO NOT buy at current $334 (13% MoS insufficient for Tier B).
+      Standing order $300 = 22% MoS, adequate given:
+        (a) Wide moat vs HRB narrow moat (only Tier B BUY precedent, failed)
+        (b) Growing FCF ($2.47B) vs HRB declining FCF
+        (c) Standing order provides price discipline
+      CEO is net seller by $8.8M — NEUTRAL-NEGATIVE insider signal.
+      AI per-seat pricing erosion = biggest unresolved risk (25% prob, 3-5yr).
+      PRECEDENT SET: Serial acquirer QS adjustment protocol (+22 max with documentation).
+      PRECEDENT SET: Partial-goodwill ROIC exception (50% goodwill as capital, spread >2pp required).
+    outcome: "Standing order pending. Valid until Q1 2026 earnings (April 2026)."
+
+  - date: 2026-02-14
+    ticker: VLTO
+    action: "STANDING ORDER (BUY at $80)"
+    sizing: "4% (~EUR 400)"
+    context:
+      quality_score: "52 tool / 66 adjusted (+14)"
+      tier: "B"
+      mos: "20% at $80 vs FV $100"
+      price_vs_52w: "Near 52-week low"
+      conviction: "Medium-Low"
+      macro: "Mid-cycle US, water regulation tailwind"
+      pipeline: "R1+R2+R3+R4 complete"
+    reasoning: |
+      Danaher spinoff (Sep 2023). Dual #1 market positions: Hach (water analytics)
+      + Videojet (coding/marking). 61% recurring revenue, 60% GM, 23-25% ROIC.
+      QS 52 distorted by spinoff data gaps (+14 adjustment, below +20 max).
+      NARROW-leaning-WIDE moat 20/25 (install base + regulatory lock-in).
+      Bear case $75 is TIGHT to $80 entry (-6.3% MoS) — main weakness.
+      Standing order provides discipline. VES (Veralto Enterprise System, ex-DBS) =
+      operational DNA from Danaher.
+      CONSISTENT with ROP precedent (Tier B, WIDE moat, 4%, standing order).
+    outcome: "Standing order pending. Valid until Q1 FY2026 earnings (May 2026)."
+
+  - date: 2026-02-14
+    ticker: MMC
+    action: "STANDING ORDER (BUY at $155, HALF POSITION)"
+    sizing: "2% (~EUR 200) — HALF POSITION due to Greensill binary risk"
+    context:
+      quality_score: "64 tool / 68 adjusted (+4)"
+      tier: "B"
+      mos: "18.4% at $155 vs FV $190"
+      price_vs_52w: "Near 52-week low"
+      conviction: "Medium-Low"
+      macro: "Mid-cycle US, insurance hardening benefits brokerage"
+      pipeline: "R1+R2+R3+R4 complete"
+    reasoning: |
+      #1 global insurance broker. WIDE moat 21/25 (strongest in pipeline).
+      85%+ recurring revenue, no underwriting risk (broker model).
+      18.4% MoS is LOWEST approved for Tier B — justified because:
+        (a) WIDE moat quality is exceptional
+        (b) No cyclical underwriting risk (unlike ACGL/ALL)
+        (c) Recurring revenue provides floor
+      HALF POSITION (EUR 200 vs normal EUR 400) due to Greensill A$7B
+      class action trial Aug 2026. Binary event: if settlement/dismissal <A$1B
+      net → upgrade to full. If adverse >A$1B → KC#6, evaluate EXIT.
+      PRECEDENT SET: Half-position sizing for binary legal events.
+      PRECEDENT SET: 18.4% MoS floor for Tier B with exceptional moat.
+    outcome: "Standing order pending. HALF POSITION constraint. Valid until Q1 2026 earnings."
+
+  - date: 2026-02-14
+    ticker: ACGL
+    action: "STANDING ORDER (BUY at $88)"
+    sizing: "4% (~EUR 400)"
+    context:
+      quality_score: "57 tool / 68 adjusted (+11)"
+      tier: "B"
+      mos: "20% at $88 vs FV $110"
+      price_vs_52w: "At $98, not yet at 52wL"
+      conviction: "Medium-Low"
+      macro: "Mid-cycle US, reinsurance soft market confirmed"
+      pipeline: "R1+R2+R3+R4 complete"
+    reasoning: |
+      Best-in-class specialty insurer/reinsurer. 15%+ BVPS CAGR since 2001.
+      WIDE moat 22/25 (underwriting discipline culture). Net cash balance sheet.
+      QS 57 distorted by insurer structural bias: ROIC meaningless for float-funded
+      business, ROE 23.5% is correct metric (+8); GM data gap (+3).
+      20% MoS at low end of Tier B range — adequate given:
+        (a) WIDE moat + net cash = downside protection (bear $85 ~ tangible BV)
+        (b) Navigated every soft market since 2001 successfully
+        (c) Standing order at $88 (not current $98) = price discipline
+      Entering at START of confirmed soft market = timing risk acknowledged.
+      Chairman $20M stock sale = negative insider signal (bear prob 25%→35%).
+      Social inflation = documented gap, industry-wide, not ACGL-specific.
+      CONSISTENT with VLTO (20% MoS, Tier B, standing order) and ROP (22%).
+      PRECEDENT SET: Insurer QS adjustment protocol (ROIC→ROE +8, documented).
+    outcome: "Standing order pending. Valid until Q2 2026 earnings (July 2026)."
+
 # =============================================================================
 # PATRONES IDENTIFICADOS
 # =============================================================================
@@ -494,9 +600,9 @@ patterns:
       examples: "ADBE 4.8%, NVO 3.4%, MONY.L 4.1%, AUTO.L 3.4%, LULU 3.5%, BYIT.L 3.5%"
       rationale: "Quality compounders permiten posiciones mayores por menor riesgo"
     tier_b:
-      typical_range: "3-5% full position"
-      examples: "HRB 5.7%"
-      rationale: "Quality value, riesgo moderado"
+      typical_range: "2-5% (full 4%, half 2% for binary events)"
+      examples: "ROP 4%, VLTO 4%, ACGL 4%, MMC 2% (half/Greensill), HRB 5.7% (pre-adversarial)"
+      rationale: "Quality value, riesgo moderado. Half-position for binary legal events."
     tier_c:
       typical_range: "3-4% max"
       examples: "SHEL.L trimmed to ~7% from 13%"
@@ -504,9 +610,32 @@ patterns:
 
   mos_acceptance_by_tier:
     tier_a: "10-15% mínimo típico, 30%+ es excepcional"
-    tier_b: "20-25% mínimo típico"
+    tier_b: "18-25% typical (18.4% lowest accepted — MMC with exceptional WIDE moat + HALF POSITION due to Greensill binary event; not a universal floor)"
     tier_c: "30%+ requerido"
-    note: "Estos no son límites fijos, son patrones observados"
+    note: "Estos no son límites fijos, son patrones observados. WIDE moat justifies lower MoS floor."
+
+  conditional_approvals:
+    description: "Pattern emergente: R4 approval con condiciones que deben cumplirse antes de ejecución"
+    examples:
+      - ticker: RACE.MI
+        condition: "BUY at EUR 270, ADD at EUR 260. EUR 260 requires verification of EBIT growth trajectory"
+        date: 2026-02-12
+      - ticker: DSY.PA
+        condition: "BUY at EUR 15.50. WAIT for Q1 FY2026 results to confirm cloud transition trajectory"
+        date: 2026-02-11
+      - ticker: MMC
+        condition: "HALF POSITION only (EUR 200 vs EUR 400 standard). Full position after Greensill trial resolution (Aug 2026+)"
+        date: 2026-02-14
+    note: "Conditional approvals allow pre-positioned standing orders while managing event risk. The condition is part of the governance, not optional."
+
+  half_position_sizing:
+    description: "Pattern para empresas con eventos binarios pendientes (mega-litigación, decisiones regulatorias)"
+    examples:
+      - ticker: MMC
+        size: "2% (EUR 200 vs 4% standard)"
+        reason: "Greensill A$7B trial Aug 2026. Upgrade to full after resolution."
+        date: 2026-02-14
+    note: "Aplicable a cualquier empresa con >$500M litigación pendiente o decisión regulatoria binaria."
 
 # =============================================================================
 # LECCIONES APRENDIDAS
@@ -541,6 +670,29 @@ lessons:
     lesson: "Distinguir crecimiento orgánico vs sobrecompra"
     from_decision: "DTE.DE, SHEL.L trims"
     impact: "TRIM de sobrecompra es correcto; TRIM de ganador orgánico requiere más análisis"
+
+  - date: 2026-02-12
+    lesson: "Serial acquirers need special QS treatment — goodwill distorts ROIC but full stripping overstates quality"
+    from_decision: "ROP analysis: QS 48 tool vs 76 thesis vs 70 R3-resolved (+22)"
+    impact: |
+      quality_scorer.py reports ROIC < WACC for ALL serial acquirers (CSU.TO, DHR, TDG, ROP)
+      because goodwill from acquisitions inflates invested capital. But full stripping
+      also overstates quality (ignoring that acquisitions required real capital).
+      SOLUTION: Partial-goodwill approach (50% goodwill as capital). ROIC on this basis
+      shows true economic picture. ROP: 12% ROIC, +3pp spread (positive but modest).
+      Applies to: CSU.TO, DHR, TDG, HLMA.L, DPLM.L, JDG.L, NIBE.ST.
+      Max QS adjustment: +20 without committee approval, +22 with per-item documentation.
+
+  - date: 2026-02-12
+    lesson: "SaaSpocalypse introduces per-seat pricing risk for ALL software positions"
+    from_decision: "ROP devil's advocate uncovered switching-cost-protects-platform-but-not-pricing insight"
+    impact: |
+      AI agents reduce headcount at customer firms. Software retains the customer
+      (switching costs protect platform) but LOSES seats (per-seat pricing unprotected).
+      This is NOT the same as customer churn — it is SAME customer, LESS revenue.
+      Affects: ROP (Deltek, Aderant, Vertafore), ADBE (Creative Cloud seats),
+      BYIT.L (Microsoft licenses per user), INTU (QBO per employee), PAYC (per employee).
+      Kill condition KC#7 added for ROP. Should consider for all software positions.
 
   - date: 2026-02-05
     lesson: "Aprovechar pánico de mercado en quality compounders"
