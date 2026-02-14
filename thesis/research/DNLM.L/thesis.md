@@ -1,6 +1,7 @@
 # DNLM.L - Dunelm Group plc
 
 > **Fair Value:** 1,008p
+> **Pipeline Stage:** R4_APPROVED
 > **Status:** R4 APPROVED | Committee-adopted FV (was 1,328p thesis, -24% correction)
 > **Standing Order:** 780p (22.6% MoS). Entry approved by investment-committee.
 

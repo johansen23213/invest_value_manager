@@ -976,3 +976,35 @@ quality_universe:
     last_price_check: '2026-02-14'
     notes: R3 COMPLETE. QS 73. FV $210 (was $225, -7pct). CEO Snow retired Sep 2025. Correlated AI+competition+headcount risk.
       Entry $170. HARD GATE Q2 FY2026 Mar 2026.
+  - ticker: CMCSA
+    name: Comcast Corporation
+    qs_tool: null
+    qs_adj: null
+    tier: null
+    sector: Media/Telecom
+    fair_value: 35.0
+    entry_price: 26.0
+    currency: USD
+    current_price: null
+    distance_to_entry: null
+    pipeline_status: PRE_R1
+    thesis_path: null
+    last_scored: null
+    last_price_check: null
+    notes: Standing order at $26. FV $33-38. Broadband moat eroding (FWA, fiber). SUSPENDED_PRE_PIPELINE. Needs QS scoring + full pipeline.
+  - ticker: WPP.L
+    name: WPP plc
+    qs_tool: null
+    qs_adj: null
+    tier: null
+    sector: Advertising/Media
+    fair_value: 380.0
+    entry_price: 200.0
+    currency: GBP
+    current_price: null
+    distance_to_entry: null
+    pipeline_status: PRE_R1
+    thesis_path: null
+    last_scored: null
+    last_price_check: null
+    notes: Standing order at 200 GBp. FV 380p. UNDER REVIEW — Tier C + no moat + AI disruption. Wait Rose plan Feb 26.

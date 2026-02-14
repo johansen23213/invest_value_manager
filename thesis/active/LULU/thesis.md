@@ -5,7 +5,7 @@
 > **52-week range:** $159.25 - $400.01
 > **Entry:** $171.62 on 2026-02-05
 
-**Fair Value:** $196 (governance re-eval, was $202 adversarial, was $261 original. QS 78 adj Tier A low-end)
+> **Fair Value:** $196 (governance re-eval, was $202 adversarial, was $261 original. QS 78 adj Tier A low-end)
 
 ---
 

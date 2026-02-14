@@ -2,7 +2,8 @@
 
 > **Thesis Date:** 2026-02-11 (R3 reconciled 2026-02-11)
 > **Analyst:** fundamental-analyst (Claude) + devil's-advocate + orchestrator resolution
-> **Status:** RESEARCH - Pending investment-committee (R4)
+> **Pipeline Stage:** R4_APPROVED (Investment Committee approved)
+> **Standing Order:** BUY EUR 270, ADD EUR 260
 > **Fair Value:** EUR 355 (reconciled: EV/EBIT 30x 40%, P/E 37-39x 30%, OEY 30%)
 > **Pre-reconciliation FV:** EUR 377 (thesis) / EUR 335 (adversarial)
 > **Risk:** MEDIUM-HIGH (upgraded from MEDIUM per adversarial)

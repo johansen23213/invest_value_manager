@@ -5,7 +5,7 @@
 > **Status:** RESEARCH
 > **Ticker:** NOVO-B.CO (Copenhagen) / NVO (NYSE ADR)
 
-**Fair Value:** DKK 491 (weighted OEY + DCF + Reverse DCF)
+> **Fair Value:** $66 (DKK 491, weighted OEY + DCF + Reverse DCF)
 
 ---
 

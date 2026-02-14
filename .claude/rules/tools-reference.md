@@ -181,6 +181,70 @@ python3 tools/correlation_matrix.py
 
 ---
 
+## Consistency & System Tools
+
+### consistency_checker.py - Compara decisión vs precedentes
+```bash
+python3 tools/consistency_checker.py "BUY NVO 4%"
+python3 tools/consistency_checker.py "TRIM SHEL.L 50%"
+python3 tools/consistency_checker.py "HOLD ADBE"
+```
+- Lee `learning/decisions_log.yaml` y busca precedentes similares (mismo action type, ticker, tier)
+- Compara sizing de la decisión propuesta contra precedentes: coherente (<1.5pp diff), razonable (<3pp), o alerta (>3pp)
+- Muestra top 3 precedentes con fecha, sizing, tier, MoS y razonamiento
+- Análisis de coherencia: COHERENTE / INCONSISTENCIA DETECTADA / SIN PRECEDENTES COMPARABLES
+- **Usar ANTES de decisiones importantes de BUY/ADD/TRIM/SELL**
+- Si no hay precedentes, documenta que la decisión será un nuevo precedente
+
+### drift_detector.py - Detecta cambios graduales en patrones
+```bash
+python3 tools/drift_detector.py               # Reporte estándar
+python3 tools/drift_detector.py --verbose      # Con detalle por tier y últimos sizings
+```
+- Analiza 4 métricas desde `learning/decisions_log.yaml`:
+  - **Sizing Trend**: compara primera mitad vs segunda mitad de decisiones, detecta drift >0.5pp
+  - **MoS Threshold**: datos crudos de MoS mínimo/promedio aceptado por tier (no hardcoded thresholds)
+  - **Conviction Distribution**: detecta si >85% de decisiones son "alta convicción" (posible inflación)
+  - **Decision Frequency**: alerta si >14 días sin documentar decisiones
+- Overall status: OK / REVIEW / ALERT con acción recomendada
+- `--verbose` muestra detalle de sizings recientes y patrones documentados por tier
+- **Ejecutar cada health-check (cada 14 días) para detectar drift inadvertido**
+
+### opportunity_filter.py - Filtro fundamental Stage 2 sobre CSV de screener
+```bash
+python3 tools/opportunity_filter.py --csv screener_output.csv
+python3 tools/opportunity_filter.py --csv file1.csv file2.csv --roic-min 20 --fcf-margin-min 15 --rev-cagr-min 8
+python3 tools/opportunity_filter.py --csv results.csv --exclude AAPL MSFT --workers 8
+python3 tools/opportunity_filter.py --csv results.csv --output filtered.csv
+```
+- Lee CSV outputs de `dynamic_screener.py` y aplica filtros fundamentales via yfinance
+- Filtros parametrizables: ROIC min (default 15%), FCF margin min (default 10%), Revenue CAGR min (default 5%)
+- Calcula para cada ticker: ROIC, FCF margin, Revenue CAGR, ROE, D/E, distancia a 52w high
+- Fetching paralelo con `--workers` (default 6) para velocidad
+- Summary por sector y geografía
+- `--exclude` para excluir posiciones existentes
+- `--output` guarda resultados filtrados a CSV
+- **ADVERTENCIA**: Usa yfinance intensivamente. Respetar rate limiting si input tiene >50 tickers.
+- **Workflow típico**: `dynamic_screener.py` (Stage 1: universo amplio) -> `opportunity_filter.py` (Stage 2: filtro fundamental)
+
+### system_projection.py - Proyección Monte Carlo del sistema
+```bash
+python3 tools/system_projection.py                       # Default: 10,000 sims, sin aportaciones
+python3 tools/system_projection.py --additions 500       # EUR 500/mes de aportaciones
+python3 tools/system_projection.py --sims 50000          # 50,000 simulaciones
+```
+- Simulación Monte Carlo a 1, 3, 5 y 10 años con 3 escenarios (Bull/Base/Bear) ponderados
+- Modela: retorno por tier (A/B/C), rotación gradual C->A, session alpha (decreciente), learning curve, cash drag, costes de transacción
+- Fat tails via Student-t (5 df) + eventos discretos de drawdown/crash
+- Output: tabla resumen con valor mediano, CAGR, P(return>0%), P(CAGR>8%), P(doblar), P(pérdida>20%), max drawdown
+- Genera gráfico PNG en `docs/system_projection.png` (fan chart, distribuciones, evolución de calidad, escenarios)
+- Supuestos explícitos e impresos al inicio (NO ocultos)
+- Evaluación cualitativa de fortalezas, debilidades y riesgos existenciales
+- **NOTA**: Los parámetros hardcodeados (INITIAL_VALUE, N_POSITIONS, CURRENT_TIERS) deben actualizarse manualmente si el portfolio cambia significativamente
+- **Output: DATOS CRUDOS + supuestos explícitos (Framework v4.0)**
+
+---
+
 ## FX Fallback Warning (transversal)
 
 Todos los tools que usan FX rates ahora reportan si caen a rates estáticas:

@@ -1088,7 +1088,8 @@ standing_orders:
     fair_value: "$420"
     mos_at_trigger: "25% at $315"
     tier: "A (QS 86)"
-    notes: "Quality Compounder (ROIC 44%, FCF 48%). Currently $538 = far from trigger. Recalibrated from $395 (6% MoS) to $315 (25% MoS) per post-adversarial MoS standards. P/E at $315 ~19x. WARNING: No adversarial buy-pipeline completed — DO NOT execute without full 4-round pipeline if price approaches trigger."
+    status: "SUSPENDED_PRE_PIPELINE — No R1-R4 pipeline completed. DO NOT execute without full 4-round buy-pipeline."
+    notes: "Quality Compounder (ROIC 44%, FCF 48%). Currently $538 = far from trigger. Recalibrated from $395 (6% MoS) to $315 (25% MoS) per post-adversarial MoS standards. P/E at $315 ~19x."
     expiry: 2026-08-01
 
   # V - Quality Compounder waiting for entry (RECALIBRATED 2026-02-11)
@@ -1101,7 +1102,8 @@ standing_orders:
     fair_value: "$275-290"
     mos_at_trigger: "24% at $220 (vs FV $290 midpoint)"
     tier: "A (QS 80)"
-    notes: "Quality Compounder (ROIC 50%+, FCF 54%, #1 market share 52%). Currently $329 = far from trigger. Recalibrated from $280 (3-5% MoS) to $220 (24% MoS) per post-adversarial standards. WARNING: No adversarial buy-pipeline completed — DO NOT execute without full 4-round pipeline if price approaches trigger."
+    status: "SUSPENDED_PRE_PIPELINE — No R1-R4 pipeline completed. DO NOT execute without full 4-round buy-pipeline."
+    notes: "Quality Compounder (ROIC 50%+, FCF 54%, #1 market share 52%). Currently $329 = far from trigger. Recalibrated from $280 (3-5% MoS) to $220 (24% MoS) per post-adversarial standards."
     expiry: 2026-08-01
 
   - ticker: V
@@ -1113,7 +1115,8 @@ standing_orders:
     fair_value: "$275-290"
     mos_at_trigger: "31% at $200 (vs FV $290 midpoint)"
     tier: "A (QS 80)"
-    notes: "ADD to existing position. Recalibrated from $265 (8-10% MoS) to $200 (31% MoS). Total target 5-6%. WARNING: No adversarial buy-pipeline completed — DO NOT execute without full 4-round pipeline if price approaches trigger."
+    status: "SUSPENDED_PRE_PIPELINE — No R1-R4 pipeline completed. DO NOT execute without full 4-round buy-pipeline."
+    notes: "ADD to existing position. Recalibrated from $265 (8-10% MoS) to $200 (31% MoS). Total target 5-6%."
     expiry: 2026-08-01
 
   # DSY.PA - Wide-moat mature software, Tier B entry (COMMITTEE APPROVED 2026-02-11)

@@ -1,7 +1,8 @@
 > **Fair Value:** $190
 > **Entry:** $155
-> **Status:** R4 APPROVED - STANDING ORDER at $155 (half position EUR 200, Greensill sizing constraint)
-> **Pipeline:** R1 ✓ | R2 ✓ (devil's advocate 13/20 MODERATE COUNTER) | R3 ✓ (resolution) | R4 ✓ APPROVED 2026-02-14
+> **Pipeline Stage:** R4_APPROVED (Investment Committee 2026-02-14)
+> **Standing Order:** BUY at $155, HALF POSITION EUR 200 (Greensill sizing constraint)
+> **Pipeline:** R1 ✓ | R2 ✓ (DA 13/20 MODERATE) | R3 ✓ (2026-02-13) | R4 ✓ (2026-02-14)
 > **R3 Resolution (2026-02-13):** FV $190 confirmed (valuation-specialist, $220 thesis was bull case). Entry $160→$155 (18.4% MoS, consistent with Tier B precedents). Greensill A$7B trial Aug 2026 = SIZING CONSTRAINT (half position at entry, full after resolution). Organic growth base case 4% (management guided). Add consulting AI monitoring (Mercer+OW organic <2% 2Q = reassess). QS 68 unchanged.
 
 # MMC (Marsh McLennan) - World's Largest Insurance Broker

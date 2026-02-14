@@ -610,9 +610,32 @@ patterns:
 
   mos_acceptance_by_tier:
     tier_a: "10-15% mínimo típico, 30%+ es excepcional"
-    tier_b: "18-25% typical (18.4% floor with exceptional WIDE moat — MMC precedent)"
+    tier_b: "18-25% typical (18.4% lowest accepted — MMC with exceptional WIDE moat + HALF POSITION due to Greensill binary event; not a universal floor)"
     tier_c: "30%+ requerido"
     note: "Estos no son límites fijos, son patrones observados. WIDE moat justifies lower MoS floor."
+
+  conditional_approvals:
+    description: "Pattern emergente: R4 approval con condiciones que deben cumplirse antes de ejecución"
+    examples:
+      - ticker: RACE.MI
+        condition: "BUY at EUR 270, ADD at EUR 260. EUR 260 requires verification of EBIT growth trajectory"
+        date: 2026-02-12
+      - ticker: DSY.PA
+        condition: "BUY at EUR 15.50. WAIT for Q1 FY2026 results to confirm cloud transition trajectory"
+        date: 2026-02-11
+      - ticker: MMC
+        condition: "HALF POSITION only (EUR 200 vs EUR 400 standard). Full position after Greensill trial resolution (Aug 2026+)"
+        date: 2026-02-14
+    note: "Conditional approvals allow pre-positioned standing orders while managing event risk. The condition is part of the governance, not optional."
+
+  half_position_sizing:
+    description: "Pattern para empresas con eventos binarios pendientes (mega-litigación, decisiones regulatorias)"
+    examples:
+      - ticker: MMC
+        size: "2% (EUR 200 vs 4% standard)"
+        reason: "Greensill A$7B trial Aug 2026. Upgrade to full after resolution."
+        date: 2026-02-14
+    note: "Aplicable a cualquier empresa con >$500M litigación pendiente o decisión regulatoria binaria."
 
 # =============================================================================
 # LECCIONES APRENDIDAS

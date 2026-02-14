@@ -1,6 +1,7 @@
 # BYIT.L - Bytes Technology Group plc
 
-**Fair Value:** 345 GBp (adversarial, updated 2026-02-11)
+> **Analysis Date:** 2026-02-11 (adversarial review) | **Original:** 2026-02-07
+> **Fair Value:** 345 GBp (adversarial, updated 2026-02-11)
 
 ## TL;DR
 

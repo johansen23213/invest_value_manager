@@ -1,11 +1,11 @@
 # Vision Macro y Geopolitica
 
-> Ultima actualizacion: 2026-02-11
+> Ultima actualizacion: 2026-02-14
 
 **Cambios desde ultimo update (05-feb):**
 - **Iran-US: Conversaciones Oman 7-feb celebradas con exito**. Ambas partes acuerdan continuar. Desescalada CONFIRMADA. Probabilidad conflicto BAJA a 15-25%
 - **US Jobs Report sorpresa positiva**: Jan NFP +130K (vs 55K esperado), unemployment 4.3% (vs 4.4%). Mercado laboral mas resiliente de lo esperado
-- **US CPI Jan 2026 pendiente**: Se publica 13-feb. Dato critico para trayectoria Fed. Cleveland Fed nowcast sugiere inflacion acelerandose
+- **US CPI Jan 2026: +2.4% YoY** (publicado 13-feb). Better than expected. Inflacion desacelerando, favorable para Fed easing
 - **DXY debil: ~96.8** (USD en minimos de meses). EUR/USD fuerte, favorable para nuestras posiciones EU en EUR
 - **Petroleo estable-bajo**: Brent $68.8, WTI $64.5. Iran desescalada reduce prima de riesgo
 - **Tariffs: India reducidos 50%->18%. Steel/aluminum 25% global vigentes. EU congelado pero con deadline Jun 1**
@@ -16,7 +16,7 @@
 
 ## Resumen Ejecutivo
 
-1. **Ciclo economico US: Mid-cycle, labor market resiliente, inflacion sticky**. Jan NFP +130K sorpresa positiva. Unemployment 4.3%. Pero inflacion PCE ~3% (vs 2% target) y CPI esperado acelerando a 3.6% by June. Fed on hold hasta minimo junio. "Soft landing" sigue siendo base case pero con riesgo de "no landing" (inflacion persistente).
+1. **Ciclo economico US: Mid-cycle, labor market resiliente, inflacion moderandose**. Jan NFP +130K sorpresa positiva. Unemployment 4.3%. CPI Jan 2026 = 2.4% YoY (mejor de esperado, vs 2.7% Dec). PCE ~3% aun por encima del 2% target. Fed on hold pero CPI favorable abre puerta a easing H2 2026. "Soft landing" base case reforzado.
 2. **Iran-US: Desescalada CONFIRMADA**. Conversaciones indirectas Oman 7-feb exitosas. Acuerdan continuar negociaciones. Posiciones lejanas (Iran: enriquecimiento es derecho; US: quiere zero enrichment + missiles + proxies). Pero canal diplomatico abierto reduce tail risk materialmente.
 3. **Tariffs: Complejidad creciente, pero EU en pausa**. India reducido 50%->18%. Steel/aluminum 25% global. EU congelado con deadline Jun 1 condicionado a NATO/Greenland. EU tiene "trade bazooka" de EUR93B en retaliacion lista. Incertidumbre ALTA pero nuestra exposicion directa a tariffs es BAJA.
 4. **USD debil (DXY ~96.8) es FAVORABLE para nosotros**. EUR fuerte beneficia nuestras posiciones EU valoradas en EUR. Tambien beneficia exportadores EU vs lo que se temia.
@@ -44,10 +44,9 @@
 
 **Inflacion**:
 - CPI Dec 2025: +0.3% MoM, +2.7% YoY. Core: +0.2%, +2.6% YoY
-- **CPI Jan 2026: PENDIENTE - se publica 13 febrero** (dato critico esta semana)
-- Expectativa analistas: CPI acelerando hacia 3.6% by June (tariffs + demand)
-- PCE ~3%, por encima del objetivo 2%
-- **Cleveland Fed Inflation Nowcasting sugiere presion al alza**
+- **CPI Jan 2026: +2.4% YoY (headline), +2.5% YoY (core)** — publicado 13-feb. BETTER than expected (consensus 2.5%/2.5%). Lowest headline since May 2025. Inflacion desacelerando, no acelerando como se temia.
+- PCE ~3%, por encima del objetivo 2% (PCE Feb data pending)
+- Expectativas previas de CPI acelerando a 3.6% by June NO se materializaron en Jan. Tariffs pendientes podrian reacelerarla.
 
 **Crecimiento**:
 - Q3 2025 GDP: +4.4% (fuerte). Q4 2025: ~2.2% (desaceleracion)
@@ -231,10 +230,11 @@
 
 ## Riesgos Principales (Actualizado)
 
-### 1. Inflacion sticky US + Fed on hold -> Multiples comprimidos - PRINCIPAL RIESGO
-- **Probabilidad**: Media-Alta (40-50%)
+### 1. Inflacion sticky US + Fed on hold -> Multiples comprimidos - RIESGO MODERADO (rebajado)
+- **Probabilidad**: Media (30-40%) — rebajado tras CPI Jan 2.4% (mejor de esperado)
 - **Impacto**: Medio - multiples comprimen, growth stocks sufren, value relativamente mejor
-- **CPI Jan 2026 se publica 13-feb**: si >3.0%, Fed postpone recortes indefinidamente
+- **CPI Jan 2026 = 2.4% YoY** (publicado 13-feb): BELOW expectations, inflacion desacelerando. Reduce probabilidad de "no landing" scenario
+- **Riesgo residual**: Tariffs pendientes (EU Jun 1 deadline) podrian reacelerarla en Q2-Q3
 - **Mitigacion**: Portfolio value con earnings reales, no dependiente de expansion de multiples
 
 ### 2. Guerra comercial global (tariffs) - ACTIVO
@@ -324,7 +324,7 @@
 1. 3 posiciones on probation con earnings Feb 23-26 pueden requerir exits (liberando capital adicional)
 2. Pipeline tiene 2 orders aprobados listos para ejecutar
 3. Contexto macro mixto (inflacion sticky, tariffs, UK weak) justifica dry powder
-4. Preferimos esperar a CPI 13-feb para validar entorno antes de deploy masivo
+4. CPI Jan 2026 = 2.4% (favorable). Entorno macro permite deployment selectivo sin urgencia de reserva anti-inflacion
 
 ### Sectores a Buscar
 
@@ -345,7 +345,7 @@
 
 ## Proximos Eventos Calendario
 
-- **13 Febrero 2026**: **US CPI Jan 2026** (CRITICO para trayectoria Fed)
+- **13 Febrero 2026**: **US CPI Jan 2026** = 2.4% YoY (DONE - better than expected)
 - **12 Febrero 2026**: MORN earnings (pipeline candidate)
 - **23 Febrero 2026**: **MONY.L earnings** (PROBATION decision)
 - **24 Febrero 2026**: **EDEN.PA earnings** (key thesis validation)
