@@ -1,6 +1,6 @@
 ---
 name: watchlist-manager
-description: "Use proactively to monitor watchlist entries, check price triggers, and recommend actions on watched stocks. Manages ready_to_buy, on_watch, to_analyze in state/system.yaml."
+description: "Use proactively to monitor watchlist entries, check price triggers, and recommend actions on watched stocks. Manages ready_to_buy, on_watch, to_analyze in state/watchlist.yaml."
 tools: Read, Glob, Grep, Bash, Write, WebSearch, WebFetch
 model: opus
 permissionMode: acceptEdits
@@ -17,7 +17,7 @@ skills:
 Read .claude/skills/system-context/SKILL.md
 Read .claude/skills/investment-rules/SKILL.md
 Read .claude/skills/portfolio-constraints/SKILL.md
-Read state/system.yaml (watchlist section)
+Read state/watchlist.yaml
 ```
 
 ## Rol
@@ -30,7 +30,7 @@ Monitorea la watchlist y evalúa si algún trigger de compra o descarte se ha cu
 - Cuando se añade nueva entry
 
 ## Proceso
-1. Leer state/system.yaml → watchlist (ready_to_buy, on_watch, to_analyze)
+1. Leer state/watchlist.yaml → watchlist (ready_to_buy, on_watch, to_analyze)
 2. Para cada entry con price alerts:
    - Obtener precio actual via Bash: `python3 tools/price_checker.py TICKER1 TICKER2 ...`
    - NUNCA usar WebSearch para precios. SIEMPRE yfinance via price_checker.py
@@ -55,7 +55,7 @@ Monitorea la watchlist y evalúa si algún trigger de compra o descarte se ha cu
 ## Output
 - Resumen estado watchlist con precios actuales
 - Recomendaciones de acción (mover, comprar, descartar)
-- Actualizaciones a state/system.yaml watchlist section
+- Actualizaciones a state/watchlist.yaml
 
 ## CRÍTICO
 - Verificar precios REALES vs thesis antes de recomendar compra (lección Enel)

@@ -1,8 +1,9 @@
 # DECISIONS_LOG.yaml - Framework v4.0
 #
-# Historial de decisiones de inversión con contexto y razonamiento.
-# Usar como PRECEDENTES para informar futuras decisiones.
-# NO son reglas. Son ejemplos de cómo razoné en situaciones similares.
+# Precedentes para consistencia. NO son reglas.
+# ROTATION POLICY: Max 30 entries per category. Older → decisions_log_archive.yaml.
+# Rotation during system-health pipeline (every 14 days).
+# Tools reading this: consistency_checker.py, drift_detector.py, forward_return.py.
 #
 # Creado: 2026-02-05 | Framework v4.0
 

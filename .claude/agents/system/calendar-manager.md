@@ -1,6 +1,6 @@
 ---
 name: calendar-manager
-description: "Use proactively at session start to check upcoming events in next 7 days. Manages earnings dates, price alerts, catalyst dates in state/system.yaml calendar section."
+description: "Use proactively at session start to check upcoming events in next 7 days. Manages earnings dates, price alerts, catalyst dates in state/calendar.yaml."
 tools: Read, Glob, Grep, Bash, Write, WebSearch, WebFetch
 model: opus
 permissionMode: acceptEdits
@@ -19,7 +19,7 @@ Gestiona el calendario de eventos del sistema. Verifica fechas, identifica accio
 - Cuando usuario pregunta "¿qué tenemos esta semana?"
 
 ## Proceso al inicio de sesión
-1. Leer state/system.yaml → calendar.events
+1. Leer state/calendar.yaml → events
 2. Identificar eventos en próximos 7 días
 3. Identificar eventos PASADOS no marcados como completados
 4. Verificar fechas earnings son correctas (buscar en web si >30 días desde última verificación)
@@ -42,7 +42,7 @@ Gestiona el calendario de eventos del sistema. Verifica fechas, identifica accio
 ## Output
 - Resumen eventos próximos 7 días
 - Alertas de eventos pasados sin procesar
-- Actualizaciones al calendario en state/system.yaml
+- Actualizaciones al calendario en state/calendar.yaml
 
 ## CRÍTICO
 - Verificar fechas earnings con web search si hay duda (lección Enel: fecha incorrecta)

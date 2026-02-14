@@ -1,0 +1,193 @@
+# CALENDAR - Active and Future Events
+# Past events archived in state/calendar_archive.yaml
+# Updated: 2026-02-14
+
+events:
+  # EARNINGS WEEK FEB 17-18
+  - date: 2026-02-17
+    type: earnings_pipeline
+    ticker: RSG
+    event: "RSG Q4 2025 earnings (after close)"
+    priority: high
+    action: "HARD GATE before R2. R1 FV $255, entry $210. Framework: thesis/research/RSG/earnings_framework_feb17.md"
+
+  - date: 2026-02-17
+    type: earnings_pipeline
+    ticker: CDNS
+    event: "CDNS Q4 2025 earnings (after close)"
+    priority: high
+    action: "HARD GATE before R2. R1 FV $260, entry $230-240. At $299 = far from entry. Framework: thesis/research/CDNS/earnings_framework_feb17.md"
+
+  - date: 2026-02-18
+    type: earnings_pipeline
+    ticker: VRSK
+    event: "VRSK Q4 2025 earnings (after close)"
+    priority: high
+    action: "HARD GATE before R4. R3 FV $185, entry $135-140. Framework: thesis/research/VRSK/earnings_framework_feb18.md"
+
+  - date: 2026-02-19
+    type: earnings
+    ticker: AGN.NV
+    event: "Aegon FY2025"
+    priority: high
+    action: "Watch OCG 1.2B, solvency >180%. Si precio cae 5.90 - BUY."
+
+  # EARNINGS WEEK FEB 23-26
+  - date: 2026-02-23
+    type: earnings
+    ticker: MONY.L
+    event: "MONY.L FY2025 Results — ON PROBATION"
+    priority: high
+    action: "KC#9: SELL if no AI strategy. FV 190 GBp. SELL if rev <435M or Insurance -5%+."
+
+  - date: 2026-02-23
+    type: strategy
+    ticker: ENEL.MI
+    event: "Enel Capital Markets Day"
+    priority: high
+    action: "Si FV sube 11-12 - entry 8.50."
+
+  - date: 2026-02-24
+    type: earnings
+    ticker: EDEN.PA
+    event: "EDEN.PA FY2025 Results"
+    priority: high
+    action: "Framework ready. See thesis/active/EDEN.PA/earnings_framework_feb2026.md"
+
+  - date: 2026-02-24
+    type: earnings
+    ticker: UTG.L
+    event: "Unite Group FY2025 Preliminary Results"
+    priority: high
+    action: "Watch occupancy FY2027 reservations, Empiric synergies."
+
+  - date: 2026-02-25
+    type: watchlist_review
+    ticker: WKL.AS
+    event: "WKL.AS FY2025 Results — review trigger"
+    priority: high
+    action: "Committee: entry EUR 50-55 post results. See thesis/research/WKL.AS/committee_decision.md"
+
+  - date: 2026-02-25
+    type: earnings
+    ticker: BVI.PA
+    event: "BVI.PA FY2025 — R3 complete"
+    priority: high
+    action: "Pipeline candidate. R3 complete."
+
+  - date: 2026-02-26
+    type: earnings
+    ticker: DTE.DE
+    event: "Deutsche Telekom FY2025"
+    priority: high
+    action: "FV EUR 35.00 (v3.1). Watch EBITDA vs EUR 48.5B, FCF vs EUR 20.1B."
+
+  - date: 2026-02-26
+    type: earnings_pipeline
+    ticker: INTU
+    event: "INTU Q2 FY2026 earnings (after close)"
+    priority: high
+    action: "Pipeline candidate. QS 75. FV $465, entry $330-365. R1 complete. Framework ready."
+
+  - date: 2026-02-26
+    type: earnings
+    ticker: CS.PA
+    event: "AXA FY2025 results"
+    priority: high
+    action: "Si precio cae a 34.50-35.50 - BUY."
+
+  - date: 2026-02-27
+    type: earnings
+    ticker: PROX.BR
+    event: "Proximus FY2025 + Strategic Plan"
+    priority: high
+    action: "Si capex decline + plan creible - BUY 3% a 7.50-7.70."
+
+  - date: 2026-02-28
+    type: earnings
+    ticker: ENGI.PA
+    event: "Engie FY2025"
+    priority: high
+    action: "Watch FCF yield >5%, payout <80%."
+
+  # MARCH
+  - date: 2026-03-01
+    type: earnings
+    ticker: NTGY.MC
+    event: "Naturgy FY2025"
+    priority: high
+
+  - date: 2026-03-04
+    type: earnings
+    ticker: VEEV
+    event: "VEEV Q4 FY2026 — thesis catalyst"
+    priority: high
+    action: "R1 complete. QS 80 Tier A. FV $205. Entry $140-150."
+
+  - date: 2026-03-05
+    type: earnings
+    ticker: DOM.L
+    event: "Dominos Pizza Group FY25 results"
+    priority: high
+    action: "Kill: ND/EBITDA >3x, FCF <60M, share <45%."
+
+  - date: 2026-03-15
+    type: catalyst
+    ticker: NVO
+    event: "CagriSema vs Zepbound head-to-head data"
+    priority: CRITICAL
+    action: "If positive: ADD 2%. If inferior: evaluate kill conditions."
+
+  - date: 2026-03-19
+    type: earnings
+    ticker: ENEL.MI
+    event: "Enel FY2025 results"
+    priority: medium
+
+  - date: 2026-03-31
+    type: earnings
+    ticker: LULU
+    event: "LULU Q4 — MAKE-OR-BREAK"
+    priority: CRITICAL
+    action: "ON PROBATION. SELL if negative global comps or GM <57%."
+
+  # Q2+ (major events only)
+  - date: 2026-04-15
+    type: watchlist_review
+    ticker: DSY.PA
+    event: "DSY.PA Q1 2026 — standing order review"
+    priority: high
+    action: "Cancel if Q1 growth <3%. See thesis/research/DSY.PA/committee_decision.md"
+
+  - date: 2026-05-01
+    type: earnings_pipeline
+    ticker: VLTO
+    event: "VLTO Q1 FY2026 — thesis re-eval trigger"
+    priority: high
+    action: "Standing order at $80 valid until this date."
+
+  - date: 2026-05-11
+    type: system_review
+    ticker: PORTFOLIO
+    event: "3-month adversarial FV accuracy check + all-Tier-A feasibility review"
+    priority: medium
+
+  - date: 2026-08-01
+    type: legal
+    ticker: MMC
+    event: "MMC Greensill A$7B trial (Australia)"
+    priority: CRITICAL
+    action: "Half-position constraint until resolved."
+
+  - date: 2026-09-24
+    type: legal
+    ticker: ADBE
+    event: "ADBE FTC: Last day for dispositive motions"
+    priority: high
+
+  - date: 2026-10-19
+    type: legal
+    ticker: ADBE
+    event: "ADBE FTC: JURY TRIAL"
+    priority: CRITICAL
+    action: "Decision point. Binary outcome."

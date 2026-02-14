@@ -95,7 +95,7 @@ Agent MUST update thesis/active/{TICKER}/thesis.md with:
 
 ### Step 5: Aggregate Results
 After all positions re-evaluated:
-1. Update state/system.yaml with results
+1. Update state files (system.yaml, pipeline_tracker.yaml) with results
 2. Identify portfolio context concerns (concentracion, correlacion)
 3. Generate reasoned recommendations
 4. Update calendar with next review dates
@@ -129,7 +129,7 @@ re_evaluation_results:
 2. Skip macro context check
 3. Use only 1 valuation method
 4. Skip thesis update after re-evaluation
-5. Forget to update state/system.yaml
+5. Forget to update state files
 6. **Use fixed MoS -> Status mapping (v3.0 legacy)** - Reason from principles instead
 7. **Reference "7% max" or other hardcoded limits** - Reason from context
 

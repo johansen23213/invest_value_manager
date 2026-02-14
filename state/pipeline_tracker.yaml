@@ -1,0 +1,93 @@
+# PIPELINE TRACKER + MAINTENANCE
+# Operational metadata for the fund
+# Updated: 2026-02-14
+
+# PRIORITY #1 - CAPITAL DEPLOYMENT (while cash > 25%)
+capital_deployment:
+  frequency: daily
+  priority: 1
+  trigger: "cash > 25%"
+  last_run: 2026-02-14
+  next_due: 2026-02-15
+  last_result: "7 R4-approved. 16 standing orders. Actionable: RSG 6.3%, ROP 7.1%, ACGL 10.6%. Cash 57%."
+  skill: ".claude/skills/capital-deployment/SKILL.md"
+  tool: "tools/quality_universe.py"
+
+# DAILY
+vigilance:
+  frequency: daily
+  last_run: 2026-02-14
+  next_due: 2026-02-15
+  last_result: "0 CRITICAL, 8 MATERIAL. GL insider selling $6.1M/6d. LULU KC#3 approaching."
+
+rotation_check:
+  frequency: daily
+  last_run: 2026-02-14
+  next_due: 2026-02-15
+  last_result: "Bottom 3: ALL (+12.8%), LULU (+11.1%), DTE.DE (+8.6%). No rotation. 4 actionable."
+
+# WEEKLY
+opportunity_scan:
+  frequency: weekly
+  last_run: 2026-02-11
+  next_due: 2026-02-18
+  last_result: "2,052 tickers screened. 5 Tier A found. Pipeline HEALTHY."
+
+risk_review:
+  frequency: weekly
+  last_run: 2026-02-13
+  next_due: 2026-02-20
+  last_result: "0 RED, 7 ORANGE, 7 YELLOW. LULU ESCALATED. GL insider selling."
+
+# BIWEEKLY
+position_review:
+  frequency: biweekly
+  last_run: 2026-02-08
+  next_due: 2026-02-22
+  last_result: "Adversarial Fase 2: 9 Tier C reviewed."
+  current_batch: "middle"
+  batch_rotation: ["bottom", "middle", "top"]
+
+system_health:
+  frequency: biweekly
+  last_run: 2026-02-04
+  next_due: 2026-02-18
+  last_result: "9.1/10. Warnings: energy.md missing, CLAUDE.md >150 lines"
+
+# MONTHLY
+deep_performance:
+  frequency: monthly
+  last_run: 2026-02-11
+  next_due: 2026-03-11
+  last_result: "13 positions. P&L +$70 (+1.2%). Cash 48.5%."
+
+macro_refresh:
+  frequency: monthly
+  last_run: 2026-02-02
+  next_due: 2026-03-02
+  last_result: "Tariffs escalando, Iran up, China mejora"
+
+system_challenge:
+  frequency: monthly
+  last_run: 2026-02-11
+  next_due: 2026-03-11
+  last_result: "5 challenges. Actions: mentalidad competitiva removed, QS default fixed."
+
+# MAINTENANCE
+maintenance:
+  last_health_check: 2026-02-04
+  next_health_check_due: 2026-02-18
+  health_score: 9.1/10
+  last_compact: 2026-02-01
+  memory_status: ok
+  agents_count: 24
+  skills_count: 23  # +2 session-dashboard, session-phases
+  tools_count: 8
+  rules_count: 6
+  evolution_tracking_summary: |
+    2026-02-14: Scalability refactoring — system.yaml split, CLAUDE.md diet, session-protocol compact
+    2026-02-11: System Devil's Advocate — 5 challenges, mentalidad gestor, QS fixes
+    2026-02-05: Proactive Vigilance — 3 agents (news/market/risk), 3 skills, 3 state files
+    2026-02-05: Framework v4.0 compliance — session-protocol v3.0, calibration, precedents
+    2026-02-04: Health check 9.1/10
+    2026-02-02: Ticker bugs fixed (SHEL→SHEL.L, GBp/GBP), DCF net debt fix

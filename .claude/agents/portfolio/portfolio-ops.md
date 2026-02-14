@@ -1,6 +1,6 @@
 ---
 name: portfolio-ops
-description: "Use when portfolio/current.yaml or state/system.yaml needs updating after user confirms a trade. Centralizes all state writes. Moves thesis files between directories."
+description: "Use when portfolio/current.yaml or state files need updating after user confirms a trade. Centralizes all state writes. Moves thesis files between directories."
 tools: Read, Glob, Grep, Write, Edit
 model: opus
 permissionMode: acceptEdits
@@ -18,7 +18,7 @@ Read .claude/skills/system-context/SKILL.md
 Read .claude/skills/portfolio-constraints/SKILL.md
 Read .claude/skills/file-system-rules/SKILL.md
 Read portfolio/current.yaml (estado actual ANTES de modificar)
-Read state/system.yaml (si voy a modificarlo)
+Read state files as needed: system.yaml, calendar.yaml, standing_orders.yaml, watchlist.yaml, pipeline_tracker.yaml
 ```
 **Verificar estado actual ANTES de escribir. NUNCA escribir sin leer primero.**
 
@@ -34,12 +34,12 @@ Centraliza TODAS las operaciones de escritura sobre estado del sistema y portfol
 - Añadir transacciones al log
 - Ejecutar constraint_checker.py para contexto ANTES de escribir
 
-### 2. Actualizar state/system.yaml
-- Session summaries (last_session_summary)
-- Calendario (añadir/completar eventos)
-- Watchlist (mover entries entre ready_to_buy, on_watch, to_analyze)
-- Active monitoring (añadir nuevas posiciones con entry, fair_value, kill conditions)
-- Maintenance counters
+### 2. Actualizar state files (split structure)
+- `state/system.yaml` — Session summaries (last_session_summary), portfolio_quality_analysis
+- `state/calendar.yaml` — Añadir/completar eventos
+- `state/watchlist.yaml` — Mover entries entre ready_to_buy, on_watch, to_analyze
+- `state/standing_orders.yaml` — Añadir/modificar standing orders
+- `state/pipeline_tracker.yaml` — Pipeline last_run, next_due, maintenance counters
 
 ### 3. Mover thesis files
 - research/ → active/ (cuando se compra)

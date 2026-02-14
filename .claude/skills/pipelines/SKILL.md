@@ -1,7 +1,7 @@
 # Pipelines - Rutinas Operativas del Fondo
 
 > Framework v4.0 - Secuencias predefinidas de agentes con cadencia regular.
-> Tracking de ejecucion en `state/system.yaml` seccion `pipeline_tracker`.
+> Tracking de ejecucion en `state/pipeline_tracker.yaml`.
 
 ---
 

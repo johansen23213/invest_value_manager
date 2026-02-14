@@ -1,0 +1,175 @@
+# STANDING ORDERS - Pre-approved, execute when price hits trigger
+# The human can execute in eToro without waiting for a session.
+# Updated: 2026-02-14
+
+active_orders:
+  # ADD ORDERS (existing positions)
+  - ticker: GL
+    action: ADD
+    trigger: "<=$125"
+    size_eur: 300
+    shares_approx: 2
+    fair_value: "$191"
+    mos_at_trigger: "34.5%"
+    notes: "GL v3.0. SEC+DOJ cleared. QS Adj 55 Tier B borderline."
+    expiry: 2026-08-01
+
+  - ticker: NVO
+    action: ADD
+    trigger: "CagriSema positive (March 2026) OR price <=$40"
+    size_eur: 300
+    shares_approx: 6
+    fair_value: "$66"
+    mos_at_trigger: "40%+ at $40"
+    notes: "ADD to 8.31 shares. Brings position 4%→6-7%."
+    expiry: 2026-06-01
+
+  - ticker: BYIT.L
+    action: ADD
+    trigger: "<=240 GBp"
+    size_eur: 200
+    shares_approx: 83
+    fair_value: "345 GBp"
+    mos_at_trigger: "30%"
+    notes: "After H2 FY2026 OP confirms recovery >GBP 66M."
+    expiry: 2026-06-01
+
+  - ticker: RACE.MI
+    action: ADD
+    trigger: "<=EUR 260"
+    size_eur: 350
+    shares_approx: 1
+    fair_value: "EUR 355"
+    mos_at_trigger: "27%"
+    notes: "ADD to full 6% if initial EUR 270 already executed."
+    expiry: 2026-08-01
+
+  - ticker: V
+    action: ADD
+    trigger: "<=$200"
+    size_eur: 300
+    shares_approx: 1.5
+    fair_value: "$275-290"
+    mos_at_trigger: "31%"
+    status: "SUSPENDED_PRE_PIPELINE"
+    notes: "No R1-R4 pipeline. DO NOT execute without full pipeline."
+    expiry: 2026-08-01
+
+  # BUY ORDERS (new positions)
+  - ticker: FGP.L
+    action: BUY
+    trigger: "<=165 GBp"
+    size_eur: 400
+    fair_value: "220-240 GBp"
+    mos_at_trigger: "25%"
+    notes: "FirstGroup. Tier B. WARNING: No adversarial pipeline."
+    expiry: 2026-06-01
+
+  - ticker: CMCSA
+    action: BUY
+    trigger: "<=$26"
+    size_eur: 450
+    fair_value: "$33-38"
+    mos_at_trigger: "26-31%"
+    notes: "Tier B. WARNING: No adversarial pipeline."
+    expiry: 2026-06-01
+
+  - ticker: WPP.L
+    action: BUY
+    trigger: "<=200 GBp"
+    size_eur: 400
+    fair_value: "380 GBp"
+    mos_at_trigger: "47%"
+    status: "UNDER REVIEW — Tier C, evaluate after Rose plan Feb 26"
+    expiry: 2026-04-01
+
+  - ticker: MA
+    action: BUY
+    trigger: "<=$315"
+    size_eur: 500
+    fair_value: "$420"
+    mos_at_trigger: "25%"
+    tier: "A (QS 86)"
+    status: "SUSPENDED_PRE_PIPELINE"
+    expiry: 2026-08-01
+
+  - ticker: V
+    action: BUY
+    trigger: "<=$220"
+    size_eur: 500
+    fair_value: "$275-290"
+    mos_at_trigger: "24%"
+    tier: "A (QS 80)"
+    status: "SUSPENDED_PRE_PIPELINE"
+    expiry: 2026-08-01
+
+  - ticker: DSY.PA
+    action: BUY
+    trigger: "<=EUR 15.50"
+    size_eur: 330
+    fair_value: "EUR 20.00"
+    mos_at_trigger: "22.5%"
+    tier: "B (QS 70)"
+    notes: "Committee approved. Wait Q1 2026. Cancel if growth <3%."
+    expiry: 2026-05-15
+
+  - ticker: DNLM.L
+    action: BUY
+    trigger: "<=780 GBp"
+    size_eur: 375
+    fair_value: "1008 GBp"
+    mos_at_trigger: "23%"
+    tier: "A (QS 79)"
+    expiry: 2026-06-01
+
+  - ticker: RACE.MI
+    action: BUY
+    trigger: "<=EUR 270"
+    size_eur: 350
+    fair_value: "EUR 355"
+    mos_at_trigger: "24%"
+    tier: "A (QS 82/84)"
+    notes: "Committee approved. Conditional on Luce + tariffs."
+    expiry: 2026-08-01
+
+  - ticker: ROP
+    action: BUY
+    trigger: "<=$300"
+    size_eur: 400
+    fair_value: "$385"
+    mos_at_trigger: "22%"
+    tier: "B (QS 48/70 adj)"
+    notes: "Serial acquirer. 29 vertical software monopolies."
+    expiry: 2026-05-15
+
+  - ticker: VLTO
+    action: BUY
+    trigger: "<=$80"
+    size_eur: 400
+    fair_value: "$100"
+    mos_at_trigger: "20%"
+    tier: "B (QS 52/66 adj)"
+    notes: "Danaher spinoff. Dual #1 water+coding."
+    expiry: 2026-05-31
+
+  - ticker: MMC
+    action: BUY
+    trigger: "<=$155"
+    size_eur: 200
+    fair_value: "$190"
+    mos_at_trigger: "18.4%"
+    tier: "B (QS 64/68 adj)"
+    notes: "HALF POSITION — Greensill A$7B trial Aug 2026."
+    expiry: 2026-05-31
+
+  - ticker: ACGL
+    action: BUY
+    trigger: "<=$88"
+    size_eur: 400
+    fair_value: "$110"
+    mos_at_trigger: "20%"
+    tier: "B (QS 57/68 adj)"
+    notes: "Bermuda specialty insurer. Entering soft market."
+    expiry: 2026-07-31
+
+# Cancelled orders history: see state/calendar_archive.yaml

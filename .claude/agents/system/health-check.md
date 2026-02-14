@@ -22,7 +22,7 @@ Verificación periódica de la salud del sistema. Cada 14 días o bajo demanda.
 - [ ] Permisos correctos en settings.json
 
 ### 2. Estado del sistema
-- [ ] state/system.yaml es válido YAML
+- [ ] state/system.yaml + calendar.yaml + standing_orders.yaml + watchlist.yaml + pipeline_tracker.yaml son válidos YAML
 - [ ] portfolio/current.yaml es válido y coherente
 - [ ] Calendario tiene eventos futuros
 - [ ] No hay tareas pendientes >30 días
@@ -45,7 +45,7 @@ Verificación periódica de la salud del sistema. Cada 14 días o bajo demanda.
 - [ ] Memoria activa <50KB
 - [ ] No hay ficheros >20KB individuales sin compactar
 - [ ] archive/index.yaml actualizado
-- [ ] **state/system.yaml <30KB** (si >30KB → WARNING, proponer compactación)
+- [ ] **state/*.yaml total <30KB** (si >30KB → WARNING, proponer compactación)
 - [ ] **CLAUDE.md <150 líneas** (si >150 → WARNING)
 - [ ] **Total .claude/ <500KB** (si >500KB → WARNING)
 
@@ -73,4 +73,4 @@ Verificación periódica de la salud del sistema. Cada 14 días o bajo demanda.
 ## Output
 - Score numérico X/10 con desglose por categoría
 - Lista de issues con severidad
-- Actualizar state/system.yaml → maintenance → last_health_check, health_score, issues
+- Actualizar state/pipeline_tracker.yaml → maintenance → last_health_check, health_score, issues

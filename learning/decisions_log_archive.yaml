@@ -1,0 +1,22 @@
+# DECISIONS_LOG ARCHIVE - Framework v4.0
+#
+# Entries older than 60 days are rotated here from decisions_log.yaml.
+# This file is NOT read by tools (consistency_checker, drift_detector).
+# Searchable on-demand for historical analysis.
+#
+# Rotation Policy:
+#   - Active file keeps last 30 entries per category
+#   - When a category exceeds 30 entries, oldest are moved here
+#   - Patterns and lessons sections: keep all in active (rarely grow)
+#   - Rotation happens during system-health pipeline (every 14 days)
+#
+# Created: 2026-02-14 | No entries archived yet (system < 60 days old)
+
+version: "4.0"
+last_rotation: 2026-02-14
+
+archived_sizing_decisions: []
+archived_trim_decisions: []
+archived_hold_decisions: []
+archived_geography_decisions: []
+archived_lessons: []
