@@ -76,7 +76,7 @@ El orchestrator (yo, Claude) delega a agentes especializados. Lee CLAUDE.md que 
 | Responsabilidad | Escanear noticias últimas 48h de todas las posiciones y watchlist |
 | Single-responsibility | Solo detecta y clasifica noticias, no decide acciones |
 | Skills | news-classification, critical-thinking |
-| Lee | portfolio/current.yaml, state/system.yaml (watchlist) |
+| Lee | portfolio/current.yaml, state/watchlist.yaml, state/standing_orders.yaml |
 | Escribe | state/news_digest.yaml |
 | Trigger | INICIO de cada sesión (Fase 0) |
 | Alerta | CRÍTICO = STOP, informar humano inmediatamente |
@@ -87,7 +87,7 @@ El orchestrator (yo, Claude) delega a agentes especializados. Lee CLAUDE.md que 
 | Responsabilidad | Detectar movimientos anómalos de precio y buscar su CAUSA |
 | Single-responsibility | Solo detecta anomalías, no decide acciones |
 | Skills | critical-thinking |
-| Lee | portfolio/current.yaml, state/system.yaml |
+| Lee | portfolio/current.yaml, state/watchlist.yaml, state/standing_orders.yaml |
 | Escribe | state/market_pulse.yaml |
 | Tools | price_checker.py |
 | Trigger | INICIO de cada sesión (en paralelo con news-monitor) |
@@ -193,7 +193,7 @@ El orchestrator (yo, Claude) delega a agentes especializados. Lee CLAUDE.md que 
 | Responsabilidad | Búsqueda sistemática de oportunidades anti-sesgo |
 | Single-responsibility | Encuentra candidatos de forma sistemática, no los analiza profundamente |
 | Skills | screening-protocol, critical-thinking, agent-meta-reflection |
-| Lee | world/sectors/*.md, state/system.yaml (watchlist, standing_orders) |
+| Lee | world/sectors/*.md, state/watchlist.yaml, state/standing_orders.yaml |
 | Escribe | N/A (output directo al orchestrator) |
 | Dependencias | Usa dynamic_screener.py, verifica sector views existen |
 | Cuándo usar | Cash sin oportunidades claras, búsqueda de ideas, post-venta, proactivamente semanal |
@@ -248,8 +248,8 @@ El orchestrator (yo, Claude) delega a agentes especializados. Lee CLAUDE.md que 
 | Responsabilidad | Monitoreo de watchlist y triggers |
 | Single-responsibility | Verifica triggers, recomienda acciones |
 | Skills | investment-rules, portfolio-constraints |
-| Lee | state/system.yaml (watchlist) |
-| Escribe | state/system.yaml (watchlist updates) |
+| Lee | state/watchlist.yaml |
+| Escribe | state/watchlist.yaml |
 
 #### portfolio-ops
 | Campo | Valor |
@@ -257,8 +257,8 @@ El orchestrator (yo, Claude) delega a agentes especializados. Lee CLAUDE.md que 
 | Responsabilidad | Centraliza TODAS las escrituras de estado |
 | Single-responsibility | Solo escribe estado, no decide |
 | Skills | portfolio-constraints, file-system-rules |
-| Lee | portfolio/current.yaml, state/system.yaml |
-| Escribe | portfolio/current.yaml, state/system.yaml (tras confirmación humano) |
+| Lee | portfolio/current.yaml, state/*.yaml (as needed) |
+| Escribe | portfolio/current.yaml, state/*.yaml (tras confirmación humano) |
 | **Nuevo v4.1** | Maneja campos conviction, exit_plan, last_review en portfolio/current.yaml |
 
 #### performance-tracker
@@ -280,8 +280,8 @@ El orchestrator (yo, Claude) delega a agentes especializados. Lee CLAUDE.md que 
 | Responsabilidad | Gestión de calendario de eventos |
 | Single-responsibility | Verifica fechas, alerta eventos |
 | Skills | system-context |
-| Lee | state/system.yaml (calendar) |
-| Escribe | state/system.yaml (calendar updates) |
+| Lee | state/calendar.yaml |
+| Escribe | state/calendar.yaml |
 
 #### health-check
 | Campo | Valor |
@@ -290,7 +290,7 @@ El orchestrator (yo, Claude) delega a agentes especializados. Lee CLAUDE.md que 
 | Single-responsibility | Verifica consistencia, no corrige |
 | Skills | system-context, file-system-rules |
 | Lee | Todo el sistema |
-| Escribe | state/system.yaml (health_score, issues) |
+| Escribe | state/pipeline_tracker.yaml (health_score, issues) |
 | Verifica | **Sector views existen para posiciones activas** |
 | **Nuevo v4.1** | Verificar: todas las posiciones tienen conviction y exit_plan. forward_return.py ejecutado en sesión |
 

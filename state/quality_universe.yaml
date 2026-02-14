@@ -1,5 +1,5 @@
 quality_universe:
-  last_updated: '2026-02-14'
+  last_updated: '2026-02-15'
   companies:
   - ticker: INTU
     name: Intuit Inc.
@@ -20,20 +20,20 @@ quality_universe:
       Feb 26 Q2 earnings.'
   - ticker: PAYC
     name: Paycom Software, Inc.
-    qs_tool: 85
+    qs_tool: 75
     qs_adj: 75
     tier: A
     sector: Technology
     fair_value: 115.0
-    entry_price: 92.0
+    entry_price: 88.0
     currency: USD
     current_price: 125.31
-    distance_to_entry: 36.2
-    pipeline_status: R3_COMPLETE
+    distance_to_entry: 42.4
+    pipeline_status: STANDING_ORDER
     thesis_path: thesis/research/PAYC/thesis.md
-    last_scored: '2026-02-13'
+    last_scored: '2026-02-14'
     last_price_check: '2026-02-14'
-    notes: 'R3 resolution: QS 85->75, FV $130->$115, entry $95-105->$88-95. Wait Q1 FY2026 (Apr).'
+    notes: ''
   - ticker: DSY.PA
     name: Dassault Systemes SE
     qs_tool: 70
@@ -104,32 +104,32 @@ quality_universe:
     qs_adj: 86
     tier: A
     sector: Payments
-    fair_value: 420
-    entry_price: 315
+    fair_value: 400.0
+    entry_price: 315.0
     currency: USD
     current_price: 518.36
     distance_to_entry: 64.6
-    pipeline_status: SCORED
-    thesis_path: null
-    last_scored: '2026-02-10'
+    pipeline_status: STANDING_ORDER
+    thesis_path: thesis/research/MA/thesis.md
+    last_scored: '2026-02-14'
     last_price_check: '2026-02-14'
-    notes: 'WARNING: no buy-pipeline. Needs R1-R4.'
+    notes: ''
   - ticker: V
     name: Visa Inc.
     qs_tool: 80
     qs_adj: 80
     tier: A
     sector: Payments
-    fair_value: 283
-    entry_price: 220
+    fair_value: 305.0
+    entry_price: 260.0
     currency: USD
     current_price: 314.08
-    distance_to_entry: 42.8
-    pipeline_status: SCORED
-    thesis_path: null
-    last_scored: '2026-02-10'
+    distance_to_entry: 20.8
+    pipeline_status: STANDING_ORDER
+    thesis_path: thesis/research/V/thesis.md
+    last_scored: '2026-02-15'
     last_price_check: '2026-02-14'
-    notes: 'WARNING: no buy-pipeline. Needs R1-R4.'
+    notes: 'R4 APPROVED. FV $305. Entry $260 (14.8% MoS). 4 hard gates (DOJ, CCCA, rev growth, incentives). MA first priority. ADD $235.'
   - ticker: ROP
     name: Roper Technologies, Inc.
     qs_tool: 48
@@ -237,14 +237,13 @@ quality_universe:
     fair_value: 190.0
     entry_price: 155.0
     currency: USD
-    current_price: null
-    distance_to_entry: null
-    pipeline_status: SCORED
-    thesis_path: null
+    current_price: 182.7
+    distance_to_entry: 17.9
+    pipeline_status: STANDING_ORDER
+    thesis_path: thesis/research/MMC/thesis.md
     last_scored: '2026-02-14'
-    last_price_check: null
-    notes: 'R4 APPROVED 2026-02-14. #1 global insurance broker. Standing order 55 HALF POSITION (EUR 200). Greensill sizing
-      constraint. 7 KCs. Valid until Q1 2026.'
+    last_price_check: '2026-02-14'
+    notes: 'R4 APPROVED. Standing order $155 HALF POSITION (EUR 200). Greensill A$7B trial Aug 2026. 7 KCs.'
   - ticker: WRB
     name: W.R. Berkley Corporation
     qs_tool: 67
@@ -600,37 +599,36 @@ quality_universe:
     notes: ''
   - ticker: MORN
     name: Morningstar, Inc.
-    qs_tool: 83
+    qs_tool: 78
     qs_adj: 78
     tier: A
     sector: Financial Data
     fair_value: 180.0
-    entry_price: 130.0
-    currency: USD
-    current_price: 160.03
-    distance_to_entry: 23.1
-    pipeline_status: R3_COMPLETE
-    thesis_path: thesis/research/MORN/thesis.md
-    last_scored: '2026-02-13'
-    last_price_check: '2026-02-14'
-    notes: 'R3 resolution: DA 13/19 STRONG COUNTER. FV 05->80. CRSP conflict. Growth 9%->7.5%. Entry 30-135. R4 deferred.'
-  - ticker: IT
-    name: Gartner, Inc.
-    qs_tool: 73
-    qs_adj: 78
-    tier: A
-    sector: Research/Advisory
-    fair_value: 190.0
     entry_price: 135.0
     currency: USD
-    current_price: 158.58
-    distance_to_entry: 17.5
-    pipeline_status: R3_COMPLETE
-    thesis_path: thesis/research/IT/thesis.md
-    last_scored: '2026-02-13'
+    current_price: 160.03
+    distance_to_entry: 18.5
+    pipeline_status: STANDING_ORDER
+    thesis_path: thesis/research/MORN/thesis.md
+    last_scored: '2026-02-14'
     last_price_check: '2026-02-14'
-    notes: 'R3 resolution: DA 14/19 STRONG COUNTER. FV 45->90. FCF .4B->.2B. AI disruption NOW. Entry 30-135. R4 deferred
-      until 35 or Q1 FY26.'
+    notes: ''
+  - ticker: IT
+    name: Gartner, Inc.
+    qs_tool: 71
+    qs_adj: 71
+    tier: B
+    sector: Research/Advisory
+    fair_value: 190.0
+    entry_price: 125.0
+    currency: USD
+    current_price: 158.58
+    distance_to_entry: 26.9
+    pipeline_status: R4_WATCHLIST
+    thesis_path: thesis/research/IT/thesis.md
+    last_scored: '2026-02-14'
+    last_price_check: '2026-02-14'
+    notes: 'R4 WATCHLIST. Entry $120-130 CONDITIONAL on Q1 2026 data (May). No standing order — needs AI disruption confirmation. Bear MoS negative.'
   - ticker: VEEV
     name: Veeva Systems Inc.
     qs_tool: 72
@@ -714,25 +712,24 @@ quality_universe:
     thesis_path: thesis/research/ACGL/thesis.md
     last_scored: '2026-02-13'
     last_price_check: '2026-02-14'
-    notes: R4 APPROVED 2026-02-14. Standing order $88, EUR 400 (4%). 10/10 gates. FV $110. DA 12/19 MODERATE. QS
-      57->68 (insurer adj). WIDE moat 22/25. Conviction MEDIUM-LOW. Valid until Q2 2026.
+    notes: R4 APPROVED 2026-02-14. Standing order $88, EUR 400 (4%). 10/10 gates. FV $110. DA 12/19 MODERATE. QS 57->68 (insurer
+      adj). WIDE moat 22/25. Conviction MEDIUM-LOW. Valid until Q2 2026.
   - ticker: ZTS
     name: Zoetis Inc.
-    qs_tool: 73
-    qs_adj: 73
-    tier: B
+    qs_tool: 80
+    qs_adj: 80
+    tier: A
     sector: Animal Health
     fair_value: 120.0
     entry_price: 95.0
     currency: USD
     current_price: 126.65
     distance_to_entry: 33.3
-    pipeline_status: R3_COMPLETE
+    pipeline_status: STANDING_ORDER
     thesis_path: thesis/research/ZTS/thesis.md
-    last_scored: '2026-02-13'
+    last_scored: '2026-02-14'
     last_price_check: '2026-02-14'
-    notes: R3 COMPLETE. DA 14/19 STRONG COUNTER. FV $140->$120. QS 78->73 (Tier A->B). Librela 9x adverse events, Apoquel
-      patent Nov 2026, vet visit decline. Entry $95.
+    notes: ''
   - ticker: VRSK
     name: Verisk Analytics, Inc.
     qs_tool: 80
@@ -936,12 +933,12 @@ quality_universe:
     fair_value: 100.0
     entry_price: 80.0
     currency: USD
-    current_price: null
-    distance_to_entry: null
+    current_price: 92.54
+    distance_to_entry: 15.7
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-14'
-    last_price_check: null
+    last_price_check: '2026-02-14'
     notes: R4 APPROVED 2026-02-14. Danaher spinoff. Standing order 0. QS Tool 52, Adj 66 (+14). Valid until Q1 FY2026 earnings.
   - ticker: BAH
     name: Booz Allen Hamilton Holding Cor
@@ -960,7 +957,7 @@ quality_universe:
     last_price_check: '2026-02-14'
     notes: R1 COMPLETE. QS 73->68 adj. FV $88. VERY HIGH risk (DOGE). NARROW moat. NOT advancing to R2 until DOGE stabilizes.
   - ticker: FDS
-    name: FactSet Research Systems Inc.
+    name: FactSet Research Systems
     qs_tool: 73
     qs_adj: 73
     tier: B
@@ -970,12 +967,11 @@ quality_universe:
     currency: USD
     current_price: 205.79
     distance_to_entry: 21.1
-    pipeline_status: R3_COMPLETE
+    pipeline_status: STANDING_ORDER
     thesis_path: thesis/research/FDS/thesis.md
-    last_scored: '2026-02-13'
+    last_scored: '2026-02-14'
     last_price_check: '2026-02-14'
-    notes: R3 COMPLETE. QS 73. FV $210 (was $225, -7pct). CEO Snow retired Sep 2025. Correlated AI+competition+headcount risk.
-      Entry $170. HARD GATE Q2 FY2026 Mar 2026.
+    notes: ''
   - ticker: CMCSA
     name: Comcast Corporation
     qs_tool: null
@@ -985,13 +981,14 @@ quality_universe:
     fair_value: 35.0
     entry_price: 26.0
     currency: USD
-    current_price: null
-    distance_to_entry: null
+    current_price: 31.57
+    distance_to_entry: 21.4
     pipeline_status: PRE_R1
     thesis_path: null
     last_scored: null
-    last_price_check: null
-    notes: Standing order at $26. FV $33-38. Broadband moat eroding (FWA, fiber). SUSPENDED_PRE_PIPELINE. Needs QS scoring + full pipeline.
+    last_price_check: '2026-02-14'
+    notes: Standing order at $26. FV $33-38. Broadband moat eroding (FWA, fiber). SUSPENDED_PRE_PIPELINE. Needs QS scoring
+      + full pipeline.
   - ticker: WPP.L
     name: WPP plc
     qs_tool: null
@@ -1001,10 +998,234 @@ quality_universe:
     fair_value: 380.0
     entry_price: 200.0
     currency: GBP
-    current_price: null
-    distance_to_entry: null
+    current_price: 272.9
+    distance_to_entry: 36.4
     pipeline_status: PRE_R1
     thesis_path: null
     last_scored: null
-    last_price_check: null
+    last_price_check: '2026-02-14'
     notes: Standing order at 200 GBp. FV 380p. UNDER REVIEW — Tier C + no moat + AI disruption. Wait Rose plan Feb 26.
+  - ticker: ORNBV.HE
+    name: Orion Corporation B
+    qs_tool: 78
+    qs_adj: 72
+    tier: B
+    sector: Pharma/Specialty
+    fair_value: 55.0
+    entry_price: 48.0
+    currency: EUR
+    current_price: 67.85
+    distance_to_entry: -41.4
+    pipeline_status: R1_COMPLETE
+    thesis_path: thesis/research/ORNBV.HE/thesis.md
+    last_scored: '2026-02-14'
+    last_price_check: '2026-02-14'
+    notes: 'R1 COMPLETE. QS 78->72 adj (-6 Nubeqa concentration). FV EUR 55. OVERVALUED at EUR 67.85. Entry EUR 45-48. Nubeqa royalty supercycle.'
+  - ticker: MSCI
+    name: MSCI Inc.
+    qs_tool: 76
+    qs_adj: 76
+    tier: A
+    sector: Financial Data/Indices
+    fair_value: 600.0
+    entry_price: 480.0
+    currency: USD
+    current_price: null
+    distance_to_entry: null
+    pipeline_status: SCORED
+    thesis_path: null
+    last_scored: '2026-02-14'
+    last_price_check: null
+    notes: Index monopoly. ROIC 40.8%, GM 82.4%, FCF 46.5%. Toll on global index investing.
+  - ticker: KCR.HE
+    name: Konecranes Plc
+    qs_tool: 73
+    qs_adj: 73
+    tier: B
+    sector: Industrial Equipment
+    fair_value: 110.0
+    entry_price: 85.0
+    currency: EUR
+    current_price: null
+    distance_to_entry: null
+    pipeline_status: SCORED
+    thesis_path: null
+    last_scored: '2026-02-14'
+    last_price_check: null
+    notes: 'Konecranes. Global #1-2 cranes. ROIC 21%, net cash, 19.6% insider. 4 analysts.'
+  - ticker: RMS.PA
+    name: HERMES INTL
+    qs_tool: 78
+    qs_adj: 78
+    tier: A
+    sector: Luxury Goods
+    fair_value: 2500.0
+    entry_price: 1700.0
+    currency: EUR
+    current_price: null
+    distance_to_entry: null
+    pipeline_status: SCORED
+    thesis_path: null
+    last_scored: '2026-02-14'
+    last_price_check: null
+    notes: Hermes. ROIC 49%, GM 71%, 67% insider. P/E 50x far from entry.
+  - ticker: FOUR.L
+    name: 4imprint Group plc
+    qs_tool: 67
+    qs_adj: 69
+    tier: B
+    sector: Promotional Products
+    fair_value: 4400.0
+    entry_price: 3400.0
+    currency: GBP
+    current_price: 3840.0
+    distance_to_entry: -11.5
+    pipeline_status: R3_COMPLETE
+    thesis_path: thesis/research/FOUR.L/thesis.md
+    last_scored: '2026-02-15'
+    last_price_check: '2026-02-14'
+    notes: 'R3 COMPLETE. FV 5300->4400 (-17%). DA 14/21 MODERATE. Market share LOST in 2025. Tariffs semi-structural. Entry 3400p. HARD GATE Mar 11 results. No SO until then.'
+  - ticker: STMN.SW
+    name: STRAUMANN N
+    qs_tool: 60
+    qs_adj: 68
+    tier: B
+    sector: Healthcare/Dental
+    fair_value: 120.0
+    entry_price: 85.0
+    currency: CHF
+    current_price: null
+    distance_to_entry: null
+    pipeline_status: SCORED
+    thesis_path: null
+    last_scored: '2026-02-14'
+    last_price_check: null
+    notes: Straumann. Dental implant leader 33% global share. 29% insider. ROIC-WACC +8.2pp. -28% from 52wH.
+  - ticker: SOON.SW
+    name: SONOVA N
+    qs_tool: 61
+    qs_adj: 66
+    tier: B
+    sector: Healthcare/Hearing
+    fair_value: 250.0
+    entry_price: 195.0
+    currency: CHF
+    current_price: null
+    distance_to_entry: null
+    pipeline_status: SCORED
+    thesis_path: null
+    last_scored: '2026-02-14'
+    last_price_check: null
+    notes: 'Sonova. Hearing aid oligopoly #2. 18% insider. ROIC-WACC +5.2pp. P/E 23x. -34% from 52wH.'
+  - ticker: ITRK.L
+    name: INTERTEK GROUP PLC ORD 1P
+    qs_tool: 63
+    qs_adj: 65
+    tier: B
+    sector: Testing/Inspection
+    fair_value: 5500.0
+    entry_price: 4200.0
+    currency: GBP
+    current_price: null
+    distance_to_entry: null
+    pipeline_status: SCORED
+    thesis_path: null
+    last_scored: '2026-02-14'
+    last_price_check: null
+    notes: Intertek. TIC diversified. P/E 20x, -20% from 52wH. ROIC improved to 22.5%. AAA strategy.
+  - ticker: ADDT-B.ST
+    name: Addtech AB ser. B
+    qs_tool: 70
+    qs_adj: 70
+    tier: B
+    sector: Industrial/Serial Acquirer
+    fair_value: 380.0
+    entry_price: 280.0
+    currency: SEK
+    current_price: null
+    distance_to_entry: null
+    pipeline_status: SCORED
+    thesis_path: null
+    last_scored: '2026-02-14'
+    last_price_check: null
+    notes: Addtech. Swedish mini-Danaher. ROIC 18%, rev CAGR +15.8%. P/E 41x = expensive. Monitor.
+  - ticker: ADP
+    name: Automatic Data Processing, Inc.
+    qs_tool: 70
+    qs_adj: 70
+    tier: B
+    sector: HR/Payroll Services
+    fair_value: 260.0
+    entry_price: 195.0
+    currency: USD
+    current_price: 212.11
+    distance_to_entry: 8.8
+    pipeline_status: SCORED
+    thesis_path: null
+    last_scored: '2026-02-15'
+    last_price_check: '2026-02-15'
+    notes: 'ROIC-WACC +41.6pp. 1-in-6 US workers on ADP payroll. Near 52wL (-35.7% from high). GM 46% expanding. FCF 21%. Net cash. 7.6% rev CAGR. NEW SECTOR.'
+  - ticker: ODFL
+    name: Old Dominion Freight Line, Inc.
+    qs_tool: 69
+    qs_adj: 69
+    tier: B
+    sector: LTL Logistics
+    fair_value: 210.0
+    entry_price: 165.0
+    currency: USD
+    current_price: 193.21
+    distance_to_entry: 17.1
+    pipeline_status: SCORED
+    thesis_path: null
+    last_scored: '2026-02-15'
+    last_price_check: '2026-02-15'
+    notes: 'LTL gold standard. ROIC 24.5%, ROIC-WACC +13pp, net cash, 10.2% insider. Best operating ratio in industry (74%). NEW SECTOR.'
+  - ticker: ALLE
+    name: Allegion plc
+    qs_tool: 68
+    qs_adj: 68
+    tier: B
+    sector: Security/Access Control
+    fair_value: 200.0
+    entry_price: 155.0
+    currency: USD
+    current_price: 179.50
+    distance_to_entry: 15.8
+    pipeline_status: SCORED
+    thesis_path: null
+    last_scored: '2026-02-15'
+    last_price_check: '2026-02-15'
+    notes: 'Schlage/Von Duprin brands. ROIC 20.8%, ROIC-WACC +11.4pp, expanding GM 44%, rev CAGR 9.6%. Smart lock structural growth. NEW SECTOR.'
+  - ticker: SHW
+    name: Sherwin-Williams Company (The)
+    qs_tool: 65
+    qs_adj: 65
+    tier: B
+    sector: Specialty Coatings
+    fair_value: 390.0
+    entry_price: 310.0
+    currency: USD
+    current_price: 368.89
+    distance_to_entry: 19.0
+    pipeline_status: SCORED
+    thesis_path: null
+    last_scored: '2026-02-15'
+    last_price_check: '2026-02-15'
+    notes: 'US paint #1. 4800+ company stores = distribution moat. ROIC 18.1%, ROIC-WACC +7.8pp, GM expanding 48.5%, 7.2% insider. EPS CAGR 14.6%. Leverage 2.9x. NEW SECTOR.'
+  - ticker: IHG
+    name: InterContinental Hotels Group PLC
+    qs_tool: 65
+    qs_adj: 65
+    tier: B
+    sector: Hospitality/Hotels
+    fair_value: 155.0
+    entry_price: 118.0
+    currency: USD
+    current_price: 146.13
+    distance_to_entry: 23.8
+    pipeline_status: SCORED
+    thesis_path: null
+    last_scored: '2026-02-15'
+    last_price_check: '2026-02-15'
+    notes: 'Asset-light hotel franchise (Holiday Inn, IHG). ROIC 40.4%, ROIC-WACC +31.2pp. 200M+ loyalty members. Rev CAGR 19%. Near 52wH, need correction. NEW SECTOR.'

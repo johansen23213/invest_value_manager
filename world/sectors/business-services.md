@@ -234,9 +234,9 @@ El sector Business Services es extremadamente heterogeneo, abarcando desde BPO/c
 |------|--------|-------------|-------------|--------|
 | Portfolio | EDEN.PA | thesis/active/EDEN.PA | 2026-02-13 | HOLD |
 | Universe | BVI.PA | -- | 2026-02-12 | QS 69, Entry EUR 24 |
-| Universe | MORN | thesis/research/MORN | 2026-02-13 | R3 COMPLETE |
+| Universe | MORN | thesis/research/MORN | 2026-02-14 | R4 WATCHLIST. Entry $135. Standing order set. |
 | **Universe** | **VRSK** | **thesis/research/VRSK** | **2026-02-13** | **R1 COMPLETE, Entry $150** |
-| **Universe** | **IT** | **thesis/research/IT** | **2026-02-13** | **R1 COMPLETE, QS 80 adj (A), FV $245, Entry $145** |
+| **Universe** | **IT** | **thesis/research/IT** | **2026-02-14** | **R4 WATCHLIST. QS 71 adj (B). FV $190, Entry $120-130. Hard gate Q1 2026.** |
 
 ---
 
@@ -257,11 +257,11 @@ El sector Business Services es extremadamente heterogeneo, abarcando desde BPO/c
 | Ticker | QS | Status | Notes |
 |--------|-----|--------|-------|
 | **VRSK** | **85 adj (A)** | **R1_COMPLETE** | **Insurance data monopoly, FV $260, entry $150. Earnings Feb 18.** |
-| **IT** | **80 adj (A)** | **R1_COMPLETE** | **#1 IT advisory, ROIC 52%, FV $245, entry $145. -70% from 52wH.** |
+| **IT** | **71 adj (B)** | **R4_WATCHLIST** | **QS downgraded. FV $190, entry $120-130. Hard gate Q1 2026 (May). No standing order.** |
 | BVI.PA | 69 | SCORED | Best TIC candidate, entry EUR 24 |
-| MORN | 83 | R3_COMPLETE | Financial data, entry $130-135 |
+| MORN | 78 adj | R4_WATCHLIST | Financial data, FV $180, entry $135. Standing order set. |
 | INTU | 75 adj | R1_COMPLETE | Tax/accounting software |
-| PAYC | 75 adj | R3_COMPLETE | HR/payroll SaaS |
+| PAYC | 75 adj | R4_WATCHLIST | HR/payroll SaaS, FV $115, entry $88. Standing order set. |
 
 ### Evitar
 

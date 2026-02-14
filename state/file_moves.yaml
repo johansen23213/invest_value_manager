@@ -102,6 +102,14 @@ moves:
     to: thesis/archive/TATE.L/
     reason: "Position closed - SELL 66 shares @ 393.60 GBp (~298 EUR). Adversarial review: QS 45 Tier C (thesis claimed Tier B 5/10), ROIC spread -0.5pp, D&A error (100M vs 172M actual overstated EBIT 23%). FV 551→329 GBp (-40%). P&L +3.5%."
     triggered_by: "portfolio-ops: SELL confirmation"
+  - date: 2026-02-14
+    file: thesis/active/ALL/*
+    from: thesis/active/ALL/
+    to: thesis/archive/ALL/
+    reason: "Position closed - SELL 2.03874 shares @ ~$207.51. Tier C ON PROBATION (QS 56), MoS insufficient (11.3% vs 30% required), peak cycle (CR 85.2% best in 15 years), 6/6 SELL precedent consistency. P&L +5.9%."
+    triggered_by: "portfolio-ops: SELL confirmation"
+    note: "Active files replaced with redirect stubs. Delete thesis/active/ALL/ directory manually."
+
 # Format:
 #   - date: 2026-01-31
 #     file: thesis/research/SHEL/thesis.md

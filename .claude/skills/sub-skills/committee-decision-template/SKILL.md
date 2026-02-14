@@ -121,7 +121,7 @@ Revisitar: [NO / SI si precio cae a X / SI si condición]
 - [ ] Mover thesis a active/
 - [ ] Actualizar portfolio/current.yaml
 - [ ] Configurar price alert
-- [ ] Actualizar watchlist en system.yaml
+- [ ] Actualizar watchlist en state/watchlist.yaml
 - [ ] Documentar next review date
 
 ---

@@ -1,7 +1,7 @@
 # Pipelines - Rutinas Operativas del Fondo
 
 > Framework v4.0 - Secuencias predefinidas de agentes con cadencia regular.
-> Tracking de ejecucion en `state/system.yaml` seccion `pipeline_tracker`.
+> Tracking de ejecucion en `state/pipeline_tracker.yaml`.
 
 ---
 
@@ -45,7 +45,7 @@ El orchestrator consulta `pipeline_tracker` al inicio de cada sesion para determ
 | 1b | Detectar movimientos anomalos de precio | `market-pulse` agent | price_checker.py todas posiciones | state/market_pulse.yaml |
 | | **1a y 1b en PARALELO** | | | |
 | 2 | Si alerta CRITICA → investigar causa | Orchestrator | news_digest + market_pulse | Decision: STOP o continuar |
-| 3 | Verificar standing orders vs precio actual | `watchlist-manager` agent | system.yaml standing_orders | Alertas de trigger cercano |
+| 3 | Verificar standing orders vs precio actual | `watchlist-manager` agent | state/standing_orders.yaml | Alertas de trigger cercano |
 | 4 | Briefing estructurado al humano | Orchestrator | Todos los outputs anteriores | Resumen en pantalla |
 
 **Condicion de salida:** Briefing presentado. Si CRITICO, no avanzar hasta resolver.
@@ -60,7 +60,7 @@ El orchestrator consulta `pipeline_tracker` al inicio de cada sesion para determ
 |------|--------|----------|-------|--------|
 | 1 | Ranking posiciones por retorno esperado | `forward_return.py` tool | thesis files + yfinance | Ranking FER% |
 | 2 | Evaluar Bottom 3 | Orchestrator | Ranking + thesis | Argumento para quedarse o rotar |
-| 3 | Pipeline health | Orchestrator | system.yaml watchlist | Count thesis Tier A listas. Flag si <3 |
+| 3 | Pipeline health | Orchestrator | state/watchlist.yaml + thesis/ | Count thesis Tier A listas. Flag si <3 |
 | 4 | Cash deployment | Orchestrator | Cash level + standing orders + Tier A MoS | Recomendacion deployment o reserva |
 | 5 | Conviction update (si hay noticias materiales) | `portfolio-ops` agent | news_digest + earnings | portfolio/current.yaml actualizado |
 
@@ -74,8 +74,8 @@ El orchestrator consulta `pipeline_tracker` al inicio de cada sesion para determ
 
 | Paso | Accion | Ejecutor | Input | Output |
 |------|--------|----------|-------|--------|
-| 1 | Verificar alertas de precio activas | `watchlist-manager` agent | system.yaml price_monitors | Alertas actualizadas |
-| 2 | Verificar standing orders cercanos (<5%) | `watchlist-manager` agent | system.yaml standing_orders | Ordenes near-trigger |
+| 1 | Verificar alertas de precio activas | `watchlist-manager` agent | state/watchlist.yaml price_monitors | Alertas actualizadas |
+| 2 | Verificar standing orders cercanos (<5%) | `watchlist-manager` agent | state/standing_orders.yaml | Ordenes near-trigger |
 | 3 | Revisar sector views: candidatos pendientes | Orchestrator | world/sectors/*.md | Lista candidatos no analizados |
 | 4 | Buscar oportunidades nuevas | `opportunity-hunter` agent | Sector views + screeners | Nuevos candidatos |
 | 5 | Si pipeline <3 thesis → screening | `sector-screener` agent | dynamic_screener.py | Tickers nuevos |
@@ -98,7 +98,7 @@ El orchestrator consulta `pipeline_tracker` al inicio de cada sesion para determ
 | 3 | Concentracion portfolio | `constraint_checker.py` REPORT | portfolio/current.yaml | Datos crudos |
 | 4 | Correlaciones entre posiciones | `correlation_matrix.py` | yfinance historico | Matriz correlacion |
 | 5 | Evaluar desde principios | Orchestrator | Datos pasos 1-4 + principles.md | Assessment de riesgo |
-| 6 | Verificar earnings proximos 7 dias | `calendar-manager` agent | system.yaml calendar | Flag para earnings-pipeline |
+| 6 | Verificar earnings proximos 7 dias | `calendar-manager` agent | state/calendar.yaml | Flag para earnings-pipeline |
 
 **Condicion de salida:** Risk assessment presentado. World view fresh. Earnings proximos identificados.
 
@@ -264,8 +264,8 @@ thesis/research/{TICKER}/
 | 8 | Calcular sizing | `position-calculator` agent | Principios + precedentes | Sizing |
 | 9 | Contextualizar recomendación | Skill `recommendation-context` | Timing + noticias + precio | Contexto completo |
 | 10 | Presentar al humano | Orchestrator | Todo | Recomendación estructurada |
-| 11 | Si confirma → actualizar state | `portfolio-ops` agent | Confirmación | portfolio + system.yaml + sector view |
-| 12 | Si watchlist → standing order | Orchestrator | Trigger price | system.yaml standing_orders |
+| 11 | Si confirma → actualizar state | `portfolio-ops` agent | Confirmación | portfolio + state files + sector view |
+| 12 | Si watchlist → standing order | Orchestrator | Trigger price | state/standing_orders.yaml |
 
 **Condición de salida:** Decisión tomada con audit trail completo (6 ficheros en thesis/research/{TICKER}/).
 

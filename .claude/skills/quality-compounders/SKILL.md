@@ -173,7 +173,7 @@ NO vender por:
 
 ### Mantener lista actualizada
 
-La lista esta en `state/system.yaml` seccion `watchlist.quality_compounders`.
+La lista esta en `state/watchlist.yaml` seccion `quality_compounders`.
 Actualizar trimestralmente:
 1. Recalcular Quality Score
 2. Verificar si alguno alcanzo entry razonable

@@ -23,7 +23,7 @@ Evaluación + mejora del sistema en un solo agente. Evalúa, propone, aplica (co
 ## Proceso
 
 ### 1. Check propuestas previas
-- Leer state/system.yaml → evolution_tracking
+- Leer state/pipeline_tracker.yaml → evolution_tracking (maintenance section)
 - ¿Hay propuestas pendientes de sesiones anteriores? → Seguimiento
 - ¿Se implementaron las propuestas aprobadas? → Verificar
 
@@ -50,10 +50,10 @@ Escribir propuesta con:
 ### 5. Aplicar cambios
 - **Menores** (typos, config, renombrar): Aplicar directamente
 - **Mayores** (nuevos agentes, eliminar agentes, cambiar CLAUDE.md): Confirmar con usuario
-- Registrar todo en state/system.yaml → evolution_tracking
+- Registrar todo en state/pipeline_tracker.yaml → maintenance.evolution_tracking_summary
 
 ## Tracking
-En state/system.yaml mantener:
+En state/pipeline_tracker.yaml maintenance section mantener:
 ```yaml
 evolution_tracking:
   last_evaluation: 2026-XX-XX

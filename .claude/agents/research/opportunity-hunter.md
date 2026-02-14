@@ -20,7 +20,7 @@ Encontrar oportunidades de inversión de forma SISTEMÁTICA, usando herramientas
 Read .claude/skills/system-context/SKILL.md
 Read .claude/skills/screening-protocol/SKILL.md
 Read .claude/skills/investment-rules/SKILL.md
-Read state/system.yaml → portfolio, watchlist, standing_orders
+Read state/watchlist.yaml, state/standing_orders.yaml
 ```
 
 ## Proceso OBLIGATORIO (en este orden)
@@ -37,7 +37,7 @@ grep -A 20 "Empresas Objetivo" world/sectors/*.md
 
 ### 2. REVISAR WATCHLIST Y STANDING ORDERS
 ```
-Read state/system.yaml → watchlist, standing_orders
+Read state/watchlist.yaml + state/standing_orders.yaml
 ```
 **¿Hay algún standing order cerca del trigger?**
 **¿Hay empresas en watchlist que ya tienen thesis?**
