@@ -24,7 +24,7 @@ Gestiona la memoria a largo plazo del sistema. Compacta, resume, indexa.
 ## 3 Capas de Memoria
 
 ### Capa 1: Memoria Activa (<50KB) - Se carga SIEMPRE
-- state/system.yaml
+- state/system.yaml (core) + state/calendar.yaml, standing_orders.yaml, watchlist.yaml, pipeline_tracker.yaml
 - portfolio/current.yaml
 - learning/system_config.yaml
 - learning/key_learnings.md

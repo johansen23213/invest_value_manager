@@ -1,0 +1,85 @@
+# WATCHLIST - Companies being monitored for entry
+# Updated: 2026-02-14
+
+quality_compounders:
+  - { ticker: MA, qs: 86, tier: A, entry: "$315", fv: "$420", status: "SUSPENDED_PRE_PIPELINE", notes: "ROIC 44%. Wait ~41% decline." }
+  - { ticker: V, qs: 80, tier: A, entry: "$220/$200", fv: "$275-290", status: "SUSPENDED_PRE_PIPELINE", notes: "ROIC 50%+. Wait ~33% decline." }
+  - { ticker: ADBE, qs: 76, tier: A, status: "IN PORTFOLIO", notes: "2 shares @ $270.60" }
+  - { ticker: GOOGL, qs: 76, tier: A, entry: "pullback", notes: "P/E 33.6x. Near 52w high." }
+
+quality_value:
+  - { ticker: META, qs: 74, tier: B, notes: "P/E 29.4x. -27% from 52wH." }
+  - { ticker: ASML, qs: 66, tier: B, notes: "Lithography monopoly." }
+
+ready_to_buy:
+  - { ticker: TTE, entry_eur: 45, fv_eur: "60-83", status: "WAIT correction" }
+  - { ticker: LGEN.L, entry_gbp: 215, status: "Wait FY2025 results" }
+  - { ticker: EVO.ST, entry_sek: "480-650", fv_sek: 1009, status: "Wait UKGC" }
+
+on_watch:
+  - { ticker: RACE.MI, entry: "EUR 260-290", fv: "EUR 355", notes: "R3 complete. QS 82/84. R4 approved." }
+  - { ticker: FICO, entry: "$700-850", fv: "$900", notes: "R1 complete. QS 75/70. Far from entry. Deferred." }
+  - { ticker: INTU, entry: "$330-365", fv: "$465", notes: "R1 complete. QS 77/75. Feb 26 earnings." }
+  - { ticker: VEEV, entry: "$140-150", fv: "$205", notes: "R1 complete. QS 72/80. Mar 4 earnings." }
+  - { ticker: ENEL.MI, entry: "7.00-7.50", notes: "CMD 23-feb catalyst." }
+  - { ticker: CVS, entry: "$70", notes: "Turnaround. Binary." }
+  - { ticker: AMT, entry: "$160-165", notes: "Infrastructure REIT." }
+  - { ticker: WPP.L, entry: "200 GBp", notes: "5-6/10 trap. Rose plan Feb 26." }
+  - { ticker: UTG.L, entry: "540 GBp", fv: "745 GBp", notes: "v2.0 validated. Earnings Feb 24." }
+  - { ticker: MEGP.L, entry: "131 GBp", fv: "175 GBp", notes: "Only 2 analysts. Monopoly kiosks." }
+  - { ticker: WKL.AS, entry: "EUR 50-55", fv: "EUR 72", notes: "Revised. Post FY2025 results Feb 25." }
+
+tier_2:
+  - { ticker: AGN.NV, entry: "5.90-6.10", notes: "Earnings 19-Feb." }
+  - { ticker: MBG.DE, entry: "48-52", notes: "Q4 catalyst." }
+  - { ticker: CS.PA, entry: "34.50-35.50", notes: "AXA. FV 40.50. Earnings 26-feb." }
+  - { ticker: RIO.L, entry: "120", notes: "Materials diversification." }
+  - { ticker: ENGI.PA, entry: "22", notes: "Yield 6.6%." }
+  - { ticker: NTGY.MC, entry: "19-21", notes: "Needs validation." }
+  - { ticker: CMCSA, entry: "$25-26", notes: "Broadband eroding. Theme parks star." }
+  - { ticker: GIS, entry: "$34-38", notes: "DCF ~$41. D/E 147%." }
+  - { ticker: AZM.MI, entry: "32-33", notes: "Asset manager. P/E 9.8x." }
+  - { ticker: PROX.BR, entry: "7.50-7.70", notes: "Telecom belga. WAIT strategic plan 27-feb." }
+  - { ticker: BME.L, entry: "169 GBp", notes: "B&M discount retail." }
+  - { ticker: TBCG.L, entry: "3500 GBp", notes: "TBC Bank Georgia. Frontier." }
+  - { ticker: BGEO.L, entry: "7000 GBp", notes: "Near ATH, wait correction." }
+
+archived_rejected:
+  - { ticker: HPQ, date: 2026-02-03, reason: "VALUE TRAP 4/10" }
+  - { ticker: MEGP.L, date: 2026-02-03, reason: "NOT AVAILABLE ON ETORO" }
+  - { ticker: CAG, date: 2026-02-04, reason: "VALUE TRAP 5/10" }
+
+# Active monitoring moved inline to portfolio/current.yaml positions
+# Historical price monitors consolidated here
+
+price_monitors:
+  - { ticker: TTE, entry_eur: 45 }
+  - { ticker: LGEN.L, entry_gbp: 215 }
+  - { ticker: MBG.DE, entry_eur: 50 }
+  - { ticker: ENEL.MI, entry_eur: 7.50 }
+  - { ticker: AGN.NV, entry_eur: 5.90 }
+  - { ticker: CVS, entry_usd: 70 }
+  - { ticker: T, entry_usd: 22.50 }
+  - { ticker: BNP.PA, entry_eur: 78 }
+  - { ticker: ENGI.PA, entry_eur: 22 }
+  - { ticker: CS.PA, entry_eur: 35.50 }
+  - { ticker: TBCG.L, entry_gbp: 3500 }
+  - { ticker: BGEO.L, entry_gbp: 7000 }
+  - { ticker: WPP.L, entry_gbp: 200 }
+  - { ticker: DGE.L, entry_gbp: 1300 }
+  - { ticker: EVO.ST, entry_sek: 530, condition: "ONLY if UKGC favorable" }
+  - { ticker: GL, entry_usd: 130, note: "ADD trigger" }
+  - { ticker: SRE.L, entry_gbp: 75 }
+  - { ticker: GIS, entry_usd: 38 }
+  - { ticker: BATS.L, entry_gbp: 4200 }
+  - { ticker: V, entry_usd: 220 }
+  - { ticker: INGR, entry_usd: 105 }
+  - { ticker: DBX, entry_usd: 20, note: "LOW PRIORITY" }
+  - { ticker: GSK.L, entry_gbp: 1850 }
+  - { ticker: LULU, add_trigger_usd: 155, note: "POSITION - conditional Q4+CEO" }
+  - { ticker: BYIT.L, add_trigger_gbp: 240, note: "POSITION - after H2 OP confirm" }
+  - { ticker: DNLM.L, entry_gbp: 780 }
+  - { ticker: WKL.AS, entry_eur: "50-55" }
+  - { ticker: DSY.PA, entry_eur: 15.50, condition: "WAIT Q1" }
+  - { ticker: PAYC, entry_usd: 92, note: "R3 complete. Deferred." }
+  - { ticker: MORN, entry_usd: 133, note: "R3 complete. Deferred." }

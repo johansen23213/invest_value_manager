@@ -7,7 +7,7 @@
 # =============================================================================
 
 cash:
-  amount: 5752  # Post SELL UHS (~EUR 394) + SELL VICI (~EUR 514) on 2026-02-13. Previous 4844 + 908 = ~5752
+  amount: 6151  # Updated 2026-02-15. Confirmed post-ALL sale (+~399 EUR).
   currency: EUR
 
 positions:
@@ -20,21 +20,11 @@ positions:
     date_opened: 2026-01-26
     thesis: thesis/active/DTE.DE/thesis.md
     conviction: medium
-    fair_value: "EUR 35.00 (v3.1 post-TMUS Q4 beat. QS Tool 48 Tier C. Was EUR 34.00 v3.0)"
+    fair_value: "EUR 35.00 (v3.1 post-TMUS Q4 beat. QS Tool 61, Adj 69 Tier B. Was 48 Tier C.)"
     last_review: 2026-02-11
     exit_plan: "HOLD through Feb 26 DTE earnings. TRIM >EUR 34. ADD <EUR 28. SELL if div cut or FY2026 EPS guide <EUR 2.00."
 
-  - ticker: ALL
-    name: "Allstate Corporation"
-    shares: 2.03874
-    invested_usd: 399.59
-    avg_cost_usd: 196.00
-    date_opened: 2026-01-27
-    thesis: thesis/active/ALL/thesis.md
-    conviction: low
-    fair_value: "$234 (adversarial, was $240 thesis)"
-    last_review: 2026-02-08
-    exit_plan: "HOLD ON PROBATION. SELL if Q1 2026 CR >97% or Arity settlement >$1B. SELL if Tier A needs capital. ADD at $180. Next review: Q1 2026 earnings."
+  # ALL REMOVED 2026-02-14 - SOLD. Tier C ON PROBATION, MoS insufficient (11.3% vs 30% required), peak cycle, 6/6 SELL precedent consistency. P&L +5.9%.
 
   # SAN.PA REMOVED 2026-02-09 - SOLD. Adversarial review: QS 59 Tier B (low-end), ROIC < WACC (-2.1pp), FV -35.5% (EUR 122->79). Amlitelimab inferior to Dupixent. P&L -0.84%.
 
@@ -541,3 +531,13 @@ transactions:
     pnl_eur: 9
     pnl_pct: 1.7
     notes: "EXIT - EXIT Protocol 4/6 gates SELL. MoS 0% ($29.06 vs FV $29.00). Thesis weakened 5/7 assumptions. Caesars Regional 1.03x coverage. ON PROBATION Tier C (QS 54). 5/5 precedents = SOLD. Pre-earnings exit."
+
+  - date: 2026-02-14
+    action: SELL
+    ticker: ALL
+    shares: 2.03874
+    price_usd: 207.51
+    total_eur: ~399
+    pnl_eur: ~23
+    pnl_pct: 5.9
+    notes: "EXIT - Tier C ON PROBATION (QS 56). MoS insufficient (11.3% vs 30% required for Tier C). Peak cycle (CR 85.2% best in 15 years, not sustainable). 6/6 SELL precedent consistency. Freed capital to deploy in pipeline R4-approved opportunities."

@@ -9,13 +9,16 @@
 
 | Fichero | Propósito |
 |---------|-----------|
-| `state/system.yaml` | Cerebro del sistema - calendario, alertas, standing orders, work in progress |
+| `state/system.yaml` | Core metadata, portfolio quality, last session summary, macro snapshot |
+| `state/calendar.yaml` | Future events (earnings, catalysts, macro) |
+| `state/standing_orders.yaml` | Active buy/add orders with triggers |
+| `state/watchlist.yaml` | Watchlist, price monitors, archived/rejected |
+| `state/pipeline_tracker.yaml` | Pipeline frequencies, last_run, maintenance |
 | `portfolio/current.yaml` | Portfolio actual - Claude modifica SOLO tras confirmación humano |
 | `portfolio/history.yaml` | Posiciones cerradas - para tracking de efectividad |
 | `world/current_view.md` | Visión macro general |
 | `world/sectors/{sector}.md` | Visión sectorial (v2.2.1) |
 | `state/agent_coordination.yaml` | Coordinación inter-agente (shared blackboard) |
-| `learning/system_config.yaml` | Parámetros evolutivos del sistema |
 
 ---
 
@@ -46,7 +49,7 @@ Análisis profundos por sector que complementan la visión macro. Ubicados en `w
 | healthcare-equipment.md | (pipeline only) |
 | industrial-technology.md | (pipeline only) |
 | industrials.md | (pipeline only) |
-| insurance.md | ALL, GL |
+| insurance.md | GL |
 | luxury-goods.md | (pipeline only) |
 | media-publishing.md | (pipeline only) |
 | payments-fintech.md | (pipeline only) |
@@ -170,7 +173,7 @@ Cuando sector view supera 300 líneas:
 
 ## Standing Orders
 
-Mantener en `state/system.yaml` sección `standing_orders:` con stocks que tienen:
+Mantener en `state/standing_orders.yaml` con stocks que tienen:
 - Thesis completa y validada
 - Investment committee aprobado
 - Precio trigger definido

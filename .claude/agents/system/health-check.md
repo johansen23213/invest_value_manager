@@ -22,7 +22,7 @@ Verificación periódica de la salud del sistema. Cada 14 días o bajo demanda.
 - [ ] Permisos correctos en settings.json
 
 ### 2. Estado del sistema
-- [ ] state/system.yaml es válido YAML
+- [ ] state/system.yaml + calendar.yaml + standing_orders.yaml + watchlist.yaml + pipeline_tracker.yaml son válidos YAML
 - [ ] portfolio/current.yaml es válido y coherente
 - [ ] Calendario tiene eventos futuros
 - [ ] No hay tareas pendientes >30 días
@@ -41,13 +41,21 @@ Verificación periódica de la salud del sistema. Cada 14 días o bajo demanda.
 - [ ] **Sector views >300 líneas** (si hay = INFO, proponer extracción de historial)
 - [ ] **Thesis archivadas eliminadas de dependencias activas** (si no = WARNING)
 
-### 4. Memoria y tamaños (CUANTITATIVO)
+### 4. Memoria, tamaños y escalabilidad
 - [ ] Memoria activa <50KB
 - [ ] No hay ficheros >20KB individuales sin compactar
 - [ ] archive/index.yaml actualizado
-- [ ] **state/system.yaml <30KB** (si >30KB → WARNING, proponer compactación)
-- [ ] **CLAUDE.md <150 líneas** (si >150 → WARNING)
+- [ ] **Capa 1 auto-loaded total <40KB** (CLAUDE.md + .claude/rules/*.md + MEMORY.md)
+- [ ] **state/*.yaml total <30KB** (5 split files: system, calendar, standing_orders, watchlist, pipeline_tracker)
+- [ ] **CLAUDE.md <150 líneas** (si >150 → WARNING, mover detalle a skills)
 - [ ] **Total .claude/ <500KB** (si >500KB → WARNING)
+
+#### Rotation triggers (prevenir crecimiento)
+- [ ] `learning/decisions_log.yaml` >50 entries → archivar las más antiguas a `learning/decisions_log_archive.yaml`
+- [ ] `state/calendar.yaml` eventos >30 días pasados → mover a `state/calendar_archive.yaml`
+- [ ] `state/standing_orders.yaml` órdenes FILLED/CANCELLED → eliminar trimestralmente
+- [ ] `portfolio/history.yaml` >20 posiciones cerradas → archivar a `portfolio/archive/`
+- [ ] `world/sectors/*.md` >300 líneas → extraer historial a `world/sectors/archive/`
 
 ### 5. Agentes y skills
 - [ ] Todos los ficheros de agentes existen
@@ -73,4 +81,4 @@ Verificación periódica de la salud del sistema. Cada 14 días o bajo demanda.
 ## Output
 - Score numérico X/10 con desglose por categoría
 - Lista de issues con severidad
-- Actualizar state/system.yaml → maintenance → last_health_check, health_score, issues
+- Actualizar state/pipeline_tracker.yaml → maintenance → last_health_check, health_score, issues

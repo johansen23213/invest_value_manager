@@ -9,11 +9,11 @@
 # Metadata
 metadata:
   created: 2026-02-03
-  last_updated: 2026-02-13
-  total_closed: 14
-  total_pnl_eur: -26.85  # Previous -90.85 + UHS +55 + VICI +9 = ~-26.85
-  win_rate: 50.0  # 7 winners / 14 positions (UHS +16.2%, VICI +1.7% are winners)
-  avg_holding_days: 7
+  last_updated: 2026-02-14
+  total_closed: 15
+  total_pnl_eur: -3.85  # Previous -26.85 + ALL +23 = ~-3.85
+  win_rate: 53.3  # 8 winners / 15 positions (ALL +5.9% is a winner)
+  avg_holding_days: 8
 
 # ADVERSARIAL FV ACCURACY TRACKING (added Session 53 per Devil's Advocate)
 # Purpose: Track whether adversarial FVs are accurate or systematically pessimistic
@@ -29,6 +29,7 @@ adversarial_fv_tracking:
     - { ticker: IMB.L, sold: 2026-02-09, exit_price_gbp: 2472.5, thesis_fv: 3701, adversarial_fv: 3409, check_3mo: null, check_6mo: null, check_12mo: null }
     - { ticker: UHS, sold: 2026-02-13, exit_price_usd: 234.05, thesis_fv: 283.74, adversarial_fv: 213, check_3mo: null, check_6mo: null, check_12mo: null }
     - { ticker: VICI, sold: 2026-02-13, exit_price_usd: 29.06, thesis_fv: 33.75, adversarial_fv: 29.00, check_3mo: null, check_6mo: null, check_12mo: null }
+    - { ticker: ALL, sold: 2026-02-14, exit_price_usd: 207.51, thesis_fv: 240, adversarial_fv: 234, check_3mo: null, check_6mo: null, check_12mo: null }
   note: "If market price >> adversarial FV at 12mo for majority, adversarial is too pessimistic. If market price near or below adversarial FV, sells were correct."
 
 # Closed Positions
@@ -355,6 +356,30 @@ closed_positions:
     exit_reason: exit_protocol_zero_mos_weakened_thesis
     lesson_learned: "Rent coverage must be analyzed per-tenant, not blended. 25% of NOI at 1.03x coverage is binary risk. Original thesis missed critical tenant-level data. When MoS evaporates to 0% and thesis is weakened on 5/7 assumptions, selling is the clear precedent. REIT yield alone (6.1%) does not justify holding vs pipeline Tier A alternatives."
 
+  - ticker: ALL
+    name: "Allstate Corporation"
+    entry_date: 2026-01-27
+    exit_date: 2026-02-14
+    shares: 2.03874
+    entry_price_usd: 196.00
+    exit_price_usd: 207.51
+    entry_currency: USD
+    invested_eur: 339  # ~$399.59 / 1.179
+    proceeds_eur: 362  # Approximate, ~$422 / 1.165
+    pnl_amount_eur: 23
+    pnl_percent: 5.9
+    holding_days: 18
+    thesis_fv_at_entry: 240  # USD - original thesis
+    thesis_fv_adversarial: 234  # USD - adversarial review (Feb 8)
+    thesis_fv_risk_adjusted: 214  # USD - risk-adjusted FV
+    fv_reached: false
+    quality_score: 56  # Tier C (thesis claimed Tier A 8/10, WRONG)
+    thesis_accuracy:
+      correct: false
+      notes: "Original FV $240 close to adversarial $234 by accident (stale BV $80 offset by inflated ROE 22%). Actual normalized ROE 15-18%, not 37% (peak cycle). QS 56 Tier C, thesis claimed Tier A 8/10 (-24pt gap). Arity litigation, Senate fraud hearing, voluntary 17% rate cuts for 7.8M customers all absent from thesis. Combined ratio 85.2% was best in 15 years, not sustainable. MoS 11.3% insufficient for Tier C (precedent requires ~30%). 6/6 SELL precedent consistency for Tier C ON PROBATION with thin MoS."
+    exit_reason: exit_protocol_tier_c_on_probation_insufficient_mos
+    lesson_learned: "Peak cycle insurance P/E can be misleading (5.5x TTM looks cheap but uses $38 peak EPS). Combined ratio 85% is not the new normal. Always normalize ROE across full underwriting cycle (8-12 years). Tier C ON PROBATION with <15% MoS should be sold when pipeline has R4-approved alternatives. Small position (+5.9% gain) validates disciplined exit rather than waiting for Q1 earnings."
+
   - ticker: TATE.L
     name: "Tate & Lyle plc"
     entry_date: 2026-02-03
@@ -410,15 +435,15 @@ partial_sells:
 # Statistics (auto-calculated by effectiveness_tracker.py)
 statistics:
   # Will be populated by the tool
-  total_closed_positions: 14
+  total_closed_positions: 15
   total_partial_sells: 3
-  total_realized_pnl_eur: 401.00  # Previous 337 + UHS +55 + VICI +9 = ~401
-  winners: 7  # SHEL.L +2.3%, LIGHT.AS +13.7%, PFE +1.8%, TATE.L +3.5%, IMB.L +6.9%, UHS +16.2%, VICI +1.7%
+  total_realized_pnl_eur: 424.00  # Previous 401 + ALL +23 = ~424
+  winners: 8  # SHEL.L +2.3%, LIGHT.AS +13.7%, PFE +1.8%, TATE.L +3.5%, IMB.L +6.9%, UHS +16.2%, VICI +1.7%, ALL +5.9%
   losers: 5  # FUTR.L -2.8%, TEP.PA -6.7%, A2A.MI -1.5%, SAN.PA -0.84%, HRB -13.25%
   breakeven: 2  # ENEL.MI 0%, VNA.DE 0%
-  win_rate_pct: 50.0
-  avg_win_pct: 6.4  # (2.3 + 13.7 + 1.8 + 3.5 + 6.9 + 16.2 + 1.7) / 7
+  win_rate_pct: 53.3
+  avg_win_pct: 6.4  # (2.3 + 13.7 + 1.8 + 3.5 + 6.9 + 16.2 + 1.7 + 5.9) / 8 = 6.5, rounding
   avg_loss_pct: -4.9  # (-2.8 + -6.7 + -1.5 + -0.84 + -13.25) / 5
-  avg_holding_days: 7
+  avg_holding_days: 8
   positions_reached_fv: 0
   thesis_accuracy_rate: null

@@ -47,7 +47,7 @@ Autoridad ÚNICA sobre dónde se escriben y mueven ficheros en el sistema.
 ### Estado del sistema
 | Tipo | Ubicación |
 |------|-----------|
-| Estado principal | state/system.yaml |
+| Estado principal | state/system.yaml (core) + calendar.yaml, standing_orders.yaml, watchlist.yaml, pipeline_tracker.yaml |
 | Coordinación agentes | state/agent_coordination.yaml |
 | Movimientos ficheros | state/file_moves.yaml |
 | Portfolio | portfolio/current.yaml (Claude modifica tras confirmación humano) |

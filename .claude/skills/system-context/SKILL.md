@@ -80,7 +80,8 @@ Los 8 principios completos estan en `learning/principles.md`. Resumen:
 ## Ficheros clave (READ ALWAYS)
 - `learning/principles.md` - 8 principios de inversion SIN numeros fijos
 - `learning/decisions_log.yaml` - Precedentes para consistencia
-- `state/system.yaml` - Estado, calendario, watchlist, alertas, Quality Score portfolio
+- `state/system.yaml` - Core metadata, Quality Score portfolio, last session summary
+- `state/calendar.yaml` | `state/standing_orders.yaml` | `state/watchlist.yaml` | `state/pipeline_tracker.yaml`
 - `portfolio/current.yaml` - Posiciones actuales (Claude modifica tras confirmacion humano)
 - `world/current_view.md` - Vision macro actual
 - `world/sectors/{sector}.md` - Vision sectorial (ANTES de analizar cualquier empresa)

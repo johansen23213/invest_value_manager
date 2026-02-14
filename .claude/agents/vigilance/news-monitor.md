@@ -23,7 +23,8 @@ Vigilancia proactiva de noticias para TODAS las posiciones activas y watchlist c
 ```
 1. Leer `.claude/skills/news-classification/SKILL.md`
 2. Leer `portfolio/current.yaml` → lista de tickers activos
-3. Leer `state/system.yaml` → watchlist.quality_compounders + standing_orders
+3. Leer `state/watchlist.yaml` → quality_compounders
+4. Leer `state/standing_orders.yaml` → standing_orders
 ```
 
 ## Proceso

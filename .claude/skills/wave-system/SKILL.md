@@ -46,7 +46,11 @@ genera una wave. Las waves se ordenan por prioridad y se presentan al humano.
 ### Fuentes de Estado (lectura obligatoria)
 
 ```
-1. state/system.yaml         -> pipeline_tracker, standing_orders, calendar, work_in_progress
+1. state/pipeline_tracker.yaml -> pipeline status, maintenance
+1b. state/standing_orders.yaml -> active orders
+1c. state/calendar.yaml       -> future events
+1d. state/watchlist.yaml      -> watchlist, price monitors
+1e. state/system.yaml         -> core metadata, last_session_summary
 2. portfolio/current.yaml    -> posiciones, cash, conviction, exit_plans
 3. state/quality_universe.yaml -> actionable, pipeline status, stale
 4. learning/principles.md    -> principios que informan prioridades
@@ -193,11 +197,10 @@ Esta evaluacion se hace AUTOMATICAMENTE entre waves. No requiere input del human
    ALERTAS PARA EL HUMANO: [si hay algo que requiere accion humana]
    PROXIMA SESION: [que sera prioritario]
 
-2. Actualizar state/system.yaml:
-   - pipeline_tracker (todo lo ejecutado)
-   - last_session_summary
-   - calendar (si hay nuevos eventos)
-   - work_in_progress (si algo quedo incompleto)
+2. Actualizar state files:
+   - state/pipeline_tracker.yaml (todo lo ejecutado)
+   - state/system.yaml (last_session_summary)
+   - state/calendar.yaml (si hay nuevos eventos)
 
 3. Actualizar MEMORY.md con estado post-wave
 
