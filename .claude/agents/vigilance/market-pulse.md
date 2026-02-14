@@ -22,7 +22,7 @@ Detectar movimientos anómalos de precio y buscar su CAUSA. Complementa a news-m
 ```
 1. Leer `portfolio/current.yaml` → posiciones con avg_cost
 2. Leer `state/watchlist.yaml` → watchlist
-3. Leer `state/standing_orders.yaml` → active_orders
+3. Leer `state/standing_orders.yaml` → standing_orders
 3. Ejecutar `python3 tools/price_checker.py` para todos los tickers
 ```
 
