@@ -137,7 +137,6 @@ El humano concede permiso para modificar: CLAUDE.md, agentes, skills, rules, too
 | Auto-evolucion del sistema | `.claude/skills/evolution-protocol/SKILL.md` |
 | Gestion de memoria | `.claude/skills/memory-management-rules/SKILL.md` |
 | Contexto del sistema | `.claude/skills/system-context/SKILL.md` |
-| Escalabilidad | `docs/scalability_policy.md` |
 
 ---
 

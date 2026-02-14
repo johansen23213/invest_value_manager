@@ -19,7 +19,6 @@
 | `world/current_view.md` | Visión macro general |
 | `world/sectors/{sector}.md` | Visión sectorial (v2.2.1) |
 | `state/agent_coordination.yaml` | Coordinación inter-agente (shared blackboard) |
-| `learning/system_config.yaml` | Parámetros evolutivos del sistema |
 
 ---
 
