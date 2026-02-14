@@ -3,6 +3,8 @@
 > **Fair Value:** $100
 > **Entry:** $80
 
+> **Status:** R4 APPROVED - STANDING ORDER at $80 (sizing 4%, ~EUR 400)
+> **Pipeline:** R1 ✓ | R2 ✓ (devil's advocate 10/20 MODERATE COUNTER) | R3 ✓ (resolution) | R4 ✓ APPROVED 2026-02-14
 > **Date:** 2026-02-13 (R3 resolved)
 > **Status:** R3 COMPLETE - WATCHLIST (needs R4 investment-committee)
 > **Pipeline:** R1 ✓ | R2 ✓ (DA 10/20 MODERATE) | R3 ✓ (conflicts resolved) | R4 pending

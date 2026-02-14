@@ -1,23 +1,24 @@
 # =============================================================================
-# MARKET PULSE - Session 67 (2026-02-13)
+# MARKET PULSE - Session 70 (2026-02-14)
 # =============================================================================
 # FX: EUR/USD=1.1872 | GBP/EUR=1.1472
-# Post-CPI day. UHS + VICI sold earlier today (Session 66).
+# Post-CPI digestion day. SPY flat, QQQ -0.2%. Market calm.
 # Portfolio: 11 positions, cash ~57%.
 # =============================================================================
 
-last_scan: "2026-02-13 intraday"
+last_scan: "2026-02-14 market close"
 
 market_context:
-  spy: "$685.59 (+0.6% vs last scan $681.28, near 52wH $697.84)"
-  vix: "19.32 (down from 20.74, normalizing post-CPI)"
-  qqq: "$605.64 (near 52wH $637.01)"
+  spy: "$681.75 (-0.6% vs last scan $685.59, 2.3% below 52wH $697.84)"
+  qqq: "$601.92 (-0.6% vs last scan $605.64)"
   fx_eurusd: 1.1872
   fx_gbpeur: 1.1472
   notes: |
-    CPI Jan 2026 came in. VIX dropped from 20.74 to 19.32 = market digested it.
-    SPY +0.6% since last scan. Growth stocks rebounding (LULU +3.9%, ADBE +0.8%).
-    Broad market stable-to-positive day.
+    CPI came in lighter than expected (0.2% MoM vs 0.3% est, 2.4% YoY vs 2.5% est).
+    Market failed to rally on the benign data. SPY slipped 0.6% since last scan.
+    DraftKings -17% (revenue forecast miss), Rivian +14% (delivery guidance beat).
+    Broad market stable. No macro crisis. Pre-holiday weekend (Presidents' Day Mon Feb 16).
+    EARNINGS WEEK AHEAD: RSG + CDNS (Feb 17 after close), VRSK (Feb 18).
 
 # =============================================================================
 # ANOMALIES DETECTED
@@ -27,170 +28,227 @@ anomalies:
   critical: []
 
   material:
-    # WATCHLIST - Major moves (context from prior sessions, not today)
+    - ticker: MONY.L
+      change_1d: "-0.9%"
+      change_5d: "-12.0%"
+      current_price: "147.1 GBp"
+      vs_52w_high: "-34.6%"
+      vs_52w_low: "+5.3%"
+      cause: "Insurify launched ChatGPT insurance app Feb 10. AI disruption fear crash. Shares hit 13-year low. Berenberg says selloff overdone."
+      cause_type: IDIOSYNCRATIC
+      already_known: true
+      notes: "Already documented in Session 67 AI disruption re-eval. QS 83->75 adj. FV 201->190 GBp. ON PROBATION. Feb 23 earnings = MANDATORY decision point. Bearish scenario has us -9.8% underwater at avg cost 169.2p. Stock has NOT recovered — continues drifting lower."
+      action: "HOLD ON PROBATION. Do NOT ADD. Feb 23 earnings is the gate."
+
+    - ticker: LULU
+      change_1d: "+4.1%"
+      change_5d: "+0.4%"
+      current_price: "$176.42"
+      cause: "Rebound from $159 52wL. International growth narrative (China +46%). Tariff noise fading. Month-to-date +14%."
+      cause_type: MARKET
+      already_known: true
+      notes: "Stock jumped 14% in a month per Nasdaq. Analysts note strong international momentum. Still ON PROBATION. MoS 10.0% thin. CEO vacancy unresolved. Mar 31 Q4 = make-or-break."
+      action: "HOLD. No ADD while on probation and CEO vacant. Monitor."
+
+    - ticker: ROP
+      change_1d: "+0.5%"
+      change_5d: "-8.6%"
+      current_price: "$321.41"
+      vs_52w_high: "-46.0%"
+      vs_52w_low: "+1.2%"
+      cause: "Q4 earnings disappointment: organic revenue growth 4% vs 5.5% expected. Deltek government softness (DOGE), Neptune tariff/cost weakness. FY2026 guide below consensus."
+      cause_type: IDIOSYNCRATIC
+      already_known: true
+      notes: "ROP hit new 52wL at $317.67 this week. Down 40% in 12 months. Director made insider buy (per TipRanks). Standing order at $300 is 6.7% away. FULL pipeline (R4 approved). Stock getting closer to trigger."
+      action: "MONITOR CLOSELY. $300 trigger is 6.7% away. If price reaches $300, EXECUTE standing order."
+
     - ticker: IT
-      change_note: "Crashed -31% on Feb 3 (weak 2026 guidance), continued to -36% over 8 days"
-      current_price: "$156.95"
-      vs_52w_high: "-69.8%"
-      vs_52w_low: "+12.8%"
-      cause: "FY2026 sales guide $6.46B (below FY2025), DOGE customer pauses, AI spending deferrals"
-      cause_type: IDIOSYNCRATIC
-      already_known: false
-      quality_universe: "yes (R3 complete, FV $355, entry $265)"
-      action: "MONITOR. Stock at $157 is 41% below universe entry $265. Massive MoS but guidance shock changes thesis. Needs R3 re-evaluation."
-
-    - ticker: BAH
-      change_note: "Down -39% from 52wH. Treasury cancelled all contracts due to data breach"
-      current_price: "$79.60"
-      vs_52w_high: "-39.2%"
-      vs_52w_low: "+3.6%"
-      cause: "Treasury contract cancellation (ex-employee data leak 2018-2020), DOGE government contract cuts"
-      cause_type: IDIOSYNCRATIC
-      already_known: false
-      quality_universe: "yes"
-      action: "MONITOR. Government consulting in structural headwind from DOGE. Treasury cancellation is small ($4.8M/yr) but signals broader risk."
-
-    - ticker: VRSK
-      change_note: "Hit new 52wL $164.60, down -44% from 52wH"
-      current_price: "$181.01"
-      vs_52w_high: "-43.9%"
-      vs_52w_low: "+10.0%"
-      cause: "Cut annual revenue forecast below estimates. Slowing growth. Q4 earnings Feb 18."
+      change_1d: "+3.2%"
+      change_5d: "-0.7%"
+      current_price: "$158.58"
+      vs_52w_high: "-69.3%"
+      vs_52w_low: "+14.0%"
+      cause: "Bounce from Feb 3 crash (-31% on guidance miss). Oversold rebound. No new catalyst."
       cause_type: IDIOSYNCRATIC
       already_known: true
-      quality_universe: "yes (R3 complete, FV $185, entry $165)"
-      action: "WAIT for Feb 18 earnings. Price $181 is near FV $185 = minimal MoS. Earnings will reset thesis."
+      notes: "Still -70% from 52wH. Management guides FY2026 sales $6.46B (below FY2025). DOGE customer pauses. Universe entry $265 is 67% above current price. R3 FV $355 may need major revision given guidance shock."
+      action: "MONITOR. Too early to act. Need new R3 re-evaluation with revised guidance."
 
-    - ticker: DSY.PA
-      change_note: "Crashed -21% on Feb 11 (worst day ever), now EUR 17.82. Standing order EUR 15.50."
-      current_price: "EUR 17.82"
-      vs_52w_high: "-56.3%"
-      vs_52w_low: "+3.8%"
-      cause: "FY2026 guidance 3-5% vs 5.9% consensus. Auto sector weakness, life sciences shrinking."
+    - ticker: CDNS
+      change_1d: "+3.9%"
+      change_5d: "+2.9%"
+      current_price: "$299.46"
+      cause: "Launched new Chiplet ecosystem for AI chip development. Sector tailwind."
       cause_type: IDIOSYNCRATIC
-      already_known: true
-      quality_universe: "yes (standing order EUR 15.50, conditional on Q1)"
-      action: "HOLD standing order. EUR 17.82 is 15% above trigger. Wait Q1 results per committee conditions."
+      already_known: false
+      notes: "R1 complete. HARD GATE: earnings Feb 17 after close. Stock recovering toward $300. Entry $250 is 17% below. Analyst consensus Strong Buy, mean PT $383."
+      action: "WAIT for Feb 17 earnings before any action."
+
+    - ticker: MORN
+      change_1d: "+3.9%"
+      change_5d: "-2.2%"
+      current_price: "$160.03"
+      cause: "Q4 CY2025 earnings beat: revenue $641.1M (+8.5% YoY), above estimates. Stock flat post-earnings, now bouncing."
+      cause_type: IDIOSYNCRATIC
+      already_known: false
+      notes: "R3 complete, FV $145 in universe. Stock at $160 is ABOVE universe FV. Analyst mean PT $280-323 (much higher than our FV). 52wH $329 vs current $160 = massive drop. Need to re-evaluate if our FV is too conservative."
+      action: "REVIEW FV. Earnings beat suggests business healthy. Our FV $145 may be stale."
 
   near_52w_low:
     - ticker: AUTO.L
       price: "459.1p"
       vs_52w_low: "+1.0%"
-      cause: "Dealer revolt (180+ downgrades), Jefferies/Berenberg downgrade, continued selling pressure"
+      cause: "Dealer revolt continues (180+ downgrades). Hit new 52wL at 454.5p this week. Jefferies/Berenberg downgrade."
       cause_type: IDIOSYNCRATIC
       already_known: true
-      action: "HOLD. April pricing event = make-or-break. Position small (3.4%)."
+      action: "HOLD. April pricing event = make-or-break. Small position (3.4%). P&L -5.0%."
 
     - ticker: BYIT.L
       price: "297.6p"
       vs_52w_low: "+3.0%"
-      cause: "Microsoft EA disintermediation fear, AI disruption narrative, sector rotation out of UK tech"
+      cause: "Microsoft EA disintermediation narrative, general UK tech weakness"
       cause_type: SECTORIAL
       already_known: true
-      action: "HOLD. Wait FY2026 OP confirmation (~May 2026). ADD trigger 240p (19% below)."
+      action: "HOLD. ADD trigger 240p (19% below). Wait FY2026 OP confirmation ~May."
 
     - ticker: ADBE
-      price: "$264.65"
-      vs_52w_low: "+5.4%"
-      cause: "FTC antitrust trial Oct 2026, AI competition fears (Canva, Figma)"
+      price: "$263.97"
+      vs_52w_low: "+5.1%"
+      cause: "FTC ROSCA trial Oct 2026, AI competition fears"
       cause_type: IDIOSYNCRATIC
       already_known: true
-      action: "HOLD. MoS 32.1% strong. No ADD until trial clarity."
+      action: "HOLD. MoS 32.3% strong. Near all-time low P/E 15.8x. No ADD until trial clarity."
 
     - ticker: DSY.PA
       price: "EUR 17.82"
       vs_52w_low: "+3.8%"
-      note: "Also listed under material changes above."
+      cause: "FY2026 guidance miss (-21% crash Feb 11). Continued selling pressure."
+      cause_type: IDIOSYNCRATIC
+      already_known: true
+      action: "Standing order EUR 15.50 conditional on Q1 results. 15% above trigger."
+
+    - ticker: MONY.L
+      price: "147.1p"
+      vs_52w_low: "+5.3%"
+      note: "Also listed under material. 13-year low. AI disruption crash."
+
+    - ticker: ROP
+      price: "$321.41"
+      vs_52w_low: "+1.2%"
+      note: "Also listed under material. NEW 52wL this week ($317.67). Standing order $300 is 6.7% away."
 
   near_52w_high:
     - ticker: GL
-      price: "$145.16"
-      vs_52w_high: "-4.9%"
-      cause: "SEC/DOJ cleared Jul 2025, class action resolution progress, earnings beat"
+      price: "$144.25"
+      vs_52w_high: "-5.5%"
+      cause: "SEC/DOJ cleared Jul 2025, class action resolution progress, strong momentum"
       cause_type: IDIOSYNCRATIC
       already_known: true
-      action: "HOLD. TRIM at $185+. Strong momentum."
+      action: "HOLD. TRIM at $185+. Moving away from ADD trigger $125."
+
+    - ticker: ALL
+      price: "$207.51"
+      vs_52w_high: "-4.3%"
+      cause: "P&C insurance pricing cycle, ROE 37% peak cycle"
+      cause_type: SECTORIAL
+      already_known: true
+      action: "HOLD ON PROBATION. MoS 11.3%. Watch for cycle turn."
 
   info:
-    - ticker: LULU
-      change_1d: "+3.9%"
-      note: "Bounce from recent weakness. Recovery from $169.53 low. Q4 at high end of guidance."
-      action: "HOLD. MoS 10.1% thin. Mar 31 Q4 = make-or-break."
-
     - ticker: DTE.DE
-      note: "EUR 32.23, approaching FV EUR 35.00 (MoS 7.9%). Feb 26 earnings."
-      action: "HOLD. Thin MoS. Watch earnings."
+      change_1d: "+0.0%"
+      change_5d: "+5.6%"
+      price: "EUR 32.23"
+      note: "Approaching FV EUR 35.00. MoS only 7.9%. Feb 26 earnings. TMUS strength continues."
+      action: "HOLD. Thin MoS. Watch Feb 26 earnings."
+
+    - ticker: DOM.L
+      change_1d: "+1.8%"
+      change_5d: "+4.1%"
+      price: "202.0p"
+      note: "Recovering. MoS 15.8%. FY25 results Mar 5."
+      action: "HOLD."
+
+    - ticker: EDEN.PA
+      change_1d: "-0.7%"
+      change_5d: "+3.3%"
+      price: "EUR 18.16"
+      note: "Stable. MoS 37.4%. Earnings Feb 24."
+      action: "HOLD MEDIUM. Strongest MoS in portfolio."
 
 # =============================================================================
 # POSITION SUMMARY (sorted by MoS descending)
 # =============================================================================
 
 position_summary:
-  - { ticker: EDEN.PA, price: "EUR 18.16", avg_cost_eur: 17.56, pnl_pct: "+3.4%", fv: "EUR 29.0", mos: "37.4%", vs_52w_high: "-48.0%", vs_52w_low: "+7.1%", status: "Earnings Feb 24" }
-  - { ticker: ADBE, price: "$264.65", avg_cost: "$270.60", pnl_pct: "-2.2%", fv: "$390", mos: "32.1%", vs_52w_high: "-43.1%", vs_52w_low: "+5.4%", status: "Near 52wL, FTC trial Oct 2026" }
-  - { ticker: NVO, price: "$49.46", avg_cost: "$48.13", pnl_pct: "+2.8%", fv: "$66", mos: "25.1%", vs_52w_high: "-47.3%", vs_52w_low: "+14.8%", status: "OK. CagriSema diabetes positive." }
-  - { ticker: GL, price: "$145.16", avg_cost: "$141.06", pnl_pct: "+2.9%", fv: "$191", mos: "24.0%", vs_52w_high: "-4.9%", vs_52w_low: "+32.7%", status: "Near 52wH. Strong momentum." }
-  - { ticker: MONY.L, price: "147.1p", avg_cost: "169.2p", pnl_pct: "-13.1%", fv: "190p", mos: "22.6%", vs_52w_high: "-34.6%", vs_52w_low: "+5.3%", status: "PROBATION. Earnings Feb 23." }
-  - { ticker: AUTO.L, price: "459.1p", avg_cost: "485.8p", pnl_pct: "-5.5%", fv: "580p", mos: "20.8%", vs_52w_high: "-50.1%", vs_52w_low: "+1.0%", status: "AT 52wL. April pricing." }
-  - { ticker: DOM.L, price: "202.0p", avg_cost: "~214p", pnl_pct: "-5.6%", fv: "240p", mos: "15.8%", vs_52w_high: "-33.3%", vs_52w_low: "+23.1%", status: "OK. FY25 results Mar 5." }
-  - { ticker: BYIT.L, price: "297.6p", avg_cost: "296p", pnl_pct: "+0.5%", fv: "345p", mos: "13.7%", vs_52w_high: "-47.1%", vs_52w_low: "+3.0%", status: "Near 52wL. PROBATION." }
-  - { ticker: ALL, price: "$205.28", avg_cost: "$196.00", pnl_pct: "+4.7%", fv: "$234", mos: "12.3%", vs_52w_high: "-5.3%", vs_52w_low: "+16.6%", status: "PROBATION. P/E 5.4x, peak cycle." }
-  - { ticker: LULU, price: "$176.20", avg_cost: "$171.62", pnl_pct: "+2.7%", fv: "$196", mos: "10.1%", vs_52w_high: "-55.2%", vs_52w_low: "+10.6%", status: "PROBATION. Mar 31 Q4. +3.9% today." }
+  - { ticker: EDEN.PA, price: "EUR 18.16", avg_cost_eur: 17.56, pnl_pct: "+3.4%", fv: "EUR 29.0", mos: "37.4%", vs_52w_high: "-48.0%", vs_52w_low: "+7.1%", status: "Earnings Feb 24. Strongest MoS." }
+  - { ticker: ADBE, price: "$263.97", avg_cost: "$270.60", pnl_pct: "-2.5%", fv: "$390", mos: "32.3%", vs_52w_high: "-43.2%", vs_52w_low: "+5.1%", status: "Near 52wL, P/E 15.8x all-time low. FTC trial Oct 2026." }
+  - { ticker: NVO, price: "$49.57", avg_cost: "$48.13", pnl_pct: "+3.0%", fv: "$66", mos: "24.9%", vs_52w_high: "-47.2%", vs_52w_low: "+15.1%", status: "OK. CagriSema end March." }
+  - { ticker: GL, price: "$144.25", avg_cost: "$141.06", pnl_pct: "+2.3%", fv: "$191", mos: "24.5%", vs_52w_high: "-5.5%", vs_52w_low: "+31.9%", status: "Near 52wH. Strong momentum." }
+  - { ticker: MONY.L, price: "147.1p", avg_cost: "169.2p", pnl_pct: "-13.6%", fv: "190p", mos: "22.6%", vs_52w_high: "-34.6%", vs_52w_low: "+5.3%", status: "PROBATION. AI crash -12% 5d. Earnings Feb 23." }
+  - { ticker: AUTO.L, price: "459.1p", avg_cost: "485.8p", pnl_pct: "-5.0%", fv: "580p", mos: "20.8%", vs_52w_high: "-50.1%", vs_52w_low: "+1.0%", status: "AT 52wL. April pricing make-or-break." }
+  - { ticker: DOM.L, price: "202.0p", avg_cost: "~214p", pnl_pct: "+10.5%", fv: "240p", mos: "15.8%", vs_52w_high: "-33.3%", vs_52w_low: "+23.1%", status: "OK. FY25 results Mar 5." }
+  - { ticker: BYIT.L, price: "297.6p", avg_cost: "296p", pnl_pct: "+0.3%", fv: "345p", mos: "13.7%", vs_52w_high: "-47.1%", vs_52w_low: "+3.0%", status: "Near 52wL. PROBATION." }
+  - { ticker: ALL, price: "$207.51", avg_cost: "$196.00", pnl_pct: "+5.9%", fv: "$234", mos: "11.3%", vs_52w_high: "-4.3%", vs_52w_low: "+17.9%", status: "PROBATION. Near 52wH, peak cycle." }
+  - { ticker: LULU, price: "$176.42", avg_cost: "$171.62", pnl_pct: "+2.8%", fv: "$196", mos: "10.0%", vs_52w_high: "-52.9%", vs_52w_low: "+10.8%", status: "PROBATION. +4.1% today. Mar 31 Q4 make-or-break." }
   - { ticker: DTE.DE, price: "EUR 32.23", avg_cost_eur: "~28.58", pnl_pct: "+12.8%", fv: "EUR 35.00", mos: "7.9%", vs_52w_high: "-10.2%", vs_52w_low: "+24.0%", status: "Approaching FV. Feb 26 earnings." }
 
 # =============================================================================
-# STANDING ORDER PROXIMITY
+# STANDING ORDER PROXIMITY (sorted by distance to trigger)
 # =============================================================================
 
 standing_order_proximity:
-  - { ticker: ROP, price: "$322.30", trigger: "$300", distance: "+7.4%", pipeline: "FULL (R4 approved)", status: "CLOSEST. Moved from 6.6% to 7.4% (slight pullback away). Earnings Q1 ~April." }
-  - { ticker: DSY.PA, price: "EUR 17.82", trigger: "EUR 15.50", distance: "+15.0%", pipeline: "FULL (R4 approved)", status: "CONDITIONAL on Q1 results. Still well above trigger." }
-  - { ticker: RACE.MI, price: "EUR 322.30", trigger: "EUR 270", distance: "+19.4%", pipeline: "FULL (R4 approved)", status: "Far. Monitor Luce May 25 + tariffs June 1." }
-  - { ticker: DNLM.L, price: "968p", trigger: "780p", distance: "+24.1%", pipeline: "FULL (R4 approved)", status: "Far." }
-  - { ticker: GL, price: "$145.16", trigger: "$125", distance: "+16.1%", pipeline: "FULL", status: "ADD. Moving away from trigger (near 52wH)." }
-  - { ticker: NVO, price: "$49.46", trigger: "$40", distance: "+23.7%", pipeline: "FULL", status: "ADD conditional on CagriSema OR price." }
-  - { ticker: BYIT.L, price: "297.6p", trigger: "240p", distance: "+24.0%", pipeline: "FULL", status: "ADD after H2 FY2026 OP confirms." }
-  - { ticker: CMCSA, price: "$31.70", trigger: "$26", distance: "+21.9%", pipeline: "WARNING: no adversarial pipeline", status: "Far." }
-  - { ticker: MA, price: "$522.03", trigger: "$315", distance: "+65.7%", pipeline: "WARNING: no adversarial pipeline", status: "Very far." }
-  - { ticker: V, price: "$318.20", trigger: "$220", distance: "+44.6%", pipeline: "WARNING: no adversarial pipeline", status: "Very far." }
-  - { ticker: WPP.L, price: "272.9p", trigger: "200p", distance: "+36.5%", pipeline: "Under review", status: "Wait Rose plan Feb 26." }
-  - { ticker: FGP.L, price: "192.2p", trigger: "165p", distance: "+16.5%", pipeline: "WARNING: no adversarial pipeline", status: "Moderate distance." }
+  - { ticker: ROP, price: "$321.41", trigger: "$300", distance: "6.7%", pipeline: "FULL (R4 approved)", status: "CLOSEST. New 52wL this week ($317.67). Insider buying. Deltek/Neptune weakness. MONITOR DAILY." }
+  - { ticker: DSY.PA, price: "EUR 17.82", trigger: "EUR 15.50", distance: "15.0%", pipeline: "FULL (R4 approved)", status: "CONDITIONAL on Q1 results. -21% crash absorbed. Wait." }
+  - { ticker: GL, price: "$144.25", trigger: "$125", distance: "15.4%", pipeline: "FULL", status: "ADD. Moving AWAY from trigger (near 52wH)." }
+  - { ticker: FGP.L, price: "192.2p", trigger: "165p", distance: "16.5%", pipeline: "WARNING: no adversarial pipeline", status: "Moderate distance." }
+  - { ticker: RACE.MI, price: "EUR 322.30", trigger: "EUR 270", distance: "19.4%", pipeline: "FULL (R4 approved)", status: "Far. Monitor Luce May 25." }
+  - { ticker: CMCSA, price: "$31.57", trigger: "$26", distance: "21.4%", pipeline: "WARNING: no adversarial pipeline", status: "Far." }
+  - { ticker: MONY.L, price: "147.1p", trigger: "130p exit", distance: "13.2% above", pipeline: "N/A", status: "EXIT trigger if cautious guidance post-Feb 23 earnings. 60-day probation." }
+  - { ticker: NVO, price: "$49.57", trigger: "$40", distance: "23.9%", pipeline: "FULL", status: "ADD conditional on CagriSema OR price drop." }
+  - { ticker: BYIT.L, price: "297.6p", trigger: "240p", distance: "24.0%", pipeline: "FULL", status: "ADD. Wait FY2026 OP confirmation ~May." }
+  - { ticker: DNLM.L, price: "968p", trigger: "780p", distance: "24.1%", pipeline: "FULL (R4 approved)", status: "Far." }
+  - { ticker: WPP.L, price: "272.9p", trigger: "200p", distance: "36.5%", pipeline: "Under review", status: "Wait Rose plan Feb 26." }
+  - { ticker: V, price: "$314.08", trigger: "$220", distance: "42.8%", pipeline: "WARNING: no adversarial pipeline", status: "Very far." }
+  - { ticker: MA, price: "$518.36", trigger: "$315", distance: "64.6%", pipeline: "WARNING: no adversarial pipeline", status: "Very far." }
+
+# =============================================================================
+# EARNINGS CALENDAR (next 21 days)
+# =============================================================================
+
+earnings_upcoming:
+  - { date: "2026-02-17", ticker: "RSG + CDNS", type: "PIPELINE", status: "HARD GATE. Both R1 complete. Earnings frameworks ready. DUAL event day." }
+  - { date: "2026-02-18", ticker: "VRSK", type: "PIPELINE", status: "R3 complete. Framework READY. Q4 2025." }
+  - { date: "2026-02-23", ticker: "MONY.L", type: "POSITION", status: "ON PROBATION. MANDATORY review. KC#9 AI strategy." }
+  - { date: "2026-02-24", ticker: "EDEN.PA", type: "POSITION", status: "HOLD MEDIUM. Framework ready." }
+  - { date: "2026-02-25", ticker: "BVI.PA", type: "PIPELINE", status: "FY2025. R3 complete." }
+  - { date: "2026-02-26", ticker: "DTE.DE + INTU + WPP.L", type: "POSITION + PIPELINE", status: "Triple event day. DTE.DE position, INTU R3 pipeline, WPP.L standing order review." }
+  - { date: "2026-03-04", ticker: "VEEV", type: "PIPELINE", status: "Q4 FY2026. Thesis catalyst." }
+  - { date: "2026-03-05", ticker: "DOM.L", type: "POSITION", status: "FY25 results. Decision point for LOW conviction." }
+  - { date: "End Mar", ticker: "NVO CagriSema", type: "POSITION", status: "BINARY catalyst. CagriSema vs Zepbound H2H." }
+  - { date: "2026-03-31", ticker: "LULU", type: "POSITION", status: "Q4 MAKE-OR-BREAK. ON PROBATION." }
 
 # =============================================================================
 # RISK CLUSTERS (updated)
 # =============================================================================
 
 risk_clusters:
-  - "AI disruption: MONY.L + ADBE + BYIT.L + DSY.PA (4 names, all near 52wL)"
-  - "UK stress: AUTO.L + BYIT.L + MONY.L all at/near 52wL"
-  - "PROBATION cluster: MONY.L + ALL + LULU (3 on probation)"
-  - "5/11 positions (45%) in stress (near/at 52wL or probation)"
-  - "Earnings gauntlet Feb 18-Mar 5: VRSK(18), MONY.L(23), EDEN.PA(24), DTE.DE(26), INTU(26), WPP.L(26), DOM.L(Mar 5)"
-  - "DOGE risk: BAH -39%, IT -70% from high. Government-adjacent positions at risk."
-
-# =============================================================================
-# WATCHLIST KEY LEVELS
-# =============================================================================
-
-watchlist_key_levels:
-  - { ticker: VRSK, price: "$181.01", fv: "$185", entry: "$165", mos_current: "2.2%", note: "Q4 earnings Feb 18. HARD GATE. FV needs revision post-earnings." }
-  - { ticker: RSG, price: "$223.46", fv: "$255", entry: "$210", mos_current: "12.4%", note: "R1 complete. HARD GATE: earnings Feb 17." }
-  - { ticker: IT, price: "$156.95", fv: "$355", entry: "$265", mos_current: "55.8%", note: "MASSIVE drop but guidance shock. R3 FV may need major revision. DOGE headwind." }
-  - { ticker: INTU, price: "$404.10", fv: "$395", entry: "$285-300", mos_current: "-2.3%", note: "R3 complete. Above FV. Feb 26 earnings." }
-  - { ticker: CDNS, price: "$298.90", entry: "$250", note: "R1 running. 10.9% from entry." }
-  - { ticker: VLTO, price: "$93.12", entry: "$82", note: "9.6% from entry." }
-  - { ticker: BAH, price: "$79.60", entry: "$95", note: "11.3% from entry but BELOW entry. DOGE risk clouds thesis." }
-  - { ticker: FDS, price: "$203.46", entry: "$310", note: "Well below entry. AI investment drag on margins." }
-  - { ticker: BVI.PA, price: "EUR 27.20", entry: "EUR 24", note: "12.6% above entry." }
-  - { ticker: MMC, price: "$182.70", entry: "$175", note: "14.2% from entry. Close to actionable." }
+  - "AI disruption cluster: MONY.L + ADBE + BYIT.L + DSY.PA (4 names, all near 52wL)"
+  - "UK stress: AUTO.L + BYIT.L + MONY.L all at/near 52wL, 3 UK positions under pressure"
+  - "PROBATION cluster: MONY.L + ALL + LULU (3 on probation, 27% of positions)"
+  - "5/11 positions (45%) near 52wL or on probation"
+  - "Earnings gauntlet Feb 17-Mar 5: 10 events in 16 days"
+  - "DOGE risk: IT -70% from high, BAH -39%. Government-adjacent pipeline candidates at risk."
+  - "ROP approaching trigger ($300, 6.7% away). Only FULL pipeline candidate near execution."
 
 # =============================================================================
 # DATA ANOMALIES
 # =============================================================================
 
 data_anomalies:
-  - "GL yield 75.0% — yfinance error (known, actual ~0.8%)"
-  - "VLTO yield 57.0% — yfinance error (known)"
-  - "RACE.MI yield 91.0% — yfinance error (known)"
-  - "MA yield 66.0% — yfinance error (known)"
-  - "V yield 83.0% — yfinance error (known)"
+  - "GL yield 75.0% -- yfinance error (known, actual ~0.8%)"
+  - "VLTO yield 56.0% -- yfinance error (known)"
+  - "RACE.MI yield 93.0% -- yfinance error (known)"
+  - "MA yield 67.0% -- yfinance error (known)"
+  - "V yield 85.0% -- yfinance error (known)"
+  - "VRSK yield 99.0% -- yfinance error (known)"

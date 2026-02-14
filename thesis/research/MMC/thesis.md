@@ -1,7 +1,7 @@
 > **Fair Value:** $190
 > **Entry:** $155
-> **Status:** R3 COMPLETE - WATCHLIST (needs R4 committee)
-> **Pipeline:** R1 ✓ | R2 ✓ (devil's advocate 13/20 MODERATE COUNTER) | R3 ✓ (resolution) | R4 pending
+> **Status:** R4 APPROVED - STANDING ORDER at $155 (half position EUR 200, Greensill sizing constraint)
+> **Pipeline:** R1 ✓ | R2 ✓ (devil's advocate 13/20 MODERATE COUNTER) | R3 ✓ (resolution) | R4 ✓ APPROVED 2026-02-14
 > **R3 Resolution (2026-02-13):** FV $190 confirmed (valuation-specialist, $220 thesis was bull case). Entry $160→$155 (18.4% MoS, consistent with Tier B precedents). Greensill A$7B trial Aug 2026 = SIZING CONSTRAINT (half position at entry, full after resolution). Organic growth base case 4% (management guided). Add consulting AI monitoring (Mercer+OW organic <2% 2Q = reassess). QS 68 unchanged.
 
 # MMC (Marsh McLennan) - World's Largest Insurance Broker
@@ -305,7 +305,9 @@ Rounding to **$220** for base case FV to give credit for:
 
 **But applying conservatism:** The DCF sensitivity is HIGH (129% FV spread). This means we should require MORE margin of safety, not less.
 
-**Final FV: $220** (base case, achievable within 2-3 years as earnings grow and multiple partially recovers)
+**Original FV: $220** (base case, achievable within 2-3 years as earnings grow and multiple partially recovers)
+
+> **R3 CORRECTION (2026-02-13):** Valuation-specialist weighted 3-method analysis produced FV $190 (DCF $160 × 20% + EV/EBIT $192 × 50% + DDM $191 × 30%). The analyst's $220 was adjusted down per DA feedback on Greensill risk, organic growth ceiling, and DCF sensitivity. **USE FV $190 for all decisions.** Scenarios below retain original R1 values for reference.
 
 ---
 

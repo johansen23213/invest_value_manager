@@ -2,7 +2,8 @@
 
 > **Fair Value:** $110
 > **Analysis Date:** 2026-02-13
-> **Pipeline Stage:** R3_COMPLETE (Post-Adversarial Resolution)
+> **Pipeline Stage:** R4_APPROVED (Investment Committee 2026-02-14, 10/10 gates PASS)
+> **Standing Order:** BUY at $88, EUR 400 (4%), valid until Q2 2026 earnings (July 2026)
 > **R3 Resolution:** Analyst $120, DA $105-110, Weighted → $110. Social inflation gap, chairman sale, soft market timing.
 > **Analyst:** fundamental-analyst
 
