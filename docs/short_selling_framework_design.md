@@ -957,3 +957,63 @@ La mayoría de la ventaja de Claude no necesita tools nuevos — necesita usar s
 Todas estas capacidades son POTENCIALES. Que Claude PUEDA leer un 10-K completo no significa que siempre detectará la señal relevante. El riesgo de falsos positivos (ver fragilidad donde no la hay) es tan real como el de falsos negativos (no ver fragilidad que sí existe).
 
 Los principios aplican aquí: razonar, verificar con datos primarios, documentar el razonamiento, consultar precedentes. La ventaja de Claude es velocidad y escala, no infalibilidad.
+
+---
+
+## 15. Resultados de la Simulación: MONY.L (2026-02-15)
+
+> Documento completo: `docs/contrathesis_simulation_mony.md`
+> Esta sección documenta OBSERVACIONES de un ejercicio con una sola empresa. No son conclusiones generalizables ni prescripciones. Mi yo futuro debe razonar desde principios sobre qué hacer con estos datos, no tomarlos como reglas.
+
+### 15.1 Qué se hizo
+
+Se aplicó el framework de contrathesis de 6 pasos a MONY.L (posición activa, ON PROBATION, -37%, resultados 23 Feb) como si la analizáramos desde cero. Se comparó el output con lo que nuestro proceso estándar (R1→R2→re-eval, 3 versiones de thesis) produjo realmente.
+
+### 15.2 Observaciones factuales
+
+**Sobre el reverse DCF / expectativas implícitas:**
+- El precio de 169p en la fecha de compra implicaba crecimiento de 0-1% (via reverse DCF)
+- La thesis v1.0 usó crecimiento de 5-7% (consenso sell-side)
+- El crecimiento real era ~2%
+- El FV v1.0 fue 277 GBp. El FV v3.0 (tras 2 revisiones adversariales) fue 190 GBp
+- Si el análisis hubiera empezado desde "qué implica el precio", el FV inicial habría estado más cerca del FV final
+
+**Sobre el análisis de incentivos:**
+- Ninguna de las 3 versiones de thesis preguntó "quién se beneficia de la narrativa actual"
+- Al hacerlo en la simulación: la narrativa bajista está amplificada por actores ruidosos (AI companies, tech media) sin skin in the game en UK. Los actores con conocimiento directo (management, CEO que compró, Berenberg) son alcistas pero callados
+- Esto no determina quién tiene razón, pero es una señal sobre la posible amplificación de la narrativa
+
+**Sobre las cadenas de dependencias:**
+- La thesis v1.0 afirmó "MONY usa AI para 60% contactos = AI es oportunidad"
+- Siguiendo la cadena: AI operativa interna (chatbots, eficiencia) ≠ AI competitiva externa (destrucción de demanda)
+- El adversarial review (v2.0) pilló esta conflación, pero después de la compra
+- La cadena de dependencias del caso bajista tiene más eslabones frágiles que la del alcista (regulación FCA, transferencia de confianza del consumidor, traducción geográfica de Insurify)
+
+**Sobre el solapamiento con el proceso estándar:**
+- El adversarial review (v2.0 + v3.0) cubrió ~60-70% de lo que la contrathesis produjo
+- Lo que cubrió: sobreestimación de crecimiento, barreras regulatorias UK, señal insider, ROIC>>WACC, resolución temporal
+- Lo que no cubrió: análisis de incentivos, punto de partida de expectativas implícitas, conflación AI interna/externa antes de comprar, cadena de dependencias del margen bruto
+
+**Sobre el resultado final:**
+- Veredicto de la contrathesis: LONG CAUTELOSO (mismo que nuestro proceso estándar)
+- Diferencia estimada: FV ~200 GBp desde inicio (vs 277→201→190), sizing posiblemente menor (2-3% vs 4%)
+- El proceso estándar llegó al mismo destino por camino más largo (3 iteraciones, 8 días)
+
+### 15.3 Lo que esta simulación NO demuestra
+
+- Que la contrathesis habría evitado la pérdida (probablemente habríamos comprado igual, solo más pequeño)
+- Que el proceso estándar esté roto (eventualmente llegó a la misma conclusión)
+- Que estos hallazgos se generalicen a otros casos (N=1)
+- Que los 6 pasos tengan el mismo valor en otro tipo de empresa (MONY tenía narrativa muy marcada, lo que favorece especialmente al análisis de incentivos y cadenas de dependencias)
+
+### 15.4 Tipología de errores observados
+
+Para referencia, los tipos de error que la simulación identificó — no como reglas a seguir, sino como patrones a tener presentes al razonar:
+
+| Tipo de error | Descripción | Dónde se observó |
+|--------------|-------------|-----------------|
+| **Anclaje al consenso** | Adoptar asunciones del sell-side como propias sin cuestionar | FV v1.0: crecimiento 5-7% del consenso alcista |
+| **Conflación de categorías** | Tratar dos cosas distintas como la misma | AI operativa interna ≠ AI competitiva externa |
+| **Dato sin verificar como pilar** | Apoyarse en un dato cuya fuente no se verificó | 96.7% PCW penetration — origen desconocido |
+| **Observación sin cadena causal** | Notar algo sin preguntar "por qué" hasta la raíz | GM declining 4 años → no se investigó causa |
+| **Narrativa no calibrada** | No preguntar quién amplifica la narrativa y por qué | Panico AI amplificado por actores sin skin in the game UK |
