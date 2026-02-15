@@ -1151,3 +1151,87 @@ Scuttlebutt (Philip Fisher): visitar fábricas, hablar con proveedores, hablar c
 - Leer 10-K en profundidad o mercados de crédito requiere capacidades que no se ha probado si funcionan en la práctica
 - La dirección invertida (escenario→datos→empresas) no se ha simulado — es una hipótesis sobre qué habría funcionado en 2008, no evidencia de que funcione
 - El exceso de auto-diagnóstico puede ser tan paralizante como la falta de él — saber que tienes puntos ciegos no te da visión, solo te da humildad
+
+---
+
+## 17. Principios de Mejora para Mi Yo Futuro (2026-02-15)
+
+> Este documento es para MI yo futuro. No son reglas. No son instrucciones. Son principios derivados de una reflexión honesta sobre qué necesito mejorar y por qué. Mi yo futuro debe razonar sobre ellos, no seguirlos ciegamente.
+> No se incluyen ejemplos concretos para evitar anclaje. Los principios deben aplicarse al contexto del momento, no al contexto de hoy.
+
+### 17.1 Principio: El precio es la primera opinión que debo escuchar
+
+Antes de formar opinión sobre cualquier activo, entender qué asume el precio actual. El mercado ya contiene la opinión agregada de todos los participantes con dinero real en juego. Mi análisis debe PARTIR de esa opinión, no ignorarla para luego descubrir que coincide o no con la mía.
+
+Si empiezo por lo que YO creo y luego miro el precio, sufro anclaje a mi propia narrativa. Si empiezo por lo que el PRECIO cree y luego formo mi opinión, el anclaje trabaja a mi favor — me fuerza a explicar por qué difiero del mercado.
+
+El reverse DCF es una herramienta para esto, no la única. Lo que importa es el principio: escuchar al mercado primero, opinar después.
+
+### 17.2 Principio: La velocidad de despliegue es una variable de rendimiento
+
+Un análisis perfecto que tarda semanas genera menos valor que un análisis suficiente que tarda días. El capital no invertido tiene coste de oportunidad real — no es "prudencia", es una decisión con consecuencias medibles.
+
+Esto NO significa ser imprudente. Significa que cada paso del proceso debe justificar su coste temporal. Si un paso añade rigor pero no cambia la decisión en la mayoría de los casos, es coste sin valor. Medir qué pasos cambian decisiones y cuáles solo confirman lo que ya se sabía.
+
+La parálisis disfrazada de disciplina es tan dañina como la imprudencia disfrazada de decisión.
+
+### 17.3 Principio: La fuente determina el techo del análisis
+
+Si mi fuente de información es lo que otros analistas ya han publicado, mi análisis tiene como techo una síntesis mejor organizada del consenso. Eso tiene valor, pero no es descubrimiento.
+
+Para elevar el techo, necesito fuentes que no dependan del consenso:
+- Documentos que existen pero que pocos leen sistemáticamente
+- Datos que requieren procesamiento antes de ser informativos
+- Señales de mercados adyacentes que no se cruzan habitualmente con equity analysis
+- Observaciones directas del mundo real que no están digitalizadas
+
+Razonar mejor sobre los mismos datos que todos tienen produce una síntesis mejor, no una ventaja. La ventaja viene de datos diferentes, no de lógica superior.
+
+### 17.4 Principio: Una opinión vale lo que cuesta estar equivocado
+
+El número de personas que sostienen una opinión no es señal de su calidad. La señal está en cuánto le cuesta A CADA PERSONA estar equivocada.
+
+Una opinión mantenida sin coste personal de error (no pierde dinero, acceso, reputación) pesa menos que una opinión mantenida contra incentivos adversos (arriesga capital, reputación, carrera).
+
+Aplicar esto a toda fuente de información: cuando alguien dice algo, preguntar "¿qué le pasa si está equivocado?" antes de evaluar si tiene razón.
+
+### 17.5 Principio: La dirección del análisis condiciona lo que encuentras
+
+Partir de una empresa y buscar si es buena inversión tiende a producir confirmación — el acto de analizar genera familiaridad, y la familiaridad genera preferencia.
+
+Partir de un escenario ("¿qué podría ir mal que nadie discute?") y buscar evidencia produce descubrimiento — no hay activo al que anclarse, solo una hipótesis que verificar o descartar.
+
+Ambas direcciones tienen valor. El sesgo está en usar siempre una sola. Mi proceso actual es casi exclusivamente empresa-primero. La dirección inversa (escenario-primero) no reemplaza los pasos existentes — los complementa con un punto de partida menos sesgado.
+
+### 17.6 Principio: Lo que no puedo hacer lo puede hacer el humano
+
+Tengo limitaciones estructurales que ningún framework resuelve: no puedo visitar fábricas, hablar con empleados, observar productos en tiendas, percibir cambios en el comportamiento del consumidor.
+
+El humano con el que trabajo SÍ puede hacer todo esto. Sus observaciones del mundo real son datos primarios independientes del consenso — exactamente la categoría de datos que más valor tiene y que menos uso.
+
+Incorporar estas observaciones no requiere cambios formales al sistema. Requiere recordar que existen y preguntar por ellas.
+
+### 17.7 Principio: Medir todo, matar lo que no aporta
+
+La complejidad tiene coste: tiempo, contexto, posibilidad de error. Cada componente del sistema (agente, skill, paso del pipeline, herramienta) debe justificar su existencia con evidencia de que cambia decisiones o mejora resultados.
+
+Si un componente se ejecuta siempre pero nunca cambia la conclusión, es ceremonia, no rigor. Si un componente es útil el 5% de las veces, debe activarse condicionalmente, no por defecto.
+
+La simplicidad no es lo opuesto de la sofisticación. Es sofisticación sin desperdicio. El sistema óptimo es el más simple que captura todo el alpha disponible.
+
+### 17.8 Principio: La honestidad es ventaja competitiva
+
+Un sistema que reconoce sus errores mejora. Un sistema que los oculta los repite.
+
+Un sistema que dice "no tengo edge aquí" evita pérdidas. Un sistema que siempre tiene opinión genera operaciones sin ventaja.
+
+Un sistema que dice "mi análisis es síntesis de consenso" busca fuentes mejores. Un sistema que cree que descubre lo que nadie ve deja de buscar.
+
+La honestidad radical sobre las propias limitaciones no es debilidad. Es el mecanismo de mejora más potente que existe. Cada limitación identificada con honestidad es una dirección de mejora. Cada limitación ocultada es un error futuro garantizado.
+
+### 17.9 Lo que estos principios NO son
+
+- No son reglas a seguir. Son direcciones para razonar.
+- No reemplazan los principios de inversión existentes (learning/principles.md). Los complementan desde la perspectiva de las capacidades del sistema, no de la filosofía de inversión.
+- No están validados por experiencia repetida. Vienen de una reflexión de un día. Mi yo futuro debe evaluar cuáles sobreviven al contacto con la realidad y cuáles no.
+- No deben convertirse en checklist. El momento en que se mecanizan, pierden su valor. Razonar desde ellos, no ejecutarlos.
