@@ -1017,3 +1017,137 @@ Para referencia, los tipos de error que la simulación identificó — no como r
 | **Dato sin verificar como pilar** | Apoyarse en un dato cuya fuente no se verificó | 96.7% PCW penetration — origen desconocido |
 | **Observación sin cadena causal** | Notar algo sin preguntar "por qué" hasta la raíz | GM declining 4 años → no se investigó causa |
 | **Narrativa no calibrada** | No preguntar quién amplifica la narrativa y por qué | Panico AI amplificado por actores sin skin in the game UK |
+
+### 15.5 Resultados de la Simulación: NVDA (2026-02-15)
+
+> Documento completo: `docs/contrathesis_simulation_nvda.md`
+> Segunda simulación. N=2. Sigue sin ser generalizable. Observaciones factuales, no prescripciones.
+
+**Qué se hizo:**
+Se aplicó el framework de contrathesis de 6 pasos a NVIDIA ($183, P/E 45x, QS Tool 88, $4.45T market cap) — una empresa que nunca hemos analizado, sin thesis previa. Se buscó señal (LONG, SHORT, o NO OPERAR).
+
+**Señal generada: NO OPERAR** — los 6 pasos no revelaron un gap explotable entre precio y realidad. Ambos lados (alcista y bajista) tienen datos reales y narrativa fuerte.
+
+**Observaciones factuales:**
+
+**Sobre "NO OPERAR" como tercera señal:**
+- En MONY.L, el framework generó una señal direccional (LONG CAUTELOSO) porque había un gap visible entre narrativa y datos
+- En NVIDIA, el framework no encontró gap claro — ambos consensos tienen datos primarios verificados a su favor
+- "No tengo edge aquí" es un output honesto y consistente con nuestros principios (solo operamos cuando tenemos MoS)
+
+**Sobre el desequilibrio de incentivos:**
+- NVIDIA tiene el mayor desequilibrio de incentivos a favor de la narrativa alcista que hemos observado: $190B personales de Jensen Huang + trillones en fondos indexados + $600B de hyperscalers + seguridad nacional US
+- Compare con MONY.L, donde el desequilibrio era más modesto y a favor de la narrativa bajista (actores sin skin in the game UK amplificando pánico AI)
+- Un desequilibrio masivo de incentivos no prueba que la narrativa sea correcta ni incorrecta — solo que si es incorrecta, tardará más de lo normal en corregirse
+- Esto tiene implicaciones para el timing de posiciones cortas: la narrativa puede persistir años más allá de lo que la realidad justifique
+
+**Sobre las cadenas de dependencias:**
+- El ejercicio identificó que el eslabón frágil crítico del caso alcista NO es lo que se debate públicamente (chips custom, DeepSeek, competencia AMD)
+- Es el ratio capex-a-revenue de la AI empresarial (~4:1 en 2025). Si se cierra → alcistas ganan. Si no → bajistas ganan. Y nadie lo sabe hoy
+- El caso bajista tiene su propio eslabón frágil: el dilema del prisionero de los hyperscalers (ninguno puede parar de gastar porque los otros ganarían ventaja)
+- Seguir la cadena hasta la dependencia raíz fue lo que más diferenció el análisis del análisis superficial típico
+
+**Sobre calidad extraordinaria + incertidumbre extraordinaria:**
+- NVIDIA tiene los mejores datos fundamentales que hemos medido (ROIC 86%, FCF margin 47%, QS 88)
+- Pero la sostenibilidad depende de un mercado (AI infra) con ~3 años de historia que podría cambiar radicalmente
+- El framework de contrathesis funciona mejor cuando los datos pasados informan el futuro con confianza razonable. Cuando la empresa más fuerte opera en el mercado más incierto, el framework produce correctamente "no hay edge"
+
+**Sobre el solapamiento entre las dos simulaciones:**
+- En ambos casos, el reverse DCF fue útil como punto de partida para entender qué implica el precio
+- En ambos casos, el análisis de incentivos reveló algo que el análisis estándar no cubre
+- La cadena de dependencias fue más reveladora en NVIDIA (eslabón frágil no era el tema de debate público) que en MONY.L (donde los eslabones eran más intuitivos)
+- El framework generó señales distintas para empresas distintas, lo cual sugiere que no tiene sesgo direccional inherente (pero N=2 no lo confirma)
+
+### 15.6 Lo que dos simulaciones NO demuestran
+
+- Que el framework funcione en general (N=2, dos tipos de empresa muy distintos)
+- Que los patrones observados se repitan (pueden ser artefactos de estas empresas específicas)
+- Que "NO OPERAR" sea siempre la señal correcta cuando no hay gap — podría ser falta de profundidad del análisis
+- Que las tipologías de error de 15.4 sean exhaustivas — NVIDIA no añadió nuevos tipos pero tampoco los confirmó
+- Que el valor del análisis de incentivos sea proporcional al tamaño de la empresa (parece más revelador en NVIDIA que en MONY.L, pero podría ser coincidencia)
+
+---
+
+## 16. Auto-diagnóstico de Limitaciones Estructurales (2026-02-15)
+
+> Resultado de preguntar honestamente: "¿podría este framework haber detectado la crisis de 2008 como Burry?" La respuesta fue NO. Esta sección documenta POR QUÉ y qué observaciones surgen de esa honestidad. No son soluciones — son puntos ciegos identificados.
+
+### 16.1 La distinción síntesis vs. descubrimiento
+
+En las dos simulaciones (MONY.L, NVIDIA), el framework produjo análisis útil: organizó información, identificó cadenas de dependencia, mapeó incentivos. Pero la materia prima era información ya publicada por otros.
+
+**Observación factual:** El "hallazgo clave" de NVIDIA (ratio 4:1 capex/revenue como dependencia crítica) ya estaba publicado por analistas independientes. El framework lo identificó como el eslabón frágil — eso es síntesis, no descubrimiento. En MONY.L, la conflación AI interna/externa también era un argumento que existía en la literatura.
+
+**Lo que Burry hizo distinto en 2008:** No sintetizó opiniones existentes. Leyó datos primarios granulares (contratos individuales de préstamos) que estaban públicos pero que nadie leía. Su edge no era razonamiento superior sino datos que otros ignoraban.
+
+**Implicación para el framework:** Los 6 pasos son un motor de síntesis. Producen análisis significativamente mejor que el superficial. Pero no generan descubrimiento original. Esta distinción no invalida el framework — lo sitúa. Es una herramienta de segundo nivel (razonar bien sobre lo conocido), no de primer nivel (ver lo desconocido).
+
+### 16.2 La contaminación de fuentes
+
+**Observación factual sobre cómo se recopilan datos en las simulaciones:**
+
+- Las búsquedas web devuelven resultados ordenados por popularidad, no por veracidad
+- Los analistas sell-side (39 Strong Buy en NVIDIA) tienen incentivo estructural a ser alcistas (banking fees, acceso a management). Su opinión no es independiente
+- En ambas simulaciones, "lo que piensa el consenso" se extrajo de fuentes que SON el consenso — circularidad
+- La ausencia de un riesgo en los resultados de búsqueda se interpreta implícitamente como ausencia de riesgo real. En 2006, buscar "housing market risk" habría producido poco. La ausencia de preocupación no era evidencia de ausencia de problema
+
+**Lo que esto significa para los pasos del framework:**
+- Paso 1 ("qué cree el consenso") funciona bien — capturar consenso usando consenso es coherente
+- Paso 5 ("verificar con datos primarios") es el más débil en la práctica — los "datos primarios" que verificamos son mayoritariamente datos reportados por terceros, no datos que leemos directamente de fuentes originales
+
+### 16.3 Fuentes primarias accesibles pero no utilizadas
+
+**Observación factual:** Existen datos primarios públicos que el framework no utiliza actualmente y que podrían reducir la dependencia del consenso:
+
+| Fuente | Qué contiene | Quién la lee sistemáticamente |
+|--------|-------------|------------------------------|
+| SEC EDGAR (10-K, 10-Q) | Risk factors, footnotes, cambios contables, related-party transactions | Pocos — los analistas leen el earnings release, no las 200 páginas del 10-K |
+| Cambios de lenguaje en Risk Factors entre periodos | Señales tempranas de problemas que el management anticipa | Casi nadie lo trackea sistemáticamente |
+| Form 4 (insider transactions) — patrón, no evento | Aceleración/desaceleración de ventas, compras cluster | Sitios lo reportan pero pocos analizan el patrón temporal |
+| Mercados de crédito (CDS spreads, bond yields) | Señales adelantadas — credit markets suelen moverse antes que equity | Analistas de renta fija, pero no se cruza con equity analysis sistemáticamente |
+| Filings regulatorios (FCA, CMA, SEC enforcement) | Investigaciones y acciones antes de que sean noticia | Abogados especializados |
+| Filings judiciales | Demandas activas, descubrimientos en litigación | Casi nadie en equity research |
+
+**Esto NO es una propuesta de implementación.** Es un inventario de dónde EXISTEN datos que no dependen del consenso. Si en el futuro el framework necesita más profundidad en el Paso 5, estas son las direcciones que reducirían la dependencia de fuentes consensuadas.
+
+### 16.4 Ponderación de opiniones por incentivo
+
+**Observación de las dos simulaciones:**
+
+En NVIDIA, 39 analistas dicen "Strong Buy" y 2 dicen "Sell." La reacción natural es tratar esto como 39 vs 2. Pero:
+- Los 39 tienen coste bajo de estar equivocados (todos dicen lo mismo, nadie pierde acceso) y coste alto de disentir (perder acceso al management, ir contra el consenso del banco)
+- Los 2 que dicen Sell arriesgan reputación personal y van contra la corriente
+- Si se pondera por coste personal de estar equivocado (skin in the game), la señal cambia
+
+En MONY.L, los actores que amplificaban la narrativa bajista (AI disruption) tenían poco skin in the game en el mercado UK de comparación de precios.
+
+**Observación, no regla:** En ambos casos, preguntar "¿cuánto le cuesta a esta persona estar equivocada?" fue más informativo que contar cuántas personas opinan en cada dirección. Esto es consistente con el Paso 3 (análisis de incentivos) pero va un paso más allá — no solo "quién se beneficia de la narrativa" sino "quién paga si la narrativa es falsa."
+
+### 16.5 La dirección del análisis
+
+**Observación:** Ambas simulaciones fueron reactivas — se partió de una empresa y se analizó. El framework de contrathesis funciona empresa-por-empresa.
+
+Burry no empezó con "voy a analizar Countrywide." Empezó con "¿y si los préstamos hipotecarios son basura?" y luego buscó los datos. La dirección importaba: escenario primero, datos después.
+
+Una dirección invertida sería: "¿Qué escenario que nadie discute rompería algo?" → "¿Qué evidencia existe de que ya está pasando?" → "¿Qué empresas/sectores se ven afectados?"
+
+**Esto NO está incorporado en los 6 pasos actuales.** Los 6 pasos parten de una empresa específica. La observación es que existe una dirección complementaria (top-down contrarian) que el framework actual no cubre y que fue precisamente la dirección que detectó 2008.
+
+### 16.6 Observaciones del mundo real como datos primarios
+
+**Punto ciego identificado:** El framework utiliza datos financieros (filings, precios, ratios) y datos de internet (noticias, análisis). No tiene forma de incorporar observaciones directas del mundo real.
+
+Scuttlebutt (Philip Fisher): visitar fábricas, hablar con proveedores, hablar con clientes. Este tipo de dato es primario e independiente del consenso.
+
+**En nuestro contexto:** El humano que usa este sistema vive en el mundo real. Ve precios en tiendas, usa productos, observa tendencias locales. Estas observaciones son datos primarios que ningún analista de Wall Street tiene y que el framework no recoge.
+
+**Esto no es una propuesta de implementación.** Es documentar que existe una categoría entera de datos (observación directa del mundo real) que el framework ignora y que tiene la propiedad deseable de ser independiente del consenso.
+
+### 16.7 Lo que esta auto-reflexión NO resuelve
+
+- Las limitaciones estructurales (acceso a datos, investigación de campo, persistencia temporal) siguen existiendo
+- Identificar puntos ciegos no es lo mismo que corregirlos
+- Estas observaciones vienen de 2 simulaciones y una reflexión — no de experiencia repetida
+- Leer 10-K en profundidad o mercados de crédito requiere capacidades que no se ha probado si funcionan en la práctica
+- La dirección invertida (escenario→datos→empresas) no se ha simulado — es una hipótesis sobre qué habría funcionado en 2008, no evidencia de que funcione
+- El exceso de auto-diagnóstico puede ser tan paralizante como la falta de él — saber que tienes puntos ciegos no te da visión, solo te da humildad
