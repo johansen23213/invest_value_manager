@@ -3,8 +3,8 @@
 > **Fair Value:** $180
 > **Entry:** $135
 > **Date:** 2026-02-13 (R3 resolved)
-> **Status:** R3 COMPLETE - WATCHLIST (R4 deferred — 18% above entry)
-> **Pipeline:** R1 ✓ | R2 ✓ (DA 13/19 STRONG COUNTER) | R3 ✓ (resolution) | R4 deferred
+> **Status:** R4 COMPLETE - WATCHLIST (Standing Order $135)
+> **Pipeline:** R1 ✓ | R2 ✓ (DA 13/19 STRONG COUNTER) | R3 ✓ (resolution) | R4 ✓ (committee 9/10, WATCHLIST)
 > **R3 Resolution (2026-02-13):** FV $205→$180 (-12%). DA 13/19 STRONG COUNTER. CRSP conflict of interest, growth 9%→7.5%, index fund fee pressure. QS 83→78 (Tier A). Entry $130-135 (25-28% MoS).
 
 ## TL;DR

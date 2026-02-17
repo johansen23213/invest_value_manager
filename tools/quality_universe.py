@@ -19,6 +19,7 @@ Usage:
 
 import sys
 import os
+import re
 import argparse
 import time
 from datetime import date, datetime
@@ -196,6 +197,91 @@ def fmt_price(value, currency):
 
 
 # ---------------------------------------------------------------------------
+# Sector name normalization helper
+# ---------------------------------------------------------------------------
+
+def _normalize_sector_to_filename(sector_name):
+    """
+    Normalize a human-readable sector name to the expected filename stem.
+
+    Examples:
+      "Defense/Aerospace"        -> "defense-aerospace"
+      "Semiconductors/Equipment" -> "semiconductors-equipment"
+      "Healthcare Equipment"     -> "healthcare-equipment"
+      "Environmental/Water"      -> "environmental-water"
+      "Pharma/Healthcare"        -> "pharma-healthcare"
+      "Testing/Inspection/Cert"  -> "testing-inspection-cert"
+      "Real Estate"              -> "real-estate"
+      "Business Services"        -> "business-services"
+    """
+    name = sector_name.lower()
+    # Replace / and & with hyphen
+    name = name.replace("/", "-").replace("&", "-")
+    # Replace spaces with hyphen
+    name = name.replace(" ", "-")
+    # Collapse multiple consecutive hyphens into one
+    name = re.sub(r"-+", "-", name)
+    # Strip leading/trailing hyphens
+    name = name.strip("-")
+    return name
+
+
+def _find_sector_view(sector_name, existing_views):
+    """
+    Check if a sector view file exists for a given sector name.
+
+    Strategy:
+    1. Check explicit overrides for non-obvious mappings (e.g. "Consumer Brands" -> "consumer-discretionary")
+    2. Check if the normalized sector name matches an existing view exactly
+    3. Check if any existing view filename contains the normalized name or vice versa
+       (partial matching, e.g. "testing-inspection-cert" matches "testing-inspection-certification")
+
+    Returns the matched view filename (without .md) or None.
+    """
+    # Explicit overrides for sector names that cannot be derived by normalization
+    # because the file on disk uses a fundamentally different naming convention
+    overrides = {
+        "Consumer Brands": "consumer-discretionary",
+        "Digital Infrastructure": "digital-marketplaces",
+        "Financial Data": "financial-data-analytics",
+    }
+
+    # Check override first
+    override = overrides.get(sector_name)
+    if override and override in existing_views:
+        return override
+
+    # Normalize sector name to expected filename
+    normalized = _normalize_sector_to_filename(sector_name)
+
+    # Exact match
+    if normalized in existing_views:
+        return normalized
+
+    # Partial match: check if any existing view contains the normalized name
+    # or if the normalized name contains an existing view name.
+    # This handles cases like:
+    #   "testing-inspection-cert" matching "testing-inspection-certification"
+    #   "industrial-technology" matching "industrial-technology"
+    for view in existing_views:
+        if normalized in view or view in normalized:
+            return view
+
+    # Additional partial matching: check if all significant words from the
+    # normalized name appear in any view (handles word-subset matches)
+    norm_words = set(normalized.split("-"))
+    # Only try this for multi-word sectors to avoid false positives
+    if len(norm_words) >= 2:
+        for view in existing_views:
+            view_words = set(view.split("-"))
+            # If all normalized words are present in the view name
+            if norm_words.issubset(view_words):
+                return view
+
+    return None
+
+
+# ---------------------------------------------------------------------------
 # Commands
 # ---------------------------------------------------------------------------
 
@@ -266,7 +352,7 @@ def cmd_report(args):
             f"{c['ticker']:<10} "
             f"{c.get('name', c['ticker'])[:25]:<25} "
             f"{qs_display:>3} "
-            f"{c.get('tier', '?'):>4} "
+            f"{str(c.get('tier') or '?'):>4} "
             f"{c.get('sector', 'Unknown')[:22]:<22} "
             f"{fmt_price(c.get('fair_value'), cur):>10} "
             f"{fmt_price(c.get('entry_price'), cur):>10} "
@@ -343,11 +429,11 @@ def cmd_actionable(args):
             f"{c['ticker']:<10} "
             f"{c.get('name', '')[:25]:<25} "
             f"{qs_display:>3} "
-            f"{c.get('tier', '?'):>4} "
+            f"{str(c.get('tier') or '?'):>4} "
             f"{fmt_price(c.get('entry_price'), cur):>10} "
             f"{fmt_price(c.get('current_price'), cur):>10} "
             f"{dist:+.1f}% "
-            f"{c.get('pipeline_status', '?'):<16} "
+            f"{str(c.get('pipeline_status') or '?'):<16} "
             f"{at_or_below}"
         )
 
@@ -459,34 +545,12 @@ def cmd_coverage(args):
         "Testing/Inspection/Cert",
     ]
 
-    # Scan existing sector views
+    # Scan existing sector views (filename stems without .md)
     existing_views = set()
     if os.path.exists(SECTORS_DIR):
         for f in os.listdir(SECTORS_DIR):
             if f.endswith(".md") and f != "_TEMPLATE.md":
                 existing_views.add(f.replace(".md", ""))
-
-    # Map sector view filenames to sector names (approximate matching)
-    view_map = {
-        "telecom": "Telecom",
-        "insurance": "Insurance",
-        "pharma-healthcare": "Pharma/Healthcare",
-        "real-estate": "Real Estate",
-        "business-services": "Business Services",
-        "consumer-staples": "Consumer Staples",
-        "industrials": "Industrials",
-        "utilities": "Utilities",
-        "energy": "Energy",
-        "media-publishing": "Media/Publishing",
-        "technology": "Technology",
-        "financial-data-analytics": "Financial Data",
-        "luxury-goods": "Luxury Goods",
-        "payments-fintech": "Payments/Fintech",
-        "consumer-discretionary": "Consumer Brands",
-        "digital-marketplaces": "Digital Infrastructure",
-        "automotive": "Industrial Technology",
-        "auto-eu": "Industrial Technology",
-    }
 
     # Count companies per sector (from universe)
     sector_counts = {}
@@ -494,12 +558,12 @@ def cmd_coverage(args):
         s = c.get("sector", "Unknown")
         sector_counts[s] = sector_counts.get(s, 0) + 1
 
-    # Determine which target sectors have views
-    covered_sectors = set()
-    for view_name in existing_views:
-        mapped = view_map.get(view_name)
-        if mapped:
-            covered_sectors.add(mapped)
+    # Determine which target sectors have views using dynamic matching
+    covered_sectors = {}  # sector_name -> matched view filename
+    for sector in target_sectors:
+        matched_view = _find_sector_view(sector, existing_views)
+        if matched_view:
+            covered_sectors[sector] = matched_view
 
     print(f"\nSector Coverage Report | {date.today()}")
     print("=" * 90)
@@ -596,16 +660,19 @@ def cmd_stale(args):
     for c, days_ago in stale_list:
         last_scored = c.get("last_scored", "never")
         days_str = str(days_ago) if days_ago < 999 else "never"
-        qs_display = c.get("qs_adj", c.get("qs_tool", "?"))
+        qs_display = c.get("qs_adj") or c.get("qs_tool") or "?"
+
+        tier_display = c.get('tier') or '?'
+        pipeline_display = c.get('pipeline_status') or 'UNKNOWN'
 
         print(
             f"{c['ticker']:<10} "
             f"{c.get('name', c['ticker'])[:25]:<25} "
-            f"{qs_display:>3} "
-            f"{c.get('tier', '?'):>4} "
+            f"{str(qs_display):>3} "
+            f"{str(tier_display):>4} "
             f"{str(last_scored):>12} "
             f"{days_str:>9} "
-            f"{c.get('pipeline_status', 'UNKNOWN'):<16}"
+            f"{str(pipeline_display):<16}"
         )
 
     print(f"\nTotal: {len(companies)} companies")

@@ -102,8 +102,12 @@ positions:
     invested_usd: 400.00
     avg_cost_usd: 48.13  # 400 / 8.31
     date_opened: 2026-02-05
+    conviction: medium
+    last_review: 2026-02-17
+    fair_value: "$66 (DKK 491). QS Tool 73 Tier B (thesis overclaimed 82 Tier A)."
+    exit_plan: "HOLD through CagriSema vs Zepbound H2H data (end March 2026). ADD at $40 (conditional on positive data). EXIT if CagriSema inferior + Wegovy oral disappoints. TRIM at $60+ if thesis intact."
     thesis: thesis/active/NVO/thesis.md
-    notes: "Framework v3.0 validation. Tier A QS 82. MoS 38%. Phased entry 4%."
+    notes: "QS Tool 73 Tier B. CagriSema beat Ozempic in diabetes study (Feb 2026). Wegovy oral 170K patients in 4 weeks. Medicare Part D obesity coverage mid-2026. March H2H vs Zepbound = BINARY catalyst."
 
   - ticker: MONY.L
     name: "Mony Group PLC"

@@ -45,7 +45,7 @@ python3 tools/effectiveness_tracker.py --summary # Solo métricas
 
 ### dynamic_screener.py - Screening cuantitativo programático (TOOL PRINCIPAL)
 ```bash
-python3 tools/dynamic_screener.py --index europe_all              # All European indices (NO pe_max filter by default)
+python3 tools/dynamic_screener.py --index europe_all              # All European large/mid cap indices
 python3 tools/dynamic_screener.py --index stoxx600 --pe-max 12 --yield-min 4
 python3 tools/dynamic_screener.py --index europe_all --near-low 15  # >15% below 52w high
 python3 tools/dynamic_screener.py --index europe_all --undiscovered # Default: <10 analysts, <15B mcap
@@ -54,11 +54,25 @@ python3 tools/dynamic_screener.py --index sp500 --pe-max 10
 python3 tools/dynamic_screener.py --index sp400 --pe-max 10 --yield-min 3  # US MidCap 400
 python3 tools/dynamic_screener.py --index us_all --undiscovered    # SP500+SP400+Russell1000
 python3 tools/dynamic_screener.py --index mib40 --min-fcf-yield 5
+# Small & Mid Cap indices (added Session 72):
+python3 tools/dynamic_screener.py --index sp600                    # S&P SmallCap 600 (US)
+python3 tools/dynamic_screener.py --index sdax                     # SDAX (German Small Cap, ~70 companies)
+python3 tools/dynamic_screener.py --index mdax                     # MDAX (German Mid Cap, ~50 companies)
+python3 tools/dynamic_screener.py --index cac_mid60                # CAC Mid 60 (French Mid/Small Cap)
+python3 tools/dynamic_screener.py --index cac_next20               # CAC Next 20 (French Mid Cap)
+python3 tools/dynamic_screener.py --index ftse_aim100              # FTSE AIM 100 (UK Small Cap)
+python3 tools/dynamic_screener.py --index smallcap_all             # All small caps (US + EU)
+python3 tools/dynamic_screener.py --index europe_smallcap          # EU small caps only
+python3 tools/dynamic_screener.py --index german_all               # DAX40 + MDAX + SDAX
+python3 tools/dynamic_screener.py --index french_all               # CAC40 + CAC Mid60 + CAC Next20
+python3 tools/dynamic_screener.py --index smallcap_all --undiscovered  # Best for value: low coverage small caps
 ```
 - **Obtiene tickers PROGRAMÁTICAMENTE** de Wikipedia/yfinance (cero popularity bias)
 - **pe_max default = 999 (no filter)** — quality compounders often have high P/E
-- Índices US: sp500, sp400 (MidCap), russell1000, us_all, us_midcap
-- Índices EU: dax40, cac40, ibex35, aex25, ftse100, ftse250, mib40, omx_stockholm, bel20, stoxx600, europe_all, nordic
+- Índices US: sp500, sp400 (MidCap), sp600 (SmallCap), russell1000, us_all, us_all_caps, us_midcap, us_smallcap
+- Índices EU: dax40, cac40, ibex35, aex25, ftse100, ftse250, mib40, omx_stockholm, bel20, stoxx600, europe_all, europe_all_caps, nordic
+- Índices Small/Mid Cap: sdax, mdax, cac_mid60, cac_next20, ftse_aim100
+- Composites: europe_smallcap, smallcap_all, german_all, french_all
 - Otros: nikkei225, all, custom
 - Filtros: P/E, yield, FCF yield, debt/equity, market cap, distancia 52w high, num analistas
 - Flag `--undiscovered`: parametrizable (`--undiscovered-analysts`, `--undiscovered-mcap`)
