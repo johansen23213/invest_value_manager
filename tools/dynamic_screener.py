@@ -19,6 +19,20 @@ Usage:
   python3 tools/dynamic_screener.py --index stoxx600 --sort analysts --output results.csv
   python3 tools/dynamic_screener.py --index stoxx600 --workers 20  # Faster parallel fetch
   python3 tools/dynamic_screener.py --refresh                  # Force refresh cache
+
+  # Small & Mid Cap indices:
+  python3 tools/dynamic_screener.py --index sp600              # S&P SmallCap 600 (US)
+  python3 tools/dynamic_screener.py --index sdax               # SDAX (German Small Cap, ~70 companies)
+  python3 tools/dynamic_screener.py --index mdax               # MDAX (German Mid Cap, ~50 companies)
+  python3 tools/dynamic_screener.py --index cac_mid60          # CAC Mid 60 (French Mid/Small Cap)
+  python3 tools/dynamic_screener.py --index cac_next20         # CAC Next 20 (French Mid Cap)
+  python3 tools/dynamic_screener.py --index ftse_aim100        # FTSE AIM 100 (UK Small Cap)
+  python3 tools/dynamic_screener.py --index us_smallcap        # = S&P 600
+  python3 tools/dynamic_screener.py --index europe_smallcap    # SDAX + CAC Mid60 + CAC Next20 + FTSE AIM100
+  python3 tools/dynamic_screener.py --index smallcap_all       # All small caps (US + EU)
+  python3 tools/dynamic_screener.py --index german_all         # DAX40 + MDAX + SDAX
+  python3 tools/dynamic_screener.py --index french_all         # CAC40 + CAC Mid60 + CAC Next20
+  python3 tools/dynamic_screener.py --index smallcap_all --undiscovered  # Best for value: low coverage small caps
 """
 
 import sys
@@ -130,9 +144,29 @@ INDEX_SOURCES = {
         "url": "https://en.wikipedia.org/wiki/List_of_S%26P_400_companies",
         "parser": "sp500",  # Same format: Symbol column
     },
+    "sp600": {
+        "url": "https://en.wikipedia.org/wiki/List_of_S%26P_600_companies",
+        "parser": "sp500",  # Same format: Symbol column
+    },
     "russell1000": {
         "url": "https://en.wikipedia.org/wiki/Russell_1000_Index",
         "parser": "russell1000",
+    },
+    "sdax": {
+        "url": "https://en.wikipedia.org/wiki/SDAX",
+        "parser": "sdax",
+    },
+    "mdax": {
+        "url": "https://en.wikipedia.org/wiki/MDAX",
+        "parser": "generic_ticker_col",
+        "table_min_rows": 40,
+        "suffix": ".DE",
+    },
+    "ftse_aim100": {
+        "url": "https://en.wikipedia.org/wiki/FTSE_AIM_100_Index",
+        "parser": "generic_ticker_col",
+        "table_min_rows": 50,
+        "suffix": ".L",
     },
 }
 
@@ -141,13 +175,23 @@ COMPOSITE_INDICES = {
     "europe_all": ["dax40", "cac40", "ibex35", "aex25", "ftse100", "ftse250",
                    "omx_helsinki", "mib40", "omx_stockholm", "obx25", "smi20",
                    "bel20", "psi20"],
+    "europe_all_caps": ["dax40", "cac40", "ibex35", "aex25", "ftse100", "ftse250",
+                        "omx_helsinki", "mib40", "omx_stockholm", "obx25", "smi20",
+                        "bel20", "psi20", "sdax", "mdax", "cac_mid60", "cac_next20",
+                        "ftse_aim100"],
     "stoxx600": ["dax40", "cac40", "ibex35", "aex25", "ftse100", "ftse250",
                  "omx_helsinki", "mib40", "omx_stockholm", "obx25", "smi20",
                  "bel20", "psi20"],  # best approximation
     "ftse350": ["ftse100", "ftse250"],
     "nordic": ["omx_helsinki", "omx_stockholm", "obx25"],
     "us_all": ["sp500", "sp400", "russell1000"],
+    "us_all_caps": ["sp500", "sp400", "sp600", "russell1000"],
+    "us_smallcap": ["sp600"],
     "us_midcap": ["sp400"],
+    "europe_smallcap": ["sdax", "cac_mid60", "cac_next20", "ftse_aim100"],
+    "german_all": ["dax40", "mdax", "sdax"],
+    "french_all": ["cac40", "cac_mid60", "cac_next20"],
+    "smallcap_all": ["sp600", "sdax", "cac_mid60", "cac_next20", "ftse_aim100"],
 }
 
 # Minimal hardcoded fallback (last resort only)
@@ -189,6 +233,54 @@ FALLBACK_TICKERS = {
     "nikkei225": [
         "7203.T", "6758.T", "9432.T", "8306.T", "6861.T", "9984.T",
         "8058.T", "8001.T", "5020.T", "2914.T", "4502.T", "6501.T",
+    ],
+    "sp600": [
+        "CARG", "CWAN", "DOC", "ENSG", "EXPO", "FIVE", "FOXF", "FSS",
+        "GOLF", "HALO", "HRMY", "IBOC", "IPAR", "IRTC", "KLIC", "LANC",
+        "LGND", "LNTH", "MGEE", "MMSI", "MTRN", "NOVT", "NSIT", "OMCL",
+        "PAYO", "PRGS", "QLYS", "RHP", "SIGI", "SPSC", "SXT", "TNET",
+        "TRIP", "TTMI", "VCYT", "VRRM", "WDFC", "WTS", "XRAY",
+    ],
+    "sdax": [
+        "SOW.DE", "BYW6.DE", "G1A.DE", "PBB.DE", "WAF.DE", "DIC.DE",
+        "EVT.DE", "SZG.DE", "ADJ.DE", "CWC.DE", "STM.DE", "DHER.DE",
+        "JUN3.DE", "SGL.DE", "BOSS.DE", "GXI.DE", "BC8.DE", "KWS.DE",
+        "TEG.DE", "VBK.DE", "AIXA.DE", "PNE3.DE", "NEM.DE", "BNR.DE",
+        "HHFA.DE", "INH.DE", "S92.DE", "HLAG.DE", "FPE3.DE", "AG1.DE",
+        "WCH.DE", "SY1.DE", "SRT3.DE", "NDX1.DE", "HBH.DE", "ECV.DE",
+        "TPE.DE", "SKB.DE", "VAR1.DE", "PUM.DE", "SBS.DE", "O2D.DE",
+        "FNTN.DE", "MBB.DE", "UTDI.DE", "SFQ.DE", "HAB.DE", "JDC.DE",
+        "NB2.DE", "NOEJ.DE", "DATA.DE", "FTK.DE", "COP.DE", "ARL.DE",
+        "CLIQ.DE", "AMG.DE", "HHFA.DE", "TTK.DE", "SIS.DE", "VOS.DE",
+        "DBK.DE", "GLJ.DE", "GBF.DE", "PFV.DE", "ACX.DE", "TIM.DE",
+    ],
+    "cac_mid60": [
+        "AF.PA", "AKE.PA", "ALBI.PA", "ALO.PA", "AMUN.PA", "ARG.PA",
+        "ATO.PA", "BIM.PA", "BOL.PA", "COFA.PA", "COVH.PA", "DBV.PA",
+        "DEXB.PA", "DIM.PA", "EL.PA", "ELIOR.PA", "ERF.PA", "ETL.PA",
+        "FDR.PA", "FGR.PA", "GBT.PA", "GFC.PA", "GLE.PA", "GNFT.PA",
+        "GTT.PA", "ILD.PA", "ING.PA", "IPN.PA", "IPSO.PA", "JXR.PA",
+        "KER.PA", "LNA.PA", "MERY.PA", "MMT.PA", "MRN.PA", "NEX.PA",
+        "NOKIA.PA", "OVH.PA", "PAT.PA", "QDT.PA", "RCO.PA", "RF.PA",
+        "RNO.PA", "RUBIS.PA", "RXL.PA", "SBT.PA", "SCR.PA", "SEV.PA",
+        "SK.PA", "SLB.PA", "SOI.PA", "SPIE.PA", "SRP.PA", "TFI.PA",
+        "TKO.PA", "UBI.PA", "VIRP.PA", "VIV.PA", "VRLA.PA", "WLN.PA",
+    ],
+    "cac_next20": [
+        "AC.PA", "BON.PA", "CAT31.PA", "CDA.PA", "CRAP.PA", "DSY.PA",
+        "FDJ.PA", "GDS.PA", "HEXA.PA", "IDL.PA", "IPS.PA", "LR.PA",
+        "MC.PA", "OR.PA", "PUB.PA", "SAF.PA", "SGO.PA", "SU.PA",
+        "VIE.PA", "VLA.PA",
+    ],
+    "ftse_aim100": [
+        "FEVR.L", "BVXP.L", "JET2.L", "GAW.L", "LOK.L", "FDEV.L",
+        "TET.L", "ABDP.L", "RWS.L", "CVS.L", "SDI.L", "NWF.L",
+        "BOO.L", "GYM.L", "RBGP.L", "TSTL.L", "KITW.L", "DPH.L",
+        "TBCG.L", "IGP.L", "ALFA.L", "PHO.L", "KWS.L", "SBIZ.L",
+        "IXI.L", "LIO.L", "JTC.L", "BBH.L", "IHP.L", "YCA.L",
+        "SEPL.L", "CML.L", "PHNX.L", "CINE.L", "LUCE.L", "SRC.L",
+        "HYNS.L", "RBG.L", "TUNE.L", "WINE.L", "KNOS.L", "LSE.L",
+        "VLX.L", "NICK.L", "PRTC.L", "CAML.L", "JLG.L", "MTRO.L",
     ],
 }
 
@@ -348,6 +440,13 @@ def _parse_russell1000(tables, **kwargs) -> list:
     return []
 
 
+def _parse_sdax(tables, **kwargs) -> list:
+    """SDAX Wikipedia page has Name/Industry/Location but no ticker column.
+    Falls through to hardcoded fallback which has comprehensive ticker list."""
+    # The SDAX Wikipedia page doesn't include ticker symbols
+    return []
+
+
 PARSERS = {
     "sp500": _parse_sp500,
     "russell1000": _parse_russell1000,
@@ -355,6 +454,7 @@ PARSERS = {
     "ftse": _parse_ftse,
     "ftse250": _parse_ftse250,
     "nikkei225": _parse_nikkei225,
+    "sdax": _parse_sdax,
 }
 
 
