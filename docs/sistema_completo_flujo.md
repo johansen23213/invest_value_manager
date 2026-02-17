@@ -5,6 +5,11 @@
 > **ORIGEN:** Conversación Session 73 (2026-02-17) con el humano
 > **DOCUMENTOS RELACIONADOS:** `docs/short_selling_framework_design.md` (diseño detallado de shorts, 1238 líneas)
 > **ESTADO:** DISEÑO APROBADO POR EL HUMANO. Pendiente implementación.
+>
+> **PRINCIPIO RECTOR DE ESTE DOCUMENTO:**
+> Los tools que se construyan outputan DATOS CRUDOS, nunca juicios ni etiquetas.
+> Las decisiones se razonan desde `learning/principles.md` y precedentes (`learning/decisions_log.yaml`).
+> NO hay reglas fijas, umbrales fijos, ni números mágicos. Solo principios + datos + razonamiento.
 
 ---
 
@@ -227,8 +232,8 @@ Precio toca trigger → Alerta al humano → Humano avisa a Claude →
 ### Cambios concretos a implementar
 
 1. **Standing orders = alertas de precio con thesis pre-escrita**, no órdenes autónomas
-2. **Fecha de caducidad activa:** thesis > 60 días → REVALIDAR o CANCELAR
-3. **Fast-track validation obligatoria** antes de toda ejecución (skill pre-execution-check extendido)
+2. **Principio de frescura:** cuanto más tiempo ha pasado desde el análisis, más importante es revalidar antes de actuar. Razonar sobre si algo material ha cambiado (earnings, macro, competencia, regulación)
+3. **Fast-track validation** antes de toda ejecución (skill pre-execution-check extendido)
 4. **Reverse DCF en la validación:** confirmar que el gap sigue existiendo al precio actual
 
 ---
@@ -255,13 +260,17 @@ CONTINUO:
   → Standing orders vigilados
 ```
 
-### Ciclo mensual
+### Cadencia mensual (orientativa, no prescriptiva)
 
 ```
-SEMANA 1: ESCANEO         → Reverse DCF, ¿nuevos gaps?
-SEMANA 2: PIPELINE        → Avanzar candidatos R1→R4
-SEMANA 3: MONITOREO       → Posiciones activas, kill conditions
-SEMANA 4: REBALANCEO      → Forward return, rotation, optimización
+Las cuatro actividades que ocurren naturalmente cada mes:
+  • ESCANEO:    Reverse DCF sobre universo, ¿nuevos gaps?
+  • PIPELINE:   Avanzar candidatos R1→R4
+  • MONITOREO:  Posiciones activas, kill conditions
+  • REBALANCEO: Forward return, rotation, optimización
+
+No hay orden fijo ni calendario rígido. Se priorizan según contexto
+(earnings season cambia el ritmo, crisis acelera monitoreo, etc.)
 ```
 
 ### Pipeline de "idea" a "dinero invertido"
@@ -294,31 +303,39 @@ HUMANO CONFIRMA → EJECUTA EN eToro
 ### Rebalanceo y rotación
 
 ```
-Forward return de cada posición → Bottom 3 vs Top 3 pipeline
+Forward return de cada posición → comparar con pipeline
 
-¿Bottom 3 tiene MENOS forward return que top del pipeline?
-  SÍ → ROTAR (vender bottom, comprar top)
-  NO → MANTENER
+Preguntas que informan la decisión (no reglas mecánicas):
+  • ¿Alguna posición tiene forward return significativamente menor que candidatos del pipeline?
+  • ¿La diferencia justifica los costes y riesgos de rotar?
+  • ¿La posición bottom tiene catalizadores pendientes que podrían cerrar el gap?
 
-Reverse DCF valida ANTES de rotar:
+Reverse DCF como contexto adicional:
   "¿El bottom realmente no tiene gap? ¿O debería mantener?"
   "¿El top realmente tiene gap? ¿O el mercado tiene razón?"
-  → Evita rotar por rotar
+
+La decisión se razona desde principios, no se ejecuta mecánicamente.
 ```
 
 ### Ciclo anti-cíclico (crisis)
 
 ```
-1. Reverse DCF detecta sobrevaloración extrema en sector X
-2. Pipeline short S1→S4 confirma fragilidad
-3. Abrir short selectivo (5-10%)
-4. Sector X colapsa → short genera +30-50%
-5. Cubrir short → CASH
-6. Quality compounders caen por contagio
-7. Standing orders long se activan
-8. Fast-track → COMPRAR en rebajas
-9. Mercado se recupera → longs suben
-= Crisis convertida en MÁQUINA DE COMPRAR BARATO
+Concepto: los shorts pueden generar cash CUANDO más se necesita.
+
+Secuencia lógica (no prescriptiva):
+  1. Reverse DCF detecta sobrevaloración extrema en sector X
+  2. Pipeline short S1→S4 confirma fragilidad fundamental
+  3. Abrir short — sizing razonado desde principios y contexto
+  4. Si el sector colapsa → short genera retorno
+  5. Cubrir short → CASH disponible
+  6. Quality compounders caen por contagio (mercado no discrimina)
+  7. Alertas de precio se activan
+  8. Fast-track → razonar si comprar o esperar
+  9. Si se compra → beneficio de entrada en crisis
+
+La idea no es un playbook mecánico — es entender que los shorts
+pueden convertir una crisis en oportunidad de compra. El sizing y
+timing se razonan en cada situación concreta.
 ```
 
 ---
@@ -352,20 +369,19 @@ Output:
   │    FCF growth:      3.8% /yr (10yr)                  │
   │    Terminal P/FCF:  18.2x                             │
   │                                                      │
-  │  REALITY CHECK:                                      │
+  │  HISTORICAL CONTEXT:                                 │
   │    Historical rev growth (5yr):  12.3% /yr           │
   │    Historical FCF growth (5yr):  14.1% /yr           │
   │    Analyst consensus growth:     8-10% /yr           │
   │                                                      │
-  │  GAP: Implied 4.1% vs reality 12.3%                  │
-  │       = SIGNIFICANT UNDERVALUATION                    │
+  │  GAP: Implied 4.1% vs historical 12.3%               │
   │                                                      │
-  │  ASYMMETRY:                                          │
-  │    If right (gap closes): +47% upside                │
-  │    If wrong (market right): -15% downside            │
-  │    Ratio: 3.1:1 favorable                            │
+  │  SCENARIO MATH:                                      │
+  │    If gap closes: +47%                               │
+  │    If market correct: -15%                           │
+  │    Ratio: 3.1:1                                      │
   │                                                      │
-  │  [Raw data. Apply principles.md to reason]           │
+  │  [Raw data. Reason from principles.md]               │
   └──────────────────────────────────────────────────────┘
 
 Con --detailed:
@@ -390,8 +406,7 @@ Output:
   │  INSIDER ACTIVITY (6 months):                        │
   │    Buys: 3 transactions, $1.2M total                 │
   │    Sells: 1 transaction, $200K (10b5-1 plan)         │
-  │    Net: +$1.0M BUYING                                │
-  │    Pattern: ACCUMULATION                              │
+  │    Net: +$1.0M buying                                │
   │                                                      │
   │  INSTITUTIONAL CHANGES:                               │
   │    Top buyer: Cantillon Capital +157K shares          │
@@ -401,11 +416,13 @@ Output:
   │  SHORT INTEREST:                                      │
   │    Short ratio: 2.3 days to cover                    │
   │    % float short: 3.2%                               │
-  │    Trend: declining (less bearish)                   │
+  │    Prior quarter: 3.8%                               │
   │                                                      │
   │  ANALYST CONSENSUS:                                   │
   │    Strong Buy: 15 | Buy: 6 | Hold: 3 | Sell: 1      │
   │    Avg PT: $380 | High: $450 | Low: $280             │
+  │                                                      │
+  │  [Raw data. Reason from principles.md]               │
   └──────────────────────────────────────────────────────┘
 
 Fuente: yfinance (ya disponible, no lo usamos):
@@ -428,30 +445,29 @@ Input: ticker (datos financieros de yfinance organizados como health check)
 
 Output:
   ┌──────────────────────────────────────────────────────┐
-  │  FINANCIAL HEALTH CHECK:                              │
+  │  FINANCIAL DATA TRENDS:                                │
   │                                                      │
   │  Revenue concentration:                               │
   │    Top segment: 45% of revenue (if available)        │
   │                                                      │
-  │  Deferred revenue trend (SaaS indicator):            │
+  │  Deferred revenue:                                   │
   │    2023: $4.2B → 2024: $4.5B → 2025: $4.9B (+8%)   │
-  │    Signal: HEALTHY (growing = future revenue locked) │
   │                                                      │
-  │  R&D vs Revenue:                                      │
+  │  R&D / Revenue:                                      │
   │    2023: 18% → 2024: 17% → 2025: 16%                │
-  │    Signal: DECLINING (¿recortando para inflar margen?)│
   │                                                      │
-  │  Capex vs Depreciation:                               │
+  │  Capex / Depreciation:                               │
   │    Capex: $800M | Depreciation: $600M                │
-  │    Ratio: 1.33x — INVESTING (not milking assets)     │
+  │    Ratio: 1.33x                                      │
   │                                                      │
-  │  SBC vs Revenue:                                      │
+  │  SBC / Revenue:                                      │
   │    2023: 8% → 2024: 9% → 2025: 10%                  │
-  │    Signal: RISING (diluting shareholders)             │
   │                                                      │
-  │  Working capital trend:                               │
+  │  Working capital:                                     │
   │    Receivables growing faster than revenue: NO        │
   │    Inventory building: N/A (software)                 │
+  │                                                      │
+  │  [Raw data. Reason from principles.md]               │
   └──────────────────────────────────────────────────────┘
 ```
 
@@ -462,13 +478,16 @@ Esfuerzo: BAJO-MEDIO (1 sesión).
 **Skill 1: `contrathesis-framework`** — Integra los 4 filtros
 
 ```
-Checklist obligatorio para fundamental-analyst:
-  1. Reverse DCF: ¿qué asume el precio? (usar implied_expectations.py)
-  2. ¿Por qué el mercado asume eso? (narrativa vs datos)
-  3. ¿Quién compra/vende y cuánto le cuesta equivocarse? (usar insider_tracker.py)
-  4. ¿Datos primarios confirman o contradicen la narrativa? (usar narrative_checker.py)
-  5. ¿Cuánto pierdo si me equivoco vs cuánto gano si acierto? (asimetría)
-  6. ¿Hay catalizador que forzará al mercado a reconocer la realidad?
+Framework de preguntas para fundamental-analyst (no checklist rígido):
+  • ¿Qué asume el precio? → implied_expectations.py da los datos
+  • ¿Por qué el mercado asume eso? → narrativa vs datos
+  • ¿Quién compra/vende y con qué skin in the game? → insider_tracker.py da los datos
+  • ¿Datos primarios confirman o contradicen? → narrative_checker.py da los datos
+  • ¿Cuánto se pierde si el mercado tiene razón vs cuánto se gana si no?
+  • ¿Hay catalizador que forzaría al mercado a reconocer la realidad?
+
+No todas las preguntas aplican a todas las empresas.
+El analista razona cuáles son más relevantes en cada caso.
 ```
 
 **Skill 2: `filing-analysis`** — Qué buscar en Annual Reports
@@ -557,17 +576,20 @@ ticker.recommendations        # Analyst consensus
 
 ## 8. PLAN DE IMPLEMENTACIÓN
 
-### Fase 1: El detector (1-2 sesiones) — VALOR INMEDIATO
+> **Nota:** Las fases son secuenciales por dependencia lógica, no por calendario fijo.
+> Cada fase se completa cuando se completa, no en X sesiones.
+
+### Fase 1: El detector — VALOR INMEDIATO
 
 ```
 → Construir implied_expectations.py
-→ Correr sobre todo el portfolio (10 posiciones)
-→ Correr sobre todos los standing orders (22 orders)
+→ Correr sobre todo el portfolio (posiciones activas)
+→ Correr sobre los standing orders más cercanos
 → PREGUNTA CLAVE: ¿Nuestros triggers tienen sentido?
   ¿O estamos siendo demasiado exigentes y por eso el cash no se despliega?
 ```
 
-### Fase 2: Los ojos (1 sesión)
+### Fase 2: Los ojos
 
 ```
 → Construir insider_tracker.py
@@ -576,32 +598,38 @@ ticker.recommendations        # Analyst consensus
 → Integrar en flujo de análisis
 ```
 
-### Fase 3: El framework (1 sesión)
+### Fase 3: Los frameworks
 
 ```
 → Crear contrathesis-framework skill
 → Crear filing-analysis skill
 → Crear skin-in-the-game skill
 → Extender prompts de fundamental-analyst + devils-advocate
-→ Mejor calidad de análisis desde el primer uso
 ```
 
-### Fase 4: Integración (1 sesión)
+### Fase 4: Macro Fragility
+
+```
+→ Construir macro_fragility.py (ver sección 12)
+→ Integrar datos macro/país/sector como contexto para asignación
+→ No como reglas de asignación, sino como datos para razonar
+```
+
+### Fase 5: Integración
 
 ```
 → implied_expectations.py en flujo de sesión (Fase 2.5)
-→ Escaneo trimestral del universo como pipeline
-→ Standing orders con freshness check + revalidation
+→ Escaneo periódico del universo como fuente de pipeline
+→ Standing orders con principio de frescura + revalidation
 → Fast-track validation con reverse DCF incluido
-→ El sistema completo funcionando
 ```
 
-### Fase 5 (futuro): Shorts
+### Fase 6 (futuro): Shorts
 
 ```
-→ Solo DESPUÉS de que Fases 1-4 estén operativas
+→ Solo DESPUÉS de que Fases 1-5 estén operativas y validadas
 → Ver docs/short_selling_framework_design.md para diseño completo
-→ Empieza con 1 short mínimo (€100-200) como aprendizaje
+→ Empezar con una posición mínima como aprendizaje
 ```
 
 ---
@@ -619,7 +647,253 @@ Esto tiene valor inmediato y valida el concepto antes de construir más.
 
 ---
 
-## 10. DOCUMENTOS RELACIONADOS (leer si necesitas más detalle)
+## 10. SISTEMA DE FRAGILIDAD MACRO + KPIs SECTORIALES
+
+### Concepto
+
+El objetivo es tener datos económicos organizados en 3 capas (mundo → país → sector) que informen las decisiones de asignación. **No son reglas de asignación.** Son datos crudos que, combinados con principles.md, ayudan a razonar sobre cuánto capital exponer y dónde.
+
+### Las 3 capas
+
+```
+CAPA 1: MUNDO (macro global)
+  │
+  ├── Indicadores de ciclo económico
+  ├── Condiciones financieras globales
+  ├── Geopolítica y riesgos sistémicos
+  │
+  CAPA 2: PAÍS (por mercado donde invertimos)
+  │
+  ├── US: empleo, deuda, consumo, vivienda, Fed policy
+  ├── UK: empleo, BoE policy, GBP, housing, Brexit effects
+  ├── EU: BCE policy, PMIs, deuda soberana
+  ├── Nórdicos: específicos (NVO → DK)
+  │
+  CAPA 3: SECTOR (por sector donde tenemos posiciones o pipeline)
+  │
+  ├── Valoración relativa del sector
+  ├── Flujos de capital (¿dinero entrando o saliendo?)
+  ├── Earnings momentum (¿revisiones al alza o baja?)
+  ├── Indicadores específicos del sector
+  └── Riesgos regulatorios/disruptivos activos
+```
+
+### Tool: `macro_fragility.py`
+
+```
+Uso:
+  python3 tools/macro_fragility.py                    # Vista completa
+  python3 tools/macro_fragility.py --layer world      # Solo macro global
+  python3 tools/macro_fragility.py --layer country US  # Solo US
+  python3 tools/macro_fragility.py --sector technology # Solo un sector
+  python3 tools/macro_fragility.py --portfolio         # Solo sectores donde tenemos posiciones
+
+Output CAPA 1 (ejemplo):
+  ┌──────────────────────────────────────────────────────┐
+  │  WORLD MACRO DATA:                                    │
+  │                                                      │
+  │  Global PMI:     51.2 (prior: 50.8)                  │
+  │  US 10Y yield:   4.35% (prior: 4.12%)               │
+  │  Credit spreads: 3.8% (prior: 3.5%)                 │
+  │  VIX:            18.2 (prior: 15.1)                  │
+  │  USD DXY:        104.2 (prior: 103.5)               │
+  │  Oil WTI:        $78 (prior: $72)                    │
+  │  Gold:           $2,050 (prior: $2,010)              │
+  │  Yield curve:    -0.12% (2y-10y)                     │
+  │                                                      │
+  │  TREND: 5 of 8 indicators deteriorating vs 30d ago   │
+  │                                                      │
+  │  [Raw data. Reason from principles.md]               │
+  └──────────────────────────────────────────────────────┘
+
+Output CAPA 2 (ejemplo US):
+  ┌──────────────────────────────────────────────────────┐
+  │  US ECONOMIC DATA:                                    │
+  │                                                      │
+  │  Employment:                                          │
+  │    Unemployment: 4.1% (prior: 3.9%)                  │
+  │    Initial claims: 225K (prior: 210K)                │
+  │    NFP (last): +150K (prior: +275K)                  │
+  │                                                      │
+  │  Consumer:                                            │
+  │    Consumer confidence: 98.2 (prior: 102.5)          │
+  │    Retail sales MoM: -0.2% (prior: +0.4%)           │
+  │    Personal savings rate: 3.8%                       │
+  │    Household debt/income: 9.8%                       │
+  │                                                      │
+  │  Housing:                                             │
+  │    Existing home sales: 4.1M (prior: 4.0M)          │
+  │    Case-Shiller YoY: +4.2%                           │
+  │    Mortgage rate 30y: 6.8%                           │
+  │                                                      │
+  │  Corporate:                                           │
+  │    S&P 500 earnings growth: +8.2% YoY               │
+  │    Corporate debt/GDP: 47%                            │
+  │    Buyback authorization YTD: $180B                  │
+  │                                                      │
+  │  Fed:                                                 │
+  │    Fed funds: 4.25-4.50%                             │
+  │    Market implied cuts (12m): 1.5                    │
+  │    QT pace: $60B/month                               │
+  │                                                      │
+  │  [Raw data. Reason from principles.md]               │
+  └──────────────────────────────────────────────────────┘
+```
+
+### KPIs Sectoriales (CAPA 3) — Lo más granular
+
+Cada sector tiene indicadores específicos que revelan su salud. El tool los presenta como datos crudos. Ejemplos:
+
+```
+Output SECTOR: Technology/SaaS (ejemplo):
+  ┌──────────────────────────────────────────────────────┐
+  │  SECTOR: Technology / SaaS                            │
+  │                                                      │
+  │  Valoración relativa:                                 │
+  │    Sector P/E: 28.3x (5yr avg: 32.1x)               │
+  │    Sector EV/Revenue: 8.2x (5yr avg: 9.5x)          │
+  │    vs S&P 500 P/E premium: +45% (5yr avg: +55%)     │
+  │                                                      │
+  │  Earnings momentum:                                   │
+  │    % companies beating estimates (last Q): 72%       │
+  │    Consensus revision (NTM EPS) 90d: -2.3%           │
+  │    Revenue growth (sector median): +9.5%             │
+  │                                                      │
+  │  Sector-specific:                                     │
+  │    Net retention rates (median): 112%                │
+  │    Rule of 40 (median): 35%                          │
+  │    AI capex as % of revenue (sector): 8.2%           │
+  │                                                      │
+  │  Capital flows:                                       │
+  │    ETF flows (sector) 30d: -$2.1B                    │
+  │    Insider buying ratio (sector): 0.8x               │
+  │                                                      │
+  │  Regulatory/disruption:                               │
+  │    Active: EU AI Act (implementation 2026)            │
+  │    Active: Per-seat pricing → consumption shift       │
+  │                                                      │
+  │  NUESTRAS POSICIONES en este sector:                  │
+  │    ADBE (QS 73, FV $390), BYIT.L (QS 68, FV 345p)  │
+  │                                                      │
+  │  PIPELINE en este sector:                             │
+  │    INTU (R3), PAYC (R4-watchlist)                    │
+  │                                                      │
+  │  [Raw data. Reason from principles.md]               │
+  └──────────────────────────────────────────────────────┘
+
+Output SECTOR: Insurance (ejemplo):
+  ┌──────────────────────────────────────────────────────┐
+  │  SECTOR: Insurance                                    │
+  │                                                      │
+  │  Valoración relativa:                                 │
+  │    Sector P/B: 1.8x (5yr avg: 1.5x)                 │
+  │    Sector P/E: 11.2x (5yr avg: 10.5x)               │
+  │                                                      │
+  │  Sector-specific:                                     │
+  │    Combined ratio (industry avg): 96.2%              │
+  │    Premium growth (market): +7.8%                    │
+  │    Cat losses YTD: $18B (vs $22B prior yr)           │
+  │    Reserve adequacy (industry): adequate              │
+  │    Social inflation trend: accelerating              │
+  │    Investment yield (portfolio avg): 4.8%            │
+  │                                                      │
+  │  Regulatory:                                          │
+  │    IFRS 17 implementation effects                    │
+  │    Climate disclosure requirements                   │
+  │                                                      │
+  │  NUESTRAS POSICIONES:                                 │
+  │    GL (QS 52, FV $191)                               │
+  │                                                      │
+  │  PIPELINE:                                            │
+  │    ACGL (R4-approved)                                │
+  │                                                      │
+  │  [Raw data. Reason from principles.md]               │
+  └──────────────────────────────────────────────────────┘
+
+Output SECTOR: Pharma / Healthcare (ejemplo):
+  ┌──────────────────────────────────────────────────────┐
+  │  SECTOR: Pharma / Healthcare                          │
+  │                                                      │
+  │  Valoración relativa:                                 │
+  │    Sector P/E: 18.5x (5yr avg: 17.2x)               │
+  │    Biotech index (XBI) YTD: +3.2%                    │
+  │                                                      │
+  │  Sector-specific:                                     │
+  │    FDA approvals YTD: 12 (vs 15 prior yr)            │
+  │    IRA drug price negotiation: 10 drugs selected     │
+  │    GLP-1 market size (est): $80B by 2030             │
+  │    Patent cliff exposure (top 20): $120B rev at risk │
+  │    Clinical trial success rate: 12% (Ph1→approval)   │
+  │                                                      │
+  │  Regulatory:                                          │
+  │    Medicare negotiation expanding                    │
+  │    EU HTA regulation                                 │
+  │                                                      │
+  │  NUESTRAS POSICIONES:                                 │
+  │    NVO (QS 73, FV — pending CagriSema)               │
+  │                                                      │
+  │  [Raw data. Reason from principles.md]               │
+  └──────────────────────────────────────────────────────┘
+```
+
+### Cross-referencing: el valor está en cruzar datos
+
+La potencia del sistema no está en un indicador individual — está en cruzar datos de las 3 capas para detectar inconsistencias o confirmar patrones.
+
+```
+Ejemplo de cruce que REVELA algo:
+
+  CAPA 1: Credit spreads ampliándose + VIX subiendo
+  CAPA 2 US: Employment deteriorando + consumer confidence cayendo
+  CAPA 3 Consumer discretionary: Earnings revisions negativas
+
+  → Los 3 niveles apuntan en la misma dirección
+  → Dato relevante para posiciones en consumer discretionary (LULU)
+
+Ejemplo de cruce que CONTRADICE:
+
+  CAPA 1: VIX alto, mercado nervioso
+  CAPA 2 US: Employment robusto, consumer spending estable
+  CAPA 3 Technology: 72% beating estimates, net retention 112%
+
+  → Miedo macro vs datos micro saludables
+  → Dato relevante para razonar si SaaS selloff es fundamentado
+
+En ambos casos: son DATOS para razonar, no señales para actuar automáticamente.
+```
+
+### Fuentes de datos
+
+```
+CAPA 1 (World): FRED API, trading economics, yfinance (^VIX, ^TNX, etc.)
+CAPA 2 (Country): FRED API (US), ONS (UK), Eurostat (EU)
+CAPA 3 (Sector): yfinance (sector ETFs), earnings data agregado, sector-specific sources
+
+Implementación gradual:
+  • Fase 1: Datos de yfinance (ETFs sectoriales, índices macro como ^VIX, ^TNX)
+  • Fase 2: FRED API para datos económicos US
+  • Fase 3: Fuentes europeas (más fragmentadas, menor prioridad)
+```
+
+### Lo que este tool NO hace
+
+```
+❌ NO dice "estás sobreexpuesto al sector X"
+❌ NO dice "reduce long a 60%"
+❌ NO genera alertas automáticas
+❌ NO tiene umbrales de peligro codificados
+❌ NO prescribe acciones
+
+✓ SÍ presenta datos crudos organizados por capa
+✓ SÍ muestra tendencias (prior vs current)
+✓ SÍ cruza datos para que el analista vea patrones
+✓ SÍ conecta los datos con nuestras posiciones y pipeline
+✓ SÍ deja que principles.md guíe el razonamiento
+```
+
+---
+
+## 11. DOCUMENTOS RELACIONADOS
 
 | Documento | Contenido |
 |-----------|-----------|
@@ -631,34 +905,39 @@ Esto tiene valor inmediato y valida el concepto antes de construir más.
 
 ---
 
-## 11. RESUMEN EN UNA PÁGINA (para lectura rápida)
+## 12. RESUMEN EN UNA PÁGINA (para lectura rápida)
 
 ```
 ╔═══════════════════════════════════════════════════════════════╗
 ║                                                               ║
 ║  EL SISTEMA:                                                  ║
 ║                                                               ║
-║  1. ESCANEAR: Reverse DCF → ¿dónde se equivoca el mercado?  ║
-║  2. VALIDAR:  4 filtros → ¿realmente se equivoca?            ║
+║  1. ESCANEAR: Reverse DCF → ¿qué asume el mercado?          ║
+║  2. CONTEXTUALIZAR: Macro fragility → ¿cómo está el entorno?║
+║  3. VALIDAR:  4 filtros → ¿el mercado se equivoca?           ║
 ║     F1: ¿Qué asume y por qué? (razón vs emoción)            ║
 ║     F2: ¿Quién opina y con qué skin in the game?            ║
 ║     F3: ¿Datos primarios confirman o contradicen?            ║
-║     F4: ¿Asimetría favorable? (poco que perder, mucho que    ║
-║         ganar)                                                ║
-║  3. ANALIZAR: Pipeline R1→R4 → ¿es real el gap?             ║
-║  4. PREPARAR: Standing order = alerta + thesis pre-escrita   ║
-║  5. VALIDAR:  Cuando toca precio → fast-track (NO auto-buy)  ║
-║  6. EJECUTAR: Humano confirma → eToro                         ║
-║  7. MONITOREAR: Noticias, earnings, kill conditions           ║
-║  8. REBALANCEAR: Mensual → rotar hacia más calidad            ║
+║     F4: ¿Asimetría favorable?                                ║
+║  4. ANALIZAR: Pipeline R1→R4 → ¿es real el gap?             ║
+║  5. PREPARAR: Alerta de precio + thesis pre-escrita          ║
+║  6. VALIDAR:  Cuando toca precio → fast-track (NO auto-buy)  ║
+║  7. EJECUTAR: Humano confirma → eToro                         ║
+║  8. MONITOREAR: Noticias, earnings, kill conditions           ║
+║  9. REBALANCEAR: Razonar sobre rotación hacia calidad         ║
 ║                                                               ║
-║  TOOLS NUEVOS: implied_expectations.py (corazón)              ║
-║                insider_tracker.py (ojos)                      ║
-║                narrative_checker.py (verificador)             ║
+║  TOOLS NUEVOS: implied_expectations.py (reverse DCF)          ║
+║                insider_tracker.py (skin in the game)          ║
+║                narrative_checker.py (datos vs narrativa)      ║
+║                macro_fragility.py (contexto macro/sector)     ║
 ║                                                               ║
 ║  SKILLS NUEVOS: contrathesis-framework                        ║
 ║                 filing-analysis                               ║
 ║                 skin-in-the-game                              ║
+║                                                               ║
+║  PRINCIPIO RECTOR:                                            ║
+║    Tools = DATOS CRUDOS. Nunca juicios ni etiquetas.          ║
+║    Decisiones = principles.md + precedentes + razonamiento.   ║
 ║                                                               ║
 ║  SIGUIENTE PASO: Construir implied_expectations.py            ║
 ║                  y correr sobre portfolio + standing orders    ║
