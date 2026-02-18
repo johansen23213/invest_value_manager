@@ -45,27 +45,17 @@ system:
       - { ticker: GL, score: 52, tier: C, status: "FV $191. SEC+DOJ cleared." }
 
   last_session_summary: |
-    Session 75 - FRAMEWORK v4.2 DEPLOYMENT + CAPITAL DEPLOYMENT WAVE (2026-02-18)
-    PHASE 1 (S75a-b): Framework v4.1→v4.2 Bidirectional Active.
-    - P4 rewritten (Exposicion Activa), P12 rewritten (Bidireccional), P13 NEW (Net Exposure), P14 NEW (Capital Ocioso).
-    - NEW TOOL: macro_fragility.py. ENHANCED: dcf_calculator.py --reverse (gap/scenario/asymmetry).
-    - system.yaml: net_exposure section + strategic_direction updated.
-    - 8 files updated for v4.2 consistency (session-protocol, system-context, CLAUDE.md, investment-rules, etc).
-    - DA accuracy tracker created (19 corrections, avg -16.7%). Agent-registry P12 references fixed (3 locations).
-    PHASE 2 (S75a): Capital deployment WAVE D.
-    - Universe 99→126 via batch_scorer (Nordic, MIB40, IBEX35, FTSE250 waves).
-    - 4 new R1: MONC.MI (QS 92), ITX.MC (QS 86), AJB.L (QS 82), QTCOM.HE (QS 76).
-    - 7 R3 resolutions: SOON.SW -31%, KCR.HE -17%, MSCI -24.5%, ITRK.L -15%, VEEV -8%, EEFT -36%, CDNS -11.5%.
-    - MEGP.L R4 APPROVED CONDITIONAL (130p, hard gate Feb 27). 26 consecutive DA corrections avg ~16%.
-    PHASE 3 (S75b): Short screening (US SP500 + EU STOXX600).
-    - 13 candidates analyzed, TOP 5 persisted to watchlist: CVNA, ENR.DE, RAND.AS, LYV, VTY.L.
-    - Cold-start coherence review completed. 3 bias risks identified, safeguards adequate.
-    PHASE 4 (S75c): Session dashboard + vigilance.
-    - 0 CRITICAL, 4 HIGH (NVO CagriSema positive, GL insider selling $7.4M, LULU 2nd quality issue, ADBE -26% YTD).
-    - 0 standing orders triggered. Closest: MEGP.L 6.8% (hard gate), ROP 7.8%.
-    - VRSK Q4 beat: EPS $1.82 (+12%), FCF +38%. R4 path open.
-    - MONC.MI earnings tomorrow Feb 19. MONY.L Feb 23 (probation). Earnings gauntlet Feb 23-27.
-    Portfolio: EUR 10,141, cash 60.7%, P&L +1.8%. 10 positions. Bottom 3: DTE.DE 8.1%, LULU 7.7%, BYIT.L 15.5%.
+    Session 76 - LYV S1 SHORT ANALYSIS + VIGILANCE + MONC.MI PREP (2026-02-19)
+    VIGILANCE: 0 CRITICAL, 7 MATERIAL. GL insider selling $6.1M (exercise-and-sell, MODERATE). LYV DOJ trial 11 days.
+    SHORT PIPELINE: LYV S1 COMPLETED (QS 41, FV $74, EV +29.4%, PROCEED TO S2). First short through S1.
+    - Ticketmaster = 52% of AOI ($1.12B of $2.15B). DOJ trial Mar 2. 40 states pursue independently.
+    - Sizing: 2% portfolio, $185 stop, no leverage. Risk/reward 1.5:1 base, 3.4:1 best.
+    SHORT WATCHLIST: VTY.L REMOVED (thesis invalidated). ENR.DE DEPRIORITIZED (narrative too strong). LYV S1 in progress.
+    EARNINGS: MONC.MI FY2025 board approval today — results pending after market close. Framework created.
+    - All earnings frameworks verified: MONY.L (Feb 23), EDEN.PA (Feb 24), DTE.DE (Feb 26), MEGP.L (Feb 27).
+    GL INSIDER: $6.1M across 3 executives = exercise-and-sell (option conversions), not open-market. HOLD.
+    NET EXPOSURE: 39.3% long, 0% short, 60.7% cash. Justified. LYV S1 advancing short pipeline (P12).
+    Portfolio: EUR 10,139, cash 60.7%, P&L +1.7%. 10 positions. Bottom 3: LULU 7.9%, DTE.DE 8.1%, BYIT.L 15.5%.
 
   # NET EXPOSURE REASONING — Principio 13. Re-evaluate EVERY session.
   # This is NOT a target or range. It's the CONCLUSION of reasoning.

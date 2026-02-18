@@ -70,8 +70,8 @@ short_candidates:
     catalyst: "AI agent deployment in recruitment accelerating 2026-27"
     catalyst_date: 2026-06-30
     entry: ">=$48"
-    status: "SCREENED — needs S1"
-    notes: "Randstad. Structural disruption: AI replacing temp staffing intermediation. Margin compression likely. Slower catalyst but structural."
+    status: "DEPRIORITIZED — stock already -42% from entry level"
+    notes: "Randstad. Structural disruption confirmed (Q4 organic rev -2.1%, GM -40bps, Germany -10%). BUT stock at EUR 27 vs entry EUR 48 — thesis partially played out at wrong price. AI agent demand +1587%. Short at current levels = poor risk/reward. Revisit only if rally to EUR 40+."
 
   - ticker: LYV
     qs_gap: "P/E 115x, DOJ antitrust trial imminent"
