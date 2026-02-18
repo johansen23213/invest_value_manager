@@ -45,16 +45,17 @@ system:
       - { ticker: GL, score: 52, tier: C, status: "FV $191. SEC+DOJ cleared." }
 
   last_session_summary: |
-    Session 76 - LYV S1 SHORT ANALYSIS + VIGILANCE + MONC.MI PREP (2026-02-19)
-    VIGILANCE: 0 CRITICAL, 7 MATERIAL. GL insider selling $6.1M (exercise-and-sell, MODERATE). LYV DOJ trial 11 days.
-    SHORT PIPELINE: LYV S1 COMPLETED (QS 41, FV $74, EV +29.4%, PROCEED TO S2). First short through S1.
-    - Ticketmaster = 52% of AOI ($1.12B of $2.15B). DOJ trial Mar 2. 40 states pursue independently.
-    - Sizing: 2% portfolio, $185 stop, no leverage. Risk/reward 1.5:1 base, 3.4:1 best.
-    SHORT WATCHLIST: VTY.L REMOVED (thesis invalidated). ENR.DE DEPRIORITIZED (narrative too strong). LYV S1 in progress.
-    EARNINGS: MONC.MI FY2025 board approval today — results pending after market close. Framework created.
-    - All earnings frameworks verified: MONY.L (Feb 23), EDEN.PA (Feb 24), DTE.DE (Feb 26), MEGP.L (Feb 27).
-    GL INSIDER: $6.1M across 3 executives = exercise-and-sell (option conversions), not open-market. HOLD.
-    NET EXPOSURE: 39.3% long, 0% short, 60.7% cash. Justified. LYV S1 advancing short pipeline (P12).
+    Session 76 - LYV FULL SHORT PIPELINE S1→S4 + VIGILANCE + MONC.MI PREP (2026-02-19)
+    SHORT PIPELINE: LYV S1→S2→S3→S4 COMPLETE. S4 APPROVED CONDITIONAL.
+    - S1: QS 41, FV $74, Ticketmaster = 52% of AOI. DOJ trial Mar 2. 40 states.
+    - S2: Bull case 5.5/10. Google precedent strongest counter (behavioral > structural).
+    - S3: Revised FV $85, structural prob 20%→10%, sizing 2%→1%, stop $185→$195, EV +18-20%.
+    - S4: 11 PASS + 2 CONDITIONAL PASS. Standing order created. Entry Feb 20-28.
+    - First-ever short through full pipeline. Sector view live-entertainment.md CREATED.
+    WATCHLIST CLEANUP: VTY.L REMOVED. ENR.DE + RAND.AS DEPRIORITIZED. 1 active short candidate (CVNA).
+    VIGILANCE: 0 CRITICAL, 7 MATERIAL. GL insider $6.1M = exercise-and-sell (MODERATE). HOLD.
+    EARNINGS: MONC.MI FY2025 board approval today — results pending. Frameworks ready for gauntlet.
+    NET EXPOSURE: 39.3% long, 0→1% short imminent, 60.7% cash. P12 compliance achieved.
     Portfolio: EUR 10,139, cash 60.7%, P&L +1.7%. 10 positions. Bottom 3: LULU 7.9%, DTE.DE 8.1%, BYIT.L 15.5%.
 
   # NET EXPOSURE REASONING — Principio 13. Re-evaluate EVERY session.
