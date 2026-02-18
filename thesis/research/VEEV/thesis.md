@@ -1,9 +1,19 @@
 # VEEV - Veeva Systems Inc.
 
-> **Fair Value:** $205 (R3 reconciled: analyst $220, specialist $195)
-> **Date:** 2026-02-13
-> **Status:** WATCHLIST
-> **Pipeline Stage:** R1 (Fundamental Analysis)
+## R3 Resolution (2026-02-18)
+DA MODERATE COUNTER (-8%): FV $205→$190. Entry $140-150→$145 (midpoint).
+- **Factual error**: Thesis missed $2B buyback announced Jan 5, 2026 (VEEV's first ever, 6.9% of mkt cap). Positive for thesis — corrects "no capital return" narrative.
+- **CRM share eroding**: 18→14 of top-20 pharma retained. Salesforce signed 40+ life sciences customers. QS adj +8→+6 (CRM share less dominant than claimed).
+- **SBC distorts FCF**: 15.9% of revenue ($437M). SBC-adjusted FCF ~$663M vs headline $1.1B. OEY 3.87%→2.34% adjusted.
+- **Error #49**: FV $205 = Morgan Stanley PT exactly. Edge limited.
+- **New LLM risk**: AI tools may disrupt eTMF, extending risk beyond CRM to R&D.
+- R3 FV: $190. Entry $145 (24% MoS). QS 72 tool, 78 adj. Wait Mar 4 Q4 FY2026 earnings.
+
+> **Fair Value:** $190
+> **Entry Price:** $145
+> **Date:** 2026-02-18 (R3 resolution post-DA)
+> **Status:** WATCHLIST — Wait Mar 4 earnings
+> **Pipeline Stage:** R3 COMPLETE
 
 ---
 

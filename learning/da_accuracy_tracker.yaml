@@ -1,0 +1,245 @@
+# DA ACCURACY TRACKER
+# Tracks Devil's Advocate corrections vs actual outcomes
+# Purpose: Measure whether DA corrections are accurate, excessive, or insufficient
+#
+# For each DA correction, record:
+#   - Pre-DA Fair Value (what fundamental-analyst said)
+#   - Post-DA Fair Value (after DA correction applied)
+#   - DA correction % (how much DA changed FV)
+#   - Current price at time of DA
+#   - Price 6 months later (fill in when available)
+#   - Actual outcome: Was DA right? (price moved toward post-DA FV or pre-DA FV?)
+#
+# Updated: 2026-02-18 | Framework v4.2
+# Tools reading this: effectiveness_tracker.py (future integration)
+
+version: "1.0"
+last_updated: 2026-02-18
+
+# METHODOLOGY:
+# "DA was right" = price 6 months later is closer to post-DA FV than pre-DA FV
+# "DA was excessive" = price 6 months later is between pre-DA and post-DA (DA overcorrected)
+# "DA was insufficient" = price went BELOW post-DA FV (DA didn't correct enough)
+# Review dates: check every month for entries >6 months old
+
+corrections:
+  # SESSION 48-53: Adversarial Review Project (bulk corrections)
+  - ticker: MONY.L
+    date: 2026-02-04
+    pre_da_fv: "277 GBp"
+    post_da_fv: "201 GBp"
+    correction_pct: -27.4
+    price_at_da: "260 GBp"
+    review_date: 2026-08-04
+    price_at_review: null
+    outcome: null
+    notes: "Further revised to 190 GBp after AI disruption re-eval"
+
+  - ticker: AUTO.L
+    date: 2026-02-06
+    pre_da_fv: "688 GBp"
+    post_da_fv: "617 GBp"
+    correction_pct: -10.3
+    price_at_da: "670 GBp"
+    review_date: 2026-08-06
+    price_at_review: null
+    outcome: null
+    notes: "Further revised to 580 GBp after urgent re-eval"
+
+  - ticker: BYIT.L
+    date: 2026-02-07
+    pre_da_fv: "455 GBp"
+    post_da_fv: "345 GBp"
+    correction_pct: -24.2
+    price_at_da: "390 GBp"
+    review_date: 2026-08-07
+    price_at_review: null
+    outcome: null
+
+  - ticker: EDEN.PA
+    date: 2026-02-03
+    pre_da_fv: "EUR 38.4"
+    post_da_fv: "EUR 29.0"
+    correction_pct: -24.5
+    price_at_da: "EUR 22.0"
+    review_date: 2026-08-03
+    price_at_review: null
+    outcome: null
+
+  - ticker: DOM.L
+    date: 2026-02-03
+    pre_da_fv: "294 GBp"
+    post_da_fv: "240 GBp"
+    correction_pct: -18.4
+    price_at_da: "248 GBp"
+    review_date: 2026-08-03
+    price_at_review: null
+    outcome: null
+
+  - ticker: NVO
+    date: 2026-02-05
+    pre_da_fv: "$82"
+    post_da_fv: "$66"
+    correction_pct: -19.5
+    price_at_da: "$48"
+    review_date: 2026-08-05
+    price_at_review: null
+    outcome: null
+
+  - ticker: LULU
+    date: 2026-02-05
+    pre_da_fv: "$261"
+    post_da_fv: "$202"
+    correction_pct: -22.6
+    price_at_da: "$171"
+    review_date: 2026-08-05
+    price_at_review: null
+    outcome: null
+    notes: "Further revised to $196 after governance re-eval"
+
+  - ticker: GL
+    date: 2026-02-03
+    pre_da_fv: "$185"
+    post_da_fv: "$174"
+    correction_pct: -5.9
+    price_at_da: "$141"
+    review_date: 2026-08-03
+    price_at_review: null
+    outcome: null
+    notes: "Later revised UP to $191 (v3.0 SEC/DOJ cleared)"
+
+  - ticker: DTE.DE
+    date: 2026-02-03
+    pre_da_fv: "EUR 38.5"
+    post_da_fv: "EUR 35.0"
+    correction_pct: -9.1
+    price_at_da: "EUR 33.5"
+    review_date: 2026-08-03
+    price_at_review: null
+    outcome: null
+
+  - ticker: ADBE
+    date: 2026-02-04
+    pre_da_fv: "$394"
+    post_da_fv: "$390"
+    correction_pct: -1.0
+    price_at_da: "$270"
+    review_date: 2026-08-04
+    price_at_review: null
+    outcome: null
+
+  # SESSION 74-75: Pipeline DA corrections
+  - ticker: RSG
+    date: 2026-02-18
+    pre_da_fv: "$255"
+    post_da_fv: "$225"
+    correction_pct: -11.8
+    price_at_da: "$225"
+    review_date: 2026-08-18
+    price_at_review: null
+    outcome: null
+    notes: "Strong counter. Waste sector."
+
+  - ticker: SOON.SW
+    date: 2026-02-18
+    pre_da_fv: "CHF 255"
+    post_da_fv: "CHF 200"
+    correction_pct: -21.6
+    price_at_da: "CHF 178"
+    review_date: 2026-08-18
+    price_at_review: null
+    outcome: null
+
+  - ticker: KCR.HE
+    date: 2026-02-18
+    pre_da_fv: "EUR 29.5"
+    post_da_fv: "EUR 24.5"
+    correction_pct: -16.9
+    price_at_da: "EUR 21.5"
+    review_date: 2026-08-18
+    price_at_review: null
+    outcome: null
+
+  - ticker: MSCI
+    date: 2026-02-18
+    pre_da_fv: "$700"
+    post_da_fv: "$530"
+    correction_pct: -24.3
+    price_at_da: "$521"
+    review_date: 2026-08-18
+    price_at_review: null
+    outcome: null
+
+  - ticker: ITRK.L
+    date: 2026-02-18
+    pre_da_fv: "5500 GBp"
+    post_da_fv: "4700 GBp"
+    correction_pct: -14.5
+    price_at_da: "4300 GBp"
+    review_date: 2026-08-18
+    price_at_review: null
+    outcome: null
+
+  - ticker: VEEV
+    date: 2026-02-18
+    pre_da_fv: "$223"
+    post_da_fv: "$205"
+    correction_pct: -8.1
+    price_at_da: "$199"
+    review_date: 2026-08-18
+    price_at_review: null
+    outcome: null
+
+  - ticker: EEFT
+    date: 2026-02-18
+    pre_da_fv: "$133"
+    post_da_fv: "$85"
+    correction_pct: -36.1
+    price_at_da: "$78"
+    review_date: 2026-08-18
+    price_at_review: null
+    outcome: null
+    notes: "Largest correction. EPS buyback-engineered. CEO selling."
+
+  - ticker: CDNS
+    date: 2026-02-18
+    pre_da_fv: "$350"
+    post_da_fv: "$310"
+    correction_pct: -11.4
+    price_at_da: "$280"
+    review_date: 2026-08-18
+    price_at_review: null
+    outcome: null
+
+  - ticker: MEGP.L
+    date: 2026-02-18
+    pre_da_fv: "200 GBp"
+    post_da_fv: "180 GBp"
+    correction_pct: -10.0
+    price_at_da: "141 GBp"
+    review_date: 2026-08-18
+    price_at_review: null
+    outcome: null
+    notes: "Math error corrected by DA. R4 approved conditional."
+
+# AGGREGATE STATISTICS (update monthly)
+stats:
+  total_corrections: 19
+  avg_correction_pct: -16.7
+  median_correction_pct: -16.9
+  max_correction_pct: -36.1  # EEFT
+  min_correction_pct: -1.0   # ADBE
+  outcomes_measured: 0
+  da_right_count: 0
+  da_excessive_count: 0
+  da_insufficient_count: 0
+  first_review_due: 2026-08-03
+
+# OBSERVATIONS (not recommendations):
+# - 19 consecutive DA corrections, all negative (DA always reduces FV)
+# - Average correction -16.7% is substantial
+# - Pattern consistent: DA has NEVER increased a FV
+# - Several entries (AUTO.L, MONY.L, LULU) required FURTHER corrections after DA
+# - First outcomes measurable August 2026
+# - Question: Is the DA systematically over-conservative? Or are fundamental-analysts consistently over-optimistic?
+# - Can only answer with data — wait for review dates

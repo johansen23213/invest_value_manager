@@ -2,6 +2,7 @@
 """
 Correlation Matrix Calculator for Portfolio
 Calculates pairwise correlations between positions to detect concentration risk.
+Includes both long and short positions from portfolio.
 
 Usage:
   python3 tools/correlation_matrix.py TICKER1 TICKER2 TICKER3 ...
@@ -12,6 +13,7 @@ Output:
   - Flagged pairs with correlation > 0.7
   - Portfolio diversification ratio
   - Average correlation
+  - Short positions marked with (S) suffix
 """
 
 import argparse
@@ -24,7 +26,7 @@ import yaml
 
 
 def load_portfolio_tickers(yaml_path='/home/angel/value_invest2/portfolio/current.yaml'):
-    """Extract tickers from portfolio YAML."""
+    """Extract tickers from portfolio YAML, including short positions."""
     try:
         with open(yaml_path, 'r') as f:
             portfolio = yaml.safe_load(f)
@@ -33,16 +35,31 @@ def load_portfolio_tickers(yaml_path='/home/angel/value_invest2/portfolio/curren
         TICKER_MAP = {'LIGHT.NV': 'LIGHT.AS'}
 
         tickers = []
+        display_names = {}  # Maps yf_ticker -> display name (with (S) for shorts)
+
+        # Long positions
         if 'positions' in portfolio:
             for pos in portfolio['positions']:
                 if 'ticker' in pos:
                     t = pos['ticker']
-                    tickers.append(TICKER_MAP.get(t, t))
+                    yf_t = TICKER_MAP.get(t, t)
+                    tickers.append(yf_t)
+                    display_names[yf_t] = yf_t
 
-        return tickers
+        # Short positions
+        if 'short_positions' in portfolio:
+            for pos in portfolio['short_positions']:
+                if 'ticker' in pos:
+                    t = pos['ticker']
+                    yf_t = TICKER_MAP.get(t, t)
+                    if yf_t not in tickers:  # Avoid duplicates
+                        tickers.append(yf_t)
+                    display_names[yf_t] = f"{yf_t}(S)"
+
+        return tickers, display_names
     except Exception as e:
         print(f"Error reading portfolio: {e}")
-        return []
+        return [], {}
 
 
 def download_returns(tickers, period='1y'):
@@ -102,19 +119,26 @@ def diversification_ratio(returns, weights=None):
     return dr, weighted_avg_vol, portfolio_vol
 
 
-def format_correlation_matrix(corr_matrix):
+def format_correlation_matrix(corr_matrix, display_names=None):
     """Format correlation matrix for terminal display."""
-    # Create a formatted string representation
     n = len(corr_matrix)
     tickers = corr_matrix.columns.tolist()
 
+    # Apply display names if provided (e.g., adding (S) suffix for shorts)
+    display_tickers = []
+    for t in tickers:
+        if display_names and t in display_names:
+            display_tickers.append(display_names[t])
+        else:
+            display_tickers.append(t)
+
     # Calculate column widths
-    max_ticker_len = max(len(t) for t in tickers)
+    max_ticker_len = max(len(t) for t in display_tickers)
     col_width = max(6, max_ticker_len)
 
     # Header
     output = "\n" + " " * col_width + " "
-    for ticker in tickers:
+    for ticker in display_tickers:
         output += f"{ticker:>{col_width}} "
     output += "\n"
 
@@ -122,7 +146,7 @@ def format_correlation_matrix(corr_matrix):
     output += "-" * (col_width + 1 + (col_width + 1) * n) + "\n"
 
     # Data rows
-    for i, ticker in enumerate(tickers):
+    for i, ticker in enumerate(display_tickers):
         output += f"{ticker:>{col_width}} "
         for j in range(n):
             val = corr_matrix.iloc[i, j]
@@ -143,7 +167,7 @@ def format_correlation_matrix(corr_matrix):
     return output
 
 
-def find_high_correlations(corr_matrix, threshold=0.7):
+def find_high_correlations(corr_matrix, threshold=0.7, display_names=None):
     """Find pairs with correlation above threshold."""
     high_corr_pairs = []
 
@@ -152,9 +176,13 @@ def find_high_correlations(corr_matrix, threshold=0.7):
         for j in range(i + 1, n):  # Only upper triangle
             corr_val = corr_matrix.iloc[i, j]
             if abs(corr_val) >= threshold:
+                t1 = corr_matrix.columns[i]
+                t2 = corr_matrix.columns[j]
+                d1 = display_names.get(t1, t1) if display_names else t1
+                d2 = display_names.get(t2, t2) if display_names else t2
                 high_corr_pairs.append({
-                    'ticker1': corr_matrix.columns[i],
-                    'ticker2': corr_matrix.columns[j],
+                    'ticker1': d1,
+                    'ticker2': d2,
                     'correlation': corr_val
                 })
 
@@ -173,13 +201,20 @@ def main():
 
     args = parser.parse_args()
 
+    display_names = {}
+
     # Determine tickers
     if args.from_portfolio:
-        tickers = load_portfolio_tickers()
+        tickers, display_names = load_portfolio_tickers()
         if not tickers:
             print("Error: No tickers found in portfolio")
             sys.exit(1)
-        print(f"Loaded {len(tickers)} tickers from portfolio: {', '.join(tickers)}")
+        # Show which are shorts
+        shorts = [v for v in display_names.values() if '(S)' in v]
+        longs = [v for v in display_names.values() if '(S)' not in v]
+        print(f"Loaded {len(tickers)} tickers from portfolio: {', '.join(longs)}")
+        if shorts:
+            print(f"Short positions: {', '.join(shorts)}")
     elif args.tickers:
         tickers = args.tickers
     else:
@@ -207,7 +242,7 @@ def main():
     print("\n" + "=" * 80)
     print("CORRELATION MATRIX")
     print("=" * 80)
-    print(format_correlation_matrix(corr_matrix))
+    print(format_correlation_matrix(corr_matrix, display_names))
 
     # Calculate statistics
     print("\n" + "=" * 80)
@@ -241,29 +276,17 @@ def main():
     print(f"HIGH CORRELATION PAIRS (threshold: {args.threshold})")
     print("=" * 80)
 
-    high_corr = find_high_correlations(corr_matrix, threshold=args.threshold)
+    high_corr = find_high_correlations(corr_matrix, threshold=args.threshold, display_names=display_names)
 
     if high_corr:
-        print(f"\n⚠️  Found {len(high_corr)} pairs with correlation >= {args.threshold}:\n")
+        print(f"\n  Found {len(high_corr)} pairs with correlation >= {args.threshold}:\n")
         for pair in high_corr:
             print(f"  {pair['ticker1']} <-> {pair['ticker2']}: {pair['correlation']:6.3f}")
-        print("\n⚠️  High correlation may indicate concentration risk.")
-        print("   Consider diversifying across uncorrelated positions.")
     else:
-        print(f"\n✓ No pairs found with correlation >= {args.threshold}")
-        print("  Portfolio appears well-diversified across positions.")
+        print(f"\n  No pairs found with correlation >= {args.threshold}")
 
     print("\n" + "=" * 80)
-
-    # Interpretation guide
-    print("\nINTERPRETATION:")
-    print("  [value] = High correlation (>= 0.7) - potential concentration risk")
-    print("  Correlation > 0.7: Strong positive relationship")
-    print("  Correlation 0.3-0.7: Moderate relationship")
-    print("  Correlation < 0.3: Weak relationship")
-    print("  Negative correlation: Moves in opposite directions")
-    print("\n  Diversification Ratio > 1.0: Portfolio benefits from diversification")
-    print("  Diversification Ratio ~ 1.0: Limited diversification benefit")
+    print("[Raw data. Reason from principles.md]")
     print("=" * 80 + "\n")
 
 

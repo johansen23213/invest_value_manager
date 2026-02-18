@@ -12,11 +12,15 @@ Antes de recomendar ejecucion, SIEMPRE hacer pre-flight check.
 **Fase 0 de cada sesion** — obligatorio, antes de cualquier otra cosa.
 
 ```
-1. Chequear precios de TODAS las standing orders
+1. Chequear precios de TODAS las standing orders (LONG y SHORT)
 2. Clasificar cada una:
+   LONGS:
    - TRIGGERED: precio <= trigger
-   - NEAR: precio acercandose al trigger (razonar sobre contexto: volatilidad,
-     earnings proximos, velocidad de caida — no usar threshold fijo)
+   - NEAR: precio acercandose al trigger (razonar sobre contexto)
+   - FAR: claramente lejos del trigger
+   SHORTS:
+   - TRIGGERED: precio >= trigger (shorts se activan cuando el precio SUBE)
+   - NEAR: precio acercandose al trigger por arriba
    - FAR: claramente lejos del trigger
 3. Para TRIGGERED y NEAR: ejecutar pre-flight
 ```
@@ -32,6 +36,7 @@ Para cada standing order TRIGGERED o NEAR:
 [ ] Buscar noticias del ticker desde la fecha de creacion de la order
 [ ] Clasificar: COSMETIC / MINOR / MATERIAL / CRITICAL
 [ ] Si MATERIAL o CRITICAL → STOP, re-evaluar antes de ejecutar
+[ ] Para SHORTS: noticias POSITIVAS sobre la empresa = alerta (posicion va en contra)
 ```
 
 ### Gate 2: HARD GATES CHECK
@@ -52,8 +57,10 @@ Para cada standing order TRIGGERED o NEAR:
 
 ### Gate 4: PORTFOLIO CONSTRAINTS
 ```
-[ ] Ejecutar: python3 tools/constraint_checker.py CHECK TICKER AMOUNT
+[ ] Para LONGS: python3 tools/constraint_checker.py CHECK TICKER AMOUNT
+[ ] Para SHORTS: python3 tools/constraint_checker.py CHECK_SHORT TICKER AMOUNT
 [ ] Verificar concentracion sector, geo, posicion individual
+[ ] Para SHORTS: verificar net exposure, carry cost proyectado
 [ ] Si constraint violation → ajustar sizing o NO EJECUTAR
 ```
 
@@ -63,6 +70,11 @@ Para cada standing order TRIGGERED o NEAR:
 [ ] ¿Las asunciones clave siguen siendo ciertas?
 [ ] ¿Ha habido earnings entre creacion y ahora? ¿Resultado?
 [ ] ¿El QS ha cambiado materialmente?
+[ ] Ejecutar: python3 tools/dcf_calculator.py --reverse TICKER
+    → ¿El gap entre implicito e historico sigue existiendo?
+    → Para LONGS: ¿mercado sigue infravalorando?
+    → Para SHORTS: ¿mercado sigue sobrevalorando?
+[ ] Verificar last_analysis_date: cuanto mas viejo el analisis, mas importante revalidar
 [ ] Si thesis debilitada → NO EJECUTAR, re-evaluar
 ```
 

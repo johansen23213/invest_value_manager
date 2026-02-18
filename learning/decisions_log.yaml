@@ -776,3 +776,15 @@ lessons:
       6. N/A defaults inflate some sub-scores
       Action: Fix market_position default to 0. Review dividend scoring.
       This explains why 12/13 positions had overstated QS — the tool itself overrates.
+
+  - date: 2026-02-18
+    lesson: "Orchestrator must NEVER do WebSearch directly — always delegate to agents"
+    from_decision: "User caught Error #3 violation: orchestrator used WebSearch for VRSK Q4 and ALLE Q4 earnings instead of delegating to news-monitor or fundamental-analyst"
+    impact: |
+      The orchestrator rationalized doing WebSearch directly for "quick checks" on earnings results.
+      This violated the core principle: YO ORQUESTO, LOS AGENTES EJECUTAN.
+      Why it matters: 1) WebSearch introduces unfiltered narrative absorption risk (Error #48),
+      2) the orchestrator lacks the agent's systematic framework for classifying sources,
+      3) it bypasses the meta-reflection protocol that catches anomalies.
+      Rule reinforced: ANY information gathering from external sources → delegate to appropriate agent.
+      No exceptions for "quick" or "simple" lookups.

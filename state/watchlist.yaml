@@ -44,6 +44,51 @@ tier_2:
   - { ticker: TBCG.L, entry: "3500 GBp", notes: "TBC Bank Georgia. Frontier." }
   - { ticker: BGEO.L, entry: "7000 GBp", notes: "Near ATH, wait correction." }
 
+# =============================================================================
+# SHORT CANDIDATES - Companies monitored for short entry
+# Trigger: price >= target (inverted vs longs)
+# =============================================================================
+short_candidates:
+  - ticker: CVNA
+    qs_gap: "P/E 83x, P/S 4x vs used car dealer fundamentals"
+    catalyst: "Q1 2026 earnings (Apr/May) — credit quality deterioration, delinquency spike"
+    catalyst_date: 2026-05-01
+    entry: ">=$280"
+    status: "SCREENED — needs S1"
+    notes: "Insider dumping ($1.4B+), fraud allegations (DOJ probe), 72% rev from financing. ADESA $2.2B acquisition debt. Short interest 8%. TOP PRIORITY for S1."
+
+  - ticker: ENR.DE
+    qs_gap: "P/E 78x vs 6% OP margins, AI narrative unearned"
+    catalyst: "Q2 FY2026 earnings — AI revenue must materialize or narrative collapses"
+    catalyst_date: 2026-05-15
+    entry: ">=$30"
+    status: "SCREENED — needs S1"
+    notes: "Siemens Energy. Gamesa losses persist. AI/grid narrative stretched. Revenue growth real but margins not. TOP PRIORITY for S1."
+
+  - ticker: RAND.AS
+    qs_gap: "P/E 17x but AI disrupting core staffing model"
+    catalyst: "AI agent deployment in recruitment accelerating 2026-27"
+    catalyst_date: 2026-06-30
+    entry: ">=$48"
+    status: "SCREENED — needs S1"
+    notes: "Randstad. Structural disruption: AI replacing temp staffing intermediation. Margin compression likely. Slower catalyst but structural."
+
+  - ticker: LYV
+    qs_gap: "P/E 115x, DOJ antitrust trial imminent"
+    catalyst: "DOJ antitrust trial Mar 2 2026"
+    catalyst_date: 2026-03-02
+    entry: ">=$140"
+    status: "SCREENED — needs S1"
+    notes: "Live Nation/Ticketmaster. DOJ wants breakup. Short interest 3%. Near-term catalyst but binary (acquittal = squeeze risk)."
+
+  - ticker: VTY.L
+    qs_gap: "3 profit warnings, accounting failures, institutional exodus"
+    catalyst: "FY2025 results (Mar/Apr 2026) — further writedowns expected"
+    catalyst_date: 2026-04-01
+    entry: ">=$200"
+    status: "SCREENED — needs S1"
+    notes: "Vistry Group. 3 profit warnings in 4 months. CEO departed. Accounting restated. Partnerships model failing."
+
 archived_rejected:
   - { ticker: HPQ, date: 2026-02-03, reason: "VALUE TRAP 4/10" }
   - { ticker: MEGP.L, date: 2026-02-03, reason: "NOT AVAILABLE ON ETORO" }

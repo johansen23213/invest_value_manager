@@ -226,11 +226,44 @@ Para decisiones de salida complejas, usar `.claude/skills/exit-protocol/SKILL.md
 
 ---
 
+## PARTE 5B: SHORT THESIS EVALUATION
+
+### Principio Central
+**Un short necesita FRAGILIDAD ESTRUCTURAL, no solo "esta cara".**
+Ver principios P10 (Catalizador), P11 (Asimetria), P12 (Bidireccional).
+
+### Cuando Shortear (con argumento)
+
+**QS vs Precio — el GAP importa:**
+- Empresa QS 50 que cotiza como QS 80 → potencial short (sobrevaloracion real)
+- Empresa QS 80 que cotiza un poco por encima → NO short (empresa de calidad, peligroso)
+- Empresa QS 30 que cotiza barata → NO short (mercado ya refleja fragilidad)
+- **La clave es el gap entre calidad real y calidad implicita del precio**
+
+### Requisitos Obligatorios (ver error patterns #44-#47)
+1. **Catalizador con fecha** (P10) — sin catalizador = OBSERVAR, no shortear
+2. **Escenario adverso documentado** (P11) — que pasa si sube 50%?
+3. **Mejora el portfolio total** (P12) — protege longs, genera cash, mejora net exposure, o explota fragilidad real?
+4. **Fragilidad estructural** — dependencia oculta, modelo insostenible, cambio regulatorio
+
+### Investment Committee — SHORT_APPROVAL Mode
+Gates adicionales para shorts:
+```
+Gate SHORT-1: Catalizador documentado con fecha (P10)
+Gate SHORT-2: Escenario adverso con ratio beneficio/riesgo (P11)
+Gate SHORT-3: Mejora portfolio total documentada (P12)
+```
+
+### Short Pipeline (S1-S4)
+Ver `.claude/skills/short-thesis-framework/SKILL.md` para pipeline completo.
+
+---
+
 ## PARTE 6: NUNCA (Inmutable)
 
 1. **Comprar Tier D (QS <35)** - Esto SÍ es regla fija
 2. **Operar sin thesis documentada**
-3. **Usar apalancamiento**
+3. **Usar apalancamiento excesivo** (shorts con CFDs: razonar leverage desde P1+P11)
 4. **Saltarse Investment Committee**
 5. **Usar defaults de growth/WACC sin derivación**
 6. **Comprar sin entender por qué está barata**

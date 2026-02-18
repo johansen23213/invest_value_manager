@@ -1,6 +1,6 @@
 # Sector: Industrial Technology
 
-> Ultima actualizacion: 2026-02-12
+> Ultima actualizacion: 2026-02-18
 > Status: **NEUTRAL -- Selective opportunities in quality compounders at discounted prices**
 
 ## Resumen Ejecutivo
@@ -10,6 +10,8 @@ Industrial Technology encompasses high-quality, asset-light industrial businesse
 The best companies in this sector share several characteristics that make them exceptional compounders: high gross margins (50-70%), asset-light business models, mission-critical products embedded in customer workflows, regulatory-driven demand (safety, environmental), high switching costs, and significant recurring/repeat revenue. These businesses are effectively "toll booths" on industrial activity.
 
 **Current opportunity:** Several quality compounders have experienced significant drawdowns from 52-week highs. Roper Technologies (-44%) has been hit by temporary Deltek government shutdown impact, muted freight cycle (DAT), and AI uncertainty narrative. Judges Scientific (-46%) faces US federal research funding headwinds. Fortive (-28%) and Xylem (-18%) are also trading well below recent peaks. Meanwhile, the highest-quality names (Graco, Rotork, AMETEK) are near all-time highs, reflecting market recognition of their quality.
+
+**UPDATE 2026-02-18:** Screening of broader European industrials uncovered ME Group International (MEGP.L) -- QS 80 Tier A, ROIC-WACC +32.3pp, net cash, 37% insider, P/E 9.6x at -39.5% from 52wH. Added as highest-priority new candidate. Also scored Lagercrantz (QS 67) and GEA Group (QS 59). GEA is near ATH with no MoS. Lagercrantz confirmed as quality compounder but expensive at P/E 38x.
 
 **Tesis sectorial:** This is a sector where quality truly compounds -- ROIC consistently above WACC, stable/growing margins, and resilient demand. The best entry points come from temporary sector/company-specific headwinds, not secular problems. The key risk is valuation: these businesses are rarely "cheap" by traditional metrics (P/E 25-40x), so the MoS comes from understanding the durability of the compounding.
 
@@ -42,6 +44,8 @@ The best companies in this sector share several characteristics that make them e
 | Specialty Dispensing/Coating | Nordson, Graco | High switching costs, aftermarket |
 | Flow Control | Rotork, IDEX | Actuators, pumps, safety-critical |
 | Water/Environmental Tech | Xylem, Veralto, Watts Water | Regulation-driven growth |
+| **Self-Service Kiosks** | **ME Group International** | **Niche leader, ROIC 40%, asset-light** |
+| Food Processing Tech | GEA Group | Oligopoly, mission-critical |
 
 **Barreras de entrada:** Alta
 - Regulatory certifications (safety, environmental)
@@ -98,7 +102,7 @@ The best companies in this sector share several characteristics that make them e
 "Industrial quality compounders are expensive but worth it. The few that are down (Roper, Judges) have real near-term problems. Better to pay up for the ones executing."
 
 **Mi contra-tesis:**
-"The market is right that Graco/Rotork/AMETEK are great businesses, but at near-ATH they offer no MoS. The opportunity is in the quality compounders that have temporary headwinds (Roper at -44% with 80% recurring software revenue, Judges at -46% with US funding headwind). For serial acquirer models, reported ROIC is misleading due to goodwill -- the actual business economics are excellent."
+"The market is right that Graco/Rotork/AMETEK are great businesses, but at near-ATH they offer no MoS. The opportunity is in the quality compounders that have temporary headwinds (Roper at -44% with 80% recurring software revenue, Judges at -46% with US funding headwind). For serial acquirer models, reported ROIC is misleading due to goodwill -- the actual business economics are excellent. ME Group International (QS 80, P/E 9.6x) may be the single best risk/reward in the sector -- a Tier A compounder trading at deep value multiples."
 
 **Flujos de fondos (12m):** Mixed -- outflows from Roper, inflows to AMETEK/GGG
 
@@ -112,7 +116,9 @@ The best companies in this sector share several characteristics that make them e
 
 ## Dependencias Activas
 
-*(ninguna actualmente)*
+| Tipo | Ticker | Thesis Path | Ultima Eval | Status |
+|------|--------|-------------|-------------|--------|
+| Universe | ROP | thesis/research/ROP/thesis.md | 2026-02-12 | R4_APPROVED |
 
 ---
 
@@ -122,8 +128,9 @@ The best companies in this sector share several characteristics that make them e
 
 | Ticker | Empresa | QS Tool | ROIC-WACC | Dist 52wH | Razon | Priority |
 |--------|---------|---------|-----------|-----------|-------|----------|
+| **MEGP.L** | **ME Group International** | **80** | **+32.3pp** | **-39.5%** | **NEW FIND 2026-02-18.** Automated self-service kiosks (photobooths 30,600+, laundry 8,500+). 18 countries, 30-60% market share. Net cash, 37.3% insider, 5.8% yield. P/E 9.6x = deep value for Tier A quality. Laundry segment growing +17.7% (H1 2025). FY2025 guidance: record PBT GBP 76-79M. Risk: photo booth secular decline, UK concentration. | **MAXIMA -- R1 CANDIDATE** |
 | ROP | Roper Technologies | 48* | distorted by goodwill | -44% | 75-80% recurring software, 70% GM, $2.3B FCF, temporary headwinds (Deltek gov shutdown, DAT freight). QS distorted by goodwill -- adjusted QS likely 70-78. Needs full pipeline. | **Alta** |
-| JDG.L | Judges Scientific | 65 | +1.5pp | -46% | UK serial acquirer of scientific instruments, 69% GM, 15.5% insider ownership. US research funding headwinds temporary. Small cap (GBP 330M) = less efficient. EPS guidance 200-250p vs share 4950p = P/E 20-25x on trough. | **Alta** |
+| JDG.L | Judges Scientific | 65 | +1.5pp | -44% | UK serial acquirer of scientific instruments, 69% GM, 15.5% insider ownership. US research funding headwinds temporary. Small cap (GBP 330M) = less efficient. EPS guidance 200-250p vs share 5070p = P/E ~20-25x on trough. ROIC declining (30.9%->9.2%) from goodwill accumulation. | **Alta** |
 | GGG | Graco Inc. | 71 | +13.3pp | -1% | Near Tier A quality (71), net cash, 24% FCF margin, 53% GM. But near ATH -- no MoS. Monitor for pullback to $75-80 range. | **Media (watchlist)** |
 | ROR.L | Rotork plc | 73 | +12.7pp | -0.3% | Near Tier A quality (73), net cash, 22% ROIC, flow control niche. But at ATH -- no MoS. Monitor for pullback to 300-320p. | **Media (watchlist)** |
 | DPLM.L | Diploma plc | 69 | +4.5pp | -5% | UK serial acquirer/distributor, 14.6% rev CAGR, 22% EPS CAGR, improving ROIC trajectory. But still near highs. Monitor for pullback to 4500p. | **Media (watchlist)** |
@@ -132,6 +139,7 @@ The best companies in this sector share several characteristics that make them e
 
 | Ticker | Empresa | QS Tool | Reason |
 |--------|---------|---------|--------|
+| G1A.DE | GEA Group | 59 | **NEW 2026-02-18.** Food processing tech. ROIC-WACC +6.6pp, net cash, expanding GM (33%->36%). Kepler top pick. But P/E 25.6x near ATH, no MoS. Revenue growth +0.9% = anemic. Wait for correction. |
 | HLMA.L | Halma plc | 64 | Quality but ROIC-WACC only +4pp, near ATH |
 | NDSN | Nordson Corp | 56 | Good margins but slow growth, ROIC-WACC only +1.9pp |
 | MTD | Mettler-Toledo | 56 | Phenomenal ROIC (+26pp) but P/E 33x, low growth, 0 dividend |
@@ -140,16 +148,16 @@ The best companies in this sector share several characteristics that make them e
 | VLTO | Veralto Corp | 52 | Danaher spinoff, ROIC 25%, but limited history, -14% |
 | FTV | Fortive Corp | 36 | Low quality score, ROIC < WACC, -28% from high |
 
-### Nordic Serial Acquirers (Monitoring)
+### Nordic Serial Acquirers (Scored 2026-02-18)
 
-| Ticker | Empresa | Notes |
-|--------|---------|-------|
-| LIFCO-B.ST | Lifco AB | Swedish serial acquirer, SEK 312, ~SEK 55B mcap |
-| ADDT-B.ST | Addtech AB | Swedish tech distributor, SEK 316, ~SEK 87B mcap |
-| LAGR-B.ST | Lagercrantz Group | Swedish holdco, SEK 207, ~SEK 44B mcap |
-| INDT.ST | Indutrade AB | Swedish industrial components, SEK 232 |
+| Ticker | Empresa | QS Tool | ROIC-WACC | P/E | Notes |
+|--------|---------|---------|-----------|-----|-------|
+| LAGR-B.ST | Lagercrantz Group | **67** | +4.6pp | 37.9x | **SCORED.** Quality confirmed (67 Tier B). Rev CAGR +19.6%, EPS CAGR +20.8%, improving FCF margin. But P/E 38x = expensive, -15% from high only. Need >25% correction for MoS. |
+| ADDT-B.ST | Addtech AB | 70 | N/A | 41x | Already in quality_universe. Expensive. |
+| LIFCO-B.ST | Lifco AB | Not scored | N/A | ~35x | Swedish serial acquirer. Score when rate limit resets. |
+| INDT.ST | Indutrade AB | Not scored | N/A | ~30x | Swedish industrial components. Score when rate limit resets. |
 
-Note: Nordic serial acquirers typically trade at 30-50x P/E reflecting quality compounding, but currently lack significant discount. Need dedicated screening with quality_scorer when yfinance rate limit resets.
+Note: Nordic serial acquirers typically trade at 30-50x P/E reflecting quality compounding. Lagercrantz confirmed at QS 67 but no valuation opportunity at current prices.
 
 ### Evitar
 
@@ -173,6 +181,7 @@ Note: Nordic serial acquirers typically trade at 30-50x P/E reflecting quality c
 | Fecha | Evento | Impacto esperado |
 |-------|--------|------------------|
 | Feb 2026 | ROP Q4 earnings (reported Jan 29) | Guided 2026 EPS $21.30-21.55, below consensus. Stock already down. |
+| Feb 24 2026 | MEGP.L FY2025 results expected | Key read: laundry growth trajectory, margin expansion, guidance |
 | Q1 2026 | JDG.L FY2025 results (expected March) | EPS ~275p, below prior expectations. US funding clarity key. |
 | Q2 2026 | ROP Q1 2026 results | Key read: Deltek recovery post-gov shutdown, DAT freight cycle |
 | Apr 28 2026 | Lifco Q1 earnings | Serial acquirer health check |
@@ -185,6 +194,7 @@ Note: Nordic serial acquirers typically trade at 30-50x P/E reflecting quality c
 | Fecha | Cambio | Razon |
 |-------|--------|-------|
 | 2026-02-12 | Status inicial: NEUTRAL | First version. Sector-wide screening complete. |
+| 2026-02-18 | **MATERIAL UPDATE**: Added MEGP.L (QS 80 Tier A), scored Lagercrantz (QS 67), scored GEA Group (QS 59). MEGP.L elevated to MAXIMA priority. | Broader European screening uncovered undiscovered Tier A compounder. |
 
 ---
 
@@ -201,6 +211,10 @@ Note: Nordic serial acquirers typically trade at 30-50x P/E reflecting quality c
 - [Roper Technologies Q4 2025 Earnings Call](https://www.investing.com/news/transcripts/earnings-call-transcript-roper-technologies-q4-2025-sees-mixed-results-93CH-4467829)
 - [Judges Scientific Trading Statement Jan 2026](https://www.tradingview.com/news/reuters.com,2026-01-22:newsml_RSV8567Pa:0-reg-judges-scientificplc-full-year-trading-statement-and-notice-of-results/)
 - [TipRanks: Judges Scientific US Funding Impact](https://www.tipranks.com/news/company-announcements/judges-scientific-cuts-earnings-expectations-as-us-funding-and-offshore-wind-slow-demand)
+- [ME Group Interim Results H1 2025](https://me-group.com/wp-content/uploads/2025/07/ME-Group-2025-Interim-Results.pdf)
+- [ME Group FY2025 Trading Update](https://me-group.com/wp-content/uploads/2025/11/251107-ME-Group-Year-End-Trading-Update.pdf)
+- [Quacker Capital: ME Group Long Pitch](https://quackercap.substack.com/p/long-pitch-me-group-international)
+- [Kepler Cheuvreux: Top 5 EU Capital Goods 2026](https://www.investing.com/news/stock-market-news/top-5-eu-capital-goods-stocks-for-2026-kepler-cheuvreuxs-best-ideas-93CH-4468006)
 
 ### Sector Research
 - [Motley Fool: Top Industrial ETFs 2026](https://www.fool.com/investing/stock-market/market-sectors/industrials/industrial-etf/)

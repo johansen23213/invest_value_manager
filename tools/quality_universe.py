@@ -5,11 +5,18 @@ Quality Universe Tool - Persistent database of quality companies for Capital Dep
 Manages state/quality_universe.yaml with QS-scored companies, tracks prices,
 detects actionable entries, and reports pipeline health metrics.
 
+Supports two directions:
+  - long (default): buy candidates. Entry price = price at or below which to buy.
+  - short: fragility candidates. Entry price = price at or above which to open short.
+    Fair value for shorts = TRUE value (price should converge DOWN to it).
+
 Usage:
-  python3 tools/quality_universe.py report              # Full universe with current prices and distance to entry
-  python3 tools/quality_universe.py actionable           # Only companies within 15% of entry price
+  python3 tools/quality_universe.py report              # Long universe (default)
+  python3 tools/quality_universe.py report --fragility   # Short/fragility candidates only
+  python3 tools/quality_universe.py actionable           # Long candidates within 15% of entry
+  python3 tools/quality_universe.py actionable --fragility  # Short candidates at/above entry
   python3 tools/quality_universe.py add TICKER --qs 75 --fv 200 --entry 150 --sector "Technology" --tier A --currency USD
-  python3 tools/quality_universe.py add TICKER --qs 75 --fv 200 --entry 150 --sector "Technology" --tier A --currency EUR --pipeline R1_COMPLETE --thesis thesis/research/TICKER/thesis.md
+  python3 tools/quality_universe.py add TICKER --qs 75 --fv 200 --entry 150 --sector "Technology" --tier A --direction short
   python3 tools/quality_universe.py remove TICKER
   python3 tools/quality_universe.py coverage             # Sector coverage vs gaps
   python3 tools/quality_universe.py refresh              # Update prices for all companies (batch, rate-limit spaced)
@@ -118,6 +125,87 @@ def load_portfolio():
 
 
 # ---------------------------------------------------------------------------
+# Direction helpers
+# ---------------------------------------------------------------------------
+
+def _get_direction(c):
+    """Get direction for a company entry. Defaults to 'long' for backwards compatibility."""
+    return c.get("direction", "long")
+
+
+def _is_long(c):
+    return _get_direction(c) == "long"
+
+
+def _is_short(c):
+    return _get_direction(c) == "short"
+
+
+def _filter_by_direction(companies, fragility=False):
+    """Filter companies by direction. fragility=False -> long only, fragility=True -> short only."""
+    if fragility:
+        return [c for c in companies if _is_short(c)]
+    else:
+        return [c for c in companies if _is_long(c)]
+
+
+def _get_qs_display(c):
+    """Get QS display value, handling None gracefully."""
+    val = c.get("qs_adj")
+    if val is not None:
+        return val
+    val = c.get("qs_tool")
+    if val is not None:
+        return val
+    return "?"
+
+
+def _calc_distance_to_entry(native_price, entry_price, direction):
+    """
+    Calculate distance to entry price, direction-aware.
+
+    For LONG: distance = (price - entry) / entry * 100
+      Positive = above entry (not yet actionable), negative = below entry (actionable)
+      Actionable when distance <= 15% (price near or below entry)
+
+    For SHORT: distance = (entry - price) / entry * 100
+      Positive = price below entry (not yet actionable for short), negative = price above entry (actionable)
+      Actionable when distance <= 0% (price at or above entry)
+      We also show "within 15%" as distance <= 15% for consistency (price within 15% below entry)
+    """
+    if native_price is None or entry_price is None or entry_price == 0:
+        return None
+
+    if direction == "short":
+        # For shorts: we want to know how far BELOW entry the price is
+        # Negative distance = price is ABOVE entry = ACTIONABLE for short
+        # Positive distance = price is BELOW entry = not yet actionable
+        return round((entry_price - native_price) / entry_price * 100, 1)
+    else:
+        # For longs: standard calculation
+        return round((native_price - entry_price) / entry_price * 100, 1)
+
+
+def _is_actionable_entry(c, distance_threshold=15.0):
+    """
+    Check if a company is near entry based on direction.
+
+    Long: distance_to_entry <= threshold (price within N% of entry or below)
+    Short: distance_to_entry <= threshold (price within N% of entry or above)
+      For shorts, distance is inverted so this naturally works:
+      dist <= 0 means price >= entry (ideal for short)
+      dist <= threshold means price is within N% below entry (close to entry)
+
+    NOTE: The threshold is a presentation filter, not a buy/sell signal.
+    The orchestrator reasons about whether to act from principles.
+    """
+    dist = c.get("distance_to_entry")
+    if dist is None:
+        return False
+    return dist <= distance_threshold
+
+
+# ---------------------------------------------------------------------------
 # Price fetching
 # ---------------------------------------------------------------------------
 
@@ -202,18 +290,26 @@ def fmt_price(value, currency):
 def cmd_report(args):
     """Full universe report with current prices and distance to entry."""
     data = load_universe()
-    companies = data["quality_universe"]["companies"]
+    all_companies = data["quality_universe"]["companies"]
 
-    if not companies:
+    if not all_companies:
         print("Quality Universe is empty. Use 'add' to populate.")
         return
 
-    # Fetch prices if not recently refreshed
+    fragility = getattr(args, "fragility", False)
+    companies = _filter_by_direction(all_companies, fragility=fragility)
+
+    if not companies:
+        direction_label = "short/fragility" if fragility else "long"
+        print(f"No {direction_label} candidates in the universe.")
+        return
+
+    # Fetch prices if not recently refreshed (refresh ALL, not just filtered)
     eurusd, gbpeur = get_fx_rates()
 
     today = str(date.today())
     needs_refresh = []
-    for c in companies:
+    for c in all_companies:
         if c.get("last_price_check") != today:
             needs_refresh.append(c)
 
@@ -222,22 +318,29 @@ def cmd_report(args):
         _batch_refresh(needs_refresh)
         save_universe(data)
 
+    # Re-filter after refresh (companies list references same objects, but re-filter for safety)
+    companies = _filter_by_direction(all_companies, fragility=fragility)
+
     # Count stats
     tier_a = sum(1 for c in companies if c.get("tier") == "A")
     tier_b = sum(1 for c in companies if c.get("tier") == "B")
     sectors = len(set(c.get("sector", "Unknown") for c in companies))
 
-    print(f"\nQuality Universe Report | {today}")
+    direction_label = "FRAGILITY (Short)" if fragility else "Long"
+    print(f"\nQuality Universe Report [{direction_label}] | {today}")
     print("=" * 130)
     print(f"Companies: {len(companies)} | Tier A: {tier_a} | Tier B: {tier_b} | Sectors: {sectors}")
     print()
 
     # Header
-    hdr = f"{'Ticker':<10} {'Name':<25} {'QS':>3} {'Tier':>4} {'Sector':<22} {'FV':>10} {'Entry':>10} {'Price':>10} {'Dist%':>7} {'Pipeline':<16}"
+    if fragility:
+        hdr = f"{'Ticker':<10} {'Name':<25} {'QS':>3} {'Tier':>4} {'Sector':<22} {'TrueVal':>10} {'Short@':>10} {'Price':>10} {'Dist%':>7} {'Pipeline':<16}"
+    else:
+        hdr = f"{'Ticker':<10} {'Name':<25} {'QS':>3} {'Tier':>4} {'Sector':<22} {'FV':>10} {'Entry':>10} {'Price':>10} {'Dist%':>7} {'Pipeline':<16}"
     print(hdr)
     print("-" * 130)
 
-    # Sort: Tier A first, then by distance_to_entry ascending (closest/below entry first)
+    # Sort: Tier A first, then by distance_to_entry ascending (closest to actionable first)
     def sort_key(c):
         tier_order = {"A": 0, "B": 1, "C": 2, "D": 3}
         dist = c.get("distance_to_entry")
@@ -252,22 +355,21 @@ def cmd_report(args):
         dist = c.get("distance_to_entry")
         dist_str = f"{dist:+.1f}%" if dist is not None else "N/A"
 
-        qs_display = c.get("qs_adj", c.get("qs_tool", "?"))
+        qs_display = _get_qs_display(c)
         pipeline = c.get("pipeline_status", "UNKNOWN")
-        notes = c.get("notes", "")
 
         # Mark actionable
         marker = ""
-        if dist is not None and dist <= 15.0:
+        if _is_actionable_entry(c):
             marker = " *"
             actionable.append(c)
 
         row = (
             f"{c['ticker']:<10} "
-            f"{c.get('name', c['ticker'])[:25]:<25} "
+            f"{(c.get('name') or c['ticker'])[:25]:<25} "
             f"{qs_display:>3} "
-            f"{c.get('tier', '?'):>4} "
-            f"{c.get('sector', 'Unknown')[:22]:<22} "
+            f"{(c.get('tier') or '?'):>4} "
+            f"{(c.get('sector') or 'Unknown')[:22]:<22} "
             f"{fmt_price(c.get('fair_value'), cur):>10} "
             f"{fmt_price(c.get('entry_price'), cur):>10} "
             f"{fmt_price(c.get('current_price'), cur):>10} "
@@ -279,79 +381,103 @@ def cmd_report(args):
 
     # Actionable section
     if actionable:
-        print(f"\nACTIONABLE (within 15% of entry):")
-        for c in sorted(actionable, key=lambda x: x.get("distance_to_entry", 9999)):
-            cur = c.get("currency", "USD")
-            dist = c.get("distance_to_entry", 0)
-            print(f"  {c['ticker']}: {fmt_price(c.get('current_price'), cur)} vs entry {fmt_price(c.get('entry_price'), cur)} ({dist:+.1f}%) [{c.get('pipeline_status', '?')}]")
+        if fragility:
+            print(f"\nACTIONABLE SHORTS (within 15% of short entry or above):")
+            for c in sorted(actionable, key=lambda x: x.get("distance_to_entry", 9999)):
+                cur = c.get("currency", "USD")
+                dist = c.get("distance_to_entry", 0)
+                at_label = "AT/ABOVE SHORT ENTRY" if dist <= 0 else ""
+                print(f"  {c['ticker']}: {fmt_price(c.get('current_price'), cur)} vs short@ {fmt_price(c.get('entry_price'), cur)} ({dist:+.1f}%) [{(c.get('pipeline_status') or '?')}] {at_label}")
+        else:
+            print(f"\nACTIONABLE (within 15% of entry):")
+            for c in sorted(actionable, key=lambda x: x.get("distance_to_entry", 9999)):
+                cur = c.get("currency", "USD")
+                dist = c.get("distance_to_entry", 0)
+                print(f"  {c['ticker']}: {fmt_price(c.get('current_price'), cur)} vs entry {fmt_price(c.get('entry_price'), cur)} ({dist:+.1f}%) [{(c.get('pipeline_status') or '?')}]")
     else:
-        print(f"\nACTIONABLE: None (no companies within 15% of entry price)")
+        if fragility:
+            print(f"\nACTIONABLE SHORTS: None (no short candidates within 15% of entry or above)")
+        else:
+            print(f"\nACTIONABLE: None (no companies within 15% of entry price)")
 
-    # Pipeline health summary
+    # Pipeline health summary (only for the filtered direction)
     print()
     _print_pipeline_health(companies)
     print_fx_warning()
+    print("\n[Raw data. Reason from principles.md]")
 
 
 def cmd_actionable(args):
-    """Show only companies within 15% of entry price."""
+    """Show only companies within actionable range of entry price."""
     data = load_universe()
-    companies = data["quality_universe"]["companies"]
+    all_companies = data["quality_universe"]["companies"]
 
-    if not companies:
+    if not all_companies:
         print("Quality Universe is empty.")
         return
+
+    fragility = getattr(args, "fragility", False)
 
     eurusd, gbpeur = get_fx_rates()
 
     # Refresh prices
     today = str(date.today())
-    needs_refresh = [c for c in companies if c.get("last_price_check") != today]
+    needs_refresh = [c for c in all_companies if c.get("last_price_check") != today]
     if needs_refresh:
         print(f"Fetching prices for {len(needs_refresh)} companies...")
         _batch_refresh(needs_refresh)
         save_universe(data)
 
-    # Filter actionable (distance_to_entry <= 15%)
-    actionable = [c for c in companies if c.get("distance_to_entry") is not None and c.get("distance_to_entry") <= 15.0]
+    # Filter by direction, then by actionable
+    companies = _filter_by_direction(all_companies, fragility=fragility)
+    actionable = [c for c in companies if _is_actionable_entry(c)]
 
     if not actionable:
-        print(f"\nNo companies within 15% of entry price. Market may be expensive — patience is alpha.")
+        direction_label = "short/fragility" if fragility else "long"
+        print(f"\nNo actionable {direction_label} candidates. Patience is alpha.")
         print_fx_warning()
         return
 
     # Sort by distance ascending
     actionable.sort(key=lambda c: c.get("distance_to_entry", 9999))
 
-    print(f"\nActionable Companies | {today}")
+    direction_label = "Fragility (Short)" if fragility else "Long"
+    print(f"\nActionable Companies [{direction_label}] | {today}")
     print("=" * 110)
-    print(f"{'Ticker':<10} {'Name':<25} {'QS':>3} {'Tier':>4} {'Entry':>10} {'Price':>10} {'Dist%':>7} {'Pipeline':<16} {'Notes'}")
+    if fragility:
+        print(f"{'Ticker':<10} {'Name':<25} {'QS':>3} {'Tier':>4} {'Short@':>10} {'Price':>10} {'Dist%':>7} {'Pipeline':<16} {'Notes'}")
+    else:
+        print(f"{'Ticker':<10} {'Name':<25} {'QS':>3} {'Tier':>4} {'Entry':>10} {'Price':>10} {'Dist%':>7} {'Pipeline':<16} {'Notes'}")
     print("-" * 110)
 
     for c in actionable:
         cur = c.get("currency", "USD")
         dist = c.get("distance_to_entry", 0)
-        qs_display = c.get("qs_adj", c.get("qs_tool", "?"))
-        notes = c.get("notes", "")
+        qs_display = _get_qs_display(c)
+        notes = c.get("notes", "") or ""
         # Truncate notes
         if len(notes) > 40:
             notes = notes[:37] + "..."
 
-        at_or_below = "AT/BELOW ENTRY" if dist <= 0 else ""
+        if fragility:
+            at_label = "AT/ABOVE SHORT ENTRY" if dist <= 0 else ""
+        else:
+            at_label = "AT/BELOW ENTRY" if dist <= 0 else ""
 
         print(
             f"{c['ticker']:<10} "
-            f"{c.get('name', '')[:25]:<25} "
+            f"{(c.get('name') or '')[:25]:<25} "
             f"{qs_display:>3} "
-            f"{c.get('tier', '?'):>4} "
+            f"{(c.get('tier') or '?'):>4} "
             f"{fmt_price(c.get('entry_price'), cur):>10} "
             f"{fmt_price(c.get('current_price'), cur):>10} "
             f"{dist:+.1f}% "
-            f"{c.get('pipeline_status', '?'):<16} "
-            f"{at_or_below}"
+            f"{(c.get('pipeline_status') or '?'):<16} "
+            f"{at_label}"
         )
 
     print_fx_warning()
+    print("\n[Raw data. Reason from principles.md]")
 
 
 def cmd_add(args):
@@ -360,6 +486,7 @@ def cmd_add(args):
     companies = data["quality_universe"]["companies"]
 
     ticker = args.ticker.upper()
+    direction = getattr(args, "direction", "long") or "long"
 
     # Check if already exists
     existing = None
@@ -371,6 +498,7 @@ def cmd_add(args):
     entry = {
         "ticker": ticker,
         "name": args.name or ticker,
+        "direction": direction,
         "qs_tool": args.qs,
         "qs_adj": args.qs_adj if args.qs_adj is not None else args.qs,
         "tier": args.tier.upper(),
@@ -404,8 +532,14 @@ def cmd_add(args):
         print(f"Added {ticker} to quality universe.")
 
     save_universe(data)
+
+    dir_label = "[SHORT]" if direction == "short" else "[LONG]"
+    print(f"  Direction: {dir_label}")
     print(f"  QS: {entry['qs_tool']} (adj: {entry['qs_adj']}) | Tier {entry['tier']} | Sector: {entry['sector']}")
-    print(f"  FV: {fmt_price(entry['fair_value'], entry['currency'])} | Entry: {fmt_price(entry['entry_price'], entry['currency'])}")
+    if direction == "short":
+        print(f"  True Value: {fmt_price(entry['fair_value'], entry['currency'])} | Short@: {fmt_price(entry['entry_price'], entry['currency'])}")
+    else:
+        print(f"  FV: {fmt_price(entry['fair_value'], entry['currency'])} | Entry: {fmt_price(entry['entry_price'], entry['currency'])}")
     print(f"  Pipeline: {entry['pipeline_status']}")
     if entry["notes"]:
         print(f"  Notes: {entry['notes']}")
@@ -488,9 +622,10 @@ def cmd_coverage(args):
         "auto-eu": "Industrial Technology",
     }
 
-    # Count companies per sector (from universe)
+    # Count companies per sector (from universe -- long only for coverage)
+    long_companies = _filter_by_direction(companies, fragility=False)
     sector_counts = {}
-    for c in companies:
+    for c in long_companies:
         s = c.get("sector", "Unknown")
         sector_counts[s] = sector_counts.get(s, 0) + 1
 
@@ -511,7 +646,7 @@ def cmd_coverage(args):
         has_view = sector in covered_sectors
         count = 0
         # Match universe companies to sector (fuzzy)
-        for c in companies:
+        for c in long_companies:
             cs = c.get("sector", "").lower()
             sl = sector.lower()
             if sl in cs or cs in sl or any(w in cs for w in sl.split("/")):
@@ -536,9 +671,16 @@ def cmd_coverage(args):
         print(f"{sector:<30} {view_str:>12} {count:>14} {status}")
 
     print(f"\nSummary: {covered_count}/{len(target_sectors)} sectors have views")
-    print(f"Universe companies by sector:")
+    print(f"Universe companies by sector (long):")
     for s, count in sorted(sector_counts.items(), key=lambda x: -x[1]):
         print(f"  {s}: {count}")
+
+    # Show short candidates if any
+    short_companies = _filter_by_direction(companies, fragility=True)
+    if short_companies:
+        print(f"\nFragility candidates (short): {len(short_companies)}")
+        for c in short_companies:
+            print(f"  {c['ticker']} ({c.get('sector', '?')})")
 
 
 def cmd_refresh(args):
@@ -589,31 +731,37 @@ def cmd_stale(args):
     stale_list.sort(key=lambda x: -x[1])
 
     print(f"\nUniverse Staleness Report | {today}")
-    print("=" * 100)
-    print(f"{'Ticker':<10} {'Name':<25} {'QS':>3} {'Tier':>4} {'Last Scored':>12} {'Days Ago':>9} {'Pipeline':<16}")
-    print("-" * 100)
+    print("=" * 110)
+    print(f"{'Ticker':<10} {'Dir':<5} {'Name':<25} {'QS':>3} {'Tier':>4} {'Last Scored':>12} {'Days Ago':>9} {'Pipeline':<16}")
+    print("-" * 110)
 
     for c, days_ago in stale_list:
         last_scored = c.get("last_scored", "never")
         days_str = str(days_ago) if days_ago < 999 else "never"
-        qs_display = c.get("qs_adj", c.get("qs_tool", "?"))
+        qs_display = _get_qs_display(c)
+        direction = _get_direction(c)
+        dir_label = "S" if direction == "short" else "L"
 
         print(
             f"{c['ticker']:<10} "
-            f"{c.get('name', c['ticker'])[:25]:<25} "
+            f"{dir_label:<5} "
+            f"{(c.get('name') or c['ticker'])[:25]:<25} "
             f"{qs_display:>3} "
-            f"{c.get('tier', '?'):>4} "
+            f"{(c.get('tier') or '?'):>4} "
             f"{str(last_scored):>12} "
             f"{days_str:>9} "
-            f"{c.get('pipeline_status', 'UNKNOWN'):<16}"
+            f"{(c.get('pipeline_status') or 'UNKNOWN'):<16}"
         )
 
     print(f"\nTotal: {len(companies)} companies")
+    long_count = sum(1 for c in companies if _is_long(c))
+    short_count = sum(1 for c in companies if _is_short(c))
+    print(f"  Long: {long_count} | Short: {short_count}")
     print(f"Use judgment: earnings, regulatory changes, or material events warrant earlier re-evaluation.")
 
 
 def cmd_stats(args):
-    """Pipeline health metrics — raw data, no fixed targets."""
+    """Pipeline health metrics -- raw data, no fixed targets."""
     data = load_universe()
     companies = data["quality_universe"]["companies"]
 
@@ -627,19 +775,25 @@ def cmd_stats(args):
         cash_amount = cash_info.get("amount", 0)
         cash_currency = cash_info.get("currency", "EUR")
 
-    # Counts
-    total = len(companies)
-    tier_a = sum(1 for c in companies if c.get("tier") == "A")
-    tier_b = sum(1 for c in companies if c.get("tier") == "B")
+    # Direction counts
+    long_companies = _filter_by_direction(companies, fragility=False)
+    short_companies = _filter_by_direction(companies, fragility=True)
 
-    # Pipeline status counts
+    # Counts (long universe -- primary pipeline)
+    total = len(companies)
+    total_long = len(long_companies)
+    total_short = len(short_companies)
+    tier_a = sum(1 for c in long_companies if c.get("tier") == "A")
+    tier_b = sum(1 for c in long_companies if c.get("tier") == "B")
+
+    # Pipeline status counts (long)
     status_counts = {}
-    for c in companies:
+    for c in long_companies:
         s = c.get("pipeline_status", "UNKNOWN")
         status_counts[s] = status_counts.get(s, 0) + 1
 
-    r1_plus = sum(1 for c in companies if c.get("pipeline_status", "") in ("R1_COMPLETE", "R2_COMPLETE", "R3_COMPLETE", "APPROVED", "STANDING_ORDER"))
-    approved = sum(1 for c in companies if c.get("pipeline_status", "") in ("APPROVED", "STANDING_ORDER"))
+    r1_plus = sum(1 for c in long_companies if c.get("pipeline_status", "") in ("R1_COMPLETE", "R2_COMPLETE", "R3_COMPLETE", "APPROVED", "STANDING_ORDER"))
+    approved = sum(1 for c in long_companies if c.get("pipeline_status", "") in ("APPROVED", "STANDING_ORDER"))
 
     # Standing orders: count from standing_orders.yaml
     standing_orders_count = 0
@@ -654,13 +808,16 @@ def cmd_stats(args):
         except Exception:
             pass
 
-    # Sectors covered
-    sectors = set(c.get("sector", "Unknown") for c in companies)
+    # Sectors covered (long)
+    sectors = set(c.get("sector", "Unknown") for c in long_companies)
 
-    # Actionable
-    actionable = sum(1 for c in companies if c.get("distance_to_entry") is not None and c.get("distance_to_entry") <= 15.0)
+    # Actionable (long)
+    actionable_long = sum(1 for c in long_companies if _is_actionable_entry(c))
 
-    # Staleness
+    # Actionable (short)
+    actionable_short = sum(1 for c in short_companies if _is_actionable_entry(c))
+
+    # Staleness (all)
     today = date.today()
     stale_30 = 0
     stale_90 = 0
@@ -681,20 +838,25 @@ def cmd_stats(args):
 
     print(f"\nPipeline Health Metrics | {date.today()}")
     print("=" * 50)
-    print(f"Universe size:       {total:>5}")
+    print(f"Universe total:      {total:>5}")
+    print(f"  Long candidates:   {total_long:>5}")
+    print(f"  Short candidates:  {total_short:>5}")
+    print(f"Long breakdown:")
     print(f"  Tier A:            {tier_a:>5}")
     print(f"  Tier B:            {tier_b:>5}")
-    print(f"R1+ thesis:          {r1_plus:>5}")
-    print(f"Approved (R4+):      {approved:>5}")
+    print(f"  R1+ thesis:        {r1_plus:>5}")
+    print(f"  Approved (R4+):    {approved:>5}")
     print(f"Standing orders:     {standing_orders_count:>5}")
     print(f"Sectors covered:     {len(sectors):>5}")
-    print(f"Actionable now:      {actionable:>5}")
+    print(f"Actionable (long):   {actionable_long:>5}")
+    if total_short > 0:
+        print(f"Actionable (short):  {actionable_short:>5}")
     print(f"Scored >30d ago:     {stale_30:>5}")
     print(f"Scored >90d ago:     {stale_90:>5}")
     print(f"Cash available:      {cash_currency} {cash_amount:,.0f}")
     print()
 
-    print("Pipeline Status Breakdown:")
+    print("Pipeline Status Breakdown (long):")
     for status in ("UNSCREENED", "SCORED", "R1_COMPLETE", "R2_COMPLETE", "R3_COMPLETE", "APPROVED", "STANDING_ORDER", "REJECTED"):
         count = status_counts.get(status, 0)
         if count > 0:
@@ -702,6 +864,26 @@ def cmd_stats(args):
 
     if not status_counts:
         print("  (no companies)")
+
+    # Short pipeline summary
+    if short_companies:
+        print()
+        print("Fragility Pipeline (short):")
+        short_status_counts = {}
+        for c in short_companies:
+            s = c.get("pipeline_status", "UNKNOWN")
+            short_status_counts[s] = short_status_counts.get(s, 0) + 1
+        for status, count in sorted(short_status_counts.items()):
+            print(f"  {status:<20} {count:>3}")
+        print(f"  Short candidates by sector:")
+        short_sectors = {}
+        for c in short_companies:
+            s = c.get("sector", "Unknown")
+            short_sectors[s] = short_sectors.get(s, 0) + 1
+        for s, count in sorted(short_sectors.items(), key=lambda x: -x[1]):
+            print(f"    {s}: {count}")
+
+    print("\n[Raw data. Reason from principles.md]")
 
 
 # ---------------------------------------------------------------------------
@@ -717,6 +899,7 @@ def _batch_refresh(companies, verbose=False, batch_size=5, delay=1.0):
 
         for c in batch:
             ticker = c["ticker"]
+            direction = _get_direction(c)
             try:
                 price, api_currency, name = fetch_price(ticker)
                 target_currency = c.get("currency", "USD")
@@ -729,10 +912,10 @@ def _batch_refresh(companies, verbose=False, batch_size=5, delay=1.0):
                 if name and (not c.get("name") or c["name"] == ticker):
                     c["name"] = name
 
-                # Calculate distance to entry
+                # Calculate distance to entry (direction-aware)
                 entry = c.get("entry_price")
                 if native_price is not None and entry and entry > 0:
-                    c["distance_to_entry"] = round((native_price - entry) / entry * 100, 1)
+                    c["distance_to_entry"] = _calc_distance_to_entry(native_price, entry, direction)
                 else:
                     c["distance_to_entry"] = None
 
@@ -740,7 +923,8 @@ def _batch_refresh(companies, verbose=False, batch_size=5, delay=1.0):
                     dist = c.get("distance_to_entry")
                     dist_str = f"{dist:+.1f}%" if dist is not None else "N/A"
                     cur = c.get("currency", "USD")
-                    print(f"  {ticker:<10} {fmt_price(native_price, cur):>10} (entry {fmt_price(entry, cur):>10}) dist: {dist_str}")
+                    dir_label = " [S]" if direction == "short" else ""
+                    print(f"  {ticker:<10} {fmt_price(native_price, cur):>10} (entry {fmt_price(entry, cur):>10}) dist: {dist_str}{dir_label}")
 
             except Exception as e:
                 c["current_price"] = None
@@ -756,6 +940,7 @@ def _batch_refresh(companies, verbose=False, batch_size=5, delay=1.0):
 
 def _print_pipeline_health(companies):
     """Print a compact pipeline health summary."""
+    # Filter to only the direction that was passed in (already filtered by caller)
     r1_plus = sum(1 for c in companies if c.get("pipeline_status", "") in ("R1_COMPLETE", "R2_COMPLETE", "R3_COMPLETE", "APPROVED", "STANDING_ORDER"))
     approved = sum(1 for c in companies if c.get("pipeline_status", "") in ("APPROVED", "STANDING_ORDER"))
 
@@ -773,7 +958,7 @@ def _print_pipeline_health(companies):
             pass
 
     sectors = len(set(c.get("sector", "Unknown") for c in companies))
-    actionable = sum(1 for c in companies if c.get("distance_to_entry") is not None and c.get("distance_to_entry") <= 15.0)
+    actionable = sum(1 for c in companies if _is_actionable_entry(c))
 
     print("Pipeline Health:")
     print(f"  R1+ thesis: {r1_plus}  |  Approved: {approved}  |  Standing orders: {standing_orders_count}")
@@ -797,27 +982,34 @@ Commands:
   coverage    Sector coverage analysis
   refresh     Update prices for all companies (batch)
   stats       Pipeline health metrics
+
+Flags:
+  --fragility   (report, actionable) Show short/fragility candidates only
+  --direction   (add) Set direction: long (default) or short
 """
     )
 
     subparsers = parser.add_subparsers(dest="command", help="Command to execute")
 
     # report
-    subparsers.add_parser("report", help="Full universe report")
+    report_parser = subparsers.add_parser("report", help="Full universe report")
+    report_parser.add_argument("--fragility", action="store_true", default=False, help="Show short/fragility candidates only")
 
     # actionable
-    subparsers.add_parser("actionable", help="Companies within 15%% of entry price")
+    actionable_parser = subparsers.add_parser("actionable", help="Companies within actionable range of entry price")
+    actionable_parser.add_argument("--fragility", action="store_true", default=False, help="Show short/fragility candidates only")
 
     # add
     add_parser = subparsers.add_parser("add", help="Add or update a company")
     add_parser.add_argument("ticker", help="Ticker symbol")
     add_parser.add_argument("--qs", type=int, required=True, help="Quality Score (tool)")
     add_parser.add_argument("--qs-adj", type=int, default=None, help="Quality Score (adjusted, defaults to --qs)")
-    add_parser.add_argument("--fv", type=float, required=True, help="Fair value in native currency")
-    add_parser.add_argument("--entry", type=float, required=True, help="Entry price in native currency")
+    add_parser.add_argument("--fv", type=float, required=True, help="Fair value in native currency (for shorts: TRUE value price converges to)")
+    add_parser.add_argument("--entry", type=float, required=True, help="Entry price (for longs: buy at/below; for shorts: short at/above)")
     add_parser.add_argument("--sector", type=str, required=True, help="Sector name")
     add_parser.add_argument("--tier", type=str, required=True, choices=["A", "B", "C"], help="Quality tier")
     add_parser.add_argument("--currency", type=str, default="USD", help="Currency (USD, EUR, GBp)")
+    add_parser.add_argument("--direction", type=str, default="long", choices=["long", "short"], help="Direction: long (default) or short (fragility)")
     add_parser.add_argument("--pipeline", type=str, default=None, help="Pipeline status (SCORED, R1_COMPLETE, APPROVED, etc.)")
     add_parser.add_argument("--thesis", type=str, default=None, help="Path to thesis file")
     add_parser.add_argument("--name", type=str, default=None, help="Company name (auto-fetched if omitted)")

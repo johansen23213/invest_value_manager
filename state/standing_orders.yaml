@@ -1,6 +1,7 @@
-# STANDING ORDERS - Pre-approved, execute when price hits trigger
-# The human can execute in eToro without waiting for a session.
-# Updated: 2026-02-14
+# STANDING ORDERS - Price alerts with pre-written thesis
+# NOT autonomous orders. Human alerts Claude when price hits trigger.
+# Claude runs fast-track validation (pre-execution-check + reverse DCF) before recommending.
+# Updated: 2026-02-18
 
 standing_orders:
   # ADD ORDERS (existing positions)
@@ -12,6 +13,7 @@ standing_orders:
     fair_value: "$191"
     mos_at_trigger: "34.5%"
     notes: "GL v3.0. SEC+DOJ cleared. QS Adj 55 Tier B borderline."
+    last_analysis_date: 2026-02-10
     expiry: 2026-08-01
 
   - ticker: NVO
@@ -22,6 +24,7 @@ standing_orders:
     fair_value: "$66"
     mos_at_trigger: "40%+ at $40"
     notes: "ADD to 8.31 shares. Brings position 4%→6-7%."
+    last_analysis_date: 2026-02-05
     expiry: 2026-06-01
 
   - ticker: BYIT.L
@@ -32,6 +35,7 @@ standing_orders:
     fair_value: "345 GBp"
     mos_at_trigger: "30%"
     notes: "After H2 FY2026 OP confirms recovery >GBP 66M."
+    last_analysis_date: 2026-02-11
     expiry: 2026-06-01
 
   - ticker: RACE.MI
@@ -42,6 +46,7 @@ standing_orders:
     fair_value: "EUR 355"
     mos_at_trigger: "27%"
     notes: "ADD to full 6% if initial EUR 270 already executed."
+    last_analysis_date: 2026-02-11
     expiry: 2026-08-01
 
   - ticker: V
@@ -53,6 +58,7 @@ standing_orders:
     mos_at_trigger: "22.9%"
     tier: "A (QS 82)"
     notes: "R4 APPROVED. ADD after initial BUY at $260. R3 FV $305. 4 hard gates apply."
+    last_analysis_date: 2026-02-15
     expiry: 2026-08-01
 
   # BUY ORDERS (new positions)
@@ -63,6 +69,8 @@ standing_orders:
     fair_value: "220-240 GBp"
     mos_at_trigger: "25%"
     notes: "FirstGroup. Tier B. WARNING: No adversarial pipeline."
+    last_analysis_date: 2026-02-03
+    status: REQUIRES_PIPELINE
     expiry: 2026-06-01
 
   - ticker: CMCSA
@@ -72,6 +80,8 @@ standing_orders:
     fair_value: "$33-38"
     mos_at_trigger: "26-31%"
     notes: "Tier B. WARNING: No adversarial pipeline."
+    last_analysis_date: 2026-02-03
+    status: REQUIRES_PIPELINE
     expiry: 2026-06-01
 
   - ticker: WPP.L
@@ -81,6 +91,7 @@ standing_orders:
     fair_value: "380 GBp"
     mos_at_trigger: "47%"
     status: "UNDER REVIEW — Tier C, evaluate after Rose plan Feb 26"
+    last_analysis_date: 2026-02-03
     expiry: 2026-04-01
 
   - ticker: MA
@@ -91,6 +102,7 @@ standing_orders:
     mos_at_trigger: "21.3%"
     tier: "A (QS 86)"
     notes: "R4 APPROVED. WIDE 22/25. Hard gates: CCCA floor vote + Wero <5% + rev growth >=8%. ADD at $280."
+    last_analysis_date: 2026-02-15
     expiry: 2026-08-01
 
   - ticker: V
@@ -102,16 +114,19 @@ standing_orders:
     tier: "A (QS 82)"
     notes: "R4 APPROVED. FV $305 (R3). 4 HARD GATES: DOJ no structural remedies, CCCA no floor vote, rev growth >=8%, client incentives <48%. MA is FIRST priority. 10 kill conditions."
     hard_gates: "DOJ, CCCA, rev_growth>=8%, incentives<48%"
+    last_analysis_date: 2026-02-15
     expiry: 2026-08-01
 
   - ticker: DSY.PA
     action: BUY
-    trigger: "<=EUR 15.50"
+    trigger: "<=EUR 14.50"
     size_eur: 330
     fair_value: "EUR 20.00"
-    mos_at_trigger: "22.5%"
+    mos_at_trigger: "27.5%"
     tier: "B (QS 70)"
-    notes: "Committee approved. Wait Q1 2026. Cancel if growth <3%."
+    notes: "Re-eval Feb 18: Trigger revised 15.50→14.50 post -21% crash. FV unchanged. 0APT breach FAKE (cleared). 6 HIGH/CRITICAL risks. Wait Q1 2026. Cancel if growth <3%."
+    pre_execution_condition: "Q1 2026 results must confirm organic growth >=3%. KC5/KC6 in WATCHING status."
+    last_analysis_date: 2026-02-18
     expiry: 2026-05-15
 
   - ticker: DNLM.L
@@ -121,6 +136,7 @@ standing_orders:
     fair_value: "1008 GBp"
     mos_at_trigger: "23%"
     tier: "A (QS 79)"
+    last_analysis_date: 2026-02-09
     expiry: 2026-06-01
 
   - ticker: RACE.MI
@@ -131,6 +147,7 @@ standing_orders:
     mos_at_trigger: "24%"
     tier: "A (QS 82/84)"
     notes: "Committee approved. Conditional on Luce + tariffs."
+    last_analysis_date: 2026-02-11
     expiry: 2026-08-01
 
   - ticker: ROP
@@ -141,6 +158,7 @@ standing_orders:
     mos_at_trigger: "22%"
     tier: "B (QS 48/70 adj)"
     notes: "Serial acquirer. 29 vertical software monopolies."
+    last_analysis_date: 2026-02-12
     expiry: 2026-05-15
 
   - ticker: VLTO
@@ -151,6 +169,7 @@ standing_orders:
     mos_at_trigger: "20%"
     tier: "B (QS 52/66 adj)"
     notes: "Danaher spinoff. Dual #1 water+coding."
+    last_analysis_date: 2026-02-14
     expiry: 2026-05-31
 
   - ticker: MMC
@@ -161,6 +180,7 @@ standing_orders:
     mos_at_trigger: "18.4%"
     tier: "B (QS 64/68 adj)"
     notes: "HALF POSITION — Greensill A$7B trial Aug 2026."
+    last_analysis_date: 2026-02-14
     expiry: 2026-05-31
 
   - ticker: ACGL
@@ -171,7 +191,59 @@ standing_orders:
     mos_at_trigger: "20%"
     tier: "B (QS 57/68 adj)"
     notes: "Bermuda specialty insurer. Entering soft market."
+    last_analysis_date: 2026-02-14
     expiry: 2026-07-31
+
+  - ticker: MEGP.L
+    action: BUY
+    trigger: "<=135 GBp"
+    size_eur: 400
+    shares_approx: 259
+    fair_value: "180 GBp"
+    mos_at_trigger: "25%"
+    tier: "A (QS 80)"
+    notes: "R3 complete. DA -10% (200→180p, math error corrected). German regulation = execution risk (not catalyst). Failed sale Dec 2025. ROIC +32pp, net cash, 37% insider. ACGL is FIRST PRIORITY."
+    pre_execution_condition: "HARD GATE: FY2025 results Feb 27 must confirm laundry installs >800, receivables explained, no KC triggered. R4 committee required post-earnings."
+    last_analysis_date: 2026-02-18
+    expiry: 2026-08-01
+
+  - ticker: SOON.SW
+    action: BUY
+    trigger: "<=CHF 160"
+    size_eur: 350
+    shares_approx: 2
+    fair_value: "CHF 200"
+    mos_at_trigger: "20%"
+    tier: "B (QS 67)"
+    notes: "R3 complete. DA STRONG COUNTER -31.4% (FV 255->200, entry 180->160). Error #49 confirmed. CHF permanent drag. NARROW moat 18/25. 4 CRITICAL risks. Bear CHF 137-150."
+    pre_execution_condition: "HARD GATE: Do NOT execute before May 2026 FY2025/26 results. Full-year EBITA margin must be >= FY2024/25 (20.9%). FCF > CHF 700M. If margin declines for 4th consecutive year, thesis is DEAD."
+    last_analysis_date: 2026-02-18
+    expiry: 2026-10-01
+
+  - ticker: KNSL
+    action: BUY
+    trigger: "<=$310"
+    size_eur: 400
+    fair_value: "$458"
+    mos_at_trigger: "32.3%"
+    tier: "A (QS 61/75 adj)"
+    notes: "R3 complete. DA -15% correction ($539→$458). WIDE moat (expense ratio 20.8% = half industry). ROE 26% >> CoE 10%. Insurer QS adjustment +15. ACGL is FIRST PRIORITY over KNSL for capital. 7 KCs."
+    pre_execution_condition: "Verify Q1 2026 GWP growth trends (ex-property >10%) before executing"
+    last_analysis_date: 2026-02-18
+    expiry: 2026-08-01
+
+  - ticker: EEFT
+    action: BUY
+    trigger: "<=$58"
+    size_eur: 184
+    shares_approx: 3
+    fair_value: "$85"
+    mos_at_trigger: "32%"
+    tier: "B (QS 68, R3 revised)"
+    notes: "R3 RESOLVED. DA STRONG COUNTER -36%. FV $133→$85. EPS buyback-engineered. 1% remittance tax. CEO selling. Risk VERY HIGH."
+    pre_execution_condition: "SUSPENDED: DO NOT EXECUTE until Q1 2026 results (May 2026) confirm remittance tax impact. If Ria US revenue -10%+ → CANCEL."
+    last_analysis_date: 2026-02-18
+    expiry: 2026-08-01
 
   - ticker: MORN
     action: BUY
@@ -182,6 +254,7 @@ standing_orders:
     tier: "A (QS 60/78 adj)"
     notes: "R4 WATCHLIST. CRSP conflict thesis update REQUIRED pre-execution. 10 kill conditions."
     pre_execution_condition: "Thesis must include CRSP acquisition analysis + insider selling correction"
+    last_analysis_date: 2026-02-14
     expiry: 2026-05-31
 
   - ticker: PAYC
@@ -192,6 +265,7 @@ standing_orders:
     mos_at_trigger: "23.5%"
     tier: "A (QS 68/75 adj)"
     notes: "R4 WATCHLIST. Per-seat pricing KC#8. Requires -30% from current. Patient order."
+    last_analysis_date: 2026-02-14
     expiry: 2026-05-31
 
   - ticker: FDS
@@ -202,6 +276,7 @@ standing_orders:
     mos_at_trigger: "19%"
     tier: "B (QS 73)"
     notes: "R4 WATCHLIST. NARROW moat. Hard gate Q2 FY2026 (Mar 2026). VRSK preferred if both reach entry."
+    last_analysis_date: 2026-02-14
     expiry: 2026-06-30
 
   - ticker: ZTS
@@ -212,6 +287,27 @@ standing_orders:
     mos_at_trigger: "20.8%"
     tier: "A (QS 78/80 adj)"
     notes: "R4 WATCHLIST. FV corrected from thesis $140. Librela + Apoquel generic risks. 7 kill conditions."
+    last_analysis_date: 2026-02-14
     expiry: 2026-06-30
+
+# =============================================================================
+# SHORT ORDERS - Pre-approved short positions, execute when price hits trigger
+# Trigger: price >= target (inverted vs longs)
+# Requires: Short pipeline S1-S4 complete + investment-committee SHORT_APPROVAL
+# =============================================================================
+short_orders: []
+# Ejemplo de formato:
+#  - ticker: XYZ
+#    action: SHORT
+#    trigger: ">=$200"
+#    size_eur: 400
+#    fair_value: "$120"
+#    catalyst: "Q2 earnings reveal accounting weakness"
+#    catalyst_date: 2026-07-15
+#    carry_cost_note: "~7-8% annual on eToro CFD"
+#    max_duration: "6 months"
+#    notes: "S4 APPROVED. Fragility thesis: hidden revenue concentration."
+#    last_analysis_date: 2026-07-01
+#    expiry: 2026-12-31
 
 # Cancelled orders history: see state/calendar_archive.yaml

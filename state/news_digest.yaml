@@ -1,544 +1,495 @@
 # =============================================================================
-# NEWS DIGEST - Session 73 (2026-02-16)
+# NEWS DIGEST - Session 76 (2026-02-19)
 # =============================================================================
 
-last_scan: "2026-02-16 10:30"
-session: 73
-tickers_scanned: 22  # 10 active + 3 pipeline earnings + 9 standing orders/watchlist
-classification: "0 CRITICAL | 6 MATERIAL | 9 MINOR | 3 PIPELINE_EARNINGS"
+last_scan: "2026-02-19 08:00"
+session: 76
+tickers_scanned: 21  # 10 active + 1 MONC.MI + 4 pipeline + 1 MEGP.L + 5 short candidates
+classification: "0 CRITICAL | 7 MATERIAL | 10 MINOR | 4 SHORT_CANDIDATE_UPDATE"
 
 # =============================================================================
-# MACRO CONTEXT (updated Session 73)
+# EARNINGS TODAY (CRITICAL PRIORITY)
 # =============================================================================
 
-macro:
-  presidents_day:
-    classification: MINOR
-    date: "2026-02-16"
-    headline: "US markets CLOSED Monday Feb 16 (Presidents Day). Reopen Tuesday Feb 17."
-    details: |
-      NYSE, Nasdaq, S&P 500 and bond markets ALL CLOSED on Monday February 16.
-      Trading resumes Tuesday February 17 — which is ALSO RSG + CDNS earnings day.
-      London Stock Exchange OPEN on Monday (not a UK holiday).
-      European exchanges (Paris, Frankfurt, Milan) OPEN on Monday.
-    impact_our_portfolio:
-      - "RSG/CDNS earnings after close TUESDAY Feb 17 (first full trading day after holiday)"
-      - "VRSK earnings before open WEDNESDAY Feb 18"
-      - "UK/EU positions trade normally Monday: AUTO.L, BYIT.L, DOM.L, MONY.L, DTE.DE, EDEN.PA"
+earnings_today:
 
-  tariffs_escalation:
+  MONC.MI:
     classification: MATERIAL
-    date: "2026-02-16"
-    headline: "US effective tariff rate at 13.5% — highest since 1946. Ongoing volatility."
-    details: |
-      No new tariff developments in last 48h. Situation unchanged from Session 72.
-      Reciprocal tariff announcements expected March. Steel/aluminum carveouts still rumored.
-    impact_our_portfolio:
-      - "DTE.DE: EUR exposed, tariff impact indirect via T-Mobile US (limited)"
-      - "RACE.MI: Standing order conditional on tariff timeline"
-      - "LULU: Supply chain exposure to Vietnam/China tariffs on apparel imports"
-      - "ROP: Deltek GovCon weakness + Neptune tariff-related cost pressure in Q4"
-
-  saas_ai_selloff:
-    classification: MATERIAL
-    date: "2026-02-16"
-    headline: "SaaS/AI selloff: DSY.PA crashed 21% (worst day ever). ADBE near 52wL. MONY.L at 13-yr low."
-    details: |
-      DSY.PA Q4 miss + soft 2026 guide triggered worst day in history (-21% on Feb 11).
-      Software fears now structural, not episodic. AI disruption narrative accelerating.
-      ADBE at historic P/E lows (~15x). BYIT.L near lows. MONY.L at 13-year low.
-      Contrarian accumulation starting: institutional buyers adding to ADBE.
-    impact_our_portfolio:
-      - "ADBE: Ground zero. ~$263 vs cost $270.60. P/E 15x = historic low"
-      - "MONY.L: 153p 13-year low. Feb 23 earnings = fate"
-      - "BYIT.L: Near lows. Microsoft EA headwinds structural"
-      - "DSY.PA: Standing order EUR 15.50 now only 2.9% away after crash"
+    report_date: "2026-02-19 (board meeting to approve FY2025)"
+    status: "RELEASING TODAY — results not yet public at scan time"
+    context_9M2025:
+      group_revenue: "EUR 1,841M (flat cFX YoY)"
+      moncler_brand: "EUR 1,553M (flat cFX)"
+      stone_island: "EUR 288M (-1% cFX)"
+      h1_ebit_margin: "18.3% (down from 21%, marketing spend + no insurance gains)"
+      h1_net_income: "EUR 153.5M (-15% YoY)"
+      gross_margin: "76.9% (stable)"
+      china: "Double-digit growth, outperforming rest of luxury"
+      americas: "Outperforming, offsetting EMEA/Japan softness"
+      wholesale: "Guided mid-single-digit decline for FY2025"
+    analyst_consensus: "FV est ~EUR 58.81 (consensus). Revenue growth ~7% forward."
+    our_r1_data: "QS 92, R1 FV EUR 58, target entry EUR 48"
+    key_questions_for_fy2025:
+      - "Q4 DTC revenue: Can holiday season recover flat 9M performance?"
+      - "Full-year margins: EBIT decline from 21% — how much recovery in H2?"
+      - "2026 guidance: Any quantified outlook from Remo Ruffini?"
+      - "Stone Island: Continued weakness or stabilizing?"
+      - "China acceleration vs EMEA/Japan deceleration — net effect?"
+    impact: |
+      HARD GATE for R2. If results beat 9M trajectory (Q4 must deliver ~EUR 800M+ revenue
+      to reach EUR 2.6B+ FY), thesis strengthens. Entry target EUR 48 requires ~18% decline
+      from current ~EUR 57-58. Stock is ABOVE our entry target.
+      Results will determine whether R2 proceeds or thesis is revised.
+    action: CHECK_RESULTS_TODAY
 
 # =============================================================================
-# ACTIVE POSITIONS (10)
+# ACTIVE POSITIONS (10) - NEWS UPDATE vs Session 75
 # =============================================================================
 
 positions:
   DTE.DE:
     classification: MINOR
-    date: "2026-02-16"
+    date: "2026-02-19"
     headlines:
-      - "Stock EUR ~31. Up 3.71% on Feb 12 volume surge. Multiple analyst buy ratings"
-      - "No T-Mobile share sale planned in 2026 (confirmed)"
-      - "AI collaboration with OpenAI (operational efficiency). UBS PT EUR 35.70"
-      - "Feb 26 FY2025 earnings — 10 days away"
-    impact: "No new negatives. Stock approaching FV EUR 35 (MoS ~10%). Feb 26 earnings is next catalyst."
+      - "Erste Group UPGRADED to Buy (from Hold) on Feb 18"
+      - "Stock up 3.71% on Feb 12 with volume surge"
+      - "EUR 2B buyback program running Jan-Dec 2026"
+      - "FY2025 earnings Feb 26 — 7 DAYS AWAY"
+      - "Multiple Buy ratings: DB, Barclays, JPM, Berenberg, now Erste"
+    changes_vs_session75:
+      - "NEW: Erste Group upgrade to Buy (Feb 18). Additional analyst conviction."
+      - "CONFIRMED: Stock ~EUR 31-32 range. Approaching FV EUR 35."
+    impact: "Additional analyst upgrade. Feb 26 earnings = 7 days. No thesis-changing news."
     action: MONITOR
-    context: "HOLD MEDIUM. FV EUR 35.00. MoS ~10-12% compressing. Feb 26 earnings decides."
+    context: "HOLD MEDIUM. FV EUR 35. MoS compressing. Feb 26 = catalyst. TRIM plan if >EUR 34."
 
   EDEN.PA:
     classification: MINOR
-    date: "2026-02-16"
+    date: "2026-02-19"
     headlines:
-      - "No company-specific news in last 48h"
-      - "Stock ~EUR 17.6-18.2. Analyst avg PT EUR 33.09"
-      - "2026 as rebasing year (2-4% EBITDA growth) then 8-12% from 2027-2028"
-      - "Feb 24 FY2025 earnings — 8 days away"
-    impact: "Quiet pre-earnings. Feb 24 is the catalyst. Brazil regulation + 2026 rebasing guidance critical."
+      - "No material company-specific news in last 48h"
+      - "Share capital disclosure filed for Jan 31, 2026"
+      - "FY2025 earnings Feb 24 — 5 DAYS AWAY"
+      - "Analyst consensus: Hold, target EUR 17.70 (eToro)"
+      - "Stock ~EUR 18.53 (+4.95% past week)"
+    changes_vs_session75:
+      - "PRICE: Stock recovered to EUR 18.53 (was lower in S75). Minor positive."
+      - "No new fundamental developments."
+    impact: "Quiet pre-earnings period. Feb 24 = 5 days. No news is neutral."
     action: MONITOR
-    context: "HOLD MEDIUM. FV EUR 29. MoS ~39%. Feb 24 earnings = critical."
+    context: "HOLD MEDIUM. FV EUR 29. MoS ~36% at current. Feb 24 FY2025 = key."
 
   DOM.L:
     classification: MINOR
-    date: "2026-02-16"
+    date: "2026-02-19"
     headlines:
-      - "Stock ~199p. Up 1.3% on Feb 14. CHICK 'N' DIP rolled out to all stores (Feb 9)"
-      - "Q3 2025: total sales +2.1%, LfL +1%, orders -1.5%"
-      - "EBITDA guidance GBP 130-140M maintained. Mar 5 FY25 results"
+      - "Stock ~181p. Slight recovery from 173p in S75"
+      - "Share capital and voting rights confirmed Feb 2"
+      - "FY25 results Mar 5 — 14 DAYS AWAY"
       - "New CEO Dominic Paul starts Apr 6"
-    impact: "No new developments. Product innovation positive. Mar 5 results = decision point."
+      - "Analyst consensus: 3 buy, 5 hold, 2 sell. Avg target 244p"
+    changes_vs_session75:
+      - "PRICE: Stock 181p vs 173p in S75 = +4.6% recovery"
+      - "No new fundamental news."
+    impact: "Minor price recovery. Thesis unchanged. Mar 5 results = decision point."
     action: MONITOR
-    context: "HOLD LOW. FV 240p. MoS ~17% at 199p. Mar 5 results + Apr 6 new CEO."
+    context: "HOLD LOW. FV 240p. MoS 25% at 181p. Mar 5 results. KC#1: EBITDA < GBP 125M."
 
   GL:
     classification: MATERIAL
-    date: "2026-02-16"
+    date: "2026-02-19"
     headlines:
-      - "Q4 EPS $3.39 (slight miss vs $3.44 consensus). Revenue $1.52B"
-      - "FY2026 guidance RAISED: $14.95-15.65/share (+6-11%)"
-      - "INSIDER SELLING: $6.1M from 3 executives in 6 days (Feb 6-12)"
-      - "Truist raised PT to $180. Evercore downgraded to In-Line, PT $155"
-      - "ProShare Advisors reduced position (institutional selling)"
-      - "Caprock Group invested $1.06M (institutional buying)"
-      - "Class action (Robbins LLP) still pending"
+      - "INSIDER SELLING ACCELERATED — 3 insiders sold in Feb:"
+      - "  - Director Blinn sold 1,750 shares ($259K) Feb 6 = -34% of his position"
+      - "  - EVP Majors sold 30,000 shares ($4.41M) Feb 6"
+      - "  - CMO Haworth sold 10,000 shares ($1.43M) Feb 12"
+      - "TOTAL insider selling Feb: ~$6.1M across 3 executives"
+      - "Q4 EPS $3.39 MISSED consensus $3.44 (-1.5%)"
+      - "FY2026 guidance RAISED: $14.95-15.65 EPS"
+      - "JPMorgan RAISED PT to $181, reiterated Overweight"
+      - "$170M buyback in Q4 2025"
+      - "Atria Investments grew holdings (institutional buying)"
+    changes_vs_session75:
+      - "NEW: EVP Majors sold $4.41M on same day as Blinn = COORDINATED selling"
+      - "NEW: CMO Haworth sold $1.43M on Feb 12"
+      - "TOTAL: $6.1M insider selling in Feb (was $259K reported in S75 — MUCH LARGER)"
+      - "COUNTERPOINT: Guidance raised + JPM upgrade + institutional buying"
     impact: |
-      Mixed signals. Guidance RAISED is positive. But insider selling pattern ($6.1M/3 execs/6 days)
-      remains the strongest bearish signal since SEC/DOJ clearing. Analyst opinion split
-      (Truist bullish $180, Evercore cautious $155). Institutional flows mixed.
-      No kill condition triggered. Stock ~$142 vs FV $191 = MoS ~26%.
+      MATERIAL — Insider selling is now $6.1M across THREE executives, not just one director.
+      EVP selling $4.41M the DAY after earnings = concerning signal.
+      HOWEVER: Company raised guidance, JPM raised PT, buybacks executing.
+      MIXED SIGNALS: Management words (guidance up) contradict management actions (selling).
+      Compare: guidance says $14.95-15.65, but EVP sells 30,000 shares the day after.
+      Watch for more insider sales. If CEO or additional C-suite sell, classification escalates.
     action: MONITOR_CLOSELY
-    context: "HOLD MEDIUM. Guidance raised bullish. Insider selling bearish. Mixed analyst signals. Watch for more insider activity."
+    context: "HOLD MEDIUM. FV $191. Insider selling $6.1M = red flag. Guidance up = green flag. MIXED."
 
   ADBE:
-    classification: MINOR
-    date: "2026-02-16"
+    classification: MATERIAL
+    date: "2026-02-19"
     headlines:
-      - "No new company-specific developments in last 48h"
-      - "Touched new 52wL $251 on Feb 12 before bouncing"
-      - "FTC trial timeline unchanged: Oct 19, 2026"
-      - "Sector-wide SaaS selloff is primary driver. No ADBE-specific deterioration"
-    impact: "Quiet. Thesis intact. SaaS selloff is sector-wide, not company-specific. FTC Oct 2026 remains binary risk."
+      - "Stock ~$260 (-26% YTD). Near 7-year low"
+      - "24/7 Wall St: 'Stock Drops 26% as Wall Street Questions AI Defense'"
+      - "Seeking Alpha: 'Broken Stock Not Broken Company' + 'Interesting at 7-Year Low'"
+      - "Class-action lawsuit: alleges ADBE used pirated books to train AI models"
+      - "AI competition fears: Canva, Figma, OpenAI challenging Creative Cloud"
+      - "Consensus: 21 Buy, avg PT $414 (+59% upside)"
+      - "FTC trial Oct 2026 unchanged"
+    changes_vs_session75:
+      - "NEW: Class-action lawsuit re: pirated books for AI training"
+      - "CONFIRMED: Stock at/near 7-year low. Sentiment deteriorating further."
+      - "CONFIRMED: Analyst consensus still Buy with $414 PT but gap widening"
+    impact: |
+      New class-action is MINOR (typical ambulance-chasing on AI training data — affects entire industry).
+      Stock at 7-year low with P/E ~11x is historically extreme for ADBE's quality.
+      AI fears are NARRATIVE, not yet showing in revenue/margins. Next data: Mar 11 Q1 FY2026.
+      The question remains: is this NVO-in-Feb (temporary fear = opportunity) or HRB-in-Jan (real erosion)?
     action: MONITOR
-    context: "HOLD MEDIUM. FV $390. MoS ~33% at $263. P/E 15x historic. Thesis fully intact."
+    context: "HOLD MEDIUM. FV $390. MoS ~33%. AI class action = noise. Mar 11 = next data point."
 
   NVO:
-    classification: MATERIAL
-    date: "2026-02-16"
+    classification: MINOR
+    date: "2026-02-19"
     headlines:
-      - "CagriSema NDA filed to FDA Dec 2025. FDA review underway, approval late 2026/early 2027"
-      - "REIMAGINE 2 trial: CagriSema SUPERIOR to semaglutide in T2D (Feb 2)"
-      - "CagriSema vs Tirzepatide (Zepbound) H2H trial COMPLETED (data collection done as of Feb 5)"
-      - "H2H headline results expected end of March — BINARY catalyst"
-      - "Stock ~$49-50, stabilizing post guidance shock"
-    impact: |
-      KEY UPDATE: H2H trial vs tirzepatide marked as COMPLETED (Feb 5). Data collection phase done.
-      Headline results expected end of March. This is the single most important catalyst for NVO.
-      NDA filed and FDA reviewing = execution on track.
-      Stock stabilizing at $49-50 = market has absorbed guidance shock.
+      - "DKK 15B share buyback advancing (shares being repurchased weekly)"
+      - "CEO Lars Fruergaard Jorgensen stepping down — Doustdar now CEO"
+      - "2026 guidance: -5% to -13% sales decline (ALREADY KNOWN, bought post)"
+      - "Wegovy pill launch in US — ~50K weekly prescriptions"
+      - "CagriSema REIMAGINE 2: superior to semaglutide in T2D (already known)"
+      - "CagriSema NDA under FDA review"
+      - "H2H vs Zepbound data: END OF MARCH = BINARY"
+    changes_vs_session75:
+      - "No new material developments in last 48h"
+      - "CONFIRMED: Buyback executing. Pipeline advancing. March H2H = key."
+    impact: "Quiet period. All known catalysts unchanged. March H2H remains THE event."
     action: MONITOR
-    context: "HOLD. CagriSema H2H data end March = BINARY. NDA under FDA review. No ADD until data."
+    context: "HOLD. Entry $48.13. CagriSema H2H end March = BINARY. No new news."
 
   MONY.L:
     classification: MATERIAL
-    date: "2026-02-16"
+    date: "2026-02-19"
     headlines:
-      - "Stock ~153p. 13-YEAR LOW post-Insurify ChatGPT crash"
-      - "Berenberg DEFENDS: BUY PT 275p. Says AI disruption risk overblown, FCA regulation protects UK PCWs"
-      - "Feb 23 FY2025 earnings — 7 DAYS AWAY. ON PROBATION."
-      - "KC#9 (AI strategy) = THE question for management"
-      - "No new company-specific developments since last scan"
+      - "FY2025 earnings Feb 23 — 4 DAYS AWAY. ON PROBATION"
+      - "Insurify ChatGPT app launch (US-only) caused -11.8% drop in MONY shares"
+      - "Berenberg defended: AI selloff 'overdone', disintermediation risk low, rate Buy PT 275p"
+      - "BlackRock reduced stake to 5.29% (from 5.36%) as of Feb 4"
+      - "KC#9 (AI strategy) = THE question for probation"
+      - "ChatGPT may integrate WITH market leaders (positive for MONY if true)"
+    changes_vs_session75:
+      - "CONFIRMED: Insurify ChatGPT app was the catalyst for AI selloff"
+      - "NEW: Berenberg explicitly defended stock post-selloff"
+      - "NEW: BlackRock slightly reduced position (minor)"
+      - "CONTEXT: Berenberg argues ChatGPT integration = POSITIVE for incumbents"
     impact: |
-      No new developments. Stock languishing at 13-year lows.
-      Feb 23 earnings in 7 days = FATE of this position.
-      KC#9 (AI strategy): does management present a credible plan?
-      Without credible AI strategy: EXIT per plan.
-      With credible strategy: maintain, possibly upgrade from PROBATION.
+      4 DAYS until probation verdict. The Insurify/ChatGPT incident makes KC#9 MORE critical.
+      If management has no AI strategy on Feb 23, the market's fears are confirmed.
+      Berenberg's counter-argument (ChatGPT integrates WITH incumbents) is plausible but unproven.
+      BlackRock reducing is MINOR (5.36->5.29%, rebalancing-level).
+      Framework v2 is READY for earnings evaluation.
     action: PREPARE_EARNINGS_FRAMEWORK
-    context: "ON PROBATION LOW. 153p vs FV 190p. Feb 23 = FATE. KC#9 must be answered."
+    context: "ON PROBATION LOW. Feb 23 = 4 days. KC#9 = THE test. Berenberg defends."
 
   LULU:
     classification: MATERIAL
-    date: "2026-02-16"
+    date: "2026-02-19"
     headlines:
-      - "CEO search ongoing. Elliott pushing Jane Nielsen (ex-Ralph Lauren COO/CFO)"
-      - "Wilson proxy fight: 3 directors nominated (Marc Maurer ex-On, Laura Gentile ex-ESPN, Eric Hirshberg)"
-      - "Heart Scatter see-through leggings = 2nd QC incident (KC#3 approaching)"
-      - "Global expansion strategy continues amid leadership vacuum"
-      - "No new developments in last 48h. Stock ~$171"
+      - "Stock ~$178. Stable."
+      - "2ND see-through leggings controversy: 'Heart Scatter' design"
+      - "Stock fell 2% on Bloomberg report of QC issue"
+      - "Unrestricted Power training line launched Feb 10 (new PowerLu fabric)"
+      - "6 new franchise markets announced (Greece, Austria, Poland, Hungary, Romania, India)"
+      - "Calvin McDonald confirmed as Wella CEO (Apr 2). Fully departed."
+      - "Elliott pushing Jane Nielsen (ex-Ralph Lauren) for permanent CEO"
+      - "Zacks positive estimate for Q4 earnings"
+      - "Q4 guidance RAISED to high end: $3.5-3.585B rev, $4.66-4.76 EPS"
+    changes_vs_session75:
+      - "CONFIRMED: 2nd QC incident (Heart Scatter). KC#3 quality = approaching threshold."
+      - "No other new developments."
     impact: |
-      No new news. Known issues persist: CEO vacancy, dual proxy fight (Elliott vs Wilson),
-      2 QC incidents (KC#3 approaching). Mar 31 Q4 = MAKE-OR-BREAK.
-      Need: positive global comps + GM >57% + CEO announcement.
+      2nd see-through incident in weeks is CONCERNING for KC#3 (quality/brand erosion).
+      Not yet triggered (KC#3 requires "third incident or recall"), but pattern forming.
+      Product launches (Unrestricted Power) and market expansion show execution continuing.
+      Mar 31 Q4 = MAKE-OR-BREAK remains unchanged.
     action: MONITOR
-    context: "ON PROBATION LOW. FV $196. MoS ~13%. KC#3 approaching. Mar 31 = MAKE-OR-BREAK."
+    context: "ON PROBATION LOW. FV $196. KC#3 quality approaching (2 incidents). Mar 31 = M-O-B."
 
   AUTO.L:
     classification: MINOR
-    date: "2026-02-16"
+    date: "2026-02-19"
     headlines:
-      - "Stock ~464p. Near 52wL"
-      - "Aggressive buyback continues: 823K shares @ 463p (Feb 12), 700K @ 475p (Feb 10)"
-      - "Affordability report: households <40K shut out. Used car demand still strong (86.3M visits Jan)"
-      - "April 2026 pricing event = make-or-break"
-    impact: "No new fundamentals. Management aggressively buying back at these levels (signal of confidence). April pricing = key."
+      - "Multiple buyback transactions: 700K @ 475p (Feb 10), 823K @ 463p (Feb 12)"
+      - "UK used car market: visits +24.7% MoM in Jan (86.3M). Strong demand"
+      - "Supply warning: 5-7yr old stock to drop 35% by 2027"
+      - "Stock ~463p. Buybacks executing at current levels"
+    changes_vs_session75:
+      - "No new material developments."
+      - "CONFIRMED: Buyback pace aggressive at ~460-475p."
+    impact: "Quiet. Buybacks signal management conviction at current levels. April pricing = key."
     action: MONITOR
-    context: "HOLD LOW. FV 580p. MoS ~20% at 464p. Buyback signal positive. April 2026 = make-or-break."
+    context: "HOLD LOW. FV 580p. April 2026 pricing = make-or-break. Buybacks positive."
 
   BYIT.L:
     classification: MINOR
-    date: "2026-02-16"
+    date: "2026-02-19"
     headlines:
-      - "Stock ~320-360p range. User notes 285.8p but recent data shows ~320-360p trading range"
-      - "H1 FY2026: OP down 7% (GBP 33.1M) due to Microsoft EA incentive changes"
-      - "Revenue +2.5%. Gross profit nearly flat (+0.4%)"
-      - "Management confident H2 will improve as Microsoft headwinds diminish"
-      - "No new news in last 48h. Next results May 2026"
-    impact: |
-      No new developments. Microsoft EA disintermediation structural overhang.
-      H2 improvement thesis needs validation at full-year results (May 2026).
-      ADD trigger at 240p not yet reached.
+      - "Hit NEW 52-WEEK LOW: 285.8p on Feb 16. Currently ~293.6p"
+      - "Jefferies downgraded to Hold, PT 400p (from 447p)"
+      - "Consensus: 1 Buy, 4 Hold, 0 Sell. Avg PT 461.6p"
+      - "Strong fundamentals article: 'Potential 69% upside'"
+    changes_vs_session75:
+      - "No new material developments."
+      - "CONFIRMED: Near 52wL. Weak technical but thesis unchanged."
+    impact: "At 52wL. ADD trigger 240p still ~18% below. May 2026 FY results = validation."
     action: MONITOR
-    context: "HOLD PROBATION LOW. FV 345p. Sector headwind. May 2026 = validation."
+    context: "HOLD PROBATION LOW. FV 345p. ADD trigger 240p. May 2026 = validation."
 
 # =============================================================================
-# PIPELINE / RESEARCH
+# PIPELINE / STANDING ORDERS UPDATE
 # =============================================================================
 
-pipeline:
-  RSG:
-    classification: PIPELINE_EARNINGS
-    date: "2026-02-16"
+pipeline_standing_orders:
+  ROP:
+    classification: MATERIAL
+    date: "2026-02-19"
     headlines:
-      - "Q4 2025 EARNINGS TUESDAY FEB 17 after close (5:00 PM ET) — TOMORROW"
-      - "US markets closed Monday (Presidents Day). RSG earnings = first event on reopen day"
-      - "Consensus: EPS $1.62-1.63, revenue $4.21B (+4.1% YoY)"
-      - "Earnings ESP +0.30%. Collection segment +5.1%. Landfill +9.3%"
-      - "Zacks Rank 4 (Sell) but positive ESP suggests slight beat potential"
-      - "R1 complete. FV $255, entry $210. HARD GATE: earnings before R2"
-    impact: |
-      MOST TIME-SENSITIVE item. Earnings TOMORROW after close.
-      Analyst expectations: $1.62-1.63 EPS, $4.21B revenue.
-      History of beats (4Q avg surprise +6.9%).
-      At ~$251 (current) vs entry $210 = not near entry. Watch guidance + reaction.
-    action: WATCH_EARNINGS_FEB_17
-    context: "R1 done. HARD GATE. Watch 2026 guidance + Collection/Landfill segments. Entry needs $210-220."
+      - "Stock near $315. Near 52wL of $314.56. Down 44% YoY"
+      - "Director insider buy $502K at $358 (Feb 6)"
+      - "2026 guide: 5-6% organic growth"
+      - "Trigger $300 = ~4.8% away"
+    standing_order: "$300 trigger. Stock ~$315 = 4.8% away. APPROACHING."
+    action: ALERT_APPROACHING_TRIGGER
 
-  CDNS:
-    classification: PIPELINE_EARNINGS
-    date: "2026-02-16"
-    headlines:
-      - "Q4 2025 EARNINGS TUESDAY FEB 17 after close — TOMORROW"
-      - "Consensus: EPS $1.90, revenue $1.42B. Company guided $1.405-1.435B, EPS $1.88-1.94"
-      - "Backlog >$7B. FY2025 expected ~14% revenue growth, 18% EPS growth"
-      - "17 Strong Buy, 1 Moderate Buy, 5 Hold. Bullish consensus"
-      - "R1 complete. FV $260, entry $230-240. At ~$299 = far from entry. HARD GATE"
-    impact: |
-      DUAL earnings day with RSG. Strong analyst consensus.
-      At ~$299 vs entry $230-240 = NOT near entry (20-24% above).
-      Watch FY2026 guidance and AI chip design momentum (ChipStack).
-      Earnings likely a non-event for us unless massive beat + pullback scenario.
-    action: WATCH_EARNINGS_FEB_17
-    context: "R1 done. HARD GATE. Stock far above entry. Watch for post-earnings pullback opportunity."
-
-  VRSK:
-    classification: PIPELINE_EARNINGS
-    date: "2026-02-16"
-    headlines:
-      - "Q4 2025 + FY2025 EARNINGS WED FEB 18 before open (8:30 AM ET) — 2 DAYS"
-      - "Consensus: Q4 EPS $1.58 (-1.9% YoY). 4Q beat streak"
-      - "Subscription revenue growth 8.7% (strong). Transactional down 8.8% (weather-driven)"
-      - "R3 complete. FV $185, entry $135-140. HARD GATE: earnings before R4"
-    impact: |
-      Clean setup. Weather-related weakness = cyclical, not structural.
-      Subscription growth 8.7% = strong core business.
-      At current levels vs entry $135-140 = likely well above entry.
-      Framework ready for analysis post-results.
-    action: WATCH_EARNINGS_FEB_18
-    context: "R3 done. HARD GATE. Framework ready. Watch subscription growth + 2026 guidance."
-
-# =============================================================================
-# STANDING ORDERS / WATCHLIST
-# =============================================================================
-
-standing_orders_watchlist:
   DSY.PA:
     classification: MATERIAL
-    date: "2026-02-16"
+    date: "2026-02-19"
     headlines:
-      - "CRASHED 21% on Feb 11 — WORST DAY IN COMPANY HISTORY"
-      - "Q4 revenue +1% (at bottom of guidance). Software revenue -5% in Q4"
-      - "2026 guide: 3-5% revenue growth (vs 5.8% consensus). WELL BELOW expectations"
-      - "Life Sciences DOWN 4%. Medidata DOWN 7%. Pharma clients cutting study starts"
-      - "AlphaValue DOUBLE DOWNGRADE: Buy to Reduce, PT slashed EUR 27 to EUR 17.80"
-      - "Morgan Stanley cut PT to EUR 28.25"
-      - "YTD: -25.25%. Stock at EUR ~15.96 (at 52-week LOW)"
-      - "Standing order trigger EUR 15.50 = 2.9% AWAY"
-    impact: |
-      APPROACHING STANDING ORDER TRIGGER. At EUR 15.96, only 2.9% from EUR 15.50 trigger.
-      Q4 was genuinely weak: software revenue -5%, Life Sciences -4%, Medidata -7%.
-      2026 guide of 3-5% growth is a STRUCTURAL SLOWDOWN, not just a one-off miss.
-      Standing order condition: "Cancel if Q1 2026 growth <3%." Q1 results not yet available.
-      RISK: If we buy now at EUR 15.50, Q1 could disappoint and stock falls further.
-      AlphaValue's EUR 17.80 target = stock already BELOW this bear target.
-      HOWEVER: our standing order is conditioned on Q1 data (expiry May 15).
-      At EUR 15.50 vs FV EUR 20 = MoS 22.5% BUT FV may need revision after this miss.
-    action: ALERT_NEAR_TRIGGER
-    context: "Standing order EUR 15.50 NEAR trigger (2.9%). BUT conditioned on Q1 growth >3%. Q4 was weak. FV may need revision. DO NOT BUY UNTIL Q1 VALIDATION."
+      - "Post-crash stabilizing at ~EUR 16.33"
+      - "Trigger EUR 14.50 (revised from 15.50 in S75)"
+      - "Stock = 11.2% from trigger"
+      - "0APT breach FAKE (cleared)"
+    standing_order: "EUR 14.50 trigger. Stock EUR 16.33 = 11.2% away. Further from trigger after revision."
+    action: MONITOR
 
-  ROP:
-    classification: MINOR
-    date: "2026-02-16"
-    headlines:
-      - "Stock hit new 52wL, down 44% over past year"
-      - "Q4 mixed: App Software + Network Software missed. TEP slightly beat"
-      - "2026 guide: 5-6% organic growth, DEPS $21.30-21.55"
-      - "Goldman cut PT to $440. RBC cut to $398. Multiple downgrades"
-      - "Director Joyce insider BUY $502K at $358 — strong confidence signal"
-      - "Standing order $300. Stock $321 = 7.1% away"
-    impact: |
-      Converging toward trigger but not yet at $300.
-      Director buying at $358 is a strong confidence signal from the board.
-      Multiple analyst downgrades create negative sentiment overhang.
-      At $300: MoS 22% vs FV $385. R4 approved. Standing order ready.
-    action: MONITOR_DAILY
-    context: "R4 APPROVED. Trigger $300. Stock $321 = 7.1% away. Director buying. Watch closely."
-
-  MA:
+  MEGP.L:
     classification: MATERIAL
-    date: "2026-02-16"
+    date: "2026-02-19"
     headlines:
-      - "CEO Miebach slams CCCA: 'race to the bottom for cheapest network'"
-      - "CCCA reintroduced Jan 13, 2026 in House and Senate — bipartisan"
-      - "Sponsors will seek larger legislative packages to attach CCCA in 2026"
-      - "Projected MA revenue growth ~15% for 2026"
-      - "CCCA impact estimate: 6-9% revenue hit, 2% earnings drag IF it passes"
-      - "Standing order trigger $315. Current price likely ~$350-370 range"
-    impact: |
-      CCCA legislative risk ELEVATED. Reintroduced Jan 13 with bipartisan support.
-      Attaching to larger package increases passage probability.
-      MA is FIRST PRIORITY over V per Session 72 decision.
-      Hard gates include: CCCA floor vote gate. If CCCA moves to floor vote = STOP.
-      Revenue impact 6-9% if passed = would require FV revision.
-      Currently above trigger. Monitor legislative progress.
-    action: MONITOR_LEGISLATIVE
-    context: "R4 APPROVED. Trigger $315. CCCA reintroduced, attaching to packages. Hard gate: no floor vote."
+      - "Stock ~134p. AT trigger level (135p)"
+      - "FY2025 annual results Feb 27 — 8 DAYS AWAY (HARD GATE)"
+      - "EPS growth 26% CAGR over 3 years"
+    standing_order: "135p trigger. Stock AT trigger. HARD GATE: Feb 27 results MUST be reviewed first."
+    action: ALERT_AT_TRIGGER_BUT_HARD_GATE
+    context: "DO NOT EXECUTE until Feb 27 results confirmed."
 
-  V:
-    classification: MINOR
-    date: "2026-02-16"
-    headlines:
-      - "DOJ antitrust case progressing. Fact discovery not yet underway"
-      - "Ethics issue with DOJ attorney (conflict of interest) — procedural complication"
-      - "DOJ and Visa disagree on discovery timeline (DOJ wants 4-month delay, Visa wants longer)"
-      - "No trial date set. Case in early stages"
-      - "CCCA also affects V (same hard gate as MA)"
-    impact: |
-      DOJ case moving slowly. No trial date. Discovery phase disputes = early innings.
-      Ethics complication with DOJ attorney is procedural noise, not substantive.
-      V is SECOND PRIORITY after MA per standing policy.
-      Hard gates: DOJ no structural remedies, CCCA no floor vote, rev growth >=8%, incentives <48%.
-    action: MONITOR
-    context: "R4 APPROVED. Trigger $260. DOJ case early stages. MA first priority."
+# =============================================================================
+# SHORT CANDIDATES (5) — POSITIVE NEWS CHECK
+# =============================================================================
 
-  ACGL:
-    classification: MATERIAL
-    date: "2026-02-16"
+short_candidates:
+  CVNA:
+    classification: SHORT_ALERT_MATERIAL
+    date: "2026-02-19"
     headlines:
-      - "Q4 2025 BLOWOUT: EPS $2.98 vs $2.49 consensus (+19.5% surprise)"
-      - "Full-year operating income $3.7B RECORD. Book value per share +22.6%"
-      - "Combined ratio 80.6% = exceptional underwriting quality"
-      - "$1.9B buybacks in FY2025 (5.6% of shares outstanding)"
-      - "2026 expense ratio guidance: 3.9-4.5% (improvement)"
-      - "Standing order trigger $88. Stock at ~$98-100"
-    impact: |
-      STRONG RESULTS. Record earnings, exceptional combined ratio, massive buybacks.
-      This VALIDATES our thesis. ACGL is executing at peak levels.
-      Standing order $88 = ~10-12% below current. Needs market pullback to reach.
-      RISK: Results may be TOO good (peak cycle for specialty insurance).
-    action: MONITOR
-    context: "R4 APPROVED. Trigger $88 (10.6% away). Q4 blowout validates thesis. Peak cycle risk."
+      - "Q4 2025 earnings REPORTING TODAY (after market close Feb 18)"
+      - "Gotham City Research short report caused -15% drop"
+      - "Block & Leviton investigating securities law violations"
+      - "Stock down -22.3% over past month to ~$343"
+      - "Expected Q4: 150K units (+31% YoY), EPS $1.13, Rev $5.20B (+47%)"
+      - "JPMorgan RAISED PT to $510, Overweight"
+      - "15 Strong Buy, 3 Moderate Buy, 5 Hold"
+    impact_on_short_thesis: |
+      MIXED for short thesis:
+      POSITIVE (for short): Gotham City report + Block & Leviton investigation confirms fraud concerns.
+      Stock already down -22% = some thesis playing out.
+      NEGATIVE (for short): JPM raised PT to $510. Consensus still Strong Buy.
+      If Q4 earnings beat strongly tonight, stock could squeeze hard.
+      EARNINGS TODAY = HIGH VOLATILITY EVENT. Do not initiate short pre-results.
+    action: CHECK_CVNA_RESULTS_TONIGHT
+    status: "WAIT for Q4 results before S1 analysis"
 
-  FOUR.L:
-    classification: MINOR
-    date: "2026-02-16"
+  ENR.DE:
+    classification: SHORT_WATCH
+    date: "2026-02-19"
     headlines:
-      - "2025 revenue ~$1.35B (down from $1.37B). PBT not less than $149M (above analyst range)"
-      - "New customer orders -12%. Existing customer orders flat (strong retention)"
-      - "Gross margin ~32%, double-digit OP margin maintained"
-      - "Paul Forman appointed Chair Designate (replacing Paul Moody Mar 16)"
-      - "FY2025 final results: March 11, 2026 — HARD GATE for entry"
-    impact: |
-      Pre-results update is mixed: revenue slightly down but profit above expectations.
-      New customer acquisition weakness (-12%) is concerning but offset by strong retention.
-      Mar 11 results = HARD GATE for our R3-complete pipeline position.
-    action: MONITOR
-    context: "R3 complete. Hard gate Mar 11. Revenue declining but profits exceeding. New customer weakness."
+      - "Stock at ALL-TIME HIGH ~EUR 167 (hit EUR 165.70 ATH on Feb 12)"
+      - "Deutsche Bank RAISED PT to EUR 170 (from EUR 135)"
+      - "$1B US investment in grid and turbine capacity"
+      - "Q1 FY2026 results Feb 11: revenue EUR ~10.4B Q4, order backlog EUR 138B"
+      - "6% OP margin in FY2025. Gamesa losses persist"
+      - "ASM Feb 26"
+    impact_on_short_thesis: |
+      NEGATIVE for short thesis (stock at ATH, analyst upgrades, $1B US investment).
+      The AI/grid narrative is STRENGTHENING, not weakening.
+      Order backlog EUR 138B is massive and real.
+      However: 6% OP margin at ATH P/E 78x = still stretched valuation.
+      Short entry was >EUR 30, stock is at EUR 167 = would NOT have worked.
+      Catalyst (Q2 earnings May) still valid but narrative wind is AGAINST us.
+    action: DEPRIORITIZE_SHORT
+    status: "Narrative too strong currently. Revisit after May earnings if margins disappoint."
 
-  MMC:
-    classification: MINOR
-    date: "2026-02-16"
+  RAND.AS:
+    classification: SHORT_WATCH
+    date: "2026-02-19"
     headlines:
-      - "Ticker changed to MRSH (Jan 14). Brand rebranding to Marsh"
-      - "Dividend $0.90/Q maintained. $600M senior notes priced (Feb 19 close)"
-      - "Stock ~$182. Standing order $155 = 15% below current"
-      - "No new fundamental developments"
-    impact: "Quiet. Senior notes offering = routine capital markets activity. Stock well above trigger."
-    action: MONITOR
-    context: "R4 APPROVED. Half position (Greensill trial Aug 2026). Trigger $155. Stock $182 = 15% away."
+      - "Q4 2025 earnings Feb 11: Rev EUR 5.8B, EBITDA EUR 191M"
+      - "Stock CRASHED -10.56% on earnings day (EUR 30.68 to EUR 27.44)"
+      - "Soft Q1 2026 guidance. Market recovery expected to be 'gradual'"
+      - "Proposed dividend EUR 1.62/share"
+      - "Stock now ~EUR 27.63"
+    impact_on_short_thesis: |
+      POSITIVE for short thesis (stock crashed on soft guidance, AI narrative building).
+      Revenue stable but EBITDA weak. Soft Q1 guide confirms structural pressure.
+      HOWEVER: Stock already down significantly. Entry was >EUR 48, stock at EUR 27.63.
+      The structural decline may ALREADY be in the price.
+      AI disruption to staffing is real but slow-moving.
+    action: REASSESS_ENTRY
+    status: "Stock already down 42% from our entry target. Short thesis partially played out at wrong time."
 
-  VLTO:
-    classification: MINOR
-    date: "2026-02-16"
+  LYV:
+    classification: SHORT_ALERT_MATERIAL
+    date: "2026-02-19"
     headlines:
-      - "Q4 EPS $1.04 beat consensus $0.98 (+6%)"
-      - "FY2026 guidance: EPS $4.10-4.20. Q1: $0.97-1.01"
-      - "Dividend raised from $0.11 to $0.13/Q"
-      - "Stock ~$93. Short interest decreased. Standing order $80"
-    impact: "Decent results. Above trigger at $80 (14% away). Div raise positive signal."
-    action: MONITOR
-    context: "R4 APPROVED. Trigger $80. Stock $93 = 14% away. Q4 beat + div raise."
+      - "DOJ antitrust trial STARTS MARCH 2 — 11 DAYS AWAY"
+      - "Trump DOJ FRACTURING on antitrust: Live Nation execs bypassing Gail Slater"
+      - "Live Nation filed 51-page motion to dismiss before trial"
+      - "States PREPARED to continue trial even if DOJ settles"
+      - "Bloomberg (Feb 18): States will pursue trial regardless of DOJ"
+      - "$20M investor settlement still pending"
+      - "Live Nation preparing for possible loss of exclusive contracts"
+    impact_on_short_thesis: |
+      CATALYST APPROACHING: Trial March 2 = 11 days.
+      MIXED signals on DOJ:
+      - Trump admin may prefer settlement over trial (NEGATIVE for short — weaker remedy)
+      - BUT: States prepared to pursue trial independently (POSITIVE for short)
+      - Live Nation's own preparation for "loss of exclusive contracts" = management sees risk
+      KEY RISK: If DOJ settles for behavioral remedies (no breakup), stock squeezes.
+      KEY OPPORTUNITY: If states force trial + structural remedy (Ticketmaster divestiture), stock drops.
+      THIS IS THE MOST BINARY SHORT CATALYST IN OUR WATCHLIST.
+    action: S1_PRIORITY_IF_INITIATING_SHORTS
+    status: "Catalyst 11 days away. S1 needed URGENTLY if we want to act. Binary outcome."
+
+  VTY.L:
+    classification: SHORT_WATCH
+    date: "2026-02-19"
+    headlines:
+      - "Stock ~729p. Near 52wH of 736p. UP 23% over past year"
+      - "Share buyback programme active (14,493 shares at ~689p on Feb 10)"
+      - "Insider Tim Lawlor bought 21 shares at 721p (tiny, Feb 16)"
+      - "FY2025 results expected Mar 4"
+      - "Analyst sentiment: 4 Buy, 11 Hold, 3 Sell"
+    impact_on_short_thesis: |
+      NEGATIVE for short thesis. Stock near 52wH (+23% YoY) DESPITE 3 profit warnings.
+      Market has FORGIVEN the profit warnings. Buyback + insider buying (even tiny).
+      Our entry target was >200p. Stock is at 729p = COMPLETELY wrong timing.
+      Short thesis may have been valid at lower levels but stock has recovered massively.
+    action: REMOVE_FROM_SHORT_WATCHLIST
+    status: "Stock recovered fully from profit warnings. Short thesis INVALIDATED by price action."
 
 # =============================================================================
 # EARNINGS CALENDAR (next 21 days)
 # =============================================================================
 
 earnings_calendar:
-  - date: "2026-02-17"
-    tickers: ["RSG (after close)", "CDNS (after close)"]
-    priority: HIGH
-    days_away: 1
-    notes: "DUAL pipeline earnings. First trading day after Presidents Day. HARD GATES."
-
-  - date: "2026-02-18"
-    tickers: ["VRSK (before open 8:30 AM ET)"]
-    priority: HIGH
-    days_away: 2
-    notes: "VRSK R3 hard gate. Before open. Framework ready."
-
   - date: "2026-02-19"
-    tickers: ["AGN.NV"]
-    priority: MEDIUM
-    days_away: 3
-    notes: "Aegon FY2025. Watch OCG, solvency. Entry 5.90."
+    tickers: ["MONC.MI"]
+    priority: HIGH
+    days_away: 0
+    notes: "TODAY. FY2025. HARD GATE for R2. QS 92, FV EUR 58, entry EUR 48."
 
   - date: "2026-02-23"
     tickers: ["MONY.L", "ENEL.MI CMD"]
     priority: CRITICAL
-    days_away: 7
-    notes: "MONY.L ON PROBATION. KC#9 (AI strategy). Make-or-break. ENEL Capital Markets Day."
+    days_away: 4
+    notes: "MONY.L ON PROBATION. KC#9 (AI strategy). Framework v2 READY."
 
   - date: "2026-02-24"
-    tickers: ["EDEN.PA", "UTG.L"]
+    tickers: ["EDEN.PA"]
     priority: HIGH
-    days_away: 8
-    notes: "EDEN.PA FY2025. Brazil regulation + 2026 rebasing. UTG.L preliminary results."
+    days_away: 5
+    notes: "EDEN.PA FY2025. 2-4% EBITDA rebasing."
 
   - date: "2026-02-25"
     tickers: ["BVI.PA", "WKL.AS"]
     priority: MEDIUM
-    days_away: 9
-    notes: "BVI.PA FY2025 (R3 pipeline). WKL.AS FY2025 (watchlist review)."
+    days_away: 6
+    notes: "BVI.PA FY2025 (R3 pipeline). WKL.AS FY2025 (watchlist)."
 
   - date: "2026-02-26"
-    tickers: ["DTE.DE", "INTU", "WPP.L", "CS.PA"]
+    tickers: ["DTE.DE", "INTU", "WPP.L", "CS.PA", "ENR.DE ASM"]
     priority: HIGH
-    days_away: 10
-    notes: "QUADRUPLE event day. DTE FY2025. INTU Q2 (pipeline hard gate). WPP Rose plan. AXA FY2025."
+    days_away: 7
+    notes: "QUINTUPLE event day. DTE.DE FY2025 (position). INTU Q2 hard gate. WPP Rose plan."
 
   - date: "2026-02-27"
-    tickers: ["PROX.BR"]
-    priority: MEDIUM
-    days_away: 11
-    notes: "Proximus FY2025 + Strategic Plan."
+    tickers: ["MEGP.L", "PROX.BR"]
+    priority: HIGH
+    days_away: 8
+    notes: "MEGP.L FY2025 HARD GATE. Stock AT trigger. Must review before execution."
 
-  - date: "2026-02-28"
-    tickers: ["ENGI.PA"]
-    priority: MEDIUM
-    days_away: 12
-    notes: "Engie FY2025."
+  - date: "2026-03-02"
+    tickers: ["LYV DOJ trial"]
+    priority: HIGH
+    days_away: 11
+    notes: "DOJ antitrust trial starts. Short catalyst. Binary: settlement vs structural remedy."
 
   - date: "2026-03-04"
-    tickers: ["VEEV"]
+    tickers: ["VEEV", "VTY.L"]
     priority: MEDIUM
-    days_away: 16
-    notes: "Q4 FY2026. Pipeline thesis catalyst."
+    days_away: 13
+    notes: "VEEV Q4 FY2026 catalyst. VTY.L FY2025."
 
   - date: "2026-03-05"
     tickers: ["DOM.L"]
     priority: HIGH
-    days_away: 17
+    days_away: 14
     notes: "FY25 results. MANDATORY review. KC#1 EBITDA < GBP 125M."
 
   - date: "2026-03-11"
-    tickers: ["FOUR.L"]
+    tickers: ["FOUR.L", "ADBE"]
     priority: HIGH
-    days_away: 23
-    notes: "FY2025 final results. R3 HARD GATE for entry."
+    days_away: 20
+    notes: "FOUR.L FY2025 R3 hard gate. ADBE Q1 FY2026."
 
   - date: "end of March"
-    tickers: ["NVO (CagriSema vs Zepbound H2H data)"]
+    tickers: ["NVO (CagriSema vs Zepbound H2H)"]
     priority: CRITICAL
-    days_away: ~45
-    notes: "CagriSema vs Zepbound head-to-head BINARY catalyst."
+    days_away: ~40
+    notes: "BINARY catalyst. CagriSema vs Zepbound head-to-head data."
 
   - date: "2026-03-31"
     tickers: ["LULU"]
     priority: CRITICAL
-    days_away: 43
-    notes: "Q4 FY2026. ON PROBATION. MAKE-OR-BREAK. 2 QC incidents + no CEO."
+    days_away: 40
+    notes: "Q4 FY2026. ON PROBATION. MAKE-OR-BREAK."
 
 # =============================================================================
-# SUMMARY & PRIORITIES
+# ALERTS & PRIORITIES
 # =============================================================================
 
 alerts:
   critical: []
   material:
-    - "DSY.PA standing order EUR 15.50 only 2.9% away after 21% crash. BUT conditioned on Q1 growth. DO NOT BUY until Q1."
-    - "GL insider selling: $6.1M from 3 execs in 6 days. Guidance raised counterbalances. Watch for more."
-    - "MA CCCA reintroduced Jan 13 bipartisan. Sponsors seeking legislative vehicles. Hard gate: no floor vote."
-    - "NVO CagriSema H2H trial COMPLETED (data collection). Headline results expected end March."
-    - "MONY.L Feb 23 earnings in 7 days — ON PROBATION KC#9 (AI strategy). Make-or-break."
-    - "ACGL Q4 blowout: EPS +19.5% beat, record full-year income. Validates thesis."
+    - "MONC.MI FY2025 results TODAY. Hard gate for R2. Check when published."
+    - "GL insider selling MUCH LARGER than S75 reported: $6.1M across 3 executives. EVP sold $4.41M day after earnings."
+    - "LYV DOJ trial March 2 — 11 days. Trump DOJ fracturing. States will proceed regardless."
+    - "CVNA Q4 results tonight. Short candidate — check results before S1."
+    - "MEGP.L stock AT trigger 134-135p. HARD GATE: Feb 27 results first."
+    - "ROP at ~$315, trigger $300 = 4.8% away. Approaching."
+    - "MONY.L Feb 23 earnings in 4 days. ON PROBATION KC#9."
 
 priorities:
-  - "1. [FEB 17 TOMORROW] RSG + CDNS dual earnings after close — pipeline hard gates. First day after Presidents Day."
-  - "2. [FEB 18] VRSK earnings before open — R3 hard gate. Framework ready."
-  - "3. [FEB 23] MONY.L earnings — ON PROBATION. KC#9 (AI strategy) = fate of position."
-  - "4. [FEB 24] EDEN.PA earnings — Brazil regulation + rebasing guidance."
-  - "5. [FEB 26] DTE.DE + INTU + WPP.L + CS.PA — quadruple event day."
-  - "6. [ALERT] DSY.PA at EUR 15.96 — standing order EUR 15.50 is 2.9% away. BUT conditioned on Q1."
-  - "7. [ALERT] ROP at $321 — trigger $300 is 7.1% away. Director buying at $358."
-  - "8. [MONITOR] GL insider selling pattern. Watch for more activity."
-  - "9. [MONITOR] LULU KC#3 quality pattern. No action until Mar 31."
-  - "10. [END MARCH] NVO CagriSema vs Zepbound H2H — binary catalyst."
-  - "11. [MAR 5] DOM.L FY25 results — MANDATORY review."
-  - "12. [MAR 11] FOUR.L FY2025 — R3 hard gate."
-  - "13. [MAR 31] LULU Q4 — MAKE-OR-BREAK."
-
-# =============================================================================
-# CHANGES vs Session 72 Digest
-# =============================================================================
-
-changes_vs_prior:
-  new_developments:
-    - "PRESIDENTS DAY: US markets closed Mon Feb 16. RSG/CDNS earnings on reopen day Tue Feb 17"
-    - "DSY.PA: Now at EUR 15.96 = only 2.9% from standing order trigger EUR 15.50. Post-crash approach"
-    - "ACGL: Q4 blowout. EPS $2.98 vs $2.49 consensus (+19.5%). Record full-year. Standing order $88 (10.6% away)"
-    - "ROP: Stock hit 52wL. Director Joyce bought $502K at $358. Standing order $300 now 7.1% away"
-    - "MA: CCCA formally reintroduced Jan 13, sponsors seeking legislative vehicles. Revenue impact 6-9% if passed"
-    - "V: DOJ case slowly progressing. Discovery disputes. No trial date"
-    - "NVO: CagriSema vs Tirzepatide H2H trial marked COMPLETED (Feb 5). Headline data expected end March"
-    - "VLTO: Q4 EPS $1.04 beat $0.98 consensus. Div raised to $0.13/Q. Guidance $4.10-4.20"
-    - "FOUR.L: Pre-results update — revenue slightly down but PBT above analyst range. New customer orders -12%"
-    - "GL: Evercore downgraded to In-Line, PT $155. Mixed analyst signals now (vs prior consensus positive)"
-    - "MMC: Ticker changed to MRSH. $600M senior notes. No fundamental change"
-  unchanged:
-    - "DTE.DE, EDEN.PA, DOM.L, ADBE, MONY.L, AUTO.L, BYIT.L, LULU: No new material developments vs Session 72"
-    - "RSG, CDNS, VRSK: Earnings dates/estimates unchanged. Frameworks ready"
-    - "Tariff situation: No new developments. Fed stance unchanged"
+  - "1. [TODAY] MONC.MI FY2025. Hard gate for R2. Check results when published."
+  - "2. [TONIGHT] CVNA Q4 results after market close. Short candidate monitoring."
+  - "3. [URGENT] GL insider selling = $6.1M in Feb across 3 execs. MIXED vs guidance raised."
+  - "4. [ALERT] MEGP.L stock AT trigger (134p). Hard gate Feb 27. DO NOT execute."
+  - "5. [ALERT] ROP ~$315, trigger $300 = 4.8% away. R4 approved."
+  - "6. [Feb 23 - 4 days] MONY.L ON PROBATION earnings. KC#9 (AI strategy)."
+  - "7. [Feb 24 - 5 days] EDEN.PA FY2025."
+  - "8. [Feb 26 - 7 days] DTE.DE FY2025 + INTU + WPP.L + CS.PA + ENR.DE ASM."
+  - "9. [Feb 27 - 8 days] MEGP.L FY2025 HARD GATE."
+  - "10. [Mar 2 - 11 days] LYV DOJ trial. Short catalyst. Binary."
+  - "11. [MONITOR] ADBE at 7-year low. New class action (noise). Mar 11 earnings."
+  - "12. [MONITOR] LULU KC#3 quality (2nd see-through incident). Mar 31 M-O-B."
+  - "13. [END MARCH] NVO CagriSema vs Zepbound H2H. Binary catalyst."
+  - "14. [MAR 5] DOM.L FY25 results. MANDATORY review."
+  - "15. [SHORT] ENR.DE at ATH — deprioritize short. VTY.L recovered — remove from short list."

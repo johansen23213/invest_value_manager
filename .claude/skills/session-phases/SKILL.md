@@ -74,6 +74,34 @@ Razonar desde Principio 4 + Principio 9.
 ### 2.5.5 Conviction Update
 Posiciones con noticias/earnings: actualizar conviction, exit_plan, last_review.
 
+### 2.5.6 Net Exposure Assessment (OBLIGATORIO)
+
+Razonar sobre la exposicion neta del portfolio dado el contexto actual.
+NO es un calculo mecanico. Es la pregunta: **"¿Mi portfolio refleja mi vision del riesgo?"**
+
+```
+Inputs:
+- world/current_view.md → riesgos macro (recesion, geopolitica, tipos)
+- Sector views → riesgos sectoriales (disrupcion, regulacion, ciclo)
+- portfolio_stats.py → exposicion actual (long/short/cash/net)
+- constraint_checker.py REPORT → concentraciones
+
+Preguntas guia:
+1. "Dado el entorno macro actual, ¿es coherente estar X% long, Y% short, Z% cash?"
+2. "¿Hay riesgos macro/sectoriales que mis longs no capturan pero un short SI cubriria?"
+3. "¿El cash esta cumpliendo funcion de proteccion, o hay un short mas eficiente?"
+4. "¿Existe fragilidad identificada en el universe que merezca short pipeline?"
+5. "Si estoy 100% long (net = gross), ¿es porque RAZONE que es correcto, o porque no pense en shorts?"
+
+Outputs (DOCUMENTAR siempre):
+- Exposicion neta actual: X% long, Y% short, Z% cash → net N%
+- Decision: mantener / ajustar / activar short pipeline
+- Razonamiento: 2-3 frases explicando POR QUE esta exposicion es correcta dado el contexto
+- Si hay candidato short identificado: añadir a fragility_watch o iniciar S1
+```
+
+**La decision "no shortear" es VALIDA — pero debe ser EXPLICITA, no por omision.**
+
 ---
 
 ## FASE 2.7: UNIVERSE WORK
@@ -84,9 +112,19 @@ python3 tools/quality_universe.py stats
 python3 tools/quality_universe.py stale
 ```
 
+### 2.7.1b Fragility Scan (semanal, OBLIGATORIO)
+Si fragility_watch en pipeline_tracker vencido (>7d):
+```bash
+python3 tools/quality_universe.py --fragility
+```
+Evaluar candidatos short. Cruzar con sector views (empresas en "Evitar" o deteriorandose).
+Si hay candidato con catalizador → iniciar S1 (short pipeline).
+Actualizar fragility_watch last_run en pipeline_tracker.
+
 ### 2.7.2 Decidir que hacer HOY
 Opciones: a) screenear sector con gaps, b) scoring empresas nuevas,
-c) re-evaluar stale, d) avanzar pipeline, e) quitar deterioradas, f) actualizar precios.
+c) re-evaluar stale, d) avanzar pipeline, e) quitar deterioradas, f) actualizar precios,
+**g) avanzar fragility pipeline (short candidates)**.
 No todo, pero ALGO siempre.
 
 ### 2.7.3 Ejecutar
@@ -153,6 +191,15 @@ Para cada pipeline ejecutado: last_run, next_due, last_result. Si position_revie
 [ ] Hice algo por el quality universe hoy?
 Si NO sin justificacion valida → el universe es parte del trabajo.
 
+### 5.1e Net Exposure Audit (OBLIGATORIO)
+```
+[ ] Razone sobre exposicion neta en Fase 2.5.6?
+[ ] Documente decision explicita (long/short/cash split)?
+[ ] Si 0% short: explique POR QUE dado contexto macro actual?
+[ ] Fragility_watch corrido esta semana? Si no, ¿por que?
+```
+Si alguna es NO sin justificacion → Error #50 (net exposure por omision).
+
 ### 5.1d Auto-Mejora
 [ ] Mejore algo del sistema? (tool, agent, protocol, error pattern)
 Si NO 3 sesiones consecutivas → ALERTA de estancamiento.
@@ -183,11 +230,17 @@ Clasificacion: COSMETICO (no propagar), MENOR (no), MATERIAL (SI), CRITICO (SI +
 
 ---
 
-## Cierre de Sesion
+## Cierre de Contexto (NO "cierre de sesión")
+
+**NUNCA preguntar "¿cerramos?" o "¿algo más?"** — Siempre hay trabajo. El contexto se agota, yo no.
+Cuando el contexto se acerca al límite, ejecutar esto AUTOMÁTICAMENTE:
 
 1. Actualizar last_session_summary en state/system.yaml + pipeline_tracker.yaml
 2. Verificar price_monitors actualizados
 3. Verificar calendario 7d
-4. Documentar tareas pendientes
+4. **Documentar EXACTAMENTE qué haré cuando vuelva** (en pipeline_tracker + MEMORY.md)
 5. Verificar sector views con dependencias
 6. EJECUTAR META-REFLEXION (Fase 5)
+7. **Presentar al humano**: estado del portfolio + trabajo completado + trabajo PENDIENTE que ejecutaré en el próximo contexto
+
+El trabajo NO para. El contexto hace pausa.

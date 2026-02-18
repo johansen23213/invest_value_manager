@@ -1,29 +1,15 @@
 # CALENDAR - Active and Future Events
 # Past events archived in state/calendar_archive.yaml
-# Updated: 2026-02-14
+# Updated: 2026-02-18
 
 events:
-  # EARNINGS WEEK FEB 17-18
-  - date: 2026-02-17
-    type: earnings_pipeline
-    ticker: RSG
-    event: "RSG Q4 2025 earnings (after close)"
+  # TOMORROW
+  - date: 2026-02-19
+    type: earnings
+    ticker: MONC.MI
+    event: "Moncler FY2025 Results — HARD GATE for R2"
     priority: high
-    action: "HARD GATE before R2. R1 FV $255, entry $210. Framework: thesis/research/RSG/earnings_framework_feb17.md"
-
-  - date: 2026-02-17
-    type: earnings_pipeline
-    ticker: CDNS
-    event: "CDNS Q4 2025 earnings (after close)"
-    priority: high
-    action: "HARD GATE before R2. R1 FV $260, entry $230-240. At $299 = far from entry. Framework: thesis/research/CDNS/earnings_framework_feb17.md"
-
-  - date: 2026-02-18
-    type: earnings_pipeline
-    ticker: VRSK
-    event: "VRSK Q4 2025 earnings (after close)"
-    priority: high
-    action: "HARD GATE before R4. R3 FV $185, entry $135-140. Framework: thesis/research/VRSK/earnings_framework_feb18.md"
+    action: "R1 complete (QS 92, FV EUR 58, entry EUR 48). Wait results before R2/SO. Bear: China decline, margins compress. Bull: China resilient, Stone Island DTC inflection. Watch: revenue growth trend, GM stability, CEO transition commentary."
 
   - date: 2026-02-19
     type: earnings
@@ -76,6 +62,13 @@ events:
     action: "Pipeline candidate. R3 complete."
 
   - date: 2026-02-26
+    type: earnings_pipeline
+    ticker: QTCOM.HE
+    event: "QTCOM.HE FY2025 Results — HARD GATE for R2"
+    priority: high
+    action: "R1 complete. QS 76 adj. FV EUR 37. CRITICAL: 2 profit warnings in 2025, Q3 EBITA margin collapsed to 10.5%. PASS: EBITA margin >=18%, revenue growth resuming, IAR synergies on track. FAIL: margin <15%, 3rd profit warning → ARCHIVE."
+
+  - date: 2026-02-26
     type: earnings
     ticker: DTE.DE
     event: "Deutsche Telekom FY2025"
@@ -97,6 +90,13 @@ events:
     action: "Si precio cae a 34.50-35.50 - BUY."
 
   - date: 2026-02-27
+    type: earnings_pipeline
+    ticker: MEGP.L
+    event: "MEGP.L FY2025 Annual Results — HARD GATE for R4"
+    priority: high
+    action: "R4 APPROVED CONDITIONAL. Entry 130p (MoS 38.5%). FV 180p. PASS criteria: laundry net installs >=1000, PBT >=GBP 75M, receivables benign, no German regulation surprise, FY2026 guidance >=3% profit growth. If PASS → standing order 130p. If FAIL → archive. Framework: thesis/research/MEGP.L/earnings_framework_feb27.md"
+
+  - date: 2026-02-27
     type: earnings
     ticker: PROX.BR
     event: "Proximus FY2025 + Strategic Plan"
@@ -116,6 +116,13 @@ events:
     ticker: NTGY.MC
     event: "Naturgy FY2025"
     priority: high
+
+  - date: 2026-03-03
+    type: earnings_pipeline
+    ticker: ITRK.L
+    event: "Intertek FY2025 Full Year Results — HARD GATE for R4/SO"
+    priority: high
+    action: "R3 complete. FV 4700p, entry 3700p. HARD GATE: op margin >=16.3%, FCF recovery. Tesco lawsuit update. BVI.PA preferred for TIC. If positive → create SO at 3700p + R4 committee."
 
   - date: 2026-03-04
     type: earnings

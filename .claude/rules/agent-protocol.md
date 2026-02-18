@@ -13,19 +13,27 @@
 
 ```
 Que necesito?
-├─ ANALIZAR empresa nueva (buy-pipeline 4 rondas)
+├─ ANALIZAR empresa nueva LONG (buy-pipeline 4 rondas)
 │  R1: fundamental-analyst + moat-assessor + risk-identifier (PARALELO) → valuation-specialist
 │  R2: devil's-advocate
 │  R3: Resolucion conflictos (si necesario)
 │  R4: investment-committee (10 gates)
+├─ ANALIZAR fragilidad SHORT (short-pipeline 4 rondas)
+│  S1: fundamental-analyst (--short-thesis) + moat-assessor + risk-identifier (PARALELO) → valuation-specialist
+│  S2: devil's-advocate (BULL case — por que precio podria tener razon?)
+│  S3: Resolucion conflictos (si necesario)
+│  S4: investment-committee (modo SHORT_APPROVAL — 10+3 gates)
 ├─ DESAFIAR thesis → devil's-advocate
-├─ RE-EVALUAR posicion → review-agent
+├─ RE-EVALUAR posicion long → review-agent
+├─ RE-EVALUAR posicion short → review-agent (--short-review)
 ├─ APROBAR compra/venta → investment-committee (OBLIGATORIO)
+├─ APROBAR short/cover → investment-committee modo SHORT_APPROVAL (OBLIGATORIO)
+├─ CUBRIR short → cover-protocol skill → investment-committee
 ├─ BUSCAR en sector → sector-screener
 ├─ ACTUALIZAR macro → macro-analyst
 ├─ SIZING → position-calculator
 ├─ WATCHLIST → watchlist-manager
-├─ PORTFOLIO post-trade → portfolio-ops
+├─ PORTFOLIO post-trade → portfolio-ops (soporta BUY/SELL/SHORT/COVER)
 ├─ PERFORMANCE → performance-tracker
 ├─ REBALANCEO → rebalancer
 ├─ CALENDARIO → calendar-manager

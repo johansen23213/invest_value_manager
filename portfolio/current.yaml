@@ -92,8 +92,12 @@ positions:
     invested_usd: 400.00
     avg_cost_usd: 48.13  # 400 / 8.31
     date_opened: 2026-02-05
+    conviction: medium
+    exit_plan: "HOLD through CagriSema H2H data (March 2026). ADD if CagriSema positive OR price <=$40. SELL if CagriSema inferior + FY2026 guidance miss >10%. TRIM at $80+."
+    fair_value: "$66 (v3.0. QS Tool 73, Adj 73 Tier B. OEY+DCF+Reverse DCF weighted.)"
+    last_review: 2026-02-05
     thesis: thesis/active/NVO/thesis.md
-    notes: "Framework v3.0 validation. Tier A QS 82. MoS 38%. Phased entry 4%."
+    notes: "Framework v3.0 validation. QS Tool 73, Thesis 82, Adj 73 Tier B. MoS 38% at entry. Phased entry 4%. CagriSema March = BINARY catalyst."
 
   - ticker: MONY.L
     name: "Mony Group PLC"
@@ -146,6 +150,26 @@ positions:
     exit_plan: "HOLD ON PROBATION. EXIT if FY2026 full-year OP < GBP 66M (~May 2026). ADD at 240p. SELL if Tier A needs capital and better opportunity exists."
     last_review: 2026-02-11
     notes: "Adversarial review 2026-02-11: FV 455->345 (-24.2%), QS 81->68-72 (Tier A->B). Insider ownership 0.4% not 9.6%. Microsoft EA disintermediation structural. Moat NARROW (14/25). HOLD because ROIC>>WACC, net cash, small position."
+
+# =============================================================================
+# SHORT POSITIONS - CFDs en eToro
+# =============================================================================
+# Carry cost: ~7-8% anual sobre el valor nocional (overnight fee eToro)
+# P&L short: (entry_price - current_price) * shares - carry_cost_accrued
+# ESMA: negative balance protection para retail
+short_positions: []
+# Ejemplo de formato:
+#  - ticker: XYZ
+#    name: "Company Name"
+#    shares: 10
+#    entry_price_usd: 150.00
+#    date_opened: 2026-02-18
+#    carry_cost_accrued: 0.00
+#    catalyst_date: 2026-06-30
+#    thesis: thesis/short/active/XYZ/thesis.md
+#    conviction: medium
+#    exit_plan: "COVER if catalyst passes without effect. COVER if price drops 30%+."
+#    last_review: 2026-02-18
 
 transactions:
   - date: 2026-01-26

@@ -1,14 +1,16 @@
 # RSG - Republic Services, Inc.
 
-> **Fair Value:** $255
-> **Date:** 2026-02-13
-> **Status:** R1 COMPLETE -- HARD GATE: Await Q4 2025 earnings (Feb 17) before R2
+> **Fair Value:** $225
+> **Date:** 2026-02-18 (revised post-Q4 2025 earnings + R2 DA + R3 resolution)
+> **Status:** R3 COMPLETE -- PAUSED. Entry $185. Resume R4 if price approaches $200.
 
 ---
 
 ## TL;DR
 
-Republic Services is the #2 US solid waste operator in a duopoly with Waste Management, operating 208 active landfills, 367 collection operations, and 248 transfer stations. The business has irreplaceable physical assets (new landfill permits take 7-10 years and are near-impossible to obtain), CPI-linked contracts, 94% customer retention, and route-density economics that create local monopolies. QS Tool 64, adjusted to 68 (Tier B) with +4 for market position not captured by tool. The stock is 14% off its 52-week high at $223, which is modestly expensive vs our base case FV of $255 (14% MoS). This is a quality defensive compounder worth owning on a pullback, but NOT at current prices. Entry target: $210 or below.
+Republic Services is the #2 US solid waste operator in a duopoly with Waste Management, operating 208 active landfills, 367 collection operations, and 248 transfer stations. The business has irreplaceable physical assets (new landfill permits take 7-10 years and are near-impossible to obtain), CPI-linked contracts, 94% customer retention, and route-density economics that create local monopolies. QS Tool 64, adjusted to 68 (Tier B) with +4 for market position not captured by tool.
+
+**R3 REVISION (2026-02-18):** FV revised from $255 to $225 after R2 devil's advocate + Q4 2025 actual guidance. Original $255 used forward 16x on $5.5B EBITDA, but (1) thesis's own weighted average was $212, (2) 2026 revenue guidance 3.1% growth vs assumed 5.5%, (3) analyst acknowledged "approximately fairly valued" in body while headline said $255. Revised FV uses 15-15.5x on guided EBITDA $5.5B = $223-232, midpoint $225. Entry revised from $210 to $185 (17.8% MoS, Tier B adequate). Pipeline paused at R3 — resume R4 when price approaches $200.
 
 ---
 
@@ -563,9 +565,9 @@ Actually, this is getting into territory where I am rationalizing a higher FV. L
 
 The DCF says $152-172. The EV/EBITDA says $213-240. The current price is $223. RSG is approximately FAIRLY VALUED at current prices.
 
-I will set the **Fair Value at $255** based on forward (2026E) metrics, acknowledging this assumes continued margin expansion and the market maintains its premium multiple. This gives a **14% MoS** at current price -- which is INSUFFICIENT for a Tier B position (precedent: Tier B MoS typically 20-25%).
+~~I will set the Fair Value at $255~~ **REVISED R3 (2026-02-18): FV $225** based on 15-15.5x on guided 2026 EBITDA of $5.5B. Original $255 used forward 16x and pre-earnings revenue assumptions (5.5% growth) that Q4 2025 guidance invalidated (actual: 3.1% growth). The DA correctly identified that the thesis's own weighted average was $212 and the $255 override was self-inconsistent.
 
-The stock becomes attractive at **$210 or below** (17-18% MoS), which is our quality universe entry price.
+The stock becomes attractive at **$185 or below** (17.8% MoS vs $225 FV), which is our revised quality universe entry price. This requires a ~16% pullback from $221, consistent with the thesis's own observation that "best entry points come during broad market selloffs."
 
 ---
 
@@ -573,25 +575,27 @@ The stock becomes attractive at **$210 or below** (17-18% MoS), which is our qua
 
 | | Bear | Base | Bull |
 |--|------|------|------|
-| Assumption | Recession, EBITDA -5%, multiple compresses to 12x | Steady growth 5-6%, margins expand, 15x | Strong growth 7%+, margin to 34%, 17x |
-| FV | $150 | $255 | $310 |
+| Assumption | Recession, EBITDA -5%, multiple compresses to 12x | Steady growth 3-4%, margins expand 30bps/yr, 15-15.5x | Strong growth 5%+, margin to 34%, 17x |
+| FV | $150 | $225 (R3 revised) | $280 |
 | Probability | 20% | 55% | 25% |
 
-**Expected Value = ($150 * 0.20) + ($255 * 0.55) + ($310 * 0.25) = $30 + $140.25 + $77.50 = $248**
+**Expected Value = ($150 * 0.20) + ($225 * 0.55) + ($280 * 0.25) = $30 + $123.75 + $70 = $224**
 
-### MoS Analysis
+### MoS Analysis (R3 Revised)
 
 ```
-Current Price: $223
-FV (Base): $255
-Expected Value: $248
+Current Price: $221
+FV (Base): $225 (revised from $255)
+Expected Value: $224
 
-MoS vs Base: ($255 - $223) / $255 = 12.5%
-MoS vs EV: ($248 - $223) / $248 = 10.1%
-MoS vs Bear: ($150 - $223) / $150 = -48.7% (significant downside in bear case)
+MoS vs Base: ($225 - $221) / $225 = 1.8% (INSUFFICIENT)
+MoS vs EV: ($224 - $221) / $224 = 1.3% (INSUFFICIENT)
+
+At entry $185:
+MoS vs Base: ($225 - $185) / $225 = 17.8% (adequate for Tier B)
+MoS vs EV: ($224 - $185) / $224 = 17.4%
 
 Required (Tier B, per precedents): ~20-25%
-Meets requirement?: NO (12.5% < 20%)
 ```
 
 ---
@@ -618,18 +622,18 @@ Conclusion: HIGH SENSITIVITY overall. The valuation is highly dependent on:
 
 ---
 
-## Veredicto: WATCHLIST at $210
+## Veredicto: WATCHLIST at $185 (R3 Revised)
 
-RSG is a high-quality defensive business with an irreplaceable asset base, strong pricing power, and durable competitive advantages. However, at $223, the stock is approximately fairly valued with insufficient MoS for our Tier B framework (12.5% vs typical 20-25% required).
+RSG is a high-quality defensive business with an irreplaceable asset base, strong pricing power, and durable competitive advantages. At $221, the stock is approximately fairly valued (FV $225) with insufficient MoS for our Tier B framework (1.8% vs typical 20-25% required).
 
-**Entry target: $210** (18% MoS vs $255 FV)
+**Entry target: $185** (17.8% MoS vs $225 FV, revised from $210)
 
-This would require a ~6% pullback from current levels, which could happen via:
-- Broad market correction (CPI shock, tariff escalation)
-- Slight earnings miss on Feb 17 Q4 results
-- Multiple compression in higher-rate environment
+This would require a ~16% pullback from current levels, which could happen via:
+- Broad market correction (CPI shock, tariff escalation, recession fears)
+- Further revenue deceleration below 3% guidance
+- Multiple compression in waste sector
 
-**HARD GATE: Q4 2025 earnings on Feb 17 (4 days from now).** This will provide FY2025 actuals and 2026 guidance. Must wait for this data before advancing to R2.
+**Q4 2025 EARNINGS PROCESSED (Feb 17):** EPS $1.76 beat (+8.6%), but revenue missed and 2026 guidance below consensus. Hard gate PASSED. R2 devil's advocate completed — STRONG COUNTER. FV revised $255→$225. Entry revised $210→$185. Pipeline PAUSED at R3. Resume R4 when price approaches $200.
 
 ---
 

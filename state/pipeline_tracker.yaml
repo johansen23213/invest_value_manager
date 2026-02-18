@@ -1,43 +1,64 @@
 # PIPELINE TRACKER + MAINTENANCE
 # Operational metadata for the fund
-# Updated: 2026-02-15
+# Updated: 2026-02-18
 
 # PRIORITY #1 - CAPITAL DEPLOYMENT (while cash > 25%)
 capital_deployment:
   frequency: daily
   priority: 1
   trigger: "cash > 25%"
-  last_run: 2026-02-14
-  next_due: 2026-02-15
-  last_result: "12 R4-approved/watchlist. 21 standing orders. New R1: ORNBV.HE, FOUR.L. V R3 in progress. Cash ~57%."
+  last_run: 2026-02-18
+  next_due: 2026-02-19
+  last_result: "S75 complete: Universe 126. Framework v4.2 deployed. 5 short candidates persisted (CVNA, ENR.DE, RAND.AS, LYV, VTY.L). 4 R1 new. 7 R3 resolved. MEGP.L R4 conditional. VRSK beat earnings. Next: S1 short pipeline + earnings gauntlet Feb 23-27."
   skill: ".claude/skills/capital-deployment/SKILL.md"
   tool: "tools/quality_universe.py"
 
 # DAILY
 vigilance:
   frequency: daily
-  last_run: 2026-02-14
-  next_due: 2026-02-15
-  last_result: "0 CRITICAL, 8 MATERIAL. GL insider selling $6.1M/6d. LULU KC#3 approaching."
+  last_run: 2026-02-18
+  next_due: 2026-02-19
+  last_result: "S75c: 0 CRITICAL, 4 HIGH. NVO CagriSema REIMAGINE 2 positive (+14.2% wt loss vs 10.2% Ozempic). GL insider selling $7.4M (3 insiders). LULU 2nd quality issue. ADBE -26% YTD. 0 SOs triggered. MEGP.L 6.8%, ROP 7.8% from trigger. MONC.MI earnings Feb 19. Gauntlet Feb 23-27."
 
 rotation_check:
   frequency: daily
-  last_run: 2026-02-14
-  next_due: 2026-02-15
-  last_result: "Bottom 3: ALL (+12.8%), LULU (+11.1%), DTE.DE (+8.6%). No rotation. 4 actionable."
+  last_run: 2026-02-18
+  next_due: 2026-02-19
+  last_result: "S75c: Bottom 3: DTE.DE (8.1% MoS), LULU (7.7%), BYIT.L (15.5%). DTE.DE thin MoS, Feb 26 earnings. LULU thin MoS + 2nd quality issue, on probation."
 
 # WEEKLY
 opportunity_scan:
   frequency: weekly
-  last_run: 2026-02-11
-  next_due: 2026-02-18
-  last_result: "2,052 tickers screened. 5 Tier A found. Pipeline HEALTHY."
+  last_run: 2026-02-18
+  next_due: 2026-02-25
+  last_result: "S74c: Super wave 6 pipelines: EEFT R3, KNSL R3, MEGP.L R3, RSG R3 + MSCI R1 (WIDE 22/25, FV $530, at $521 = 0% MoS, WATCHLIST $450). SOON.SW AT ENTRY (needs R1). 25 SOs. Universe 79."
 
 risk_review:
   frequency: weekly
   last_run: 2026-02-13
   next_due: 2026-02-20
   last_result: "0 RED, 7 ORANGE, 7 YELLOW. LULU ESCALATED. GL insider selling."
+
+# SHORT/FRAGILITY
+fragility_watch:
+  frequency: weekly
+  priority: 2
+  last_run: 2026-02-18
+  next_due: 2026-02-25
+  last_result: "S75c v4.2: US + EU short screening COMPLETE. 13 candidates analyzed. TOP 5 persisted to watchlist short_candidates: CVNA (P/E 83x, insider dump, fraud), ENR.DE (P/E 78x, AI narrative unearned), RAND.AS (AI disrupting staffing), LYV (P/E 115x, DOJ trial Mar 2), VTY.L (3 profit warnings). Next: S1 pipeline on CVNA/ENR.DE."
+  skill: ".claude/skills/short-thesis-framework/SKILL.md"
+  tool: "tools/quality_universe.py --fragility"
+  mandatory: true
+  notes: |
+    OBLIGATORIO — Part of Fase 2.7 Universe Work. NOT optional.
+    Weekly scan for fragility candidates:
+    1. quality_universe.py --fragility for short-direction entries
+    2. dcf_calculator.py --reverse on overvalued companies
+    3. insider_tracker.py --sections insider,short for selling signals
+    4. narrative_checker.py for deteriorating fundamentals
+    5. Update short_candidates in watchlist.yaml
+    6. Feed into Net Exposure Assessment (Fase 2.5.6)
+    If no candidates found → DOCUMENT "no fragility identified" (explicit, not by omission)
 
 # BIWEEKLY
 position_review:
@@ -50,9 +71,9 @@ position_review:
 
 system_health:
   frequency: biweekly
-  last_run: 2026-02-04
-  next_due: 2026-02-18
-  last_result: "9.1/10. Warnings: energy.md missing, CLAUDE.md >150 lines"
+  last_run: 2026-02-18
+  next_due: 2026-03-04
+  last_result: "8.5/10. Fixed: NVO 4 missing fields, archived 3 past calendar events, SOON.SW SO created. Warnings: Layer 1 44KB (>40KB), .claude/ 608KB (>500KB), 7 sector views >300 lines. 79 universe entries, 24 SOs, 16 tools."
 
 # MONTHLY
 deep_performance:
@@ -63,9 +84,9 @@ deep_performance:
 
 macro_refresh:
   frequency: monthly
-  last_run: 2026-02-02
-  next_due: 2026-03-02
-  last_result: "Tariffs escalando, Iran up, China mejora"
+  last_run: 2026-02-18
+  next_due: 2026-03-18
+  last_result: "S74: Iran deescalation (prob 10-20%), SaaSpocalypse $800B, tariffs→deals, Ukraine talks."
 
 system_challenge:
   frequency: monthly
@@ -81,10 +102,11 @@ maintenance:
   last_compact: 2026-02-01
   memory_status: ok
   agents_count: 24
-  skills_count: 30
-  tools_count: 8
+  skills_count: 40
+  tools_count: 16
   rules_count: 6
   evolution_tracking_summary: |
+    2026-02-18: v4.1 short system + epistemic rigor audit — 12 files fixed, 2 new errors, source classification
     2026-02-14: Scalability refactoring — system.yaml split, CLAUDE.md diet, session-protocol compact
     2026-02-11: System Devil's Advocate — 5 challenges, mentalidad gestor, QS fixes
     2026-02-05: Proactive Vigilance — 3 agents (news/market/risk), 3 skills, 3 state files

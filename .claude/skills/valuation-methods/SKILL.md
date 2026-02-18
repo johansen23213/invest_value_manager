@@ -17,9 +17,9 @@ Tier B (QS 55-74): DCF + EV/EBIT o método apropiado al tipo
 Tier C (QS 35-54): Conservative multiples + Liquidation floor
 ```
 
-## REGLA: Mínimo 2 métodos por análisis
+## REGLA: Minimo 2 metodos por analisis
 
-Si los métodos divergen >30% → investigar antes de decidir.
+Si los metodos divergen significativamente → investigar antes de decidir. La magnitud que justifica investigacion depende del tipo de empresa (ciclicas divergen mas naturalmente que utilities). Razonar sobre la causa de la divergencia.
 
 ---
 
@@ -295,8 +295,8 @@ Precio actual: €___
 MoS vs Weighted: ___%
 MoS vs Bear Case: ___%
 
-Divergencia métodos: ___%
-Si >30%: Razón: [explicar]
+Divergencia metodos: ___%
+Si divergencia significativa: Razon: [explicar por que difieren y cual es mas fiable para este caso]
 ```
 
 ### Peso por Fiabilidad
@@ -338,7 +338,7 @@ Ver learning/decisions_log.yaml para precedentes.
 
 1. **NUNCA solo 1 método**
 2. **Peso según fiabilidad para el tipo**
-3. **Si divergen >30%: investigar**
+3. **Si divergen significativamente: investigar causa**
 4. **DCF es sensible: no confiar ciegamente**
 5. **Para Tier A: OEY > DCF como primario**
 6. **SIEMPRE calcular MoS vs Bear Case también**

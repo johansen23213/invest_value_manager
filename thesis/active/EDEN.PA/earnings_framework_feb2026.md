@@ -98,7 +98,7 @@ EARNINGS RELEASE
 +-> Net income >= EUR 225m + guidance up?
 |   --> BULL: HOLD con conviccion reforzada
 |
-+-> Net income EUR 215-225m + 2026 guidance in-line (2-4%)?
++-> Net income EUR 215-225m + 2026 EBITDA guidance in-line (-8/-12%)?
 |   --> BASE: HOLD (tesis intacta, 2026 rebasing priced in)
 |
 +-> Net income < EUR 215m?

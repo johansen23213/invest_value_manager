@@ -1,19 +1,26 @@
 #!/usr/bin/env python3
 """
 Forward Return Components - Shows MoS%, Growth%, Yield% for portfolio positions.
+Supports both LONG and SHORT positions.
 
 Outputs RAW DATA as separate columns. NO composite scores, rankings, or recommendations.
 The user reasons about these components applying principles.
 
-Components:
+Components (LONG):
   - MoS% = (Fair_Value - Current_Price) / Current_Price * 100
   - Growth% = Expected earnings/FCF growth rate (from thesis or yfinance)
   - Yield% = Current dividend yield (from yfinance)
 
+Components (SHORT):
+  - Fwd Ret% = (Current_Price - Fair_Value) / Current_Price * 100
+    (POSITIVE when price is ABOVE fair value = good for short thesis)
+  - Carry% = Annualized carry cost prorated (CFD overnight fees ~7-8% annual)
+  - Net Fwd% = Fwd Ret% - Carry% (net of carry drag)
+
 Usage:
   python3 tools/forward_return.py                     # All positions + pipeline
   python3 tools/forward_return.py --ticker ADBE NVO   # Specific tickers only
-  python3 tools/forward_return.py --active-only        # Only active positions
+  python3 tools/forward_return.py --active-only        # Only active positions (long + short)
   python3 tools/forward_return.py --pipeline-only      # Only research pipeline
 """
 
@@ -23,6 +30,7 @@ import re
 import argparse
 import yaml
 import yfinance as yf
+from datetime import datetime
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -31,7 +39,11 @@ PORTFOLIO_FILE = os.path.join(BASE_DIR, 'portfolio', 'current.yaml')
 SYSTEM_FILE = os.path.join(BASE_DIR, 'state', 'system.yaml')
 THESIS_ACTIVE_DIR = os.path.join(BASE_DIR, 'thesis', 'active')
 THESIS_RESEARCH_DIR = os.path.join(BASE_DIR, 'thesis', 'research')
+THESIS_SHORT_DIR = os.path.join(BASE_DIR, 'thesis', 'short', 'active')
 DECISIONS_LOG = os.path.join(BASE_DIR, 'learning', 'decisions_log.yaml')
+
+# Default annual carry cost for CFD shorts (eToro overnight fees)
+DEFAULT_ANNUAL_CARRY_PCT = 7.5
 
 
 def load_portfolio():
@@ -572,6 +584,93 @@ def process_position(ticker, thesis_path, eurusd, gbpeur, dkkeur, decisions_log,
     return result
 
 
+def process_short_position(ticker, short_pos, eurusd, gbpeur, dkkeur, system_qs=None):
+    """Process a single short position. Returns dict with short-specific data fields.
+
+    Short forward return = (current_price - fair_value) / current_price * 100
+    POSITIVE when price is ABOVE fair value (good for short thesis).
+    Carry cost is subtracted as a drag on net forward return.
+    """
+    result = {
+        'ticker': ticker,
+        'qs': None,
+        'tier': None,
+        'fwd_ret_pct': None,       # Gross forward return (before carry)
+        'carry_pct': None,          # Annualized carry cost
+        'net_fwd_pct': None,        # Net forward return (after carry)
+        'fv_source': None,
+        'price': None,
+        'fv': None,
+        'currency': None,
+        'invested_eur': None,
+        'date_opened': None,
+        'error': None,
+    }
+
+    # Read thesis from thesis/short/active/TICKER/thesis.md
+    thesis_path = short_pos.get('thesis', f'thesis/short/active/{ticker}/thesis.md')
+    thesis_content = read_thesis_file(thesis_path)
+
+    # QS/Tier from system.yaml or thesis
+    if system_qs and ticker in system_qs:
+        qs, tier = system_qs[ticker]
+    else:
+        qs, tier = extract_qs_and_tier(thesis_content)
+    result['qs'] = qs
+    result['tier'] = tier
+
+    # Get date_opened for carry proration
+    date_opened_str = short_pos.get('date_opened')
+    result['date_opened'] = date_opened_str
+
+    # Invested amount for weighting
+    invested_eur = short_pos.get('invested_eur') or short_pos.get('invested_usd')
+    result['invested_eur'] = invested_eur
+
+    TICKER_MAP = {'LIGHT.NV': 'LIGHT.AS'}
+    yf_ticker = TICKER_MAP.get(ticker, ticker)
+
+    info = get_yfinance_data(yf_ticker)
+    if info is None:
+        result['error'] = 'No yfinance data'
+        return result
+
+    price = info.get('currentPrice') or info.get('regularMarketPrice') or info.get('previousClose')
+    if price is None:
+        result['error'] = 'No price data'
+        return result
+
+    stock_currency = info.get('currency', 'USD')
+    result['price'] = price
+    result['currency'] = stock_currency
+
+    # Extract fair value from short thesis (same canonical format)
+    fv_raw, fv_currency = extract_fair_value(thesis_content, ticker, stock_currency)
+
+    if fv_raw is not None:
+        fv_in_stock_currency = convert_fv_to_price_currency(
+            fv_raw, fv_currency, stock_currency, eurusd, gbpeur, dkkeur
+        )
+        # SHORT forward return: positive when price > FV (overvalued = good for short)
+        fwd_ret_pct = ((price - fv_in_stock_currency) / price) * 100
+        result['fwd_ret_pct'] = fwd_ret_pct
+        result['fv'] = fv_raw
+        result['fv_source'] = f"{fv_raw:.1f} {fv_currency}"
+    else:
+        result['fv_source'] = 'N/A'
+
+    # Calculate carry cost (annualized, prorated from date_opened)
+    # Use carry_annual_pct from position data if specified, otherwise default
+    annual_carry = short_pos.get('carry_annual_pct', DEFAULT_ANNUAL_CARRY_PCT)
+    result['carry_pct'] = annual_carry
+
+    # Net forward return = gross forward return - annual carry cost
+    if result['fwd_ret_pct'] is not None:
+        result['net_fwd_pct'] = result['fwd_ret_pct'] - annual_carry
+
+    return result
+
+
 def find_research_tickers():
     """Find all tickers in thesis/research/ directory."""
     results = []
@@ -585,7 +684,7 @@ def find_research_tickers():
     return results
 
 
-def print_ranking(active_results, research_results, show_active=True, show_pipeline=True):
+def print_ranking(active_results, research_results, short_results, show_active=True, show_pipeline=True):
     """Print the formatted data tables. No composite scores, no ranking highlights."""
     conv_short = {'high': 'H', 'medium': 'M', 'low': 'L'}
 
@@ -595,7 +694,7 @@ def print_ranking(active_results, research_results, show_active=True, show_pipel
 
         print()
         print("=" * 100)
-        print("FORWARD RETURN COMPONENTS -- ACTIVE POSITIONS")
+        print("FORWARD RETURN COMPONENTS -- ACTIVE LONG POSITIONS")
         print("=" * 100)
         print(f"{'Ticker':<10} {'QS':>3} {'Tier':>4} {'MoS%':>7} {'Grw%':>6} {'Yld%':>6} {'Conv':>4} {'GrSrc':>7}  {'FV':>16}")
         print("-" * 100)
@@ -616,11 +715,52 @@ def print_ranking(active_results, research_results, show_active=True, show_pipel
                 print(f"{r['ticker']:<10} {qs_str:>3} {tier_str:>4} {mos_str:>7} {grw_str:>6} {yld_str:>6} {conv_str:>4} {gr_src_str:>7}  {fv_str:>16}")
 
         print("-" * 100)
-        print(f"  {len(active_results)} positions | [Apply learning/principles.md to reason about this data]")
+        print(f"  {len(active_results)} long positions | [Apply learning/principles.md to reason about this data]")
 
         no_fv = [r for r in ranked if r['mos_pct'] is None and r['error'] is None]
         if no_fv:
             print(f"  FV not found in thesis: {', '.join(r['ticker'] for r in no_fv)}")
+
+    # SHORT POSITIONS section
+    if show_active and short_results is not None:
+        if short_results:
+            # Sort by net forward return descending (best shorts first)
+            ranked_shorts = sorted(short_results, key=lambda x: x['net_fwd_pct'] if x['net_fwd_pct'] is not None else -999, reverse=True)
+
+            print()
+            print("=" * 100)
+            print("FORWARD RETURN COMPONENTS -- SHORT POSITIONS")
+            print("=" * 100)
+            print(f"{'Ticker':<10} {'QS':>3} {'Tier':>4} {'FV':>16} {'Price':>10} {'FwdRet%':>8} {'Carry%':>7} {'NetFwd%':>8}")
+            print("-" * 100)
+
+            for r in ranked_shorts:
+                qs_str = str(r['qs']) if r['qs'] is not None else '?'
+                tier_str = r['tier'] if r['tier'] else '?'
+                fv_str = r['fv_source'] if r['fv_source'] else 'N/A'
+                price_str = f"{r['price']:.2f}" if r['price'] is not None else 'N/A'
+                fwd_str = f"{r['fwd_ret_pct']:+.1f}" if r['fwd_ret_pct'] is not None else 'N/A'
+                carry_str = f"-{r['carry_pct']:.1f}" if r['carry_pct'] is not None else 'N/A'
+                net_str = f"{r['net_fwd_pct']:+.1f}" if r['net_fwd_pct'] is not None else 'N/A'
+
+                if r['error']:
+                    print(f"{r['ticker']:<10} {'':>3} {'':>4} {'':>16} {'ERR':>10} {'':>8} {'':>7} {'':>8}  {r['error']}")
+                else:
+                    print(f"{r['ticker']:<10} {qs_str:>3} {tier_str:>4} {fv_str:>16} {price_str:>10} {fwd_str:>8} {carry_str:>7} {net_str:>8}")
+
+            print("-" * 100)
+            print(f"  {len(short_results)} short positions | Carry = annualized CFD cost (~{DEFAULT_ANNUAL_CARRY_PCT}% default)")
+
+            no_fv_shorts = [r for r in ranked_shorts if r['fwd_ret_pct'] is None and r['error'] is None]
+            if no_fv_shorts:
+                print(f"  FV not found in thesis: {', '.join(r['ticker'] for r in no_fv_shorts)}")
+        else:
+            print()
+            print("  No short positions.")
+
+    # NET FORWARD RETURN (long + short combined)
+    if show_active and active_results and short_results:
+        _print_net_forward_return(active_results, short_results)
 
     if show_pipeline and research_results:
         valid_research = [r for r in research_results if r['mos_pct'] is not None]
@@ -652,12 +792,49 @@ def print_ranking(active_results, research_results, show_active=True, show_pipel
             print(f"Skipped (no FV in thesis): {', '.join(r['ticker'] for r in invalid_research)}")
 
     print()
+    print("[Raw data. Reason from principles.md]")
+    print()
+
+
+def _print_net_forward_return(active_results, short_results):
+    """Print NET FORWARD RETURN summary combining longs and shorts.
+
+    Weighted average of long MoS minus weighted average of short net forward return,
+    adjusted for relative sizing. Uses invested amounts where available.
+    """
+    # Calculate weighted long MoS
+    long_weighted_sum = 0.0
+    long_total_weight = 0.0
+    for r in active_results:
+        if r['mos_pct'] is not None:
+            # Equal weight per position (invested amounts not in long result dict)
+            long_weighted_sum += r['mos_pct']
+            long_total_weight += 1
+
+    # Calculate weighted short net forward return
+    short_weighted_sum = 0.0
+    short_total_weight = 0.0
+    for r in short_results:
+        if r['net_fwd_pct'] is not None:
+            short_weighted_sum += r['net_fwd_pct']
+            short_total_weight += 1
+
+    long_avg = long_weighted_sum / long_total_weight if long_total_weight > 0 else 0
+    short_avg = short_weighted_sum / short_total_weight if short_total_weight > 0 else 0
+
+    print()
+    print("-" * 100)
+    print("NET FORWARD RETURN SUMMARY")
+    print("-" * 100)
+    print(f"  Long avg MoS:          {long_avg:+.1f}% (across {int(long_total_weight)} positions)")
+    print(f"  Short avg Net Fwd:     {short_avg:+.1f}% (across {int(short_total_weight)} positions, net of carry)")
+    print(f"  Combined:              Long {long_avg:+.1f}% + Short {short_avg:+.1f}%")
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Forward Return Ranking for portfolio positions')
+    parser = argparse.ArgumentParser(description='Forward Return Ranking for portfolio positions (long + short)')
     parser.add_argument('--ticker', nargs='+', help='Specific tickers to analyze')
-    parser.add_argument('--active-only', action='store_true', help='Only show active positions')
+    parser.add_argument('--active-only', action='store_true', help='Only show active positions (long + short)')
     parser.add_argument('--pipeline-only', action='store_true', help='Only show research pipeline')
 
     args = parser.parse_args()
@@ -668,6 +845,7 @@ def main():
         sys.exit(1)
 
     positions = portfolio.get('positions', [])
+    short_positions = portfolio.get('short_positions', []) or []
     decisions_log = load_decisions_log()
     system_qs = load_system_qs()
 
@@ -682,7 +860,7 @@ def main():
 
     active_results = []
     if show_active:
-        print(f"Processing {len(positions)} active positions...")
+        print(f"Processing {len(positions)} active long positions...")
         for p in positions:
             ticker = p['ticker']
             if args.ticker and ticker not in args.ticker:
@@ -691,11 +869,25 @@ def main():
             result = process_position(ticker, thesis_path, eurusd, gbpeur, dkkeur, decisions_log, system_qs=system_qs, is_research=False)
             active_results.append(result)
 
+    short_results = []
+    if show_active and short_positions:
+        print(f"Processing {len(short_positions)} short positions...")
+        for sp in short_positions:
+            ticker = sp['ticker']
+            if args.ticker and ticker not in args.ticker:
+                continue
+            result = process_short_position(ticker, sp, eurusd, gbpeur, dkkeur, system_qs=system_qs)
+            short_results.append(result)
+    elif show_active:
+        # Empty list signals "show the section" (with "No short positions" message)
+        short_results = []
+
     research_results = []
     if show_pipeline:
         research_tickers = find_research_tickers()
         active_tickers = {p['ticker'] for p in positions}
-        research_tickers = [(t, path) for t, path in research_tickers if t not in active_tickers]
+        short_tickers = {sp['ticker'] for sp in short_positions}
+        research_tickers = [(t, path) for t, path in research_tickers if t not in active_tickers and t not in short_tickers]
         if args.ticker:
             research_tickers = [(t, path) for t, path in research_tickers if t in args.ticker]
         if research_tickers:
@@ -704,7 +896,8 @@ def main():
                 result = process_position(ticker, thesis_path, eurusd, gbpeur, dkkeur, decisions_log, system_qs=system_qs, is_research=True)
                 research_results.append(result)
 
-    print_ranking(active_results, research_results, show_active, show_pipeline)
+    # Pass short_results (even if empty) when show_active, None when not
+    print_ranking(active_results, research_results, short_results if show_active else None, show_active, show_pipeline)
 
 
 if __name__ == '__main__':

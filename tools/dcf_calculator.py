@@ -17,6 +17,14 @@ Usage:
   python3 tools/dcf_calculator.py AAPL --scenarios --sensitivity # Both combined
   python3 tools/dcf_calculator.py AAPL MSFT GOOGL               # Batch analysis
   python3 tools/dcf_calculator.py AAPL --output dcf_results.csv # Save to CSV
+  python3 tools/dcf_calculator.py AAPL --reverse                # Reverse DCF: implied expectations
+  python3 tools/dcf_calculator.py ROP ADBE NVO --reverse        # Reverse DCF batch
+
+Reverse DCF (--reverse) shows:
+  - Implied FCF growth rate from current price
+  - Enhanced gap analysis (revenue growth, EBIT margin, FCF conversion vs historical)
+  - Scenario math (what growth/margin/multiple justifies current price)
+  - Asymmetry ratio (bull upside vs bear downside)
 
 Examples:
   python3 tools/dcf_calculator.py SAN.MC --growth 5 --terminal 2 --wacc 9
@@ -24,11 +32,13 @@ Examples:
   python3 tools/dcf_calculator.py BNP.PA BBVA.MC SAN.MC --output eu_banks_dcf.csv
   python3 tools/dcf_calculator.py WPP.L --scenarios              # LSE stock in GBp
   python3 tools/dcf_calculator.py ADBE --growth 8 --wacc 9 --sensitivity
+  python3 tools/dcf_calculator.py --reverse ROP ADBE NVO         # Reverse DCF batch
 """
 
 import sys
 import argparse
 import csv
+import math
 from typing import Optional, Dict, List, Tuple
 
 import yfinance as yf
@@ -84,8 +94,47 @@ def to_eur(value: float, currency: str, rates: Dict[str, float]) -> float:
 
 
 # ==============================================================================
+# Helper: safe CAGR calculation
+# ==============================================================================
+
+def _safe_cagr(values: List[float], n_years: Optional[int] = None) -> Optional[float]:
+    """
+    Calculate CAGR from a list of values (oldest to newest).
+    Returns percentage or None if insufficient/invalid data.
+    """
+    if not values or len(values) < 2:
+        return None
+    first = values[0]
+    last = values[-1]
+    n = n_years if n_years is not None else (len(values) - 1)
+    if n <= 0 or first <= 0 or last <= 0:
+        return None
+    return ((last / first) ** (1.0 / n) - 1.0) * 100.0
+
+
+def _safe_avg(values: List[float]) -> Optional[float]:
+    """Average of non-None, non-zero values. Returns None if empty."""
+    valid = [v for v in values if v is not None and v != 0]
+    if not valid:
+        return None
+    return sum(valid) / len(valid)
+
+
+# ==============================================================================
 # Data Fetching
 # ==============================================================================
+
+def _extract_row(df: pd.DataFrame, keys: List[str], years: int = 5) -> List[float]:
+    """Extract a row from a DataFrame by trying multiple key names, return list oldest-to-newest."""
+    if df is None or df.empty:
+        return []
+    for key in keys:
+        if key in df.index:
+            vals = df.loc[key].dropna().tolist()[:years]
+            vals.reverse()
+            return vals
+    return []
+
 
 def fetch_historical_fcf(ticker: str, years: int = 5) -> Optional[Dict]:
     """
@@ -131,6 +180,12 @@ def fetch_historical_fcf(ticker: str, years: int = 5) -> Optional[Dict]:
         total_debt = info.get("totalDebt", 0) or 0
         total_cash = info.get("totalCash", 0) or 0
         net_debt = total_debt - total_cash
+
+        # --- MARKET CAP ---
+        market_cap = info.get("marketCap", 0) or 0
+        if not market_cap:
+            # Fallback: compute from price and shares
+            market_cap = price_normalized * shares
 
         # Get cashflow statement
         cashflow = stock.cashflow
@@ -199,6 +254,71 @@ def fetch_historical_fcf(ticker: str, years: int = 5) -> Optional[Dict]:
         if any(f <= 0 for f in fcf_history[-2:]):
             fcf_warning = f"CAUTION: Recent negative FCF. DCF unreliable for {sector}. Use EV/EBITDA or NAV instead."
 
+        # --- FINANCIAL STATEMENT DATA ---
+        # Revenue, EBIT/operating income, and operating cash flow for reverse DCF
+        revenue_history = []
+        revenue_growth_3yr = None
+        ebit_history = []
+        ebit_margin_history = []
+        ocf_history = []
+
+        try:
+            financials = stock.financials
+            if financials is not None and not financials.empty:
+                # Revenue
+                rev_keys = ["Total Revenue", "TotalRevenue", "Revenue"]
+                revenue_history = _extract_row(financials, rev_keys, years)
+                if len(revenue_history) >= 2:
+                    n_rev = len(revenue_history) - 1
+                    first_rev = revenue_history[0]
+                    last_rev = revenue_history[-1]
+                    if first_rev > 0 and last_rev > 0:
+                        revenue_growth_3yr = ((last_rev / first_rev) ** (1 / n_rev) - 1) * 100
+
+                # EBIT / Operating Income
+                ebit_keys = [
+                    "EBIT", "Operating Income", "OperatingIncome",
+                    "Ebit", "operatingIncome",
+                ]
+                ebit_history = _extract_row(financials, ebit_keys, years)
+
+                # Compute EBIT margins if we have both revenue and EBIT
+                if revenue_history and ebit_history:
+                    min_len = min(len(revenue_history), len(ebit_history))
+                    for i in range(min_len):
+                        rev = revenue_history[i]
+                        ebit = ebit_history[i]
+                        if rev and rev > 0:
+                            ebit_margin_history.append((ebit / rev) * 100.0)
+                        else:
+                            ebit_margin_history.append(None)
+        except Exception:
+            pass  # Financial data is optional for reverse DCF context
+
+        # Operating Cash Flow history (for FCF conversion ratio)
+        try:
+            ocf_history = _extract_row(cashflow, ocf_keys, years)
+        except Exception:
+            pass
+
+        # FCF conversion ratio = FCF / revenue (for each year)
+        fcf_conversion_history = []
+        if revenue_history and fcf_history:
+            min_len = min(len(revenue_history), len(fcf_history))
+            for i in range(min_len):
+                rev = revenue_history[i]
+                fcf = fcf_history[i]
+                if rev and rev > 0:
+                    fcf_conversion_history.append((fcf / rev) * 100.0)
+                else:
+                    fcf_conversion_history.append(None)
+
+        # Current EV/EBIT multiple
+        ev_ebit_current = None
+        ev = market_cap + net_debt
+        if ebit_history and ebit_history[-1] and ebit_history[-1] > 0:
+            ev_ebit_current = ev / ebit_history[-1]
+
         return {
             "ticker": ticker,
             "name": name,
@@ -213,6 +333,14 @@ def fetch_historical_fcf(ticker: str, years: int = 5) -> Optional[Dict]:
             "net_debt": net_debt,
             "total_debt": total_debt,
             "total_cash": total_cash,
+            "market_cap": market_cap,
+            "revenue_history": revenue_history,
+            "revenue_growth_3yr": revenue_growth_3yr,
+            "ebit_history": ebit_history,
+            "ebit_margin_history": ebit_margin_history,
+            "ocf_history": ocf_history,
+            "fcf_conversion_history": fcf_conversion_history,
+            "ev_ebit_current": ev_ebit_current,
         }
 
     except Exception as e:
@@ -291,6 +419,886 @@ def calculate_mos(fair_value: float, current_price: float) -> float:
     if current_price <= 0:
         return 0
     return ((fair_value - current_price) / current_price) * 100
+
+
+# ==============================================================================
+# Reverse DCF (Implied Expectations)
+# ==============================================================================
+
+def calculate_reverse_dcf(
+    data: Dict,
+    wacc: float,
+    terminal_growth: float,
+    projection_years: int,
+) -> Optional[float]:
+    """
+    Solve backwards for the implied FCF growth rate that justifies
+    the current market price, using bisection method.
+
+    Given market cap + net debt = EV, find the growth rate g such that
+    calculate_dcf(g) produces fair_value_per_share ~= current price.
+
+    Args:
+        data: Dict from fetch_historical_fcf
+        wacc: WACC in %
+        terminal_growth: Terminal growth in %
+        projection_years: Number of years for projection
+
+    Returns:
+        Implied growth rate in %, or None if bisection fails to converge
+    """
+    target_price = data["price_normalized"]
+    fcf_history = data["fcf_history"]
+    shares = data["shares"]
+    net_debt = data.get("net_debt", 0)
+
+    # Tolerance: 0.01% of target price
+    tolerance = target_price * 0.0001
+
+    # Search range: -20% to +50% growth rate
+    lo = -20.0
+    hi = 50.0
+    max_iterations = 100
+
+    def fv_at_growth(g: float) -> float:
+        dcf = calculate_dcf(
+            fcf_history, shares,
+            growth_rate=g,
+            terminal_growth=terminal_growth,
+            wacc=wacc,
+            projection_years=projection_years,
+            net_debt=net_debt,
+        )
+        return dcf["fair_value_per_share"]
+
+    # Check if solution is within bounds
+    fv_lo = fv_at_growth(lo)
+    fv_hi = fv_at_growth(hi)
+
+    # If current price is below even the -20% growth scenario, implied growth < -20%
+    if target_price < fv_lo:
+        return lo
+    # If current price is above even the +50% growth scenario, implied growth > 50%
+    if target_price > fv_hi:
+        return hi
+
+    # Bisection
+    for _ in range(max_iterations):
+        mid = (lo + hi) / 2.0
+        fv_mid = fv_at_growth(mid)
+
+        if abs(fv_mid - target_price) < tolerance:
+            return mid
+
+        if fv_mid < target_price:
+            lo = mid
+        else:
+            hi = mid
+
+    # Return best estimate even if not perfectly converged
+    return (lo + hi) / 2.0
+
+
+def _solve_for_variable(
+    data: Dict,
+    wacc: float,
+    terminal_growth: float,
+    projection_years: int,
+    variable: str,
+    lo: float,
+    hi: float,
+) -> Optional[float]:
+    """
+    Generic bisection solver for reverse scenario math.
+    Solves for the value of 'variable' that makes FV = current price.
+
+    variable: 'wacc' or 'terminal_growth'
+    """
+    target_price = data["price_normalized"]
+    fcf_history = data["fcf_history"]
+    shares = data["shares"]
+    net_debt = data.get("net_debt", 0)
+    tolerance = target_price * 0.0001
+    max_iterations = 100
+
+    def fv_at(val: float) -> float:
+        w = val if variable == "wacc" else wacc
+        tg = val if variable == "terminal_growth" else terminal_growth
+        if w <= tg:
+            return 0
+        dcf = calculate_dcf(
+            fcf_history, shares,
+            growth_rate=0,  # not used for these variables
+            terminal_growth=tg,
+            wacc=w,
+            projection_years=projection_years,
+            net_debt=net_debt,
+        )
+        return dcf["fair_value_per_share"]
+
+    for _ in range(max_iterations):
+        mid = (lo + hi) / 2.0
+        fv_mid = fv_at(mid)
+        if abs(fv_mid - target_price) < tolerance:
+            return mid
+        # For WACC: higher WACC = lower FV. For terminal: higher terminal = higher FV
+        if variable == "wacc":
+            if fv_mid > target_price:
+                lo = mid
+            else:
+                hi = mid
+        else:
+            if fv_mid < target_price:
+                lo = mid
+            else:
+                hi = mid
+
+    return (lo + hi) / 2.0
+
+
+def _solve_reverse_revenue_growth(
+    data: Dict,
+    wacc: float,
+    terminal_growth: float,
+    projection_years: int,
+    fixed_margin: float,
+    fixed_fcf_conversion: float,
+) -> Optional[float]:
+    """
+    Solve for revenue CAGR that justifies current price, given fixed margin
+    and FCF conversion. Uses revenue-based projection instead of FCF-based.
+
+    fixed_margin: EBIT margin as decimal (e.g. 0.30 for 30%)
+    fixed_fcf_conversion: FCF/EBIT ratio as decimal (e.g. 0.80 for 80%)
+    """
+    target_price = data["price_normalized"]
+    shares = data["shares"]
+    net_debt = data.get("net_debt", 0)
+    revenue_history = data.get("revenue_history", [])
+
+    if not revenue_history or revenue_history[-1] <= 0:
+        return None
+
+    base_revenue = revenue_history[-1]
+    tolerance = target_price * 0.0001
+    lo = -20.0
+    hi = 50.0
+    max_iterations = 100
+
+    def fv_at_rev_growth(g: float) -> float:
+        projected_fcf = []
+        pv_fcf = []
+        for year in range(1, projection_years + 1):
+            rev = base_revenue * ((1 + g / 100) ** year)
+            ebit = rev * fixed_margin
+            fcf = ebit * fixed_fcf_conversion
+            pv = fcf / ((1 + wacc / 100) ** year)
+            projected_fcf.append(fcf)
+            pv_fcf.append(pv)
+
+        terminal_fcf = projected_fcf[-1] * (1 + terminal_growth / 100)
+        tv = terminal_fcf / ((wacc - terminal_growth) / 100)
+        pv_tv = tv / ((1 + wacc / 100) ** projection_years)
+
+        ev = sum(pv_fcf) + pv_tv
+        equity = max(ev - net_debt, 0)
+        return equity / shares if shares > 0 else 0
+
+    fv_lo = fv_at_rev_growth(lo)
+    fv_hi = fv_at_rev_growth(hi)
+
+    if target_price < fv_lo:
+        return lo
+    if target_price > fv_hi:
+        return hi
+
+    for _ in range(max_iterations):
+        mid = (lo + hi) / 2.0
+        fv_mid = fv_at_rev_growth(mid)
+        if abs(fv_mid - target_price) < tolerance:
+            return mid
+        if fv_mid < target_price:
+            lo = mid
+        else:
+            hi = mid
+
+    return (lo + hi) / 2.0
+
+
+def _solve_reverse_margin(
+    data: Dict,
+    wacc: float,
+    terminal_growth: float,
+    projection_years: int,
+    fixed_rev_growth: float,
+    fixed_fcf_conversion: float,
+) -> Optional[float]:
+    """
+    Solve for EBIT margin that justifies current price, given fixed revenue growth
+    and FCF conversion. Returns margin as percentage.
+    """
+    target_price = data["price_normalized"]
+    shares = data["shares"]
+    net_debt = data.get("net_debt", 0)
+    revenue_history = data.get("revenue_history", [])
+
+    if not revenue_history or revenue_history[-1] <= 0:
+        return None
+
+    base_revenue = revenue_history[-1]
+    tolerance = target_price * 0.0001
+    lo = 0.0
+    hi = 80.0  # 80% EBIT margin as upper bound
+    max_iterations = 100
+
+    def fv_at_margin(m: float) -> float:
+        margin_dec = m / 100.0
+        projected_fcf = []
+        pv_fcf = []
+        for year in range(1, projection_years + 1):
+            rev = base_revenue * ((1 + fixed_rev_growth / 100) ** year)
+            ebit = rev * margin_dec
+            fcf = ebit * fixed_fcf_conversion
+            pv = fcf / ((1 + wacc / 100) ** year)
+            projected_fcf.append(fcf)
+            pv_fcf.append(pv)
+
+        terminal_fcf = projected_fcf[-1] * (1 + terminal_growth / 100)
+        tv = terminal_fcf / ((wacc - terminal_growth) / 100)
+        pv_tv = tv / ((1 + wacc / 100) ** projection_years)
+
+        ev = sum(pv_fcf) + pv_tv
+        equity = max(ev - net_debt, 0)
+        return equity / shares if shares > 0 else 0
+
+    fv_lo = fv_at_margin(lo)
+    fv_hi = fv_at_margin(hi)
+
+    if target_price < fv_lo:
+        return None  # Even 0% margin gives higher FV than price (shouldn't happen)
+    if target_price > fv_hi:
+        return None  # Even 80% margin is not enough
+
+    for _ in range(max_iterations):
+        mid = (lo + hi) / 2.0
+        fv_mid = fv_at_margin(mid)
+        if abs(fv_mid - target_price) < tolerance:
+            return mid
+        if fv_mid < target_price:
+            lo = mid
+        else:
+            hi = mid
+
+    return (lo + hi) / 2.0
+
+
+def _solve_reverse_terminal_multiple(
+    data: Dict,
+    wacc: float,
+    projection_years: int,
+    growth_rate: float,
+) -> Optional[float]:
+    """
+    Solve for the terminal EV/FCF multiple implied by current price.
+    Instead of Gordon Growth terminal value, backs out the exit multiple.
+
+    Returns terminal EV/FCF multiple.
+    """
+    target_price = data["price_normalized"]
+    fcf_history = data["fcf_history"]
+    shares = data["shares"]
+    net_debt = data.get("net_debt", 0)
+
+    if not fcf_history or fcf_history[-1] <= 0:
+        return None
+
+    base_fcf = fcf_history[-1]
+
+    # Project FCF and PV of projection period
+    projected_fcf = []
+    pv_fcf = []
+    for year in range(1, projection_years + 1):
+        fcf = base_fcf * ((1 + growth_rate / 100) ** year)
+        pv = fcf / ((1 + wacc / 100) ** year)
+        projected_fcf.append(fcf)
+        pv_fcf.append(pv)
+
+    sum_pv = sum(pv_fcf)
+    terminal_fcf = projected_fcf[-1]
+
+    # target_price = (sum_pv + TV_pv - net_debt) / shares
+    # TV_pv = (target_price * shares + net_debt) - sum_pv
+    target_equity = target_price * shares
+    target_ev = target_equity + net_debt
+    pv_terminal_needed = target_ev - sum_pv
+
+    if pv_terminal_needed <= 0:
+        return 0  # No terminal value needed (already covered by projection period)
+
+    # Terminal Value = pv_terminal_needed * (1 + wacc)^n
+    terminal_value = pv_terminal_needed * ((1 + wacc / 100) ** projection_years)
+
+    # Terminal EV/FCF multiple = Terminal Value / Terminal Year FCF
+    if terminal_fcf > 0:
+        return terminal_value / terminal_fcf
+    return None
+
+
+# ------------------------------------------------------------------------------
+# Enhanced Reverse DCF Sections
+# ------------------------------------------------------------------------------
+
+def _print_enhanced_gap_analysis(
+    data: Dict,
+    implied_growth: float,
+):
+    """
+    Print enhanced gap analysis comparing implied expectations vs historical
+    across multiple dimensions: revenue growth, EBIT margin, FCF conversion.
+    """
+    revenue_history = data.get("revenue_history", [])
+    ebit_margin_history = data.get("ebit_margin_history", [])
+    fcf_conversion_history = data.get("fcf_conversion_history", [])
+    fcf_history = data.get("fcf_history", [])
+
+    print(f"\n{'- '*40}")
+    print(f"ENHANCED GAP ANALYSIS")
+    print(f"{'- '*40}")
+    print(f"  Implied vs Historical:")
+
+    # --- Revenue Growth ---
+    rev_cagr_3yr = None
+    rev_cagr_5yr = None
+    if len(revenue_history) >= 4:
+        rev_cagr_3yr = _safe_cagr(revenue_history[-4:])
+    if len(revenue_history) >= 5:
+        rev_cagr_5yr = _safe_cagr(revenue_history)
+    elif len(revenue_history) >= 3:
+        rev_cagr_3yr = _safe_cagr(revenue_history)
+
+    rev_display_3yr = f"{rev_cagr_3yr:.1f}%" if rev_cagr_3yr is not None else "N/A"
+    rev_display_5yr = f"{rev_cagr_5yr:.1f}%" if rev_cagr_5yr is not None else "N/A"
+
+    # Use best available historical revenue CAGR for gap
+    hist_rev = rev_cagr_5yr if rev_cagr_5yr is not None else rev_cagr_3yr
+    if hist_rev is not None:
+        gap_rev = implied_growth - hist_rev
+        print(f"  Revenue Growth:  Implied {implied_growth:+.1f}%  vs  Hist 3Y {rev_display_3yr} / 5Y {rev_display_5yr}  -->  Gap: {gap_rev:+.1f}pp")
+    else:
+        print(f"  Revenue Growth:  Implied {implied_growth:+.1f}%  vs  Historical: Insufficient data")
+
+    # --- EBIT Margin ---
+    valid_margins = [m for m in ebit_margin_history if m is not None]
+    margin_3yr = None
+    margin_5yr = None
+    current_margin = None
+    if valid_margins:
+        current_margin = valid_margins[-1]
+    if len(valid_margins) >= 3:
+        margin_3yr = sum(valid_margins[-3:]) / 3.0
+    if len(valid_margins) >= 4:
+        margin_5yr = sum(valid_margins) / len(valid_margins)
+
+    margin_current_str = f"{current_margin:.1f}%" if current_margin is not None else "N/A"
+    margin_3yr_str = f"{margin_3yr:.1f}%" if margin_3yr is not None else "N/A"
+    margin_5yr_str = f"{margin_5yr:.1f}%" if margin_5yr is not None else "N/A"
+
+    if current_margin is not None:
+        hist_margin = margin_5yr if margin_5yr is not None else margin_3yr
+        if hist_margin is not None:
+            print(f"  EBIT Margin:     Current {margin_current_str}  |  Avg 3Y {margin_3yr_str} / Avg 5Y {margin_5yr_str}")
+        else:
+            print(f"  EBIT Margin:     Current {margin_current_str}  |  Avg: Insufficient data")
+    else:
+        print(f"  EBIT Margin:     Insufficient data")
+
+    # --- FCF Conversion (FCF / Revenue) ---
+    valid_conv = [c for c in fcf_conversion_history if c is not None]
+    conv_3yr = None
+    conv_5yr = None
+    current_conv = None
+    if valid_conv:
+        current_conv = valid_conv[-1]
+    if len(valid_conv) >= 3:
+        conv_3yr = sum(valid_conv[-3:]) / 3.0
+    if len(valid_conv) >= 4:
+        conv_5yr = sum(valid_conv) / len(valid_conv)
+
+    conv_current_str = f"{current_conv:.1f}%" if current_conv is not None else "N/A"
+    conv_3yr_str = f"{conv_3yr:.1f}%" if conv_3yr is not None else "N/A"
+    conv_5yr_str = f"{conv_5yr:.1f}%" if conv_5yr is not None else "N/A"
+
+    if current_conv is not None:
+        print(f"  FCF/Revenue:     Current {conv_current_str}  |  Avg 3Y {conv_3yr_str} / Avg 5Y {conv_5yr_str}")
+    else:
+        print(f"  FCF/Revenue:     Insufficient data")
+
+    # --- FCF Growth CAGR (3Y and 5Y separate) ---
+    fcf_cagr_3yr = None
+    fcf_cagr_5yr = None
+    if len(fcf_history) >= 4:
+        fcf_cagr_3yr = _safe_cagr(fcf_history[-4:])
+    if len(fcf_history) >= 5:
+        fcf_cagr_5yr = _safe_cagr(fcf_history)
+    elif len(fcf_history) >= 3:
+        fcf_cagr_3yr = _safe_cagr(fcf_history)
+
+    fcf_3yr_str = f"{fcf_cagr_3yr:.1f}%" if fcf_cagr_3yr is not None else "N/A"
+    fcf_5yr_str = f"{fcf_cagr_5yr:.1f}%" if fcf_cagr_5yr is not None else "N/A"
+
+    hist_fcf = fcf_cagr_5yr if fcf_cagr_5yr is not None else fcf_cagr_3yr
+    if hist_fcf is not None:
+        gap_fcf = implied_growth - hist_fcf
+        print(f"  FCF Growth:      Implied {implied_growth:+.1f}%  vs  Hist 3Y {fcf_3yr_str} / 5Y {fcf_5yr_str}  -->  Gap: {gap_fcf:+.1f}pp")
+    else:
+        print(f"  FCF Growth:      Implied {implied_growth:+.1f}%  vs  Historical: Insufficient positive FCF data")
+
+    # --- EV/EBIT multiple ---
+    ev_ebit = data.get("ev_ebit_current")
+    if ev_ebit is not None:
+        print(f"  Current EV/EBIT: {ev_ebit:.1f}x")
+
+    return {
+        "rev_cagr_3yr": rev_cagr_3yr,
+        "rev_cagr_5yr": rev_cagr_5yr,
+        "margin_current": current_margin,
+        "margin_3yr": margin_3yr,
+        "margin_5yr": margin_5yr,
+        "conv_current": current_conv,
+        "conv_3yr": conv_3yr,
+        "conv_5yr": conv_5yr,
+        "fcf_cagr_3yr": fcf_cagr_3yr,
+        "fcf_cagr_5yr": fcf_cagr_5yr,
+        "ev_ebit_current": ev_ebit,
+    }
+
+
+def _print_scenario_math(
+    data: Dict,
+    implied_growth: float,
+    wacc: float,
+    terminal_growth: float,
+    projection_years: int,
+    gap_data: Dict,
+):
+    """
+    Print scenario math: what needs to happen for current price to be fair value.
+    Shows growth-only, margin-only, multiple-only, and combination scenarios.
+    """
+    display_currency = data["display_currency"]
+    price_display = data["price"]
+    price_normalized = data["price_normalized"]
+    revenue_history = data.get("revenue_history", [])
+    ebit_margin_history = data.get("ebit_margin_history", [])
+    fcf_conversion_history = data.get("fcf_conversion_history", [])
+
+    # Historical reference values
+    hist_rev_growth = gap_data.get("rev_cagr_5yr") or gap_data.get("rev_cagr_3yr")
+    hist_margin = gap_data.get("margin_current")
+    hist_conv = gap_data.get("conv_current")
+    ev_ebit = gap_data.get("ev_ebit_current")
+
+    print(f"\n{'- '*40}")
+    print(f"SCENARIO MATH: What justifies {price_display:.2f} {display_currency}?")
+    print(f"{'- '*40}")
+
+    has_any = False
+
+    # Scenario A: Growth-only (holding margin and conversion at current levels)
+    if hist_margin is not None and hist_conv is not None and revenue_history:
+        # FCF conversion from EBIT perspective: FCF/Revenue = margin * (FCF/EBIT)
+        # We use margin as-is and back out FCF/EBIT from the data
+        fcf_ebit_ratio = 1.0
+        ebit_history = data.get("ebit_history", [])
+        fcf_history = data.get("fcf_history", [])
+        if ebit_history and fcf_history:
+            min_len = min(len(ebit_history), len(fcf_history))
+            if min_len > 0 and ebit_history[-1] and ebit_history[-1] > 0:
+                fcf_ebit_ratio = fcf_history[-1] / ebit_history[-1]
+
+        implied_rev_growth = _solve_reverse_revenue_growth(
+            data, wacc, terminal_growth, projection_years,
+            fixed_margin=hist_margin / 100.0,
+            fixed_fcf_conversion=fcf_ebit_ratio,
+        )
+        if implied_rev_growth is not None:
+            hist_str = f"{hist_rev_growth:.1f}%" if hist_rev_growth is not None else "N/A"
+            print(f"  Scenario A (Growth only):     Revenue CAGR must be {implied_rev_growth:+.1f}% for {projection_years}yr (vs historical {hist_str})")
+            print(f"                                Holding EBIT margin at {hist_margin:.1f}%, FCF/EBIT at {fcf_ebit_ratio*100:.0f}%")
+            has_any = True
+
+    # Scenario B: Margin expansion only (holding revenue growth at historical level)
+    if hist_rev_growth is not None and revenue_history:
+        fcf_ebit_ratio = 1.0
+        ebit_history = data.get("ebit_history", [])
+        fcf_history = data.get("fcf_history", [])
+        if ebit_history and fcf_history:
+            min_len = min(len(ebit_history), len(fcf_history))
+            if min_len > 0 and ebit_history[-1] and ebit_history[-1] > 0:
+                fcf_ebit_ratio = fcf_history[-1] / ebit_history[-1]
+
+        implied_margin = _solve_reverse_margin(
+            data, wacc, terminal_growth, projection_years,
+            fixed_rev_growth=hist_rev_growth,
+            fixed_fcf_conversion=fcf_ebit_ratio,
+        )
+        if implied_margin is not None:
+            margin_str = f"{hist_margin:.1f}%" if hist_margin is not None else "N/A"
+            print(f"  Scenario B (Margin expansion): EBIT margin must reach {implied_margin:.1f}% (vs current {margin_str})")
+            print(f"                                Holding revenue growth at {hist_rev_growth:.1f}%, FCF/EBIT at {fcf_ebit_ratio*100:.0f}%")
+            has_any = True
+
+    # Scenario C: Multiple expansion (what terminal EV/FCF multiple is implied)
+    # Use historical FCF growth as the growth rate during projection period
+    hist_fcf_growth = gap_data.get("fcf_cagr_5yr") or gap_data.get("fcf_cagr_3yr")
+    growth_for_multiple = hist_fcf_growth if hist_fcf_growth is not None else 0.0
+
+    implied_multiple = _solve_reverse_terminal_multiple(
+        data, wacc, projection_years, growth_rate=growth_for_multiple,
+    )
+    if implied_multiple is not None:
+        # For comparison, compute what Gordon Growth terminal would imply
+        gordon_multiple = None
+        if wacc > terminal_growth:
+            gordon_multiple = (1 + terminal_growth / 100) / ((wacc - terminal_growth) / 100)
+        ev_ebit_str = f"{ev_ebit:.1f}x" if ev_ebit is not None else "N/A"
+        gordon_str = f"{gordon_multiple:.1f}x" if gordon_multiple is not None else "N/A"
+        print(f"  Scenario C (Multiple expansion): Terminal EV/FCF must be {implied_multiple:.1f}x (Gordon Growth implies {gordon_str})")
+        print(f"                                  Using FCF growth {growth_for_multiple:.1f}% during projection | Current EV/EBIT: {ev_ebit_str}")
+        has_any = True
+
+    # Scenario D: Combination (what if all three improve moderately)
+    if hist_rev_growth is not None and hist_margin is not None and revenue_history:
+        # Assume: revenue growth improves by +2pp, margin improves by +2pp, see resulting FV
+        combo_rev_growth = hist_rev_growth + 2.0
+        combo_margin = (hist_margin + 2.0) / 100.0
+
+        fcf_ebit_ratio = 1.0
+        ebit_history = data.get("ebit_history", [])
+        fcf_history = data.get("fcf_history", [])
+        if ebit_history and fcf_history:
+            min_len = min(len(ebit_history), len(fcf_history))
+            if min_len > 0 and ebit_history[-1] and ebit_history[-1] > 0:
+                fcf_ebit_ratio = fcf_history[-1] / ebit_history[-1]
+
+        base_revenue = revenue_history[-1]
+        shares = data["shares"]
+        net_debt = data.get("net_debt", 0)
+
+        projected_fcf = []
+        pv_fcf = []
+        for year in range(1, projection_years + 1):
+            rev = base_revenue * ((1 + combo_rev_growth / 100) ** year)
+            ebit = rev * combo_margin
+            fcf = ebit * fcf_ebit_ratio
+            pv = fcf / ((1 + wacc / 100) ** year)
+            projected_fcf.append(fcf)
+            pv_fcf.append(pv)
+
+        if projected_fcf:
+            terminal_fcf = projected_fcf[-1] * (1 + terminal_growth / 100)
+            tv = terminal_fcf / ((wacc - terminal_growth) / 100)
+            pv_tv = tv / ((1 + wacc / 100) ** projection_years)
+            ev = sum(pv_fcf) + pv_tv
+            equity = max(ev - net_debt, 0)
+            fv = equity / shares if shares > 0 else 0
+            fv_display, _ = format_price_and_currency(fv, data)
+            mos = calculate_mos(fv, price_normalized)
+            print(f"  Scenario D (Combination):     Growth {combo_rev_growth:.1f}% + Margin {combo_margin*100:.1f}% --> FV {fv_display:.2f} {display_currency} (MoS: {mos:+.1f}%)")
+            has_any = True
+
+    if not has_any:
+        print(f"  Insufficient historical data for scenario decomposition")
+
+
+def _print_asymmetry_analysis(
+    data: Dict,
+    implied_growth: float,
+    wacc: float,
+    terminal_growth: float,
+    projection_years: int,
+    gap_data: Dict,
+):
+    """
+    Print asymmetry analysis: bull vs bear fair values and upside/downside ratio.
+    Uses historical ranges to define optimistic (P10) and pessimistic (P90) scenarios.
+    """
+    display_currency = data["display_currency"]
+    price_normalized = data["price_normalized"]
+    fcf_history = data["fcf_history"]
+    shares = data["shares"]
+    net_debt = data.get("net_debt", 0)
+
+    # Derive bull and bear growth rates from historical data
+    hist_fcf_cagr = gap_data.get("fcf_cagr_5yr") or gap_data.get("fcf_cagr_3yr")
+    hist_rev_cagr = gap_data.get("rev_cagr_5yr") or gap_data.get("rev_cagr_3yr")
+
+    # Best available historical growth reference
+    hist_growth = hist_fcf_cagr if hist_fcf_cagr is not None else hist_rev_cagr
+
+    if hist_growth is None:
+        # Fallback: use implied growth as reference
+        hist_growth = implied_growth
+
+    # P10 Bull: optimistic = max(implied, historical) + 3pp growth, WACC -1pp
+    bull_growth = max(implied_growth, hist_growth) + 3.0
+    bull_wacc = max(wacc - 1.0, terminal_growth + 0.5)  # ensure WACC > terminal
+
+    # P90 Bear: pessimistic = min(implied, historical) - 3pp growth, WACC +1.5pp
+    bear_growth = min(implied_growth, hist_growth) - 3.0
+    bear_wacc = wacc + 1.5
+
+    # Calculate bull case FV
+    bull_dcf = calculate_dcf(
+        fcf_history, shares,
+        growth_rate=bull_growth,
+        terminal_growth=terminal_growth,
+        wacc=bull_wacc,
+        projection_years=projection_years,
+        net_debt=net_debt,
+    )
+    bull_fv = bull_dcf["fair_value_per_share"]
+    bull_fv_display, _ = format_price_and_currency(bull_fv, data)
+    bull_return = calculate_mos(bull_fv, price_normalized)
+
+    # Calculate bear case FV
+    bear_dcf = calculate_dcf(
+        fcf_history, shares,
+        growth_rate=bear_growth,
+        terminal_growth=terminal_growth,
+        wacc=bear_wacc,
+        projection_years=projection_years,
+        net_debt=net_debt,
+    )
+    bear_fv = bear_dcf["fair_value_per_share"]
+    bear_fv_display, _ = format_price_and_currency(bear_fv, data)
+    bear_return = calculate_mos(bear_fv, price_normalized)
+
+    # Asymmetry ratio = |upside| / |downside|
+    upside = max(bull_return, 0)
+    downside = abs(min(bear_return, 0))
+    if downside > 0:
+        asymmetry = upside / downside
+    elif upside > 0:
+        asymmetry = float('inf')
+    else:
+        asymmetry = 0.0
+
+    print(f"\n{'- '*40}")
+    print(f"ASYMMETRY ANALYSIS")
+    print(f"{'- '*40}")
+    print(f"  Bull case (P10 optimistic):  Growth {bull_growth:+.1f}%, WACC {bull_wacc:.1f}%")
+    print(f"    Fair Value: {bull_fv_display:.2f} {display_currency}  -->  Return: {bull_return:+.1f}%")
+    print(f"  Bear case (P90 pessimistic): Growth {bear_growth:+.1f}%, WACC {bear_wacc:.1f}%")
+    print(f"    Fair Value: {bear_fv_display:.2f} {display_currency}  -->  Return: {bear_return:+.1f}%")
+
+    if asymmetry == float('inf'):
+        print(f"  Asymmetry ratio: INF (no downside in bear case)")
+    elif asymmetry == 0.0 and upside == 0:
+        print(f"  Asymmetry ratio: 0.00 (no upside in bull case)")
+    else:
+        print(f"  Asymmetry ratio: {asymmetry:.2f}x (>1 = favorable, <1 = unfavorable)")
+
+    # Probability-weighted expected return (equal weight)
+    expected_return = (bull_return + bear_return) / 2.0
+    print(f"  Equal-weight expected return: {expected_return:+.1f}%")
+
+    return {
+        "bull_fv": bull_fv,
+        "bear_fv": bear_fv,
+        "bull_return": bull_return,
+        "bear_return": bear_return,
+        "asymmetry": asymmetry,
+    }
+
+
+def print_reverse_dcf(
+    ticker: str,
+    data: Dict,
+    implied_growth: float,
+    wacc: float,
+    terminal_growth: float,
+    projection_years: int,
+    rates: Dict[str, float],
+) -> Dict:
+    """
+    Print reverse DCF output for a single ticker.
+    Includes: implied expectations, historical context, basic gap/scenario,
+    then enhanced gap analysis, scenario math, and asymmetry analysis.
+
+    Returns a result dict for the summary table.
+    """
+    price_display = data["price"]
+    display_currency = data["display_currency"]
+    price_normalized = data["price_normalized"]
+    currency = data["currency"]
+    fcf_history = data["fcf_history"]
+    shares = data["shares"]
+    net_debt = data.get("net_debt", 0)
+    market_cap = data.get("market_cap", 0)
+
+    # Enterprise Value (for display)
+    ev = market_cap + net_debt
+    # For GBp stocks, market_cap from yfinance is already in native currency (GBP)
+    # but price is in pence, so market_cap = price_normalized * shares
+    if data["is_gbp_pence"] and market_cap == 0:
+        market_cap = price_normalized * shares
+        ev = market_cap + net_debt
+
+    # Most recent FCF and average 3yr FCF
+    base_fcf = fcf_history[-1]
+    avg_fcf_3yr = sum(fcf_history[-3:]) / min(3, len(fcf_history)) if fcf_history else base_fcf
+
+    # Historical FCF CAGR
+    fcf_cagr = None
+    if len(fcf_history) >= 2:
+        first_fcf = fcf_history[0]
+        last_fcf = fcf_history[-1]
+        n_years = len(fcf_history) - 1
+        if first_fcf > 0 and last_fcf > 0:
+            fcf_cagr = ((last_fcf / first_fcf) ** (1 / n_years) - 1) * 100
+
+    # Revenue growth
+    revenue_growth = data.get("revenue_growth_3yr")
+
+    print(f"\n{'='*80}")
+    print(f"REVERSE DCF: {ticker}")
+    print(f"{data['name']}")
+    print(f"Price: {price_display:.2f} {display_currency} | Market Cap: {market_cap/1e9:.1f}B | EV: {ev/1e9:.1f}B")
+    print(f"FCF (most recent): {base_fcf/1e9:.2f}B | FCF (avg {min(3, len(fcf_history))}yr): {avg_fcf_3yr/1e9:.2f}B")
+    print(f"WACC: {wacc:.1f}% | Terminal growth: {terminal_growth:.1f}% | Projection: {projection_years} years")
+    print(f"{'='*80}")
+
+    if data.get("fcf_warning"):
+        print(f"\n!!  {data['fcf_warning']}")
+
+    # IMPLIED EXPECTATIONS
+    print(f"\nIMPLIED EXPECTATIONS:")
+    if implied_growth <= -20.0:
+        print(f"  FCF growth rate implied by current price: <-20.0% /yr ({projection_years}yr projection)")
+    elif implied_growth >= 50.0:
+        print(f"  FCF growth rate implied by current price: >50.0% /yr ({projection_years}yr projection)")
+    else:
+        print(f"  FCF growth rate implied by current price: {implied_growth:.1f}% /yr ({projection_years}yr projection)")
+
+    # HISTORICAL CONTEXT
+    print(f"\nHISTORICAL CONTEXT:")
+    if fcf_cagr is not None:
+        print(f"  FCF CAGR (from {len(fcf_history)}yr history): {fcf_cagr:.1f}% /yr")
+    else:
+        print(f"  FCF CAGR: N/A (insufficient positive FCF history)")
+    if revenue_growth is not None:
+        n_rev = len(data.get("revenue_history", [])) - 1
+        print(f"  Revenue growth ({n_rev}yr avg): {revenue_growth:.1f}% /yr")
+    else:
+        print(f"  Revenue growth: N/A")
+
+    # GAP ANALYSIS (original basic version)
+    print(f"\nGAP ANALYSIS:")
+    if fcf_cagr is not None:
+        gap = fcf_cagr - implied_growth
+        print(f"  Implied: {implied_growth:.1f}% | Historical FCF CAGR: {fcf_cagr:.1f}%")
+        print(f"  Gap: {gap:.1f} pp")
+    else:
+        print(f"  Implied: {implied_growth:.1f}% | Historical FCF CAGR: N/A")
+
+    # SCENARIO MATH (original basic version)
+    print(f"\nSCENARIO MATH (if company grows at...):")
+
+    scenarios_to_show = []
+
+    if fcf_cagr is not None and fcf_cagr > implied_growth:
+        midpoint = (fcf_cagr + implied_growth) / 2
+        scenarios_to_show.append(("Historical rate", fcf_cagr))
+        scenarios_to_show.append(("Midpoint", midpoint))
+    elif fcf_cagr is not None:
+        # Historical is lower than implied
+        scenarios_to_show.append(("Historical rate", fcf_cagr))
+
+    scenarios_to_show.append(("Implied rate", implied_growth))
+
+    for label, g_rate in scenarios_to_show:
+        dcf = calculate_dcf(
+            fcf_history, shares,
+            growth_rate=g_rate,
+            terminal_growth=terminal_growth,
+            wacc=wacc,
+            projection_years=projection_years,
+            net_debt=net_debt,
+        )
+        fv = dcf["fair_value_per_share"]
+        fv_display, _ = format_price_and_currency(fv, data)
+        mos = calculate_mos(fv, price_normalized)
+        print(f"  {label} ({g_rate:.1f}%): Fair Value {fv_display:.2f} {display_currency} (MoS: {mos:+.1f}%)")
+
+    # =========================================================================
+    # ENHANCED REVERSE DCF SECTIONS (new)
+    # =========================================================================
+
+    # 1. Enhanced Gap Analysis
+    gap_data = _print_enhanced_gap_analysis(data, implied_growth)
+
+    # 2. Scenario Math (decomposed)
+    _print_scenario_math(
+        data, implied_growth, wacc, terminal_growth, projection_years, gap_data,
+    )
+
+    # 3. Asymmetry Analysis
+    asym_data = _print_asymmetry_analysis(
+        data, implied_growth, wacc, terminal_growth, projection_years, gap_data,
+    )
+
+    print(f"\n[Raw data. Reason from principles.md]")
+
+    # Build result dict for summary table
+    return {
+        "ticker": ticker,
+        "name": data["name"],
+        "price_display": price_display,
+        "display_currency": display_currency,
+        "implied_growth": implied_growth,
+        "fcf_cagr": fcf_cagr,
+        "revenue_growth": revenue_growth,
+        "gap": (fcf_cagr - implied_growth) if fcf_cagr is not None else None,
+        "asymmetry": asym_data.get("asymmetry") if asym_data else None,
+        "bull_return": asym_data.get("bull_return") if asym_data else None,
+        "bear_return": asym_data.get("bear_return") if asym_data else None,
+    }
+
+
+def print_reverse_summary_table(results: List[Dict]):
+    """Print summary table for batch reverse DCF analysis."""
+    if not results or len(results) < 2:
+        return
+
+    print(f"\n{'='*110}")
+    print(f"REVERSE DCF SUMMARY")
+    print(f"{'='*110}")
+
+    header = (
+        f"{'Ticker':<10} {'Name':<22} {'Price':>10} "
+        f"{'Implied':>9} {'FCF CAGR':>10} {'Rev Gr':>8} {'Gap':>8} {'Asym':>7} {'Bull':>8} {'Bear':>8}"
+    )
+    print(f"\n{header}")
+    print("-" * 110)
+
+    for r in sorted(results, key=lambda x: x.get("gap") or 0, reverse=True):
+        implied_str = f"{r['implied_growth']:+.1f}%" if r['implied_growth'] is not None else "N/A"
+        cagr_str = f"{r['fcf_cagr']:.1f}%" if r['fcf_cagr'] is not None else "N/A"
+        rev_str = f"{r['revenue_growth']:.1f}%" if r['revenue_growth'] is not None else "N/A"
+        gap_str = f"{r['gap']:+.1f}pp" if r['gap'] is not None else "N/A"
+        asym_str = f"{r['asymmetry']:.2f}x" if r.get('asymmetry') is not None and r['asymmetry'] != float('inf') else "N/A"
+        bull_str = f"{r['bull_return']:+.1f}%" if r.get('bull_return') is not None else "N/A"
+        bear_str = f"{r['bear_return']:+.1f}%" if r.get('bear_return') is not None else "N/A"
+        print(
+            f"{r['ticker']:<10} {r['name'][:22]:<22} "
+            f"{r['price_display']:>10.2f} "
+            f"{implied_str:>9} {cagr_str:>10} {rev_str:>8} {gap_str:>8} {asym_str:>7} {bull_str:>8} {bear_str:>8}"
+        )
+
+    print(f"\nImplied = growth rate market prices in | Gap = Historical CAGR - Implied")
+    print(f"Positive gap = market implies LESS growth than historical | Asym >1 = favorable risk/reward")
+    print(f"\n[Raw data. Reason from principles.md]")
 
 
 # ==============================================================================
@@ -497,7 +1505,7 @@ def format_price_and_currency(price: float, data: Dict) -> Tuple[float, str]:
 
 def print_dcf_waterfall(
     ticker: str, data: Dict, dcf: Dict, price: float,
-    currency: str, price_eur: float,
+    currency: str, price_eur: float, wacc: float,
 ):
     """Print detailed DCF waterfall calculation."""
     fair_value_display, display_currency = format_price_and_currency(
@@ -532,7 +1540,7 @@ def print_dcf_waterfall(
     print(f"{'Year':>6} {'FCF (B)':>12} {'Discount':>10} {'PV (B)':>12}")
     print("-" * 45)
     for i, (fcf, pv) in enumerate(zip(dcf["projected_fcf"], dcf["pv_fcf"]), 1):
-        print(f"{i:>6} {fcf/1e9:>12.2f} {1/((1+args.wacc/100)**i):>9.3f}x {pv/1e9:>12.2f}")
+        print(f"{i:>6} {fcf/1e9:>12.2f} {1/((1+wacc/100)**i):>9.3f}x {pv/1e9:>12.2f}")
 
     print(f"\nSum of PV(FCF): {dcf['sum_pv_fcf']/1e9:.2f}B {fcf_currency}")
     print("\nTerminal Value:")
@@ -662,6 +1670,7 @@ Examples:
   python3 tools/dcf_calculator.py SAN.MC BNP.PA --scenarios
   python3 tools/dcf_calculator.py WPP.L --scenarios  # LSE stock in GBp
   python3 tools/dcf_calculator.py ADBE --growth 8 --wacc 9 --sensitivity
+  python3 tools/dcf_calculator.py --reverse ROP ADBE NVO  # Reverse DCF
         """,
     )
 
@@ -691,6 +1700,10 @@ Examples:
         help="Run sensitivity matrix (Growth x WACC)",
     )
     parser.add_argument(
+        "--reverse", action="store_true",
+        help="Reverse DCF: solve for implied FCF growth rate given current price",
+    )
+    parser.add_argument(
         "--bear-growth-delta", type=float, default=-2.0,
         help="Bear scenario growth delta in pp (default: -2.0)",
     )
@@ -708,8 +1721,13 @@ Examples:
     )
     parser.add_argument("--output", type=str, help="Save results to CSV file")
 
-    global args
     args = parser.parse_args()
+
+    # --reverse is mutually exclusive with --growth (user-specified)
+    if args.reverse and '--growth' in sys.argv:
+        print("ERROR: --reverse and --growth are mutually exclusive. "
+              "--reverse solves for the growth rate.", file=sys.stderr)
+        sys.exit(1)
 
     if args.wacc <= args.terminal:
         print("ERROR: WACC must be greater than terminal growth rate", file=sys.stderr)
@@ -725,6 +1743,49 @@ Examples:
         file=sys.stderr,
     )
 
+    # ======================================================================
+    # REVERSE DCF MODE
+    # ======================================================================
+    if args.reverse:
+        reverse_results = []
+        for ticker in args.tickers:
+            print(f"\n{'#'*80}", file=sys.stderr)
+            print(f"Processing (reverse): {ticker}", file=sys.stderr)
+            print(f"{'#'*80}", file=sys.stderr)
+
+            data = fetch_historical_fcf(ticker, years=5)
+            if not data:
+                continue
+
+            implied_growth = calculate_reverse_dcf(
+                data,
+                wacc=args.wacc,
+                terminal_growth=args.terminal,
+                projection_years=args.years,
+            )
+
+            if implied_growth is None:
+                print(f"ERROR {ticker}: Could not solve for implied growth rate", file=sys.stderr)
+                continue
+
+            result = print_reverse_dcf(
+                ticker, data, implied_growth,
+                wacc=args.wacc,
+                terminal_growth=args.terminal,
+                projection_years=args.years,
+                rates=rates,
+            )
+            reverse_results.append(result)
+
+        if len(reverse_results) > 1:
+            print_reverse_summary_table(reverse_results)
+
+        print()
+        return
+
+    # ======================================================================
+    # STANDARD DCF MODE (existing behavior)
+    # ======================================================================
     results = []
     for ticker in args.tickers:
         print(f"\n{'#'*80}", file=sys.stderr)
@@ -764,7 +1825,7 @@ Examples:
                 projection_years=args.years,
                 net_debt=data.get("net_debt", 0),
             )
-            print_dcf_waterfall(ticker, data, dcf, price_normalized, currency, price_eur)
+            print_dcf_waterfall(ticker, data, dcf, price_normalized, currency, price_eur, wacc=args.wacc)
 
         # Sensitivity analysis (runs AFTER base waterfall or scenarios)
         if args.sensitivity:
