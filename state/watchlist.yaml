@@ -62,8 +62,8 @@ short_candidates:
     catalyst: "Q2 FY2026 earnings — AI revenue must materialize or narrative collapses"
     catalyst_date: 2026-05-15
     entry: ">=$30"
-    status: "SCREENED — needs S1"
-    notes: "Siemens Energy. Gamesa losses persist. AI/grid narrative stretched. Revenue growth real but margins not. TOP PRIORITY for S1."
+    status: "DEPRIORITIZED — S76 narrative too strong"
+    notes: "Siemens Energy. Stock at ATH EUR 167. DB raised PT to 170. $1B US investment. AI/grid narrative at peak. Revisit after May earnings if margins disappoint. Deprioritized S76."
 
   - ticker: RAND.AS
     qs_gap: "P/E 17x but AI disrupting core staffing model"
@@ -78,16 +78,16 @@ short_candidates:
     catalyst: "DOJ antitrust trial Mar 2 2026"
     catalyst_date: 2026-03-02
     entry: ">=$140"
-    status: "SCREENED — needs S1"
-    notes: "Live Nation/Ticketmaster. DOJ wants breakup. Short interest 3%. Near-term catalyst but binary (acquittal = squeeze risk)."
+    status: "S1 IN PROGRESS — Session 76"
+    notes: "Live Nation/Ticketmaster. DOJ wants breakup. States proceed regardless of Trump DOJ. Short interest 3%. MOST BINARY near-term catalyst. S1 launched S76."
 
   - ticker: VTY.L
     qs_gap: "3 profit warnings, accounting failures, institutional exodus"
     catalyst: "FY2025 results (Mar/Apr 2026) — further writedowns expected"
     catalyst_date: 2026-04-01
     entry: ">=$200"
-    status: "SCREENED — needs S1"
-    notes: "Vistry Group. 3 profit warnings in 4 months. CEO departed. Accounting restated. Partnerships model failing."
+    status: "REMOVED — S76 thesis invalidated"
+    notes: "Stock at 724p near 52wH despite 3 profit warnings. Market fully forgave. Short thesis invalidated by price action. Removed session 76 (2026-02-19)."
 
 archived_rejected:
   - { ticker: HPQ, date: 2026-02-03, reason: "VALUE TRAP 4/10" }
@@ -125,6 +125,6 @@ price_monitors:
   - { ticker: BYIT.L, add_trigger_gbp: 240, note: "POSITION - after H2 OP confirm" }
   - { ticker: DNLM.L, entry_gbp: 780 }
   - { ticker: WKL.AS, entry_eur: "50-55" }
-  - { ticker: DSY.PA, entry_eur: 15.50, condition: "WAIT Q1" }
+  - { ticker: DSY.PA, entry_eur: 14.50, condition: "WAIT Q1. Revised down S75 post -21% crash." }
   - { ticker: PAYC, entry_usd: 92, note: "R3 complete. Deferred." }
   - { ticker: MORN, entry_usd: 133, note: "R3 complete. Deferred." }
