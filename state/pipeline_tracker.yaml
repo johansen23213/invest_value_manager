@@ -45,7 +45,7 @@ fragility_watch:
   priority: 2
   last_run: 2026-02-18
   next_due: 2026-02-25
-  last_result: "S76: LYV S1 COMPLETED. VTY.L REMOVED (thesis invalidated). ENR.DE DEPRIORITIZED. Active short candidates: CVNA (needs S1), RAND.AS (needs S1), LYV (S1 done, S2 next). Next: LYV S2 bull case before Mar 2."
+  last_result: "S76: LYV S1→S2→S3→S4 COMPLETE. S4 APPROVED CONDITIONAL (1%, EUR 100, stop $195). Standing order created. VTY.L REMOVED. ENR.DE+RAND.AS DEPRIORITIZED. Active: CVNA (needs S1). Sector view live-entertainment.md CREATED."
   skill: ".claude/skills/short-thesis-framework/SKILL.md"
   tool: "tools/quality_universe.py --fragility"
   mandatory: true

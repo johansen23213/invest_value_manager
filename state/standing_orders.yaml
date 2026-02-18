@@ -295,19 +295,28 @@ standing_orders:
 # Trigger: price >= target (inverted vs longs)
 # Requires: Short pipeline S1-S4 complete + investment-committee SHORT_APPROVAL
 # =============================================================================
-short_orders: []
-# Ejemplo de formato:
-#  - ticker: XYZ
-#    action: SHORT
-#    trigger: ">=$200"
-#    size_eur: 400
-#    fair_value: "$120"
-#    catalyst: "Q2 earnings reveal accounting weakness"
-#    catalyst_date: 2026-07-15
-#    carry_cost_note: "~7-8% annual on eToro CFD"
-#    max_duration: "6 months"
-#    notes: "S4 APPROVED. Fragility thesis: hidden revenue concentration."
-#    last_analysis_date: 2026-07-01
-#    expiry: 2026-12-31
+short_orders:
+  - ticker: LYV
+    action: SHORT
+    trigger: "Post-Q4 earnings confirmed, $145-160 range"
+    size_eur: 100
+    fair_value_short: "$85"
+    catalyst: "DOJ antitrust trial March 2, 2026 + 40 state AGs"
+    catalyst_date: 2026-03-02
+    carry_cost_note: "~7-8% annual on eToro CFD (~EUR 0.63/month)"
+    max_duration: "6 months initially; re-evaluate quarterly"
+    stop_loss: "$195 (max loss EUR ~24 = 0.24% of portfolio)"
+    instrument: "CFD short, x1 leverage, no margin"
+    kill_conditions:
+      - "KC#1: DOJ + all states settle simultaneously -> COVER IMMEDIATELY"
+      - "KC#2: Stock > $195 -> COVER (stop loss)"
+      - "KC#3: Organic revenue growth >10% 2 consecutive quarters -> RE-EVALUATE"
+      - "KC#4: Carry cost > 8% of position without catalyst -> COVER within 30 days"
+    pre_execution_conditions:
+      - "Sector view live-entertainment.md CREATED"
+      - "Q4 2025 earnings confirmed and reviewed — no material thesis change"
+    notes: "S4 APPROVED CONDITIONAL (Session 76). First-ever short. 1% sizing (half of half-position). QS 41 at 114x P/E. Ticketmaster = 52% of AOI. Google precedent main counter-risk (behavioral > structural). Entry window Feb 20-28."
+    last_analysis_date: 2026-02-19
+    expiry: 2026-09-01
 
 # Cancelled orders history: see state/calendar_archive.yaml

@@ -74,12 +74,12 @@ short_candidates:
     notes: "Randstad. Structural disruption confirmed (Q4 organic rev -2.1%, GM -40bps, Germany -10%). BUT stock at EUR 27 vs entry EUR 48 — thesis partially played out at wrong price. AI agent demand +1587%. Short at current levels = poor risk/reward. Revisit only if rally to EUR 40+."
 
   - ticker: LYV
-    qs_gap: "P/E 115x, DOJ antitrust trial imminent"
-    catalyst: "DOJ antitrust trial Mar 2 2026"
+    qs_gap: "QS 41 (Tier C) at 114x P/E, 37x EV/EBIT"
+    catalyst: "DOJ antitrust trial Mar 2 2026 + 40 state AGs"
     catalyst_date: 2026-03-02
-    entry: ">=$140"
-    status: "S1 IN PROGRESS — Session 76"
-    notes: "Live Nation/Ticketmaster. DOJ wants breakup. States proceed regardless of Trump DOJ. Short interest 3%. MOST BINARY near-term catalyst. S1 launched S76."
+    entry: "$145-160 (post-Q4 earnings)"
+    status: "S4 APPROVED CONDITIONAL — Standing order created"
+    notes: "S1→S2→S3→S4 COMPLETE (Session 76). FV $85. EV +18-20%. 1% sizing (EUR 100). Stop $195. Conditions: sector view DONE, Q4 earnings review pending. Entry window Feb 20-28."
 
   - ticker: VTY.L
     qs_gap: "3 profit warnings, accounting failures, institutional exodus"

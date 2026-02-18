@@ -77,22 +77,23 @@ system:
       3. 2 positions on probation (MONY.L Feb 23, LULU Mar 31) — may need rotation capital
       4. Pipeline deep (8 R4-approved, 5 R4-watchlist, 7 R3-complete)
       5. Adversarial corrections push entries below current market systematically
-      SHORT 0% — PARTIALLY JUSTIFIED:
-      1. S75 screened 5 short candidates but 0 through S1
-      2. LYV S1 IN PROGRESS this session (DOJ trial Mar 2 = 11 days)
-      3. VTY.L REMOVED (thesis invalidated), ENR.DE DEPRIORITIZED (narrative too strong)
-      4. P12 compliance: actively advancing short pipeline
+      SHORT 0% → 1% IMMINENT — JUSTIFIED:
+      1. LYV S1→S2→S3→S4 COMPLETE this session. S4 APPROVED CONDITIONAL (1%, EUR 100)
+      2. Standing order created. Entry window Feb 20-28 (post-Q4 earnings, pre-trial)
+      3. Conditions: Q4 earnings review pending. Sector view DONE.
+      4. VTY.L REMOVED, ENR.DE + RAND.AS DEPRIORITIZED. CVNA needs S1.
+      5. P12 COMPLIANCE: First short through full pipeline. Bidirectional capability established.
       DIRECTION: Cash should DECREASE over next 2-4 weeks via:
-      a) Earnings gauntlet may trigger MEGP.L (at 135p trigger, hard gate Feb 27)
-      b) ROP approaching trigger ($325 vs $300, 7.7%)
-      c) Short exposure via LYV if S1→S4 completed before March 2
-      d) MONC.MI R2 if FY2025 results are actionable
+      a) LYV short entry Feb 20-28 (EUR 100, 1% of portfolio)
+      b) Earnings gauntlet may trigger MEGP.L (at 135p trigger, hard gate Feb 27)
+      c) ROP approaching trigger ($325 vs $300, 7.7%)
+      d) MONC.MI R2 if FY2025 results support thesis
     last_updated: 2026-02-19
     history:
       - date: 2026-02-19
         net_pct: 39.3
         gross_pct: 39.3
-        note: "S76. LYV S1 launched. VTY.L short removed. Cash justified by earnings gauntlet + discipline."
+        note: "S76. LYV S4 APPROVED CONDITIONAL (1%, EUR 100, stop $195). First short through full pipeline. VTY.L removed. ENR.DE+RAND.AS deprioritized."
       - date: 2026-02-18
         net_pct: 39.3
         gross_pct: 39.3
