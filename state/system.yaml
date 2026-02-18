@@ -8,7 +8,7 @@ system:
   system_version: "4.2.0"
   framework_version: "4.2"
   last_session: 2026-02-18
-  session_number: 77
+  session_number: 79
   status: active
 
   framework_v4_status:
@@ -45,19 +45,40 @@ system:
       - { ticker: GL, score: 52, tier: C, status: "FV $191. SEC+DOJ cleared." }
 
   last_session_summary: |
-    Session 77 - Evening Calibration + LYV Slater Alert (2026-02-18)
-    CRITICAL: DOJ antitrust chief Gail Slater DEPARTED — LYV settlement probability increased.
-    - Short thesis WEAKENED (structural remedy prob 10%→5-8%) but NOT INVALIDATED.
-    - 40 states still pursuing independently. States-only structural: 5-10%.
-    - Standing order UPDATED with Slater note. Must reassess post-Q4 earnings (Feb 19).
-    LYV Q4 EARNINGS DISCOVERED: Tomorrow Feb 19 after close. Added to calendar.
-    - Entry window still Feb 20-28 but conditional on Q4 review + Slater reassessment.
-    CALENDAR: Added LYV Q4 (Feb 19), LYV DOJ trial (Mar 2), FOUR.L (Mar 11).
-    RACE.MI: HSBC downgrade to Hold, PT EUR 415→345 (-17%). New info tracked.
-    EARNINGS FRAMEWORKS: All 6 gauntlet frameworks confirmed READY (Error #13 PASS).
-    VIGILANCE: 0 CRITICAL. Market flat. DTE.DE -2.97% (profit-taking), BYIT.L +2.82% (RSI bounce).
-    NET EXPOSURE: 39.3% long, 0% short, 60.7% cash. Same-day session, no change.
-    Portfolio: EUR 10,139, cash 60.7%, P&L +1.8%. 10 positions.
+    Session 79 - Pipeline Mega-Advance + Discovery (2026-02-18 evening, 4 context windows)
+    PIPELINE ADVANCEMENT (LONG):
+    - AJB.L R3 COMPLETE: FV 520p, entry 375p, WAIT H1 FY26 (Apr). Hard gates: FCF, UK conc.
+    - BAH R3 COMPLETE: FV $78, DEPRIORITIZED. Palantir existential threat, DOGE structural.
+    - ALFA.ST R1 COMPLETE: QS 72, FV SEK 420, WATCHLIST. Entry SEK 345. Too expensive at 522.
+    PIPELINE ADVANCEMENT (SHORT):
+    - CVNA S2 COMPLETE: Bull 5.5/10. Q4 results NOW AVAILABLE (record revenue +58%, BUT $618M DTA release inflates NI by 65%). S3 framework ready.
+    - APP S1 COMPLETE: QS Tool 57, Adj 50 (Tier C). FV $150 base, $87 bear, $475 bull. EV $212. Moat NARROW CONDITIONAL (13/25). Risk-identifier: VERY HIGH risk to short. P10 VIOLATION (no catalyst date). Decision: SHORT WATCHLIST (not active short). Re-evaluate if SEC charges, stock >$550, or revenue decel.
+    DISCOVERY:
+    - Short screening WAVE 1: PLTR + BA added. WAVE 2 (enhanced): APP fragility 8/10, IONQ 7/10, REZI 6/10.
+    - PLTR DEPRIORITIZED (Q4 blowout invalidates DOGE-victim thesis).
+    - Batch scoring AEX25+IBEX35: +10 new (ASML.AS QS 81 Tier A top).
+    - Universe: 126 -> 142 (+16 this evening). Short universe: 8 candidates (LYV approved, CVNA S2, APP S1, BA/IONQ/REZI watch, ENR.DE/RAND.AS deprioritized).
+    - Sector view CREATED: mobile-ad-tech.md (APP dependency).
+    CVNA Q4 2025 RESULTS (CRITICAL DATA):
+    - Revenue $5.603B (+58%), Units 163,522 (+43%), GAAP NI $951M. BUT $685M DTA release = non-cash one-time.
+    - Adjusted NI ~$333M Q4, ~$1.274B FY. P/E GAAP 41x, P/E adjusted 62x.
+    - EBITDA margin DECLINING: 12% Q1-Q2 -> 11.3% Q3 -> 9.1% Q4 = margin compression at scale.
+    - Guidance vague: "significant growth" with no specifics.
+    - Verdict: does NOT invalidate short thesis. CONFIRMS accounting quality concerns.
+    GOVERNANCE:
+    - FGP.L SO CANCELLED: no pipeline + UK concentration (would be 5th UK).
+    - CMCSA SO CANCELLED: no pipeline + no R1/QS scored. Keep on watchlist for future R1.
+    - Now 22 active SOs (was 24).
+    PRICE OBSERVATIONS:
+    - LYV $155.70 — IN the $145-160 short entry range (Q4 Feb 19 = hard gate).
+    - MONC.MI EUR 50.32 — only +4.8% from EUR 48 entry. Closest long actionable.
+    - ROP $327.60 — +9.2% from $300. MEGP.L 144.80p — +7.3% from 135p.
+    NEXT SESSION PRIORITIES:
+    1. MONC.MI FY2025 results (morning) -> Execute R2 with 6 pre-built attack vectors
+    2. CVNA S3 resolution -> WACC 9-10%, adj earnings $1.27B, fraud prob 20-25%, DTA concerns
+    3. LYV Q4 results (after close Feb 19) -> GO/NO-GO for short entry Feb 20-28
+    4. MONY.L Feb 23 prep (ON PROBATION, KC#9 AI strategy, 4 days away)
+    5. EDEN.PA Feb 24 earnings framework review
 
   # NET EXPOSURE REASONING — Principio 13. Re-evaluate EVERY session.
   # This is NOT a target or range. It's the CONCLUSION of reasoning.

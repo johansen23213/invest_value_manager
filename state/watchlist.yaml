@@ -50,12 +50,12 @@ tier_2:
 # =============================================================================
 short_candidates:
   - ticker: CVNA
-    qs_gap: "P/E 83x, P/S 4x vs used car dealer fundamentals"
-    catalyst: "Q1 2026 earnings (Apr/May) — credit quality deterioration, delinquency spike"
-    catalyst_date: 2026-05-01
+    qs_gap: "QS 24 (Tier D) at 82x P/E. Accounting fraud allegations from Gotham City + Hindenburg."
+    catalyst: "Q4 2025 earnings (Feb 18 after close) + ongoing DOJ/SEC regulatory risk + class action lawsuits"
+    catalyst_date: 2026-02-18
     entry: ">=$280"
-    status: "SCREENED — needs S1"
-    notes: "Insider dumping ($1.4B+), fraud allegations (DOJ probe), 72% rev from financing. ADESA $2.2B acquisition debt. Short interest 8%. TOP PRIORITY for S1."
+    status: "S2 COMPLETE — needs S3 (incorporate Q4 data, WACC fix to 9-10%, fraud probability 20-35%)"
+    notes: "S1 QS 24, FV $67, EV +81%. S2 bull 5.5/10 (MODERATE). S1 flaws: 2.2% CAGR misleading, WACC 23.1% vs 9% inconsistency. S3 needs Q4 results. Garcia family 40% control. $1B+ related-party allegations."
 
   - ticker: ENR.DE
     qs_gap: "P/E 78x vs 6% OP margins, AI narrative unearned"
@@ -81,13 +81,45 @@ short_candidates:
     status: "S4 APPROVED CONDITIONAL — Standing order created"
     notes: "S1→S2→S3→S4 COMPLETE (Session 76). FV $85. EV +18-20%. 1% sizing (EUR 100). Stop $195. Conditions: sector view DONE, Q4 earnings review pending. Entry window Feb 20-28."
 
-  - ticker: VTY.L
-    qs_gap: "3 profit warnings, accounting failures, institutional exodus"
-    catalyst: "FY2025 results (Mar/Apr 2026) — further writedowns expected"
-    catalyst_date: 2026-04-01
-    entry: ">=$200"
-    status: "REMOVED — S76 thesis invalidated"
-    notes: "Stock at 724p near 52wH despite 3 profit warnings. Market fully forgave. Short thesis invalidated by price action. Removed session 76 (2026-02-19)."
+  - ticker: PLTR
+    qs_gap: "P/E 216x trailing, 74x forward. DOGE thesis INVALIDATED by Q4 blowout."
+    catalyst: "N/A — original thesis wrong"
+    catalyst_date: 2026-06-30
+    entry: ">=$120"
+    status: "DEPRIORITIZED — Q4 FY2025 blowout invalidates thesis. Revenue +70% YoY, US commercial +137%. DOGE is net POSITIVE for Palantir (replacing legacy contractors). Retail squeeze risk HIGH."
+    notes: "S79 enhanced screening: DOGE-victim thesis WRONG. Palantir IS the DOGE tool (powers efficiency audits, replaces BAH/SAIC). Q4 revenue $828M (+36%), US gov +45%, US commercial +137%. 23/25 analysts Hold/Sell but stock defying gravity. NOT a good short. Revisit only if DOGE reversal or customer concentration event."
+
+  - ticker: APP
+    qs_gap: "QS 50 (Tier C) at 72.8x EV/EBIT. SEC investigation + 3 short sellers. Priced as Tier A compounder."
+    catalyst: "SEC investigation resolution (NO CLEAR DATE — P10 CONCERN) + class action discovery H1-H2 2026"
+    catalyst_date: 2026-06-30
+    entry: ">=$550 (current $404 = poor risk-reward after -42% decline)"
+    status: "S1 COMPLETE — SHORT WATCHLIST (not active short). P10 violation: no catalyst date. Risk-identifier: VERY HIGH risk to short."
+    notes: "S1 COMPLETE (Session 79). FV $150 base, $87 bear, $475 bull, EV $212. QS Tool 57, Adj 50. Moat NARROW CONDITIONAL (13/25). ROIC>WACC 1/3 years. 3 short sellers (Culper, Fuzzy Panda, CapitalWatch — CapitalWatch RETRACTED key claims). Financial fortress: $2.5B cash, $2.1B FCF, 0.2x leverage. NOT Enron. Revenue +70% YoY real. CTO sold $21.5M Nov 2025. RE-EVALUATE if: (1) SEC files charges, (2) stock >$550, (3) revenue decel <10%, (4) Apple enforcement."
+
+  - ticker: IONQ
+    qs_gap: "Quantum computing pure play. Revenue quality concerns — 86% from cancelled earmarks per Wolfpack."
+    catalyst: "Q4 FY2025 earnings Feb 25 + Wolfpack Research report allegations"
+    catalyst_date: 2026-02-25
+    entry: ">=$30"
+    status: "WATCH — Fragility 7/10. 21% short interest = squeeze risk HIGH. Do NOT short."
+    notes: "S79 enhanced screening. Wolfpack Research: 86% of revenue from government earmarks that were subsequently cancelled. If true, revenue sustainability is deeply questionable. BUT 21% SI makes shorting extremely dangerous (squeeze). Q4 earnings Feb 25 = near-term catalyst. Monitor only, do not enter."
+
+  - ticker: REZI
+    qs_gap: "Spruce Point Strong Sell. 4 CFO rotations, aggressive accounting allegations."
+    catalyst: "Spruce Point report ongoing + potential restatement risk"
+    catalyst_date: 2026-06-30
+    entry: ">=$25"
+    status: "WATCH — Fragility 6/10. Needs more research before S1."
+    notes: "S79 enhanced screening. Resideo Technologies. Spruce Point Research Strong Sell. 4 CFO rotations in short period = red flag. Aggressive accounting allegations. Lower conviction than APP/CVNA. Monitor for developments."
+
+  - ticker: BA
+    qs_gap: "P/E 96x near 52wH. $54B debt, D/E 10.3x. Negative commercial margins. $1.9B cash burn."
+    catalyst: "Production rate misses + MAX 7/10 certification delays rolling through 2026"
+    catalyst_date: 2026-06-30
+    entry: ">=$250"
+    status: "MONITOR — no clear binary catalyst with date. Structural issues but duopoly floor."
+    notes: "Production-delivery gap $715M/month missing revenue. Quality issues ongoing. Defense provides floor. Too big to fail narrative. MEDIUM priority from S79 screening."
 
 archived_rejected:
   - { ticker: HPQ, date: 2026-02-03, reason: "VALUE TRAP 4/10" }

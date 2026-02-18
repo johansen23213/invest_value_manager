@@ -1,0 +1,309 @@
+# =============================================================================
+# NEWS DIGEST - Evening Special Scan (2026-02-18 ~22:00 CET)
+# Focus: CVNA Q4 2025 + MONC.MI FY2025 + LYV Q4 pre-earnings
+# =============================================================================
+
+scan_date: "2026-02-18 22:00 CET"
+scan_type: "EVENING SPECIAL — Earnings-focused"
+tickers_scanned: 3  # CVNA, MONC.MI, LYV
+classification_summary: "0 CRITICAL | 3 MATERIAL | 0 MINOR"
+
+# =============================================================================
+# 1. CVNA (Carvana) — Q4 FY2025 EARNINGS
+# =============================================================================
+
+CVNA:
+  classification: MATERIAL
+  relevance: "SHORT CANDIDATE — needs S1. Monitoring only."
+  event: "Q4 FY2025 earnings released after close Feb 18, 2026"
+  earnings_call: "5:30 PM ET Feb 18"
+
+  # PRE-EARNINGS EXPECTATIONS
+  analyst_expectations:
+    eps_consensus: "$1.10-1.16 (range across sources; Zacks $1.13, Benzinga $1.12)"
+    revenue_consensus: "$5.20-5.26B (+48% YoY)"
+    units_expected: "150-164K (Jefferies model: 164K = 43% YoY growth)"
+    ebitda_expected: "$541M (Jefferies, implies 10.1% margin)"
+
+  # ACTUAL RESULTS STATUS
+  actual_results_status: "RESULTS RELEASED AFTER CLOSE — SPECIFIC FIGURES NOT YET INDEXED BY SEARCH ENGINES"
+  note: |
+    The earnings call was scheduled for 5:30 PM ET (23:30 CET). As of this scan,
+    major financial news aggregators have not yet indexed the actual figures.
+    One data point captured: AFTER-HOURS price ~$343.50, which is DOWN ~$15-19
+    from the $358-362 close. This suggests approximately -4% to -5% decline in AH.
+    This is MILD relative to the +/-15% implied move from options pricing.
+
+  # AFTER-HOURS REACTION
+  after_hours:
+    regular_close: "~$358-362 (up ~2-3% during regular session)"
+    after_hours_price: "~$343.50 (tentative, from one data source)"
+    after_hours_change: "Approximately -4% to -5%"
+    interpretation: |
+      A -4-5% decline in AH is MUTED relative to 15% implied move.
+      This could indicate: (a) slight miss or soft guidance, (b) market digesting
+      Gotham/Hindenburg overhang, or (c) selling into strength given prior +3% day.
+      NEED TO CONFIRM ACTUAL FIGURES once press release is indexed.
+
+  # GOTHAM CITY / HINDENBURG ALLEGATIONS STATUS
+  fraud_allegations:
+    gotham_city_report:
+      date: "2026-01-28"
+      title: "Carvana: Bridgecrest and the Undisclosed Transactions and Debts"
+      key_claims:
+        - "Earnings overstated by >$1B through related-party entities (DriveTime, Bridgecrest, GoFi)"
+        - "DriveTime burned >$1B in cash, levered 20-40x EBITDA to subsidize Carvana"
+        - "Bridgecrest marked down billions in loans while Carvana recognized gains on loan sales"
+        - "Controlled by Ernest Garcia II (CEO's father)"
+      stock_impact: "CVNA dropped from $474.06 to $374.55 on report date (-21%)"
+    hindenburg_report:
+      date: "2025-01 (original)"
+      key_claims:
+        - "Labeled Carvana 'accounting grift for the ages'"
+        - "$800M in loan sales to suspected undisclosed related party"
+        - "Lax underwriting to boost short-term income"
+    carvana_response: "Called allegations 'inaccurate and misleading.' NO DETAILED REBUTTAL provided."
+    management_earnings_call_response: "UNKNOWN — need to review earnings call transcript once available"
+
+  # CLASS ACTION / SEC STATUS
+  legal_status:
+    class_actions:
+      - firm: "Bleichmar Fonti & Auld LLP (BFA Law)"
+        status: "Investigating securities fraud violations"
+        date: "2026-01-28"
+      - firm: "Block & Leviton"
+        status: "Investigating securities fraud"
+        date: "2026-02-11"
+      - firm: "Rosen Law Firm"
+        status: "Investigating securities class action"
+        date: "2026-02-04"
+      - firm: "Pomerantz LLP"
+        status: "Investigating securities fraud"
+        date: "2026-02-12"
+      - firm: "Bragar Eagel & Squire"
+        status: "Continuing investigation"
+        date: "2026-02-03"
+      - firm: "Robbins Geller Rudman & Dowd"
+        status: "EXISTING SUIT — survived motion to dismiss (2024-2025). Proceeding to discovery."
+        note: "This is a SEPARATE earlier case that defeated reconsideration in Feb 2025."
+    sec_investigation: "NO FORMAL SEC INVESTIGATION CONFIRMED as of search date. Investigations are by private law firms."
+    doj_probe: "Mentioned in earlier reporting (Gotham referenced DOJ probe). Status unclear."
+    assessment: |
+      Multiple law firms investigating but NO formal SEC or DOJ action confirmed.
+      Robbins Geller case (older) survived dismissal and may proceed to discovery.
+      The Gotham/Hindenburg-triggered investigations are still in early stages.
+      CRITICAL QUESTION: Will management address allegations on the earnings call?
+      If they provide a detailed rebuttal with numbers, this could be a turning point.
+      If they deflect again, the overhang persists.
+
+  # IMPLICATIONS FOR SHORT THESIS (S1 CANDIDATE)
+  implications_for_s1:
+    current_status: "SCREENED — needs S1"
+    assessment: |
+      CVNA remains a compelling SHORT CANDIDATE for S1 analysis:
+      1. P/E ~83x, P/S ~4x vs used car dealer fundamentals
+      2. 72% revenue from financing = credit quality risk
+      3. Gotham/Hindenburg allegations of $1B+ earnings overstatement UNREFUTED
+      4. Multiple securities fraud investigations active
+      5. Insider selling $1.4B+ (Garcia family)
+      6. ADESA acquisition $2.2B debt load
+      7. Short interest ~8%
+
+      HOWEVER:
+      - Stock already -40% from ATH ($474 -> ~$343)
+      - If Q4 results are strong, this could be "buying opportunity" narrative
+      - Need actual Q4 figures to assess whether fraud allegations are reflected in numbers
+      - Q1 2026 earnings (Apr/May) was identified as primary catalyst
+
+    next_steps: |
+      1. WAIT for actual Q4 figures to be indexed (tonight/tomorrow morning)
+      2. REVIEW earnings call transcript for any response to Gotham allegations
+      3. If management dodges allegations + numbers show financing dependency → PROCEED S1
+      4. If management provides convincing rebuttal → DEPRIORITIZE
+      5. S1 target: next session or session after, once earnings digested
+
+# =============================================================================
+# 2. MONC.MI (Moncler) — FY2025 RESULTS
+# =============================================================================
+
+MONC_MI:
+  classification: MATERIAL
+  relevance: "PIPELINE — R1 complete, HARD GATE for R2"
+  event: "FY2025 Full Year Results"
+
+  # TIMELINE CLARIFICATION
+  timeline:
+    board_meeting: "Feb 18 2026 — Board approved FY2025 accounts"
+    results_release: "Feb 19 2026 — Public release of FY2025 results (TOMORROW)"
+    market_screener_says: "March 3 2026 (some sources suggest this date)"
+    quartr_says: "Feb 19 2026"
+    assessment: |
+      The Board approved results today (Feb 18), but the PUBLIC release and press
+      release with detailed figures is scheduled for Feb 19. The March 3 date from
+      MarketScreener may refer to the detailed annual report or investor presentation.
+      BOTTOM LINE: Actual FY2025 P&L figures should be available TOMORROW (Feb 19).
+
+  # AVAILABLE DATA (9M 2025 + consensus estimates)
+  nine_months_2025:
+    group_revenue: "EUR 1,841.3M (flat cFX vs EUR 1,865.7M prior year)"
+    moncler_brand: "EUR 1,553.2M (flat cFX)"
+    stone_island: "EUR 288.1M (-1% cFX)"
+    h1_ebit: "EUR 225M (margin 18.3%, down from 21% prior year)"
+    h1_net_income: "EUR 153.5M (-15% YoY)"
+    h1_gross_margin: "76.9% (stable)"
+    q3_revenue: "EUR 615.6M (-1% cFX)"
+    q3_dtc: "Stable cFX"
+    regional_performance:
+      americas: "Outperforming (double-digit growth in China)"
+      china: "Continued strength, double-digit"
+      emea: "Underperforming (weak tourism)"
+      japan: "Underperforming (weak tourism, FX)"
+      korea: "Soft"
+    management_note: "Early Q4 trading positive across regions. Cautious on December comparables."
+
+  # CONSENSUS ESTIMATES FOR FY2025 (from MarketScreener)
+  fy2025_consensus_estimates:
+    revenue: "EUR 3,068M (-1.3% vs FY2024 EUR 3,108M)"
+    ebit: "EUR 873.6M (-4.7% vs FY2024 EUR 916.3M)"
+    ebit_margin: "28.5% (vs FY2024 29.5%, -100bps)"
+    net_income: "EUR 595.7M (-6.9% vs FY2024 EUR 639.6M)"
+    dividend_per_share: "EUR 1.188 (-8.6% vs FY2024 EUR 1.30)"
+    note: "These are CONSENSUS ESTIMATES, not confirmed actuals."
+
+  # FY2024 ACTUAL (comparison base)
+  fy2024_actual:
+    revenue: "EUR 3,108M (+8% Moncler brand)"
+    ebit: "EUR 916.3M"
+    ebit_margin: "29.5%"
+    net_income: "EUR 639.6M (+5%)"
+    moncler_brand_revenue: "EUR 2,700M"
+    dtc_growth: "+9%"
+
+  # CEO TRANSITION
+  ceo_transition:
+    current: "Remo Ruffini (founder) — Executive Chairman from April 2026"
+    incoming: "Leo Rongone — appointed CEO (effective date around April 2026)"
+    assessment: |
+      Ruffini staying as Executive Chairman means creative/strategic DNA preserved.
+      Rongone is an internal promotion (was COO/head of Stone Island).
+      Transition is ORDERLY, not disruptive. Market largely digested this.
+
+  # 2026 GUIDANCE CLUES
+  fy2026_guidance:
+    consensus_revenue: "EUR 3,202M (+4.4%)"
+    consensus_ebit: "EUR 921.6M (+5.5%)"
+    pricing: "Low single digit expected"
+    note: "Actual 2026 guidance will be in tomorrow's release."
+
+  # IMPLICATIONS FOR OUR PIPELINE
+  implications:
+    our_r1_data:
+      quality_score: 92
+      fair_value: "EUR 58"
+      target_entry: "EUR 48"
+      current_price: "~EUR 48-49"
+    assessment: |
+      MONC.MI is NEAR our R1 entry price (EUR 48 target, stock ~EUR 48-49).
+      If FY2025 results meet consensus (revenue EUR 3.07B, EBIT margin ~28.5%),
+      the thesis is INTACT — luxury slowdown already priced in at current levels.
+
+      KEY WATCH ITEMS FOR TOMORROW:
+      1. Revenue growth rate: flat or slightly negative is EXPECTED. Positive surprise = bullish.
+      2. Gross margin: 76.9% H1 was stable. If FY maintains 76%+ = good.
+      3. EBIT margin: 28.5% consensus. If >29% = positive surprise.
+      4. China/APAC: Double-digit growth continuing? This is the growth engine.
+      5. CEO transition commentary: Strategic vision for Rongone era.
+      6. 2026 guidance: Any signals on recovery trajectory.
+      7. Stone Island: Turnaround evidence or continued softness?
+
+      IF RESULTS POSITIVE: Proceed to R2 (devil's advocate). Stock at entry range.
+      IF RESULTS WEAK: Revise FV downward. May delay R2.
+
+    action: "CHECK_RESULTS_TOMORROW_MORNING. Hard gate for R2."
+
+# =============================================================================
+# 3. LYV (Live Nation) — Q4 FY2025 PRE-EARNINGS UPDATE
+# =============================================================================
+
+LYV:
+  classification: MATERIAL_FOR_SHORT
+  relevance: "S4 APPROVED CONDITIONAL — short standing order"
+  event: "Q4 FY2025 earnings TOMORROW after market close (Feb 19)"
+
+  analyst_expectations:
+    eps: "$-1.00 (seasonal Q4 loss expected)"
+    revenue: "$6.10-6.12B (+7.4% YoY)"
+    concerts_revenue: "$4.9B (+7.5% YoY)"
+    sponsorship_revenue: "$324M (+15.2% YoY)"
+    ticketing_revenue: "$876.2M (+4.2% YoY)"
+
+  pre_earnings_context: |
+    LYV is a SHORT CANDIDATE (S4 approved, standing order exists).
+    Pre-execution condition: Q4 results must be reviewed before entry.
+    Entry window was Feb 20-28. Earnings tomorrow = last data point before decision.
+
+    DOJ antitrust chief Slater DEPARTED — settlement probability increased.
+    States prepared to continue independently. Trial March 2 still on calendar.
+
+    WATCH TOMORROW:
+    1. Ticketmaster AOI share (was 52% of total). If higher = more vulnerability.
+    2. Concert attendance and pricing trends. If weakening = short-positive.
+    3. Management commentary on DOJ trial / settlement. What posture are they taking?
+    4. Any Ticketmaster fee changes or customer concessions (settlement preview?).
+    5. Sponsorship growth — is this insulating against ticketing risk?
+
+  action: "REVIEW AFTER EARNINGS TOMORROW EVENING. Key decision for short entry."
+
+# =============================================================================
+# SUMMARY & ACTIONS
+# =============================================================================
+
+summary:
+  cvna: |
+    Q4 results released after close. Specific figures NOT YET INDEXED.
+    After-hours ~$343.50 (down ~4-5% from close). Muted vs 15% implied move.
+    NO management rebuttal of Gotham allegations confirmed.
+    5+ law firms investigating securities fraud. No formal SEC investigation.
+    Existing Robbins Geller case proceeding to discovery.
+    WAIT for actual figures and earnings call transcript.
+
+  monc_mi: |
+    Board approved FY2025 accounts today. Public release TOMORROW (Feb 19).
+    9M data: revenue flat, H1 EBIT margin 18.3% (down), China strong, EMEA weak.
+    Consensus: revenue EUR 3.07B (-1.3%), EBIT margin 28.5% (-100bps).
+    CEO transition orderly (Ruffini -> Executive Chairman, Rongone CEO from April).
+    Stock near our R1 entry (EUR 48). HARD GATE for R2.
+
+  lyv: |
+    Earnings TOMORROW (Feb 19 after close). Seasonal Q4 loss expected.
+    Pre-condition for short entry. Must review before executing standing order.
+    DOJ dynamics shifted (Slater departure). States carrying the case.
+
+actions_required:
+  tonight: "Monitor financial news for CVNA actual Q4 figures + call highlights"
+  tomorrow_morning: "Check MONC.MI FY2025 press release. Assess R2 gate."
+  tomorrow_evening: "Check LYV Q4 results. Assess short entry decision."
+
+# =============================================================================
+# META-REFLECTION
+# =============================================================================
+
+meta_reflection:
+  coverage:
+    tickers_scanned: 3
+    focused_scan: true
+    limitations:
+      - "CVNA actual Q4 figures not yet indexed by search engines at scan time (~22:00 CET = ~4:00 PM ET, earnings call at 5:30 PM ET)"
+      - "MONC.MI FY2025 not yet publicly released (board approved, release tomorrow)"
+      - "Multiple WebFetch calls failed (403 errors on monclergroup.com, tipranks.com)"
+
+  anomalies:
+    - "CVNA AH price ~$343.50 is a SINGLE data point from one search result. Needs confirmation."
+    - "MarketScreener shows MONC.MI earnings date as March 3, while Quartr shows Feb 19. Calendar conflict — likely different definitions (results vs annual report)."
+    - "MEMORY.md says 'MONC.MI FY2025 board approval today' but calendar has it as Feb 19 event"
+
+  suggestions:
+    - "Re-scan CVNA tomorrow morning once actual figures are indexed"
+    - "Check Carvana investor relations page directly for press release + shareholder letter"
+    - "MONC.MI: Check monclergroup.com tomorrow for full press release with P&L breakdown"
+    - "LYV earnings call transcript will be critical for short thesis — pay attention to DOJ commentary"

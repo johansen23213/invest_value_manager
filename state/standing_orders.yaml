@@ -62,37 +62,21 @@ standing_orders:
     expiry: 2026-08-01
 
   # BUY ORDERS (new positions)
-  - ticker: FGP.L
-    action: BUY
-    trigger: "<=165 GBp"
-    size_eur: 400
-    fair_value: "220-240 GBp"
-    mos_at_trigger: "25%"
-    notes: "FirstGroup. Tier B. WARNING: No adversarial pipeline."
-    last_analysis_date: 2026-02-03
-    status: REQUIRES_PIPELINE
-    expiry: 2026-06-01
+  # FGP.L — CANCELLED 2026-02-18 (Session 79)
+  # Reason: No adversarial pipeline (violates SO governance). UK concentration (would be 5th UK position).
+  # P/E 9x, GBP 1B MCap — not quality compounder profile. Never scored. Keep on watchlist only.
+  # Was: BUY <=165 GBp, FV 220-240p, size EUR 400.
 
-  - ticker: CMCSA
-    action: BUY
-    trigger: "<=$26"
-    size_eur: 450
-    fair_value: "$33-38"
-    mos_at_trigger: "26-31%"
-    notes: "Tier B. WARNING: No adversarial pipeline."
-    last_analysis_date: 2026-02-03
-    status: REQUIRES_PIPELINE
-    expiry: 2026-06-01
+  # CMCSA — CANCELLED 2026-02-18 (Session 79)
+  # Reason: No adversarial pipeline (violates SO governance). No R1, no QS scored.
+  # P/E 5.9x is interesting but needs proper pipeline before SO can exist.
+  # Was: BUY <=$26, FV $33-38, size EUR 450. Keep on watchlist for future R1.
+  # At $31.60 vs $26 trigger = +21.5% above. Not urgent.
 
-  - ticker: WPP.L
-    action: BUY
-    trigger: "<=200 GBp"
-    size_eur: 400
-    fair_value: "380 GBp"
-    mos_at_trigger: "47%"
-    status: "UNDER REVIEW — Tier C, evaluate after Rose plan Feb 26"
-    last_analysis_date: 2026-02-03
-    expiry: 2026-04-01
+  # WPP.L — CANCELLED 2026-02-18 (Session 77)
+  # Reason: QS 32 = Tier D = NO COMPRAR (Principio 5). EPS CAGR -2%, payout ratio 114%, insider 0.2%.
+  # Was: BUY <=200 GBp, FV 380p, size EUR 400. Status was "UNDER REVIEW — Tier C"
+  # Actual QS scoring revealed Tier D, not Tier C. Quality insufficient.
 
   - ticker: MA
     action: BUY
