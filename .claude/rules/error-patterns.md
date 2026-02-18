@@ -69,3 +69,10 @@ Cada sesion DEBE incluir razonamiento explicito sobre exposicion neta (Fase 2.5.
 
 **#49. Anclar Fair Value al consensus price target**
 Consensus PT = promedio de opiniones con incentivos mixtos (sell-side necesita volumen). El consensus YA esta en el precio. Si mi FV converge al consensus sin razonamiento independiente, NO tengo ventaja informacional. Derivar FV siempre desde datos primarios (FCF, growth, WACC) con tools propios. Consensus sirve como COMPARACION ("mi FV difiere del consensus en X% porque..."), no como ancla.
+
+---
+
+## Errores Operativos
+
+**#51. Confundir sesion con dia — incrementar fecha artificialmente**
+Session ≠ Dia. Multiples sesiones pueden ocurrir en UN MISMO dia. SIEMPRE obtener fecha real con `date` o `currentDate` del contexto del sistema. NUNCA asumir fecha desde memoria ni incrementar. Al escribir en memory/system.yaml, usar la fecha REAL del sistema. Error recurrente: session N en Feb 18, memory escribia "Feb 19", siguiente sesion escribia "Feb 20" — todo era Feb 18.

@@ -2,6 +2,9 @@
 # SessionStart hook - injects system state into Claude's context
 # Reads key split files so Claude has context immediately on session start
 
+echo "=== CURRENT DATE ==="
+echo "TODAY: $(date '+%Y-%m-%d %H:%M %Z') — USE THIS DATE, NOT MEMORY"
+echo ""
 echo "=== SYSTEM STATE ==="
 head -20 state/system.yaml 2>/dev/null | grep -A2 'last_session:\|status:\|system_version:\|session_number:'
 

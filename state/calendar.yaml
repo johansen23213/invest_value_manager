@@ -3,13 +3,20 @@
 # Updated: 2026-02-18
 
 events:
-  # TOMORROW
+  # TOMORROW — DOUBLE EVENT
   - date: 2026-02-19
     type: earnings
     ticker: MONC.MI
     event: "Moncler FY2025 Results — HARD GATE for R2"
     priority: high
     action: "R1 complete (QS 92, FV EUR 58, entry EUR 48). Wait results before R2/SO. Bear: China decline, margins compress. Bull: China resilient, Stone Island DTC inflection. Watch: revenue growth trend, GM stability, CEO transition commentary."
+
+  - date: 2026-02-19
+    type: earnings
+    ticker: LYV
+    event: "Live Nation Q4/FY2025 Results (after market close) — SHORT PRE-CONDITION"
+    priority: CRITICAL
+    action: "S4 APPROVED CONDITIONAL. Pre-condition: Q4 results must be reviewed before short entry. Entry window Feb 20-28. Watch: Ticketmaster AOI share, concert attendance trends, pricing power, DOJ trial prep commentary. If results show structural weakness → PROCEED with short. If blowout → RE-EVALUATE thesis."
 
   - date: 2026-02-19
     type: earnings
@@ -111,6 +118,13 @@ events:
     action: "Watch FCF yield >5%, payout <80%."
 
   # MARCH
+  - date: 2026-03-02
+    type: catalyst
+    ticker: LYV
+    event: "DOJ antitrust trial starts — SHORT CATALYST"
+    priority: CRITICAL
+    action: "Binary outcome. States prepared to pursue regardless of DOJ. If structural remedy (TM divestiture) → short thesis confirmed. If behavioral/settlement → RE-EVALUATE. LYV filed 51-page motion to dismiss. Trump DOJ fracturing internally."
+
   - date: 2026-03-01
     type: earnings
     ticker: NTGY.MC
@@ -137,6 +151,13 @@ events:
     event: "Dominos Pizza Group FY25 results"
     priority: high
     action: "Kill: ND/EBITDA >3x, FCF <60M, share <45%."
+
+  - date: 2026-03-11
+    type: earnings_pipeline
+    ticker: FOUR.L
+    event: "4imprint FY2025 Results — HARD GATE for entry"
+    priority: high
+    action: "R3 complete. Pipeline candidate. HARD GATE: must review results before standing order."
 
   - date: 2026-03-15
     type: catalyst

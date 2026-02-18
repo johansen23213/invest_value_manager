@@ -315,8 +315,8 @@ short_orders:
     pre_execution_conditions:
       - "Sector view live-entertainment.md CREATED"
       - "Q4 2025 earnings confirmed and reviewed — no material thesis change"
-    notes: "S4 APPROVED CONDITIONAL (Session 76). First-ever short. 1% sizing (half of half-position). QS 41 at 114x P/E. Ticketmaster = 52% of AOI. Google precedent main counter-risk (behavioral > structural). Entry window Feb 20-28."
-    last_analysis_date: 2026-02-19
+    notes: "S4 APPROVED CONDITIONAL (Session 76). First-ever short. 1% sizing (half of half-position). QS 41 at 114x P/E. Ticketmaster = 52% of AOI. Google precedent main counter-risk (behavioral > structural). Entry window Feb 20-28. SESSION 77 UPDATE: DOJ antitrust chief Gail Slater DEPARTED — settlement probability increased. States still pursuing independently. Thesis WEAKENED but not invalidated. Must reassess post-Q4 earnings (Feb 19 after close)."
+    last_analysis_date: 2026-02-18
     expiry: 2026-09-01
 
 # Cancelled orders history: see state/calendar_archive.yaml
