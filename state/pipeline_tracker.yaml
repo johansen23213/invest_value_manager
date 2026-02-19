@@ -7,9 +7,9 @@ capital_deployment:
   frequency: daily
   priority: 1
   trigger: "cash > 25%"
-  last_run: 2026-02-18
-  next_due: 2026-02-19
-  last_result: "S79: CVNA S2 COMPLETE + Q4 data analyzed (S3 ready). APP S1 COMPLETE (SHORT WATCHLIST, P10 violation). AJB.L R3, BAH R3, ALFA.ST R1 COMPLETE. Short screening 2 waves: +5 short candidates (APP/BA/IONQ/REZI/PLTR). AEX25+IBEX35 batch: +10 new. Universe 142. SO cleanup: FGP.L+CMCSA cancelled (22 active)."
+  last_run: 2026-02-19
+  next_due: 2026-02-20
+  last_result: "S84: ADDT-B.ST R1 COMPLETE (QS 79 Tier A, FV SEK 250, entry SEK 200, overvalued at SEK 322). 5 universe entries updated (AJB.L, DECK, QTCOM.HE, BAH, ALFA.ST). Sector view updated. MONC.MI R2 prep verified, 6 attack vectors ready. MONC.MI EUR 49.80 (3.8% from entry). LYV $155.78 (IN range). Awaiting results tonight."
   skill: ".claude/skills/capital-deployment/SKILL.md"
   tool: "tools/quality_universe.py"
 
@@ -18,26 +18,26 @@ vigilance:
   frequency: daily
   last_run: 2026-02-19
   next_due: 2026-02-20
-  last_result: "S76: 0 CRITICAL, 7 MATERIAL. GL insider $6.1M = exercise-and-sell (MODERATE). LYV DOJ trial 11 days. MONC.MI results today. 0 SOs triggered. Closest: MEGP.L 7.3%, ROP 7.7%."
+  last_result: "S80: CVNA -20% afterhours (EBITDA miss, vague guidance) — validates short thesis. LYV dismiss ruling REJECTED (3 claims survive, trial Mar 2). MONY.L at 13-year low. MONC.MI+LYV Q4 today. 0 SOs triggered."
 
 rotation_check:
   frequency: daily
   last_run: 2026-02-19
   next_due: 2026-02-20
-  last_result: "S76: Bottom 3: LULU (7.9% MoS), DTE.DE (8.1%), BYIT.L (15.5%). LULU on probation Mar 31. DTE.DE Feb 26 earnings."
+  last_result: "S80: Bottom 3: LULU (7.6% MoS), DTE.DE (8.1%), BYIT.L (15.5%). MONY.L -13.0% worst performer. LULU on probation Mar 31. DTE.DE Feb 26 earnings."
 
 # WEEKLY
 opportunity_scan:
   frequency: weekly
-  last_run: 2026-02-18
-  next_due: 2026-02-25
-  last_result: "S74c: Super wave 6 pipelines: EEFT R3, KNSL R3, MEGP.L R3, RSG R3 + MSCI R1 (WIDE 22/25, FV $530, at $521 = 0% MoS, WATCHLIST $450). SOON.SW AT ENTRY (needs R1). 25 SOs. Universe 79."
+  last_run: 2026-02-19
+  next_due: 2026-02-26
+  last_result: "S81: MASSIVE DISCOVERY SESSION. 2 agents (opportunity-hunter + sector-screener) found 20+ NEW companies not in universe. Top: RAA.DE (Rational, ROIC 47%, net cash), KYGA.L (Kerry Group, 52w LOW + insider buying), LAGR-B.ST (Lagercrantz, 56% ROIC), STF.PA (STEF, cold chain monopoly). 3 sectors screened (specialty chemicals, logistics, specialty insurance). 6 new sector views needed. yfinance RATE LIMITED — ALL SCORING DEFERRED to next session. Scoring queue: Batch 1 (RAA.DE, KYGA.L, LAGR-B.ST, STF.PA), Batch 2 (HLMA.L, FPE3.DE, HSX.L, DPLM.L). Universe 149+. Reports: journal/log/2026-02-19_three_sector_screening.md."
 
 risk_review:
   frequency: weekly
-  last_run: 2026-02-13
-  next_due: 2026-02-20
-  last_result: "0 RED, 7 ORANGE, 7 YELLOW. LULU ESCALATED. GL insider selling."
+  last_run: 2026-02-19
+  next_due: 2026-02-26
+  last_result: "S81: 0 RED, 8 ORANGE, 6 YELLOW, 1 GREEN. GL insider ESCALATED (CEO+CMO+EVP+Dir, $7.4M/13days). MONY.L ESCALATED (Experian ChatGPT). NVO UPDATED (2026 guidance -5-13%). EDEN.PA France levy RULED OUT (positive). DTE.DE Meta EUR 30M ruling (positive). LYV NEW (short monitoring). BYIT.L FTC+CMA probe. Binary cluster: LYV tonight, MONY.L Feb 23, EDEN.PA Feb 24, DTE.DE Feb 26."
 
 # SHORT/FRAGILITY
 fragility_watch:

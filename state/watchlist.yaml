@@ -28,6 +28,10 @@ on_watch:
   - { ticker: UTG.L, entry: "540 GBp", fv: "745 GBp", notes: "v2.0 validated. Earnings Feb 24." }
   - { ticker: MEGP.L, entry: "131 GBp", fv: "175 GBp", notes: "Only 2 analysts. Monopoly kiosks." }
   - { ticker: WKL.AS, entry: "EUR 50-55", fv: "EUR 72", notes: "Revised. Post FY2025 results Feb 25." }
+  - { ticker: DECK, entry: "$95-100", fv: "$125", notes: "R3 COMPLETE 2026-02-19. QS 81/77→74fwd Tier B. FV $135→$125. Entry $100→$95. CONDITIONAL on LULU outcome Mar 31. R4 DEFERRED. Moat NARROW. -48% from peak." }
+  - { ticker: RAA.DE, entry: "EUR 485 (15% MoS)", fv: "EUR 570 (CONDITIONAL Mar 19)", notes: "R3 COMPLETE 2026-02-19. QS 92/92 Tier A (HIGHEST). Moat WIDE 21-22/25 (revised for Unox 2025 data). FV EUR 600→570 (margin/FCF correction). Entry EUR 540→485. EUR 600 half-at-FV REJECTED. R4 HARD GATE: March 19 FY2025 full + FY2026 guidance. Prob of reaching entry: LOW (10-15%, crisis only)." }
+  - { ticker: AJB.L, entry: "375 GBp", fv: "520 GBp", notes: "R3 COMPLETE 2026-02-18. QS 82 Tier A. FV 600→520p. Entry 400→375p. WAIT H1 FY2026 (Apr/May). Interest income HARD GATE. Fee war (HL Mar 2026, JP Morgan). Insider selling GBP 46M." }
+  - { ticker: QTCOM.HE, entry: "EUR 22", fv: "EUR 30", notes: "R3 COMPLETE 2026-02-19. QS 76/62fwd Tier B. FV EUR 37→30. FY2025 trough (-47% EPS). HARD GATE: FY2025 results confirmation. Recovery timing uncertain." }
 
 tier_2:
   - { ticker: AGN.NV, entry: "5.90-6.10", notes: "Earnings 19-Feb." }
@@ -50,12 +54,12 @@ tier_2:
 # =============================================================================
 short_candidates:
   - ticker: CVNA
-    qs_gap: "QS 24 (Tier D) at 82x P/E. Accounting fraud allegations from Gotham City + Hindenburg."
-    catalyst: "Q4 2025 earnings (Feb 18 after close) + ongoing DOJ/SEC regulatory risk + class action lawsuits"
-    catalyst_date: 2026-02-18
-    entry: ">=$280"
-    status: "S2 COMPLETE — needs S3 (incorporate Q4 data, WACC fix to 9-10%, fraud probability 20-35%)"
-    notes: "S1 QS 24, FV $67, EV +81%. S2 bull 5.5/10 (MODERATE). S1 flaws: 2.2% CAGR misleading, WACC 23.1% vs 9% inconsistency. S3 needs Q4 results. Garcia family 40% control. $1B+ related-party allegations."
+    qs_gap: "QS 24 (Tier D) at adj P/E 62x. DTA release $685M inflates GAAP. Gotham City + Hindenburg."
+    catalyst: "Q1 2026 earnings (~May 2026) — margin compression test. Class action discovery H1-H2 2026."
+    catalyst_date: 2026-05-15
+    entry: ">=$300"
+    status: "S3 COMPLETE — S4 DEFERRED. Stock -20% post-Q4 to ~$289. If bounces >$300, proceed S4."
+    notes: "S3 COMPLETE (Session 80). FV $120 (corrected WACC 9%, adj earnings $1.27B). Adj P/E 62x. EBITDA margin DECLINING 12%→9.1%. $685M DTA = 33% of NI non-cash. Stock -20% after-hours on EBITDA miss + vague guidance. Garcia family 40%. Market VALIDATING our thesis. Files: s3_resolution.md, q4_2025_results_analysis.md."
 
   - ticker: ENR.DE
     qs_gap: "P/E 78x vs 6% OP margins, AI narrative unearned"
@@ -75,11 +79,11 @@ short_candidates:
 
   - ticker: LYV
     qs_gap: "QS 41 (Tier C) at 114x P/E, 37x EV/EBIT"
-    catalyst: "DOJ antitrust trial Mar 2 2026 + 40 state AGs"
+    catalyst: "DOJ antitrust trial Mar 2 2026 + 40 state AGs. Judge REJECTED dismiss motion Feb 18."
     catalyst_date: 2026-03-02
     entry: "$145-160 (post-Q4 earnings)"
-    status: "S4 APPROVED CONDITIONAL — Standing order created"
-    notes: "S1→S2→S3→S4 COMPLETE (Session 76). FV $85. EV +18-20%. 1% sizing (EUR 100). Stop $195. Conditions: sector view DONE, Q4 earnings review pending. Entry window Feb 20-28."
+    status: "S4 APPROVED CONDITIONAL — Standing order created. Thesis STRENGTHENED by dismiss ruling."
+    notes: "S1→S4 COMPLETE (S76). FV $85. EV +18-20%. 1% sizing (EUR 100). Stop $195. Conditions: sector view DONE, Q4 review pending (tonight). Feb 18: Judge Subramanian rejected dismiss in 44-page ruling. 3 core claims survive: amphitheater monopoly + ticketing monopoly + state claims. Only fan-experience dismissed. Trial Mar 2 CONFIRMED. At $155.78 = IN entry range."
 
   - ticker: PLTR
     qs_gap: "P/E 216x trailing, 74x forward. DOGE thesis INVALIDATED by Q4 blowout."
@@ -160,3 +164,5 @@ price_monitors:
   - { ticker: DSY.PA, entry_eur: 14.50, condition: "WAIT Q1. Revised down S75 post -21% crash." }
   - { ticker: PAYC, entry_usd: 92, note: "R3 complete. Deferred." }
   - { ticker: MORN, entry_usd: 133, note: "R3 complete. Deferred." }
+  - { ticker: ADDT-B.ST, entry_sek: 200, note: "R1 complete. QS 79 Tier A. FV SEK 250. Far from entry (-38%)." }
+  - { ticker: RAA.DE, entry_eur: 485, note: "R3 complete. QS 92 Tier A. FV EUR 570. HARD GATE Mar 19." }

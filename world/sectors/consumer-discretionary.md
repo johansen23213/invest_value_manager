@@ -184,6 +184,7 @@ El contexto macro (late cycle, tariffs, consumer confidence debil en US/EU) pesa
 |------|--------|-------------|-------------|--------|
 | Portfolio | LULU | thesis/active/LULU/thesis.md | 2026-02-05 | HOLD - MoS 34% |
 | Watchlist | DNLM.L | thesis/research/DNLM.L/thesis.md | 2026-02-07 | WATCHLIST - Entry 900p |
+| R1 Complete | DECK | thesis/research/DECK/thesis.md | 2026-02-19 | WATCHLIST - FV $135, Entry $100-105 |
 
 ### Protocolo de Cambio Material
 Cuando actualices este sector view con cambio MATERIAL:
@@ -199,7 +200,7 @@ Cuando actualices este sector view con cambio MATERIAL:
 
 | Ticker | Empresa | P/E | Razon | Priority |
 |--------|---------|-----|-------|----------|
-| DECK | Deckers Outdoor (HOKA/UGG) | 16x | HOKA creciendo 24%, tariff headwinds creando entry point. Revenue CAGR 19% 5yr. P/E below industry avg. | **Alta** |
+| DECK | Deckers Outdoor (HOKA/UGG) | 16.9x | **R1 COMPLETE 2026-02-19.** QS 81/77 Tier A. FV $135, entry $100-105. Moat NARROW. Risk MEDIUM-HIGH (HOKA deceleration + Vietnam tariffs). R2 in progress. | **Alta — R1 DONE** |
 | BOSS.DE | Hugo Boss | 11x | Morningstar FV EUR 50.50 vs ~EUR 35 actual = 45% MoS. Brand reset 2026 podria ser catalizador mid-term. | **Alta** |
 | JD.L | JD Sports Fashion | ~7x | P/E 7x vs historico 25x. Athleisure retailer #1 UK/EU. Depende de Nike recovery + tariffs. | **Media** |
 | CROX | Crocs Inc. | 7-8x fwd | GM ~60%, FCF $716M, fwd P/E muy bajo. HeyDude pesando. Core Crocs brand resiliente. | **Media** |

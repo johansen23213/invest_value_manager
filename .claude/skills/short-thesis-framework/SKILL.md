@@ -150,9 +150,15 @@ Espejo del buy-pipeline de 4 rondas:
 ```
 S1: fundamental-analyst (--short-thesis) + moat-assessor + risk-identifier (PARALELO)
     → valuation-specialist (fair value del short)
+    OUTPUT OBLIGATORIO: thesis/short/research/TICKER/thesis.md + moat_assessment.md + risk_assessment.md
 S2: devil's-advocate (BULL case — por que el precio podria tener razon?)
+    OUTPUT OBLIGATORIO: thesis/short/research/TICKER/s2_bull_case.md
 S3: Resolucion de conflictos (orchestrator)
+    OUTPUT OBLIGATORIO: thesis/short/research/TICKER/s3_resolution.md
 S4: investment-committee (modo SHORT_APPROVAL — gates adaptados)
+    OUTPUT OBLIGATORIO: thesis/short/research/TICKER/s4_committee.md
+
+REGLA (Error #52): Cada ronda DEBE crear su archivo. NUNCA solo notas en watchlist.yaml.
 ```
 
 **Gates adicionales en S4 para shorts:**

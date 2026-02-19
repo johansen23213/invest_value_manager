@@ -1,6 +1,6 @@
 # Sector: Industrial Technology
 
-> Ultima actualizacion: 2026-02-18
+> Ultima actualizacion: 2026-02-19
 > Status: **NEUTRAL -- Selective opportunities in quality compounders at discounted prices**
 
 ## Resumen Ejecutivo
@@ -119,6 +119,7 @@ The best companies in this sector share several characteristics that make them e
 | Tipo | Ticker | Thesis Path | Ultima Eval | Status |
 |------|--------|-------------|-------------|--------|
 | Universe | ROP | thesis/research/ROP/thesis.md | 2026-02-12 | R4_APPROVED |
+| Universe | ADDT-B.ST | thesis/research/ADDT-B.ST | 2026-02-19 | R1_COMPLETE. QS 79 Tier A, FV SEK 250, entry SEK 200. WATCHLIST — far from entry. |
 
 ---
 
@@ -153,7 +154,7 @@ The best companies in this sector share several characteristics that make them e
 | Ticker | Empresa | QS Tool | ROIC-WACC | P/E | Notes |
 |--------|---------|---------|-----------|-----|-------|
 | LAGR-B.ST | Lagercrantz Group | **67** | +4.6pp | 37.9x | **SCORED.** Quality confirmed (67 Tier B). Rev CAGR +19.6%, EPS CAGR +20.8%, improving FCF margin. But P/E 38x = expensive, -15% from high only. Need >25% correction for MoS. |
-| ADDT-B.ST | Addtech AB | 70 | N/A | 41x | Already in quality_universe. Expensive. |
+| ADDT-B.ST | Addtech AB | 70 (adj 79) | +7.3pp (+12.3pp adj) | 42x | **R1 COMPLETE 2026-02-19.** FV SEK 250, entry SEK 200. Moat NARROW (borderline Wide). 150+ niche subsidiaries, 18% EBITA CAGR since 2001. Organic growth only 2% = key weakness. Risk HIGH (premium compression at 42x). Stock 38% above entry. |
 | LIFCO-B.ST | Lifco AB | Not scored | N/A | ~35x | Swedish serial acquirer. Score when rate limit resets. |
 | INDT.ST | Indutrade AB | Not scored | N/A | ~30x | Swedish industrial components. Score when rate limit resets. |
 
@@ -172,7 +173,9 @@ Note: Nordic serial acquirers typically trade at 30-50x P/E reflecting quality c
 
 ## Analizadas - En Watchlist
 
-*(pending full pipeline analysis)*
+| Ticker | Empresa | FV | Entry | MoS Req | Thesis | Fecha Analisis |
+|--------|---------|-----|-------|---------|--------|----------------|
+| ADDT-B.ST | Addtech AB | SEK 250 | SEK 200 | 20% | thesis/research/ADDT-B.ST/thesis.md | 2026-02-19 |
 
 ---
 
@@ -195,6 +198,7 @@ Note: Nordic serial acquirers typically trade at 30-50x P/E reflecting quality c
 |-------|--------|-------|
 | 2026-02-12 | Status inicial: NEUTRAL | First version. Sector-wide screening complete. |
 | 2026-02-18 | **MATERIAL UPDATE**: Added MEGP.L (QS 80 Tier A), scored Lagercrantz (QS 67), scored GEA Group (QS 59). MEGP.L elevated to MAXIMA priority. | Broader European screening uncovered undiscovered Tier A compounder. |
+| 2026-02-19 | ADDT-B.ST R1 COMPLETE. QS 70→79 (Tier A). FV SEK 250, entry SEK 200. Added to Analizadas - En Watchlist. | R1 pipeline (fundamental + moat + risk). Organic growth 2% = key concern. |
 
 ---
 

@@ -184,7 +184,7 @@ Reasoning:
 | Trial proceeds, behavioral remedy only | 15% | -5 to +5% |
 | Case dismissed / LYV wins | 10% | +15 to +25% |
 
-### Post-Slater Departure + Current Intel (UPDATED Feb 18)
+### Post-Slater Departure (UPDATED Feb 18 pre-ruling)
 
 | Scenario | Prob | Change | Stock Impact | Rationale |
 |----------|------|--------|-------------|-----------|
@@ -194,23 +194,46 @@ Reasoning:
 | **Trial proceeds, behavioral remedy only** | 15% | +0pp | -5 to +5% | UNCHANGED |
 | **Case dismissed / LYV wins** | 15% | +5pp | +15 to +25% | INCREASED: Political support could lead to case withdrawal or very favorable terms |
 
-### Updated Expected Value for Short Position
+### Post-Dismiss-Ruling (UPDATED Feb 19 — Judge Subramanian Rejects Dismiss Motion)
+
+**CRITICAL DEVELOPMENT:** On Feb 18, Judge Subramanian issued a 44-page ruling REJECTING Live Nation's motion to dismiss. Three core claims SURVIVE to trial:
+1. **Amphitheater monopoly** — exclusive booking + ticketing at owned venues
+2. **Ticketing monopoly** — tying concert promotion to Ticketmaster use
+3. **State AG claims** — 40 state AGs' claims proceed independently
+
+Only fan-experience related claims were dismissed (minor).
+
+**Impact on probability table:**
+- **Case dismissed / LYV wins: 15% → 5%** (judge already rejected strongest defense arguments; remaining dismissal paths = mid-trial motion or appeal, much lower probability)
+- **Trial proceeds, structural remedy: 5% → 7%** (case is stronger than market expected)
+- **Trial proceeds, behavioral remedy: 15% → 18%** (most likely trial outcome)
+- **DOJ settles, states continue: 35% → 35%** (unchanged — DOJ settlement dynamics separate from ruling)
+- **DOJ settles, states settle: 30% → 30%** (unchanged)
+- Also: dismiss ruling WEAKENS LYV's negotiating leverage in settlement talks → any settlement likely requires MORE concessions → net positive for short
 
 | Scenario | Prob | Stock Midpoint | Short P&L |
 |----------|------|---------------|-----------|
 | DOJ settles, states continue | 35% | -10% = $141 | +10.3% |
 | DOJ settles, states settle too | 30% | +15% = $181 | -15.1% |
-| Trial, structural remedy | 5% | -40% = $94 | +40.2% |
-| Trial, behavioral remedy | 15% | 0% = $157 | 0% |
-| Case dismissed / LYV wins | 15% | +20% = $189 | -20.2% |
-| **EXPECTED VALUE** | 100% | | **-1.4%** |
+| Trial, structural remedy | 7% | -40% = $94 | +40.2% |
+| Trial, behavioral remedy | 18% | 0% = $157 | 0% |
+| Case dismissed / LYV wins | 5% | +20% = $189 | -20.2% |
+| **EXPECTED VALUE** | 100% | | **+0.9%** |
 
-### CRITICAL FINDING: Expected Value has DETERIORATED
+### Assessment: EV Has PARTIALLY RECOVERED Post-Dismiss Ruling
 
-The expected value of the short position has moved from +18-20% (S3) to approximately **-1.4%** when factoring in:
-1. Slater departure increasing settlement probability
-2. Structural remedy probability reduced further (20% -> 5%)
-3. Case dismissal probability increased (10% -> 15%)
+- Pre-Slater: +18-20% (S3)
+- Post-Slater (pre-ruling): approximately -1.4%
+- **Post-dismiss ruling: approximately +0.9%** (dismiss probability 15% → 5% = biggest single improvement)
+
+The dismiss ruling clawed back ~2.3pp of the ~20pp EV deterioration from Slater departure.
+
+**NET ASSESSMENT:** EV is still MARGINAL (~+1%) on standalone basis. However:
+- 1% sizing limits max loss to 0.24% of portfolio (tiny)
+- Hedging value against consumer discretionary longs is real (DOM.L, LULU, MONY.L)
+- Trial WILL happen Mar 2 (confirmed by judge) — near-term information event
+- State AGs on stronger legal ground after judge validated 3 core claims
+- Q4 data tonight will be decisive for final GO/NO-GO
 
 **HOWEVER**, this expected value does NOT include:
 - The carry cost (-7.5%/year) which makes it WORSE

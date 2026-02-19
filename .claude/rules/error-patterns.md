@@ -74,5 +74,8 @@ Consensus PT = promedio de opiniones con incentivos mixtos (sell-side necesita v
 
 ## Errores Operativos
 
+**#52. No persistir output de pipeline como archivo formal**
+Cada ronda del pipeline (R1/S1, R2/S2, R3/S3) DEBE crear un archivo en `thesis/research/TICKER/` o `thesis/short/research/TICKER/`. NUNCA guardar output solo en watchlist.yaml como notas. Archivos minimos por pipeline completado: S1 = thesis.md + moat_assessment.md + risk_assessment.md. R1 = thesis.md. S3/R3 = s3_resolution.md o r3_resolution.md. Error original: CVNA S1 completado en Session 75 sin archivo de thesis — solo notas en watchlist.yaml. Cuando se necesito para S3, el contexto estaba perdido.
+
 **#51. Confundir sesion con dia — incrementar fecha artificialmente**
 Session ≠ Dia. Multiples sesiones pueden ocurrir en UN MISMO dia. SIEMPRE obtener fecha real con `date` o `currentDate` del contexto del sistema. NUNCA asumir fecha desde memoria ni incrementar. Al escribir en memory/system.yaml, usar la fecha REAL del sistema. Error recurrente: session N en Feb 18, memory escribia "Feb 19", siguiente sesion escribia "Feb 20" — todo era Feb 18.

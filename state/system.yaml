@@ -1,14 +1,14 @@
 # =============================================================================
 # SYSTEM STATE - Value Investor v4.0 (Slim Core)
 # Split files: calendar.yaml, standing_orders.yaml, watchlist.yaml, pipeline_tracker.yaml
-# Updated: 2026-02-18
+# Updated: 2026-02-19
 # =============================================================================
 
 system:
   system_version: "4.2.0"
   framework_version: "4.2"
-  last_session: 2026-02-18
-  session_number: 79
+  last_session: 2026-02-19
+  session_number: 85
   status: active
 
   framework_v4_status:
@@ -45,40 +45,24 @@ system:
       - { ticker: GL, score: 52, tier: C, status: "FV $191. SEC+DOJ cleared." }
 
   last_session_summary: |
-    Session 79 - Pipeline Mega-Advance + Discovery (2026-02-18 evening, 4 context windows)
-    PIPELINE ADVANCEMENT (LONG):
-    - AJB.L R3 COMPLETE: FV 520p, entry 375p, WAIT H1 FY26 (Apr). Hard gates: FCF, UK conc.
-    - BAH R3 COMPLETE: FV $78, DEPRIORITIZED. Palantir existential threat, DOGE structural.
-    - ALFA.ST R1 COMPLETE: QS 72, FV SEK 420, WATCHLIST. Entry SEK 345. Too expensive at 522.
-    PIPELINE ADVANCEMENT (SHORT):
-    - CVNA S2 COMPLETE: Bull 5.5/10. Q4 results NOW AVAILABLE (record revenue +58%, BUT $618M DTA release inflates NI by 65%). S3 framework ready.
-    - APP S1 COMPLETE: QS Tool 57, Adj 50 (Tier C). FV $150 base, $87 bear, $475 bull. EV $212. Moat NARROW CONDITIONAL (13/25). Risk-identifier: VERY HIGH risk to short. P10 VIOLATION (no catalyst date). Decision: SHORT WATCHLIST (not active short). Re-evaluate if SEC charges, stock >$550, or revenue decel.
-    DISCOVERY:
-    - Short screening WAVE 1: PLTR + BA added. WAVE 2 (enhanced): APP fragility 8/10, IONQ 7/10, REZI 6/10.
-    - PLTR DEPRIORITIZED (Q4 blowout invalidates DOGE-victim thesis).
-    - Batch scoring AEX25+IBEX35: +10 new (ASML.AS QS 81 Tier A top).
-    - Universe: 126 -> 142 (+16 this evening). Short universe: 8 candidates (LYV approved, CVNA S2, APP S1, BA/IONQ/REZI watch, ENR.DE/RAND.AS deprioritized).
-    - Sector view CREATED: mobile-ad-tech.md (APP dependency).
-    CVNA Q4 2025 RESULTS (CRITICAL DATA):
-    - Revenue $5.603B (+58%), Units 163,522 (+43%), GAAP NI $951M. BUT $685M DTA release = non-cash one-time.
-    - Adjusted NI ~$333M Q4, ~$1.274B FY. P/E GAAP 41x, P/E adjusted 62x.
-    - EBITDA margin DECLINING: 12% Q1-Q2 -> 11.3% Q3 -> 9.1% Q4 = margin compression at scale.
-    - Guidance vague: "significant growth" with no specifics.
-    - Verdict: does NOT invalidate short thesis. CONFIRMS accounting quality concerns.
-    GOVERNANCE:
-    - FGP.L SO CANCELLED: no pipeline + UK concentration (would be 5th UK).
-    - CMCSA SO CANCELLED: no pipeline + no R1/QS scored. Keep on watchlist for future R1.
-    - Now 22 active SOs (was 24).
-    PRICE OBSERVATIONS:
-    - LYV $155.70 — IN the $145-160 short entry range (Q4 Feb 19 = hard gate).
-    - MONC.MI EUR 50.32 — only +4.8% from EUR 48 entry. Closest long actionable.
-    - ROP $327.60 — +9.2% from $300. MEGP.L 144.80p — +7.3% from 135p.
-    NEXT SESSION PRIORITIES:
-    1. MONC.MI FY2025 results (morning) -> Execute R2 with 6 pre-built attack vectors
-    2. CVNA S3 resolution -> WACC 9-10%, adj earnings $1.27B, fraud prob 20-25%, DTA concerns
-    3. LYV Q4 results (after close Feb 19) -> GO/NO-GO for short entry Feb 20-28
-    4. MONY.L Feb 23 prep (ON PROBATION, KC#9 AI strategy, 4 days away)
-    5. EDEN.PA Feb 24 earnings framework review
+    Session 84 - ADDT-B.ST R1 COMPLETE + State Consistency + Pipeline (2026-02-19)
+    ADDT-B.ST R1 COMPLETE (3 parallel agents):
+    - fundamental-analyst: QS 70→79 (Tier A). FV SEK 250, entry SEK 200. EV/EBITA primary.
+      Organic growth 2% = key weakness. 150+ niche subs, 18% EBITA CAGR since 2001.
+      +4 ROIC (partial-goodwill 22.9%), +5 market position (data gap). Stock SEK 322 overvalued.
+    - moat-assessor: NARROW (borderline Wide). 18/25. Switching costs + efficient scale.
+      31.6% voting control via dual-class (vs 2% capital). Rising PE competition for targets.
+    - risk-identifier: HIGH (1 CRITICAL + 3 HIGH). Premium compression at 42x P/E CRITICAL.
+      Organic growth stagnation HIGH. Goodwill 47% of assets HIGH. CEO sold 11% May 2025.
+      6 kill conditions suggested. Correlated risk scenario: -40-50% drawdown.
+    STATE CONSISTENCY: 5 universe entries updated (AJB.L, DECK, QTCOM.HE, BAH, ALFA.ST).
+    SECTOR VIEW: industrial-technology.md updated with ADDT-B.ST R1 findings.
+    PRICE MONITORS: Added ADDT-B.ST (SEK 200) and RAA.DE (EUR 485).
+    EARNINGS PREP: All 5 frameworks verified (MONC.MI, MONY.L, EDEN.PA, DTE.DE, MEGP.L).
+    MONC.MI R2 prep brief reviewed — 6 attack vectors ready for post-results R2.
+    MONC.MI at EUR 49.80 (3.8% from entry). LYV at $155.78 (IN $145-160 short range).
+    WAITING: MONC.MI FY2025 after Italian close (~5:30 PM), LYV Q4 after US close (~11 PM).
+    Universe: 155 companies, 36 R1+, 22 standing orders, 9 actionable.
 
   # NET EXPOSURE REASONING — Principio 13. Re-evaluate EVERY session.
   # This is NOT a target or range. It's the CONCLUSION of reasoning.
@@ -91,27 +75,31 @@ system:
       net_pct: 39.3    # long - short
       gross_pct: 39.3  # long + short
     reasoning: |
-      Session 76 (2026-02-18): Net exposure 39.3% long, 0% short, 60.7% cash.
-      MACRO: VIX 19 moderate, S&P near ATH 6888, yield curve +60bps, gold +70% 12m, DXY weak -8.4%.
-      No recession signal. Rate cuts advancing. Environment favors equities broadly.
-      CASH 60.7% — JUSTIFIED but EXCESSIVE. Reasons:
-      1. 25+ standing orders at disciplined prices NOT triggered (market near ATH)
-      2. Earnings gauntlet Feb 23-27 may create entries (MONC.MI, MEGP.L, others)
-      3. 2 positions on probation (MONY.L Feb 23, LULU Mar 31) — may need rotation capital
-      4. Pipeline deep (8 R4-approved, 5 R4-watchlist, 7 R3-complete)
-      5. Adversarial corrections push entries below current market systematically
-      SHORT 0% → 1% IMMINENT — JUSTIFIED:
-      1. LYV S1→S2→S3→S4 COMPLETE this session. S4 APPROVED CONDITIONAL (1%, EUR 100)
-      2. Standing order created. Entry window Feb 20-28 (post-Q4 earnings, pre-trial)
-      3. Conditions: Q4 earnings review pending. Sector view DONE.
-      4. VTY.L REMOVED, ENR.DE + RAND.AS DEPRIORITIZED. CVNA needs S1.
-      5. P12 COMPLIANCE: First short through full pipeline. Bidirectional capability established.
-      DIRECTION: Cash should DECREASE over next 2-4 weeks via:
-      a) LYV short entry Feb 20-28 (EUR 100, 1% of portfolio)
-      b) Earnings gauntlet may trigger MEGP.L (at 135p trigger, hard gate Feb 27)
-      c) ROP approaching trigger ($325 vs $300, 7.7%)
-      d) MONC.MI R2 if FY2025 results support thesis
-    last_updated: 2026-02-18
+      Session 85 (2026-02-19): Net exposure 39.5% long, 0% short, 60.5% cash.
+      MACRO: VIX 20.6 moderate, S&P 6881 (-1.7% ATH), 10Y 4.08%, 2Y-10Y +60bps, gold $5007 (+70% 12m), DXY 97.7 (-8.3% 12m).
+      No recession signal. Gold surge = geopolitical hedge demand. Dollar weakness = EUR/GBP positive.
+      CASH 60.5% — STILL EXCESSIVE but JUSTIFIED:
+      1. 22 standing orders at disciplined prices, NONE triggered. Closest: MEGP.L +6.1%, ROP +9.2%
+      2. Market near ATH → adversarial entries systematically below market
+      3. DENSE earnings week Feb 23-27: MONY.L, EDEN.PA, DTE.DE, MEGP.L may create entry opportunities
+      4. 2 positions ON PROBATION — may need rotation capital (MONY.L Feb 23 decisive, LULU Mar 31)
+      5. MONC.MI at EUR 49.85, only 3.9% from entry EUR 48. Results tonight → could fast-track to SO
+      6. UK concentration (4 positions stressed) argues for UK cash reserve
+      SHORT 0% → IMMINENT (LYV):
+      1. LYV S4 APPROVED. Judge rejected dismiss Feb 18. Trial Mar 2 CONFIRMED.
+      2. Q4 earnings TONIGHT = final pre-condition. Stock at $155.78 IN $145-160 range.
+      3. Short pipeline: CVNA S3 complete, APP S1 watchlist, 8 total candidates.
+      PORTFOLIO HEALTH:
+      1. P&L +1.9% ($87.66). Bottom 3: LULU +7.6% MoS (weakest), DTE.DE +7.4%, BYIT.L +15.8%
+      2. LULU total forward return weakest (-2.1%) — Mar 31 MAKE-OR-BREAK
+      3. MONY.L -12.7% loss but MoS +26.8% — binary outcome Feb 23
+      4. Universe 158 companies, 36 R1+, 22 SOs, 9 actionable. Pipeline healthy.
+      DIRECTION: Cash should DECREASE this week via:
+      a) LYV short tonight if Q4 supports (EUR 100, ~1%)
+      b) MONC.MI R2→R4 fast-track if results support → SO at EUR 48
+      c) Earnings-driven entries Feb 23-27 (MEGP.L if 130p, MONY.L outcome)
+      d) If 0 entries from earnings gauntlet → REASSESS SO trigger levels
+    last_updated: 2026-02-19
     history:
       - date: 2026-02-18
         net_pct: 39.3
@@ -142,9 +130,9 @@ system:
     anti_bias: "This direction was set Feb 15. Do NOT anchor to it. Fresh eyes each session."
 
 macro_snapshot:
-  last_update: 2026-02-02
-  themes: ["Fed/BCE pausa 3.5%/2.0%", "Europa barata", "Tariffs escalando", "Iran tension up", "China mejora 4.5%"]
-  risks: ["US-Iran guerra 30-40%", "Tariff war 40-50%", "Recesion US 25-35%", "Oil shock >$90 15-25%"]
+  last_update: 2026-02-19
+  themes: ["Fed/BCE pausa 4.25-4.50%/2.75%", "S&P near ATH -1.7%", "Gold $5007 (+70% 12m)", "DXY weak 97.7 (-8.3% 12m)", "VIX moderate 20.6"]
+  risks: ["AI disruption wave (MONY.L/BYIT.L/ADBE)", "DOJ antitrust LYV trial Mar 2", "Dense earnings Feb 23-27", "Tariff policy uncertainty", "Gold surge = institutional hedging"]
 
 # Cross-references to split files:
 # Calendar events:     state/calendar.yaml
