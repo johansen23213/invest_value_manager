@@ -1526,17 +1526,16 @@ quality_universe:
     qs_adj: 92
     tier: A
     sector: Luxury Goods
-    fair_value: 58.0
-    entry_price: 48.0
+    fair_value: 52.0
+    entry_price: 42.0
     currency: EUR
-    current_price: 50.32
-    distance_to_entry: 4.8
-    pipeline_status: R1_COMPLETE
+    current_price: 50.26
+    distance_to_entry: 16.4
+    pipeline_status: R3_COMPLETE
     thesis_path: thesis/research/MONC.MI/
     last_scored: '2026-02-18'
     last_price_check: '2026-02-19'
-    notes: 'R1: QS 87->92 adj (+5 market position). FV EUR 58 (OEY 60% + DCF 40%). Moat WIDE 20/25, 78.1% GM. Risk MEDIUM-HIGH
-      (China 44%, CEO transition Apr 26). FY2025 results Feb 19 = HARD GATE. Preferred entry EUR 42-45.'
+    notes: 'R3 COMPLETE S89. FV 58→52 (-10.3%), entry 48→42. DA MODERATE COUNTER. Growth 4.5%, WACC 9.0%. FY2025 BASE-BULL. 3 hard gates for R4: earnings call, RACE.MI priority, Q1 2026 growth >=5%. R4 deferred ~Apr 2026.'
   - ticker: BZU.MI
     name: BUZZI
     direction: long

@@ -9,7 +9,7 @@ capital_deployment:
   trigger: "cash > 25%"
   last_run: 2026-02-19
   next_due: 2026-02-20
-  last_result: "S88: ALFA.L R3, APP S3 REJECTED, ADDT-B.ST R3, ITX.MC R3 resolved. FSG.L+CKN.L R1 synthesized. S81 scoring: KYGA.L(44)/STF.PA(45)/HSX.L(37) fail quality. Strategic projection doc created. MONC.MI+LYV Q4 results PENDING (next session priority)."
+  last_result: "S89: MONC.MI FY2025 published (BASE-BULL). R2 MODERATE COUNTER. R3 COMPLETE: FV 58→52, entry 48→42. 3 hard gates (earnings call, RACE priority, Q1 2026 growth). R4 DEFERRED to post-Q1 2026. LYV Q4 tonight — framework ready. DSY.PA Q4 growth 1%, SO on alert."
   skill: ".claude/skills/capital-deployment/SKILL.md"
   tool: "tools/quality_universe.py"
 
@@ -18,7 +18,7 @@ vigilance:
   frequency: daily
   last_run: 2026-02-19
   next_due: 2026-02-20
-  last_result: "S80: CVNA -20% afterhours (EBITDA miss, vague guidance) — validates short thesis. LYV dismiss ruling REJECTED (3 claims survive, trial Mar 2). MONY.L at 13-year low. MONC.MI+LYV Q4 today. 0 SOs triggered."
+  last_result: "S89: MONC.MI FY2025 published (Q4 +7%, EBIT 29.2%). LYV dismiss ruling confirmed (Feb 18). MONY.L 13yr low, 4 days to probation earnings. DSY.PA Q4 growth 1%. GL $4.66M data breach settlement. AUTO.L pricing +5.5%. 0 SOs triggered. LYV IN short range ($156)."
 
 rotation_check:
   frequency: daily
