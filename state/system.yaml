@@ -8,7 +8,7 @@ system:
   system_version: "4.2.0"
   framework_version: "4.2"
   last_session: 2026-02-19
-  session_number: 87
+  session_number: 89
   status: active
 
   framework_v4_status:
@@ -45,16 +45,16 @@ system:
       - { ticker: GL, score: 52, tier: C, status: "FV $191. SEC+DOJ cleared." }
 
   last_session_summary: |
-    Session 88 continued (2026-02-19) — Pipeline synthesis + S81 scoring + event prep.
-    ALFA.L R3 COMPLETE: FV 235p, entry 165p. CHP structural, hard gate Mar 12.
-    APP S3: SHORT REJECTED. Bull 7.0/10. P10 violated. Watchlist.
-    ADDT-B.ST R3 COMPLETE: QS 77 Tier A. FV 225, entry 180 SEK. 79% above entry.
-    ITX.MC R3 COMPLETE: QS 86. FV 38, entry 30 EUR. 93% above entry. Crisis-only.
-    FSG.L R1 SYNTHESIZED: QS 68 Tier B. FV 530p, entry 360p. VCT tax CRITICAL. 6th UK.
-    CKN.L R1 SYNTHESIZED: QS 70 Tier B. FV 5200p, entry 3500p. Profit warning active. Hard gate Mar.
-    S81 SCORING: KYGA.L (44), STF.PA (45), HSX.L (37) — all fail quality. Not added.
-    MONC.MI results pending ~17:30 CET. LYV Q4 pending ~22:00 CET.
-    Bottom 3: LULU 7.6%, DTE.DE 7.8%, BYIT.L 15.7%. Net exposure 39.3% long, 0% short.
+    Session 89 (2026-02-19 evening) — MONC.MI results + LYV pre-earnings prep.
+    MONC.MI FY2025 PUBLISHED: Rev EUR 3,132M (+3% cFX), Q4 +7%, EBIT 29.2%, GM 78.1%.
+    Stone Island Q4 +10% cFX. HARD GATE CLEARED. R2 devil's advocate launched.
+    Price EUR 50.26 vs entry EUR 48 (4.7% gap). Pipeline fast-tracking to R3/R4.
+    LYV Q4 tonight ~22:00 CET. Judge rejected dismiss motion (Feb 18, 44-page ruling).
+    3 core claims survive. Trial Mar 2 CONFIRMED. Stock $156 IN short range.
+    DSY.PA Q4 growth 1%, guide 3-5% (below thesis 5-7%). SO valid but on alert.
+    MONY.L at 13-year low. 4 days to ON PROBATION earnings (Feb 23).
+    Calendar corrected: MONC.MI was today (not Mar 3-4 as originally scheduled).
+    Bottom 3: LULU 8.1%, DTE.DE 7.3%, BYIT.L 16.6%. Net exposure 39.4% long, 0% short.
 
   # NET EXPOSURE REASONING — Principio 13. Re-evaluate EVERY session.
   # This is NOT a target or range. It's the CONCLUSION of reasoning.
@@ -67,28 +67,27 @@ system:
       net_pct: 39.3    # long - short
       gross_pct: 39.3  # long + short
     reasoning: |
-      Session 88 (2026-02-19): Net exposure 39.3% long, 0% short, 60.7% cash.
-      MACRO: VIX 20.3, S&P 6881 (-1.7% ATH), 10Y 4.08%, 2Y-10Y +60bps, gold $5000, DXY 97.8.
-      No macro change intraday. No recession signal. Dollar weak = EUR/GBP positive.
-      CASH 60.7% — STILL EXCESSIVE but JUSTIFIED:
-      1. 22 SOs at disciplined prices, NONE triggered. Closest: MONC.MI +4.8%, IHP.L +5.8%, ROP +9.2%
-      2. Market near ATH → adversarial entries systematically below market
-      3. DENSE earnings week Feb 23-27 may create entry opportunities
-      4. 2 positions ON PROBATION — may need rotation capital
-      5. MONC.MI at EUR 49.24, 2.5% from entry EUR 48. FY2025 results TONIGHT ~17:30.
-      6. ALFA.L R3 complete (FV 235p, entry 165p). CHP structural overhang. Hard gate Mar 12.
-      SHORT 0% → IMMINENT (LYV tonight):
-      1. LYV S4 APPROVED. Q4 results TONIGHT ~22:00 CET. Stock at $155.78 IN range.
-      2. Trial Mar 2. 3 core claims survive. GO/NO-GO on EUR 100 short.
-      3. APP S3: SHORT REJECTED (STRONG BULL 7.0/10, P10 violated). Moved to watchlist.
-      4. CVNA S3 complete (FV $125, entry $300). S4 deferred until LYV resolved.
+      Session 89 (2026-02-19 18:30 CET): Net exposure 39.4% long, 0% short, 60.6% cash.
+      MACRO: VIX 20.3, S&P 6856 (-2.1% ATH), 10Y 4.08%, 2Y-10Y +60bps, gold $5019 (+70% 12m!), DXY 97.9.
+      No recession signal. Dollar weak = EUR/GBP positive. Gold surge signals safe-haven demand.
+      CASH 60.6% — STILL EXCESSIVE but JUSTIFIED and DECLINING path clear:
+      1. MONC.MI FY2025 just published: BASE-to-BULL results. R2 in progress. EUR 50.26 vs entry EUR 48.
+         If R2→R3→R4 clears: SO at EUR 48. Only 4.7% from execution.
+      2. LYV Q4 tonight ~22:00 CET. Short framework ready. Judge rejected dismiss (Feb 18).
+         If Q4 supports: short EUR 100 (1%) tomorrow Feb 20.
+      3. DENSE earnings week Feb 23-27: MONY.L (probation decision), EDEN.PA, DTE.DE, MEGP.L
+      4. 2 positions ON PROBATION — may free capital for rotation
+      5. 22 SOs at disciplined prices. Closest: MEGP.L +5.9%, ROP +10%
+      SHORT 0% → EXPECTED CHANGE TONIGHT/TOMORROW:
+      1. LYV S4 APPROVED. Q4 tonight. Framework says: Scenario D/E most likely (PROCEED at $155-160).
+      2. Judge rejected dismiss → +2.3pp to EV. States independently pursuing.
+      3. Trial Mar 2 = 11 days. Entry window Feb 20-28.
+      4. CVNA S4 deferred until LYV resolved.
       PORTFOLIO HEALTH:
-      1. Bottom 3: LULU 7.6% MoS (weakest, -9.7% growth), DTE.DE 7.8%, BYIT.L 15.7%
-      2. Universe 153 companies, 13 actionable, 22 SOs. Pipeline healthy.
-      DIRECTION: Cash should DECREASE tonight/this week via:
-      a) LYV short tonight if Q4 supports (EUR 100, ~1%)
-      b) MONC.MI R2→R4 fast-track if results support → SO at EUR 48
-      c) Earnings-driven entries Feb 23-27 (MEGP.L 130p, MONY.L outcome)
+      1. Bottom 3: DTE.DE 7.3% MoS, LULU 8.1%, BYIT.L 16.6%
+      2. DTE.DE approaching FV (EUR 32.63 vs FV 35) — Feb 26 earnings may trigger TRIM consideration
+      3. LULU still on probation, but +5.7% P&L. Mar 31 = make-or-break.
+      DIRECTION: Cash should DECREASE this week via MONC.MI + LYV + earnings catalysts.
     last_updated: 2026-02-19
     history:
       - date: 2026-02-18

@@ -3,20 +3,13 @@
 # Updated: 2026-02-18
 
 events:
-  # TOMORROW — DOUBLE EVENT
-  - date: 2026-02-19
-    type: earnings
-    ticker: MONC.MI
-    event: "Moncler FY2025 Results — HARD GATE for R2"
-    priority: high
-    action: "R1 complete (QS 92, FV EUR 58, entry EUR 48). Wait results before R2/SO. Bear: China decline, margins compress. Bull: China resilient, Stone Island DTC inflection. Watch: revenue growth trend, GM stability, CEO transition commentary."
-
+  # TODAY — LYV AFTER US CLOSE
   - date: 2026-02-19
     type: earnings
     ticker: LYV
-    event: "Live Nation Q4/FY2025 Results (after market close) — SHORT PRE-CONDITION"
+    event: "Live Nation Q4/FY2025 Results (after market close ~22:00 CET) — SHORT PRE-CONDITION"
     priority: CRITICAL
-    action: "S4 APPROVED CONDITIONAL. Pre-condition: Q4 results must be reviewed before short entry. Entry window Feb 20-28. Watch: Ticketmaster AOI share, concert attendance trends, pricing power, DOJ trial prep commentary. If results show structural weakness → PROCEED with short. If blowout → RE-EVALUATE thesis."
+    action: "S4 APPROVED CONDITIONAL. LYV at $156 = IN short trigger range ($145-160). BUT Gail Slater departed DOJ — settlement probability UP, structural remedy DOWN (10-15% from 20%). States pursuing independently. Pre-condition: Q4 results must be reviewed before short entry. Watch: Ticketmaster AOI share, concert attendance trends, pricing power, DOJ trial prep commentary."
 
   - date: 2026-02-19
     type: earnings
@@ -24,6 +17,14 @@ events:
     event: "Aegon FY2025"
     priority: high
     action: "Watch OCG 1.2B, solvency >180%. Si precio cae 5.90 - BUY."
+
+  # MONC.MI — RESULTS PUBLISHED TODAY (Feb 19)
+  - date: 2026-02-19
+    type: earnings
+    ticker: MONC.MI
+    event: "Moncler FY2025 Results — PUBLISHED. R2 IN PROGRESS."
+    priority: high
+    action: "RESULTS IN: Rev EUR 3,132M (+3% cFX), Q4 +7%, EBIT 29.2%, GM 78.1%, Net Income EUR 627M (-2%), Net Cash EUR 1,458M. Stone Island Q4 +10%. HARD GATE CLEARED. R2 devil's advocate launched. Price EUR 50.26 vs entry EUR 48 (4.7% gap)."
 
   # EARNINGS WEEK FEB 23-26
   - date: 2026-02-23

@@ -9,7 +9,7 @@ capital_deployment:
   trigger: "cash > 25%"
   last_run: 2026-02-19
   next_due: 2026-02-20
-  last_result: "S88: ALFA.L R3 COMPLETE (FV 265→235p, entry 180→165p, DA -11.3%, CHP structural overhang). APP S3 COMPLETE (SHORT REJECTED, S2 bull 7.0/10 STRONG BULL, P10 violated). All 4 earnings frameworks verified (MONY.L Feb 23, EDEN.PA Feb 24, DTE.DE Feb 26, MEGP.L Feb 27). MONC.MI+LYV Q4 results pending tonight."
+  last_result: "S88: ALFA.L R3, APP S3 REJECTED, ADDT-B.ST R3, ITX.MC R3 resolved. FSG.L+CKN.L R1 synthesized. S81 scoring: KYGA.L(44)/STF.PA(45)/HSX.L(37) fail quality. Strategic projection doc created. MONC.MI+LYV Q4 results PENDING (next session priority)."
   skill: ".claude/skills/capital-deployment/SKILL.md"
   tool: "tools/quality_universe.py"
 
