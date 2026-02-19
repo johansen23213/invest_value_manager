@@ -798,23 +798,6 @@ quality_universe:
     notes: 'R3 COMPLETE. DA STRONG COUNTER FV $205->$185. Q4 2025 BEAT: EPS $1.82 (+13%) vs $1.59 est, FCF +38%, div +11%.
       Hard gate CLEARED. Thesis validated. Entry $140 (26.6% from $177). R4 path open but price far from entry.'
     direction: long
-  - ticker: AM.PA
-    name: DASSAULT AVIATION
-    qs_tool: 75
-    qs_adj: 75
-    tier: A
-    sector: Defense & Aerospace
-    fair_value: 0.0
-    entry_price: 0.0
-    currency: USD
-    current_price: 412.59
-    distance_to_entry: null
-    pipeline_status: SCORED
-    thesis_path: null
-    last_scored: '2026-02-13'
-    last_price_check: '2026-02-19'
-    notes: ''
-    direction: long
   - ticker: TDG
     name: Transdigm Group Incorporated
     qs_tool: 69
@@ -1039,39 +1022,22 @@ quality_universe:
     direction: long
   - ticker: CMCSA
     name: Comcast Corporation
-    qs_tool: null
-    qs_adj: null
-    tier: null
-    sector: Media/Telecom
+    direction: long
+    qs_tool: 60
+    qs_adj: 60
+    tier: B
+    sector: telecom
     fair_value: 35.0
     entry_price: 26.0
     currency: USD
     current_price: 31.6
     distance_to_entry: 21.5
-    pipeline_status: PRE_R1
+    pipeline_status: SCORED
     thesis_path: null
-    last_scored: null
+    last_scored: '2026-02-19'
     last_price_check: '2026-02-19'
-    notes: Standing order at $26. FV $33-38. Broadband moat eroding (FWA, fiber). SUSPENDED_PRE_PIPELINE. Needs QS scoring
-      + full pipeline.
-    direction: long
-  - ticker: WPP.L
-    name: WPP plc
-    qs_tool: null
-    qs_adj: null
-    tier: null
-    sector: Advertising/Media
-    fair_value: 380.0
-    entry_price: 200.0
-    currency: GBP
-    current_price: 271.2
-    distance_to_entry: 35.6
-    pipeline_status: PRE_R1
-    thesis_path: null
-    last_scored: null
-    last_price_check: '2026-02-19'
-    notes: Standing order at 200 GBp. FV 380p. UNDER REVIEW — Tier C + no moat + AI disruption. Wait Rose plan Feb 26.
-    direction: long
+    notes: SCORED 2026-02-19. QS 60 Tier B. Rev flat (+0.6% CAGR). FCF 9.2B. GM 71.7% expanding. ND/EBITDA 2.6x. Broadband
+      eroding but theme parks star. No growth = value play only.
   - ticker: ORNBV.HE
     name: Orion Corporation B
     qs_tool: 78
@@ -1218,23 +1184,6 @@ quality_universe:
       (FV≈consensus), AAA margin BULL not BASE, FX widening. NARROW moat. QS 63/68 adj. BVI.PA preferred for TIC sector. HARD
       GATE FY2025 results Mar 3.'
     direction: long
-  - ticker: ADDT-B.ST
-    name: Addtech AB ser. B
-    direction: long
-    qs_tool: 70
-    qs_adj: 79
-    tier: A
-    sector: Industrial Technology
-    fair_value: 250.0
-    entry_price: 200.0
-    currency: SEK
-    current_price: 322.4
-    distance_to_entry: 61.2
-    pipeline_status: R1_COMPLETE
-    thesis_path: null
-    last_scored: '2026-02-19'
-    last_price_check: '2026-02-19'
-    notes: ''
   - ticker: ADP
     name: Automatic Data Processing, Inc.
     qs_tool: 70
@@ -1553,22 +1502,23 @@ quality_universe:
     last_price_check: '2026-02-19'
     notes: Auto-scored by batch_scorer. Needs R1 analysis.
   - ticker: LIFCO-B.ST
-    name: Lifco AB ser.B
+    name: Lifco AB
     direction: long
     qs_tool: 65
-    qs_adj: 65
+    qs_adj: 72
     tier: B
-    sector: Industrials
-    fair_value: 0
-    entry_price: 0
+    sector: industrial-technology
+    fair_value: 240.0
+    entry_price: 190.0
     currency: SEK
-    current_price: 317.8
-    distance_to_entry: null
+    current_price: 320.8
+    distance_to_entry: 68.8
     pipeline_status: SCORED
-    thesis_path: ''
-    last_scored: '2026-02-18'
+    thesis_path: null
+    last_scored: '2026-02-19'
     last_price_check: '2026-02-19'
-    notes: Auto-scored by batch_scorer. Needs R1 analysis.
+    notes: 'SCORED 2026-02-19. QS 65+7=72 (est: +4 ROIC partial-goodwill, +3 market pos). Best margins (GM 44%, OP 18.3%),
+      47.6% insider (!). P/E 40x. Crisis only (+69% above entry).'
   - ticker: MONC.MI
     name: Moncler S.p.A.
     direction: long
@@ -1639,23 +1589,22 @@ quality_universe:
     last_price_check: '2026-02-19'
     notes: Auto-scored by batch_scorer. Needs R1 analysis.
   - ticker: ITX.MC
-    name: Inditex S.A.
+    name: INDUSTRIA DE DISE...O TEXTIL S.
     direction: long
     qs_tool: 86
     qs_adj: 86
     tier: A
-    sector: Fast Fashion Retail
+    sector: fast-fashion-retail
     fair_value: 38.0
     entry_price: 30.0
     currency: EUR
     current_price: null
     distance_to_entry: null
-    pipeline_status: R2_COMPLETE
+    pipeline_status: R3_COMPLETE
     thesis_path: null
     last_scored: '2026-02-19'
     last_price_check: null
-    notes: 'R2 WEAK COUNTER. FV EUR 41→38 (R3 growth 6% vs R1 7%). Entry EUR 33→30 (crisis only). REJECT at current EUR 57.92
-      (+93%). QS 86 Tier A undeniable. SHEIN overtook as #1. No R4 needed.'
+    notes: ''
   - ticker: AENA.MC
     name: AENA, S.M.E., S.A.
     direction: long
@@ -1741,74 +1690,23 @@ quality_universe:
     last_scored: '2026-02-19'
     last_price_check: '2026-02-19'
     notes: R3 2026-02-18. FV 600→520p. Entry 400→375p. WAIT H1 FY2026 (Apr/May). Interest income HARD GATE.
-  - ticker: CKN.L
-    name: CLARKSON PLC ORD 25P
-    direction: long
-    qs_tool: 83
-    qs_adj: 83
-    tier: A
-    sector: Industrials
-    fair_value: 0
-    entry_price: 0
-    currency: GBp
-    current_price: 4085.0
-    distance_to_entry: null
-    pipeline_status: SCORED
-    thesis_path: ''
-    last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
-    notes: Auto-scored by batch_scorer. Needs R1 analysis.
-  - ticker: FSG.L
-    name: FORESIGHT GROUP HOLDINGS LIMITE
-    direction: long
-    qs_tool: 83
-    qs_adj: 83
-    tier: A
-    sector: Financial Services
-    fair_value: 0
-    entry_price: 0
-    currency: GBp
-    current_price: 414.5
-    distance_to_entry: null
-    pipeline_status: SCORED
-    thesis_path: ''
-    last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
-    notes: Auto-scored by batch_scorer. Needs R1 analysis.
-  - ticker: ALFA.L
-    name: ALFA FINANCIAL SOFTWARE HOLDING
-    direction: long
-    qs_tool: 80
-    qs_adj: 80
-    tier: A
-    sector: Technology
-    fair_value: 0
-    entry_price: 0
-    currency: GBp
-    current_price: 186.4
-    distance_to_entry: null
-    pipeline_status: SCORED
-    thesis_path: ''
-    last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
-    notes: Auto-scored by batch_scorer. Needs R1 analysis.
   - ticker: IHP.L
-    name: INTEGRAFIN HOLDINGS PLC ORD 1P
+    name: IntegraFin Holdings
     direction: long
     qs_tool: 80
     qs_adj: 80
     tier: A
-    sector: Financial Services
-    fair_value: 0
-    entry_price: 0
+    sector: financial-services
+    fair_value: 400.0
+    entry_price: 300.0
     currency: GBp
-    current_price: 321.0
-    distance_to_entry: null
+    current_price: 317.4
+    distance_to_entry: 5.8
     pipeline_status: SCORED
-    thesis_path: ''
-    last_scored: '2026-02-18'
+    thesis_path: null
+    last_scored: '2026-02-19'
     last_price_check: '2026-02-19'
-    notes: Auto-scored by batch_scorer. Needs R1 analysis.
+    notes: SCORED. QS 80 Tier A. UK investment platform (Transact). P/E 19.8. Yield 3.5%. -20% from 52wH. eToro confirmed.
   - ticker: KLR.L
     name: KELLER GROUP PLC ORD 10P
     direction: long
@@ -2285,23 +2183,6 @@ quality_universe:
     last_scored: '2026-02-18'
     last_price_check: '2026-02-19'
     notes: Auto-scored by batch_scorer. Needs R1 analysis.
-  - ticker: ASML.AS
-    name: ASML HOLDING
-    direction: long
-    qs_tool: 81
-    qs_adj: 81
-    tier: A
-    sector: Technology
-    fair_value: 0
-    entry_price: 0
-    currency: EUR
-    current_price: 1244.8
-    distance_to_entry: null
-    pipeline_status: SCORED
-    thesis_path: ''
-    last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
-    notes: Auto-scored by batch_scorer. Needs R1 analysis.
   - ticker: ASM.AS
     name: ASM International N.V.
     direction: long
@@ -2455,23 +2336,6 @@ quality_universe:
     last_scored: '2026-02-18'
     last_price_check: '2026-02-19'
     notes: Auto-scored by batch_scorer. Needs R1 analysis.
-  - ticker: RAA.DE
-    name: Rational AG
-    direction: long
-    qs_tool: 92
-    qs_adj: 92
-    tier: A
-    sector: commercial-kitchen-equipment
-    fair_value: 0.0
-    entry_price: 0.0
-    currency: EUR
-    current_price: 738.0
-    distance_to_entry: null
-    pipeline_status: SCORED
-    thesis_path: null
-    last_scored: '2026-02-19'
-    last_price_check: '2026-02-19'
-    notes: QS 92 Tier A. ROIC 33.2%, GM 59.2% expanding, net cash EUR 483M, insider 55.2%. Needs R1. FV/entry TBD.
   - ticker: HLMA.L
     name: Halma plc
     direction: long
@@ -2506,23 +2370,6 @@ quality_universe:
     last_scored: '2026-02-19'
     last_price_check: '2026-02-19'
     notes: Serial acquirer. Growth 23/25. Near ATH. Far from entry.
-  - ticker: FPE3.DE
-    name: Fuchs SE
-    direction: long
-    qs_tool: 59
-    qs_adj: 59
-    tier: B
-    sector: Specialty Chemicals
-    fair_value: 45.0
-    entry_price: 37.0
-    currency: EUR
-    current_price: 36.86
-    distance_to_entry: -0.4
-    pipeline_status: SCORED
-    thesis_path: null
-    last_scored: '2026-02-19'
-    last_price_check: '2026-02-19'
-    notes: AT 52-WEEK LOW. P/E 16.4x. Net cash. ROIC persistent. Potential R1 candidate.
   - ticker: DECK
     name: Deckers Outdoor Corporation
     direction: long
@@ -2627,24 +2474,6 @@ quality_universe:
     last_scored: '2026-02-19'
     last_price_check: '2026-02-19'
     notes: QS 59 Tier B. ROIC 15.6%, net cash, GM 35.7% expanding, food processing equipment.
-  - ticker: BEAN.SW
-    name: Belimo Holding AG
-    direction: long
-    qs_tool: 75
-    qs_adj: 75
-    tier: A
-    sector: building-products
-    fair_value: 0.0
-    entry_price: 0.0
-    currency: CHF
-    current_price: 885.5
-    distance_to_entry: null
-    pipeline_status: SCORED
-    thesis_path: null
-    last_scored: '2026-02-19'
-    last_price_check: '2026-02-19'
-    notes: QS 75 Tier A. ROIC 28.9%, GM 61.6% +33.6pp vs sector, net cash, insider 5/5. HVAC actuators & sensors global leader.
-      eToro tradability UNVERIFIED (Swiss).
   - ticker: SPX.L
     name: Spirax Group PLC
     direction: long
@@ -2679,3 +2508,141 @@ quality_universe:
     last_scored: '2026-02-19'
     last_price_check: '2026-02-19'
     notes: Serial acquirer. 56% ROIC. P/E 38.3x. Needs R1. Pre-R1 FV/entry estimates.
+  - ticker: ADDT-B.ST
+    name: Addtech AB ser. B
+    direction: long
+    qs_tool: 77
+    qs_adj: 77
+    tier: A
+    sector: industrial-technology
+    fair_value: 225.0
+    entry_price: 180.0
+    currency: SEK
+    current_price: null
+    distance_to_entry: null
+    pipeline_status: R3_COMPLETE
+    thesis_path: null
+    last_scored: '2026-02-19'
+    last_price_check: null
+    notes: ''
+  - ticker: FPE3.DE
+    name: Fuchs SE
+    direction: long
+    qs_tool: 59
+    qs_adj: 59
+    tier: B
+    sector: specialty-chemicals
+    fair_value: 45.0
+    entry_price: 30.0
+    currency: EUR
+    current_price: 36.94
+    distance_to_entry: 23.1
+    pipeline_status: SCORED
+    thesis_path: null
+    last_scored: '2026-02-19'
+    last_price_check: '2026-02-19'
+    notes: QS 59 Tier B. AT 52wL but structural headwinds (EV adoption -22% EPS YoY). Entry lowered to EUR 30 (PASS on R1
+      — EV disruption).
+  - ticker: RAA.DE
+    name: Rational AG
+    direction: long
+    qs_tool: 92
+    qs_adj: 92
+    tier: A
+    sector: commercial-kitchen-equipment
+    fair_value: 570.0
+    entry_price: 485.0
+    currency: EUR
+    current_price: 740.5
+    distance_to_entry: 52.7
+    pipeline_status: R3_COMPLETE
+    thesis_path: thesis/research/RAA.DE
+    last_scored: '2026-02-19'
+    last_price_check: '2026-02-19'
+    notes: 'R3 COMPLETE 2026-02-19. QS 92 Tier A (HIGHEST). WIDE moat 21-22/25. FV EUR 600→570 (margin/FCF correction). Entry
+      EUR 540→485. R4 HARD GATE: March 19 FY2025 results. Prob reaching entry: LOW (10-15%, crisis only).'
+  - ticker: AM.PA
+    name: Dassault Aviation
+    direction: long
+    qs_tool: 75
+    qs_adj: 75
+    tier: A
+    sector: defense-aerospace
+    fair_value: 280.0
+    entry_price: 230.0
+    currency: EUR
+    current_price: 344.8
+    distance_to_entry: 49.9
+    pipeline_status: SCORED
+    thesis_path: null
+    last_scored: '2026-02-19'
+    last_price_check: '2026-02-19'
+    notes: SCORED. QS 75 Tier A. Defense/luxury jets. P/E 34.5 near ATH. Entry requires -33% = crisis only.
+  - ticker: BEAN.SW
+    name: Belimo Holding AG
+    direction: long
+    qs_tool: 75
+    qs_adj: 75
+    tier: A
+    sector: building-products
+    fair_value: 600.0
+    entry_price: 450.0
+    currency: CHF
+    current_price: 883.0
+    distance_to_entry: 96.2
+    pipeline_status: SCORED
+    thesis_path: null
+    last_scored: '2026-02-19'
+    last_price_check: '2026-02-19'
+    notes: SCORED. QS 75 Tier A. Building HVAC automation. P/E 63.9 = extreme premium. Entry requires -49% = crisis only.
+  - ticker: ALFA.L
+    name: ALFA FINANCIAL SOFTWARE HOLDING
+    direction: long
+    qs_tool: 83
+    qs_adj: 83
+    tier: A
+    sector: technology
+    fair_value: 235.0
+    entry_price: 165.0
+    currency: GBp
+    current_price: 188.7
+    distance_to_entry: 14.4
+    pipeline_status: R3_COMPLETE
+    thesis_path: null
+    last_scored: '2026-02-19'
+    last_price_check: '2026-02-19'
+    notes: ''
+  - ticker: FSG.L
+    name: FORESIGHT GROUP HOLDINGS LIMITE
+    direction: long
+    qs_tool: 68
+    qs_adj: 68
+    tier: B
+    sector: asset-management
+    fair_value: 530.0
+    entry_price: 360.0
+    currency: GBp
+    current_price: null
+    distance_to_entry: null
+    pipeline_status: R1_COMPLETE
+    thesis_path: null
+    last_scored: '2026-02-19'
+    last_price_check: null
+    notes: ''
+  - ticker: CKN.L
+    name: CLARKSON PLC ORD 25P
+    direction: long
+    qs_tool: 70
+    qs_adj: 70
+    tier: B
+    sector: shipping-services
+    fair_value: 5200.0
+    entry_price: 3500.0
+    currency: GBp
+    current_price: null
+    distance_to_entry: null
+    pipeline_status: R1_COMPLETE
+    thesis_path: null
+    last_scored: '2026-02-19'
+    last_price_check: null
+    notes: ''

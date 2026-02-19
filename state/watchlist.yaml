@@ -24,7 +24,7 @@ on_watch:
   - { ticker: ENEL.MI, entry: "7.00-7.50", notes: "CMD 23-feb catalyst." }
   - { ticker: CVS, entry: "$70", notes: "Turnaround. Binary." }
   - { ticker: AMT, entry: "$160-165", notes: "Infrastructure REIT." }
-  - { ticker: WPP.L, entry: "200 GBp", notes: "5-6/10 trap. Rose plan Feb 26." }
+  # WPP.L REMOVED 2026-02-19: QS 32 Tier D. GM 16.6%, ND/EBITDA 3.9x. Below minimum quality threshold.
   - { ticker: UTG.L, entry: "540 GBp", fv: "745 GBp", notes: "v2.0 validated. Earnings Feb 24." }
   - { ticker: MEGP.L, entry: "131 GBp", fv: "175 GBp", notes: "Only 2 analysts. Monopoly kiosks." }
   - { ticker: WKL.AS, entry: "EUR 50-55", fv: "EUR 72", notes: "Revised. Post FY2025 results Feb 25." }
@@ -32,6 +32,9 @@ on_watch:
   - { ticker: RAA.DE, entry: "EUR 485 (15% MoS)", fv: "EUR 570 (CONDITIONAL Mar 19)", notes: "R3 COMPLETE 2026-02-19. QS 92/92 Tier A (HIGHEST). Moat WIDE 21-22/25 (revised for Unox 2025 data). FV EUR 600→570 (margin/FCF correction). Entry EUR 540→485. EUR 600 half-at-FV REJECTED. R4 HARD GATE: March 19 FY2025 full + FY2026 guidance. Prob of reaching entry: LOW (10-15%, crisis only)." }
   - { ticker: AJB.L, entry: "375 GBp", fv: "520 GBp", notes: "R3 COMPLETE 2026-02-18. QS 82 Tier A. FV 600→520p. Entry 400→375p. WAIT H1 FY2026 (Apr/May). Interest income HARD GATE. Fee war (HL Mar 2026, JP Morgan). Insider selling GBP 46M." }
   - { ticker: QTCOM.HE, entry: "EUR 22", fv: "EUR 30", notes: "R3 COMPLETE 2026-02-19. QS 76/62fwd Tier B. FV EUR 37→30. FY2025 trough (-47% EPS). HARD GATE: FY2025 results confirmation. Recovery timing uncertain." }
+  - { ticker: ALFA.L, entry: "165 GBp", fv: "235 GBp", notes: "R3 COMPLETE 2026-02-19. QS 80/83 Tier A. FV 265→235p (DA -11.3%, CHP overhang + liquidity discount). Entry 180→165p. WIDE moat (14/25). CHP selling = STRUCTURAL (3 sales GBP 57M+, accepted EQT 208p exit). Solifi/TA Associates threat MONITOR. HARD GATE: Mar 12 FY2025 results (receivables, SE guidance, FCF margin). UK #5 risk." }
+  - { ticker: FSG.L, entry: "375 GBp", fv: "530 GBp", notes: "R1 COMPLETE 2026-02-19. QS 83/70 Tier B (AM adjustment -13). NARROW moat (15/25). ROIC 47.6% structurally inflated (asset-light AM). 34.6% insider. VCT tax cut Apr 2026 CRITICAL. Receivables +49% vs rev +9% = RED FLAG. Rev CAGR 21% vs EPS CAGR 8% dilution gap. UK #5 risk." }
+  - { ticker: CKN.L, entry: "3200 GBp", fv: "5200 GBp", notes: "R1 COMPLETE 2026-02-19. QS 83/80 Tier A borderline. #1 global shipbroker 25% share. NARROW moat (trending Wide via Research). Net cash GBP 291M. 23yr div growth. 10.4% insider. PROFIT WARNING: FY2025 PBT GBP 85-95M (-18-26%). H1 PBT -24%. HARD GATE: FY2025 prelims Mar 2026 before R2. FCF margin declining 28→16%. 5th UK position risk." }
 
 tier_2:
   - { ticker: AGN.NV, entry: "5.90-6.10", notes: "Earnings 19-Feb." }
@@ -94,12 +97,12 @@ short_candidates:
     notes: "S79 enhanced screening: DOGE-victim thesis WRONG. Palantir IS the DOGE tool (powers efficiency audits, replaces BAH/SAIC). Q4 revenue $828M (+36%), US gov +45%, US commercial +137%. 23/25 analysts Hold/Sell but stock defying gravity. NOT a good short. Revisit only if DOGE reversal or customer concentration event."
 
   - ticker: APP
-    qs_gap: "QS 50 (Tier C) at 72.8x EV/EBIT. SEC investigation + 3 short sellers. Priced as Tier A compounder."
-    catalyst: "SEC investigation resolution (NO CLEAR DATE — P10 CONCERN) + class action discovery H1-H2 2026"
+    qs_gap: "QS 50 (Tier C) at 40x P/E. SEC investigation + 3 short sellers. Priced as Tier A compounder."
+    catalyst: "SEC investigation (NO CLEAR DATE — P10 VIOLATED) + class action discovery H1-H2 2026"
     catalyst_date: 2026-06-30
-    entry: ">=$550 (current $404 = poor risk-reward after -42% decline)"
-    status: "S1 COMPLETE — SHORT WATCHLIST (not active short). P10 violation: no catalyst date. Risk-identifier: VERY HIGH risk to short."
-    notes: "S1 COMPLETE (Session 79). FV $150 base, $87 bear, $475 bull, EV $212. QS Tool 57, Adj 50. Moat NARROW CONDITIONAL (13/25). ROIC>WACC 1/3 years. 3 short sellers (Culper, Fuzzy Panda, CapitalWatch — CapitalWatch RETRACTED key claims). Financial fortress: $2.5B cash, $2.1B FCF, 0.2x leverage. NOT Enron. Revenue +70% YoY real. CTO sold $21.5M Nov 2025. RE-EVALUATE if: (1) SEC files charges, (2) stock >$550, (3) revenue decel <10%, (4) Apple enforcement."
+    entry: ">=$600 (revised up — current $404 = poor risk-reward after -46% decline)"
+    status: "S3 COMPLETE — SHORT REJECTED. S2 bull case 7.0/10 STRONG BULL. P10 violated. Financial fortress. Move to SHORT WATCHLIST."
+    notes: "S1→S2→S3 COMPLETE (Sessions 79-88). SHORT REJECTED at $404. S2 STRONG BULL 7.0/10: FCF CAGR 57% > 37% market implied, SEC enforcement -27% under Trump, CapitalWatch retracted, financial fortress ($2.5B cash, $2.1B FCF, 0.2x leverage). P10 VIOLATED: no dated catalyst (LYV has Mar 2, APP has nothing). Risk-identifier said 'DO NOT SHORT.' 2-of-3 S1 agents against. RE-EVALUATE ONLY IF: (1) SEC files formal charges, (2) stock >$600, (3) rev decel <20% YoY 2 consecutive Qs, (4) Apple enforcement."
 
   - ticker: IONQ
     qs_gap: "Quantum computing pure play. Revenue quality concerns — 86% from cancelled earmarks per Wolfpack."
@@ -146,7 +149,7 @@ price_monitors:
   - { ticker: CS.PA, entry_eur: 35.50 }
   - { ticker: TBCG.L, entry_gbp: 3500 }
   - { ticker: BGEO.L, entry_gbp: 7000 }
-  - { ticker: WPP.L, entry_gbp: 200 }
+  # WPP.L REMOVED: Tier D (QS 32)
   - { ticker: DGE.L, entry_gbp: 1300 }
   - { ticker: EVO.ST, entry_sek: 530, condition: "ONLY if UKGC favorable" }
   - { ticker: GL, entry_usd: 130, note: "ADD trigger" }
@@ -164,5 +167,8 @@ price_monitors:
   - { ticker: DSY.PA, entry_eur: 14.50, condition: "WAIT Q1. Revised down S75 post -21% crash." }
   - { ticker: PAYC, entry_usd: 92, note: "R3 complete. Deferred." }
   - { ticker: MORN, entry_usd: 133, note: "R3 complete. Deferred." }
-  - { ticker: ADDT-B.ST, entry_sek: 200, note: "R1 complete. QS 79 Tier A. FV SEK 250. Far from entry (-38%)." }
+  - { ticker: ADDT-B.ST, entry_sek: 180, note: "R3 complete. QS 77 Tier A lower. FV SEK 225. Crisis only (-44%)." }
   - { ticker: RAA.DE, entry_eur: 485, note: "R3 complete. QS 92 Tier A. FV EUR 570. HARD GATE Mar 19." }
+  - { ticker: ALFA.L, entry_gbp: 165, note: "R3 complete. QS 83 Tier A. FV 235p (DA -11.3%). CHP structural overhang. HARD GATE Mar 12." }
+  - { ticker: FSG.L, entry_gbp: 375, note: "R1 complete. QS 70 Tier B (AM adj). FV 530p. VCT tax cut CRITICAL." }
+  - { ticker: CKN.L, entry_gbp: 3200, note: "R1 complete. QS 80 Tier A borderline. FV 5200p. PROFIT WARNING. HARD GATE Mar 2026." }

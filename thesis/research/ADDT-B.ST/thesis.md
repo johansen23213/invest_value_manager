@@ -1,28 +1,38 @@
 # ADDT-B.ST - Addtech AB ser. B
 
-> **Fair Value:** SEK 250
-> **Entry Price:** SEK 200
+> **Fair Value:** SEK 225 (R3 revised, was SEK 250)
+> **Entry Price:** SEK 180 (R3 revised, was SEK 200)
 > **Current Price:** SEK 322.40 (2026-02-19)
 > **Last Updated:** 2026-02-19
 
+## R3 Resolution (2026-02-19)
+
+R2 MODERATE COUNTER (6.5/10) accepted on 3 key points:
+1. **QS 79→77**: Market position adjustment +5→+3. Serial acquirer ranking ≠ traditional market position in measurable TAM. QS 77 = Tier A lower boundary.
+2. **FV SEK 250→225**: The +19% rounding premium above weighted avg (SEK 210) was unjustified. Compromise: +7% quality premium (implicit 21x EBITA vs 20x). Establishes 10% FV rounding cap precedent.
+3. **Organic growth**: Reweighted to 50% cyclical / 40% structural / 10% mix (was 60/30/10). 5+ quarters of 2% organic is concerning despite Eurozone PMI <50 context.
+
+Entry SEK 200→180 (20% MoS on revised FV). Stock at SEK 322 = +79% above entry = "crisis only."
+No standing order — too far from entry, no near-term catalyst.
+
 ## TL;DR
 
-Addtech is a best-in-class Swedish serial acquirer of niche industrial technology companies with 150+ autonomous subsidiaries, EBITA margin expanding to 15.6%, and a 20-year track record of 18%+ EPS CAGR. Quality is exceptional (adjusted QS 79, Tier A) but the stock trades at 46x P/E -- far above any reasonable entry point. At current prices, the market implies 22.4% annual FCF growth for 5 years, which assumes acceleration well beyond recent organic growth of 2%. WATCHLIST at SEK 200 (MoS ~20%).
+Addtech is a best-in-class Swedish serial acquirer of niche industrial technology companies with 150+ autonomous subsidiaries, EBITA margin expanding to 15.6%, and a 20-year track record of 18%+ EPS CAGR. Quality is high (adjusted QS 77, Tier A lower boundary) but the stock trades at 46x P/E -- far above any reasonable entry point. At current prices, the market implies 22.4% annual FCF growth for 5 years, which assumes acceleration well beyond recent organic growth of 2%. WATCHLIST at SEK 180 (MoS ~20%).
 
 ## Quality Score
 
 ```
 QS Tool: 70/100 (Tier B)
-QS Adjusted: 79/100 (Tier A) -- Adjustment: +9 points
+QS Adjusted: 77/100 (Tier A lower boundary) -- Adjustment: +7 points (R3 revised, was +9)
 
 Adjustment Detail:
 +4: ROIC Spread (partial-goodwill ROIC = 22.9%, spread +12.3pp → bracket 12/15 vs 8/15)
     Quantitative basis: Goodwill SEK 5,527M = 29.9% of total assets.
     Partial-goodwill approach (50% goodwill as capital) per ROP precedent (Session 61).
     Adjustment SMALLER than ROP (+4 vs +22) proportional to lower goodwill weight.
-+5: Market Position (tool assigns 0/8 for manual input; Addtech is #2-3 Nordic serial
-    acquirer with 150+ companies, SEK 22B revenue, top 3 niche position → 5/8)
-    This is a data gap correction, not subjective upgrade.
++3: Market Position (R3 revised from +5 to +3. Serial acquirer ranking in Nordic space
+    is NOT traditional market position in measurable TAM. Addtech has ~1.5-2% of EUR 50B
+    industrial distribution market. +3 acknowledges brand/scale without overstating dominance.)
 
 No adjustment warranted for GM Premium (keeping tool's +4.1pp vs sector at 4/10).
 ```

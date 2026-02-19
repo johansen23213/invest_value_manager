@@ -1,8 +1,10 @@
 # ITX.MC - Industria de Diseno Textil S.A. (Inditex)
 
-> **Fair Value:** EUR 41
-> **Entry Price:** EUR 33
-> **Current Price:** EUR 57.18
+> **Fair Value:** EUR 38 (R3 revised, was EUR 41. R2 WEAK counter accepted growth decel to 5% consensus.)
+> **Entry Price:** EUR 30 (R3 revised, was EUR 33. "Crisis only" — 48% below current price.)
+> **Current Price:** EUR 57.94 (2026-02-19)
+> **Status:** R3 COMPLETE -- WATCHLIST. Crisis-only entry. QS 86 Tier A.
+> **R3 Note:** R2 WEAK counter accepted on growth decel (Q1 +1.5% = lowest since 2018). FV compressed from EUR 41→38. Entry EUR 33→30. Stock at +93% above entry. No pipeline resources warranted.
 
 ---
 

@@ -9,7 +9,7 @@ capital_deployment:
   trigger: "cash > 25%"
   last_run: 2026-02-19
   next_due: 2026-02-20
-  last_result: "S84: ADDT-B.ST R1 COMPLETE (QS 79 Tier A, FV SEK 250, entry SEK 200, overvalued at SEK 322). 5 universe entries updated (AJB.L, DECK, QTCOM.HE, BAH, ALFA.ST). Sector view updated. MONC.MI R2 prep verified, 6 attack vectors ready. MONC.MI EUR 49.80 (3.8% from entry). LYV $155.78 (IN range). Awaiting results tonight."
+  last_result: "S88: ALFA.L R3 COMPLETE (FV 265→235p, entry 180→165p, DA -11.3%, CHP structural overhang). APP S3 COMPLETE (SHORT REJECTED, S2 bull 7.0/10 STRONG BULL, P10 violated). All 4 earnings frameworks verified (MONY.L Feb 23, EDEN.PA Feb 24, DTE.DE Feb 26, MEGP.L Feb 27). MONC.MI+LYV Q4 results pending tonight."
   skill: ".claude/skills/capital-deployment/SKILL.md"
   tool: "tools/quality_universe.py"
 
@@ -45,7 +45,7 @@ fragility_watch:
   priority: 2
   last_run: 2026-02-18
   next_due: 2026-02-25
-  last_result: "S79: CVNA S2 COMPLETE + Q4 analyzed. APP S1 COMPLETE (SHORT WATCHLIST). Short pipeline: LYV S4 approved, CVNA S2+Q4 (S3 ready), APP S1 watchlist. 8 total short candidates tracked."
+  last_result: "S88: APP S3 COMPLETE → SHORT REJECTED (S2 STRONG BULL 7.0/10, P10 violated). Short pipeline: LYV S4 APPROVED (Mar 2 catalyst, pending Q4 tonight), CVNA S3 complete (S4 deferred, stock at $361), APP REJECTED. Active shorts: 0. 7 total short candidates tracked."
   skill: ".claude/skills/short-thesis-framework/SKILL.md"
   tool: "tools/quality_universe.py --fragility"
   mandatory: true

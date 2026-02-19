@@ -119,7 +119,7 @@ The best companies in this sector share several characteristics that make them e
 | Tipo | Ticker | Thesis Path | Ultima Eval | Status |
 |------|--------|-------------|-------------|--------|
 | Universe | ROP | thesis/research/ROP/thesis.md | 2026-02-12 | R4_APPROVED |
-| Universe | ADDT-B.ST | thesis/research/ADDT-B.ST | 2026-02-19 | R1_COMPLETE. QS 79 Tier A, FV SEK 250, entry SEK 200. WATCHLIST — far from entry. |
+| Universe | ADDT-B.ST | thesis/research/ADDT-B.ST | 2026-02-19 | R3 COMPLETE. QS 77 Tier A lower, FV SEK 225, entry SEK 180. Crisis only (+79% above). |
 
 ---
 
@@ -149,16 +149,16 @@ The best companies in this sector share several characteristics that make them e
 | VLTO | Veralto Corp | 52 | Danaher spinoff, ROIC 25%, but limited history, -14% |
 | FTV | Fortive Corp | 36 | Low quality score, ROIC < WACC, -28% from high |
 
-### Nordic Serial Acquirers (Scored 2026-02-18)
+### Nordic Serial Acquirers (COMPLETE peer group scored 2026-02-19)
 
-| Ticker | Empresa | QS Tool | ROIC-WACC | P/E | Notes |
-|--------|---------|---------|-----------|-----|-------|
-| LAGR-B.ST | Lagercrantz Group | **67** | +4.6pp | 37.9x | **SCORED.** Quality confirmed (67 Tier B). Rev CAGR +19.6%, EPS CAGR +20.8%, improving FCF margin. But P/E 38x = expensive, -15% from high only. Need >25% correction for MoS. |
-| ADDT-B.ST | Addtech AB | 70 (adj 79) | +7.3pp (+12.3pp adj) | 42x | **R1 COMPLETE 2026-02-19.** FV SEK 250, entry SEK 200. Moat NARROW (borderline Wide). 150+ niche subsidiaries, 18% EBITA CAGR since 2001. Organic growth only 2% = key weakness. Risk HIGH (premium compression at 42x). Stock 38% above entry. |
-| LIFCO-B.ST | Lifco AB | Not scored | N/A | ~35x | Swedish serial acquirer. Score when rate limit resets. |
-| INDT.ST | Indutrade AB | Not scored | N/A | ~30x | Swedish industrial components. Score when rate limit resets. |
+| Ticker | Empresa | QS Tool (Adj) | ROIC-WACC | GM | P/E | Insider | Notes |
+|--------|---------|---------------|-----------|-----|-----|---------|-------|
+| ADDT-B.ST | Addtech AB | 70 (**77**) | +12.3pp adj | 32% | 42x | 2.0% | **R3 COMPLETE.** FV SEK 225, entry SEK 180. Best ROIC spread. Lowest insider. Crisis only. |
+| LAGR-B.ST | Lagercrantz Group | **67** (~73) | +4.6pp | — | 38x | — | **SCORED.** Best growth (Rev +19.6%, EPS +20.8%). Crisis only. |
+| LIFCO-B.ST | Lifco AB | 65 (**~72**) | +3.4pp | **44%** | 40x | **47.6%** | **SCORED 2026-02-19.** Best margins + highest insider. FV SEK 240, entry SEK 190. Crisis only. |
+| INDT.ST | Indutrade AB | **54** (~58) | **+1.1pp** | 35% | 30x | 26.7% | **SCORED 2026-02-19.** Weakest: EPS -1.5% CAGR, ROIC barely above WACC. SKIP. |
 
-Note: Nordic serial acquirers typically trade at 30-50x P/E reflecting quality compounding. Lagercrantz confirmed at QS 67 but no valuation opportunity at current prices.
+Note: All 4 Nordic serial acquirers trade at 30-42x P/E. All require "crisis only" corrections (>38-69% decline) to reach entry. Common structural risk: organic growth ~2% across the group (Eurozone PMI <50 for 22 months). ADDT-B.ST has best ROIC spread, LIFCO-B.ST has best alignment (47.6% insider), LAGR-B.ST has best growth. INDT.ST is below quality threshold.
 
 ### Evitar
 
@@ -175,7 +175,7 @@ Note: Nordic serial acquirers typically trade at 30-50x P/E reflecting quality c
 
 | Ticker | Empresa | FV | Entry | MoS Req | Thesis | Fecha Analisis |
 |--------|---------|-----|-------|---------|--------|----------------|
-| ADDT-B.ST | Addtech AB | SEK 250 | SEK 200 | 20% | thesis/research/ADDT-B.ST/thesis.md | 2026-02-19 |
+| ADDT-B.ST | Addtech AB | SEK 225 | SEK 180 | 20% | thesis/research/ADDT-B.ST/thesis.md | 2026-02-19 |
 
 ---
 
@@ -198,7 +198,7 @@ Note: Nordic serial acquirers typically trade at 30-50x P/E reflecting quality c
 |-------|--------|-------|
 | 2026-02-12 | Status inicial: NEUTRAL | First version. Sector-wide screening complete. |
 | 2026-02-18 | **MATERIAL UPDATE**: Added MEGP.L (QS 80 Tier A), scored Lagercrantz (QS 67), scored GEA Group (QS 59). MEGP.L elevated to MAXIMA priority. | Broader European screening uncovered undiscovered Tier A compounder. |
-| 2026-02-19 | ADDT-B.ST R1 COMPLETE. QS 70→79 (Tier A). FV SEK 250, entry SEK 200. Added to Analizadas - En Watchlist. | R1 pipeline (fundamental + moat + risk). Organic growth 2% = key concern. |
+| 2026-02-19 | ADDT-B.ST R3 COMPLETE. QS 70→77 (was 79). FV SEK 225 (was 250), entry SEK 180 (was 200). R2 MODERATE COUNTER accepted: market pos +3 not +5, FV rounding capped 10%, organic growth 50% structural. | R1→R2→R3 pipeline. Crisis only entry. |
 
 ---
 

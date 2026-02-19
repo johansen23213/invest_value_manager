@@ -638,6 +638,27 @@ patterns:
         date: 2026-02-14
     note: "Aplicable a cualquier empresa con >$500M litigación pendiente o decisión regulatoria binaria."
 
+  fv_rounding_cap:
+    description: "FV quality premium above weighted method average capped at 10%. Larger premiums must use explicit higher multiples."
+    examples:
+      - ticker: ADDT-B.ST
+        weighted_avg: "SEK 210"
+        r1_fv: "SEK 250 (+19% premium — REJECTED)"
+        r3_fv: "SEK 225 (+7% premium — ACCEPTED)"
+        reason: "The +19% quality premium double-counted quality already in QS. If analyst believes multiple is conservative, use higher multiple explicitly, not backdoor through rounding."
+        date: 2026-02-19
+    note: "Max 10% quality premium on weighted FV. Beyond that, the analyst must justify a higher explicit multiple in the valuation method."
+
+  serial_acquirer_market_position:
+    description: "Serial acquirers with 100+ micro-niche subsidiaries do NOT have traditional market position in a measurable TAM. QS market position adjustment capped at +3."
+    examples:
+      - ticker: ADDT-B.ST
+        r1_adjustment: "+5 market position (REJECTED by R2/R3)"
+        r3_adjustment: "+3 market position (ACCEPTED)"
+        reason: "Serial acquirer ranking in Nordic space is business model quality, not addressable market dominance. Addtech has ~1.5-2% of EUR 50B industrial distribution — not #3-5 in any measurable TAM."
+        date: 2026-02-19
+    note: "For serial acquirers: +3 for brand/scale in acquirer ecosystem. +5 only if >10% share in a measurable addressable market."
+
 # =============================================================================
 # LECCIONES APRENDIDAS
 # =============================================================================

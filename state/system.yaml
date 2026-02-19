@@ -8,7 +8,7 @@ system:
   system_version: "4.2.0"
   framework_version: "4.2"
   last_session: 2026-02-19
-  session_number: 85
+  session_number: 87
   status: active
 
   framework_v4_status:
@@ -45,24 +45,16 @@ system:
       - { ticker: GL, score: 52, tier: C, status: "FV $191. SEC+DOJ cleared." }
 
   last_session_summary: |
-    Session 84 - ADDT-B.ST R1 COMPLETE + State Consistency + Pipeline (2026-02-19)
-    ADDT-B.ST R1 COMPLETE (3 parallel agents):
-    - fundamental-analyst: QS 70→79 (Tier A). FV SEK 250, entry SEK 200. EV/EBITA primary.
-      Organic growth 2% = key weakness. 150+ niche subs, 18% EBITA CAGR since 2001.
-      +4 ROIC (partial-goodwill 22.9%), +5 market position (data gap). Stock SEK 322 overvalued.
-    - moat-assessor: NARROW (borderline Wide). 18/25. Switching costs + efficient scale.
-      31.6% voting control via dual-class (vs 2% capital). Rising PE competition for targets.
-    - risk-identifier: HIGH (1 CRITICAL + 3 HIGH). Premium compression at 42x P/E CRITICAL.
-      Organic growth stagnation HIGH. Goodwill 47% of assets HIGH. CEO sold 11% May 2025.
-      6 kill conditions suggested. Correlated risk scenario: -40-50% drawdown.
-    STATE CONSISTENCY: 5 universe entries updated (AJB.L, DECK, QTCOM.HE, BAH, ALFA.ST).
-    SECTOR VIEW: industrial-technology.md updated with ADDT-B.ST R1 findings.
-    PRICE MONITORS: Added ADDT-B.ST (SEK 200) and RAA.DE (EUR 485).
-    EARNINGS PREP: All 5 frameworks verified (MONC.MI, MONY.L, EDEN.PA, DTE.DE, MEGP.L).
-    MONC.MI R2 prep brief reviewed — 6 attack vectors ready for post-results R2.
-    MONC.MI at EUR 49.80 (3.8% from entry). LYV at $155.78 (IN $145-160 short range).
-    WAITING: MONC.MI FY2025 after Italian close (~5:30 PM), LYV Q4 after US close (~11 PM).
-    Universe: 155 companies, 36 R1+, 22 standing orders, 9 actionable.
+    Session 88 continued (2026-02-19) — Pipeline synthesis + S81 scoring + event prep.
+    ALFA.L R3 COMPLETE: FV 235p, entry 165p. CHP structural, hard gate Mar 12.
+    APP S3: SHORT REJECTED. Bull 7.0/10. P10 violated. Watchlist.
+    ADDT-B.ST R3 COMPLETE: QS 77 Tier A. FV 225, entry 180 SEK. 79% above entry.
+    ITX.MC R3 COMPLETE: QS 86. FV 38, entry 30 EUR. 93% above entry. Crisis-only.
+    FSG.L R1 SYNTHESIZED: QS 68 Tier B. FV 530p, entry 360p. VCT tax CRITICAL. 6th UK.
+    CKN.L R1 SYNTHESIZED: QS 70 Tier B. FV 5200p, entry 3500p. Profit warning active. Hard gate Mar.
+    S81 SCORING: KYGA.L (44), STF.PA (45), HSX.L (37) — all fail quality. Not added.
+    MONC.MI results pending ~17:30 CET. LYV Q4 pending ~22:00 CET.
+    Bottom 3: LULU 7.6%, DTE.DE 7.8%, BYIT.L 15.7%. Net exposure 39.3% long, 0% short.
 
   # NET EXPOSURE REASONING — Principio 13. Re-evaluate EVERY session.
   # This is NOT a target or range. It's the CONCLUSION of reasoning.
@@ -75,30 +67,28 @@ system:
       net_pct: 39.3    # long - short
       gross_pct: 39.3  # long + short
     reasoning: |
-      Session 85 (2026-02-19): Net exposure 39.5% long, 0% short, 60.5% cash.
-      MACRO: VIX 20.6 moderate, S&P 6881 (-1.7% ATH), 10Y 4.08%, 2Y-10Y +60bps, gold $5007 (+70% 12m), DXY 97.7 (-8.3% 12m).
-      No recession signal. Gold surge = geopolitical hedge demand. Dollar weakness = EUR/GBP positive.
-      CASH 60.5% — STILL EXCESSIVE but JUSTIFIED:
-      1. 22 standing orders at disciplined prices, NONE triggered. Closest: MEGP.L +6.1%, ROP +9.2%
+      Session 88 (2026-02-19): Net exposure 39.3% long, 0% short, 60.7% cash.
+      MACRO: VIX 20.3, S&P 6881 (-1.7% ATH), 10Y 4.08%, 2Y-10Y +60bps, gold $5000, DXY 97.8.
+      No macro change intraday. No recession signal. Dollar weak = EUR/GBP positive.
+      CASH 60.7% — STILL EXCESSIVE but JUSTIFIED:
+      1. 22 SOs at disciplined prices, NONE triggered. Closest: MONC.MI +4.8%, IHP.L +5.8%, ROP +9.2%
       2. Market near ATH → adversarial entries systematically below market
-      3. DENSE earnings week Feb 23-27: MONY.L, EDEN.PA, DTE.DE, MEGP.L may create entry opportunities
-      4. 2 positions ON PROBATION — may need rotation capital (MONY.L Feb 23 decisive, LULU Mar 31)
-      5. MONC.MI at EUR 49.85, only 3.9% from entry EUR 48. Results tonight → could fast-track to SO
-      6. UK concentration (4 positions stressed) argues for UK cash reserve
-      SHORT 0% → IMMINENT (LYV):
-      1. LYV S4 APPROVED. Judge rejected dismiss Feb 18. Trial Mar 2 CONFIRMED.
-      2. Q4 earnings TONIGHT = final pre-condition. Stock at $155.78 IN $145-160 range.
-      3. Short pipeline: CVNA S3 complete, APP S1 watchlist, 8 total candidates.
+      3. DENSE earnings week Feb 23-27 may create entry opportunities
+      4. 2 positions ON PROBATION — may need rotation capital
+      5. MONC.MI at EUR 49.24, 2.5% from entry EUR 48. FY2025 results TONIGHT ~17:30.
+      6. ALFA.L R3 complete (FV 235p, entry 165p). CHP structural overhang. Hard gate Mar 12.
+      SHORT 0% → IMMINENT (LYV tonight):
+      1. LYV S4 APPROVED. Q4 results TONIGHT ~22:00 CET. Stock at $155.78 IN range.
+      2. Trial Mar 2. 3 core claims survive. GO/NO-GO on EUR 100 short.
+      3. APP S3: SHORT REJECTED (STRONG BULL 7.0/10, P10 violated). Moved to watchlist.
+      4. CVNA S3 complete (FV $125, entry $300). S4 deferred until LYV resolved.
       PORTFOLIO HEALTH:
-      1. P&L +1.9% ($87.66). Bottom 3: LULU +7.6% MoS (weakest), DTE.DE +7.4%, BYIT.L +15.8%
-      2. LULU total forward return weakest (-2.1%) — Mar 31 MAKE-OR-BREAK
-      3. MONY.L -12.7% loss but MoS +26.8% — binary outcome Feb 23
-      4. Universe 158 companies, 36 R1+, 22 SOs, 9 actionable. Pipeline healthy.
-      DIRECTION: Cash should DECREASE this week via:
+      1. Bottom 3: LULU 7.6% MoS (weakest, -9.7% growth), DTE.DE 7.8%, BYIT.L 15.7%
+      2. Universe 153 companies, 13 actionable, 22 SOs. Pipeline healthy.
+      DIRECTION: Cash should DECREASE tonight/this week via:
       a) LYV short tonight if Q4 supports (EUR 100, ~1%)
       b) MONC.MI R2→R4 fast-track if results support → SO at EUR 48
-      c) Earnings-driven entries Feb 23-27 (MEGP.L if 130p, MONY.L outcome)
-      d) If 0 entries from earnings gauntlet → REASSESS SO trigger levels
+      c) Earnings-driven entries Feb 23-27 (MEGP.L 130p, MONY.L outcome)
     last_updated: 2026-02-19
     history:
       - date: 2026-02-18

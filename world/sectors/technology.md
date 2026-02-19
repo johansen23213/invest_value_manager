@@ -185,6 +185,7 @@ La IA generativa es tanto amenaza como oportunidad. Los incumbentes con datos pr
 | Watchlist | DBX | thesis/research/DBX/thesis.md | 2026-02-05 | Entry $18-20 |
 | **Watchlist** | **DSY.PA** | **thesis/research/DSY.PA/thesis.md** | **2026-02-11** | **Entry EUR 15.50** |
 | **Watchlist** | **INTU** | **thesis/research/INTU/thesis.md** | **2026-02-13** | **Entry $285-300 (R3: FV $395, QS 72 Tier B)** |
+| Watchlist | ALFA.L | thesis/research/ALFA.L/thesis.md | 2026-02-19 | R1 COMPLETE. Entry 175-180p. FV 265p. QS 83 Tier A. HARD GATE Mar 12. |
 
 ### Protocolo de Cambio Material
 
