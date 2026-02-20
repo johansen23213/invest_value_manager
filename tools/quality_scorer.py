@@ -858,7 +858,8 @@ def print_profile(profile, show_legacy=True, show_detail=False):
             s = legacy['scores']
             print(f"\n  Financial ({s['roic_spread']+s['fcf_margin']+s['leverage']+s['fcf_consistency']}/40):")
             print(f"    ROIC Spread:     {s['roic_spread']:2d}/15")
-            print(f"    FCF Margin:      {s['fcf_margin']:2d}/10")
+            fcf_note = f" ({s['fcf_margin_note']})" if 'fcf_margin_note' in s else ''
+            print(f"    FCF Margin:      {s['fcf_margin']:2d}/10{fcf_note}")
             print(f"    Leverage:        {s['leverage']:2d}/10")
             print(f"    FCF Consistency: {s['fcf_consistency']:2d}/5")
             print(f"  Growth ({s['rev_cagr']+s['eps_cagr']+s['gm_trend']}/25):")

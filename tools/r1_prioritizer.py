@@ -315,6 +315,87 @@ def rank_candidates(companies, args):
     return scored[:args.top]
 
 
+def show_advancement_pipeline(companies):
+    """Show R1_COMPLETE candidates with ACTIONABLE verdict needing R2+ advancement."""
+    r1_complete = [
+        c for c in companies
+        if c.get("pipeline_status") == "R1_COMPLETE"
+        and c.get("direction", "long") == "long"
+    ]
+
+    if not r1_complete:
+        print("\nNo R1_COMPLETE candidates in universe.")
+        return
+
+    # Separate by R1 verdict
+    actionable = [c for c in r1_complete if c.get("r1_verdict") in ("ACTIONABLE", "NEAR_ENTRY", "WATCHLIST")]
+    non_actionable = [c for c in r1_complete if c not in actionable]
+
+    # Check which ones already have R2/R3 completed (from session_continuity)
+    continuity_r2 = set()
+    continuity_r3 = set()
+    if os.path.exists(CONTINUITY_PATH):
+        try:
+            with open(CONTINUITY_PATH, "r") as f:
+                cont = yaml.safe_load(f) or {}
+            completed = cont.get("completed", {})
+            for item in completed.get("r2_completed", []):
+                continuity_r2.add(item.get("ticker", ""))
+            for item in completed.get("r3_completed", []):
+                continuity_r3.add(item.get("ticker", ""))
+        except Exception:
+            pass
+
+    today = date.today()
+    print(f"\n=== R2 ADVANCEMENT PIPELINE | {today} ===")
+    print(f"R1_COMPLETE total: {len(r1_complete)} | ACTIONABLE: {len(actionable)}")
+    print("=" * 100)
+
+    if actionable:
+        print(f"\n{'#':>2} {'Ticker':<14} {'QS':>3} {'Tier':>4} {'Sector':<22} {'Dist%':>7} {'R1 Verdict':<14} {'Status'}")
+        print("-" * 100)
+
+        # Sort by QS descending, then distance ascending
+        actionable.sort(key=lambda c: (-(c.get("qs_adj") or c.get("qs_tool") or 0), c.get("distance_to_entry") or 999))
+
+        for i, c in enumerate(actionable, 1):
+            qs = c.get("qs_adj") or c.get("qs_tool") or "?"
+            tier = c.get("tier", "?")
+            sector = (c.get("sector") or "Unknown")[:22]
+            dist = c.get("distance_to_entry")
+            dist_str = f"{dist:+.1f}%" if dist is not None else "N/A"
+            verdict = c.get("r1_verdict", "?")
+            ticker = c["ticker"]
+
+            # Determine advancement status
+            if ticker in continuity_r3:
+                status = "R3 DONE — needs R4"
+            elif ticker in continuity_r2:
+                status = "R2 DONE — needs R3"
+            else:
+                status = "NO R2 — ready for advancement"
+
+            # Add gate info if present
+            gate = c.get("gate") or c.get("pre_execution_condition") or ""
+            if gate:
+                status += f" (GATE: {gate[:40]})"
+
+            print(f"{i:>2} {ticker:<14} {qs:>3} {tier:>4} {sector:<22} {dist_str:>7} {verdict:<14} {status}")
+
+        print("-" * 100)
+
+    if non_actionable:
+        print(f"\nNON-ACTIONABLE R1_COMPLETE ({len(non_actionable)}):")
+        for c in non_actionable[:5]:
+            qs = c.get("qs_adj") or c.get("qs_tool") or "?"
+            verdict = c.get("r1_verdict", "?")
+            print(f"  {c['ticker']:<14} QS {qs:>3}  {verdict}")
+        if len(non_actionable) > 5:
+            print(f"  ... and {len(non_actionable) - 5} more")
+
+    print(f"\n[Pipeline velocity: 1 R1 = 1 unit, 1 R2→R3 = 2 units, 1 R4 = 1 unit. Target: 3+ units/session]")
+
+
 def main():
     parser = argparse.ArgumentParser(description="R1 Prioritizer — Rank SCORED companies for R1 analysis")
     parser.add_argument("--top", type=int, default=10, help="Number of candidates to show (default: 10)")
@@ -322,6 +403,7 @@ def main():
     parser.add_argument("--near-entry-only", action="store_true", help="Only show companies within 20%% of entry")
     parser.add_argument("--tier-a-only", action="store_true", help="Only show Tier A (QS >= 75)")
     parser.add_argument("--ignore-cooldowns", action="store_true", help="Bypass R1 cooldowns (show all including recently analyzed)")
+    parser.add_argument("--advancement", action="store_true", help="Show R1_COMPLETE ACTIONABLE candidates needing R2 advancement")
     args = parser.parse_args()
     args._cooled_entries = []  # populated by rank_candidates
 
@@ -329,6 +411,11 @@ def main():
     if not companies:
         print("Quality Universe is empty.")
         sys.exit(1)
+
+    # --advancement mode: show R1_COMPLETE ACTIONABLE candidates without R2
+    if args.advancement:
+        show_advancement_pipeline(companies)
+        sys.exit(0)
 
     # Count totals
     all_scored = [c for c in companies if c.get("pipeline_status") == "SCORED" and c.get("direction", "long") == "long"]

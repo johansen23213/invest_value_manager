@@ -66,12 +66,14 @@ FASE 2.7: Universe Work + Fragility Scan + R1 PROCESSING
   → **FRAGILITY SCAN** (semanal, OBLIGATORIO): quality_universe.py --fragility
     → Evaluar candidatos short del universe + sector views
     → Si fragility_watch vencido → ejecutar scan como parte del universe work
-  → **R1 PROCESSING (OBLIGATORIO, min 3 por sesion — L-08):**
-    → python3 tools/r1_prioritizer.py --top 10
-    → Seleccionar 3-5 candidatos, lanzar fundamental-analyst en paralelo
+  → **PIPELINE VELOCITY (OBLIGATORIO, min 3 units/sesion — L-08, L-09):**
+    → 1 R1 nuevo = 1 unit, 1 R2→R3 advancement = 2 units, 1 R4 committee = 1 unit
+    → python3 tools/r1_prioritizer.py --top 10 (nuevos candidatos)
+    → python3 tools/r1_prioritizer.py --advancement (advancement pipeline)
+    → Decidir: si ACTIONABLE R1_COMPLETE sin R2 → priorizar advancement. Si no → R1 nuevos.
     → Prioridad: QS alto + near entry + geographic diversification
     → Esto es PRIORIDAD PERMANENTE, no "si queda tiempo"
-    → Si 0 R1s completados al final de sesion → documentar POR QUE en meta-reflexion
+    → Si 0 velocity units al final de sesion → documentar POR QUE en meta-reflexion
   → **SECTOR HEALTH CHECK** (semanal, OBLIGATORIO):
     → sector_health.py freshness --stale-only
     → Si STALE con deps portfolio: programar sector-deep-dive ANTES de R1

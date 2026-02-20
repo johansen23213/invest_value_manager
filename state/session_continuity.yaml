@@ -5,7 +5,7 @@
 # Created: 2026-02-20
 
 session:
-  id: 98
+  id: 99
   date: "2026-02-20"
   timestamp_cet: "2026-02-20T14:30"
 
@@ -16,22 +16,24 @@ completed:
     note: "From S94/S95 — smart_skip (same day, <8h)"
   so_check:
     timestamp: "2026-02-20T23:10"
-    nearest: { ticker: "RACE.MI", distance_pct: 4.2 }
+    nearest: { ticker: "RACE.MI", distance_pct: 3.8 }
     triggered: []
-    note: "From S95 — smart_skip (same day)"
-  r2_completed:
-    - { ticker: "IHP.L", verdict: "MODERATE_COUNTER", fv_pre: "415p", fv_post: "390p", da_severity: "1 HIGH, 8 MODERATE" }
-    - { ticker: "AON", verdict: "MODERATE_COUNTER", fv_pre: "$361", fv_post: "$350", da_severity: "1 HIGH, 8 MODERATE" }
-  r3_completed:
-    - { ticker: "IHP.L", decision: "WATCHLIST + SO", entry: "300p", fv: "390p", mos: "23.1%", gate: "UK concentration (committee)", sizing: "2%" }
-    - { ticker: "AON", decision: "WATCHLIST (SO DEFERRED)", entry: "$285", fv: "$350", mos: "18.6%", gate: "Q1 2026 earnings + MMC exclusivity" }
+    note: "SO restructured S99 with categories. 7 ACTIVE, 10 GATED, 1 BORDERLINE, 4 EXTREME."
   rotation_check: true
   net_exposure: true
+  net_exposure_reasoning: "60.6% cash. Market Fair-Value (VIX ~20, S&P near ATH). Cash drag ~4.5pp/yr is destroying alpha. 7 ACTIVE SOs within 15% — deployment plan exists. Not adding new positions today (system evolution session). Rationale for current exposure: earnings week Mon-Wed (MONY.L, EDEN.PA, DTE.DE) warrants cash buffer for potential SELL/TRIM actions. Post-earnings, deploy toward ACTIVE SOs."
   sectors_refreshed: ["telecom"]
   earnings_prep_verified:
     - { ticker: "MONY.L", date: "2026-02-23", status: "DECISION-READY", key: "KC#9 AI strategy decisive" }
     - { ticker: "EDEN.PA", date: "2026-02-24", status: "DECISION-READY", key: "2027-28 guide 8-12% gate" }
     - { ticker: "DTE.DE", date: "2026-02-26", status: "DECISION-READY", key: "MoS compressed to 7%. TRIM >EUR 34 close." }
+  system_evolution:
+    - "quality_scorer.py: FCF distortion detection for financial services (proxy via op margin)"
+    - "price_checker.py: Yield anomaly >20% suppression with warning"
+    - "r1_prioritizer.py: --advancement flag shows R2 pipeline"
+    - "standing_orders.yaml: Restructured with ACTIVE/GATED/BORDERLINE/EXTREME categories + fill_prob_6m"
+    - "session-protocol.md: Fase 2.7 R1 → Pipeline Velocity metric (L-09)"
+    - "lessons.md: L-09 added (R1 diminishing returns, advancement > volume)"
 
 skip_if_same_day:
   vigilance_fresh_until: "2026-02-21T07:00"
@@ -70,7 +72,7 @@ next_priorities:
   - "MONY.L earnings Mon Feb 23 — ON PROBATION. KC#9 AI strategy = SELL trigger."
   - "EDEN.PA earnings Tue Feb 24 — EXIT if 2027-28 guide <5%."
   - "DTE.DE earnings Wed Feb 26 — MoS 7%, TRIM >EUR 34 close. KC#2 EPS guide <EUR 2.00."
-  - "RACE.MI SO at 4.2% — daily price monitoring, nearest trigger."
+  - "RACE.MI SO at 3.8% — NEAREST trigger. Watch daily."
   - "IHP.L R3 DONE — needs R4 committee for SO approval (UK concentration gate)."
   - "AON R3 DONE — SO DEFERRED until Q1 2026 earnings (April). MMC mutual exclusivity."
   - "STMN.SW still ACTIONABLE without R2 — candidate for next R2 session."
@@ -78,7 +80,7 @@ next_priorities:
 
 evolution:
   r1_fantasy_rate_last_10: 0.60
-  proposal: "Shift focus from R1 volume to R2/R3 advancement of ACTIONABLE candidates"
-  proposal_status: "VALIDATED — S98 executed this. IHP.L + AON advanced R1→R3 in single session."
-  last_implemented: "S98: R2/R3 advancement wave. 2 ACTIONABLE candidates (IHP.L, AON) advanced through R2 devil's advocate + R3 resolution. Addresses pipeline bottleneck (R1 volume was solved, advancement was the real gap)."
-  s98_note: "Session focused entirely on pipeline advancement, not R1 volume. IHP.L FV 415→390p (DA calibration), AON FV 361→350 (P/E consensus anchoring removed). Both now R3_COMPLETE with clear gates. Evolution proposal 'shift to near-entry candidates' VALIDATED: the bottleneck was R2+ advancement, not more R1s. Fantasy rate unchanged (no new R1s). Next evolution: consider batch R4 committee for R3_COMPLETE candidates with met gates."
+  proposal: "Pipeline velocity metric replaces raw R1 count. 3 units/session target."
+  proposal_status: "IMPLEMENTED S99 — session-protocol.md updated, L-09 codified, --advancement flag added."
+  last_implemented: "S99: System evolution session. quality_scorer.py FCF distortion detection, price_checker.py yield anomaly check, r1_prioritizer.py --advancement flag, standing_orders.yaml restructured with categories, L-09 lesson, pipeline velocity metric in session-protocol."
+  s99_note: "Pure CIO governance session. 0 investment decisions, 6 system improvements. Fixed 2 tool data quality bugs affecting ~15 universe companies. SO restructure makes deployment plan visible to human (7 ACTIVE, 10 GATED). Pipeline velocity metric codifies S98 insight: advancement > volume."
