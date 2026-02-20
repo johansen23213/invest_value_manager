@@ -5,13 +5,14 @@
 
 > **Pipeline Stage:** R4_APPROVED (Investment Committee 2026-02-14)
 > **Standing Order:** BUY at $80, EUR 400 (4%)
-> **Pipeline:** R1 ✓ | R2 ✓ (DA 10/20 MODERATE) | R3 ✓ (2026-02-13) | R4 ✓ (2026-02-14)
+> **Pipeline:** R1 (2026-02-13) | R2 (DA 10/20 MODERATE) | R3 (2026-02-13) | R4 (2026-02-14)
+> **Last Refreshed:** 2026-02-20 (Session 104 — data refresh, no material change)
 
 ---
 
 ## TL;DR
 
-Veralto is a Danaher spinoff (Sep 2023) operating in water quality analytics (#1 via Hach) and product identification (#1 via Videojet). The business has a NARROW moat (leaning WIDE pending 5yr standalone data) from regulatory mandates, installed-base razor/blade economics (61% recurring revenue), and VES operational discipline. At $93, the stock trades near its 52-week low with 7% MoS vs R3-revised $100 FV. Entry target $80 provides 20% MoS appropriate for QS 66 Tier B. Q4 2025 beat EPS ($1.04 vs $0.98). FY2026 guide $4.10-$4.20 EPS with >$1B FCF. **R3 corrections:** FV $105→$100, Entry $85→$80, QS +16→+14 (66), moat WIDE→NARROW, PFAS bull case removed (EPA rollback Sep 2025).
+Veralto is a Danaher spinoff (Sep 2023) operating in water quality analytics (#1 via Hach) and product identification (#1 via Videojet). The business has a NARROW moat (leaning WIDE pending 5yr standalone data) from regulatory mandates, installed-base razor/blade economics (61% recurring revenue), and VES operational discipline. At $93.03, the stock trades near its 52-week low ($83.87) with 7.5% MoS vs R3-revised $100 FV. Entry target $80 provides 20% MoS appropriate for QS 66 Tier B. Q4 2025 beat EPS ($1.04 vs $0.98). FY2026 guide $4.10-$4.20 EPS with >$1B FCF. **R3 corrections:** FV $105->$100, Entry $85->$80, QS +16->+14 (66), moat WIDE->NARROW, PFAS bull case removed (EPA rollback Sep 2025).
 
 ---
 
@@ -19,48 +20,49 @@ Veralto is a Danaher spinoff (Sep 2023) operating in water quality analytics (#1
 
 ```
 QS Tool: 52/100 (Tier C)
-QS Adjusted: 66/100 (Tier B) — R3 revised from 68
-Adjustment: +14 points (R3 revised from +16) — documented below
+QS Adjusted: 66/100 (Tier B) -- Adjustment: +14 points (documented below)
 ```
+
+**QS Tool-First compliance:** Tool run 2026-02-20, confirmed 52/100 (unchanged from Feb 13).
 
 ### QS Tool Breakdown (52/100)
 
 | Category | Score | Max | Notes |
 |----------|-------|-----|-------|
 | **Financial (23/40)** | | | |
-| ROIC Spread | 0/15 | 15 | ROIC nan% — tool cannot calculate (spinoff data gap) |
-| FCF Margin | 8/10 | 10 | ~17% FCF margin (good, not exceptional) |
-| Leverage | 10/10 | 10 | 0.5x Net Debt/EBITDA — excellent |
+| ROIC Spread | 0/15 | 15 | ROIC nan% -- tool cannot calculate (spinoff data gap; yfinance FY2025 incomplete) |
+| FCF Margin | 8/10 | 10 | ~17% FCF margin (15.8% FY2024, ~18.5% FY2025 reported -- tool uses 15.8%) |
+| Leverage | 10/10 | 10 | 0.5x Net Debt/EBITDA -- excellent |
 | FCF Consistency | 5/5 | 5 | 4/4 years positive (limited history) |
 | **Growth (9/25)** | | | |
-| Revenue CAGR | 2/10 | 10 | +3.3% (artificially low — spinoff base effect) |
-| EPS CAGR | 2/10 | 10 | +3.1% (same distortion) |
-| GM Trend | 5/5 | 5 | 56.7% -> 57.8% -> 59.8% (expanding) |
+| Revenue CAGR | 2/10 | 10 | +3.3% (artificially low -- spinoff base effect, actual FY2025 was +6.0% total) |
+| EPS CAGR | 2/10 | 10 | +3.1% (same distortion; FY2025 actual $3.76, FY2026E $4.10-4.20) |
+| GM Trend | 5/5 | 5 | 56.7% -> 57.8% -> 59.8% (expanding, confirmed by narrative_checker) |
 | **Moat (15/25)** | | | |
-| GM Premium | 10/10 | 10 | +31.8pp vs sector median 28% |
-| Market Position | 0/8 | 8 | Tool default 0 (manual assessment needed) |
-| ROIC Persistence | 5/7 | 7 | Tool only has 2 years post-spinoff |
+| GM Premium | 10/10 | 10 | +31.8pp vs sector median 28% (confirmed 2026-02-20) |
+| Market Position | 0/8 | 8 | Tool default 0 (dual #1 positions -- manual adjustment required) |
+| ROIC Persistence | 5/7 | 7 | Tool only has 2 years post-spinoff; pre-spinoff 23-25% for 10+ years |
 | **Cap Alloc (5/10)** | | | |
-| Shareholder Returns | 5/5 | 5 | Dividend + $750M buyback program |
-| Insider Ownership | 0/5 | 5 | 0.1% insider ownership (institutional 97.7%) |
+| Shareholder Returns | 5/5 | 5 | Dividend +18% increase + $750M buyback program |
+| Insider Ownership | 0/5 | 5 | 0.1% insider ownership (institutional 97.8%) |
 
-### QS Adjustment Rationale (+16 points)
+### QS Adjustment Rationale (+14 points)
 
 **1. Market Position: +8 points (0 -> 8/8)**
 - Hach: #1 in water quality analytics globally (18% market share in portable, 16% overall)
 - Videojet: #1 in coding & marking globally (18% share, larger than #2 Markem-Imaje at 15%)
 - Both segments hold undisputed leadership positions in their respective markets
 - Evidence: Market research reports (GM Insights, FMI), Morningstar WIDE moat rating
-- This is the most clear-cut +8 adjustment — dual #1 positions in distinct markets
+- This is the most clear-cut +8 adjustment -- dual #1 positions in distinct markets
 
 **2. ROIC Persistence: +1 point (5 -> 6/7)** *(R3 revised from +2)*
 - Tool only has 2 years of standalone data (FY2023-FY2024)
 - Pre-spinoff ROIC as Danaher segment: 23-25% sustained for 10+ years
-- Post-spinoff ROIC: 23.3% (2023), 25.1% (2024) — improving
-- R3 rationale: Moat-assessor recommended caution — only 2.5 years standalone data is insufficient for full +2. Envista (previous Danaher spinoff) had similarly good initial ROIC but later deteriorated. Grant +1, revisit after FY2026 results.
+- Post-spinoff ROIC: 23.3% (2023), 25.1% (2024) -- improving
+- R3 rationale: Moat-assessor recommended caution -- only 2.5 years standalone data is insufficient for full +2. Envista (previous Danaher spinoff) had similarly good initial ROIC but later deteriorated. Grant +1, revisit after FY2026 results.
 
 **3. Revenue/Growth Context: +5 points** *(R3 revised from +6)*
-- FY2025 actual: $5,503M (+6.0% total, +4.7% core) — stronger than tool's 3.3% CAGR
+- FY2025 actual: $5,503M (+6.0% total, +4.7% core) -- stronger than tool's 3.3% CAGR
 - BUT: Q4 2025 WQ core growth only 1.4%, FY2026 Q1 guide flat-to-low-single-digit (deceleration)
 - DA correctly flags growth is pricing-driven, not volume-driven
 - Revenue CAGR: adjust from 2 -> 4/10 (+2 points, conservative given deceleration)
@@ -68,14 +70,14 @@ Adjustment: +14 points (R3 revised from +16) — documented below
 
 **Total adjustment: +8 (market position) + 1 (ROIC persistence) + 5 (growth correction) = +14**
 
-### Adjusted QS: 66/100 (Tier B — mid-range)
+### Adjusted QS: 66/100 (Tier B -- mid-range)
 
 ### R3 Resolution Notes
-- DA scored 10/20 MODERATE COUNTER — thesis survives but needs corrections
-- Moat-assessor recommended +12-14 adjustment; I chose +14 as upper-bound compromise
+- DA scored 10/20 MODERATE COUNTER -- thesis survives but needs corrections
+- Moat-assessor recommended +12-14 adjustment; R3 chose +14 as upper-bound compromise
 - Envista precedent (Danaher dental spinoff, -14% since 2019 IPO) noted as risk but not directly analogous (dental vs regulatory water quality)
 - PFAS regulatory rollback (EPA Sep 2025) removes this from bull case
-- Two HIGH risks are correlated (CEO M&A + organic growth) — acknowledged
+- Two HIGH risks are correlated (CEO M&A + organic growth) -- acknowledged
 
 **Note:** With more standalone data years (FY2025-FY2026), the tool QS should naturally rise to 65-72 as growth metrics and ROIC capture full-year standalone performance. The adjustment is primarily correcting for spinoff data distortion, not inflating quality.
 
@@ -87,13 +89,13 @@ Adjustment: +14 points (R3 revised from +16) — documented below
 
 Veralto operates two complementary segments that together form a "critical infrastructure quality assurance" platform:
 
-**1. Water Quality (WQ) — ~60% of revenue ($3.3B)**
+**1. Water Quality (WQ) -- ~60% of revenue ($3.3B)**
 - **Hach** (analytics): #1 globally in water testing instruments and reagents. Measures chlorine, pH, turbidity, dissolved oxygen, and contaminants in drinking water, wastewater, and industrial water. Customers: municipal water utilities, industrial plants, food/beverage manufacturers.
 - **ChemTreat** (treatment): Water treatment chemicals and services. Helps industrial customers optimize boiler, cooling, and process water systems.
 - **Trojan Technologies** (UV treatment): Ultraviolet water treatment systems for municipal and industrial disinfection.
 - **SeaBird Scientific** (marine analytics): Oceanographic instruments and sensors.
 
-**2. Product Quality & Innovation (PQI) — ~40% of revenue ($2.2B)**
+**2. Product Quality & Innovation (PQI) -- ~40% of revenue ($2.2B)**
 - **Videojet** (coding): #1 globally in industrial coding and marking. Prints expiration dates, lot numbers, barcodes on food, beverage, pharmaceutical, and consumer goods packaging. Regulatory mandate in most developed markets.
 - **Linx** (coding): Complementary to Videojet, focused on smaller industrial printing.
 - **Esko** (packaging): Packaging design and workflow software for brand owners and converters.
@@ -127,6 +129,19 @@ This is one of the strongest razor/blade models outside of healthcare because:
 | Net Debt/EBITDA | 0.5x | Conservative, M&A capacity |
 | LTV/CAC | Not disclosed; razor/blade implies >5x | Excellent |
 
+### Narrative Checker Signals (2026-02-20 refresh)
+
+| Signal | Reading | Assessment |
+|--------|---------|------------|
+| Receivables vs Revenue growth | Recv -1.7% vs Rev +3.4% | POSITIVE -- no signs of channel stuffing |
+| Inventory vs Revenue growth | Inv -3.0% vs Rev +3.4% | POSITIVE -- lean inventory management (VES) |
+| Goodwill / Total Assets | 51.7% -> 44.5% -> 42.0% | DECLINING -- goodwill shrinking as % of assets |
+| Deferred Revenue | $175M -> $208M -> $237M (+13.9%) | POSITIVE -- growing faster than revenue = visibility |
+| R&D / Revenue | 4.5% -> 4.9% | STABLE -- modest increase, investing in connected analytics |
+| SBC / Revenue | 0.8% -> 1.3% | LOW -- acceptable, below most tech/industrial peers |
+| Capex / Depreciation | 1.4x | NEUTRAL -- slight above maintenance, investing in growth |
+| OCF / Net Income | 1.0-1.1x | EXCELLENT -- high cash conversion |
+
 ### Competitive Landscape
 
 **Water Quality Analytics:**
@@ -147,7 +162,7 @@ This is one of the strongest razor/blade models outside of healthcare because:
 | Keyence | ~7% | Laser marking technology |
 | Hitachi | ~5% | Strong in Asia |
 
-**Moat Assessment: WIDE (20/25)**
+**Moat Assessment: NARROW leaning WIDE (20/25 from moat-assessor)**
 
 | Moat Source | Score | Evidence |
 |-------------|-------|----------|
@@ -159,7 +174,7 @@ This is one of the strongest razor/blade models outside of healthcare because:
 
 ### Why Is It Cheap?
 
-**Current Price:** $93.09 (near 52-week low of $83.87)
+**Current Price (2026-02-20):** $93.03 (near 52-week low of $83.87)
 **52-week High:** $110.11
 
 **Market Narrative:**
@@ -170,30 +185,29 @@ This is one of the strongest razor/blade models outside of healthcare because:
 5. **Guidance perceived as conservative:** FY2026 low-to-mid-single-digit core growth underwhelmed some analysts.
 
 **My Counter-Thesis:**
-1. **Spinoff discount is TEMPORARY — the quality is PERMANENT.** This is a wide-moat business with 60% GM, 25% ROIC, and DBS (VES) operational discipline.
+1. **Spinoff discount is TEMPORARY -- the quality is PERMANENT.** This is a wide-moat business with 60% GM, 25% ROIC, and DBS (VES) operational discipline.
 2. **4-5% organic growth is the RIGHT rate for this business.** Add 2-3% M&A = 6-8% total revenue growth. Combined with margin expansion + buybacks = 10-12% EPS growth. This is a quality compounder, not a growth stock.
 3. **China is only 6.4% of revenue.** Even a 10% decline in China = 0.6% revenue headwind. Immaterial.
-4. **PFAS regulation is NOT in guidance.** EPA PFAS testing mandates affect 66,000 public water systems over the next 3-5 years. Hach is the primary beneficiary and this is NOT included in forecasts. This is a free option.
+4. **PFAS regulation upside diminished but not zero.** EPA PFAS testing mandates affect 66,000 public water systems. Despite Sep 2025 rollback, state-level PFAS regulations continue. This is a free option, not in guidance.
 5. **$2B cash + 0.5x leverage = M&A firepower.** Veralto is a proven acquirer (DBS/VES M&A playbook from Danaher). In-Situ acquisition (Jan 2026) is the first bolt-on. More coming.
 
-**Value Trap Checklist: 0/10 — NO VALUE TRAP RISK**
+**Value Trap Checklist: 0/10 -- NO VALUE TRAP RISK**
 
 | Factor | SI/NO |
 |--------|-------|
-| Industry in secular decline | NO — water infrastructure growing 5-7% CAGR |
-| Technology disruption imminent | NO — regulatory mandates protect demand |
-| Management destroying value | NO — VES discipline, bolt-on M&A |
-| Balance deteriorating | NO — 0.5x leverage, $2B cash |
-| Insider selling massive | NUANCED — CEO selling is routine 10b5-1, not distress |
-| Dividend cut probable | NO — 18% increase, 12% payout ratio |
-| Market share loss >2pp | NO — maintaining/gaining share |
-| ROIC < WACC last 3 years | NO — ROIC 23-25% vs WACC ~10% |
-| FCF negative >2 years | NO — >$1B FCF, 4/4 years positive |
-| Goodwill >50% equity | YES — spinoff structure, but not from failed M&A |
+| Industry in secular decline | NO -- water infrastructure growing 5-7% CAGR |
+| Technology disruption imminent | NO -- regulatory mandates protect demand |
+| Management destroying value | NO -- VES discipline, bolt-on M&A |
+| Balance deteriorating | NO -- 0.5x leverage, $2B cash |
+| Insider selling massive | NUANCED -- CEO selling is routine 10b5-1, not distress |
+| Dividend cut probable | NO -- 18% increase, 12% payout ratio |
+| Market share loss >2pp | NO -- maintaining/gaining share |
+| ROIC < WACC last 3 years | NO -- ROIC 23-25% vs WACC ~10% |
+| FCF negative >2 years | NO -- >$1B FCF, 4/4 years positive |
+| Goodwill >50% equity | YES -- spinoff structure, but not from failed M&A |
 
 ### My Informational Advantage
 - **Longer time horizon:** Market is punishing slow growth; I can hold 3-5 years for compounding
-- **PFAS optionality not priced:** Regulatory tailwind is real but excluded from guidance
 - **Spinoff discount fading:** As more quarters report, institutional investors will recognize standalone quality
 - **DBS/VES not understood:** Market underestimates the margin expansion + M&A compounding machine
 
@@ -218,13 +232,15 @@ This is one of the strongest razor/blade models outside of healthcare because:
 
 ### Margin Trajectory
 
-| Metric | FY2024 | FY2025 | FY2026E | FY2028E |
-|--------|--------|--------|---------|---------|
-| Gross Margin | 59.8% | ~60.5%* | 61.0% | 62.0% |
+| Metric | FY2024 | FY2025A | FY2026E | FY2028E |
+|--------|--------|---------|---------|---------|
+| Gross Margin | 59.8% | ~60.5% | 61.0% | 62.0% |
 | Operating Margin (adj) | 23.8% | 24.6% | 24.9% | 26.0% |
 | FCF Margin | 17.5% | ~18.5% | 19.0% | 20.0% |
 
-*Estimated from +20bp guidance. VES margin expansion tool (DBS-derived) supports 25-50bp/year sustainable margin improvement.
+VES margin expansion tool (DBS-derived) supports 25-50bp/year sustainable margin improvement.
+
+**FCF Margin check vs FCF Normalization Rule:** Projected FCF margin 19% for FY2026E vs trailing 3-yr average 17.0%. This is +200bp, exactly at the threshold. Manageable because: (a) management guided >$1B FCF (18.2% of $5.5B), (b) VES margin expansion has 30+ year Danaher track record, (c) capex intensity declining. No mgmt guidance citation REQUIRED per the rule, but available from earnings call.
 
 ### WACC Derivation
 
@@ -232,7 +248,7 @@ This is one of the strongest razor/blade models outside of healthcare because:
 |-----------|-------|--------|
 | Risk-Free Rate (10Y UST) | 4.5% | Current |
 | Equity Risk Premium | 5.5% | Damodaran |
-| Beta | 1.11 | Yahoo Finance (post-spinoff, may be elevated) |
+| Beta | 1.11 | Yahoo Finance (post-spinoff, likely elevated) |
 | Cost of Equity (Ke) | 10.6% | 4.5% + 1.11 * 5.5% |
 | Cost of Debt (Kd pre-tax) | 5.5% | Estimated (tool default; interest expense data gap) |
 | Tax Rate | 22% | VLTO effective rate |
@@ -260,9 +276,9 @@ This is one of the strongest razor/blade models outside of healthcare because:
 
 ## Valuation
 
-### Method 1: EV/EBITDA Normalized (Primary — 60% weight)
+### Method 1: EV/EBITDA Normalized (Primary -- 60% weight)
 
-**Rationale:** Tier B industrial compounder with stable FCF. EV/EBITDA is the standard valuation method for industrial quality companies with leverage and M&A.
+**Rationale:** Tier B industrial compounder with stable FCF. EV/EBITDA is the standard valuation method for industrial quality companies. Sector view explicitly flags that DCF undervalues spinoffs due to limited data history.
 
 | Input | Value | Source |
 |-------|-------|--------|
@@ -281,9 +297,7 @@ This is one of the strongest razor/blade models outside of healthcare because:
 - But premium vs generic industrials (10-14x) for: (a) 60% GM, (b) 61% recurring revenue, (c) wide moat, (d) VES margin expansion, (e) M&A optionality
 - 17x is conservative within the peer range
 
-### Method 2: Owner Earnings Yield (Secondary — 40% weight)
-
-**Rationale:** Quality business approaching Tier A territory. OEY + Growth gives a through-cycle return estimate.
+### Method 2: Owner Earnings Yield (Secondary -- 40% weight)
 
 | Input | Value | Source |
 |-------|-------|--------|
@@ -291,31 +305,40 @@ This is one of the strongest razor/blade models outside of healthcare because:
 | Maintenance Capex | ~$80M | 1.5% of $5,503M revenue |
 | Depreciation | ~$90M | |
 | Owner Earnings | ~$1,020M | FCF already net of maintenance capex |
-| Market Cap | $23,100M | Current |
+| Market Cap | $23,100M | Current at $93.03 |
 | **OEY** | **4.4%** | $1,020M / $23,100M |
 | Expected Growth | 7-8% | 5% organic + 2-3% M&A |
 | **OEY + Growth** | **11.4-12.4%** | vs WACC 9.5% |
 | Implied FV (OEY target 5.0%) | $82 | $1,020M / 0.05 / 248M shares |
 | Implied FV (OEY target 4.0%) | $103 | $1,020M / 0.04 / 248M shares |
 
-**Interpretation:** At $93, OEY of 4.4% + 7-8% growth = 11.4-12.4% total expected return, which exceeds WACC of 9.5%. This is a reasonable but not exceptional return. At $85 entry, OEY rises to 4.8% and total expected return to 12-13%.
+**Interpretation:** At $93, OEY of 4.4% + 7-8% growth = 11.4-12.4% total expected return, which exceeds WACC of 9.5%. This is a reasonable but not exceptional return. At $80 entry, OEY rises to 5.2% and total expected return to 12.2-13.2%.
 
-### Method 3: DCF Cross-Check
+### DCF Cross-Check (NOT primary -- tool output distorted by spinoff data)
 
-The DCF tool produced distorted results because it uses historical FCF trajectory from yfinance, which only captures 2-3 years of post-spinoff data with base-year distortions.
+```
+DCF Tool Output (2026-02-20):
+Base Case FV: $55.39 (DISTORTED -- uses only 2-3 yr historical FCF trajectory)
+Bear Case: $43.52, Bull Case: $72.22
+Sensitivity: FV Spread 81%, TV 74.5% of EV
+Assessment: HIGH SENSITIVITY -- DCF UNRELIABLE as point estimate for spinoffs
 
-Manual DCF sanity check:
-- FY2026E FCF: ~$1,100M (assuming ~100% conversion of net income)
-- 7% growth for 10 years, 2.5% terminal, 9.5% WACC
-- Terminal value methodology (Gordon Growth): TV = $1,100M * (1.07)^10 * (1.025) / (0.095 - 0.025) = substantial
-- This produces FV in the $95-110 range depending on assumptions
+Reverse DCF: Implied growth rate 17.2% to justify $93 (vs historical 3.4%)
+This GAP is MISLEADING because historical FCF CAGR = -0.9% from only 4 data points
+post-spinoff with base-year distortions. TRUE FCF growth is ~5-8% per year.
+```
 
-### Method 4: Analyst Consensus Cross-Check
+**Why I do NOT use DCF as primary:** Per sector view (environmental-water.md, section "Spinoff Valuation Note"): "DCF also undervalues recent spinoffs because: (1) historical FCF trajectory only shows 2-3 years, (2) base-year distortions from separation, (3) yfinance data may have gaps. For VLTO, EV/EBITDA peer comparison is the most reliable primary method."
 
-- Analyst average PT: $109-114
-- Morningstar FV: $95 (initiated June 2025 — pre Q4 beat, pre FY2026 guidance)
-- Morningstar moat rating: WIDE
-- Simply Wall St FV: $110.59
+### Analyst Consensus Cross-Check (Nivel 4 -- COMPARISON, not anchor)
+
+- Analyst average PT: $110.12 (17 analysts)
+- Analyst median PT: $108.00
+- Analyst low PT: $97.00
+- Analyst high PT: $138.00
+- Morningstar FV: $95 (WIDE moat, initiated June 2025 -- pre Q4 beat)
+- **My FV ($100) is below consensus ($110) and above Morningstar ($95)**
+- Consensus ratings: 10 Buy/Strong Buy, 9 Hold, 0 Sell -- no bearish conviction
 
 ### Reconciliation
 
@@ -323,38 +346,34 @@ Manual DCF sanity check:
 |--------|-----------|--------|----------|
 | EV/EBITDA 17x | $104 | 60% | $62.4 |
 | OEY (4.0% target) | $103 | 40% | $41.2 |
-| **Weighted FV** | | **100%** | **$104** |
-| Rounded | | | **$105** |
+| **Weighted FV** | | **100%** | **$103.6** |
+| R3-adjusted FV | | | **$100** |
 
-**Cross-checks:**
-- DCF range: $95-110 (consistent)
-- Morningstar: $95 (conservative, pre-Q4)
-- Analyst consensus: $109-114 (slightly above)
-
-**I set Fair Value at $105.** This is below analyst consensus but above Morningstar's pre-Q4 estimate, reflecting the recent earnings beat and FY2026 guidance.
+**R3 haircut from $104 to $100:** Accounts for (a) DA correction that FV $105 matched Jefferies bear analyst PT, (b) removal of PFAS from bull case, (c) lower organic growth assumption. This is a conservative 4% haircut below quantitative output.
 
 ### DCF Sensitivity Assessment
 
 ```
-FV Spread: 102% (from tool sensitivity matrix)
-Terminal Value: 57-72% of EV (HIGH)
-Assessment: HIGH SENSITIVITY — DCF unreliable as point estimate
-Action: Use EV/EBITDA as primary, OEY as secondary. DCF as cross-check only.
+FV Spread: 81% (from tool sensitivity matrix, 2026-02-20)
+Terminal Value: 74.5% of EV (HIGH)
+Assessment: HIGH SENSITIVITY -- DCF unreliable as point estimate
+Action: EV/EBITDA as primary, OEY as secondary. DCF as cross-check only.
+This is EXPECTED for spinoffs with limited standalone data.
 ```
 
 ---
 
-## Scenarios
+## Scenarios (R3-revised)
 
 | | Bear | Base | Bull |
 |--|------|------|------|
-| **Assumption** | China recession, tariff escalation, M&A missteps | Steady 5% core growth + VES margin expansion + bolt-on M&A | PFAS regulatory boom + accelerated M&A + margin expansion |
+| **Assumption** | China recession, tariff escalation, M&A missteps | Steady 5% core growth + VES margin expansion + bolt-on M&A | M&A accelerates + margin expansion + some PFAS benefit |
 | **Revenue growth** | 2-3% | 6-8% | 9-12% |
 | **FY2028E EPS** | $4.20 | $5.00 | $5.80 |
-| **FV** | $75 | $105 | $135 |
-| **Probability** | 25% | 50% | 25% |
+| **FV** | $75 | $100 | $120 |
+| **Probability** | 25-30% | 45-50% | 20-25% |
 
-**Expected Value = (75 * 0.25) + (105 * 0.50) + (135 * 0.25) = $105.0**
+**Expected Value = ($75 * 0.275) + ($100 * 0.475) + ($120 * 0.25) = $20.6 + $47.5 + $30.0 = $98.1**
 
 ### Bear Case Details
 - China deteriorates further (-15% in WQ China)
@@ -368,17 +387,16 @@ Action: Use EV/EBITDA as primary, OEY as secondary. DCF as cross-check only.
 - Steady mid-single-digit organic growth
 - VES delivers 25bp/year margin expansion
 - 1-2 bolt-on acquisitions per year ($200-500M each)
-- PFAS testing creates modest tailwind (not priced in)
 - Buyback reduces shares 1%/year
-- FV ~$105
+- FV ~$100
 
 ### Bull Case Details
-- PFAS regulation creates $500M+ annual opportunity for Hach over 3-5 years
+- M&A accelerates (ChemTreat-scale acquisitions at attractive multiples)
 - China stimulus drives WQ recovery
-- Successful larger M&A (like ChemTreat-scale) at attractive multiples
+- Some PFAS benefit at state level (diminished federal case)
 - VES drives 50bp/year margin expansion
 - Multiple expands to 20x EBITDA as market recognizes wide-moat quality
-- FV ~$135
+- FV ~$120
 
 ---
 
@@ -386,56 +404,71 @@ Action: Use EV/EBITDA as primary, OEY as secondary. DCF as cross-check only.
 
 | Metric | Value |
 |--------|-------|
-| Current Price | $93.09 |
-| Fair Value (weighted) | $105 |
-| **MoS vs Base** | **11.3%** |
-| MoS vs Bear | -24.1% (RISK) |
-| MoS vs Bull | 31.1% |
+| Current Price (2026-02-20) | $93.03 |
+| Fair Value (R3 weighted) | $100 |
+| **MoS vs Base** | **7.0%** |
+| MoS vs Bear | -24.0% (RISK) |
+| MoS vs Bull | 22.5% |
 | **Required MoS (Tier B, precedent)** | **~20-25%** |
-| **Meets requirement?** | **NO — at current price** |
+| **Meets requirement at current price?** | **NO** |
 
-### Entry Price Calculation
+### Entry Price: $80 (Standing Order -- R4 approved)
 
-For adequate MoS given Tier B classification and precedents:
-- 20% MoS: $105 * 0.80 = **$84**
-- 15% MoS: $105 * 0.85 = **$89**
+| Metric at $80 | Value |
+|----------------|-------|
+| MoS vs Base | 20.0% |
+| MoS vs Bear | -6.7% (tight -- acknowledged) |
+| MoS vs EV | 18.4% |
+| OEY at $80 | 5.2% |
+| OEY + Growth at $80 | 12.2-13.2% (>> WACC 9.5%) |
+| Distance from current $93.03 | -14.0% |
 
-**Entry target: $85** (19% MoS — reasonable for upper-Tier-B with wide moat)
-
-**Rationale for accepting 19% MoS at $85 (slightly below 20% precedent):**
-1. Wide moat (Morningstar confirmed) reduces downside risk
+**Rationale for $80 entry (committee-approved):**
+1. Wide moat (Morningstar confirmed) reduces downside risk relative to typical Tier B
 2. 61% recurring revenue provides FCF stability even in recession
-3. PFAS optionality is a free call option not in FV
+3. 0/10 value trap score
 4. Balance sheet is fortress (0.5x leverage, $2B cash)
 5. VES/DBS operational discipline has 30+ year track record from Danaher
+6. Consistent with ROP precedent (Tier B, standing order, 22% MoS)
 
 ---
 
 ## Kill Conditions
 
-1. **KC#1: ROIC falls below WACC for 2+ consecutive quarters** — Would signal VES is failing to maintain operational excellence post-spinoff. Currently ROIC ~25% vs WACC 10% — massive spread makes this unlikely but must monitor.
+1. **KC#1: ROIC falls below WACC for 2+ consecutive quarters** -- Would signal VES is failing to maintain operational excellence post-spinoff. Currently ROIC ~25% vs WACC 10% -- massive spread.
 
-2. **KC#2: Recurring revenue drops below 55%** — The 61% recurring base IS the moat. If it drops, it signals equipment displacement or consumable commoditization.
+2. **KC#2: Recurring revenue drops below 55%** -- The 61% recurring base IS the moat. If it drops, it signals equipment displacement or consumable commoditization.
 
-3. **KC#3: FCF < $700M for a full fiscal year** — FCF just exceeded $1B. A 30% decline would signal structural deterioration, not cyclicality.
+3. **KC#3: FCF < $700M for a full fiscal year** -- FCF just exceeded $1B. A 30% decline would signal structural deterioration, not cyclicality.
 
-4. **KC#4: Management abandons VES discipline** — If margin expansion stalls for 3+ years or M&A becomes undisciplined (overpaying, non-bolt-on deals), the DBS advantage is lost.
+4. **KC#4: Management abandons VES discipline** -- If margin expansion stalls for 3+ years or M&A becomes undisciplined (overpaying, non-bolt-on deals), the DBS advantage is lost.
 
-5. **KC#5: Regulatory deregulation in water testing** — Extremely unlikely (EPA, EU water directives are strengthening, not weakening). But if PFAS regulation is reversed or water testing requirements are relaxed, the regulatory moat weakens.
+5. **KC#5: Regulatory deregulation in water testing** -- Extremely unlikely (EPA, EU water directives are strengthening, not weakening). But if PFAS regulation is reversed or water testing requirements are relaxed, the regulatory moat weakens.
 
-6. **KC#6: CEO departure without credible successor** — Jennifer Honeycutt is a Danaher veteran. If she leaves and replacement is from outside the DBS culture, VES discipline may erode.
+6. **KC#6: CEO departure without credible successor** -- Jennifer Honeycutt is a Danaher veteran. If she leaves and replacement is from outside the DBS culture, VES discipline may erode.
 
 ---
 
-## Catalizadores
+## Catalysts
 
 | Catalyst | Timeline | Probability | Impact |
 |----------|----------|-------------|--------|
-| PFAS testing mandates ramp | 2026-2029 | High (70%) | +$300-500M revenue over 3-5 years |
+| PFAS testing mandates (state-level) | 2026-2029 | Medium (50%) | +$200-400M revenue over 3-5 years |
 | US infrastructure spending (IIJA water) | 2026-2028 | High (80%) | +2-3% WQ growth tailwind |
 | Bolt-on M&A (water analytics) | 2026-2027 | High (70%) | +2-3% revenue, margin accretive |
 | China recovery | 2027+ | Low (30%) | +1-2% total revenue |
 | Multiple re-rating as spinoff discount fades | 2026-2027 | Medium (50%) | +10-15% price appreciation |
+| Q1 FY2026 earnings (late Apr/May 2026) | Apr-May 2026 | N/A | Validates/invalidates FY2026 trajectory |
+
+---
+
+## Insider Activity (Refreshed 2026-02-20)
+
+- CEO Jennifer Honeycutt: Last sale Aug 29, 2025 ($1.1M at $106.26). Total 11K shares sold.
+- Other officers: Routine sales via 10b5-1 plans
+- **Net insider activity:** Roughly balanced (12.3K bought, 11.6K sold -- purchases are grants/exercises, not open-market)
+- **Short interest:** 2.0% of float, 3.5 days to cover. **Declining** from prior month (-19.1%). This is MILDLY POSITIVE -- bearish conviction is fading.
+- **Assessment:** NEUTRAL. No insider buying is a mild negative, but 10b5-1 plan sales in a recently-spun-off company where executives received shares at separation is normal. Declining short interest is a modest positive signal.
 
 ---
 
@@ -446,10 +479,10 @@ For adequate MoS given Tier B classification and precedents:
 | Interest rates | LOW | 0.5x leverage; minimal rate sensitivity |
 | Recession | LOW | Water testing is mandated regardless of economy; PQI volumes may dip 5-10% |
 | Inflation | POSITIVE | CPI-linked contracts; pricing power in both segments |
-| USD strength | MODERATE | 55% international revenue; USD strength reduces translated revenue |
-| Tariffs | LOW-MODERATE | Some PQI products affected; management expects drag to ease H2 2026 |
+| USD strength | MODERATE | 55% international revenue; USD strength reduces translated revenue. DXY at 97.5, trending weaker = FAVORABLE |
+| Tariffs | LOW-MODERATE | Some PQI products affected; deals proliferating reduces escalation risk |
 
-**World View Fit:** NEUTRAL-FAVORABLE. Defensive quality business with inflation protection. Water infrastructure spending is a bipartisan priority. Tariff exposure is manageable. Not dependent on rate cuts.
+**World View Fit:** NEUTRAL-FAVORABLE. Defensive quality business with inflation protection. Water infrastructure spending is a bipartisan priority. Tariff risk moderating. US company good for geographic diversification (most positions UK/EU).
 
 ---
 
@@ -462,16 +495,6 @@ For adequate MoS given Tier B classification and precedents:
 | **Buybacks** | $750M program established Nov 2025. At current price, ~3.2% of market cap |
 | **Dividends** | Increased 18%. Yield ~0.5%. Payout ratio 12%. Room to grow |
 
-**Assessment:** Capital allocation is disciplined and shareholder-friendly. The bias toward bolt-on M&A using VES integration playbook is the right strategy for this type of business. Low payout ratio preserves M&A optionality.
-
----
-
-## Insider Activity
-
-- CEO Jennifer Honeycutt: NET SELLER (6 sells, 0 buys). Sales are via 10b5-1 plans (pre-planned).
-- Multiple executives: routine selling via pre-arranged plans
-- **Assessment:** NEUTRAL-NEGATIVE. No insider buying is a mild negative, but 10b5-1 plan sales in a recently-spun-off company where executives received shares at separation is normal, not alarming. Honeycutt still holds ~106K shares (~$10M+).
-
 ---
 
 ## Risks
@@ -479,7 +502,7 @@ For adequate MoS given Tier B classification and precedents:
 | Risk | Probability | Impact | Mitigation |
 |------|------------|--------|------------|
 | China slowdown persistent | 40% | LOW (6.4% of revenue) | Diversified geographically; LatAm growing 10% |
-| Tariff escalation on PQI | 30% | MODERATE | Pricing power + supply chain adjustments |
+| Tariff escalation on PQI | 30% | MODERATE | Pricing power + supply chain adjustments + tariff deals proliferating |
 | M&A integration risk (future deals) | 25% | MODERATE | VES playbook mitigates; In-Situ is small test case |
 | Competition from Xylem/Endress in WQ | 20% | LOW | Switching costs protect installed base |
 | Post-spinoff execution stumble | 15% | MODERATE | 2.5 years of clean execution so far |
@@ -488,50 +511,52 @@ For adequate MoS given Tier B classification and precedents:
 
 ---
 
-## Veredicto: WATCHLIST
+## Veredicto: WATCHLIST -- Standing Order $80, EUR 400 (4%)
 
-**At $93, VLTO does NOT meet MoS requirements for Tier B (need ~20%, have 11.3%).**
+**At $93.03, VLTO does NOT meet MoS requirements for Tier B (need ~20%, have 7.0%).**
 
-**Entry target: $85** (19% MoS) — set standing order at this level after R2 (Devil's Advocate).
+**Entry target: $80** (20% MoS) -- R4 approved standing order.
 
 **Reasoning:**
-1. QS 68 (Tier B upper) with strong case for natural QS improvement as more data accumulates
-2. Wide moat confirmed by Morningstar, supported by 60% GM, 61% recurring revenue, regulatory mandates
-3. PFAS optionality is a genuine free call option
+1. QS 66 (Tier B mid-range) with strong case for natural QS improvement as more standalone data accumulates
+2. NARROW moat leaning WIDE (Morningstar WIDE confirmed), supported by 60% GM, 61% recurring revenue, regulatory mandates
+3. PFAS optionality diminished but not zero (state-level regulations continue)
 4. VES/DBS heritage provides margin expansion + M&A compounding engine
-5. But: low insider buying, slow organic growth (4-5%), and no immediate catalyst to compress price to entry
-6. Precedent: Tier B positions require 20-25% MoS. At $85, we'd have 19% — acceptable given wide moat
+5. But: low insider buying, slow organic growth (3-5%), and no immediate catalyst to compress price to $80 entry
+6. Precedent: Tier B standing orders at 20-22% MoS (ROP $300 at 22%, VLTO $80 at 20%). Consistent.
 
-**Next Steps:**
-1. R2: Devil's Advocate to challenge thesis (especially growth projections and moat durability)
-2. Monitor price for approach to $85 entry
-3. Q1 FY2026 earnings (est. late April 2026) will validate FY2026 trajectory
-4. Update quality_universe.yaml with FV $105 and entry $85
+**Fill probability assessment:** GATED (standing_orders.yaml). Current distance 14.0%. Requires either broad market correction or disappointing Q1 FY2026 guidance. Fill probability in 6 months: ~10%. This is NOT fantasy (30%+ distance threshold) but is low probability.
+
+**Next catalysts:**
+- Q1 FY2026 earnings (late Apr/May 2026) -- if guidance disappoints, price could approach entry
+- Broad market selloff -- VLTO has beta 1.11, would decline roughly in line with market
+- Tariff escalation reversal -- if tariff deals continue moderating, removes one headwind
 
 ---
 
-## 🔄 META-REFLECTION
+## META-REFLECTION
 
 ### Incertidumbres/Dudas
-- **ROIC data gap in tool:** The quality_scorer.py shows ROIC as "nan" for FY2025. This is because yfinance may not have complete income statement/balance sheet for the most recent fiscal year. The +16 adjustment relies heavily on pre-spinoff Danaher data for ROIC persistence — this is reasonable but introduces uncertainty.
-- **DBS/VES transferability:** The assumption that VES (post-spinoff) will perform as well as DBS (at Danaher) is unproven at scale for M&A integration. In-Situ is the first test case.
-- **Organic growth ceiling:** 4-5% organic growth may be the structural limit for these end markets. If so, the compounding thesis relies heavily on M&A execution — which adds risk.
-- **Insider selling pattern:** Zero insider buying across the C-suite is mildly concerning. Even if 10b5-1 plans explain the selling, the ABSENCE of buying is notable.
+- **ROIC data gap in tool persists:** quality_scorer.py still shows ROIC as "nan" for latest year. This is a yfinance data freshness issue, not a VLTO problem. The +14 adjustment is well-documented but introduces manual assessment risk.
+- **DBS/VES transferability remains the key unknown:** 2.5 years of clean execution is encouraging but not conclusive. Envista counter-precedent (dental spinoff) remains relevant.
+- **Organic growth deceleration:** Q4 WQ core growth 1.4% and Q1 FY2026 guide flat-to-low-single-digit is concerning. If FY2026 organic growth comes in below 3%, the "steady industrial compounder" thesis weakens.
+- **$80 entry is 14% away with ~10% fill probability in 6 months.** This is a patient standing order, not an imminent opportunity.
 
 ### Sugerencias para el Sistema
-- **quality_scorer.py spinoff handling:** The tool should have a flag like `--spinoff-years N` that uses parent company data for ROIC persistence when standalone history is insufficient. This would prevent systematic underscoring of recently-spun-off companies.
-- **Dividend yield bug:** The tool shows 57.0% dividend yield for VLTO, which is clearly a data error from yfinance (actual yield is ~0.5%). This should be caught and flagged.
-
-### Preguntas para Orchestrator
-1. Should we fast-track R2 (Devil's Advocate) for VLTO given price is only 9.6% from entry?
-2. The sector view has VLTO at QS 68 adj with +16 spinoff adjustment. Should we set a precedent that spinoff adjustments >10 points require committee approval (similar to serial acquirer protocol)?
+- **Dividend yield bug still present:** price_checker.py shows YIELD_ANOMALY (raw: 55.0%) for VLTO. This is a yfinance data error (actual yield ~0.5%). Should be fixed in the tool.
+- **quality_scorer.py spinoff handling:** A `--spinoff-years` flag would reduce the need for large manual adjustments on recent spinoffs.
 
 ### Anomalias Detectadas
-- **Dividend yield 57.0% in both quality_scorer.py and price_checker.py** — This is clearly a yfinance data error. Actual VLTO dividend yield is approximately 0.5% ($0.36/share annual dividend / $93 price). This bug may affect other calculations.
-- **ROIC showing as "nan"** for FY2025 despite Veralto having reported results — likely a yfinance data freshness issue for the most recent fiscal year.
+- **Dividend yield 55.0%** in price_checker.py and quality_scorer.py -- confirmed yfinance data error. Actual yield ~0.5%.
+- **ROIC "nan"** in quality_scorer.py despite FY2025 results reported -- yfinance data freshness lag for VLTO.
+
+### Preguntas para Orchestrator
+1. VLTO has completed the full R1-R4 pipeline. This R1 refresh confirms no material change. Should we flag this as "pipeline complete, monitoring only" rather than counting it as a new R1 velocity unit?
 
 ---
 
-*Analysis Date: 2026-02-13*
-*Analyst: fundamental-analyst (orchestrator-direct)*
+*Original Analysis Date: 2026-02-13*
+*Full Pipeline Completed: 2026-02-14 (R4)*
+*Refreshed: 2026-02-20 (Session 104)*
+*Analyst: fundamental-analyst*
 *Framework: v4.0 | Skills: business-analysis-framework, projection-framework, valuation-methods, quality-compounders*

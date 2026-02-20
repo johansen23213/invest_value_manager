@@ -25,6 +25,7 @@ Usage:
   python3 tools/quality_universe.py stats                # Pipeline health metrics with funnel visualization
   python3 tools/quality_universe.py archive              # List candidates for archival (REJECTED, QS<55, delisted)
   python3 tools/quality_universe.py archive --execute    # Execute archival (move to archived section)
+  python3 tools/quality_universe.py approaching          # Companies moving toward entry price (delta tracking)
 """
 
 import sys
@@ -402,6 +403,23 @@ def cmd_report(args):
             print(f"\nACTIONABLE SHORTS: None (no short candidates within 15% of entry or above)")
         else:
             print(f"\nACTIONABLE: None (no companies within 15% of entry price)")
+
+    # APPROACHING section (companies moving toward entry)
+    if not fragility:
+        approaching_list = [
+            c for c in companies
+            if (c.get("distance_delta") or 0) < -3.0
+            and c.get("distance_to_entry") is not None
+            and c["distance_to_entry"] <= 30.0
+        ]
+        if approaching_list:
+            approaching_list.sort(key=lambda c: c.get("distance_delta", 0))
+            print(f"\nAPPROACHING ENTRY ({len(approaching_list)} companies moving toward entry):")
+            for c in approaching_list[:10]:
+                cur = c.get("currency", "USD")
+                dist = c.get("distance_to_entry", 0)
+                delta = c.get("distance_delta", 0)
+                print(f"  {c['ticker']:<12} {fmt_price(c.get('current_price'), cur):>10} → entry {fmt_price(c.get('entry_price'), cur):>10} ({dist:+.1f}%, delta {delta:+.1f}pp)")
 
     # Pipeline health summary (only for the filtered direction)
     print()
@@ -1086,6 +1104,91 @@ def cmd_archive(args):
         print(f"\n{len(candidates)} candidates for archival. Run with --execute to archive.")
 
 
+def cmd_approaching(args):
+    """Show companies moving TOWARD entry price since last refresh.
+
+    Filters for:
+      - distance_delta < -5.0 (moved at least 5pp toward entry)
+      - distance_to_entry <= 25% (within striking distance)
+
+    Also shows any company that crossed INTO actionable range (<= 15%).
+    """
+    data = load_universe()
+    all_companies = data["quality_universe"]["companies"]
+
+    if not all_companies:
+        print("Quality Universe is empty.")
+        return
+
+    # Filter long companies with distance_delta data
+    long_companies = _filter_by_direction(all_companies, fragility=False)
+
+    approaching = []
+    newly_actionable = []
+    for c in long_companies:
+        delta = c.get("distance_delta")
+        dist = c.get("distance_to_entry")
+        if delta is None or dist is None:
+            continue
+
+        # Approaching: moved toward entry AND within 25%
+        if delta < -5.0 and dist <= 25.0:
+            approaching.append(c)
+
+        # Newly actionable: delta is negative AND now within 15%
+        if delta < 0 and dist <= 15.0:
+            newly_actionable.append(c)
+
+    today = date.today()
+    print(f"\nApproaching Entry Report | {today}")
+    print("=" * 120)
+
+    if approaching:
+        # Sort by delta ascending (fastest movers first)
+        approaching.sort(key=lambda c: c.get("distance_delta", 0))
+
+        print(f"\nMOVING TOWARD ENTRY (delta < -5pp, dist <= 25%):")
+        print(f"{'Ticker':<12} {'QS':>3} {'Tier':>4} {'Sector':<22} {'Entry':>10} {'Price':>10} {'Dist%':>7} {'Delta':>7} {'Pipeline':<16}")
+        print("-" * 120)
+
+        for c in approaching:
+            cur = c.get("currency", "USD")
+            dist = c.get("distance_to_entry", 0)
+            delta = c.get("distance_delta", 0)
+            qs_display = _get_qs_display(c)
+            pipeline = c.get("pipeline_status", "?")
+            sector = (c.get("sector") or "Unknown")[:22]
+
+            print(
+                f"{c['ticker']:<12} "
+                f"{qs_display:>3} "
+                f"{(c.get('tier') or '?'):>4} "
+                f"{sector:<22} "
+                f"{fmt_price(c.get('entry_price'), cur):>10} "
+                f"{fmt_price(c.get('current_price'), cur):>10} "
+                f"{dist:+.1f}% "
+                f"{delta:+.1f}pp "
+                f"{pipeline:<16}"
+            )
+    else:
+        print("\nNo companies moving significantly toward entry (delta < -5pp within 25%).")
+
+    if newly_actionable:
+        print(f"\nNEWLY ACTIONABLE (crossed into <=15% of entry):")
+        for c in newly_actionable:
+            cur = c.get("currency", "USD")
+            dist = c.get("distance_to_entry", 0)
+            delta = c.get("distance_delta", 0)
+            print(f"  {c['ticker']}: {fmt_price(c.get('current_price'), cur)} vs entry {fmt_price(c.get('entry_price'), cur)} ({dist:+.1f}%, delta {delta:+.1f}pp) [{c.get('pipeline_status', '?')}]")
+
+    # Summary
+    total_with_delta = sum(1 for c in long_companies if c.get("distance_delta") is not None)
+    moving_toward = sum(1 for c in long_companies if (c.get("distance_delta") or 0) < 0)
+    moving_away = sum(1 for c in long_companies if (c.get("distance_delta") or 0) > 0)
+    print(f"\n  {total_with_delta} companies with delta data | {moving_toward} approaching | {moving_away} moving away")
+    print(f"\n[Raw data. Run 'refresh' first to update deltas.]")
+
+
 # ---------------------------------------------------------------------------
 # Internal helpers
 # ---------------------------------------------------------------------------
@@ -1112,10 +1215,14 @@ def _batch_refresh(companies, verbose=False, batch_size=5, delay=1.0):
                 if name and (not c.get("name") or c["name"] == ticker):
                     c["name"] = name
 
-                # Calculate distance to entry (direction-aware)
+                # Calculate distance to entry (direction-aware) + track delta
                 entry = c.get("entry_price")
                 if native_price is not None and entry and entry > 0:
-                    c["distance_to_entry"] = _calc_distance_to_entry(native_price, entry, direction)
+                    old_dist = c.get("distance_to_entry")
+                    new_dist = _calc_distance_to_entry(native_price, entry, direction)
+                    c["distance_to_entry"] = new_dist
+                    if old_dist is not None and new_dist is not None:
+                        c["distance_delta"] = round(new_dist - old_dist, 1)  # negative = approaching entry
                 else:
                     c["distance_to_entry"] = None
 
@@ -1238,6 +1345,9 @@ Flags:
     archive_parser = subparsers.add_parser("archive", help="List or execute archival of dead entries")
     archive_parser.add_argument("--execute", action="store_true", default=False, help="Actually move candidates to archived section")
 
+    # approaching
+    subparsers.add_parser("approaching", help="Companies moving toward entry price (delta tracking)")
+
     args = parser.parse_args()
 
     if args.command is None:
@@ -1254,6 +1364,7 @@ Flags:
         "stale": cmd_stale,
         "stats": cmd_stats,
         "archive": cmd_archive,
+        "approaching": cmd_approaching,
     }
 
     cmd_map[args.command](args)

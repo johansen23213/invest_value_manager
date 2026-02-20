@@ -110,6 +110,20 @@ events:
 
   - date: 2026-03-03
     type: earnings_pipeline
+    ticker: ASM.AS
+    event: "ASM.AS Q4 2025 Full Results — R1 monitoring"
+    priority: medium
+    action: "R1 S104. QS 80adj Tier A. FV EUR 525, current EUR 709 (OVERVALUED -35%). Watch receivables anomaly, margins, 2026 guidance. Entry EUR 475."
+
+  - date: 2026-03-03
+    type: earnings_pipeline
+    ticker: BEI.DE
+    event: "Beiersdorf FY2025 Results — R1 monitoring"
+    priority: medium
+    action: "R1 S104. QS 75adj Tier A. FV EUR 99, entry EUR 85-90. Watch organic growth deceleration, La Prairie recovery, margin pressure."
+
+  - date: 2026-03-03
+    type: earnings_pipeline
     ticker: KLR.L
     event: "KLR.L FY2025 Full Year Results — HARD GATE for SO"
     priority: high

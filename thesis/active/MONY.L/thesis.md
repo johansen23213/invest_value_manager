@@ -1121,6 +1121,7 @@ EARNINGS RELEASE (Feb 23)
 | 1.0 | 2026-02-04 | Thesis original. FV 240-280 GBp |
 | 2.0 | 2026-02-07 | Adversarial review. FV revised to 201 GBp. Conviction LOW. HOLD pre-earnings. |
 | **3.0** | **2026-02-12** | **AI Disruption Re-evaluation. FV revised to 190 GBp. QS adjusted 83->75 (borderline Tier A). Bear probability +10pp. Insurify US-only, car-only, cannot transact. UK regulatory moat intact. HOLD through Feb 23 earnings. Added KC#9 (AI strategy requirement). Post-earnings decision tree tightened.** |
+| **3.1** | **2026-02-20** | **Pre-earnings update. MONY LAUNCHED ChatGPT integration (first UK financial services company). Car insurance quotes available inside ChatGPT. Shares rose 1.6% on news. This PARTIALLY pre-addresses KC#9 — management IS responding to AI threat. At earnings call, verify: (1) ChatGPT app traction/usage data, (2) broader AI strategy beyond ChatGPT, (3) Google AI Overviews defense. Price 152.9p, P/E 10.2x, yield 8.3%. MoS vs FV 190p = 19.5%.** |
 
 ---
 

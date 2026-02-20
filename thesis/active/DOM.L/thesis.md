@@ -1,6 +1,6 @@
 # DOM.L - Domino's Pizza Group PLC
 ## Fundamental Analysis & Investment Thesis v3.0
-**Date:** 2026-02-10 | **Analyst:** Claude (Orchestrator) | **Status:** HOLD LOW CONVICTION
+**Date:** 2026-02-10 | **Analyst:** Claude (Orchestrator) | **Status:** HOLD LOW CONVICTION | **Review:** 2026-02-20
 **Previous version:** 2026-02-03 (v2.0)
 **Framework version:** 4.0 (Principios Adaptativos + Adversarial lens)
 > **Fair Value:** 240 GBp (v3.0, EV/EBIT 60% + P/E 40%)

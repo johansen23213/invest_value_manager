@@ -30,8 +30,8 @@ La tesis sectorial: los classifieds dominantes son monopolios naturales locales.
 ### Nuestras Posiciones
 | Ticker | Empresa | Vertical | Status |
 |--------|---------|----------|--------|
-| MONY.L | Mony Group (MoneySupermarket) | Price comparison UK | PORTFOLIO (Tier A, QS 81) |
-| AUTO.L | AutoTrader Group | Car classifieds UK | PORTFOLIO (Tier A, QS 79) |
+| MONY.L | Mony Group (MoneySupermarket) | Price comparison UK | PORTFOLIO (Tier A, QS 75 adj, was 81). ON PROBATION. AI disruption re-eval Feb 12. |
+| AUTO.L | AutoTrader Group | Car classifieds UK | PORTFOLIO (Tier B, QS 71 adj, was 79). Moat under siege (180+ downgrades). |
 
 ### Analizadas - Compradas
 *(ninguna pendiente)*
@@ -56,10 +56,10 @@ La tesis sectorial: los classifieds dominantes son monopolios naturales locales.
 5. **Recurring revenue**: 85-95% subscription
 
 ### Riesgos Sectoriales
-1. **IA / ChatGPT**: Puede agregar listings sin necesitar la plataforma. 25% de compradores de coches ya usan IA. PERO: las plataformas tienen los datos de inventario y se estan integrando proactivamente.
+1. **IA / ChatGPT — ELEVATED (Feb 2026)**: Insurify launched car insurance comparison INSIDE ChatGPT app (US). Spanish insurer Tuio approved for home insurance quotes inside ChatGPT. MONY.L responded by launching its own ChatGPT integration (first UK financial services company). 25% of car buyers already use AI. **Threat level upgraded from MEDIUM to HIGH for price comparison vertical.** For classifieds (AUTO.L), risk lower — inventory data moat harder to replicate. Google AI Overviews also extracting price comparison data.
 2. **Directo-a-consumidor**: Tesla/nuevas marcas EV venden directo, bypassing dealers. Impacto limitado: usados siempre necesitan marketplace.
 3. **Regulacion antimonopolio**: 70-75% market share podria atraer atencion regulatoria. Historicamente los classifieds no han sido target de CMA/reguladores.
-4. **Dealer revolt**: Ciclico. Rightmove y AutoTrader han tenido revueltas de clientes. Nunca han tenido exito porque no hay alternativa.
+4. **Dealer revolt**: Ciclico. Rightmove y AutoTrader han tenido revueltas de clientes. 180+ downgrades reported for AUTO.L as of Feb 2026 — most aggressive revolt in history. Jefferies/Berenberg downgraded.
 
 ### Ciclo Actual
 - Post-2022 compression de multiplos (de 25-35x P/E a 12-18x)
@@ -73,8 +73,8 @@ La tesis sectorial: los classifieds dominantes son monopolios naturales locales.
 
 | Tipo | Ticker | Thesis Path | Ultima Eval | Status |
 |------|--------|-------------|-------------|--------|
-| Portfolio | MONY.L | thesis/active/MONY.L/thesis.md | 2026-02-04 | HOLD |
-| Portfolio | AUTO.L | thesis/active/AUTO.L/thesis.md | 2026-02-06 | HOLD |
+| Portfolio | MONY.L | thesis/active/MONY.L/thesis.md | 2026-02-12 | HOLD ON PROBATION. QS 75 adj. AI disruption re-eval. Earnings Mon Feb 23. |
+| Portfolio | AUTO.L | thesis/active/AUTO.L/thesis.md | 2026-02-11 | HOLD LOW. QS 71 adj. Moat under siege. April pricing event make-or-break. |
 
 ---
 
@@ -84,7 +84,10 @@ La tesis sectorial: los classifieds dominantes son monopolios naturales locales.
 |-------|------|--------|
 | 2026-02-06 | CREACION | Sector view creado para AUTO.L analysis. Status SOBREPONDERAR. |
 | 2026-02-06 | BUY AUTO.L | Comprada 65 shares a 486 GBp. Capital de rotacion SHEL.L. 5to Tier A. |
+| 2026-02-12 | MONY.L RE-EVAL | AI disruption re-eval. QS 81→75. FV 201→190 GBp. Insurify ChatGPT proof-of-concept (US-only). ON PROBATION. |
+| 2026-02-11 | AUTO.L RE-EVAL | Adversarial. QS 79→71 (Tier A→B). FV 688→580p. 180+ dealer downgrades. Moat under siege. |
+| 2026-02-20 | SECTOR UPDATE | AI threat level ELEVATED. Insurify ChatGPT integration live. MONY.L launched own ChatGPT app. AUTO.L dealer revolt most aggressive in history. Both positions downgraded from Tier A. |
 
 ---
 
-**Ultima actualizacion:** 2026-02-06
+**Ultima actualizacion:** 2026-02-20

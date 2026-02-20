@@ -1,7 +1,7 @@
 # LULU - Lululemon Athletica Inc.
 
-> **Fecha:** 2026-02-05 | **Adversarial Review:** 2026-02-11 | **Governance Re-Eval:** 2026-02-12
-> **Precio actual:** $175.86 / EUR 148.06 (as of 2026-02-12)
+> **Fecha:** 2026-02-05 | **Adversarial Review:** 2026-02-11 | **Governance Re-Eval:** 2026-02-12 | **Review:** 2026-02-20
+> **Precio actual:** $186.26 / EUR 158.21 (as of 2026-02-20). MoS 5.0%. E[CAGR] 6.75% (BELOW 12% threshold).
 > **52-week range:** $159.25 - $400.01
 > **Entry:** $171.62 on 2026-02-05
 

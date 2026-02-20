@@ -108,13 +108,14 @@ r1_processing:
   trigger: "SCORED count > 0 in universe"
   last_run: 2026-02-20
   next_due: 2026-02-21
-  last_result: "S102: 3 velocity units (STMN.SW R3=2u, REN.AS R1=1u). STMN.SW R3 resolved: FV CHF 118→110, entry CHF 85→80, bear CHF 92, R4 GATED. REN.AS R1 in progress."
+  last_result: "S106: 4 velocity units (FSG.L R2=2u, NOS.LS R2=2u). FSG.L R2 PAUSED (P/E overstated, VCT tax risk, revisit Dec 2026). NOS.LS R2 DO NOT ADVANCE (Digi risk severe, E[CAGR] 12% insufficient). Both produced clean counter-theses."
   minimum_per_session: "3 velocity units (1 R1=1u, 1 R2→R3=2u, 1 R4=1u)"
   skill: ".claude/skills/capital-deployment/SKILL.md"
   tool: "tools/r1_prioritizer.py"
   efficiency:
     fantasy_rate_last_10: 0.70
     actionable_rate_last_10: 0.21
+    r2_completed_session_106: 2
     note: "Updated each session from universe r1_verdict stats. Cooldowns in session_continuity.yaml."
 
 # UNIVERSE REFRESH

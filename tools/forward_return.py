@@ -22,6 +22,7 @@ Usage:
   python3 tools/forward_return.py --ticker ADBE NVO   # Specific tickers only
   python3 tools/forward_return.py --active-only        # Only active positions (long + short)
   python3 tools/forward_return.py --pipeline-only      # Only research pipeline
+  python3 tools/forward_return.py --deployment-ready   # Filter pipeline to deployment-viable E[CAGR]
 """
 
 import sys
@@ -356,6 +357,37 @@ def extract_growth_rate(thesis_content, ticker):
     return None
 
 
+def compute_ecagr_at_market(fv, price, growth_pct, yield_pct):
+    """Compute E[CAGR] at current market price.
+
+    E[CAGR] = (FV/Price)^(1/3) - 1 + growth + div_yield
+
+    Args:
+        fv: Fair value in same currency as price (already converted)
+        price: Current market price
+        growth_pct: Expected growth rate as percentage (e.g., 8.0 for 8%)
+        yield_pct: Dividend yield as percentage (e.g., 2.5 for 2.5%)
+
+    Returns:
+        E[CAGR] as percentage (e.g., 14.5 for 14.5%), or None if inputs invalid.
+    """
+    if not fv or not price or price <= 0 or fv <= 0:
+        return None
+
+    # MoS convergence component: (FV/Price)^(1/3) - 1
+    ratio = fv / price
+    mos_cagr = (ratio ** (1.0 / 3.0)) - 1.0
+
+    # Add sustainable growth (convert from pct to decimal, then back)
+    growth_decimal = (growth_pct or 0.0) / 100.0
+
+    # Add dividend yield
+    div_decimal = (yield_pct or 0.0) / 100.0
+
+    ecagr = (mos_cagr + growth_decimal + div_decimal) * 100.0
+    return round(ecagr, 1)
+
+
 def extract_qs_and_tier(thesis_content):
     """Extract Quality Score and Tier from thesis content."""
     qs = None
@@ -501,11 +533,13 @@ def process_position(ticker, thesis_path, eurusd, gbpeur, dkkeur, decisions_log,
         'mos_pct': None,
         'growth_pct': None,
         'yield_pct': None,
+        'ecagr_at_market': None,
         'conviction': None,
         'fv_source': None,
         'growth_source': None,
         'price': None,
         'fv': None,
+        'fv_in_stock_currency': None,
         'currency': None,
         'is_research': is_research,
         'status': None,
@@ -553,6 +587,7 @@ def process_position(ticker, thesis_path, eurusd, gbpeur, dkkeur, decisions_log,
         mos_pct = ((fv_in_stock_currency - price) / price) * 100
         result['mos_pct'] = mos_pct
         result['fv'] = fv_raw
+        result['fv_in_stock_currency'] = fv_in_stock_currency
         result['fv_source'] = f"{fv_raw:.1f} {fv_currency}"
     else:
         result['fv_source'] = 'N/A'
@@ -578,6 +613,13 @@ def process_position(ticker, thesis_path, eurusd, gbpeur, dkkeur, decisions_log,
 
     # Conviction from portfolio or decisions_log (raw data, no multiplier)
     result['conviction'] = get_conviction_for_ticker(decisions_log, ticker)
+
+    # Compute E[CAGR] at current market price
+    if result['fv_in_stock_currency'] is not None and price > 0:
+        result['ecagr_at_market'] = compute_ecagr_at_market(
+            result['fv_in_stock_currency'], price,
+            result['growth_pct'], result['yield_pct']
+        )
 
     if is_research:
         result['status'] = extract_status_from_research(thesis_content)
@@ -771,7 +813,7 @@ def compute_rotation_flags(active_results, pipeline_candidates):
     return flags
 
 
-def print_ranking(active_results, research_results, short_results, show_active=True, show_pipeline=True):
+def print_ranking(active_results, research_results, short_results, show_active=True, show_pipeline=True, deployment_ready=False):
     """Print the formatted data tables. No composite scores, no ranking highlights."""
     conv_short = {'high': 'H', 'medium': 'M', 'low': 'L'}
 
@@ -786,11 +828,11 @@ def print_ranking(active_results, research_results, short_results, show_active=T
         ranked = sorted(active_results, key=lambda x: x['mos_pct'] if x['mos_pct'] is not None else -999, reverse=True)
 
         print()
-        print("=" * 100)
+        print("=" * 110)
         print("FORWARD RETURN COMPONENTS -- ACTIVE LONG POSITIONS")
-        print("=" * 100)
-        print(f"{'Ticker':<10} {'QS':>3} {'Tier':>4} {'MoS%':>7} {'Grw%':>6} {'Yld%':>6} {'Conv':>4} {'GrSrc':>7}  {'FV':>16}")
-        print("-" * 100)
+        print("=" * 110)
+        print(f"{'Ticker':<10} {'QS':>3} {'Tier':>4} {'MoS%':>7} {'Grw%':>6} {'Yld%':>6} {'E[CAGR]':>8} {'Conv':>4} {'GrSrc':>7}  {'FV':>16}")
+        print("-" * 110)
 
         for r in ranked:
             qs_str = str(r['qs']) if r['qs'] is not None else '?'
@@ -798,6 +840,7 @@ def print_ranking(active_results, research_results, short_results, show_active=T
             mos_str = f"{r['mos_pct']:+.1f}" if r['mos_pct'] is not None else 'N/A'
             grw_str = f"{r['growth_pct']:.1f}" if r['growth_pct'] is not None else 'N/A'
             yld_str = f"{r['yield_pct']:.1f}" if r['yield_pct'] is not None else '0.0'
+            ecagr_str = f"{r['ecagr_at_market']:.1f}%" if r.get('ecagr_at_market') is not None else '-'
             conv_str = conv_short.get(r['conviction'], '?') if r['conviction'] else '?'
             gr_src_str = r['growth_source'] or '-'
             fv_str = r['fv_source'] if r['fv_source'] else 'N/A'
@@ -809,12 +852,12 @@ def print_ranking(active_results, research_results, short_results, show_active=T
                 rot_flag = f"  [ROTATION CANDIDATE OS={os_score} vs {cand_ticker}]"
 
             if r['error']:
-                print(f"{r['ticker']:<10} {'':>3} {'':>4} {'ERR':>7} {'':>6} {'':>6} {'':>4} {'':>7}  {r['error']}")
+                print(f"{r['ticker']:<10} {'':>3} {'':>4} {'ERR':>7} {'':>6} {'':>6} {'':>8} {'':>4} {'':>7}  {r['error']}")
             else:
-                print(f"{r['ticker']:<10} {qs_str:>3} {tier_str:>4} {mos_str:>7} {grw_str:>6} {yld_str:>6} {conv_str:>4} {gr_src_str:>7}  {fv_str:>16}{rot_flag}")
+                print(f"{r['ticker']:<10} {qs_str:>3} {tier_str:>4} {mos_str:>7} {grw_str:>6} {yld_str:>6} {ecagr_str:>8} {conv_str:>4} {gr_src_str:>7}  {fv_str:>16}{rot_flag}")
 
-        print("-" * 100)
-        print(f"  {len(active_results)} long positions | [Apply learning/principles.md to reason about this data]")
+        print("-" * 110)
+        print(f"  {len(active_results)} long positions | E[CAGR] = (FV/Price)^(1/3)-1 + Growth + Yield")
 
         no_fv = [r for r in ranked if r['mos_pct'] is None and r['error'] is None]
         if no_fv:
@@ -878,11 +921,11 @@ def print_ranking(active_results, research_results, short_results, show_active=T
         valid_research.sort(key=lambda x: x['mos_pct'], reverse=True)
 
         print()
-        print("=" * 100)
+        print("=" * 110)
         print("PIPELINE -- RESEARCH THESIS")
-        print("=" * 100)
-        print(f"{'Ticker':<10} {'QS':>3} {'Tier':>4} {'MoS%':>7} {'Grw%':>6} {'Yld%':>6} {'GrSrc':>7}  {'FV':>16} {'Status'}")
-        print("-" * 100)
+        print("=" * 110)
+        print(f"{'Ticker':<10} {'QS':>3} {'Tier':>4} {'MoS%':>7} {'Grw%':>6} {'Yld%':>6} {'E[CAGR]':>8} {'GrSrc':>7}  {'FV':>16} {'Status'}")
+        print("-" * 110)
 
         for r in valid_research:
             qs_str = str(r['qs']) if r['qs'] is not None else '?'
@@ -890,15 +933,50 @@ def print_ranking(active_results, research_results, short_results, show_active=T
             mos_str = f"{r['mos_pct']:+.1f}" if r['mos_pct'] is not None else 'N/A'
             grw_str = f"{r['growth_pct']:.1f}" if r['growth_pct'] is not None else 'N/A'
             yld_str = f"{r['yield_pct']:.1f}" if r['yield_pct'] is not None else '0.0'
+            ecagr_str = f"{r['ecagr_at_market']:.1f}%" if r.get('ecagr_at_market') is not None else '-'
             gr_src_str = r['growth_source'] or '-'
             fv_str = r['fv_source'] if r['fv_source'] else 'N/A'
-            status = (r['status'] or '')[:45]
+            status = (r['status'] or '')[:40]
 
-            print(f"{r['ticker']:<10} {qs_str:>3} {tier_str:>4} {mos_str:>7} {grw_str:>6} {yld_str:>6} {gr_src_str:>7}  {fv_str:>16} {status}")
+            print(f"{r['ticker']:<10} {qs_str:>3} {tier_str:>4} {mos_str:>7} {grw_str:>6} {yld_str:>6} {ecagr_str:>8} {gr_src_str:>7}  {fv_str:>16} {status}")
 
         if invalid_research:
             print()
             print(f"Skipped (no FV in thesis): {', '.join(r['ticker'] for r in invalid_research)}")
+
+    # DEPLOYMENT-READY summary (pipeline candidates with viable E[CAGR])
+    if show_pipeline and research_results and deployment_ready:
+        deployment = []
+        for r in research_results:
+            ecagr = r.get('ecagr_at_market')
+            if ecagr is None:
+                continue
+            tier = r.get('tier', '?')
+            threshold = 12.0 if tier == 'A' else 15.0
+            if ecagr >= threshold:
+                deployment.append(r)
+
+        print()
+        print("=" * 110)
+        print("DEPLOYMENT-READY PIPELINE (E[CAGR] >= 12% Tier A, >= 15% Tier B)")
+        print("=" * 110)
+        if deployment:
+            deployment.sort(key=lambda r: r.get('ecagr_at_market', 0), reverse=True)
+            print(f"{'Ticker':<10} {'QS':>3} {'Tier':>4} {'MoS%':>7} {'E[CAGR]':>8} {'Price':>10}  {'FV':>16} {'Status'}")
+            print("-" * 110)
+            for r in deployment:
+                qs_str = str(r['qs']) if r['qs'] is not None else '?'
+                tier_str = r['tier'] if r['tier'] else '?'
+                mos_str = f"{r['mos_pct']:+.1f}" if r['mos_pct'] is not None else 'N/A'
+                ecagr_str = f"{r['ecagr_at_market']:.1f}%"
+                price_str = f"{r['price']:.2f}" if r['price'] is not None else 'N/A'
+                fv_str = r['fv_source'] if r['fv_source'] else 'N/A'
+                status = (r.get('status') or '')[:40]
+                print(f"{r['ticker']:<10} {qs_str:>3} {tier_str:>4} {mos_str:>7} {ecagr_str:>8} {price_str:>10}  {fv_str:>16} {status}")
+            print(f"\n  {len(deployment)} deployment-ready candidates (worth buying at current prices)")
+        else:
+            print("  No pipeline candidates meet deployment-ready E[CAGR] thresholds at current prices.")
+            print("  Tier A needs E[CAGR] >= 12%, Tier B needs >= 15%.")
 
     print()
     print("[Raw data. Reason from principles.md]")
@@ -945,6 +1023,7 @@ def main():
     parser.add_argument('--ticker', nargs='+', help='Specific tickers to analyze')
     parser.add_argument('--active-only', action='store_true', help='Only show active positions (long + short)')
     parser.add_argument('--pipeline-only', action='store_true', help='Only show research pipeline')
+    parser.add_argument('--deployment-ready', action='store_true', help='Filter pipeline to E[CAGR] >= 12%% (Tier A) or >= 15%% (Tier B)')
 
     args = parser.parse_args()
 
@@ -1006,7 +1085,8 @@ def main():
                 research_results.append(result)
 
     # Pass short_results (even if empty) when show_active, None when not
-    print_ranking(active_results, research_results, short_results if show_active else None, show_active, show_pipeline)
+    print_ranking(active_results, research_results, short_results if show_active else None,
+                  show_active, show_pipeline, deployment_ready=args.deployment_ready)
 
 
 if __name__ == '__main__':

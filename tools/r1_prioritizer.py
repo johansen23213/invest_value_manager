@@ -13,13 +13,17 @@ Shows E[CAGR] column for companies with FV + entry_price defined:
   E[CAGR] = (FV/entry)^(1/3) - 1 + dividend_yield
 
 Usage:
-  python3 tools/r1_prioritizer.py                  # Top 10 candidates
-  python3 tools/r1_prioritizer.py --top 20          # Top 20
-  python3 tools/r1_prioritizer.py --exclude-uk      # Skip UK #5 risk
-  python3 tools/r1_prioritizer.py --near-entry-only  # Only <20% from entry (forced)
-  python3 tools/r1_prioritizer.py --include-far      # Override auto near-entry filter
-  python3 tools/r1_prioritizer.py --tier-a-only      # Only QS >= 75
-  python3 tools/r1_prioritizer.py --no-ecagr         # Skip E[CAGR] (no yfinance calls)
+  python3 tools/r1_prioritizer.py                       # Top 10 candidates
+  python3 tools/r1_prioritizer.py --top 20               # Top 20
+  python3 tools/r1_prioritizer.py --exclude-uk           # Skip UK #5 risk
+  python3 tools/r1_prioritizer.py --near-entry-only      # Only <20% from entry (forced)
+  python3 tools/r1_prioritizer.py --include-far          # Override auto near-entry filter
+  python3 tools/r1_prioritizer.py --tier-a-only          # Only QS >= 75
+  python3 tools/r1_prioritizer.py --no-ecagr             # Skip E[CAGR] (no yfinance calls)
+  python3 tools/r1_prioritizer.py --exclude-fantasy-risk # Filter out price > 150% of FV
+  python3 tools/r1_prioritizer.py --pre-flight           # Only E[CAGR]-at-entry >= threshold
+  python3 tools/r1_prioritizer.py --advancement          # R1_COMPLETE advancement pipeline (3 sections)
+  python3 tools/r1_prioritizer.py --near-entry-advancement  # Quick: advancement near entry only
 """
 
 import sys
@@ -357,6 +361,14 @@ def rank_candidates(companies, args, auto_near_entry_applied=False):
     if args.tier_a_only:
         scored = [c for c in scored if c.get("tier") == "A"]
 
+    # Fantasy-risk filtering: exclude companies priced > 150% of FV
+    if args.exclude_fantasy_risk:
+        scored = [
+            c for c in scored
+            if not (c.get("current_price") and c.get("fair_value") and c["fair_value"] > 0
+                    and c["current_price"] / c["fair_value"] > 1.50)
+        ]
+
     # Cooldown filtering (skip recently-analyzed tickers unless price dropped >15%)
     cooled_entries = []
     if not args.ignore_cooldowns:
@@ -402,8 +414,31 @@ def rank_candidates(companies, args, auto_near_entry_applied=False):
     return scored[:args.top]
 
 
-def show_advancement_pipeline(companies):
-    """Show R1_COMPLETE candidates with ACTIONABLE verdict needing R2+ advancement."""
+def compute_ecagr_at_market(fair_value, current_price, div_yield_pct):
+    """Compute E[CAGR] using current market price instead of entry price.
+
+    E[CAGR]-at-market = (FV/current_price)^(1/3) - 1 + dividend_yield
+
+    This answers: "What return would I get if I bought TODAY?"
+    """
+    if not fair_value or not current_price or current_price <= 0 or fair_value <= 0:
+        return None
+
+    ratio = fair_value / current_price
+    mos_cagr = (ratio ** (1.0 / 3.0)) - 1.0
+    div_decimal = (div_yield_pct or 0.0) / 100.0
+    ecagr = (mos_cagr + div_decimal) * 100.0
+    return round(ecagr, 1)
+
+
+def show_advancement_pipeline(companies, near_entry_only=False):
+    """Show R1_COMPLETE candidates organized by deployment readiness.
+
+    Three sections:
+      A. READY FOR ADVANCEMENT: distance_to_entry <= 20% OR E[CAGR]-at-market >= threshold
+      B. APPROACHING: distance_to_entry 20-35%. Monitor zone.
+      C. PARKED: distance_to_entry > 35% or FANTASY verdict. Count only.
+    """
     r1_complete = [
         c for c in companies
         if c.get("pipeline_status") == "R1_COMPLETE"
@@ -413,10 +448,6 @@ def show_advancement_pipeline(companies):
     if not r1_complete:
         print("\nNo R1_COMPLETE candidates in universe.")
         return
-
-    # Separate by R1 verdict
-    actionable = [c for c in r1_complete if c.get("r1_verdict") in ("ACTIONABLE", "NEAR_ENTRY", "WATCHLIST")]
-    non_actionable = [c for c in r1_complete if c not in actionable]
 
     # Check which ones already have R2/R3 completed (from session_continuity)
     continuity_r2 = set()
@@ -433,54 +464,120 @@ def show_advancement_pipeline(companies):
         except Exception:
             pass
 
+    # Fetch dividend yields for E[CAGR]-at-market computation
+    ecagr_tickers = [c["ticker"] for c in r1_complete if c.get("fair_value") and c.get("current_price")]
+    div_yields = {}
+    if ecagr_tickers:
+        print(f"Fetching dividend yields for {len(ecagr_tickers)} R1_COMPLETE tickers...")
+        div_yields = get_dividend_yields(ecagr_tickers)
+
+    # Compute E[CAGR]-at-market for each
+    ecagr_market = {}  # ticker -> ecagr_pct
+    for c in r1_complete:
+        ticker = c["ticker"]
+        fv = c.get("fair_value")
+        cp = c.get("current_price")
+        if fv and cp and fv > 0 and cp > 0:
+            dy = div_yields.get(ticker, 0.0)
+            ecagr = compute_ecagr_at_market(fv, cp, dy)
+            if ecagr is not None:
+                ecagr_market[ticker] = ecagr
+
+    # Classify into three sections
+    section_a = []  # READY FOR ADVANCEMENT
+    section_b = []  # APPROACHING
+    section_c = []  # PARKED
+
+    for c in r1_complete:
+        ticker = c["ticker"]
+        dist = c.get("distance_to_entry")
+        verdict = c.get("r1_verdict", "")
+        ecagr = ecagr_market.get(ticker)
+        tier = c.get("tier", "B")
+        ecagr_threshold = 12.0 if tier == "A" else 15.0
+
+        # Section A: near entry OR economically viable at current price
+        if dist is not None and dist <= 20.0:
+            section_a.append(c)
+        elif ecagr is not None and ecagr >= ecagr_threshold:
+            section_a.append(c)
+        # Section B: approaching
+        elif dist is not None and 20.0 < dist <= 35.0:
+            section_b.append(c)
+        # Section C: parked (far away or fantasy)
+        else:
+            section_c.append(c)
+
+    if near_entry_only:
+        # Quick mode: only show section A
+        section_b = []
+        section_c = []
+
     today = date.today()
-    print(f"\n=== R2 ADVANCEMENT PIPELINE | {today} ===")
-    print(f"R1_COMPLETE total: {len(r1_complete)} | ACTIONABLE: {len(actionable)}")
-    print("=" * 100)
+    print(f"\n=== ADVANCEMENT PIPELINE | {today} ===")
+    print(f"R1_COMPLETE total: {len(r1_complete)} | Ready: {len(section_a)} | Approaching: {len(section_b)} | Parked: {len(section_c)}")
+    print("=" * 130)
 
-    if actionable:
-        print(f"\n{'#':>2} {'Ticker':<14} {'QS':>3} {'Tier':>4} {'Sector':<22} {'Dist%':>7} {'R1 Verdict':<14} {'Status'}")
-        print("-" * 100)
+    def _get_status(ticker):
+        if ticker in continuity_r3:
+            return "R3 DONE → R4"
+        elif ticker in continuity_r2:
+            return "R2 DONE → R3"
+        else:
+            return "needs R2"
 
-        # Sort by QS descending, then distance ascending
-        actionable.sort(key=lambda c: (-(c.get("qs_adj") or c.get("qs_tool") or 0), c.get("distance_to_entry") or 999))
+    def _print_section(label, items):
+        if not items:
+            print(f"\n{label}: None")
+            return
 
-        for i, c in enumerate(actionable, 1):
+        # Sort by E[CAGR]-at-market descending (best opportunities first), then QS
+        items.sort(key=lambda c: (
+            -(ecagr_market.get(c["ticker"]) or -999),
+            -(c.get("qs_adj") or c.get("qs_tool") or 0),
+        ))
+
+        print(f"\n{label} ({len(items)}):")
+        print(f"{'#':>2} {'Ticker':<14} {'QS':>3} {'Tier':>4} {'Sector':<20} {'Dist%':>7} {'E[CAGR]@mkt':>12} {'Verdict':<12} {'Status'}")
+        print("-" * 130)
+
+        for i, c in enumerate(items, 1):
             qs = c.get("qs_adj") or c.get("qs_tool") or "?"
             tier = c.get("tier", "?")
-            sector = (c.get("sector") or "Unknown")[:22]
+            sector = (c.get("sector") or "Unknown")[:20]
             dist = c.get("distance_to_entry")
             dist_str = f"{dist:+.1f}%" if dist is not None else "N/A"
+            ecagr = ecagr_market.get(c["ticker"])
+            ecagr_str = f"{ecagr:.1f}%" if ecagr is not None else "-"
             verdict = c.get("r1_verdict", "?")
             ticker = c["ticker"]
-
-            # Determine advancement status
-            if ticker in continuity_r3:
-                status = "R3 DONE -- needs R4"
-            elif ticker in continuity_r2:
-                status = "R2 DONE -- needs R3"
-            else:
-                status = "NO R2 -- ready for advancement"
+            status = _get_status(ticker)
 
             # Add gate info if present
             gate = c.get("gate") or c.get("pre_execution_condition") or ""
             if gate:
-                status += f" (GATE: {gate[:40]})"
+                status += f" (GATE: {gate[:30]})"
 
-            print(f"{i:>2} {ticker:<14} {qs:>3} {tier:>4} {sector:<22} {dist_str:>7} {verdict:<14} {status}")
+            print(f"{i:>2} {ticker:<14} {qs:>3} {tier:>4} {sector:<20} {dist_str:>7} {ecagr_str:>12} {verdict:<12} {status}")
 
-        print("-" * 100)
+    _print_section("SECTION A — READY FOR ADVANCEMENT (dist<=20% OR E[CAGR]>=threshold)", section_a)
+    _print_section("SECTION B — APPROACHING (dist 20-35%)", section_b)
 
-    if non_actionable:
-        print(f"\nNON-ACTIONABLE R1_COMPLETE ({len(non_actionable)}):")
-        for c in non_actionable[:5]:
+    if section_c:
+        print(f"\nSECTION C — PARKED ({len(section_c)} companies, dist>35% or no data):")
+        # Just show count + top 5 by QS for reference
+        section_c.sort(key=lambda c: -(c.get("qs_adj") or c.get("qs_tool") or 0))
+        for c in section_c[:5]:
             qs = c.get("qs_adj") or c.get("qs_tool") or "?"
+            dist = c.get("distance_to_entry")
+            dist_str = f"{dist:+.1f}%" if dist is not None else "N/A"
             verdict = c.get("r1_verdict", "?")
-            print(f"  {c['ticker']:<14} QS {qs:>3}  {verdict}")
-        if len(non_actionable) > 5:
-            print(f"  ... and {len(non_actionable) - 5} more")
+            print(f"  {c['ticker']:<14} QS {qs:>3} {dist_str:>7} {verdict}")
+        if len(section_c) > 5:
+            print(f"  ... and {len(section_c) - 5} more")
 
-    print(f"\n[Pipeline velocity: 1 R1 = 1 unit, 1 R2->R3 = 2 units, 1 R4 = 1 unit. Target: 3+ units/session]")
+    print(f"\n  E[CAGR]@mkt = (FV/current_price)^(1/3) - 1 + div_yield. Threshold: >=12% Tier A, >=15% Tier B.")
+    print(f"[Pipeline velocity: 1 R1 = 1 unit, 1 R2->R3 = 2 units, 1 R4 = 1 unit. Target: 3+ units/session]")
 
 
 def main():
@@ -491,8 +588,11 @@ def main():
     parser.add_argument("--include-far", action="store_true", help="Override auto near-entry filter (show all distances)")
     parser.add_argument("--tier-a-only", action="store_true", help="Only show Tier A (QS >= 75)")
     parser.add_argument("--ignore-cooldowns", action="store_true", help="Bypass R1 cooldowns (show all including recently analyzed)")
-    parser.add_argument("--advancement", action="store_true", help="Show R1_COMPLETE ACTIONABLE candidates needing R2 advancement")
+    parser.add_argument("--advancement", action="store_true", help="Show R1_COMPLETE candidates for R2+ advancement (3 sections)")
     parser.add_argument("--no-ecagr", action="store_true", help="Skip E[CAGR] calculation (avoids yfinance calls)")
+    parser.add_argument("--exclude-fantasy-risk", action="store_true", help="Filter out FANTASY-RISK entries (price > 150%% of FV)")
+    parser.add_argument("--pre-flight", action="store_true", help="Only show candidates with E[CAGR]-at-entry >= 12%% (worth doing R1)")
+    parser.add_argument("--near-entry-advancement", action="store_true", help="Quick check: advancement pipeline candidates near entry")
     args = parser.parse_args()
     args._cooled_entries = []  # populated by rank_candidates
 
@@ -501,9 +601,9 @@ def main():
         print("Quality Universe is empty.")
         sys.exit(1)
 
-    # --advancement mode: show R1_COMPLETE ACTIONABLE candidates without R2
-    if args.advancement:
-        show_advancement_pipeline(companies)
+    # --advancement mode: show R1_COMPLETE candidates for R2+ advancement
+    if args.advancement or args.near_entry_advancement:
+        show_advancement_pipeline(companies, near_entry_only=args.near_entry_advancement)
         sys.exit(0)
 
     # Count totals
@@ -558,6 +658,24 @@ def main():
                 if ecagr is not None:
                     ecagr_map[ticker] = ecagr
 
+    # Pre-flight filter: only show candidates worth investing R1 effort
+    if args.pre_flight and ecagr_map:
+        pre_flight_candidates = []
+        for c in candidates:
+            ecagr = ecagr_map.get(c["ticker"])
+            if ecagr is None:
+                continue  # Skip if no E[CAGR] data
+            tier = c.get("tier", "B")
+            threshold = 12.0 if tier == "A" else 15.0
+            if ecagr >= threshold:
+                pre_flight_candidates.append(c)
+        candidates = pre_flight_candidates
+
+    if not candidates:
+        print("\nNo candidates pass pre-flight E[CAGR] filter.")
+        print("  Tier A needs E[CAGR]-at-entry >= 12%, Tier B needs >= 15%.")
+        sys.exit(0)
+
     # Determine if we show E[CAGR] column (at least one computed)
     show_ecagr = len(ecagr_map) > 0
 
@@ -609,6 +727,16 @@ def main():
         # Near entry highlight
         if dist is not None and dist <= 15.0:
             flags.append("NEAR-ENTRY")
+
+        # Fantasy-risk: current price far above fair value
+        fv = c.get("fair_value")
+        cp = c.get("current_price")
+        if fv and cp and fv > 0 and cp > 0:
+            price_vs_fv = cp / fv
+            if price_vs_fv > 1.50:
+                flags.append(f"FANTASY-RISK({price_vs_fv:.0%})")
+            elif price_vs_fv > 1.25:
+                flags.append(f"EXPENSIVE({price_vs_fv:.0%})")
 
         # Stale score warning
         last_scored = c.get("last_scored")
@@ -675,6 +803,21 @@ def main():
             cu = cd.get("cooldown_until", "?")
             print(f"  {t:<14} {v:<14} S{s}  cooldown until {cu}")
         print(f"  [Use --ignore-cooldowns to bypass]")
+
+    # Fantasy rate: % of R1_COMPLETE that are OVERVALUED/FANTASY
+    r1_complete_all = [
+        c for c in companies
+        if c.get("pipeline_status") == "R1_COMPLETE"
+        and c.get("direction", "long") == "long"
+        and c.get("r1_verdict")
+    ]
+    if r1_complete_all:
+        fantasy_verdicts = sum(1 for c in r1_complete_all if c.get("r1_verdict") in ("OVERVALUED", "FANTASY"))
+        fantasy_rate = fantasy_verdicts / len(r1_complete_all) * 100
+        rate_label = "ALARM" if fantasy_rate > 50 else "OK"
+        print(f"\nFANTASY RATE: {fantasy_rate:.0f}% ({fantasy_verdicts}/{len(r1_complete_all)} R1s → OVERVALUED/FANTASY) [{rate_label}]")
+        if fantasy_rate > 50:
+            print("  WARNING: >50%. Use --exclude-fantasy-risk or --near-entry-only or --pre-flight to focus.")
 
     print(f"\n[Raw data. Select 3-5 for R1 processing this session.]")
 

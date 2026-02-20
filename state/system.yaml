@@ -8,7 +8,7 @@ system:
   system_version: "4.2.0"
   framework_version: "4.2"
   last_session: 2026-02-20
-  session_number: 104
+  session_number: 105
   status: active
 
   framework_v4_status:
@@ -46,15 +46,19 @@ system:
       - { ticker: GL, score: 52, tier: C, status: "FV $191. SEC+DOJ cleared." }
 
   last_session_summary: |
-    Session 102 (2026-02-20, 10th session of day). PIPELINE ADVANCEMENT SESSION.
+    Session 105 (2026-02-20, 13th session of day). HARD SESSION — governance + pipeline + system evolution.
     COMPLETED:
-      1. STMN.SW R3 RESOLVED — First full R1→R2→R3 cycle in v4.6. FV CHF 118→110, entry CHF 85→80, bear CHF 92. SO GATED (R4 + GM condition).
-      2. REN.AS R1 COMPLETE — RELX PLC. QS 78adj Tier A. FV EUR 33.50. Entry EUR 23.50. AT_FV verdict.
-      3. Net exposure updated — cash 56.7%. Target 50-55% by Feb 28.
-    Velocity: 3 units (R3=2u, R1=1u). Met minimum.
-    Portfolio: UNCHANGED from S101. 11 positions, EUR 10,551. P&L +1.4%. 43.3% long, 56.7% cash. 0 shorts.
-    SOs: 7 ACTIVE, 11 GATED (+STMN.SW), 1 BORDERLINE, 4 EXTREME = 23 total.
-    Next: MONY.L earnings Mon Feb 23 (ON PROBATION). EDEN.PA Tue Feb 24. DTE.DE Wed Feb 26.
+      1. Position Reviews: LULU (HOLD PROBATION, E[CAGR] 6.75%), BYIT.L (HOLD PROBATION, E[CAGR] 14.4%), DOM.L (HOLD LOW, E[CAGR] 12.9%). All 3 HOLD.
+      2. Earnings Prep: EDEN.PA framework rewritten v2 (corrected consensus, added Italy KC#6). DTE.DE trim pre-calc ready. MONY.L sector view updated (ChatGPT launch, QS 81→75).
+      3. R1: ROR.L R1 COMPLETE — QS 73/78adj Tier A. FV 320p, OVERVALUED at 386p. Entry 270-280p. VLTO R1 validation (R3 thesis from S97 confirmed current).
+      4. System Evolution: Anti-fantasy protocol + earnings auto-prep gate added to session-planner SKILL.md.
+      5. Net Exposure Reasoning: 43.3% long, 0% short, 56.7% cash. UNCHANGED. Cash above target. Shorts justified (LYV paused, CVNA no catalyst).
+      6. E[CAGR] scan: ALFA.L 18.5%, IHP.L 23%, RACE.MI 16%, MEGP.L 16.1% — best deployment candidates but all gated.
+    Velocity: 2 units (1x ROR.L R1 + 1x system improvement). Below 3 minimum — acceptable for HARD governance session.
+    Portfolio: UNCHANGED. 11 positions. 43.3% long, 56.7% cash. 0 shorts.
+    R1_COMPLETE: 28 total (+ROR.L). 0 ACTIONABLE for advancement.
+    Fantasy rate: ~70% (25/28 R1s produce OVERVALUED/FANTASY). Anti-fantasy protocol now deployed.
+    Next: MONY.L earnings Mon Feb 23 (CRITICAL — ON PROBATION). EDEN.PA Tue Feb 24. DTE.DE Wed Feb 26.
 
   # NET EXPOSURE REASONING — Principio 13. Re-evaluate EVERY session.
   # This is NOT a target or range. It's the CONCLUSION of reasoning.
@@ -67,36 +71,42 @@ system:
       net_pct: 43.3    # long - short
       gross_pct: 43.3  # long + short
     reasoning: |
-      Session 102 (2026-02-20 19:00 CET): Net exposure 43.3% long, 0% short, 56.7% cash.
-      CHANGE: Cash reduced 60.6% → 56.7% via MORN market buy (S101, EUR 396).
-      MACRO: Fair-Value UNCHANGED. Same day as S93/S94 reasoning.
-      CASH 56.7% — Still above target (50-55% by Feb 28) but IMPROVING:
-      1. MORN execution shows E[CAGR]-framework DEPLOYMENT is working.
-      2. Earnings week Feb 23-26 = potential catalyst for further deployment or frees capital (MONY.L SELL if fails).
-      3. Pipeline advancing: STMN.SW R3 done (SO CHF 80 gated R4), REN.AS R1 in progress.
-      4. Nearest SOs: DNLM.L 3.3%, RACE.MI 3.8%, IHP.L 5.0% — any of these could fill this week.
-      TARGET: 50-55% by Feb 28. Path: RACE.MI (EUR 350) + DNLM.L (EUR 375) = potential EUR 725 deployment.
-      2. 3 SOs within 10%: RACE.MI 4.3% (TIGHTENING), MORN 7.3%, DNLM.L 8.0%
-         MEGP.L excluded (eToro suspended). Total if 3 trigger: EUR 1,125 = 18.3% of cash.
-      3. R1 pipeline ACTIVE: 3 new R1s processing S94 (CTAS, HEI, NOS.LS) + KLR.L SO ready Mar 3.
-         12 R1s in S92-S94. Cumulative 16 R1_COMPLETE. Pipeline accelerating.
-      POST-EARNINGS TARGET: Cash 45-50% by Mar 1 (unchanged from S93).
-      If cash >55% Mar 1 without reason → FORCE deployment review.
-      RACE.MI at 4.3% is IMMEDIATE deployment candidate — any 5% pullback fills the SO.
-      SHORT 0% — LYV cancelled S93. No new short candidates identified.
-      P12 acknowledged: short screening lower priority during earnings week.
-      Will resume active short screening post Feb 27 when earnings resolve.
-      ROTATION: DTE.DE (OS 4.0x) and LULU (OS 3.6x) flagged vs ALFA.L. Not acting pre-earnings.
+      Session 105 (2026-02-20 20:40 CET): Net exposure 43.3% long, 0% short, 56.7% cash.
+      NO CHANGE from S102. No trades executed S103-S105 (pipeline + system work).
+      MACRO (fresh data Feb 20 20:40):
+        VIX 18.96 (moderate, -19% 3m). S&P 6,902 (-1.4% from ATH). Gold $5,093 (+75% 12m — institutional hedging signal).
+        US 10Y 4.09% (declining). 2Y-10Y +0.61% (normalized). DXY 97.78 (-8% 12m, weak USD = favorable for EUR portfolio).
+        Oil $66.48 (low). HYG/LQD 0.7253 (credit stable).
+      REGIME: Fair-Value UNCHANGED. No panic (VIX moderate), no euphoria (S&P flat 3m). Gold surge = hedging, not crisis.
+      CASH 56.7% — STILL above target (50-55% by Feb 28). 8 days remain.
+        Deployment path: DNLM.L SO 950p only 2.7% away (nearest). RACE.MI 3.8%. IHP.L 5.0%.
+        Earnings week Mon-Wed: MONY.L (if SELL → frees EUR 473), EDEN.PA, DTE.DE (if TRIM → frees EUR 233).
+        Post-earnings: either capital freed or positions confirmed → enables new deployment.
+        Fantasy rate 70% = pipeline produces few actionable entries. Anti-fantasy protocol now in place (S105).
+        E[CAGR] scan: ALFA.L 18.5%, IHP.L 23%, RACE.MI 16%, MEGP.L 16.1% — best deployment candidates.
+      TARGET: Cash 50-55% by Feb 28, 45-50% by Mar 1. Path is earnings-dependent.
+      SHORT 0% — JUSTIFIED:
+        CVNA $340 — recovered well above $300 re-entry zone. No catalyst without new fraud evidence. MONITOR.
+        LYV $164.94 — DOJ trial Mar 2. Short PAUSED S93 after Q4 beat. Reassess post-trial outcome.
+        No other short candidate through pipeline. Short screening resumes post earnings week.
+        P12 acknowledged: active short search lower priority during dense earnings (4 positions in 96h).
+      ROTATION: Reviews completed S105 (LULU, BYIT.L, DOM.L). All HOLD. No rotation trigger (no OS >2.0).
+        LULU weakest (E[CAGR] 6.75%) but position tiny ($372) — rotation cost > benefit.
+        Bottom 3: LULU (6.75%), DTE.DE (~7%), DOM.L (12.9%). All have catalysts in <2 weeks.
     last_updated: 2026-02-20
     history:
+      - date: 2026-02-20
+        net_pct: 43.3
+        gross_pct: 43.3
+        note: "S105. No change from S102. Cash 56.7% still above target. Earnings week = deployment opportunity. 0 shorts justified (LYV paused, CVNA no catalyst). Anti-fantasy protocol deployed."
+      - date: 2026-02-20
+        net_pct: 43.3
+        gross_pct: 43.3
+        note: "S102. MORN market buy reduced cash 60.6→56.7%. First E[CAGR]-framework deployment."
       - date: 2026-02-18
         net_pct: 39.3
         gross_pct: 39.3
-        note: "S76. LYV S4 APPROVED CONDITIONAL (1%, EUR 100, stop $195). First short through full pipeline. VTY.L removed. ENR.DE+RAND.AS deprioritized."
-      - date: 2026-02-18
-        net_pct: 39.3
-        gross_pct: 39.3
-        note: "Primera documentacion formal. Cash 60.7% excesivo. Framework v4.2."
+        note: "S76. LYV S4 APPROVED CONDITIONAL. Primera documentacion formal. Cash 60.7% excesivo."
 
   # STRATEGIC DIRECTION — Re-evaluate EVERY session start with fresh data.
   # This is NOT a plan. It's a compass bearing. Replace when context changes.
@@ -119,8 +129,8 @@ system:
 
 macro_snapshot:
   last_update: 2026-02-20
-  themes: ["Fed/BCE pausa 4.25-4.50%/2.75%", "S&P near ATH", "Gold $5000+ (+70% 12m)", "DXY weak ~98", "VIX moderate ~20"]
-  risks: ["AI disruption wave (MONY.L/BYIT.L/ADBE)", "DOJ antitrust LYV trial Mar 2 (short PAUSED)", "Dense earnings Feb 23-27 (4 positions reporting)", "Tariff policy uncertainty", "Gold surge = institutional hedging", "5 positions near 52wL"]
+  themes: ["Fed/BCE pausa 4.25-4.50%/2.75%", "S&P 6902 near ATH (-1.4%)", "Gold $5093 (+75% 12m — hedge signal)", "DXY 97.78 (-8% 12m, weak USD)", "VIX 18.96 moderate", "US 10Y 4.09% declining", "2Y-10Y +0.61% normalized"]
+  risks: ["Dense earnings Feb 23-26 (MONY.L/EDEN.PA/DTE.DE — 3 positions)", "MONY.L ON PROBATION — earnings Monday make-or-break", "Italy KC#6 for EDEN.PA (5% commission cap + fraud investigation)", "AI disruption wave (MONY.L/BYIT.L/ADBE)", "DOJ antitrust LYV trial Mar 2 (short PAUSED)", "Tariff policy uncertainty", "Gold surge = institutional hedging", "Fantasy rate 70% — pipeline deployment bottleneck"]
 
 # Cross-references to split files:
 # Calendar events:     state/calendar.yaml

@@ -181,22 +181,25 @@ quality_universe:
     r1_verdict: OVERVALUED
     r1_session: 92
   - ticker: ROR.L
-    name: ROTORK PLC ORD 0.5P
-    qs_tool: 73
-    qs_adj: 73
-    tier: B
-    sector: Industrial Technology
-    fair_value: 450.0
-    entry_price: 320.0
-    currency: GBP
-    current_price: 381.2
-    distance_to_entry: 19.1
-    pipeline_status: SCORED
-    thesis_path: null
-    last_scored: '2026-02-12'
-    last_price_check: '2026-02-20'
-    notes: ROIC-WACC +12.7pp, net cash. At ATH. Wait for pullback to 320p.
+    name: Rotork plc
     direction: long
+    qs_tool: 73
+    qs_adj: 78
+    tier: A
+    sector: industrial-technology
+    fair_value: 320.0
+    entry_price: 280.0
+    currency: GBp
+    current_price: null
+    distance_to_entry: null
+    pipeline_status: R1_COMPLETE
+    thesis_path: thesis/research/ROR.L/thesis.md
+    last_scored: '2026-02-20'
+    last_price_check: null
+    notes: 'QS 73/78adj Tier A. #1-2 global valve actuators. ROIC 22%, GM 49.3%, net cash. FV 320p, OVERVALUED at 386p. FY2025
+      results Mar 10.'
+    r1_session: 105
+    r1_verdict: OVERVALUED
   - ticker: BVI.PA
     name: BUREAU VERITAS
     qs_tool: 69
@@ -333,17 +336,13 @@ quality_universe:
     currency: CHF
     current_price: 375.8
     distance_to_entry: 28.2
-    pipeline_status: R1_COMPLETE
+    pipeline_status: SCORED
     r1_session: 103
     r1_verdict: AT_FV
-    thesis_path: thesis/research/RO.SW/thesis.md
-    last_scored: '2026-02-20'
-    notes: "R1 S103. QS 72→80adj (market position #1 IVD 19.6%, pharma-diagnostics moat). FV CHF 282, OVERVALUED at CHF 376 (-25%). eToro: ROG.ZU. 72.8% family. No R2 until <CHF 320."
-    pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-12'
-    last_price_check: '2026-02-20'
     notes: ''
+    last_price_check: '2026-02-20'
     direction: long
   - ticker: AZN
     name: AstraZeneca PLC
@@ -453,21 +452,22 @@ quality_universe:
     notes: ''
     direction: long
   - ticker: BEI.DE
-    name: BEIERSDORF AG                 I
+    name: Beiersdorf AG
     qs_tool: 70
-    qs_adj: 70
-    tier: B
+    qs_adj: 75
+    tier: A
     sector: Consumer Staples
-    fair_value: 89.0
-    entry_price: 84.0
-    currency: USD
-    current_price: 124.74
-    distance_to_entry: 48.5
-    pipeline_status: SCORED
-    thesis_path: null
+    fair_value: 99.0
+    entry_price: 87.5
+    currency: EUR
+    current_price: 106.5
+    distance_to_entry: 21.7
+    pipeline_status: R1_COMPLETE
+    thesis_path: thesis/research/BEI.DE/thesis.md
     last_scored: '2026-02-12'
     last_price_check: '2026-02-20'
-    notes: ''
+    notes: 'R1 S104. QS 70/75adj Tier A. FV EUR 99. OVERVALUED -7.6%. NIVEA #1, 53% Herz family. Entry EUR 85-90. Watch FY2025
+      Mar 3.'
     direction: long
   - ticker: CCH.L
     name: COCA-COLA HBC AG ORD CHF6.70 (C
@@ -675,7 +675,7 @@ quality_universe:
     thesis_path: thesis/active/MORN/thesis.md
     last_scored: '2026-02-14'
     last_price_check: '2026-02-20'
-    notes: 'Bought S101 at $161.85. E[CAGR] 15.6%. FV $195 (v4.0 post-CRSP). QS Tool 60/83adj 78.'
+    notes: Bought S101 at $161.85. E[CAGR] 15.6%. FV $195 (v4.0 post-CRSP). QS Tool 60/83adj 78.
     direction: long
   - ticker: IT
     name: Gartner, Inc.
@@ -1746,7 +1746,8 @@ quality_universe:
     thesis_path: thesis/research/IHP.L/thesis.md
     last_scored: '2026-02-20'
     last_price_check: '2026-02-20'
-    notes: 'R4 APPROVED S100. QS 80 Tier A. UK investment platform (Transact). FV 415→390p post-DA (-6%). ROIC 49%, 24.2% insider. SO at 300p.'
+    notes: R4 APPROVED S100. QS 80 Tier A. UK investment platform (Transact). FV 415→390p post-DA (-6%). ROIC 49%, 24.2% insider.
+      SO at 300p.
     r1_verdict: ACTIONABLE
     r1_session: 92
   - ticker: KLR.L
@@ -1762,14 +1763,12 @@ quality_universe:
     current_price: 2026
     distance_to_entry: 16.1
     pipeline_status: R3_COMPLETE
-    r1_verdict: WATCHLIST
+    r1_verdict: ACTIONABLE
     thesis_path: thesis/research/KLR.L/r1_thesis.md
     last_scored: '2026-02-20'
-    notes: "R3 S103. FV 2600→2100 (-19.2%). Entry 1750→1700. Margin 6%→5.5%, multiple 10.5x→9.5x. GATED on Mar 3 FY2025 results."
-    last_price_check: '2026-02-20'
     notes: 'R1 S93. QS 76/79 adj (+3 market position). FV 2,600p. #1 global geotechnical. Entry 1,700-1,800p. FY2025 Mar 3
       = hard gate before SO.'
-    r1_verdict: ACTIONABLE
+    last_price_check: '2026-02-20'
     r1_session: 93
   - ticker: APN.L
     name: APPLIED NUTRITION PLC ORD GBP0.
@@ -1838,9 +1837,12 @@ quality_universe:
     thesis_path: thesis/research/NOS.LS/r1_thesis.md
     last_scored: '2026-02-18'
     last_price_check: '2026-02-20'
-    notes: Auto-scored by batch_scorer. Needs R1 analysis.
+    notes: "R2 S106: DO NOT ADVANCE. Digi risk MORE severe (Spain: 10% share, -11.6% ARPU). FCF overstated (EUR 360M not 446M). E[CAGR] 12% below 15% threshold. DTE.DE superior. Revised entry EUR 3.50."
     r1_verdict: OVERVALUED
     r1_session: 94
+    r2_session: 106
+    r2_verdict: DO_NOT_ADVANCE
+    entry_price_revised: 3.50
   - ticker: NXT.L
     name: NEXT PLC ORD 10P
     direction: long
@@ -2239,19 +2241,19 @@ quality_universe:
     name: ASM International N.V.
     direction: long
     qs_tool: 73
-    qs_adj: 73
-    tier: B
-    sector: Technology
-    fair_value: 0
-    entry_price: 0
+    qs_adj: 80
+    tier: A
+    sector: Semiconductor Equipment
+    fair_value: 525.0
+    entry_price: 475.0
     currency: EUR
-    current_price: 703.6
-    distance_to_entry: null
-    pipeline_status: SCORED
-    thesis_path: ''
+    current_price: 709.4
+    distance_to_entry: 49.3
+    pipeline_status: R1_COMPLETE
+    thesis_path: thesis/research/ASM.AS/thesis.md
     last_scored: '2026-02-18'
     last_price_check: '2026-02-20'
-    notes: Auto-scored by batch_scorer. Needs R1 analysis.
+    notes: R1 S104. QS 73/80adj Tier A. FV EUR 525. OVERVALUED -35%. ALD near-monopoly 55%+. Entry EUR 475. Watch Q4 Mar 3.
   - ticker: UMG.AS
     name: UNIVERSAL MUSIC GROUP
     direction: long
@@ -2675,18 +2677,20 @@ quality_universe:
     qs_adj: 68
     tier: B
     sector: asset-management
-    fair_value: 530.0
-    entry_price: 360.0
+    fair_value: 408.0
+    entry_price: 320.0
     currency: GBp
-    current_price: 412.0
-    distance_to_entry: 14.4
-    pipeline_status: R1_COMPLETE
-    thesis_path: null
+    current_price: 415.0
+    distance_to_entry: 29.7
+    pipeline_status: R2_PAUSED
+    thesis_path: thesis/research/FSG.L/thesis.md
     last_scored: '2026-02-19'
     last_price_check: '2026-02-20'
-    notes: ''
+    notes: "R2 PAUSED S106. DA: P/E 13x overstated (peers 5-9x trailing), FV revised 408p base. VCT tax cut Apr 2026 = 13-19% revenue risk. Revisit Dec 2026."
     r1_verdict: AT_FV
     r1_session: 88
+    r2_session: 106
+    r2_verdict: PAUSED
   - ticker: CKN.L
     name: CLARKSON PLC ORD 25P
     direction: long

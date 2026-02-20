@@ -35,9 +35,12 @@
 
 | Tool | Que extraer |
 |------|-------------|
-| `python3 tools/forward_return.py --active-only` | Bottom 3 posiciones, rotation candidates |
+| `python3 tools/forward_return.py --active-only` | Bottom 3 posiciones, rotation candidates, E[CAGR] column |
+| `python3 tools/forward_return.py --pipeline-only --deployment-ready` | Pipeline candidates viable for deployment at current prices |
 | `python3 tools/sector_health.py freshness --stale-only` | Sectores stale con dependencias de portfolio |
-| `python3 tools/r1_prioritizer.py --top 5` | Top R1 candidates para hoy (cooldowns auto-filtered) |
+| `python3 tools/r1_prioritizer.py --top 5` | Top R1 candidates (with FANTASY-RISK flags + fantasy rate) |
+| `python3 tools/r1_prioritizer.py --advancement` | R1_COMPLETE advancement: 3 sections (Ready/Approaching/Parked) + E[CAGR]@mkt |
+| `python3 tools/quality_universe.py approaching` | Pipeline entries moving toward entry since last refresh |
 
 ---
 
@@ -93,7 +96,9 @@ Read `session_continuity.yaml` → `session.date` and `skip_if_same_day`:
 - Market Regime: [Opportunity/Fair-Value/Defensive] — [razonamiento 1 linea]
 - P&L: [+/-X.X]%
 - Probation: [tickers o "ninguno"]
-- Pipeline: [N] SCORED sin R1, [N] near-entry
+- Pipeline: [N] SCORED sin R1, [N] near-entry, [N] deployment-ready (E[CAGR]>=threshold)
+- Fantasy rate: [X]% ([N]/[M] R1s → OVERVALUED/FANTASY)
+- Advancement: Section A [N] ready, [N] approaching
 
 ### URGENTE (hacer PRIMERO)
 1. [P#] [Descripcion] — agentes: [lista] — ~[X]m
@@ -131,11 +136,24 @@ Total estimado: ~[X]m
 
 1. **Max 4-5 heavy opus agents en paralelo** por wave (7 causa context overflow)
 2. **Max 2 yfinance agents simultaneos** (rate limiting)
-3. **R1 minimum 3 por sesion** (L-08) — SIEMPRE en el plan
+3. **R1 minimum 3 velocity units/sesion** (L-08) — SIEMPRE en el plan
 4. **Net exposure reasoning** obligatorio (P13) — SIEMPRE en el plan
 5. **Earnings prep antes de R1** — si hay earnings <7d, va en URGENTE antes de R1 wave
-6. **Tools rapidos primero** — los 3 tools de input se ejecutan ANTES de generar el plan
+6. **Tools rapidos primero** — los 4 tools de input se ejecutan ANTES de generar el plan
 7. **Tiempo realista** — no prometer mas de lo que cabe en contexto (~3-4 waves max)
+8. **ANTI-FANTASY PROTOCOL (S105, tooling-enforced S106):**
+   - Run `--advancement` FIRST: shows 3 sections (Ready/Approaching/Parked) with E[CAGR]@market
+   - If Section A non-empty → prioritize R2→R3 (2 units each)
+   - If 0 in Section A → new R1s, but use `--exclude-fantasy-risk` or `--pre-flight` to filter
+   - `--pre-flight` shows ONLY candidates with E[CAGR]-at-entry >= threshold (12% Tier A, 15% Tier B)
+   - `--exclude-fantasy-risk` filters out companies priced >150% of FV (guaranteed FANTASY R1)
+   - **Fantasy rate** now auto-computed in footer. If >50% → system alarm with suggestions
+   - R1 candidates MUST be on eToro (check ETORO_UNAVAILABLE in r1_prioritizer.py)
+   - Use `quality_universe.py approaching` to catch stocks dropping toward entry between sessions
+9. **EARNINGS AUTO-PREP GATE (S105):**
+   - For ANY position with earnings <7 days: verify framework exists AND freshness <14 days
+   - If framework missing → P1 URGENTE
+   - If framework >14 days old → P1 refresh required before earnings
 
 ---
 

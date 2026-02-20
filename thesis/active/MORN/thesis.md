@@ -1,10 +1,10 @@
 # MORN - Morningstar, Inc.
 
-> **Fair Value:** $180
-> **Entry:** $135
-> **Date:** 2026-02-13 (R3 resolved)
-> **Status:** R3 COMPLETE - WATCHLIST (R4 deferred — 18% above entry)
-> **Pipeline:** R1 ✓ | R2 ✓ (DA 13/19 STRONG COUNTER) | R3 ✓ (resolution) | R4 deferred
+> **Fair Value:** $195 (v4.0 post-CRSP accretion, was $180 R3)
+> **Entry:** $140 (MoS 28%)
+> **Date:** 2026-02-20 (bought S101, updated S104)
+> **Status:** ACTIVE — E[CAGR] 15.6% at $161.85. First E[CAGR]-framework market buy.
+> **Pipeline:** R1 ✓ | R2 ✓ (DA 13/19 STRONG COUNTER) | R3 ✓ (resolution) | R4 market buy S101
 > **R3 Resolution (2026-02-13):** FV $205→$180 (-12%). DA 13/19 STRONG COUNTER. CRSP conflict of interest, growth 9%→7.5%, index fund fee pressure. QS 83→78 (Tier A). Entry $130-135 (25-28% MoS).
 
 ## TL;DR
