@@ -5,9 +5,9 @@
 # Created: 2026-02-20
 
 session:
-  id: 97
+  id: 98
   date: "2026-02-20"
-  timestamp_cet: "2026-02-20T14:00"
+  timestamp_cet: "2026-02-20T14:30"
 
 completed:
   vigilance:
@@ -19,11 +19,12 @@ completed:
     nearest: { ticker: "RACE.MI", distance_pct: 4.2 }
     triggered: []
     note: "From S95 — smart_skip (same day)"
-  r1_completed:
-    - { ticker: "MNST", verdict: "FANTASY", qs_adj: 83, fv: "$52" }
-    - { ticker: "OR.PA", verdict: "OVERVALUED", qs_adj: 73, fv: "EUR 284" }
-    - { ticker: "AM.PA", verdict: "OVERVALUED", qs_adj: 80, fv: "EUR 398" }
-    - { ticker: "BEAN.SW", verdict: "FANTASY", qs_adj: 80, fv: "CHF 470" }
+  r2_completed:
+    - { ticker: "IHP.L", verdict: "MODERATE_COUNTER", fv_pre: "415p", fv_post: "390p", da_severity: "1 HIGH, 8 MODERATE" }
+    - { ticker: "AON", verdict: "MODERATE_COUNTER", fv_pre: "$361", fv_post: "$350", da_severity: "1 HIGH, 8 MODERATE" }
+  r3_completed:
+    - { ticker: "IHP.L", decision: "WATCHLIST + SO", entry: "300p", fv: "390p", mos: "23.1%", gate: "UK concentration (committee)", sizing: "2%" }
+    - { ticker: "AON", decision: "WATCHLIST (SO DEFERRED)", entry: "$285", fv: "$350", mos: "18.6%", gate: "Q1 2026 earnings + MMC exclusivity" }
   rotation_check: true
   net_exposure: true
   sectors_refreshed: ["telecom"]
@@ -61,21 +62,23 @@ r1_cooldowns:
   - { ticker: "GGG", verdict: "OVERVALUED", session: 92, date: "2026-02-20", price_at_analysis: 93, cooldown_until: "2026-03-06" }
   - { ticker: "KNEBV.HE", verdict: "OVERVALUED", session: 92, date: "2026-02-20", price_at_analysis: 47, cooldown_until: "2026-03-06" }
   - { ticker: "BZU.MI", verdict: "OVERVALUED", session: 92, date: "2026-02-20", price_at_analysis: 52, cooldown_until: "2026-03-06" }
-  # IHP.L is ACTIONABLE (near entry) — no cooldown
+  # IHP.L is ACTIONABLE (near entry) — no cooldown. R3 COMPLETE.
   # STMN.SW is near entry — no cooldown
-  # AON is near entry — no cooldown
+  # AON is near entry — no cooldown. R3 COMPLETE.
 
 next_priorities:
   - "MONY.L earnings Mon Feb 23 — ON PROBATION. KC#9 AI strategy = SELL trigger."
   - "EDEN.PA earnings Tue Feb 24 — EXIT if 2027-28 guide <5%."
   - "DTE.DE earnings Wed Feb 26 — MoS 7%, TRIM >EUR 34 close. KC#2 EPS guide <EUR 2.00."
   - "RACE.MI SO at 4.2% — daily price monitoring, nearest trigger."
+  - "IHP.L R3 DONE — needs R4 committee for SO approval (UK concentration gate)."
+  - "AON R3 DONE — SO DEFERRED until Q1 2026 earnings (April). MMC mutual exclusivity."
+  - "STMN.SW still ACTIONABLE without R2 — candidate for next R2 session."
   - "Position review batch OVERDUE (biweekly, last Feb 8) — do post-earnings."
-  - "AM.PA revisit if drops to EUR 310-320 or post FY2025 results Mar 4."
 
 evolution:
   r1_fantasy_rate_last_10: 0.60
-  proposal: "Shift 1 of 3 daily R1 slots to --near-entry-only to improve actionable rate"
-  proposal_status: "PENDING"
-  last_implemented: "S96: Auto-evolution + dedup system (session_continuity.yaml, cooldowns, Fase 6)"
-  s97_note: "4 R1s: 2 FANTASY (MNST, BEAN.SW), 2 OVERVALUED (OR.PA, AM.PA). 0 ACTIONABLE. Fantasy rate 50% this session. Cumulative: 6 FANTASY / 10 last = 60%. Pattern: Tier A companies trade at extreme premiums. Consider shifting to Tier B near-entry candidates."
+  proposal: "Shift focus from R1 volume to R2/R3 advancement of ACTIONABLE candidates"
+  proposal_status: "VALIDATED — S98 executed this. IHP.L + AON advanced R1→R3 in single session."
+  last_implemented: "S98: R2/R3 advancement wave. 2 ACTIONABLE candidates (IHP.L, AON) advanced through R2 devil's advocate + R3 resolution. Addresses pipeline bottleneck (R1 volume was solved, advancement was the real gap)."
+  s98_note: "Session focused entirely on pipeline advancement, not R1 volume. IHP.L FV 415→390p (DA calibration), AON FV 361→350 (P/E consensus anchoring removed). Both now R3_COMPLETE with clear gates. Evolution proposal 'shift to near-entry candidates' VALIDATED: the bottleneck was R2+ advancement, not more R1s. Fantasy rate unchanged (no new R1s). Next evolution: consider batch R4 committee for R3_COMPLETE candidates with met gates."

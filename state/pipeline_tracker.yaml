@@ -9,7 +9,7 @@ capital_deployment:
   trigger: "cash > 25%"
   last_run: 2026-02-20
   next_due: 2026-02-21
-  last_result: "S97: 4 R1s (MNST, OR.PA, AM.PA, BEAN.SW). MNST QS 83 adj FANTASY $52 FV. OR.PA QS 73 adj OVERVALUED EUR 284. AM.PA QS 80 adj OVERVALUED EUR 398. BEAN.SW QS 80 adj FANTASY CHF 470. 0 ACTIONABLE. Pipeline: 118 SCORED, 23 R1_COMPLETE (from 19). 19 R1s in S92-S97. 3 earnings frameworks verified (MONY.L, EDEN.PA, DTE.DE). Fantasy rate 60%."
+  last_result: "S98: R2+R3 ADVANCEMENT SESSION. IHP.L R2→R3 complete (FV 415→390p, entry 300p, MoS 23.1%, UK concentration gate). AON R2→R3 complete (FV 361→350, entry 300→285, P/E method removed as consensus-anchored, soft market cycle headwind, MMC mutual exclusivity gate). Pipeline: 118 SCORED, 23 R1_COMPLETE, 2 R3_COMPLETE today (IHP.L, AON). Addressing ACTIONABLE advancement bottleneck."
   skill: ".claude/skills/capital-deployment/SKILL.md"
   tool: "tools/quality_universe.py"
 
@@ -108,7 +108,7 @@ r1_processing:
   trigger: "SCORED count > 0 in universe"
   last_run: 2026-02-20
   next_due: 2026-02-21
-  last_result: "S95: 3 R1s (ODFL, WRB, ROL). Running total: 15 R1s in S92-S95 (S92: 6, S93: 3, S94: 3, S95: 3). 19 R1_COMPLETE in universe. 118 SCORED remain."
+  last_result: "S98: 0 new R1s (R2/R3 advancement session). Running total: 19 R1s in S92-S97. 23 R1_COMPLETE in universe. IHP.L + AON advanced to R3. Pipeline bottleneck: advancement, not R1 volume."
   minimum_per_session: 3
   skill: ".claude/skills/capital-deployment/SKILL.md"
   tool: "tools/r1_prioritizer.py"

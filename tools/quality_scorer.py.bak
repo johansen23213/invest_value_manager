@@ -297,24 +297,6 @@ def _extract_margins(t, info, profile):
     profile['fcf_margin_trajectory'] = fcf_margin_trajectory
     profile['fcf_current_margin'] = fcf_margin_trajectory[0][1] if fcf_margin_trajectory else None
 
-    # FCF distortion detection for financial services
-    fcf_distortion = False
-    if fcf_margin_trajectory:
-        max_fcf_margin = max(abs(v) for _, v in fcf_margin_trajectory)
-        if max_fcf_margin > 1.0:  # Any year with FCF margin > 100%
-            fcf_distortion = True
-
-    sector = info.get('sector', 'Unknown')
-    financial_sectors = {'Financial Services', 'Insurance'}
-    sector_fcf_unreliable = sector in financial_sectors
-
-    profile['fcf_distortion'] = fcf_distortion
-    profile['sector_fcf_unreliable'] = sector_fcf_unreliable
-
-    if fcf_distortion:
-        profile['data_gaps'].append('FCF DISTORTION (margin >100%, likely client money flows)')
-
-
     # FCF consistency
     positive_fcf_years = sum(1 for _, fcf in fcf_trajectory if fcf and fcf > 0)
     profile['fcf_positive_years'] = positive_fcf_years
@@ -503,26 +485,7 @@ def calculate_legacy_score(profile):
 
     # FCF Margin (10 pts max)
     fcf_m = profile.get('fcf_current_margin')
-    fcf_distortion = profile.get('fcf_distortion', False) or profile.get('sector_fcf_unreliable', False)
-
-    if fcf_distortion:
-        # Use operating margin as proxy when FCF is distorted
-        op_traj = profile.get('op_margin_trajectory', [])
-        if op_traj:
-            op_m = op_traj[0][1]  # latest operating margin
-            if op_m is not None:
-                if op_m > 0.20: s = 8  # Cap at 8 (not 10) since it's a proxy
-                elif op_m > 0.15: s = 6
-                elif op_m > 0.10: s = 4
-                elif op_m > 0.05: s = 2
-                else: s = 0
-                scores['fcf_margin'] = s
-                scores['fcf_margin_note'] = 'proxy:op_margin (FCF distorted)'
-            else:
-                scores['fcf_margin'] = 0
-        else:
-            scores['fcf_margin'] = 0
-    elif fcf_m is not None:
+    if fcf_m is not None:
         if fcf_m > 0.20: s = 10
         elif fcf_m > 0.15: s = 8
         elif fcf_m > 0.10: s = 5
@@ -725,11 +688,6 @@ def print_profile(profile, show_legacy=True, show_detail=False):
     if profile['data_gaps']:
         print(f"\n[!] Data gaps: {', '.join(profile['data_gaps'])}")
 
-    # FCF distortion warning
-    if profile.get("fcf_distortion") or profile.get("sector_fcf_unreliable"):
-        print(f"\n[!] FCF DATA DISTORTION -- FCF margins likely include client money flows (financial services)")
-        print(f"  Legacy score uses operating margin as proxy for FCF component")
-
     # --- RETURNS ON CAPITAL ---
     print(f"\n{'─'*70}")
     print("RETURNS ON CAPITAL")
@@ -792,8 +750,6 @@ def print_profile(profile, show_legacy=True, show_detail=False):
     if fcf_m_traj:
         traj_str = '  '.join(f"{yr}: {fmt_pct(v)}" for yr, v in reversed(fcf_m_traj))
         print(f"  FCF margin:       {traj_str}")
-        if profile.get("fcf_distortion"):
-            print(f"  [!] FCF margins >100% detected -- likely client money distortion")
 
     # --- LEVERAGE ---
     print(f"\n{'─'*70}")

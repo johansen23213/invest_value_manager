@@ -170,14 +170,12 @@ price_monitors:
   - { ticker: DSY.PA, entry_eur: 14.50, condition: "WAIT Q1. Revised down S75 post -21% crash." }
   - { ticker: PAYC, entry_usd: 92, note: "R3 complete. Deferred." }
   - { ticker: MORN, entry_usd: 133, note: "R3 complete. Deferred." }
-  - { ticker: AON, entry_usd: 300, note: "R1 complete. QS 70 Tier B. FV $361. Near 52wL." }
-  - { ticker: BZU.MI, entry_eur: 42, note: "R1 complete. QS 70 Tier B. FV EUR 58. Cyclical — buy in downturn only." }
-  - { ticker: KNEBV.HE, entry_eur: 46, note: "R1 complete. QS 80 Tier A. FV EUR 54. Elevator oligopoly. Near 52wL." }
+  - { ticker: AON, entry_usd: 285, note: "R3 COMPLETE 2026-02-20. QS 62/70 Tier B. FV $350 (revised from $361, P/E method removed as consensus-anchored). #2 global broker. MoS 18.6% at $285. GATE: Q1 2026 earnings (April) + MMC mutual exclusivity. Soft market cycle headwind. SO DEFERRED until post-Q1." }
+  - { ticker: IHP.L, entry_gbp: 300, note: "R3 COMPLETE 2026-02-20. QS 80 Tier A. FV 390p (revised from 415p, P/E 18-20x not 20-22x). UK #1 adviser platform. MoS 23.1% at 300p. E[CAGR] 12.8%. GATE: UK concentration (5th position) — committee approval + 2% sizing cap. Margin compression trajectory = key variable." }
+  - { ticker: BZU.MI, entry_eur: 42, note: "R1 COMPLETE 2026-02-20. QS 73/70 Tier B (cyclical adj -3). FV EUR 58 through-cycle. 53% family. Net cash EUR 1.1B. CYCLICAL — buy only in downturn. Near 52wH." }
+  - { ticker: KNEBV.HE, entry_eur: 46, note: "R1 COMPLETE 2026-02-20. QS 72/80 Tier A (+8 adj). FV EUR 54. #2-3 global elevator oligopoly. OVERVALUED at EUR 63. Entry -27% away." }
   - { ticker: ADDT-B.ST, entry_sek: 180, note: "R3 complete. QS 77 Tier A lower. FV SEK 225. Crisis only (-44%)." }
   - { ticker: RAA.DE, entry_eur: 485, note: "R3 complete. QS 92 Tier A. FV EUR 570. HARD GATE Mar 19." }
   - { ticker: ALFA.L, entry_gbp: 165, note: "R3 complete. QS 83 Tier A. FV 235p (DA -11.3%). CHP structural overhang. HARD GATE Mar 12." }
   - { ticker: FSG.L, entry_gbp: 375, note: "R1 complete. QS 70 Tier B (AM adj). FV 530p. VCT tax cut CRITICAL." }
   - { ticker: CKN.L, entry_gbp: 3200, note: "R1 complete. QS 80 Tier A borderline. FV 5200p. PROFIT WARNING. HARD GATE Mar 2026." }
-  - { ticker: AON, entry_usd: 300, note: "R1 COMPLETE 2026-02-20. QS 62/70 Tier B (insurance ROE adj +5, market position +3). FV $361. #2 global broker. Pure intermediary, no underwriting risk. AI fear overblown. Insiders buying 17.7:1. Entry $300 = MoS 16.9%, E[CAGR] 14.2%. Near 52wL $305." }
-  - { ticker: BZU.MI, entry_eur: 42, note: "R1 COMPLETE 2026-02-20. QS 73/70 Tier B (cyclical adj -3, treat as Tier B despite borderline score). FV EUR 58 through-cycle. 53% family ownership. Net cash EUR 1.1B. Best cement margins globally. CYCLICAL — buy only in downturn. Near 52wH = wrong time." }
-  - { ticker: KNEBV.HE, entry_eur: 46, note: "R1 COMPLETE 2026-02-20. QS 72/80 Tier A (+8 adj: market position +5, FX distortion +3). FV EUR 54. #2-3 global elevator oligopoly. Razor/blade model. ROIC 30.6%. Net cash. OVERVALUED at EUR 63 (P/E 33x). Entry EUR 46 near 52wL (EUR 45.94). Distance -27%." }
