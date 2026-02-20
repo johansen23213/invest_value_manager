@@ -1,30 +1,12 @@
 # CALENDAR - Active and Future Events
 # Past events archived in state/calendar_archive.yaml
-# Updated: 2026-02-18
+# Updated: 2026-02-20
 
 events:
-  # TODAY — LYV AFTER US CLOSE
-  - date: 2026-02-19
-    type: earnings
-    ticker: LYV
-    event: "Live Nation Q4/FY2025 Results (after market close ~22:00 CET) — SHORT PRE-CONDITION"
-    priority: CRITICAL
-    action: "S4 APPROVED CONDITIONAL. LYV at $156 = IN short trigger range ($145-160). BUT Gail Slater departed DOJ — settlement probability UP, structural remedy DOWN (10-15% from 20%). States pursuing independently. Pre-condition: Q4 results must be reviewed before short entry. Watch: Ticketmaster AOI share, concert attendance trends, pricing power, DOJ trial prep commentary."
-
-  - date: 2026-02-19
-    type: earnings
-    ticker: AGN.NV
-    event: "Aegon FY2025"
-    priority: high
-    action: "Watch OCG 1.2B, solvency >180%. Si precio cae 5.90 - BUY."
-
-  # MONC.MI — RESULTS PUBLISHED TODAY (Feb 19)
-  - date: 2026-02-19
-    type: earnings
-    ticker: MONC.MI
-    event: "Moncler FY2025 Results — PUBLISHED. R2 IN PROGRESS."
-    priority: high
-    action: "RESULTS IN: Rev EUR 3,132M (+3% cFX), Q4 +7%, EBIT 29.2%, GM 78.1%, Net Income EUR 627M (-2%), Net Cash EUR 1,458M. Stone Island Q4 +10%. HARD GATE CLEARED. R2 devil's advocate launched. Price EUR 50.26 vs entry EUR 48 (4.7% gap)."
+  # COMPLETED — Archive candidates (keep for reference until next calendar cleanup)
+  # LYV Q4: COMPLETED Feb 19. STRONG BEAT. Short PAUSED. See post_q4_assessment.md
+  # MONC.MI FY2025: COMPLETED Feb 19. R3 COMPLETE. R4 gated Q1 2026. FV EUR 52, entry EUR 42.
+  # AGN.NV FY2025: COMPLETED Feb 19. Operating result +15%. Solvency 184%. Not at entry.
 
   # EARNINGS WEEK FEB 23-26
   - date: 2026-02-23

@@ -8,7 +8,7 @@
 # Creado: 2026-02-05 | Framework v4.0
 
 version: "4.0"
-last_updated: 2026-02-14
+last_updated: 2026-02-20
 
 # =============================================================================
 # DECISIONES DE SIZING (BUY/ADD)
@@ -590,6 +590,52 @@ geography_decisions:
       CONSISTENT with VLTO (20% MoS, Tier B, standing order) and ROP (22%).
       PRECEDENT SET: Insurer QS adjustment protocol (ROIC→ROE +8, documented).
     outcome: "Standing order pending. Valid until Q2 2026 earnings (July 2026)."
+
+# =============================================================================
+# DECISIONES SHORT (NUEVAS — primera en sistema)
+# =============================================================================
+short_decisions:
+
+  - date: 2026-02-20
+    ticker: LYV
+    action: "PAUSE (post-S4 approval, pre-execution)"
+    context:
+      quality_score: 41
+      tier: C
+      fair_value_short: "$85 (S3, UNDER REVIEW → $107-127 at 8-10% growth)"
+      approved_sizing: "1% (EUR 100)"
+      stop_loss: "$195"
+      catalyst: "DOJ antitrust trial March 2, 2026"
+      pipeline: "S1→S2→S3→S4 complete (first full short pipeline)"
+    reasoning: |
+      S4 APPROVED CONDITIONAL (Session 76, Feb 18). Pre-condition: Q4 results review.
+      Q4 FY2025 published Feb 19: STRONG BEAT.
+      - Revenue $6.3B (+11% YoY) vs consensus $6.1B. FY $25.2B (+9%).
+      - AOI $2.4B (+10%). Operating income +52% YoY.
+      - TM AOI share DECLINED 52% → 45.8% (thesis pillar: "TM = profit engine" WEAKENED).
+      - Concerts AOI surged +30%. Diversification improving.
+      - FCF expanded 4.5% → ~5.2% (thesis pillar: "FCF stuck" WEAKENED).
+      - Deferred revenue $4.0B (+21%). 67M tickets already sold for 2026.
+      - KC#3 TRIGGERED: Q3 +11% + Q4 +11% = 2 consecutive quarters >10%.
+      POST-Q4 ASSESSMENT:
+      - 4 of 6 thesis pillars weakened (growth, TM concentration, FCF, reverse DCF gap)
+      - 2 of 6 GO conditions FAILED (growth >10%, FCF expanding)
+      - Pre-Q4 expected value was already marginal (-1.4% to +1%)
+      - Reverse DCF at 8-10% growth → FV $107-127 (below $130 CANCEL threshold)
+      - Error #46: overvaluation alone ≠ short thesis. Remaining pillars = valuation + antitrust.
+      DECISION: PAUSE, not CANCEL. FV still <$130. Trial Mar 2 still happening.
+      Monitor from sidelines. Re-evaluate post-trial first week of March.
+    outcome: "Standing order PAUSED. Entry window Feb 20-28 NOT used."
+    precedent_set: |
+      FIRST SHORT DECISION IN SYSTEM. Establishes:
+      1. Post-S4 PAUSE pattern: If pre-execution conditions reveal material thesis change,
+         PAUSE is valid even with S4 approval. S4 is not irrevocable commitment.
+      2. KC trigger = RE-EVALUATE, not automatic action. KC#3 triggered → re-evaluated →
+         decided PAUSE. The kill condition framework works as designed.
+      3. Earnings pre-condition governance: Q4 review CHANGED the decision. The pre-execution
+         condition prevented entering a weakened thesis. System worked correctly.
+      4. Discipline > conviction: Walking away from an approved short when data deteriorates
+         is MORE valuable than forcing execution because "we did the work."
 
 # =============================================================================
 # PATRONES IDENTIFICADOS

@@ -1,7 +1,7 @@
 # STANDING ORDERS - Price alerts with pre-written thesis
 # NOT autonomous orders. Human alerts Claude when price hits trigger.
 # Claude runs fast-track validation (pre-execution-check + reverse DCF) before recommending.
-# Updated: 2026-02-18
+# Updated: 2026-02-20
 
 standing_orders:
   # ADD ORDERS (existing positions)
@@ -156,14 +156,14 @@ standing_orders:
     last_analysis_date: 2026-02-14
     expiry: 2026-05-31
 
-  - ticker: MMC
+  - ticker: MRSH
     action: BUY
     trigger: "<=$155"
     size_eur: 200
     fair_value: "$190"
     mos_at_trigger: "18.4%"
     tier: "B (QS 64/68 adj)"
-    notes: "HALF POSITION — Greensill A$7B trial Aug 2026."
+    notes: "HALF POSITION — Greensill A$7B trial Aug 2026. Ticker changed from MMC to MRSH (Jan 14, 2026). US $143M Greensill claim SETTLED (May 2025). Australian A$7B trial still pending."
     last_analysis_date: 2026-02-14
     expiry: 2026-05-31
 
@@ -282,9 +282,10 @@ standing_orders:
 short_orders:
   - ticker: LYV
     action: SHORT
-    trigger: "Post-Q4 earnings confirmed, $145-160 range"
+    status: "PAUSED — Q4 results materially weakened thesis. KC#3 triggered (Session 89)."
+    trigger: "PAUSED. Was $145-160. Re-evaluate after reverse DCF with 8-10% growth."
     size_eur: 100
-    fair_value_short: "$85"
+    fair_value_short: "$85 (UNDER REVIEW — likely $100-130 at 8-10% growth)"
     catalyst: "DOJ antitrust trial March 2, 2026 + 40 state AGs"
     catalyst_date: 2026-03-02
     carry_cost_note: "~7-8% annual on eToro CFD (~EUR 0.63/month)"
@@ -292,15 +293,17 @@ short_orders:
     stop_loss: "$195 (max loss EUR ~24 = 0.24% of portfolio)"
     instrument: "CFD short, x1 leverage, no margin"
     kill_conditions:
-      - "KC#1: DOJ + all states settle simultaneously -> COVER IMMEDIATELY. NOTE: CA+CT AGs explicitly committed to independent pursuit (Feb 2026). DOJ-only settlement does NOT trigger KC#1 — states preserve catalyst."
+      - "KC#1: DOJ + all states settle simultaneously -> COVER IMMEDIATELY"
       - "KC#2: Stock > $195 -> COVER (stop loss)"
-      - "KC#3: Organic revenue growth >10% 2 consecutive quarters -> RE-EVALUATE"
+      - "KC#3: Organic revenue growth >10% 2 consecutive quarters -> **TRIGGERED Feb 20: Q3 +11%, Q4 +11%**"
       - "KC#4: Carry cost > 8% of position without catalyst -> COVER within 30 days"
-    pre_execution_conditions:
-      - "Sector view live-entertainment.md CREATED"
-      - "Q4 2025 earnings confirmed and reviewed — no material thesis change"
-    notes: "S4 APPROVED CONDITIONAL (Session 76). First-ever short. 1% sizing (half of half-position). QS 41 at 114x P/E. Ticketmaster = 52% of AOI. Google precedent main counter-risk (behavioral > structural). Entry window Feb 20-28. SESSION 77: DOJ chief Slater DEPARTED — settlement prob increased. SESSION 80: Judge Subramanian REJECTED dismiss motion (44-page ruling). 3 core claims SURVIVE to trial (amphitheater monopoly + ticketing monopoly + state claims). Only fan-experience claims dismissed. Trial Mar 2 CONFIRMED. Thesis STRENGTHENED. Q4 earnings tonight (Feb 19 after close) = final pre-condition."
-    last_analysis_date: 2026-02-18
+    q4_2025_assessment: |
+      STRONG BEAT. Rev $6.3B (+11%), FY AOI $2.4B (+10%). TM AOI share 52%->45.8%.
+      Concerts AOI +30%. FCF 4.5%->5.2%. Deferred rev +21%. 2026 guide: DD AOI growth.
+      4/6 thesis pillars weakened. GO conditions 2/6 FAIL. Entry window NOT used.
+      See: thesis/short/research/LYV/post_q4_assessment.md
+    notes: "S4 APPROVED CONDITIONAL (Session 76). PAUSED Session 89 (Feb 20) post-Q4. KC#3 triggered. 4/6 pillars weakened. Re-evaluate with reverse DCF at 8-10% growth. If FV>$130: CANCEL. Monitor DOJ trial Mar 2 from sidelines."
+    last_analysis_date: 2026-02-20
     expiry: 2026-09-01
 
 # Cancelled orders history: see state/calendar_archive.yaml

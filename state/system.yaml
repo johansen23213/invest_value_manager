@@ -7,8 +7,8 @@
 system:
   system_version: "4.2.0"
   framework_version: "4.2"
-  last_session: 2026-02-19
-  session_number: 89
+  last_session: 2026-02-20
+  session_number: 90
   status: active
 
   framework_v4_status:
@@ -45,16 +45,15 @@ system:
       - { ticker: GL, score: 52, tier: C, status: "FV $191. SEC+DOJ cleared." }
 
   last_session_summary: |
-    Session 89 (2026-02-19 evening) — MONC.MI results + LYV pre-earnings prep.
-    MONC.MI FY2025 PUBLISHED: Rev EUR 3,132M (+3% cFX), Q4 +7%, EBIT 29.2%, GM 78.1%.
-    Stone Island Q4 +10% cFX. HARD GATE CLEARED. R2 devil's advocate launched.
-    Price EUR 50.26 vs entry EUR 48 (4.7% gap). Pipeline fast-tracking to R3/R4.
-    LYV Q4 tonight ~22:00 CET. Judge rejected dismiss motion (Feb 18, 44-page ruling).
-    3 core claims survive. Trial Mar 2 CONFIRMED. Stock $156 IN short range.
-    DSY.PA Q4 growth 1%, guide 3-5% (below thesis 5-7%). SO valid but on alert.
-    MONY.L at 13-year low. 4 days to ON PROBATION earnings (Feb 23).
-    Calendar corrected: MONC.MI was today (not Mar 3-4 as originally scheduled).
-    Bottom 3: LULU 8.1%, DTE.DE 7.3%, BYIT.L 16.6%. Net exposure 39.4% long, 0% short.
+    Session 89 (2026-02-20 morning) — LYV Q4 assessment + portfolio dashboard.
+    LYV Q4 STRONG BEAT: Rev $6.3B (+11%), FY AOI $2.4B (+10%), TM AOI share 52%→45.8%.
+    KC#3 TRIGGERED (2 consecutive Q >10%). Short thesis PAUSED — 4/6 pillars weakened.
+    Entry window Feb 20-28 NOT used. Re-evaluate with reverse DCF at 8-10% growth.
+    MONC.MI R3 COMPLETE (previous session): FV EUR 52, entry EUR 42. R4 gated Q1 2026.
+    MMC → MRSH ticker change. Greensill US $143M settled. A$7B still pending.
+    Earnings gauntlet: MONY.L Feb 23 (PROBATION), EDEN.PA Feb 24, DTE.DE Feb 26, MEGP.L Feb 27.
+    Portfolio: EUR 10,155. P&L +1.4%. Net 39.4% long, 0% short, 60.6% cash.
+    Bottom 3: LULU 7.2%, DTE.DE 7.3%, BYIT.L 16.6%. 5 positions near 52wL.
 
   # NET EXPOSURE REASONING — Principio 13. Re-evaluate EVERY session.
   # This is NOT a target or range. It's the CONCLUSION of reasoning.
@@ -67,28 +66,33 @@ system:
       net_pct: 39.3    # long - short
       gross_pct: 39.3  # long + short
     reasoning: |
-      Session 89 (2026-02-19 18:30 CET): Net exposure 39.4% long, 0% short, 60.6% cash.
-      MACRO: VIX 20.3, S&P 6856 (-2.1% ATH), 10Y 4.08%, 2Y-10Y +60bps, gold $5019 (+70% 12m!), DXY 97.9.
-      No recession signal. Dollar weak = EUR/GBP positive. Gold surge signals safe-haven demand.
-      CASH 60.6% — STILL EXCESSIVE but JUSTIFIED and DECLINING path clear:
-      1. MONC.MI FY2025 just published: BASE-to-BULL results. R2 in progress. EUR 50.26 vs entry EUR 48.
-         If R2→R3→R4 clears: SO at EUR 48. Only 4.7% from execution.
-      2. LYV Q4 tonight ~22:00 CET. Short framework ready. Judge rejected dismiss (Feb 18).
-         If Q4 supports: short EUR 100 (1%) tomorrow Feb 20.
+      Session 89 (2026-02-20 08:30 CET): Net exposure 39.4% long, 0% short, 60.6% cash.
+      MACRO: Stable. VIX ~20, S&P near ATH, 10Y ~4.1%, gold $5000+, DXY weak ~98.
+      No recession signal. Dollar weak = EUR/GBP positive.
+      CASH 60.6% — STILL EXCESSIVE but JUSTIFIED:
+      1. MONC.MI R3 complete: FV EUR 52, entry EUR 42 (16.4% below). R4 gated Q1 2026. Not imminent.
+      2. LYV SHORT PAUSED: Q4 beat materialized. KC#3 triggered. 4/6 pillars weakened. NOT executing.
+         This REMOVES the expected near-term capital deployment via short side.
       3. DENSE earnings week Feb 23-27: MONY.L (probation decision), EDEN.PA, DTE.DE, MEGP.L
-      4. 2 positions ON PROBATION — may free capital for rotation
-      5. 22 SOs at disciplined prices. Closest: MEGP.L +5.9%, ROP +10%
-      SHORT 0% → EXPECTED CHANGE TONIGHT/TOMORROW:
-      1. LYV S4 APPROVED. Q4 tonight. Framework says: Scenario D/E most likely (PROCEED at $155-160).
-      2. Judge rejected dismiss → +2.3pp to EV. States independently pursuing.
-      3. Trial Mar 2 = 11 days. Entry window Feb 20-28.
-      4. CVNA S4 deferred until LYV resolved.
+         - If MONY.L PASSES probation → stays (no capital freed)
+         - If MONY.L FAILS KC#9 → SELL ~EUR 350 freed for redeployment
+         - MEGP.L hard gate Feb 27 → if results PASS: SO at 135p (EUR 400 deployment pending)
+      4. 2 positions ON PROBATION → potential capital rotation
+      5. 22 SOs at disciplined prices. Closest: MEGP.L 5.9%, ROP 10.7%
+      SHORT 0% → EXPECTED TO REMAIN 0% near-term:
+      - LYV was the only S4-approved short. Now PAUSED.
+      - No other short candidates in pipeline.
+      - P12 (Bidirectional) concern noted: portfolio remains 100% long.
+      - HOWEVER: no quality short thesis exists. Error #46 prevents shorting just because "expensive."
+      - Will resume short screening when LYV re-evaluation complete.
       PORTFOLIO HEALTH:
-      1. Bottom 3: DTE.DE 7.3% MoS, LULU 8.1%, BYIT.L 16.6%
-      2. DTE.DE approaching FV (EUR 32.63 vs FV 35) — Feb 26 earnings may trigger TRIM consideration
-      3. LULU still on probation, but +5.7% P&L. Mar 31 = make-or-break.
-      DIRECTION: Cash should DECREASE this week via MONC.MI + LYV + earnings catalysts.
-    last_updated: 2026-02-19
+      1. Bottom 3: LULU 7.2%, DTE.DE 7.3%, BYIT.L 16.6%
+      2. 5 positions near 52wL: ADBE, AUTO.L, BYIT.L, EDEN.PA, MONY.L
+      3. DTE.DE approaching FV — Feb 26 earnings may trigger TRIM if P&L expands further
+      4. LULU +6.6% but ON PROBATION. Mar 31 make-or-break.
+      P14 JUSTIFICATION: Cash is deployed via 22 SOs at disciplined prices. Pipeline active.
+      No standing order near execution except MEGP.L (5.9%, gated Feb 27).
+    last_updated: 2026-02-20
     history:
       - date: 2026-02-18
         net_pct: 39.3
@@ -119,9 +123,9 @@ system:
     anti_bias: "This direction was set Feb 15. Do NOT anchor to it. Fresh eyes each session."
 
 macro_snapshot:
-  last_update: 2026-02-19
-  themes: ["Fed/BCE pausa 4.25-4.50%/2.75%", "S&P near ATH -1.7%", "Gold $5007 (+70% 12m)", "DXY weak 97.7 (-8.3% 12m)", "VIX moderate 20.6"]
-  risks: ["AI disruption wave (MONY.L/BYIT.L/ADBE)", "DOJ antitrust LYV trial Mar 2", "Dense earnings Feb 23-27", "Tariff policy uncertainty", "Gold surge = institutional hedging"]
+  last_update: 2026-02-20
+  themes: ["Fed/BCE pausa 4.25-4.50%/2.75%", "S&P near ATH", "Gold $5000+ (+70% 12m)", "DXY weak ~98", "VIX moderate ~20"]
+  risks: ["AI disruption wave (MONY.L/BYIT.L/ADBE)", "DOJ antitrust LYV trial Mar 2 (short PAUSED)", "Dense earnings Feb 23-27 (4 positions reporting)", "Tariff policy uncertainty", "Gold surge = institutional hedging", "5 positions near 52wL"]
 
 # Cross-references to split files:
 # Calendar events:     state/calendar.yaml
