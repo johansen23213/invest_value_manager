@@ -14,7 +14,8 @@
 | `effectiveness_tracker.py` | `python3 tools/effectiveness_tracker.py [--summary]` | Win rate, hit rate, Sharpe, attribution. Cada sesion. |
 | `quality_scorer.py` | `python3 tools/quality_scorer.py TICKER [--detailed\|--raw]` | Quality Profile + Legacy Score. TOOL-FIRST. |
 | `forward_return.py` | `python3 tools/forward_return.py [--active-only\|--pipeline-only]` | MoS%, Growth%, Yield% por posicion (L/S). Datos crudos. |
-| `quality_universe.py` | `python3 tools/quality_universe.py {report\|actionable\|add\|stale\|coverage\|stats} [--fragility]` | Capital deployment machine. Universe de QS>=65. --fragility para shorts. |
+| `quality_universe.py` | `python3 tools/quality_universe.py {report\|actionable\|add\|stale\|coverage\|stats\|archive} [--fragility]` | Capital deployment machine. Universe. stats=funnel+R1 verdict, stale=staleness, archive=cleanup. add: --r1-session N --r1-verdict V. |
+| `r1_prioritizer.py` | `python3 tools/r1_prioritizer.py [--top N] [--exclude-uk] [--near-entry-only] [--tier-a-only] [--ignore-cooldowns]` | Prioriza SCORED companies para R1. Auto-filters cooldowns from session_continuity.yaml. |
 | `constraint_checker.py` | `python3 tools/constraint_checker.py {REPORT\|CHECK TICKER AMT\|CHECK_SHORT TICKER AMT}` | Concentracion, net/gross exposure, drawdown. Contexto, no juicio. |
 | `correlation_matrix.py` | `python3 tools/correlation_matrix.py` | Correlaciones entre posiciones. |
 | `insider_tracker.py` | `python3 tools/insider_tracker.py TICKER [--sections insider,institutional,short,analyst]` | Insider txns, institutional holders, short interest, analyst consensus. Datos crudos. |
@@ -35,10 +36,11 @@
 |------|---------|-----------|
 | `macro_fragility.py` | `python3 tools/macro_fragility.py {world\|country CODE\|sector NAME\|full}` | 3-layer macro data: world (VIX, yields, gold, oil, DXY, S&P), country (index, FX, ETF, sector ETFs), sector (ETFs, P/E, top holdings). Datos crudos. |
 
-## Consistency & System
+## Sector Health & Consistency
 
 | Tool | Comando | Proposito |
 |------|---------|-----------|
+| `sector_health.py` | `python3 tools/sector_health.py {freshness\|coverage\|cascade\|changes\|snapshot\|macro-map}` | Staleness, coverage, cascades, macro deps de sector views. `freshness --stale-only` para alertas. Weekly obligatorio. |
 | `consistency_checker.py` | `python3 tools/consistency_checker.py "BUY TICKER N%"` | Compara vs precedentes (decisions_log). ANTES de decisiones. |
 | `drift_detector.py` | `python3 tools/drift_detector.py [--verbose]` | Detecta sizing drift, conviction inflation. Cada 14 dias. |
 | `system_projection.py` | `python3 tools/system_projection.py [--additions N]` | Monte Carlo 1-10 anos. Fat tails. |

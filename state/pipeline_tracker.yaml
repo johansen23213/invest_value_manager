@@ -1,30 +1,37 @@
 # PIPELINE TRACKER + MAINTENANCE
 # Operational metadata for the fund
-# Updated: 2026-02-19
+# Updated: 2026-02-20
 
 # PRIORITY #1 - CAPITAL DEPLOYMENT (while cash > 25%)
 capital_deployment:
   frequency: daily
   priority: 1
   trigger: "cash > 25%"
-  last_run: 2026-02-19
-  next_due: 2026-02-20
-  last_result: "S89: MONC.MI FY2025 published (BASE-BULL). R2 MODERATE COUNTER. R3 COMPLETE: FV 58→52, entry 48→42. 3 hard gates (earnings call, RACE priority, Q1 2026 growth). R4 DEFERRED to post-Q1 2026. LYV Q4 tonight — framework ready. DSY.PA Q4 growth 1%, SO on alert."
+  last_run: 2026-02-20
+  next_due: 2026-02-21
+  last_result: "S97: 4 R1s (MNST, OR.PA, AM.PA, BEAN.SW). MNST QS 83 adj FANTASY $52 FV. OR.PA QS 73 adj OVERVALUED EUR 284. AM.PA QS 80 adj OVERVALUED EUR 398. BEAN.SW QS 80 adj FANTASY CHF 470. 0 ACTIONABLE. Pipeline: 118 SCORED, 23 R1_COMPLETE (from 19). 19 R1s in S92-S97. 3 earnings frameworks verified (MONY.L, EDEN.PA, DTE.DE). Fantasy rate 60%."
   skill: ".claude/skills/capital-deployment/SKILL.md"
   tool: "tools/quality_universe.py"
 
 # DAILY
 vigilance:
   frequency: daily
-  last_run: 2026-02-19
-  next_due: 2026-02-20
-  last_result: "S89: MONC.MI FY2025 published (Q4 +7%, EBIT 29.2%). LYV dismiss ruling confirmed (Feb 18). MONY.L 13yr low, 4 days to probation earnings. DSY.PA Q4 growth 1%. GL $4.66M data breach settlement. AUTO.L pricing +5.5%. 0 SOs triggered. LYV IN short range ($156)."
+  last_run: 2026-02-20
+  next_due: 2026-02-21
+  last_result: "S94: 0 CRITICAL, 3 HIGH (MONY.L Mon Feb 23, EDEN.PA Tue Feb 24, DTE.DE Wed Feb 26 — all earnings-related). EDEN.PA Italy fraud = former execs, immaterial. SOs: RACE.MI 4.3%, MORN 7.3%, DNLM.L 8.0%."
+  smart_skip:
+    same_day_window_hours: 8
+    source: "state/session_continuity.yaml → skip_if_same_day"
 
 rotation_check:
   frequency: daily
-  last_run: 2026-02-19
-  next_due: 2026-02-20
-  last_result: "S80: Bottom 3: LULU (7.6% MoS), DTE.DE (8.1%), BYIT.L (15.5%). MONY.L -13.0% worst performer. LULU on probation Mar 31. DTE.DE Feb 26 earnings."
+  last_run: 2026-02-20
+  next_due: 2026-02-21
+  last_result: "S94: Bottom 3: DTE.DE (+7.4% MoS), LULU (+7.2%), BYIT.L (+18.4%). Rotation flagged vs ALFA.L (OS 4.0x, 3.6x). No rotation pre-earnings. Post-earnings target cash 45-50% by Mar 1."
+  smart_skip:
+    same_day_window_hours: 12
+    earnings_blackout: true
+    note: "Skip during earnings week if >40% portfolio reporting in 5d"
 
 # WEEKLY
 opportunity_scan:
@@ -43,9 +50,9 @@ risk_review:
 fragility_watch:
   frequency: weekly
   priority: 2
-  last_run: 2026-02-18
-  next_due: 2026-02-25
-  last_result: "S88: APP S3 COMPLETE → SHORT REJECTED (S2 STRONG BULL 7.0/10, P10 violated). Short pipeline: LYV S4 APPROVED (Mar 2 catalyst, pending Q4 tonight), CVNA S3 complete (S4 deferred, stock at $361), APP REJECTED. Active shorts: 0. 7 total short candidates tracked."
+  last_run: 2026-02-20
+  next_due: 2026-02-27
+  last_result: "S93: LYV short CANCELLED (KC#3 triggered, FV $170-238 at 8-10% growth >> $130 cancel). Active shorts: 0. Short pipeline: CVNA S3 complete (S4 deferred, $361), APP REJECTED. 0 active short candidates mature. Fair-Value regime — short screening not urgent but remains on radar."
   skill: ".claude/skills/short-thesis-framework/SKILL.md"
   tool: "tools/quality_universe.py --fragility"
   mandatory: true
@@ -94,6 +101,61 @@ system_challenge:
   next_due: 2026-03-11
   last_result: "5 challenges. Actions: mentalidad competitiva removed, QS default fixed."
 
+# R1 PROCESSING (PRIORITY #1 — anti-cash-drag, L-08)
+r1_processing:
+  frequency: daily
+  priority: 1
+  trigger: "SCORED count > 0 in universe"
+  last_run: 2026-02-20
+  next_due: 2026-02-21
+  last_result: "S95: 3 R1s (ODFL, WRB, ROL). Running total: 15 R1s in S92-S95 (S92: 6, S93: 3, S94: 3, S95: 3). 19 R1_COMPLETE in universe. 118 SCORED remain."
+  minimum_per_session: 3
+  skill: ".claude/skills/capital-deployment/SKILL.md"
+  tool: "tools/r1_prioritizer.py"
+  efficiency:
+    fantasy_rate_last_10: 0.70
+    actionable_rate_last_10: 0.21
+    note: "Updated each session from universe r1_verdict stats. Cooldowns in session_continuity.yaml."
+
+# UNIVERSE REFRESH
+universe_refresh:
+  frequency: monthly
+  last_run: 2026-02-20
+  next_due: 2026-03-20
+  last_result: "S92: All major indices scanned. 176 companies. Index saturation reached."
+  tool: "tools/batch_scorer.py"
+
+# SECTOR HEALTH
+sector_health:
+  frequency: weekly
+  last_run: 2026-02-20
+  next_due: 2026-02-27
+  last_result: "S95: Telecom sector view refreshed (17d stale → fresh). T-Mobile US CMD beat, EU DNA regulation proposed, Orange FY beat. DTE.DE earnings preview added. All portfolio deps covered."
+  tool: "tools/sector_health.py"
+  mandatory: true
+
+# DRIFT DETECTION
+drift_detection:
+  frequency: monthly
+  last_run: 2026-02-20
+  next_due: 2026-03-20
+  last_result: "S92+: First run. Sizing stable 4.1% avg. Conviction 86% Alta. 0 active shorts, 1 pending (LYV). No drift detected."
+  tool: "tools/drift_detector.py --verbose"
+
+# NET EXPOSURE REASONING (P13, mandatory)
+net_exposure_reasoning:
+  frequency: daily
+  last_run: 2026-02-20
+  next_due: 2026-02-21
+  last_result: "S93: Net 39.4% long, 0% short, 60.6% cash. Fair-Value CONFIRMED. LYV short CANCELLED (KC#3, FV $170-238 at 8-10% growth). Cash justified by earnings density Feb 23-27 + 4 SOs <10%. Post-earnings target: 45-50% by Mar 1."
+
+# STANDING ORDER REALITY CHECK
+so_reality_check:
+  frequency: daily
+  last_run: 2026-02-20
+  next_due: 2026-02-21
+  last_result: "S90: 7 real, 7 borderline, 4 fantasy reclassified."
+
 # MAINTENANCE
 maintenance:
   last_health_check: 2026-02-14
@@ -105,7 +167,11 @@ maintenance:
   skills_count: 40
   tools_count: 16
   rules_count: 6
+  tools_count: 17
   evolution_tracking_summary: |
+    2026-02-20: v4.6 Auto-Evolution + Dedup — session_continuity.yaml, r1 cooldowns, Fase 6, smart_skip, R1 verdict tracking, 19 backfilled
+    2026-02-20: v4.5 Sector Health System — sector_health.py (6 subcommands), sector staleness detection, coverage mapping, cascade deps, macro-map, r1_prioritizer STALE-SECTOR flags, error #56
+    2026-02-20: v4.4 System Improvement — r1_prioritizer tool, pipeline funnel dashboard, staleness detection, rotation triggers, drift detector first run, 5 new pipeline items
     2026-02-18: v4.1 short system + epistemic rigor audit — 12 files fixed, 2 new errors, source classification
     2026-02-14: Scalability refactoring — system.yaml split, CLAUDE.md diet, session-protocol compact
     2026-02-11: System Devil's Advocate — 5 challenges, mentalidad gestor, QS fixes

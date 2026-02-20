@@ -21,6 +21,7 @@
 | `thesis/short/_TEMPLATE.md` | Template de thesis short |
 | `world/current_view.md` | Vision macro general |
 | `world/sectors/{sector}.md` | Vision sectorial (v2.2.1) |
+| `state/session_continuity.yaml` | Inter-session dedup: completed work, R1 cooldowns, handoff, evolution proposals |
 | `state/agent_coordination.yaml` | Coordinacion inter-agente (shared blackboard) |
 | `learning/da_accuracy_tracker.yaml` | DA correction tracking — pre/post FV, 6-month review, accuracy stats |
 

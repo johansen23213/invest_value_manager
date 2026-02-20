@@ -1,0 +1,144 @@
+sector_health_cache:
+  last_snapshot: '2026-02-20'
+  status_snapshot:
+    asset-management.md:
+      status: NEUTRAL
+      last_updated: '2026-02-19'
+      dep_count: 1
+    auto-eu.md:
+      status: EVITAR
+      last_updated: '2026-02-05'
+      dep_count: 0
+    automotive.md:
+      status: NEUTRAL
+      last_updated: '2026-02-05'
+      dep_count: 0
+    building-materials-cement.md:
+      status: NEUTRAL
+      last_updated: '2026-02-20'
+      dep_count: 0
+    business-services.md:
+      status: NEUTRAL
+      last_updated: '2026-02-13'
+      dep_count: 1
+    commercial-kitchen-equipment.md:
+      status: SOBREPONDERAR
+      last_updated: '2026-02-19'
+      dep_count: 0
+    consumer-discretionary.md:
+      status: NEUTRAL
+      last_updated: '2026-02-07'
+      dep_count: 4
+    consumer-staples.md:
+      status: NEUTRAL
+      last_updated: '2026-02-04'
+      dep_count: 0
+    defense-aerospace.md:
+      status: NEUTRAL
+      last_updated: '2026-02-13'
+      dep_count: 0
+    digital-marketplaces.md:
+      status: SOBREPONDERAR
+      last_updated: '2026-02-06'
+      dep_count: 1
+    energy.md:
+      status: INFRAPONDERAR
+      last_updated: '2026-02-04'
+      dep_count: 0
+    environmental-water.md:
+      status: NEUTRAL
+      last_updated: '2026-02-13'
+      dep_count: 0
+    financial-data-analytics.md:
+      status: NEUTRAL
+      last_updated: '2026-02-13'
+      dep_count: 2
+    healthcare-equipment.md:
+      status: NEUTRAL
+      last_updated: '2026-02-14'
+      dep_count: 0
+    hr-payroll-processing.md:
+      status: NEUTRAL
+      last_updated: '2026-02-18'
+      dep_count: 0
+    industrial-technology.md:
+      status: NEUTRAL
+      last_updated: '2026-02-19'
+      dep_count: 0
+    industrials.md:
+      status: NEUTRAL
+      last_updated: '2026-02-06'
+      dep_count: 0
+    insurance.md:
+      status: NEUTRAL
+      last_updated: '2026-02-13'
+      dep_count: 1
+    live-entertainment.md:
+      status: NEUTRAL
+      last_updated: '2026-02-19'
+      dep_count: 1
+    luxury-goods.md:
+      status: NEUTRAL
+      last_updated: '2026-02-11'
+      dep_count: 1
+    media-publishing.md:
+      status: INFRAPONDERAR
+      last_updated: '2026-02-04'
+      dep_count: 0
+    mobile-ad-tech.md:
+      status: INFRAPONDERAR
+      last_updated: '2026-02-18'
+      dep_count: 0
+    payments-fintech.md:
+      status: NEUTRAL
+      last_updated: '2026-02-04'
+      dep_count: 2
+    pharma-healthcare.md:
+      status: NEUTRAL
+      last_updated: '2026-02-12'
+      dep_count: 1
+    promotional-products.md:
+      status: NEUTRAL
+      last_updated: '2026-02-14'
+      dep_count: 0
+    real-estate.md:
+      status: NEUTRAL
+      last_updated: '2026-02-08'
+      dep_count: 0
+    security-access-control.md:
+      status: NEUTRAL
+      last_updated: '2026-02-18'
+      dep_count: 0
+    self-service-vending.md:
+      status: NEUTRAL
+      last_updated: '2026-02-18'
+      dep_count: 0
+    semiconductors-equipment.md:
+      status: NEUTRAL
+      last_updated: '2026-02-13'
+      dep_count: 1
+    shipping-services.md:
+      status: NEUTRAL
+      last_updated: '2026-02-19'
+      dep_count: 0
+    technology.md:
+      status: NEUTRAL
+      last_updated: '2026-02-12'
+      dep_count: 6
+    telecom.md:
+      status: NEUTRAL
+      last_updated: '2026-02-03'
+      dep_count: 3
+    testing-inspection-certification.md:
+      status: SOBREPONDERAR
+      last_updated: '2026-02-14'
+      dep_count: 0
+    uk-adviser-platforms.md:
+      status: UNKNOWN
+      last_updated: '2026-02-20'
+      dep_count: 0
+    utilities.md:
+      status: INFRAPONDERAR
+      last_updated: '2026-02-18'
+      dep_count: 1
+  sector_mappings: {}

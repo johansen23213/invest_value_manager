@@ -220,6 +220,7 @@ Las europeas (Allianz, AXA) ofrecen yield pero menor calidad de underwriting."
 |--------|---------|-----|-------------|--------------|--------|
 | **ACGL** | **Arch Capital** | **68 adj (B)** | **thesis/research/ACGL** | **$92** | **R1 complete, WATCHLIST** |
 | **MMC** | **Marsh McLennan** | **68 adj (B)** | **thesis/research/MMC** | **$160** | **R1 complete, WATCHLIST** |
+| **AON** | **Aon plc** | **70 adj (B)** | **thesis/research/AON** | **$300** | **R1 complete, WATCHLIST** |
 | KMPR | Kemper Corp | 42 (C) | thesis/research/KMPR | $28 | Wait for turnaround confirmation |
 
 ### Evitar

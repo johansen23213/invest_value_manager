@@ -230,6 +230,40 @@ Clasificacion: COSMETICO (no propagar), MENOR (no), MATERIAL (SI), CRITICO (SI +
 
 ---
 
+## FASE 6: EVOLUTION MICRO-STEP (ultima operacion de la sesion)
+
+### 6.1 Audit Plan vs Execution
+- Items del plan completados vs deferred
+- R1s: cuantos ACTIONABLE vs FANTASY esta sesion
+
+### 6.2 Metric Check
+- **R1 fantasy rate** (last 10): si >60% → FLAG
+  → Considerar: 1 de 3 R1s con `--near-entry-only`, o screening antes de mas R1s
+- **Vigilance dedup**: cuantas veces se salto vs ejecuto (via session_continuity)
+- **SO fill rate**: 0/N en N sesiones → FLAG si 0/20+
+
+### 6.3 Propose 1 Micro-Improvement
+Format:
+```
+EVOLUTION PROPOSAL:
+  What: [1 frase]
+  Why: [metrica que lo dispara]
+  How: [cambio concreto]
+  Measure: [como saber si funciono en 5 sesiones]
+  Apply: NOW | NEXT SESSION | NEEDS DISCUSSION
+```
+Si `Apply == NOW` y es menor → implementar + registrar en `pipeline_tracker.yaml` → `evolution_tracking_summary`.
+
+### 6.4 Write Session Continuity
+Actualizar `state/session_continuity.yaml` con trabajo de ESTA sesion:
+- Overwrite `session`, `completed`, `skip_if_same_day` sections
+- Merge `r1_cooldowns`: agregar nuevos, purgar expirados (>30d)
+- Update `next_priorities` with handoff for next session
+- Update `evolution` metrics (fantasy rate, proposal)
+**ESTA ES LA ULTIMA ESCRITURA DE LA SESION.**
+
+---
+
 ## Cierre de Contexto (NO "cierre de sesión")
 
 **NUNCA preguntar "¿cerramos?" o "¿algo más?"** — Siempre hay trabajo. El contexto se agota, yo no.

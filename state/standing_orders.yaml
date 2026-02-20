@@ -40,26 +40,18 @@ standing_orders:
 
   - ticker: RACE.MI
     action: ADD
-    trigger: "<=EUR 260"
+    trigger: "<=EUR 270"
     size_eur: 350
     shares_approx: 1
     fair_value: "EUR 355"
-    mos_at_trigger: "27%"
-    notes: "ADD to full 6% if initial EUR 270 already executed."
-    last_analysis_date: 2026-02-11
+    mos_at_trigger: "24%"
+    notes: "ADD to full 6% if initial EUR 295 already executed. Trigger raised EUR 260→270 (Session 90)."
+    last_analysis_date: 2026-02-20
     expiry: 2026-08-01
 
-  - ticker: V
-    action: ADD
-    trigger: "<=$235"
-    size_eur: 300
-    shares_approx: 1.3
-    fair_value: "$305"
-    mos_at_trigger: "22.9%"
-    tier: "A (QS 82)"
-    notes: "R4 APPROVED. ADD after initial BUY at $260. R3 FV $305. 4 hard gates apply."
-    last_analysis_date: 2026-02-15
-    expiry: 2026-08-01
+  # V ADD — MOVED TO EXTREME OPPORTUNITY (Session 90). Price $318.93, trigger $235 = -26.3% away.
+  # R4 APPROVED. ADD after initial BUY at $260. R3 FV $305. 4 hard gates apply.
+  # V BUY at $260 remains active (18.5% away, borderline — keep as real SO).
 
   # BUY ORDERS (new positions)
   # FGP.L — CANCELLED 2026-02-18 (Session 79)
@@ -78,16 +70,10 @@ standing_orders:
   # Was: BUY <=200 GBp, FV 380p, size EUR 400. Status was "UNDER REVIEW — Tier C"
   # Actual QS scoring revealed Tier D, not Tier C. Quality insufficient.
 
-  - ticker: MA
-    action: BUY
-    trigger: "<=$315"
-    size_eur: 500
-    fair_value: "$400"
-    mos_at_trigger: "21.3%"
-    tier: "A (QS 86)"
-    notes: "R4 APPROVED. WIDE 22/25. Hard gates: CCCA floor vote + Wero <5% + rev growth >=8%. ADD at $280."
-    last_analysis_date: 2026-02-15
-    expiry: 2026-08-01
+  # MA — MOVED TO EXTREME OPPORTUNITY (Session 90). Price $520.26, trigger $315 = -39.4% away.
+  # R4 APPROVED. WIDE 22/25. Hard gates: CCCA floor vote + Wero <5% + rev growth >=8%.
+  # If crisis brings MA to $315 range, re-activate. Quality undisputed (QS 86 Tier A).
+  # ADD order was $280 — also extreme. Both moved to Extreme Opportunity section below.
 
   - ticker: V
     action: BUY
@@ -115,34 +101,36 @@ standing_orders:
 
   - ticker: DNLM.L
     action: BUY
-    trigger: "<=780 GBp"
+    trigger: "<=900 GBp"
     size_eur: 375
     fair_value: "1008 GBp"
-    mos_at_trigger: "23%"
+    mos_at_trigger: "10.7%"
     tier: "A (QS 79)"
-    last_analysis_date: 2026-02-09
+    notes: "TRIGGER RAISED 780p→900p (Session 91). Expected Return framework: E[CAGR] 15.4% at 900p (growth 7% + yield 4.6% + MoS convergence 3.8%). RACE.MI precedent (Tier A Fair-Value mode, MoS 5-15% acceptable). R4 approved. UK homewares leader, 8.4% ROIC-WACC spread, 30.5% insider."
+    last_analysis_date: 2026-02-20
     expiry: 2026-06-01
 
   - ticker: RACE.MI
     action: BUY
-    trigger: "<=EUR 270"
+    trigger: "<=EUR 295"
     size_eur: 350
     fair_value: "EUR 355"
-    mos_at_trigger: "24%"
+    mos_at_trigger: "16.9%"
     tier: "A (QS 82/84)"
-    notes: "Committee approved. Conditional on Luce + tariffs."
-    last_analysis_date: 2026-02-11
+    notes: "Committee approved. Trigger RAISED EUR 270→295 (Session 90, Expected Return framework). E[CAGR] ~14.5% at EUR 295 vs cash 3%. Luce gate DE-RISKED (interior revealed Feb 9, positive feedback). Tariff gate DE-RISKED (25%→15%, Greenland threat withdrawn). Fair-Value mode: MoS 5-15% Tier A acceptable."
+    last_analysis_date: 2026-02-20
     expiry: 2026-08-01
 
   - ticker: ROP
     action: BUY
-    trigger: "<=$300"
+    trigger: "<=$285"
     size_eur: 400
-    fair_value: "$385"
+    fair_value: "$365"
     mos_at_trigger: "22%"
     tier: "B (QS 48/70 adj)"
-    notes: "Serial acquirer. 29 vertical software monopolies."
-    last_analysis_date: 2026-02-12
+    notes: "REVIEWED 2026-02-20. Trigger lowered $300→$285. FV revised $385→$365. DOGE structural prob 25-30% (up from 22%). AI per-seat prob 30-35% (up from 25%). KC#5 APPROACHING. See thesis/research/ROP/review_feb2026.md"
+    pre_execution_condition: "Q1 2026 organic growth must be >=4%. If <4%, lower trigger further or cancel."
+    last_analysis_date: 2026-02-20
     expiry: 2026-05-15
 
   - ticker: VLTO
@@ -180,15 +168,16 @@ standing_orders:
 
   - ticker: MEGP.L
     action: BUY
+    status: "SUSPENDED — NOT AVAILABLE ON ETORO (confirmed Session 93). Pipeline continues but SO not executable."
     trigger: "<=135 GBp"
     size_eur: 400
     shares_approx: 259
     fair_value: "180 GBp"
     mos_at_trigger: "25%"
     tier: "A (QS 80)"
-    notes: "R3 complete. DA -10% (200→180p, math error corrected). German regulation = execution risk (not catalyst). Failed sale Dec 2025. ROIC +32pp, net cash, 37% insider. ACGL is FIRST PRIORITY."
-    pre_execution_condition: "HARD GATE: FY2025 results Feb 27 must confirm laundry installs >800, receivables explained, no KC triggered. R4 committee required post-earnings."
-    last_analysis_date: 2026-02-18
+    notes: "R3 complete. DA -10% (200→180p). ROIC +32pp, net cash, 37% insider. eToro does NOT list MEGP.L — no etoro.com/markets/megp.l page found. Explore alternative platforms or accept as pipeline-only."
+    pre_execution_condition: "HARD GATE: FY2025 results Feb 27 must confirm laundry installs >800, receivables explained, no KC triggered. R4 committee required post-earnings. ALSO: confirm tradeable platform."
+    last_analysis_date: 2026-02-20
     expiry: 2026-08-01
 
   - ticker: SOON.SW
@@ -231,26 +220,17 @@ standing_orders:
 
   - ticker: MORN
     action: BUY
-    trigger: "<=$135"
+    trigger: "<=$150"
     size_eur: 400
-    fair_value: "$180"
-    mos_at_trigger: "25%"
+    fair_value: "$195"
+    mos_at_trigger: "23.1%"
     tier: "A (QS 60/78 adj)"
-    notes: "R4 WATCHLIST. CRSP conflict thesis update REQUIRED pre-execution. 10 kill conditions."
-    pre_execution_condition: "Thesis must include CRSP acquisition analysis + insider selling correction"
-    last_analysis_date: 2026-02-14
+    notes: "GATE CLEARED S92. FV $180→$195 (CRSP accretion: $55-65M high-margin revenue). Mansueto selling = 10b5-1 plan, not discretionary. FY2025: $2.45B rev +8%, adj EPS +25%. E[CAGR] at $150 = ~18.4%. Trigger raised $135→$150 (7.9% from current $161.85)."
+    last_analysis_date: 2026-02-20
     expiry: 2026-05-31
 
-  - ticker: PAYC
-    action: BUY
-    trigger: "<=$88"
-    size_eur: 400
-    fair_value: "$115"
-    mos_at_trigger: "23.5%"
-    tier: "A (QS 68/75 adj)"
-    notes: "R4 WATCHLIST. Per-seat pricing KC#8. Requires -30% from current. Patient order."
-    last_analysis_date: 2026-02-14
-    expiry: 2026-05-31
+  # PAYC — MOVED TO EXTREME OPPORTUNITY (Session 90). Price $120.72, trigger $88 = -27.1% away.
+  # R4 WATCHLIST. Per-seat pricing KC#8. SaaSpocalypse risk. If AI headcount reduction accelerates, revisit.
 
   - ticker: FDS
     action: BUY
@@ -263,16 +243,8 @@ standing_orders:
     last_analysis_date: 2026-02-14
     expiry: 2026-06-30
 
-  - ticker: ZTS
-    action: BUY
-    trigger: "<=$95"
-    size_eur: 400
-    fair_value: "$120"
-    mos_at_trigger: "20.8%"
-    tier: "A (QS 78/80 adj)"
-    notes: "R4 WATCHLIST. FV corrected from thesis $140. Librela + Apoquel generic risks. 7 kill conditions."
-    last_analysis_date: 2026-02-14
-    expiry: 2026-06-30
+  # ZTS — MOVED TO EXTREME OPPORTUNITY (Session 90). Price $127.28, trigger $95 = -25.3% away.
+  # R4 WATCHLIST. FV corrected from thesis $140. Librela + Apoquel generic risks. 7 kill conditions.
 
 # =============================================================================
 # SHORT ORDERS - Pre-approved short positions, execute when price hits trigger
@@ -280,30 +252,58 @@ standing_orders:
 # Requires: Short pipeline S1-S4 complete + investment-committee SHORT_APPROVAL
 # =============================================================================
 short_orders:
-  - ticker: LYV
-    action: SHORT
-    status: "PAUSED — Q4 results materially weakened thesis. KC#3 triggered (Session 89)."
-    trigger: "PAUSED. Was $145-160. Re-evaluate after reverse DCF with 8-10% growth."
-    size_eur: 100
-    fair_value_short: "$85 (UNDER REVIEW — likely $100-130 at 8-10% growth)"
-    catalyst: "DOJ antitrust trial March 2, 2026 + 40 state AGs"
-    catalyst_date: 2026-03-02
-    carry_cost_note: "~7-8% annual on eToro CFD (~EUR 0.63/month)"
-    max_duration: "6 months initially; re-evaluate quarterly"
-    stop_loss: "$195 (max loss EUR ~24 = 0.24% of portfolio)"
-    instrument: "CFD short, x1 leverage, no margin"
-    kill_conditions:
-      - "KC#1: DOJ + all states settle simultaneously -> COVER IMMEDIATELY"
-      - "KC#2: Stock > $195 -> COVER (stop loss)"
-      - "KC#3: Organic revenue growth >10% 2 consecutive quarters -> **TRIGGERED Feb 20: Q3 +11%, Q4 +11%**"
-      - "KC#4: Carry cost > 8% of position without catalyst -> COVER within 30 days"
-    q4_2025_assessment: |
-      STRONG BEAT. Rev $6.3B (+11%), FY AOI $2.4B (+10%). TM AOI share 52%->45.8%.
-      Concerts AOI +30%. FCF 4.5%->5.2%. Deferred rev +21%. 2026 guide: DD AOI growth.
-      4/6 thesis pillars weakened. GO conditions 2/6 FAIL. Entry window NOT used.
-      See: thesis/short/research/LYV/post_q4_assessment.md
-    notes: "S4 APPROVED CONDITIONAL (Session 76). PAUSED Session 89 (Feb 20) post-Q4. KC#3 triggered. 4/6 pillars weakened. Re-evaluate with reverse DCF at 8-10% growth. If FV>$130: CANCEL. Monitor DOJ trial Mar 2 from sidelines."
-    last_analysis_date: 2026-02-20
-    expiry: 2026-09-01
+  # LYV — CANCELLED Session 93 (2026-02-20)
+  # Reason: KC#3 triggered (organic rev >10% 2Q consecutive). Operational thesis dead.
+  # Reverse DCF at 8-10% growth: FV $170-238 >> $130 cancel threshold.
+  # Legal catalyst (DOJ trial Mar 2) alone insufficient per P10.
+  # 4/6 thesis pillars weakened post-Q4. FV $85 no longer defensible.
+  # Full history: thesis/short/research/LYV/post_q4_assessment.md
+  # Monitor DOJ trial outcome from sidelines — no position.
+
+# =============================================================================
+# EXTREME OPPORTUNITY WATCHLIST — Session 90
+# These were active SOs with >25% distance from trigger and no imminent catalyst.
+# They are NOT deployment plan — they are crash-only opportunities.
+# If price approaches any of these during a correction, RE-ACTIVATE as standing order.
+# =============================================================================
+extreme_opportunity:
+  - ticker: MA
+    trigger: "<=$315"
+    size_eur: 500
+    fair_value: "$400"
+    tier: "A (QS 86)"
+    distance_when_moved: "39.4% (Feb 20, 2026)"
+    notes: "R4 APPROVED. WIDE 22/25. Hard gates: CCCA + Wero + rev growth. ADD at $280."
+
+  - ticker: PAYC
+    trigger: "<=$88"
+    size_eur: 400
+    fair_value: "$115"
+    tier: "A (QS 68/75 adj)"
+    distance_when_moved: "27.1%"
+    notes: "R4 WATCHLIST. Per-seat pricing KC#8. SaaSpocalypse risk."
+
+  - ticker: ZTS
+    trigger: "<=$95"
+    size_eur: 400
+    fair_value: "$120"
+    tier: "A (QS 78/80 adj)"
+    distance_when_moved: "25.3%"
+    notes: "R4 WATCHLIST. Librela + Apoquel generic risks."
+
+  - ticker: V_ADD
+    trigger: "<=$235"
+    size_eur: 300
+    fair_value: "$305"
+    tier: "A (QS 82)"
+    distance_when_moved: "26.3%"
+    notes: "ADD after initial V BUY at $260. R3 FV $305."
+
+# =============================================================================
+# REVIEW FLAGS — Thesis needs updating before trigger changes
+# =============================================================================
+review_flags:
+  # ROP — REVIEWED 2026-02-20. Flag RESOLVED.
+  # Trigger lowered $300→$285. FV revised $385→$365. See thesis/research/ROP/review_feb2026.md
 
 # Cancelled orders history: see state/calendar_archive.yaml

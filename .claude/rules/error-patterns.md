@@ -79,3 +79,24 @@ Cada ronda del pipeline (R1/S1, R2/S2, R3/S3) DEBE crear un archivo en `thesis/r
 
 **#51. Confundir sesion con dia — incrementar fecha artificialmente**
 Session ≠ Dia. Multiples sesiones pueden ocurrir en UN MISMO dia. SIEMPRE obtener fecha real con `date` o `currentDate` del contexto del sistema. NUNCA asumir fecha desde memoria ni incrementar. Al escribir en memory/system.yaml, usar la fecha REAL del sistema. Error recurrente: session N en Feb 18, memory escribia "Feb 19", siguiente sesion escribia "Feb 20" — todo era Feb 18.
+
+---
+
+## Errores de Identidad y Deployment (Session 90)
+
+**#53. Presentar opciones en vez de decidir**
+"Prefieres A o B?" cuando deberia ser "Recomiendo A porque X. Si dices no, ajusto." Anti-patron: menu de opciones, bullet points con pros/cons dejando la decision al humano. El CIO decide. El humano confirma. Ver Principio 8 y identity.md.
+
+**#54. Standing orders irrealistas como autoengano**
+SOs a -40% del precio actual con <10% probabilidad de fill no son deployment, son ficcion. Cada SO debe tener probabilidad estimada de fill en 6 meses. Si distancia >30% sin catalizador especifico → marcar como FANTASY y separar de SOs reales. 22 SOs con 0 ejecutados en 90 sesiones = el sistema fallo.
+
+**#55. Cash drag por paralisis de analisis**
+60% cash durante semanas GARANTIZA underperformance (~4.5pp/yr). Si el pipeline adversarial produce entries inalcanzables, el pipeline esta mal calibrado — no mi decision de actuar. La solucion: Expected Return como metrica de deployment (no solo MoS), modo Fair-Value acepta MoS 5-15% para Tier A. La calidad a precio razonable SIEMPRE bate al cash a 3 anos.
+
+---
+
+## Errores de Contexto Sectorial
+
+**#56. R1 sin sector view fresco**
+ANTES de lanzar fundamental-analyst para R1, verificar edad del sector view.
+Si >21 dias: ACTUALIZAR primero. Si no existe: CREAR primero (ya cubierto por #30, #56 anade dimension de staleness). `sector_health.py freshness` es la herramienta. `r1_prioritizer.py` muestra flags STALE-SECTOR(Xd) y NO-SECTOR-VIEW automaticamente.

@@ -1,5 +1,5 @@
 quality_universe:
-  last_updated: '2026-02-19'
+  last_updated: '2026-02-20'
   companies:
   - ticker: INTU
     name: Intuit Inc.
@@ -10,12 +10,12 @@ quality_universe:
     fair_value: 395.0
     entry_price: 290.0
     currency: USD
-    current_price: 389.57
-    distance_to_entry: 34.3
+    current_price: 381.54
+    distance_to_entry: 31.6
     pipeline_status: R3_COMPLETE
     thesis_path: thesis/research/INTU/thesis.md
     last_scored: '2026-02-13'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: 'R3: DA STRONG COUNTER 14/19. FV $465->$395 (-15%). QS 75->72 (Tier A->B). SBC-adjusted FCF. Entry $285-300. WAIT
       Feb 26 Q2 earnings.'
     direction: long
@@ -28,12 +28,12 @@ quality_universe:
     fair_value: 115.0
     entry_price: 88.0
     currency: USD
-    current_price: 124.22
-    distance_to_entry: 41.2
+    current_price: 120.72
+    distance_to_entry: 37.2
     pipeline_status: STANDING_ORDER
     thesis_path: thesis/research/PAYC/thesis.md
     last_scored: '2026-02-14'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: ''
     direction: long
   - ticker: DSY.PA
@@ -45,12 +45,12 @@ quality_universe:
     fair_value: 20.0
     entry_price: 14.5
     currency: EUR
-    current_price: 17.21
-    distance_to_entry: 18.7
+    current_price: 17.46
+    distance_to_entry: 20.4
     pipeline_status: APPROVED
     thesis_path: thesis/research/DSY.PA/thesis.md
     last_scored: '2026-02-10'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: 'SO revised Feb 18: trigger EUR 15.50→14.50 post -21% crash. FV EUR 20 unchanged. Q4 miss = growth deceleration
       not structural. SaaSpocalypse misapplied. KC5/KC6 WATCHING. Wait Q1 2026 (>=3% growth).'
     direction: long
@@ -63,12 +63,12 @@ quality_universe:
     fair_value: 1008
     entry_price: 780
     currency: GBp
-    current_price: 973.5
-    distance_to_entry: 24.8
+    current_price: 968.45
+    distance_to_entry: 24.2
     pipeline_status: APPROVED
     thesis_path: thesis/research/DNLM.L/thesis.md
     last_scored: '2026-02-09'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: 'Standing order 780p. UK homewares #1, 8.8% market share.'
     direction: long
   - ticker: RACE.MI
@@ -80,12 +80,12 @@ quality_universe:
     fair_value: 355
     entry_price: 270
     currency: EUR
-    current_price: 310.1
-    distance_to_entry: 14.9
+    current_price: 310.8
+    distance_to_entry: 15.1
     pipeline_status: APPROVED
     thesis_path: thesis/research/RACE.MI/thesis.md
     last_scored: '2026-02-11'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: Standing order EUR 270 BUY + EUR 260 ADD. Ultra-luxury moat.
     direction: long
   - ticker: FICO
@@ -97,14 +97,16 @@ quality_universe:
     fair_value: 900
     entry_price: 775
     currency: USD
-    current_price: 1366.93
-    distance_to_entry: 76.4
+    current_price: 1352.73
+    distance_to_entry: 74.5
     pipeline_status: R1_COMPLETE
     thesis_path: thesis/research/FICO/thesis.md
     last_scored: '2026-02-12'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: Credit scoring monopoly. R1 complete.
     direction: long
+    r1_verdict: FANTASY
+    r1_session: 88
   - ticker: MA
     name: Mastercard Inc.
     qs_tool: 86
@@ -114,12 +116,12 @@ quality_universe:
     fair_value: 400.0
     entry_price: 315.0
     currency: USD
-    current_price: 527.98
-    distance_to_entry: 67.6
+    current_price: 520.26
+    distance_to_entry: 65.2
     pipeline_status: STANDING_ORDER
     thesis_path: thesis/research/MA/thesis.md
     last_scored: '2026-02-14'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: ''
     direction: long
   - ticker: V
@@ -131,12 +133,12 @@ quality_universe:
     fair_value: 305.0
     entry_price: 260.0
     currency: USD
-    current_price: 320.3
-    distance_to_entry: 23.2
+    current_price: 318.93
+    distance_to_entry: 22.7
     pipeline_status: STANDING_ORDER
     thesis_path: thesis/research/V/thesis.md
     last_scored: '2026-02-15'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: R4 APPROVED. FV $305. Entry $260 (14.8% MoS). 4 hard gates (DOJ, CCCA, rev growth, incentives). MA first priority.
       ADD $235.
     direction: long
@@ -149,32 +151,35 @@ quality_universe:
     fair_value: 385.0
     entry_price: 300.0
     currency: USD
-    current_price: 327.6
-    distance_to_entry: 9.2
+    current_price: 332.0
+    distance_to_entry: 10.7
     pipeline_status: R4_APPROVED
     thesis_path: thesis/research/ROP/thesis.md
     last_scored: '2026-02-12'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: R3 DONE. QS 48->70 (+22 serial acquirer adj). FV $385. WIDE moat 20/25. HIGH risk. Standing order $300 pending
       R4. SaaSpocalypse + DOGE risks.
     direction: long
   - ticker: GGG
     name: Graco Inc.
-    qs_tool: 71
-    qs_adj: 71
-    tier: B
+    qs_tool: 69
+    qs_adj: 77
+    tier: A
     sector: Industrial Technology
-    fair_value: 100.0
-    entry_price: 80.0
+    fair_value: 78.0
+    entry_price: 66.0
     currency: USD
-    current_price: 93.42
-    distance_to_entry: 16.8
-    pipeline_status: SCORED
-    thesis_path: null
-    last_scored: '2026-02-12'
-    last_price_check: '2026-02-19'
-    notes: ROIC-WACC +13.3pp, net cash. At ATH. Wait for pullback to 0.
+    current_price: 93.02
+    distance_to_entry: 29.0
+    pipeline_status: R1_COMPLETE
+    thesis_path: thesis/research/GGG/thesis.md
+    last_scored: '2026-02-20'
+    last_price_check: '2026-02-20'
+    notes: R1 S92. QS 69→77 adj (Tier A). FV $78. Overvalued at $93. Wide moat, 100yr, 53% GM. Entry $66 (crisis-only). Price
+      alerts $80/$75.
     direction: long
+    r1_verdict: OVERVALUED
+    r1_session: 92
   - ticker: ROR.L
     name: ROTORK PLC ORD 0.5P
     qs_tool: 73
@@ -189,7 +194,7 @@ quality_universe:
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-12'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: ROIC-WACC +12.7pp, net cash. At ATH. Wait for pullback to 320p.
     direction: long
   - ticker: BVI.PA
@@ -201,12 +206,12 @@ quality_universe:
     fair_value: 29.0
     entry_price: 22.0
     currency: EUR
-    current_price: 27.42
-    distance_to_entry: 24.6
+    current_price: 27.4
+    distance_to_entry: 24.5
     pipeline_status: R3_COMPLETE
     thesis_path: thesis/research/BVI.PA/thesis.md
     last_scored: '2026-02-13'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: R3 COMPLETE. QS 69->70 adj (+4 market -3 governance). FV EUR 29 (was 33, -12pct). Wendel STRUCTURAL. Entry EUR
       22. HARD GATE Feb 25 earnings.
     direction: long
@@ -219,31 +224,34 @@ quality_universe:
     fair_value: 290.0
     entry_price: 210.0
     currency: USD
-    current_price: 258.91
-    distance_to_entry: 23.3
+    current_price: 256.29
+    distance_to_entry: 22.0
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-12'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: ''
     direction: long
   - ticker: AON
     name: Aon plc
-    qs_tool: 72
-    qs_adj: 72
+    qs_tool: 62
+    qs_adj: 70
     tier: B
     sector: Insurance/Broker
-    fair_value: 300.0
-    entry_price: 270.0
+    fair_value: 361.0
+    entry_price: 300.0
     currency: USD
-    current_price: 322.98
-    distance_to_entry: 19.6
-    pipeline_status: SCORED
-    thesis_path: null
-    last_scored: '2026-02-12'
-    last_price_check: '2026-02-19'
-    notes: ''
+    current_price: 324.3
+    distance_to_entry: 7.5
+    pipeline_status: R1_COMPLETE
+    thesis_path: thesis/research/AON/thesis.md
+    last_scored: '2026-02-20'
+    last_price_check: '2026-02-20'
+    notes: 'R1 S92. QS 62→70 adj. FV $361. Entry $300 (7.5% below, near 52wL $305). #2 global broker. AI selloff overblown.
+      Insiders net buyers 17.7:1.'
     direction: long
+    r1_verdict: ACTIONABLE
+    r1_session: 92
   - ticker: MMC
     name: Marsh & McLennan Companies, Inc
     qs_tool: 68
@@ -258,26 +266,28 @@ quality_universe:
     pipeline_status: STANDING_ORDER
     thesis_path: thesis/research/MMC/thesis.md
     last_scored: '2026-02-14'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: R4 APPROVED. Standing order $155 HALF POSITION (EUR 200). Greensill A$7B trial Aug 2026. 7 KCs.
     direction: long
   - ticker: WRB
     name: W.R. Berkley Corporation
-    qs_tool: 67
-    qs_adj: 67
+    direction: long
+    qs_tool: 63
+    qs_adj: 73
     tier: B
     sector: Insurance/Specialty P&C
     fair_value: 70.0
     entry_price: 60.0
     currency: USD
-    current_price: 70.8
-    distance_to_entry: 18.0
-    pipeline_status: SCORED
-    thesis_path: null
-    last_scored: '2026-02-12'
-    last_price_check: '2026-02-19'
-    notes: ''
-    direction: long
+    current_price: null
+    distance_to_entry: null
+    pipeline_status: R1_COMPLETE
+    thesis_path: thesis/research/WRB/thesis.md
+    last_scored: '2026-02-20'
+    last_price_check: null
+    notes: 'R1 S95: Insurer adj +10 (ROE 21.2%). AT FV. Soft cycle = wait. ACGL preferred. Entry 60.'
+    r1_verdict: AT_FV
+    r1_session: 95
   - ticker: BRO
     name: Brown & Brown, Inc.
     qs_tool: 65
@@ -287,12 +297,12 @@ quality_universe:
     fair_value: 66.0
     entry_price: 57.0
     currency: USD
-    current_price: 69.69
-    distance_to_entry: 22.3
+    current_price: 69.42
+    distance_to_entry: 21.8
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-12'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: ''
     direction: long
   - ticker: ADM.L
@@ -304,12 +314,12 @@ quality_universe:
     fair_value: 3000.0
     entry_price: 2350.0
     currency: USD
-    current_price: 2842.0
-    distance_to_entry: 20.9
+    current_price: 2855.77
+    distance_to_entry: 21.5
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-12'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: ''
     direction: long
   - ticker: RO.SW
@@ -321,12 +331,12 @@ quality_universe:
     fair_value: 380.0
     entry_price: 300.0
     currency: USD
-    current_price: 376.4
-    distance_to_entry: 25.5
+    current_price: 374.4
+    distance_to_entry: 24.8
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-12'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: ''
     direction: long
   - ticker: AZN
@@ -338,12 +348,12 @@ quality_universe:
     fair_value: 205.0
     entry_price: 168.0
     currency: USD
-    current_price: 208.67
+    current_price: 208.62
     distance_to_entry: 24.2
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-12'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: ''
     direction: long
   - ticker: GMAB
@@ -355,49 +365,53 @@ quality_universe:
     fair_value: 28.0
     entry_price: 20.0
     currency: USD
-    current_price: 29.16
-    distance_to_entry: 45.8
+    current_price: 28.9
+    distance_to_entry: 44.5
     pipeline_status: R3_COMPLETE
     thesis_path: thesis/research/GMAB/thesis.md
     last_scored: '2026-02-13'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: R3 COMPLETE. DA 14/20 STRONG COUNTER (highest ever). FV $36->$28 (-22%). QS 65->60 transformation discount. Entry
       $25->$20. Risk HIGH. Moat NARROW. DEPRIORITIZED — special situation, not quality compounder. Effectively Tier C forward-looking.
     direction: long
   - ticker: MNST
     name: Monster Beverage Corporation
+    direction: long
     qs_tool: 78
     qs_adj: 78
     tier: A
-    sector: Beverages
-    fair_value: 50.0
-    entry_price: 48.0
+    sector: consumer-staples
+    fair_value: 52.0
+    entry_price: 47.0
     currency: USD
-    current_price: 83.18
-    distance_to_entry: 73.3
+    current_price: null
+    distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: null
-    last_scored: '2026-02-12'
-    last_price_check: '2026-02-19'
-    notes: ''
-    direction: long
+    last_scored: '2026-02-20'
+    last_price_check: null
+    notes: 'R1 S97: QS 83 adj. Exceptional quality but P/E 46.6. Buy zone -47.'
+    r1_session: 97
+    r1_verdict: FANTASY
   - ticker: OR.PA
     name: L'OREAL
-    qs_tool: 77
-    qs_adj: 77
-    tier: A
-    sector: Personal Care
-    fair_value: 300.0
-    entry_price: 310.0
+    direction: long
+    qs_tool: 65
+    qs_adj: 65
+    tier: B
+    sector: luxury-goods
+    fair_value: 284.0
+    entry_price: 250.0
     currency: USD
-    current_price: 465.11
-    distance_to_entry: 50.0
+    current_price: null
+    distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: null
-    last_scored: '2026-02-12'
-    last_price_check: '2026-02-19'
-    notes: ''
-    direction: long
+    last_scored: '2026-02-20'
+    last_price_check: null
+    notes: 'R1 S97: QS 73 adj. #1 beauty globally. Buy zone EUR 200-250.'
+    r1_session: 97
+    r1_verdict: OVERVALUED
   - ticker: CL
     name: Colgate-Palmolive Company
     qs_tool: 71
@@ -407,12 +421,12 @@ quality_universe:
     fair_value: 88.0
     entry_price: 75.0
     currency: USD
-    current_price: 95.58
-    distance_to_entry: 27.4
+    current_price: 93.98
+    distance_to_entry: 25.3
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-12'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: ''
     direction: long
   - ticker: HSY
@@ -424,12 +438,12 @@ quality_universe:
     fair_value: 187.0
     entry_price: 162.0
     currency: USD
-    current_price: 222.04
-    distance_to_entry: 37.1
+    current_price: 219.91
+    distance_to_entry: 35.7
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-12'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: ''
     direction: long
   - ticker: BEI.DE
@@ -441,12 +455,12 @@ quality_universe:
     fair_value: 89.0
     entry_price: 84.0
     currency: USD
-    current_price: 125.31
-    distance_to_entry: 49.2
+    current_price: 124.74
+    distance_to_entry: 48.5
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-12'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: ''
     direction: long
   - ticker: CCH.L
@@ -458,12 +472,12 @@ quality_universe:
     fair_value: 4050.0
     entry_price: 3650.0
     currency: USD
-    current_price: 4736.0
+    current_price: 4738.0
     distance_to_entry: 29.8
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-12'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: ''
     direction: long
   - ticker: LOTB.BR
@@ -475,12 +489,12 @@ quality_universe:
     fair_value: 5640.0
     entry_price: 6750.0
     currency: USD
-    current_price: 12071.2
-    distance_to_entry: 78.8
+    current_price: 12149.75
+    distance_to_entry: 80.0
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-12'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: ''
     direction: long
   - ticker: PM
@@ -492,12 +506,12 @@ quality_universe:
     fair_value: 110.0
     entry_price: 150.0
     currency: USD
-    current_price: 182.67
-    distance_to_entry: 21.8
+    current_price: 183.5
+    distance_to_entry: 22.3
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-12'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: ''
     direction: long
   - ticker: COKE
@@ -509,31 +523,34 @@ quality_universe:
     fair_value: 126.0
     entry_price: 115.0
     currency: USD
-    current_price: 170.29
-    distance_to_entry: 48.1
+    current_price: 176.79
+    distance_to_entry: 53.7
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-12'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: ''
     direction: long
   - ticker: ROL
     name: Rollins, Inc.
-    qs_tool: 79
+    direction: long
+    qs_tool: 82
     qs_adj: 79
     tier: A
     sector: Pest Control/Business Services
-    fair_value: 65.0
-    entry_price: 42.0
+    fair_value: 38.0
+    entry_price: 38.0
     currency: USD
-    current_price: 60.25
-    distance_to_entry: 43.5
-    pipeline_status: SCORED
-    thesis_path: null
-    last_scored: '2026-02-13'
-    last_price_check: '2026-02-19'
-    notes: ''
-    direction: long
+    current_price: null
+    distance_to_entry: null
+    pipeline_status: R1_COMPLETE
+    thesis_path: thesis/research/ROL/thesis.md
+    last_scored: '2026-02-20'
+    last_price_check: null
+    notes: 'R1 S95: WIDE moat 22/25. QS 82 tool, adj 79. OVERVALUED at 61 (-37.5%). Entry 38 FANTASY. Pipeline quality Tier
+      A.'
+    r1_verdict: FANTASY
+    r1_session: 95
   - ticker: WKL.AS
     name: WOLTERS KLUWER
     qs_tool: 77
@@ -543,12 +560,12 @@ quality_universe:
     fair_value: 26.0
     entry_price: 20.0
     currency: USD
-    current_price: 72.78
-    distance_to_entry: 263.9
+    current_price: 73.2
+    distance_to_entry: 266.0
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-13'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: ''
     direction: long
   - ticker: ASML
@@ -560,12 +577,12 @@ quality_universe:
     fair_value: 935.0
     entry_price: 700.0
     currency: USD
-    current_price: 1468.72
-    distance_to_entry: 109.8
+    current_price: 1458.93
+    distance_to_entry: 108.4
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-13'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: ''
     direction: long
   - ticker: CDNS
@@ -577,12 +594,12 @@ quality_universe:
     fair_value: 230.0
     entry_price: 200.0
     currency: USD
-    current_price: 305.01
-    distance_to_entry: 52.5
+    current_price: 296.59
+    distance_to_entry: 48.3
     pipeline_status: R3_COMPLETE
     thesis_path: thesis/research/CDNS/thesis.md
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: 'R3: DA MODERATE COUNTER -11.5%. FV $260->$230. Entry $235->$200. SBC $455M (75x SBC-adj FCF). Reverse DCF: 41%
       implied vs 2.6% historical. SNPS-Ansys $35B competitive threat. Moat WIDE confirmed. Q4 beat. 41.7% above entry.'
     direction: long
@@ -595,12 +612,12 @@ quality_universe:
     fair_value: 1200.0
     entry_price: 900.0
     currency: USD
-    current_price: 1480.3
-    distance_to_entry: 64.5
+    current_price: 1469.9
+    distance_to_entry: 63.3
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-13'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: ''
     direction: long
   - ticker: MPWR
@@ -612,12 +629,12 @@ quality_universe:
     fair_value: 900.0
     entry_price: 650.0
     currency: USD
-    current_price: 1188.32
-    distance_to_entry: 82.8
+    current_price: 1175.22
+    distance_to_entry: 80.8
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-13'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: ''
     direction: long
   - ticker: LRCX
@@ -629,12 +646,12 @@ quality_universe:
     fair_value: 200.0
     entry_price: 150.0
     currency: USD
-    current_price: 240.09
-    distance_to_entry: 60.1
+    current_price: 237.39
+    distance_to_entry: 58.3
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-13'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: ''
     direction: long
   - ticker: MORN
@@ -646,12 +663,12 @@ quality_universe:
     fair_value: 180.0
     entry_price: 135.0
     currency: USD
-    current_price: 162.75
-    distance_to_entry: 20.6
+    current_price: 161.85
+    distance_to_entry: 19.9
     pipeline_status: STANDING_ORDER
     thesis_path: thesis/research/MORN/thesis.md
     last_scored: '2026-02-14'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: ''
     direction: long
   - ticker: IT
@@ -663,12 +680,12 @@ quality_universe:
     fair_value: 190.0
     entry_price: 125.0
     currency: USD
-    current_price: 161.25
-    distance_to_entry: 29.0
+    current_price: 156.94
+    distance_to_entry: 25.6
     pipeline_status: R4_WATCHLIST
     thesis_path: thesis/research/IT/thesis.md
     last_scored: '2026-02-14'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: R4 WATCHLIST. Entry $120-130 CONDITIONAL on Q1 2026 data (May). No standing order — needs AI disruption confirmation.
       Bear MoS negative.
     direction: long
@@ -681,12 +698,12 @@ quality_universe:
     fair_value: 190.0
     entry_price: 145.0
     currency: USD
-    current_price: 181.25
-    distance_to_entry: 25.0
+    current_price: 182.57
+    distance_to_entry: 25.9
     pipeline_status: R3_COMPLETE
     thesis_path: thesis/research/VEEV/thesis.md
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: 'R3 COMPLETE. DA MODERATE COUNTER -8%: FV $205→$190, entry $145. CRM share eroding (18→14 top-20), SBC 15.9% distorts
       FCF, LLM risk to eTMF. $2B buyback Jan 2026 (thesis missed, positive). QS 80→78 (CRM adj +6 not +8). Wait Mar 4 Q4 FY2026
       earnings. R2 deferred.'
@@ -700,12 +717,12 @@ quality_universe:
     fair_value: 330.0
     entry_price: 310.0
     currency: USD
-    current_price: 500.76
-    distance_to_entry: 61.5
+    current_price: 499.53
+    distance_to_entry: 61.1
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-13'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: QS 55->71 (+8 surgical robotics monopoly, +8 market position). ROIC 17%, ROIC-WACC +3.3pp, GM 66%, net cash. 17%
       rev CAGR. P/E 61x too expensive. Need -35% correction.
     direction: long
@@ -718,12 +735,12 @@ quality_universe:
     fair_value: 310.0
     entry_price: 275.0
     currency: USD
-    current_price: 377.32
-    distance_to_entry: 37.2
+    current_price: 372.66
+    distance_to_entry: 35.5
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-13'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: QS 59->67 (+8 ortho oligopoly market position). ROIC 11-14% improving, GM 64%, 5.4% insider, 11% organic growth.
       P/E 44x. Need -25% correction.
     direction: long
@@ -736,12 +753,12 @@ quality_universe:
     fair_value: 200.0
     entry_price: 170.0
     currency: USD
-    current_price: 258.07
-    distance_to_entry: 51.8
+    current_price: 249.1
+    distance_to_entry: 46.5
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-13'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: 'QS 61->66 (+5 Omnipod market position). Fastest medtech grower: 24% rev CAGR, ROIC 16%, GM 70%. FCF just turning
       positive. P/E 70x. Near 52wL (-32%). Still too expensive.'
     direction: long
@@ -754,12 +771,12 @@ quality_universe:
     fair_value: 110.0
     entry_price: 88.0
     currency: USD
-    current_price: 98.06
-    distance_to_entry: 11.4
+    current_price: 98.34
+    distance_to_entry: 11.8
     pipeline_status: R4_APPROVED
     thesis_path: thesis/research/ACGL/thesis.md
     last_scored: '2026-02-13'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: R4 APPROVED 2026-02-14. Standing order $88, EUR 400 (4%). 10/10 gates. FV $110. DA 12/19 MODERATE. QS 57->68 (insurer
       adj). WIDE moat 22/25. Conviction MEDIUM-LOW. Valid until Q2 2026.
     direction: long
@@ -772,12 +789,12 @@ quality_universe:
     fair_value: 120.0
     entry_price: 95.0
     currency: USD
-    current_price: 129.13
-    distance_to_entry: 35.9
+    current_price: 127.28
+    distance_to_entry: 34.0
     pipeline_status: STANDING_ORDER
     thesis_path: thesis/research/ZTS/thesis.md
     last_scored: '2026-02-14'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: ''
     direction: long
   - ticker: VRSK
@@ -789,12 +806,12 @@ quality_universe:
     fair_value: 185.0
     entry_price: 140.0
     currency: USD
-    current_price: 184.07
-    distance_to_entry: 31.5
+    current_price: 183.89
+    distance_to_entry: 31.3
     pipeline_status: R3_COMPLETE
     thesis_path: thesis/research/VRSK/thesis.md
     last_scored: '2026-02-13'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: 'R3 COMPLETE. DA STRONG COUNTER FV $205->$185. Q4 2025 BEAT: EPS $1.82 (+13%) vs $1.59 est, FCF +38%, div +11%.
       Hard gate CLEARED. Thesis validated. Entry $140 (26.6% from $177). R4 path open but price far from entry.'
     direction: long
@@ -807,31 +824,33 @@ quality_universe:
     fair_value: 0.0
     entry_price: 0.0
     currency: USD
-    current_price: 1315.33
+    current_price: 1330.13
     distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-13'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: ''
     direction: long
   - ticker: HEI
     name: Heico Corporation
     qs_tool: 73
-    qs_adj: 73
-    tier: B
+    qs_adj: 83
+    tier: A
     sector: Defense & Aerospace
-    fair_value: 0.0
-    entry_price: 0.0
+    fair_value: 225.0
+    entry_price: 191.0
     currency: USD
-    current_price: 342.22
-    distance_to_entry: null
-    pipeline_status: SCORED
-    thesis_path: null
+    current_price: 345.99
+    distance_to_entry: -44.8
+    pipeline_status: R1_COMPLETE
+    thesis_path: thesis/research/HEI/r1_thesis.md
     last_scored: '2026-02-13'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: ''
     direction: long
+    r1_verdict: FANTASY
+    r1_session: 94
   - ticker: RHM.DE
     name: RHEINMETALL AG                I
     qs_tool: 70
@@ -841,12 +860,12 @@ quality_universe:
     fair_value: 0.0
     entry_price: 0.0
     currency: USD
-    current_price: 1996.93
+    current_price: 2069.7
     distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-13'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: ''
     direction: long
   - ticker: HWM
@@ -858,12 +877,12 @@ quality_universe:
     fair_value: 0.0
     entry_price: 0.0
     currency: USD
-    current_price: 249.35
+    current_price: 251.3
     distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-13'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: ''
     direction: long
   - ticker: GE
@@ -875,12 +894,12 @@ quality_universe:
     fair_value: 0.0
     entry_price: 0.0
     currency: USD
-    current_price: 329.58
+    current_price: 334.74
     distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-13'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: ''
     direction: long
   - ticker: IDR.MC
@@ -892,12 +911,12 @@ quality_universe:
     fair_value: 0.0
     entry_price: 0.0
     currency: USD
-    current_price: 62.95
+    current_price: 62.57
     distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-13'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: ''
     direction: long
   - ticker: HO.PA
@@ -909,31 +928,33 @@ quality_universe:
     fair_value: 0.0
     entry_price: 0.0
     currency: USD
-    current_price: 305.91
+    current_price: 309.39
     distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-13'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: ''
     direction: long
   - ticker: CTAS
     name: Cintas Corporation
     qs_tool: 78
-    qs_adj: 78
+    qs_adj: 83
     tier: A
     sector: Environmental Services/Facility
-    fair_value: 250.0
-    entry_price: 160.0
+    fair_value: 136.0
+    entry_price: 126.0
     currency: USD
-    current_price: 196.41
-    distance_to_entry: 22.8
-    pipeline_status: SCORED
-    thesis_path: null
+    current_price: 197.97
+    distance_to_entry: -36.3
+    pipeline_status: R1_COMPLETE
+    thesis_path: thesis/research/CTAS/r1_thesis.md
     last_scored: '2026-02-13'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: ''
     direction: long
+    r1_verdict: FANTASY
+    r1_session: 94
   - ticker: RSG
     name: Republic Services, Inc.
     qs_tool: 68
@@ -943,12 +964,12 @@ quality_universe:
     fair_value: 225.0
     entry_price: 185.0
     currency: USD
-    current_price: 216.84
-    distance_to_entry: 17.2
+    current_price: 221.63
+    distance_to_entry: 19.8
     pipeline_status: R3_COMPLETE
     thesis_path: thesis/research/RSG/thesis.md
     last_scored: '2026-02-13'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: R3 complete. FV $225 (revised from $255 post-DA + Q4 earnings). 15-15.5x on $5.5B guided EBITDA. Entry $185 (from
       $210). Resume R4 if price approaches $200.
     direction: long
@@ -961,12 +982,12 @@ quality_universe:
     fair_value: 340.0
     entry_price: 240.0
     currency: USD
-    current_price: 302.59
-    distance_to_entry: 26.1
+    current_price: 301.0
+    distance_to_entry: 25.4
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-13'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: ''
     direction: long
   - ticker: VLTO
@@ -978,12 +999,12 @@ quality_universe:
     fair_value: 100.0
     entry_price: 80.0
     currency: USD
-    current_price: 94.28
-    distance_to_entry: 17.9
+    current_price: 93.98
+    distance_to_entry: 17.5
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-14'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: R4 APPROVED 2026-02-14. Danaher spinoff. Standing order 0. QS Tool 52, Adj 66 (+14). Valid until Q1 FY2026 earnings.
     direction: long
   - ticker: BAH
@@ -996,12 +1017,12 @@ quality_universe:
     fair_value: 78.0
     entry_price: 55.0
     currency: USD
-    current_price: 78.29
-    distance_to_entry: 42.3
+    current_price: 79.94
+    distance_to_entry: 45.3
     pipeline_status: FROZEN
     thesis_path: null
     last_scored: '2026-02-19'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: R3 2026-02-18. FV 95→78. Entry 70→55. DEPRIORITIZED. DOGE structural, Palantir threat. Revisit May 2026.
   - ticker: FDS
     name: FactSet Research Systems
@@ -1012,12 +1033,12 @@ quality_universe:
     fair_value: 210.0
     entry_price: 170.0
     currency: USD
-    current_price: 197.92
-    distance_to_entry: 16.4
+    current_price: 198.88
+    distance_to_entry: 17.0
     pipeline_status: STANDING_ORDER
     thesis_path: thesis/research/FDS/thesis.md
     last_scored: '2026-02-14'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: ''
     direction: long
   - ticker: CMCSA
@@ -1030,12 +1051,12 @@ quality_universe:
     fair_value: 35.0
     entry_price: 26.0
     currency: USD
-    current_price: 31.6
-    distance_to_entry: 21.5
+    current_price: 31.38
+    distance_to_entry: 20.7
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-19'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: SCORED 2026-02-19. QS 60 Tier B. Rev flat (+0.6% CAGR). FCF 9.2B. GM 71.7% expanding. ND/EBITDA 2.6x. Broadband
       eroding but theme parks star. No growth = value play only.
   - ticker: ORNBV.HE
@@ -1047,15 +1068,17 @@ quality_universe:
     fair_value: 55.0
     entry_price: 48.0
     currency: EUR
-    current_price: 69.25
-    distance_to_entry: 44.3
+    current_price: 69.7
+    distance_to_entry: 45.2
     pipeline_status: R1_COMPLETE
     thesis_path: thesis/research/ORNBV.HE/thesis.md
     last_scored: '2026-02-14'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: R1 COMPLETE. QS 78->72 adj (-6 Nubeqa concentration). FV EUR 55. OVERVALUED at EUR 67.85. Entry EUR 45-48. Nubeqa
       royalty supercycle.
     direction: long
+    r1_verdict: OVERVALUED
+    r1_session: 89
   - ticker: MSCI
     name: MSCI Inc.
     direction: long
@@ -1066,12 +1089,12 @@ quality_universe:
     fair_value: 450.0
     entry_price: 350.0
     currency: USD
-    current_price: 545.25
-    distance_to_entry: 55.8
+    current_price: 541.12
+    distance_to_entry: 54.6
     pipeline_status: R3_COMPLETE
     thesis_path: thesis/research/MSCI/fundamental_analysis.md
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: 'R3 COMPLETE. DA STRONG COUNTER -24.5%: FV $530→$450, entry $440→$350. OEY 3.5%→4.0% (leverage), organic growth
       7.7% not 10%, fee compression structural (2.8→2.41 bps). WIDE 22/25 intact but price not. CEO bought $6.7M. Deep patience
       play — $350 = -33% from current.'
@@ -1084,12 +1107,12 @@ quality_universe:
     fair_value: 95.0
     entry_price: 75.0
     currency: EUR
-    current_price: 98.2
-    distance_to_entry: 30.9
+    current_price: 99.9
+    distance_to_entry: 33.2
     pipeline_status: R3_COMPLETE
     thesis_path: thesis/research/KCR.HE/fundamental_analysis.md
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: 'R3 COMPLETE. DA STRONG COUNTER -17%: FV EUR 114→95, entry EUR 85→75. Peak margins (14% EBITA = ATH) treated as
       permanent (CRITICAL). Mid-cycle P/E 24-26x, not cheap. Solidium 19.6% not aligned insider. ZPMC tailwind overstated.
       NARROW moat 17/25. Net cash. Entry EUR 75 (21% MoS).'
@@ -1097,20 +1120,22 @@ quality_universe:
   - ticker: RMS.PA
     name: HERMES INTL
     qs_tool: 78
-    qs_adj: 78
+    qs_adj: 86
     tier: A
     sector: Luxury Goods
-    fair_value: 2500.0
-    entry_price: 1700.0
+    fair_value: 1350.0
+    entry_price: 1200.0
     currency: EUR
-    current_price: 2069.0
-    distance_to_entry: 21.7
-    pipeline_status: SCORED
-    thesis_path: null
-    last_scored: '2026-02-14'
-    last_price_check: '2026-02-19'
-    notes: Hermes. ROIC 49%, GM 71%, 67% insider. P/E 50x far from entry.
+    current_price: 2091.0
+    distance_to_entry: 74.3
+    pipeline_status: R1_COMPLETE
+    thesis_path: thesis/research/RMS.PA/r1_thesis.md
+    last_scored: '2026-02-20'
+    last_price_check: '2026-02-20'
+    notes: R1 S93. QS 78/86 adj (WIDE moat +8). FV EUR 1,350. Best business, wrong price. Entry EUR 1,200 (fantasy). P/E 50x.
     direction: long
+    r1_verdict: FANTASY
+    r1_session: 93
   - ticker: FOUR.L
     name: 4imprint Group plc
     qs_tool: 67
@@ -1120,12 +1145,12 @@ quality_universe:
     fair_value: 4400.0
     entry_price: 3400.0
     currency: GBP
-    current_price: 3870.0
-    distance_to_entry: 13.8
+    current_price: 3900.0
+    distance_to_entry: 14.7
     pipeline_status: R3_COMPLETE
     thesis_path: thesis/research/FOUR.L/thesis.md
     last_scored: '2026-02-15'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: R3 COMPLETE. FV 5300->4400 (-17%). DA 14/21 MODERATE. Market share LOST in 2025. Tariffs semi-structural. Entry
       3400p. HARD GATE Mar 11 results. No SO until then.
     direction: long
@@ -1133,19 +1158,22 @@ quality_universe:
     name: STRAUMANN N
     direction: long
     qs_tool: 60
-    qs_adj: 60
+    qs_adj: 72
     tier: B
     sector: Healthcare/Dental
-    fair_value: 120.0
+    fair_value: 118.0
     entry_price: 85.0
     currency: CHF
-    current_price: 94.34
-    distance_to_entry: 11.0
-    pipeline_status: SCORED
-    thesis_path: null
-    last_scored: '2026-02-19'
-    last_price_check: '2026-02-19'
-    notes: ''
+    current_price: 93.96
+    distance_to_entry: 10.5
+    pipeline_status: R1_COMPLETE
+    thesis_path: thesis/research/STMN.SW/thesis.md
+    last_scored: '2026-02-20'
+    last_price_check: '2026-02-20'
+    notes: 'R1 S92. QS 60→72 adj (+8 market pos, +4 EPS distortion). FV CHF 118. Entry CHF 85. eToro STMN.ZU. #1 global dental
+      implants 35% share. ROIC 21%.'
+    r1_verdict: ACTIONABLE
+    r1_session: 92
   - ticker: SOON.SW
     name: SONOVA N
     direction: long
@@ -1156,12 +1184,12 @@ quality_universe:
     fair_value: 200.0
     entry_price: 160.0
     currency: CHF
-    current_price: 195.8
-    distance_to_entry: 22.4
+    current_price: 196.8
+    distance_to_entry: 23.0
     pipeline_status: R3_COMPLETE
     thesis_path: thesis/research/SOON.SW/fundamental_analysis.md
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: 'R3 COMPLETE. DA STRONG COUNTER -31.4%: FV CHF 255->200, entry CHF 180->160. Error #49 confirmed (FV=consensus).
       CHF permanent drag. Margin decline 22.6->17.9%. HARD GATE: May 2026 FY results before execution. QS 61->67 (DA reduced
       adj).'
@@ -1174,12 +1202,12 @@ quality_universe:
     fair_value: 4700.0
     entry_price: 3700.0
     currency: GBP
-    current_price: 4506.0
-    distance_to_entry: 21.8
+    current_price: 4532.0
+    distance_to_entry: 22.5
     pipeline_status: R3_COMPLETE
     thesis_path: thesis/research/ITRK.L/fundamental_analysis.md
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: 'R3 COMPLETE. DA MODERATE COUNTER -15%: FV 5400→4700p, entry 4000→3700p. WACC 7.3%→9.0% (CRITICAL), Error #49 confirmed
       (FV≈consensus), AAA margin BULL not BASE, FX widening. NARROW moat. QS 63/68 adj. BVI.PA preferred for TIC sector. HARD
       GATE FY2025 results Mar 3.'
@@ -1193,34 +1221,35 @@ quality_universe:
     fair_value: 215.0
     entry_price: 170.0
     currency: USD
-    current_price: 217.21
-    distance_to_entry: 27.8
+    current_price: 215.97
+    distance_to_entry: 27.0
     pipeline_status: R3_COMPLETE
     thesis_path: thesis/research/ADP/fundamental_analysis.md
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: 'R3 COMPLETE. DA STRONG COUNTER: FV $255->$215 (-16%), entry $185->$170. QS 78 Tier A but apply Tier B MoS (correlated
       Triple Squeeze risk). Float income = 24% of OP (not 6% of EPS). CEO selling $9.5M, 0 purchases. P/E 20x appropriate
       for 6% grower. Sector view CREATED. Hard gates: PPC>=0% in Q3 FY2026.'
     direction: long
   - ticker: ODFL
     name: Old Dominion Freight Line, Inc.
-    qs_tool: 69
-    qs_adj: 69
-    tier: B
-    sector: LTL Logistics
-    fair_value: 210.0
-    entry_price: 165.0
-    currency: USD
-    current_price: 193.81
-    distance_to_entry: 17.5
-    pipeline_status: SCORED
-    thesis_path: null
-    last_scored: '2026-02-15'
-    last_price_check: '2026-02-19'
-    notes: LTL gold standard. ROIC 24.5%, ROIC-WACC +13pp, net cash, 10.2% insider. Best operating ratio in industry (74%).
-      NEW SECTOR.
     direction: long
+    qs_tool: 69
+    qs_adj: 76
+    tier: A
+    sector: LTL Logistics
+    fair_value: 135.0
+    entry_price: 125.0
+    currency: USD
+    current_price: null
+    distance_to_entry: null
+    pipeline_status: R1_COMPLETE
+    thesis_path: thesis/research/ODFL/thesis.md
+    last_scored: '2026-02-20'
+    last_price_check: null
+    notes: 'R1 S95: WIDE moat. OVERVALUED at 195 (-31%). Entry 125 FANTASY. Monitor only.'
+    r1_verdict: OVERVALUED
+    r1_session: 95
   - ticker: ALLE
     name: Allegion plc
     qs_tool: 71
@@ -1230,12 +1259,12 @@ quality_universe:
     fair_value: 160.0
     entry_price: 125.0
     currency: USD
-    current_price: 162.59
-    distance_to_entry: 30.1
+    current_price: 161.23
+    distance_to_entry: 29.0
     pipeline_status: R3_COMPLETE
     thesis_path: thesis/research/ALLE/fundamental_analysis.md
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: 'R3 COMPLETE. DA STRONG COUNTER: FV $190->$160 (-16%), entry $145->$125. QS 79->71 (A->B, +8 adj rejected per DA:
       tier boundary crossing). Smart lock share only 8-9% (not #1-2). Mexico tariff 20-25% COGS unquantified. Consensus =
       our FV = no edge (Error #49). WIDE mechanical moat, NARROW electronics moat.'
@@ -1249,12 +1278,12 @@ quality_universe:
     fair_value: 390.0
     entry_price: 310.0
     currency: USD
-    current_price: 365.76
-    distance_to_entry: 18.0
+    current_price: 357.61
+    distance_to_entry: 15.4
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-15'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: 'US paint #1. 4800+ company stores = distribution moat. ROIC 18.1%, ROIC-WACC +7.8pp, GM expanding 48.5%, 7.2%
       insider. EPS CAGR 14.6%. Leverage 2.9x. NEW SECTOR.'
     direction: long
@@ -1267,12 +1296,12 @@ quality_universe:
     fair_value: 155.0
     entry_price: 118.0
     currency: USD
-    current_price: 145.18
-    distance_to_entry: 23.0
+    current_price: 143.11
+    distance_to_entry: 21.3
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-15'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: Asset-light hotel franchise (Holiday Inn, IHG). ROIC 40.4%, ROIC-WACC +31.2pp. 200M+ loyalty members. Rev CAGR
       19%. Near 52wH, need correction. NEW SECTOR.
     direction: long
@@ -1286,12 +1315,12 @@ quality_universe:
     fair_value: 180.0
     entry_price: 130.0
     currency: GBp
-    current_price: 144.8
-    distance_to_entry: 11.4
+    current_price: 143.0
+    distance_to_entry: 10.0
     pipeline_status: APPROVED
     thesis_path: thesis/research/MEGP.L/thesis.md
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: 'R4 APPROVED CONDITIONAL. Entry 130p (committee, MoS 38.5%). FV 180p. 3 conditions: (1) sector view, (2) FY2025
       results Feb 27 PASS, (3) UK concentration. 9 KCs. Bear 113-120p.'
   - ticker: EEFT
@@ -1304,12 +1333,12 @@ quality_universe:
     fair_value: 85.0
     entry_price: 58.0
     currency: USD
-    current_price: 71.16
-    distance_to_entry: 22.7
+    current_price: 71.02
+    distance_to_entry: 22.4
     pipeline_status: R3_COMPLETE
     thesis_path: thesis/research/EEFT/fundamental_analysis.md
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: 'R3: DA STRONG COUNTER -36%. FV $133->$85 (9x normalized $9.50 EPS). QS 73->68 (ROIC artifact). Risk VERY HIGH.
       EPS growth buyback-engineered (NI +1.1% vs EPS +11.6%). 1% remittance tax structural. CEO selling. HARD GATE Q1 2026
       remittance tax data. SO REVOKED.'
@@ -1323,12 +1352,12 @@ quality_universe:
     fair_value: 458.0
     entry_price: 310.0
     currency: USD
-    current_price: 379.57
-    distance_to_entry: 22.4
+    current_price: 374.0
+    distance_to_entry: 20.6
     pipeline_status: R3_COMPLETE
     thesis_path: thesis/research/KNSL/fundamental_analysis.md
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: R3 complete. FV 539->458 (-15%). WIDE moat. Entry 310 (32% MoS). SO created. ACGL first priority.
   - ticker: QTCOM.HE
     name: Qt Group Oyj
@@ -1340,12 +1369,12 @@ quality_universe:
     fair_value: 30.0
     entry_price: 22.0
     currency: EUR
-    current_price: 25.18
-    distance_to_entry: 14.5
+    current_price: 25.14
+    distance_to_entry: 14.3
     pipeline_status: R3_COMPLETE
     thesis_path: null
     last_scored: '2026-02-19'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: 'R3 2026-02-19. FV 37→30. QS 76 trailing→62 forward. FY2025 trough. HARD GATE: FY2025 confirmation.'
   - ticker: ALFA.ST
     name: Alfa Laval AB
@@ -1357,14 +1386,16 @@ quality_universe:
     fair_value: 420.0
     entry_price: 345.0
     currency: SEK
-    current_price: 518.6
-    distance_to_entry: 50.3
+    current_price: 520.8
+    distance_to_entry: 51.0
     pipeline_status: R1_COMPLETE
     thesis_path: null
     last_scored: '2026-02-19'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: R1 2026-02-18. FV SEK 420, entry SEK 345. Overvalued at SEK 522 (-19.5% MoS). Energy transition tailwinds. WAIT
       correction.
+    r1_verdict: OVERVALUED
+    r1_session: 90
   - ticker: KNEBV.HE
     name: KONE Corporation
     direction: long
@@ -1375,12 +1406,12 @@ quality_universe:
     fair_value: 0
     entry_price: 0
     currency: EUR
-    current_price: 63.8
+    current_price: 62.8
     distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: ''
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: Auto-scored by batch_scorer. Needs R1 analysis.
   - ticker: ABB.ST
     name: ABB Ltd
@@ -1392,12 +1423,12 @@ quality_universe:
     fair_value: 0
     entry_price: 0
     currency: SEK
-    current_price: 823.2
+    current_price: 821.8
     distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: ''
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: Auto-scored by batch_scorer. Needs R1 analysis.
   - ticker: WRT1V.HE
     name: Wärtsilä Corporation
@@ -1409,12 +1440,12 @@ quality_universe:
     fair_value: 0
     entry_price: 0
     currency: EUR
-    current_price: 36.54
+    current_price: 36.51
     distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: ''
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: Auto-scored by batch_scorer. Needs R1 analysis.
   - ticker: EQT.ST
     name: EQT AB
@@ -1426,12 +1457,12 @@ quality_universe:
     fair_value: 0
     entry_price: 0
     currency: SEK
-    current_price: 305.9
+    current_price: 298.3
     distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: ''
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: Auto-scored by batch_scorer. Needs R1 analysis.
   - ticker: EVO.ST
     name: Evolution AB
@@ -1443,12 +1474,12 @@ quality_universe:
     fair_value: 0
     entry_price: 0
     currency: SEK
-    current_price: 534.0
+    current_price: 537.8
     distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: ''
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: Auto-scored by batch_scorer. Needs R1 analysis.
   - ticker: HIAB.HE
     name: Hiab Oyj
@@ -1460,12 +1491,12 @@ quality_universe:
     fair_value: 0
     entry_price: 0
     currency: EUR
-    current_price: 48.5
+    current_price: 49.12
     distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: ''
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: Auto-scored by batch_scorer. Needs R1 analysis.
   - ticker: AZN.ST
     name: AstraZeneca PLC
@@ -1477,12 +1508,12 @@ quality_universe:
     fair_value: 0
     entry_price: 0
     currency: SEK
-    current_price: 1897.0
+    current_price: 1870.0
     distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: ''
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: Auto-scored by batch_scorer. Needs R1 analysis.
   - ticker: ATCO-A.ST
     name: Atlas Copco AB ser. A
@@ -1494,12 +1525,12 @@ quality_universe:
     fair_value: 0
     entry_price: 0
     currency: SEK
-    current_price: 194.9
+    current_price: 195.4
     distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: ''
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: Auto-scored by batch_scorer. Needs R1 analysis.
   - ticker: LIFCO-B.ST
     name: Lifco AB
@@ -1511,12 +1542,12 @@ quality_universe:
     fair_value: 240.0
     entry_price: 190.0
     currency: SEK
-    current_price: 320.8
-    distance_to_entry: 68.8
+    current_price: 323.6
+    distance_to_entry: 70.3
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-19'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: 'SCORED 2026-02-19. QS 65+7=72 (est: +4 ROIC partial-goodwill, +3 market pos). Best margins (GM 44%, OP 18.3%),
       47.6% insider (!). P/E 40x. Crisis only (+69% above entry).'
   - ticker: MONC.MI
@@ -1529,30 +1560,34 @@ quality_universe:
     fair_value: 52.0
     entry_price: 42.0
     currency: EUR
-    current_price: 50.26
-    distance_to_entry: 16.4
+    current_price: 55.72
+    distance_to_entry: 32.7
     pipeline_status: R3_COMPLETE
     thesis_path: thesis/research/MONC.MI/
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
-    notes: 'R3 COMPLETE S89. FV 58→52 (-10.3%), entry 48→42. DA MODERATE COUNTER. Growth 4.5%, WACC 9.0%. FY2025 BASE-BULL. 3 hard gates for R4: earnings call, RACE.MI priority, Q1 2026 growth >=5%. R4 deferred ~Apr 2026.'
+    last_price_check: '2026-02-20'
+    notes: 'R3 COMPLETE S89. FV 58→52 (-10.3%), entry 48→42. DA MODERATE COUNTER. Growth 4.5%, WACC 9.0%. FY2025 BASE-BULL.
+      3 hard gates for R4: earnings call, RACE.MI priority, Q1 2026 growth >=5%. R4 deferred ~Apr 2026.'
   - ticker: BZU.MI
     name: BUZZI
     direction: long
     qs_tool: 73
-    qs_adj: 73
+    qs_adj: 70
     tier: B
-    sector: Basic Materials
-    fair_value: 0
-    entry_price: 0
+    sector: Building Materials/Cement
+    fair_value: 58.0
+    entry_price: 42.0
     currency: EUR
-    current_price: 48.3
-    distance_to_entry: null
-    pipeline_status: SCORED
-    thesis_path: ''
-    last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
-    notes: Auto-scored by batch_scorer. Needs R1 analysis.
+    current_price: 49.52
+    distance_to_entry: 15.2
+    pipeline_status: R1_COMPLETE
+    thesis_path: thesis/research/BZU.MI/thesis.md
+    last_scored: '2026-02-20'
+    last_price_check: '2026-02-20'
+    notes: 'R1 S92. QS 73→70 adj (gross margin data issue, cyclical peak). FV EUR 58 through-cycle. Entry EUR 42 (cyclical
+      correction). 53% family, best margins in cement. Sector view: building-materials-cement.md.'
+    r1_verdict: OVERVALUED
+    r1_session: 92
   - ticker: BC.MI
     name: BRUNELLO CUCINELLI
     direction: long
@@ -1563,12 +1598,12 @@ quality_universe:
     fair_value: 0
     entry_price: 0
     currency: EUR
-    current_price: 86.1
+    current_price: 87.18
     distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: ''
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: Auto-scored by batch_scorer. Needs R1 analysis.
   - ticker: TEN.MI
     name: TENARIS
@@ -1580,12 +1615,12 @@ quality_universe:
     fair_value: 0
     entry_price: 0
     currency: EUR
-    current_price: 21.1
+    current_price: 22.39
     distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: ''
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: Auto-scored by batch_scorer. Needs R1 analysis.
   - ticker: ITX.MC
     name: INDUSTRIA DE DISE...O TEXTIL S.
@@ -1597,12 +1632,12 @@ quality_universe:
     fair_value: 38.0
     entry_price: 30.0
     currency: EUR
-    current_price: null
-    distance_to_entry: null
+    current_price: 57.74
+    distance_to_entry: 92.5
     pipeline_status: R3_COMPLETE
     thesis_path: null
     last_scored: '2026-02-19'
-    last_price_check: null
+    last_price_check: '2026-02-20'
     notes: ''
   - ticker: AENA.MC
     name: AENA, S.M.E., S.A.
@@ -1614,12 +1649,12 @@ quality_universe:
     fair_value: 0
     entry_price: 0
     currency: EUR
-    current_price: 27.72
+    current_price: 27.04
     distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: ''
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: Auto-scored by batch_scorer. Needs R1 analysis.
   - ticker: ROVI.MC
     name: LABORATORIOS FARMACEUTICOS ROVI
@@ -1631,12 +1666,12 @@ quality_universe:
     fair_value: 0
     entry_price: 0
     currency: EUR
-    current_price: 78.55
+    current_price: 78.95
     distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: ''
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: Auto-scored by batch_scorer. Needs R1 analysis.
   - ticker: AMS.MC
     name: AMADEUS IT GROUP, S.A.
@@ -1648,12 +1683,12 @@ quality_universe:
     fair_value: 0
     entry_price: 0
     currency: EUR
-    current_price: 47.88
+    current_price: 48.47
     distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: ''
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: Auto-scored by batch_scorer. Needs R1 analysis.
   - ticker: IAG.MC
     name: INTL CONSOLIDATED AIRLINES GROU
@@ -1665,12 +1700,12 @@ quality_universe:
     fair_value: 0
     entry_price: 0
     currency: EUR
-    current_price: 5.07
+    current_price: 4.99
     distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: ''
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: Auto-scored by batch_scorer. Needs R1 analysis.
   - ticker: AJB.L
     name: AJ BELL PLC ORD GBP0.000125
@@ -1682,12 +1717,12 @@ quality_universe:
     fair_value: 520.0
     entry_price: 375.0
     currency: GBp
-    current_price: 421.0
-    distance_to_entry: 12.3
+    current_price: 425.4
+    distance_to_entry: 13.4
     pipeline_status: R3_COMPLETE
     thesis_path: null
     last_scored: '2026-02-19'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: R3 2026-02-18. FV 600→520p. Entry 400→375p. WAIT H1 FY2026 (Apr/May). Interest income HARD GATE.
   - ticker: IHP.L
     name: IntegraFin Holdings
@@ -1696,33 +1731,38 @@ quality_universe:
     qs_adj: 80
     tier: A
     sector: financial-services
-    fair_value: 400.0
+    fair_value: 415.0
     entry_price: 300.0
     currency: GBp
-    current_price: 317.4
-    distance_to_entry: 5.8
-    pipeline_status: SCORED
-    thesis_path: null
-    last_scored: '2026-02-19'
-    last_price_check: '2026-02-19'
+    current_price: 315.0
+    distance_to_entry: 5.0
+    pipeline_status: R1_COMPLETE
+    thesis_path: thesis/research/IHP.L/thesis.md
+    last_scored: '2026-02-20'
+    last_price_check: '2026-02-20'
     notes: SCORED. QS 80 Tier A. UK investment platform (Transact). P/E 19.8. Yield 3.5%. -20% from 52wH. eToro confirmed.
+    r1_verdict: ACTIONABLE
+    r1_session: 92
   - ticker: KLR.L
     name: KELLER GROUP PLC ORD 10P
     direction: long
     qs_tool: 76
-    qs_adj: 76
+    qs_adj: 79
     tier: A
     sector: Industrials
-    fair_value: 0
-    entry_price: 0
+    fair_value: 2600
+    entry_price: 1750
     currency: GBp
-    current_price: 1986.0
-    distance_to_entry: null
-    pipeline_status: SCORED
-    thesis_path: ''
-    last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
-    notes: Auto-scored by batch_scorer. Needs R1 analysis.
+    current_price: 2026
+    distance_to_entry: 15.8
+    pipeline_status: R1_COMPLETE
+    thesis_path: thesis/research/KLR.L/r1_thesis.md
+    last_scored: '2026-02-20'
+    last_price_check: '2026-02-20'
+    notes: 'R1 S93. QS 76/79 adj (+3 market position). FV 2,600p. #1 global geotechnical. Entry 1,700-1,800p. FY2025 Mar 3
+      = hard gate before SO.'
+    r1_verdict: ACTIONABLE
+    r1_session: 93
   - ticker: APN.L
     name: APPLIED NUTRITION PLC ORD GBP0.
     direction: long
@@ -1733,12 +1773,12 @@ quality_universe:
     fair_value: 0
     entry_price: 0
     currency: GBp
-    current_price: 258.0
+    current_price: 255.0
     distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: ''
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: Auto-scored by batch_scorer. Needs R1 analysis.
   - ticker: XPS.L
     name: XPS PENSIONS GROUP PLC ORD GBP0
@@ -1750,12 +1790,12 @@ quality_universe:
     fair_value: 0
     entry_price: 0
     currency: GBp
-    current_price: 312.0
+    current_price: 310.5
     distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: ''
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: Auto-scored by batch_scorer. Needs R1 analysis.
   - ticker: CMCX.L
     name: CMC MARKETS PLC ORD 25P
@@ -1767,12 +1807,12 @@ quality_universe:
     fair_value: 0
     entry_price: 0
     currency: GBp
-    current_price: 332.0
+    current_price: 332.5
     distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: ''
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: Auto-scored by batch_scorer. Needs R1 analysis.
   - ticker: NOS.LS
     name: NOS, SGPS, SA
@@ -1781,16 +1821,18 @@ quality_universe:
     qs_adj: 73
     tier: B
     sector: Communication Services
-    fair_value: 0
-    entry_price: 0
+    fair_value: 5.99
+    entry_price: 3.8
     currency: EUR
-    current_price: 4.92
-    distance_to_entry: null
-    pipeline_status: SCORED
-    thesis_path: ''
+    current_price: 4.79
+    distance_to_entry: -20.7
+    pipeline_status: R1_COMPLETE
+    thesis_path: thesis/research/NOS.LS/r1_thesis.md
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: Auto-scored by batch_scorer. Needs R1 analysis.
+    r1_verdict: OVERVALUED
+    r1_session: 94
   - ticker: NXT.L
     name: NEXT PLC ORD 10P
     direction: long
@@ -1801,12 +1843,12 @@ quality_universe:
     fair_value: 0
     entry_price: 0
     currency: GBp
-    current_price: 13020.0
+    current_price: 12935.0
     distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: ''
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: Auto-scored by batch_scorer. Needs R1 analysis.
   - ticker: REN.AS
     name: RELX
@@ -1818,12 +1860,12 @@ quality_universe:
     fair_value: 0
     entry_price: 0
     currency: EUR
-    current_price: 25.76
+    current_price: 26.46
     distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: ''
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: Auto-scored by batch_scorer. Needs R1 analysis.
   - ticker: BCG.L
     name: BALTIC CLASSIFIEDS GROUP PLC OR
@@ -1835,12 +1877,12 @@ quality_universe:
     fair_value: 0
     entry_price: 0
     currency: GBp
-    current_price: 183.6
+    current_price: 186.4
     distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: ''
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: Auto-scored by batch_scorer. Needs R1 analysis.
   - ticker: IHG.L
     name: INTERCONTINENTAL HOTELS GROUP P
@@ -1852,12 +1894,12 @@ quality_universe:
     fair_value: 0
     entry_price: 0
     currency: USD
-    current_price: 145.05
+    current_price: 142.2
     distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: ''
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: Auto-scored by batch_scorer. Needs R1 analysis.
   - ticker: BESI.AS
     name: BE Semiconductor Industries N.V
@@ -1869,12 +1911,12 @@ quality_universe:
     fair_value: 0
     entry_price: 0
     currency: EUR
-    current_price: 187.0
+    current_price: 179.0
     distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: ''
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: Auto-scored by batch_scorer. Needs R1 analysis.
   - ticker: N91.L
     name: NINETY ONE PLC
@@ -1891,7 +1933,7 @@ quality_universe:
     pipeline_status: SCORED
     thesis_path: ''
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: Auto-scored by batch_scorer. Needs R1 analysis.
   - ticker: TRN.L
     name: TRAINLINE PLC ORD 1P
@@ -1903,12 +1945,12 @@ quality_universe:
     fair_value: 0
     entry_price: 0
     currency: GBp
-    current_price: 196.8
+    current_price: 203.0
     distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: ''
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: Auto-scored by batch_scorer. Needs R1 analysis.
   - ticker: ROG.SW
     name: ROCHE GS
@@ -1920,12 +1962,12 @@ quality_universe:
     fair_value: 0
     entry_price: 0
     currency: CHF
-    current_price: 369.3
+    current_price: 367.4
     distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: ''
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: Auto-scored by batch_scorer. Needs R1 analysis.
   - ticker: PAF.L
     name: PAN AFRICAN RESOURCES PLC ORD 1
@@ -1937,12 +1979,12 @@ quality_universe:
     fair_value: 0
     entry_price: 0
     currency: GBp
-    current_price: 160.2
+    current_price: 163.6
     distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: ''
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: Auto-scored by batch_scorer. Needs R1 analysis.
   - ticker: G24.DE
     name: Scout24 SE                    N
@@ -1954,12 +1996,12 @@ quality_universe:
     fair_value: 0
     entry_price: 0
     currency: EUR
-    current_price: 68.7
+    current_price: 70.15
     distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: ''
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: Auto-scored by batch_scorer. Needs R1 analysis.
   - ticker: HILS.L
     name: HILL & SMITH PLC ORD 25P
@@ -1971,12 +2013,12 @@ quality_universe:
     fair_value: 0
     entry_price: 0
     currency: GBp
-    current_price: 2375.0
+    current_price: 2390.0
     distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: ''
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: Auto-scored by batch_scorer. Needs R1 analysis.
   - ticker: SCT.L
     name: SOFTCAT PLC
@@ -1988,12 +2030,12 @@ quality_universe:
     fair_value: 0
     entry_price: 0
     currency: GBp
-    current_price: 1138.0
+    current_price: 1129.0
     distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: ''
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: Auto-scored by batch_scorer. Needs R1 analysis.
   - ticker: PGHN.SW
     name: PARTNERS GROUP N
@@ -2005,12 +2047,12 @@ quality_universe:
     fair_value: 0
     entry_price: 0
     currency: CHF
-    current_price: 959.8
+    current_price: 923.4
     distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: ''
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: Auto-scored by batch_scorer. Needs R1 analysis.
   - ticker: AZN.L
     name: ASTRAZENECA PLC ORD SHS $0.25
@@ -2022,12 +2064,12 @@ quality_universe:
     fair_value: 0
     entry_price: 0
     currency: GBp
-    current_price: 15542.0
+    current_price: 15308.0
     distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: ''
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: Auto-scored by batch_scorer. Needs R1 analysis.
   - ticker: HOLN.SW
     name: HOLCIM N
@@ -2039,12 +2081,12 @@ quality_universe:
     fair_value: 0
     entry_price: 0
     currency: CHF
-    current_price: 73.0
+    current_price: 73.7
     distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: ''
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: Auto-scored by batch_scorer. Needs R1 analysis.
   - ticker: IAG.L
     name: INTERNATIONAL CONSOLIDATED AIRL
@@ -2056,12 +2098,12 @@ quality_universe:
     fair_value: 0
     entry_price: 0
     currency: GBp
-    current_price: 442.2
+    current_price: 436.23
     distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: ''
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: Auto-scored by batch_scorer. Needs R1 analysis.
   - ticker: PIRC.MI
     name: PIRELLI & C
@@ -2073,12 +2115,12 @@ quality_universe:
     fair_value: 0
     entry_price: 0
     currency: EUR
-    current_price: 6.32
+    current_price: 6.24
     distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: ''
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: Auto-scored by batch_scorer. Needs R1 analysis.
   - ticker: PRY.MI
     name: PRYSMIAN
@@ -2090,12 +2132,12 @@ quality_universe:
     fair_value: 0
     entry_price: 0
     currency: EUR
-    current_price: 101.5
+    current_price: 98.7
     distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: ''
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: Auto-scored by batch_scorer. Needs R1 analysis.
   - ticker: DIA.MI
     name: DIASORIN
@@ -2107,12 +2149,12 @@ quality_universe:
     fair_value: 0
     entry_price: 0
     currency: EUR
-    current_price: 67.74
+    current_price: 69.58
     distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: ''
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: Auto-scored by batch_scorer. Needs R1 analysis.
   - ticker: ELISA.HE
     name: Elisa Corporation
@@ -2124,12 +2166,12 @@ quality_universe:
     fair_value: 0
     entry_price: 0
     currency: EUR
-    current_price: 42.24
+    current_price: 42.26
     distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: ''
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: Auto-scored by batch_scorer. Needs R1 analysis.
   - ticker: ESSITY-B.ST
     name: Essity AB ser. B
@@ -2141,12 +2183,12 @@ quality_universe:
     fair_value: 0
     entry_price: 0
     currency: SEK
-    current_price: 282.3
+    current_price: 284.0
     distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: ''
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: Auto-scored by batch_scorer. Needs R1 analysis.
   - ticker: METSO.HE
     name: Metso Oyj
@@ -2158,12 +2200,12 @@ quality_universe:
     fair_value: 0
     entry_price: 0
     currency: EUR
-    current_price: 16.55
+    current_price: 16.84
     distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: ''
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: Auto-scored by batch_scorer. Needs R1 analysis.
   - ticker: EPI-A.ST
     name: Epiroc AB ser. A
@@ -2175,12 +2217,12 @@ quality_universe:
     fair_value: 0
     entry_price: 0
     currency: SEK
-    current_price: 258.8
+    current_price: 257.7
     distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: ''
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: Auto-scored by batch_scorer. Needs R1 analysis.
   - ticker: ASM.AS
     name: ASM International N.V.
@@ -2192,12 +2234,12 @@ quality_universe:
     fair_value: 0
     entry_price: 0
     currency: EUR
-    current_price: 715.8
+    current_price: 703.6
     distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: ''
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: Auto-scored by batch_scorer. Needs R1 analysis.
   - ticker: UMG.AS
     name: UNIVERSAL MUSIC GROUP
@@ -2209,12 +2251,12 @@ quality_universe:
     fair_value: 0
     entry_price: 0
     currency: EUR
-    current_price: 19.15
+    current_price: 19.5
     distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: ''
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: Auto-scored by batch_scorer. Needs R1 analysis.
   - ticker: PRX.AS
     name: PROSUS
@@ -2226,12 +2268,12 @@ quality_universe:
     fair_value: 0
     entry_price: 0
     currency: EUR
-    current_price: 44.16
+    current_price: 43.66
     distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: ''
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: Auto-scored by batch_scorer. Needs R1 analysis.
   - ticker: ADYEN.AS
     name: ADYEN
@@ -2243,12 +2285,12 @@ quality_universe:
     fair_value: 0
     entry_price: 0
     currency: EUR
-    current_price: 984.7
+    current_price: 996.7
     distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: ''
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: Auto-scored by batch_scorer. Needs R1 analysis.
   - ticker: FER.MC
     name: FERROVIAL SE
@@ -2260,12 +2302,12 @@ quality_universe:
     fair_value: 0
     entry_price: 0
     currency: EUR
-    current_price: 62.32
+    current_price: 61.22
     distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: ''
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: Auto-scored by batch_scorer. Needs R1 analysis.
   - ticker: LOG.MC
     name: COMPA...IA DE DISTRIBUCION INTE
@@ -2277,12 +2319,12 @@ quality_universe:
     fair_value: 0
     entry_price: 0
     currency: EUR
-    current_price: 33.82
+    current_price: 33.48
     distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: ''
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: Auto-scored by batch_scorer. Needs R1 analysis.
   - ticker: ACS.MC
     name: ACS,ACTIVIDADES DE CONSTRUCCION
@@ -2294,12 +2336,12 @@ quality_universe:
     fair_value: 0
     entry_price: 0
     currency: EUR
-    current_price: 106.0
+    current_price: 106.4
     distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: ''
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: Auto-scored by batch_scorer. Needs R1 analysis.
   - ticker: NTGY.MC
     name: NATURGY ENERGY GROUP, S.A.
@@ -2311,12 +2353,12 @@ quality_universe:
     fair_value: 0
     entry_price: 0
     currency: EUR
-    current_price: 25.56
+    current_price: 25.64
     distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: ''
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: Auto-scored by batch_scorer. Needs R1 analysis.
   - ticker: PUIG.MC
     name: PUIG BRANDS, S.A. CLASE B
@@ -2328,12 +2370,12 @@ quality_universe:
     fair_value: 0
     entry_price: 0
     currency: USD
-    current_price: 16.58
+    current_price: 16.18
     distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: ''
     last_scored: '2026-02-18'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: Auto-scored by batch_scorer. Needs R1 analysis.
   - ticker: HLMA.L
     name: Halma plc
@@ -2345,12 +2387,12 @@ quality_universe:
     fair_value: 4200.0
     entry_price: 3200.0
     currency: GBP
-    current_price: 3929.64
-    distance_to_entry: 22.8
+    current_price: 3924.0
+    distance_to_entry: 22.6
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-19'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: Near 52wH. P/E 42.7x. Persistent ROIC. Far from entry.
   - ticker: DPLM.L
     name: Diploma plc
@@ -2362,12 +2404,12 @@ quality_universe:
     fair_value: 6000.0
     entry_price: 4600.0
     currency: GBP
-    current_price: 5565.0
-    distance_to_entry: 21.0
+    current_price: 5640.0
+    distance_to_entry: 22.6
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-19'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: Serial acquirer. Growth 23/25. Near ATH. Far from entry.
   - ticker: DECK
     name: Deckers Outdoor Corporation
@@ -2379,12 +2421,12 @@ quality_universe:
     fair_value: 125.0
     entry_price: 95.0
     currency: USD
-    current_price: 118.89
-    distance_to_entry: 25.1
+    current_price: 118.07
+    distance_to_entry: 24.3
     pipeline_status: R3_COMPLETE
     thesis_path: null
     last_scored: '2026-02-19'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: R3 2026-02-19. FV 135→125. Entry 100→95. CONDITIONAL on LULU Mar 31. Moat NARROW.
   - ticker: IDXX
     name: IDEXX Laboratories
@@ -2396,12 +2438,12 @@ quality_universe:
     fair_value: 0.0
     entry_price: 0.0
     currency: USD
-    current_price: 634.9
+    current_price: 630.73
     distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-19'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: QS 56 Tier B (ROIC data gap → true QS likely 71+). ROIC 46-63% when avail, GM 61% expanding, FCF 19.8%, low leverage
       0.4x.
   - ticker: LRE.L
@@ -2414,12 +2456,12 @@ quality_universe:
     fair_value: 0.0
     entry_price: 0.0
     currency: GBP
-    current_price: 665.0
+    current_price: 662.0
     distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-19'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: QS 54 Tool, Adj ~63 (insurer protocol +9). ROE 21.5%, net cash, FCF 33%. Specialty insurer. Borderline.
   - ticker: SAMPO.HE
     name: Sampo OYJ
@@ -2431,12 +2473,12 @@ quality_universe:
     fair_value: 0.0
     entry_price: 0.0
     currency: EUR
-    current_price: 9.11
+    current_price: 9.21
     distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-19'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: QS 54 Tool, Adj ~63 (insurer protocol +9). ROE 24.7%, net cash EUR 15.2B, insider 5/5. Pure P&C post-Nordea. eToro
       unverified.
   - ticker: IMI.L
@@ -2449,12 +2491,12 @@ quality_universe:
     fair_value: 0.0
     entry_price: 0.0
     currency: GBP
-    current_price: 2856.0
+    current_price: 2896.0
     distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-19'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: QS 63 Tier B. ROIC 17.8%, GM 47.3% expanding +19pp vs sector, FCF 12.7%. Specialty industrial machinery.
   - ticker: G1A.DE
     name: GEA Group AG
@@ -2466,12 +2508,12 @@ quality_universe:
     fair_value: 0.0
     entry_price: 0.0
     currency: EUR
-    current_price: 65.05
+    current_price: 65.15
     distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-19'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: QS 59 Tier B. ROIC 15.6%, net cash, GM 35.7% expanding, food processing equipment.
   - ticker: SPX.L
     name: Spirax Group PLC
@@ -2483,12 +2525,12 @@ quality_universe:
     fair_value: 0.0
     entry_price: 0.0
     currency: GBP
-    current_price: 7810.0
+    current_price: 7830.0
     distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-19'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: QS 50 Tool, Adj ~62 (serial acquirer protocol). GM 76.2%, ROIC 13.1% (goodwill-suppressed). Steam/thermal management.
   - ticker: LAGR-B.ST
     name: Lagercrantz Group AB
@@ -2500,12 +2542,12 @@ quality_universe:
     fair_value: 250.0
     entry_price: 190.0
     currency: SEK
-    current_price: 211.2
-    distance_to_entry: 11.2
+    current_price: 216.4
+    distance_to_entry: 13.9
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-19'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: Serial acquirer. 56% ROIC. P/E 38.3x. Needs R1. Pre-R1 FV/entry estimates.
   - ticker: ADDT-B.ST
     name: Addtech AB ser. B
@@ -2517,12 +2559,12 @@ quality_universe:
     fair_value: 225.0
     entry_price: 180.0
     currency: SEK
-    current_price: null
-    distance_to_entry: null
+    current_price: 327.4
+    distance_to_entry: 81.9
     pipeline_status: R3_COMPLETE
     thesis_path: null
     last_scored: '2026-02-19'
-    last_price_check: null
+    last_price_check: '2026-02-20'
     notes: ''
   - ticker: FPE3.DE
     name: Fuchs SE
@@ -2534,12 +2576,12 @@ quality_universe:
     fair_value: 45.0
     entry_price: 30.0
     currency: EUR
-    current_price: 36.94
-    distance_to_entry: 23.1
+    current_price: 36.86
+    distance_to_entry: 22.9
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-19'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: QS 59 Tier B. AT 52wL but structural headwinds (EV adoption -22% EPS YoY). Entry lowered to EUR 30 (PASS on R1
       — EV disruption).
   - ticker: RAA.DE
@@ -2552,48 +2594,52 @@ quality_universe:
     fair_value: 570.0
     entry_price: 485.0
     currency: EUR
-    current_price: 740.5
-    distance_to_entry: 52.7
+    current_price: 734.0
+    distance_to_entry: 51.3
     pipeline_status: R3_COMPLETE
     thesis_path: thesis/research/RAA.DE
     last_scored: '2026-02-19'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: 'R3 COMPLETE 2026-02-19. QS 92 Tier A (HIGHEST). WIDE moat 21-22/25. FV EUR 600→570 (margin/FCF correction). Entry
       EUR 540→485. R4 HARD GATE: March 19 FY2025 results. Prob reaching entry: LOW (10-15%, crisis only).'
   - ticker: AM.PA
-    name: Dassault Aviation
+    name: DASSAULT AVIATION
     direction: long
     qs_tool: 75
     qs_adj: 75
     tier: A
     sector: defense-aerospace
-    fair_value: 280.0
-    entry_price: 230.0
-    currency: EUR
-    current_price: 344.8
-    distance_to_entry: 49.9
+    fair_value: 398.0
+    entry_price: 320.0
+    currency: USD
+    current_price: null
+    distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: null
-    last_scored: '2026-02-19'
-    last_price_check: '2026-02-19'
-    notes: SCORED. QS 75 Tier A. Defense/luxury jets. P/E 34.5 near ATH. Entry requires -33% = crisis only.
+    last_scored: '2026-02-20'
+    last_price_check: null
+    notes: 'R1 S97: QS 80 adj. 220 Rafale backlog. Near ATH. Buy zone EUR 310-320.'
+    r1_session: 97
+    r1_verdict: OVERVALUED
   - ticker: BEAN.SW
-    name: Belimo Holding AG
+    name: BELIMO N
     direction: long
     qs_tool: 75
     qs_adj: 75
     tier: A
-    sector: building-products
-    fair_value: 600.0
-    entry_price: 450.0
-    currency: CHF
-    current_price: 883.0
-    distance_to_entry: 96.2
+    sector: industrial-technology
+    fair_value: 470.0
+    entry_price: 400.0
+    currency: USD
+    current_price: null
+    distance_to_entry: null
     pipeline_status: SCORED
     thesis_path: null
-    last_scored: '2026-02-19'
-    last_price_check: '2026-02-19'
-    notes: SCORED. QS 75 Tier A. Building HVAC automation. P/E 63.9 = extreme premium. Entry requires -49% = crisis only.
+    last_scored: '2026-02-20'
+    last_price_check: null
+    notes: 'R1 S97: QS 80 adj. #1 HVAC actuators. P/E 65.2. Buy zone CHF 400.'
+    r1_session: 97
+    r1_verdict: FANTASY
   - ticker: ALFA.L
     name: ALFA FINANCIAL SOFTWARE HOLDING
     direction: long
@@ -2604,12 +2650,12 @@ quality_universe:
     fair_value: 235.0
     entry_price: 165.0
     currency: GBp
-    current_price: 188.7
+    current_price: 188.8
     distance_to_entry: 14.4
     pipeline_status: R3_COMPLETE
     thesis_path: null
     last_scored: '2026-02-19'
-    last_price_check: '2026-02-19'
+    last_price_check: '2026-02-20'
     notes: ''
   - ticker: FSG.L
     name: FORESIGHT GROUP HOLDINGS LIMITE
@@ -2621,13 +2667,15 @@ quality_universe:
     fair_value: 530.0
     entry_price: 360.0
     currency: GBp
-    current_price: null
-    distance_to_entry: null
+    current_price: 412.0
+    distance_to_entry: 14.4
     pipeline_status: R1_COMPLETE
     thesis_path: null
     last_scored: '2026-02-19'
-    last_price_check: null
+    last_price_check: '2026-02-20'
     notes: ''
+    r1_verdict: AT_FV
+    r1_session: 88
   - ticker: CKN.L
     name: CLARKSON PLC ORD 25P
     direction: long
@@ -2638,10 +2686,405 @@ quality_universe:
     fair_value: 5200.0
     entry_price: 3500.0
     currency: GBp
-    current_price: null
-    distance_to_entry: null
+    current_price: 4175.0
+    distance_to_entry: 19.3
     pipeline_status: R1_COMPLETE
     thesis_path: null
     last_scored: '2026-02-19'
-    last_price_check: null
+    last_price_check: '2026-02-20'
     notes: ''
+    r1_verdict: AT_FV
+    r1_session: 88
+  - ticker: GDWN.L
+    name: GOODWIN PLC ORD 10P
+    direction: long
+    qs_tool: 86
+    qs_adj: 80
+    tier: A
+    sector: Industrials
+    fair_value: 14320
+    entry_price: 11500
+    currency: GBp
+    current_price: 25761
+    distance_to_entry: 123.1
+    pipeline_status: R1_COMPLETE
+    thesis_path: thesis/research/GDWN.L/r1_thesis.md
+    last_scored: '2026-02-20'
+    last_price_check: '2026-02-20'
+    notes: R1 S93. QS 86/80 adj. FV 14,320p. SEVERELY OVERVALUED. Entry 11,000-12,000p (fantasy). Insider selling GBP 25M+.
+    r1_verdict: FANTASY
+    r1_session: 93
+  - ticker: MONY.L
+    name: MONY GROUP PLC ORD 0.02P
+    direction: long
+    qs_tool: 83
+    qs_adj: 83
+    tier: A
+    sector: Communication Services
+    fair_value: 0
+    entry_price: 0
+    currency: GBp
+    current_price: 151.8
+    distance_to_entry: null
+    pipeline_status: SCORED
+    thesis_path: ''
+    last_scored: '2026-02-20'
+    last_price_check: '2026-02-20'
+    notes: Auto-scored by batch_scorer. Needs R1 analysis.
+  - ticker: DOM.L
+    name: DOMINO'S PIZZA GROUP PLC ORD  2
+    direction: long
+    qs_tool: 70
+    qs_adj: 70
+    tier: B
+    sector: Consumer Cyclical
+    fair_value: 0
+    entry_price: 0
+    currency: GBp
+    current_price: 200.4045
+    distance_to_entry: null
+    pipeline_status: SCORED
+    thesis_path: ''
+    last_scored: '2026-02-20'
+    last_price_check: '2026-02-20'
+    notes: Auto-scored by batch_scorer. Needs R1 analysis.
+  - ticker: IGG.L
+    name: IG GROUP HOLDINGS PLC ORD 0.005
+    direction: long
+    qs_tool: 70
+    qs_adj: 70
+    tier: B
+    sector: Financial Services
+    fair_value: 0
+    entry_price: 0
+    currency: GBp
+    current_price: 1355.0
+    distance_to_entry: null
+    pipeline_status: SCORED
+    thesis_path: ''
+    last_scored: '2026-02-20'
+    last_price_check: '2026-02-20'
+    notes: Auto-scored by batch_scorer. Needs R1 analysis.
+  - ticker: FAN.L
+    name: VOLUTION GROUP PLC ORD GBP0.01
+    direction: long
+    qs_tool: 70
+    qs_adj: 70
+    tier: B
+    sector: Industrials
+    fair_value: 0
+    entry_price: 0
+    currency: GBp
+    current_price: 686.0
+    distance_to_entry: null
+    pipeline_status: SCORED
+    thesis_path: ''
+    last_scored: '2026-02-20'
+    last_price_check: '2026-02-20'
+    notes: Auto-scored by batch_scorer. Needs R1 analysis.
+  - ticker: BYIT.L
+    name: 'BYTES TECHNOLOGY GROUP PLC ORD '
+    direction: long
+    qs_tool: 68
+    qs_adj: 68
+    tier: B
+    sector: Technology
+    fair_value: 0
+    entry_price: 0
+    currency: GBp
+    current_price: 294.8
+    distance_to_entry: null
+    pipeline_status: SCORED
+    thesis_path: ''
+    last_scored: '2026-02-20'
+    last_price_check: '2026-02-20'
+    notes: Auto-scored by batch_scorer. Needs R1 analysis.
+  - ticker: TEP.L
+    name: TELECOM PLUS PLC ORD 5P
+    direction: long
+    qs_tool: 67
+    qs_adj: 67
+    tier: B
+    sector: Utilities
+    fair_value: 0
+    entry_price: 0
+    currency: GBp
+    current_price: 1380.0
+    distance_to_entry: null
+    pipeline_status: SCORED
+    thesis_path: ''
+    last_scored: '2026-02-20'
+    last_price_check: '2026-02-20'
+    notes: Auto-scored by batch_scorer. Needs R1 analysis.
+  - ticker: GAMA.L
+    name: GAMMA COMMUNICATIONS PLC ORD 0.
+    direction: long
+    qs_tool: 65
+    qs_adj: 65
+    tier: B
+    sector: Communication Services
+    fair_value: 0
+    entry_price: 0
+    currency: GBp
+    current_price: 869.4579
+    distance_to_entry: null
+    pipeline_status: SCORED
+    thesis_path: ''
+    last_scored: '2026-02-20'
+    last_price_check: '2026-02-20'
+    notes: Auto-scored by batch_scorer. Needs R1 analysis.
+  - ticker: BAG.L
+    name: BARR (A.G.) PLC ORD 4 1/6P
+    direction: long
+    qs_tool: 64
+    qs_adj: 64
+    tier: B
+    sector: Consumer Defensive
+    fair_value: 0
+    entry_price: 0
+    currency: GBp
+    current_price: 695.0
+    distance_to_entry: null
+    pipeline_status: SCORED
+    thesis_path: ''
+    last_scored: '2026-02-20'
+    last_price_check: '2026-02-20'
+    notes: Auto-scored by batch_scorer. Needs R1 analysis.
+  - ticker: GRG.L
+    name: GREGGS PLC ORD 2P
+    direction: long
+    qs_tool: 64
+    qs_adj: 64
+    tier: B
+    sector: Consumer Cyclical
+    fair_value: 0
+    entry_price: 0
+    currency: GBp
+    current_price: 1586.0
+    distance_to_entry: null
+    pipeline_status: SCORED
+    thesis_path: ''
+    last_scored: '2026-02-20'
+    last_price_check: '2026-02-20'
+    notes: Auto-scored by batch_scorer. Needs R1 analysis.
+  - ticker: MGNS.L
+    name: MORGAN SINDALL GROUP PLC ORD 5P
+    direction: long
+    qs_tool: 63
+    qs_adj: 63
+    tier: B
+    sector: Industrials
+    fair_value: 0
+    entry_price: 0
+    currency: GBp
+    current_price: 5410.0
+    distance_to_entry: null
+    pipeline_status: SCORED
+    thesis_path: ''
+    last_scored: '2026-02-20'
+    last_price_check: '2026-02-20'
+    notes: Auto-scored by batch_scorer. Needs R1 analysis.
+  - ticker: JSG.L
+    name: JOHNSON SERVICE GROUP PLC ORD 1
+    direction: long
+    qs_tool: 61
+    qs_adj: 61
+    tier: B
+    sector: Industrials
+    fair_value: 0
+    entry_price: 0
+    currency: GBp
+    current_price: 145.4
+    distance_to_entry: null
+    pipeline_status: SCORED
+    thesis_path: ''
+    last_scored: '2026-02-20'
+    last_price_check: '2026-02-20'
+    notes: Auto-scored by batch_scorer. Needs R1 analysis.
+  - ticker: KNOS.L
+    name: KAINOS GROUP PLC ORD 0.5P
+    direction: long
+    qs_tool: 61
+    qs_adj: 61
+    tier: B
+    sector: Technology
+    fair_value: 0
+    entry_price: 0
+    currency: GBp
+    current_price: 717.0
+    distance_to_entry: null
+    pipeline_status: SCORED
+    thesis_path: ''
+    last_scored: '2026-02-20'
+    last_price_check: '2026-02-20'
+    notes: Auto-scored by batch_scorer. Needs R1 analysis.
+  - ticker: MOON.L
+    name: MOONPIG GROUP PLC ORD 10P
+    direction: long
+    qs_tool: 61
+    qs_adj: 61
+    tier: B
+    sector: Consumer Cyclical
+    fair_value: 0
+    entry_price: 0
+    currency: GBp
+    current_price: 211.5
+    distance_to_entry: null
+    pipeline_status: SCORED
+    thesis_path: ''
+    last_scored: '2026-02-20'
+    last_price_check: '2026-02-20'
+    notes: Auto-scored by batch_scorer. Needs R1 analysis.
+  - ticker: CCC.L
+    name: COMPUTACENTER PLC ORD 7 5/9P
+    direction: long
+    qs_tool: 60
+    qs_adj: 60
+    tier: B
+    sector: Technology
+    fair_value: 0
+    entry_price: 0
+    currency: GBp
+    current_price: 3056.0
+    distance_to_entry: null
+    pipeline_status: SCORED
+    thesis_path: ''
+    last_scored: '2026-02-20'
+    last_price_check: '2026-02-20'
+    notes: Auto-scored by batch_scorer. Needs R1 analysis.
+  - ticker: PFD.L
+    name: PREMIER FOODS PLC ORD 10P
+    direction: long
+    qs_tool: 60
+    qs_adj: 60
+    tier: B
+    sector: Consumer Defensive
+    fair_value: 0
+    entry_price: 0
+    currency: GBp
+    current_price: 194.4
+    distance_to_entry: null
+    pipeline_status: SCORED
+    thesis_path: ''
+    last_scored: '2026-02-20'
+    last_price_check: '2026-02-20'
+    notes: Auto-scored by batch_scorer. Needs R1 analysis.
+  - ticker: ASHM.L
+    name: ASHMORE GROUP PLC ORD 0.01P
+    direction: long
+    qs_tool: 58
+    qs_adj: 58
+    tier: B
+    sector: Financial Services
+    fair_value: 0
+    entry_price: 0
+    currency: GBp
+    current_price: 245.6
+    distance_to_entry: null
+    pipeline_status: SCORED
+    thesis_path: ''
+    last_scored: '2026-02-20'
+    last_price_check: '2026-02-20'
+    notes: Auto-scored by batch_scorer. Needs R1 analysis.
+  - ticker: FGP.L
+    name: FIRSTGROUP PLC ORD 5P
+    direction: long
+    qs_tool: 57
+    qs_adj: 57
+    tier: B
+    sector: Industrials
+    fair_value: 0
+    entry_price: 0
+    currency: GBp
+    current_price: 190.5
+    distance_to_entry: null
+    pipeline_status: SCORED
+    thesis_path: ''
+    last_scored: '2026-02-20'
+    last_price_check: '2026-02-20'
+    notes: Auto-scored by batch_scorer. Needs R1 analysis.
+  - ticker: INCH.L
+    name: INCHCAPE PLC ORD 10P
+    direction: long
+    qs_tool: 57
+    qs_adj: 57
+    tier: B
+    sector: Consumer Cyclical
+    fair_value: 0
+    entry_price: 0
+    currency: GBp
+    current_price: 885.0
+    distance_to_entry: null
+    pipeline_status: SCORED
+    thesis_path: ''
+    last_scored: '2026-02-20'
+    last_price_check: '2026-02-20'
+    notes: Auto-scored by batch_scorer. Needs R1 analysis.
+  - ticker: ENOG.L
+    name: ENERGEAN PLC ORD 1P
+    direction: long
+    qs_tool: 56
+    qs_adj: 56
+    tier: B
+    sector: Energy
+    fair_value: 0
+    entry_price: 0
+    currency: GBp
+    current_price: 873.0
+    distance_to_entry: null
+    pipeline_status: SCORED
+    thesis_path: ''
+    last_scored: '2026-02-20'
+    last_price_check: '2026-02-20'
+    notes: Auto-scored by batch_scorer. Needs R1 analysis.
+  - ticker: HBR.L
+    name: HARBOUR ENERGY PLC ORD 0.002P
+    direction: long
+    qs_tool: 56
+    qs_adj: 56
+    tier: B
+    sector: Energy
+    fair_value: 0
+    entry_price: 0
+    currency: GBp
+    current_price: 226.0
+    distance_to_entry: null
+    pipeline_status: SCORED
+    thesis_path: ''
+    last_scored: '2026-02-20'
+    last_price_check: '2026-02-20'
+    notes: Auto-scored by batch_scorer. Needs R1 analysis.
+  - ticker: HOC.L
+    name: HOCHSCHILD MINING PLC ORD 1P
+    direction: long
+    qs_tool: 56
+    qs_adj: 56
+    tier: B
+    sector: Basic Materials
+    fair_value: 0
+    entry_price: 0
+    currency: GBp
+    current_price: 747.5
+    distance_to_entry: null
+    pipeline_status: SCORED
+    thesis_path: ''
+    last_scored: '2026-02-20'
+    last_price_check: '2026-02-20'
+    notes: Auto-scored by batch_scorer. Needs R1 analysis.
+  - ticker: MTO.L
+    name: MITIE GROUP PLC ORD 2.5P
+    direction: long
+    qs_tool: 56
+    qs_adj: 56
+    tier: B
+    sector: Industrials
+    fair_value: 0
+    entry_price: 0
+    currency: GBp
+    current_price: 182.4
+    distance_to_entry: null
+    pipeline_status: SCORED
+    thesis_path: ''
+    last_scored: '2026-02-20'
+    last_price_check: '2026-02-20'
+    notes: Auto-scored by batch_scorer. Needs R1 analysis.

@@ -104,9 +104,16 @@ events:
   - date: 2026-03-02
     type: catalyst
     ticker: LYV
-    event: "DOJ antitrust trial starts — SHORT CATALYST"
-    priority: CRITICAL
-    action: "Binary outcome. States prepared to pursue regardless of DOJ. If structural remedy (TM divestiture) → short thesis confirmed. If behavioral/settlement → RE-EVALUATE. LYV filed 51-page motion to dismiss. Trump DOJ fracturing internally."
+    event: "DOJ antitrust trial starts — MONITOR ONLY (short CANCELLED S93)"
+    priority: medium
+    action: "Short thesis CANCELLED S93. KC#3 triggered (organic rev >10% 2Q). Reverse DCF: FV $170-238 at 8-10% growth >> $130 cancel. Monitor from sidelines — no position."
+
+  - date: 2026-03-03
+    type: earnings_pipeline
+    ticker: KLR.L
+    event: "KLR.L FY2025 Full Year Results — HARD GATE for SO"
+    priority: high
+    action: "R1 complete S93. QS 76/79 Tier A. FV 2,600p, entry 1,750p (15.8% below current). PASS: margins >=6.5%, order book maintained, ROCE >20%. If PASS → create SO at 1,750p + consider R2. If margins collapse → lower entry or ARCHIVE."
 
   - date: 2026-03-01
     type: earnings

@@ -1,0 +1,81 @@
+# SESSION CONTINUITY — Inter-session contract
+# OVERWRITTEN each session (not accumulated). r1_cooldowns is rolling 30d.
+# Read by: session-planner, r1_prioritizer.py, session-phases
+# Written by: Fase 6 (last operation of each session)
+# Created: 2026-02-20
+
+session:
+  id: 97
+  date: "2026-02-20"
+  timestamp_cet: "2026-02-20T14:00"
+
+completed:
+  vigilance:
+    news_scan_time: "2026-02-20T23:00"
+    critical_count: 0
+    note: "From S94/S95 — smart_skip (same day, <8h)"
+  so_check:
+    timestamp: "2026-02-20T23:10"
+    nearest: { ticker: "RACE.MI", distance_pct: 4.2 }
+    triggered: []
+    note: "From S95 — smart_skip (same day)"
+  r1_completed:
+    - { ticker: "MNST", verdict: "FANTASY", qs_adj: 83, fv: "$52" }
+    - { ticker: "OR.PA", verdict: "OVERVALUED", qs_adj: 73, fv: "EUR 284" }
+    - { ticker: "AM.PA", verdict: "OVERVALUED", qs_adj: 80, fv: "EUR 398" }
+    - { ticker: "BEAN.SW", verdict: "FANTASY", qs_adj: 80, fv: "CHF 470" }
+  rotation_check: true
+  net_exposure: true
+  sectors_refreshed: ["telecom"]
+  earnings_prep_verified:
+    - { ticker: "MONY.L", date: "2026-02-23", status: "DECISION-READY", key: "KC#9 AI strategy decisive" }
+    - { ticker: "EDEN.PA", date: "2026-02-24", status: "DECISION-READY", key: "2027-28 guide 8-12% gate" }
+    - { ticker: "DTE.DE", date: "2026-02-26", status: "DECISION-READY", key: "MoS compressed to 7%. TRIM >EUR 34 close." }
+
+skip_if_same_day:
+  vigilance_fresh_until: "2026-02-21T07:00"
+  so_fresh_until: "2026-02-21T07:00"
+  rotation_done_today: true
+
+# Rolling 30-day cooldown window. Max 30 entries.
+# OVERVALUED = 14d cooldown, FANTASY = 30d cooldown, AT_FV = 14d, ACTIONABLE = 0d (no cooldown)
+r1_cooldowns:
+  # Session 97 (2026-02-20)
+  - { ticker: "MNST", verdict: "FANTASY", session: 97, date: "2026-02-20", price_at_analysis: 82, cooldown_until: "2026-03-22" }
+  - { ticker: "OR.PA", verdict: "OVERVALUED", session: 97, date: "2026-02-20", price_at_analysis: 395, cooldown_until: "2026-03-06" }
+  - { ticker: "AM.PA", verdict: "OVERVALUED", session: 97, date: "2026-02-20", price_at_analysis: 351, cooldown_until: "2026-03-06" }
+  - { ticker: "BEAN.SW", verdict: "FANTASY", session: 97, date: "2026-02-20", price_at_analysis: 904, cooldown_until: "2026-03-22" }
+  # Session 95 (2026-02-20)
+  - { ticker: "ODFL", verdict: "OVERVALUED", session: 95, date: "2026-02-20", price_at_analysis: 195, cooldown_until: "2026-03-06" }
+  - { ticker: "ROL", verdict: "FANTASY", session: 95, date: "2026-02-20", price_at_analysis: 61, cooldown_until: "2026-03-22" }
+  - { ticker: "WRB", verdict: "AT_FV", session: 95, date: "2026-02-20", price_at_analysis: 70, cooldown_until: "2026-03-06" }
+  # Session 94 (2026-02-20)
+  - { ticker: "CTAS", verdict: "FANTASY", session: 94, date: "2026-02-20", price_at_analysis: 215, cooldown_until: "2026-03-22" }
+  - { ticker: "HEI", verdict: "FANTASY", session: 94, date: "2026-02-20", price_at_analysis: 280, cooldown_until: "2026-03-22" }
+  - { ticker: "NOS.LS", verdict: "OVERVALUED", session: 94, date: "2026-02-20", price_at_analysis: 3.5, cooldown_until: "2026-03-06" }
+  # Session 93 (2026-02-20)
+  - { ticker: "GDWN.L", verdict: "FANTASY", session: 93, date: "2026-02-20", price_at_analysis: 11500, cooldown_until: "2026-03-22" }
+  - { ticker: "RMS.PA", verdict: "FANTASY", session: 93, date: "2026-02-20", price_at_analysis: 2350, cooldown_until: "2026-03-22" }
+  # KLR.L is ACTIONABLE — no cooldown
+  # Session 92 (2026-02-20)
+  - { ticker: "GGG", verdict: "OVERVALUED", session: 92, date: "2026-02-20", price_at_analysis: 93, cooldown_until: "2026-03-06" }
+  - { ticker: "KNEBV.HE", verdict: "OVERVALUED", session: 92, date: "2026-02-20", price_at_analysis: 47, cooldown_until: "2026-03-06" }
+  - { ticker: "BZU.MI", verdict: "OVERVALUED", session: 92, date: "2026-02-20", price_at_analysis: 52, cooldown_until: "2026-03-06" }
+  # IHP.L is ACTIONABLE (near entry) — no cooldown
+  # STMN.SW is near entry — no cooldown
+  # AON is near entry — no cooldown
+
+next_priorities:
+  - "MONY.L earnings Mon Feb 23 — ON PROBATION. KC#9 AI strategy = SELL trigger."
+  - "EDEN.PA earnings Tue Feb 24 — EXIT if 2027-28 guide <5%."
+  - "DTE.DE earnings Wed Feb 26 — MoS 7%, TRIM >EUR 34 close. KC#2 EPS guide <EUR 2.00."
+  - "RACE.MI SO at 4.2% — daily price monitoring, nearest trigger."
+  - "Position review batch OVERDUE (biweekly, last Feb 8) — do post-earnings."
+  - "AM.PA revisit if drops to EUR 310-320 or post FY2025 results Mar 4."
+
+evolution:
+  r1_fantasy_rate_last_10: 0.60
+  proposal: "Shift 1 of 3 daily R1 slots to --near-entry-only to improve actionable rate"
+  proposal_status: "PENDING"
+  last_implemented: "S96: Auto-evolution + dedup system (session_continuity.yaml, cooldowns, Fase 6)"
+  s97_note: "4 R1s: 2 FANTASY (MNST, BEAN.SW), 2 OVERVALUED (OR.PA, AM.PA). 0 ACTIONABLE. Fantasy rate 50% this session. Cumulative: 6 FANTASY / 10 last = 60%. Pattern: Tier A companies trade at extreme premiums. Consider shifting to Tier B near-entry candidates."

@@ -20,8 +20,11 @@ Usage:
   python3 tools/quality_universe.py remove TICKER
   python3 tools/quality_universe.py coverage             # Sector coverage vs gaps
   python3 tools/quality_universe.py refresh              # Update prices for all companies (batch, rate-limit spaced)
-  python3 tools/quality_universe.py stale                # Companies needing re-evaluation (by days since last scored)
-  python3 tools/quality_universe.py stats                # Pipeline health metrics (raw data, no fixed targets)
+  python3 tools/quality_universe.py stale                # Companies needing re-evaluation (STALE/CRITICAL classification)
+  python3 tools/quality_universe.py stale --all          # Show all companies including FRESH
+  python3 tools/quality_universe.py stats                # Pipeline health metrics with funnel visualization
+  python3 tools/quality_universe.py archive              # List candidates for archival (REJECTED, QS<55, delisted)
+  python3 tools/quality_universe.py archive --execute    # Execute archival (move to archived section)
 """
 
 import sys
@@ -515,6 +518,14 @@ def cmd_add(args):
         "notes": args.notes or "",
     }
 
+    # R1 verdict tracking (optional)
+    r1_session = getattr(args, "r1_session", None)
+    r1_verdict = getattr(args, "r1_verdict", None)
+    if r1_session is not None:
+        entry["r1_session"] = r1_session
+    if r1_verdict is not None:
+        entry["r1_verdict"] = r1_verdict
+
     # Try to fetch name from yfinance if not provided
     if args.name is None:
         try:
@@ -524,6 +535,12 @@ def cmd_add(args):
             pass
 
     if existing is not None:
+        # Preserve existing r1 fields if not explicitly overridden
+        old = companies[existing]
+        if "r1_session" not in entry and "r1_session" in old:
+            entry["r1_session"] = old["r1_session"]
+        if "r1_verdict" not in entry and "r1_verdict" in old:
+            entry["r1_verdict"] = old["r1_verdict"]
         # Update existing
         companies[existing] = entry
         print(f"Updated {ticker} in quality universe.")
@@ -703,7 +720,13 @@ def cmd_refresh(args):
 
 
 def cmd_stale(args):
-    """Show companies that may need re-evaluation, sorted by days since last scored."""
+    """Show companies that need re-evaluation, with staleness classification.
+
+    Staleness criteria:
+      STALE:          last_scored > 90 days ago AND no earnings in last 30 days
+      CRITICAL_STALE: last_scored > 180 days ago AND pipeline_status >= R1_COMPLETE
+      FRESH:          last_scored <= 90 days ago
+    """
     data = load_universe()
     companies = data["quality_universe"]["companies"]
 
@@ -713,6 +736,11 @@ def cmd_stale(args):
 
     today = date.today()
     stale_list = []
+    critical_count = 0
+    stale_count = 0
+    fresh_count = 0
+
+    advanced_statuses = {"R1_COMPLETE", "R2_COMPLETE", "R3_COMPLETE", "APPROVED", "STANDING_ORDER"}
 
     for c in companies:
         last_scored = c.get("last_scored")
@@ -725,17 +753,36 @@ def cmd_stale(args):
         else:
             days_ago = 999
 
-        stale_list.append((c, days_ago))
+        # Classify staleness
+        pipeline = c.get("pipeline_status", "UNKNOWN")
+        if days_ago > 180 and pipeline in advanced_statuses:
+            staleness = "CRITICAL"
+            critical_count += 1
+        elif days_ago > 90:
+            staleness = "STALE"
+            stale_count += 1
+        else:
+            staleness = "FRESH"
+            fresh_count += 1
+
+        stale_list.append((c, days_ago, staleness))
 
     # Sort by days_ago descending (most stale first)
     stale_list.sort(key=lambda x: -x[1])
 
-    print(f"\nUniverse Staleness Report | {today}")
-    print("=" * 110)
-    print(f"{'Ticker':<10} {'Dir':<5} {'Name':<25} {'QS':>3} {'Tier':>4} {'Last Scored':>12} {'Days Ago':>9} {'Pipeline':<16}")
-    print("-" * 110)
+    # Only show STALE and CRITICAL by default, all if verbose
+    show_all = len(sys.argv) > 2 and "--all" in sys.argv
+    if not show_all:
+        display_list = [(c, d, s) for c, d, s in stale_list if s in ("CRITICAL", "STALE")]
+    else:
+        display_list = stale_list
 
-    for c, days_ago in stale_list:
+    print(f"\nUniverse Staleness Report | {today}")
+    print("=" * 125)
+    print(f"{'Ticker':<10} {'Dir':<5} {'Name':<25} {'QS':>3} {'Tier':>4} {'Last Scored':>12} {'Days':>5} {'Status':<10} {'Pipeline':<16}")
+    print("-" * 125)
+
+    for c, days_ago, staleness in display_list:
         last_scored = c.get("last_scored", "never")
         days_str = str(days_ago) if days_ago < 999 else "never"
         qs_display = _get_qs_display(c)
@@ -749,19 +796,25 @@ def cmd_stale(args):
             f"{qs_display:>3} "
             f"{(c.get('tier') or '?'):>4} "
             f"{str(last_scored):>12} "
-            f"{days_str:>9} "
+            f"{days_str:>5} "
+            f"{staleness:<10} "
             f"{(c.get('pipeline_status') or 'UNKNOWN'):<16}"
         )
 
-    print(f"\nTotal: {len(companies)} companies")
+    print(f"\nSummary: {len(companies)} companies")
     long_count = sum(1 for c in companies if _is_long(c))
     short_count = sum(1 for c in companies if _is_short(c))
     print(f"  Long: {long_count} | Short: {short_count}")
-    print(f"Use judgment: earnings, regulatory changes, or material events warrant earlier re-evaluation.")
+    print(f"  CRITICAL (>180d + R1+): {critical_count}")
+    print(f"  STALE (>90d):           {stale_count}")
+    print(f"  FRESH (<=90d):          {fresh_count}")
+    if not show_all and fresh_count > 0:
+        print(f"\n  Showing STALE+CRITICAL only. Use --all to see all {len(companies)} entries.")
+    print(f"  Material events or earnings warrant earlier re-evaluation.")
 
 
 def cmd_stats(args):
-    """Pipeline health metrics -- raw data, no fixed targets."""
+    """Pipeline health metrics -- raw data, no fixed targets. Includes pipeline funnel."""
     data = load_universe()
     companies = data["quality_universe"]["companies"]
 
@@ -797,14 +850,27 @@ def cmd_stats(args):
 
     # Standing orders: count from standing_orders.yaml
     standing_orders_count = 0
+    so_near_10 = 0
+    so_near_15 = 0
     so_path = os.path.join(PROJECT_ROOT, "state", "standing_orders.yaml")
     if os.path.exists(so_path):
         try:
             with open(so_path, "r") as f:
                 so_data = yaml.safe_load(f) or {}
-            so = so_data.get("standing_orders", [])
-            if so:
-                standing_orders_count = len(so)
+            so_list = so_data.get("standing_orders", [])
+            if so_list:
+                standing_orders_count = len(so_list)
+                for so in so_list:
+                    dist = so.get("distance_pct")
+                    if dist is not None:
+                        try:
+                            dist_val = float(str(dist).replace("%", ""))
+                            if dist_val <= 10:
+                                so_near_10 += 1
+                            if dist_val <= 15:
+                                so_near_15 += 1
+                        except (ValueError, TypeError):
+                            pass
         except Exception:
             pass
 
@@ -821,23 +887,26 @@ def cmd_stats(args):
     today = date.today()
     stale_30 = 0
     stale_90 = 0
+    stale_180 = 0
     for c in companies:
         last_scored = c.get("last_scored")
         if last_scored:
             try:
                 scored_date = datetime.strptime(str(last_scored), "%Y-%m-%d").date()
                 days_ago = (today - scored_date).days
-                if days_ago > 90:
+                if days_ago > 180:
+                    stale_180 += 1
+                elif days_ago > 90:
                     stale_90 += 1
                 elif days_ago > 30:
                     stale_30 += 1
             except (ValueError, TypeError):
-                stale_90 += 1
+                stale_180 += 1
         else:
-            stale_90 += 1
+            stale_180 += 1
 
     print(f"\nPipeline Health Metrics | {date.today()}")
-    print("=" * 50)
+    print("=" * 55)
     print(f"Universe total:      {total:>5}")
     print(f"  Long candidates:   {total_long:>5}")
     print(f"  Short candidates:  {total_short:>5}")
@@ -851,19 +920,46 @@ def cmd_stats(args):
     print(f"Actionable (long):   {actionable_long:>5}")
     if total_short > 0:
         print(f"Actionable (short):  {actionable_short:>5}")
-    print(f"Scored >30d ago:     {stale_30:>5}")
-    print(f"Scored >90d ago:     {stale_90:>5}")
     print(f"Cash available:      {cash_currency} {cash_amount:,.0f}")
-    print()
 
-    print("Pipeline Status Breakdown (long):")
-    for status in ("UNSCREENED", "SCORED", "R1_COMPLETE", "R2_COMPLETE", "R3_COMPLETE", "APPROVED", "STANDING_ORDER", "REJECTED"):
+    # ===== PIPELINE FUNNEL (new v4.4) =====
+    print()
+    print("PIPELINE FUNNEL (long):")
+    funnel_statuses = [
+        ("SCORED", "SCORED"),
+        ("R1_COMPLETE", "R1_COMPLETE"),
+        ("R2_COMPLETE", "R2_COMPLETE"),
+        ("R3_COMPLETE", "R3_COMPLETE"),
+        ("APPROVED", "APPROVED"),
+        ("STANDING_ORDER", "STANDING_ORDER"),
+        ("REJECTED", "REJECTED"),
+    ]
+
+    for label, status in funnel_statuses:
         count = status_counts.get(status, 0)
         if count > 0:
-            print(f"  {status:<20} {count:>3}")
+            pct = count / total_long * 100 if total_long > 0 else 0
+            bar = "#" * max(1, int(pct / 2))
+            bottleneck = " <-- BOTTLENECK" if status == "SCORED" and pct > 50 else ""
+            print(f"  {label:<20} {count:>4} ({pct:>5.1f}%) {bar}{bottleneck}")
 
-    if not status_counts:
-        print("  (no companies)")
+    scored_count = status_counts.get("SCORED", 0)
+    if scored_count > 0:
+        print(f"\n  R1 BACKLOG: {scored_count} companies need R1 analysis")
+
+    # Deployment readiness
+    print()
+    print("DEPLOYMENT READINESS:")
+    print(f"  SOs < 10% from trigger:  {so_near_10}")
+    print(f"  SOs < 15% from trigger:  {so_near_15}")
+    print(f"  Total standing orders:   {standing_orders_count}")
+
+    # Staleness summary
+    print()
+    print("STALENESS:")
+    print(f"  Scored 30-90d ago:   {stale_30:>5}")
+    print(f"  Scored 90-180d ago:  {stale_90:>5}  (STALE)")
+    print(f"  Scored >180d ago:    {stale_180:>5}  (CRITICAL)")
 
     # Short pipeline summary
     if short_companies:
@@ -883,7 +979,111 @@ def cmd_stats(args):
         for s, count in sorted(short_sectors.items(), key=lambda x: -x[1]):
             print(f"    {s}: {count}")
 
+    # R1 VERDICT BREAKDOWN (across all R1_COMPLETE+ entries with r1_verdict)
+    r1_verdicts = {}
+    r1_with_verdict = 0
+    r1_without_verdict = 0
+    for c in long_companies:
+        if c.get("pipeline_status", "") in ("R1_COMPLETE", "R2_COMPLETE", "R3_COMPLETE", "APPROVED", "STANDING_ORDER"):
+            v = c.get("r1_verdict")
+            if v:
+                r1_verdicts[v] = r1_verdicts.get(v, 0) + 1
+                r1_with_verdict += 1
+            else:
+                r1_without_verdict += 1
+
+    if r1_with_verdict > 0:
+        print()
+        print("R1 VERDICT BREAKDOWN:")
+        verdict_order = ["ACTIONABLE", "AT_FV", "OVERVALUED", "FANTASY"]
+        total_v = r1_with_verdict
+        for v in verdict_order:
+            count = r1_verdicts.get(v, 0)
+            if count > 0:
+                pct = count / total_v * 100
+                print(f"  {v:<14} {count:>3}  ({pct:>5.1f}%)")
+        if r1_without_verdict > 0:
+            print(f"  (no verdict)  {r1_without_verdict:>3}  — backfill needed")
+
     print("\n[Raw data. Reason from principles.md]")
+
+
+def cmd_archive(args):
+    """List or execute archival of dead universe entries.
+
+    Archive candidates:
+      - REJECTED status
+      - QS < 55 (below minimum threshold)
+      - Companies with no price data for >30 days (possibly delisted)
+    """
+    data = load_universe()
+    companies = data["quality_universe"]["companies"]
+
+    if not companies:
+        print("Quality Universe is empty.")
+        return
+
+    today = date.today()
+    candidates = []
+
+    for c in companies:
+        reason = None
+        pipeline = c.get("pipeline_status", "UNKNOWN")
+        qs = c.get("qs_adj") or c.get("qs_tool") or 0
+
+        if pipeline == "REJECTED":
+            reason = "REJECTED status"
+        elif qs < 55 and qs > 0:
+            reason = f"QS {qs} < 55 (below threshold)"
+        else:
+            # Check if no price data for >30 days
+            last_check = c.get("last_price_check")
+            if last_check:
+                try:
+                    check_date = datetime.strptime(str(last_check), "%Y-%m-%d").date()
+                    if (today - check_date).days > 30 and c.get("current_price") is None:
+                        reason = f"No price data, last check {last_check}"
+                except (ValueError, TypeError):
+                    pass
+
+        if reason:
+            candidates.append((c, reason))
+
+    if not candidates:
+        print(f"\nNo archive candidates found. Universe: {len(companies)} companies.")
+        return
+
+    execute = getattr(args, "execute", False)
+
+    print(f"\nArchive Candidates | {today}")
+    print("=" * 100)
+    print(f"{'Ticker':<12} {'QS':>3} {'Tier':>4} {'Pipeline':<16} {'Reason'}")
+    print("-" * 100)
+
+    for c, reason in candidates:
+        qs = _get_qs_display(c)
+        print(f"{c['ticker']:<12} {qs:>3} {(c.get('tier') or '?'):>4} {(c.get('pipeline_status') or '?'):<16} {reason}")
+
+    if execute:
+        # Initialize archived section if needed
+        if "archived" not in data["quality_universe"]:
+            data["quality_universe"]["archived"] = []
+
+        archived_tickers = set()
+        for c, reason in candidates:
+            c["archived_date"] = str(today)
+            c["archive_reason"] = reason
+            data["quality_universe"]["archived"].append(c)
+            archived_tickers.add(c["ticker"])
+
+        # Remove from active companies
+        data["quality_universe"]["companies"] = [
+            c for c in companies if c["ticker"] not in archived_tickers
+        ]
+        save_universe(data)
+        print(f"\nArchived {len(candidates)} companies. Universe: {len(data['quality_universe']['companies'])} remaining.")
+    else:
+        print(f"\n{len(candidates)} candidates for archival. Run with --execute to archive.")
 
 
 # ---------------------------------------------------------------------------
@@ -1014,6 +1214,8 @@ Flags:
     add_parser.add_argument("--thesis", type=str, default=None, help="Path to thesis file")
     add_parser.add_argument("--name", type=str, default=None, help="Company name (auto-fetched if omitted)")
     add_parser.add_argument("--notes", type=str, default=None, help="Notes")
+    add_parser.add_argument("--r1-session", type=int, default=None, help="Session number when R1 was completed")
+    add_parser.add_argument("--r1-verdict", type=str, default=None, choices=["ACTIONABLE", "AT_FV", "OVERVALUED", "FANTASY"], help="R1 analysis verdict")
 
     # remove
     remove_parser = subparsers.add_parser("remove", help="Remove a company")
@@ -1026,10 +1228,15 @@ Flags:
     subparsers.add_parser("refresh", help="Refresh prices for all companies")
 
     # stale
-    subparsers.add_parser("stale", help="Companies needing re-evaluation (by days since last scored)")
+    stale_parser = subparsers.add_parser("stale", help="Companies needing re-evaluation (by staleness)")
+    stale_parser.add_argument("--all", action="store_true", default=False, help="Show all companies, not just stale ones")
 
     # stats
     subparsers.add_parser("stats", help="Pipeline health metrics (raw data)")
+
+    # archive
+    archive_parser = subparsers.add_parser("archive", help="List or execute archival of dead entries")
+    archive_parser.add_argument("--execute", action="store_true", default=False, help="Actually move candidates to archived section")
 
     args = parser.parse_args()
 
@@ -1046,6 +1253,7 @@ Flags:
         "refresh": cmd_refresh,
         "stale": cmd_stale,
         "stats": cmd_stats,
+        "archive": cmd_archive,
     }
 
     cmd_map[args.command](args)

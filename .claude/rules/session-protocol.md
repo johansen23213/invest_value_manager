@@ -1,8 +1,8 @@
-# Session Protocol v4.2
+# Session Protocol v4.6
 
 > Auto-loaded. Flujo de sesion y reglas de comportamiento criticas.
 > Detalle de fases: `.claude/skills/session-phases/SKILL.md`
-> Template de dashboard: `.claude/skills/session-dashboard/SKILL.md`
+> Session planner: `.claude/skills/session-planner/SKILL.md`
 
 ---
 
@@ -10,16 +10,16 @@
 
 | Senal del humano | Modo |
 |------------------|------|
-| Instruccion especifica ("analiza X", "compra Y") | **DIRECTO** — ejecutar |
-| "wave", "autonomo", "trabaja" | **WAVE** — ver `.claude/skills/wave-system/SKILL.md` |
-| Saludo generico sin instruccion | **DASHBOARD** — ver skill session-dashboard |
+| Instruccion especifica ("analiza X", "compra Y") | **DIRECTO** — ejecutar (plan como contexto mental) |
+| "wave", "autonomo", "trabaja", saludo generico | **SESSION PLAN** — plan dinamico + aprobacion + ejecucion. Ver `.claude/skills/session-planner/SKILL.md` |
+| "estado" | **DASHBOARD RAPIDO** — ver skill session-dashboard (version corta, sin plan mode) |
 
 ---
 
 ## Flujo de Fases
 
 ```
-FASE 0: Calibracion v4.2
+FASE 0: Calibracion v4.6
   → Leer principles.md (P1-P14) + precedentes recientes + pipeline_tracker
   → **STRATEGIC DIRECTION CHECK** (system.yaml → strategic_direction)
     → ¿Sigue siendo valida la direccion actual? ¿Algo cambio?
@@ -30,6 +30,15 @@ FASE 0: Calibracion v4.2
     → SHORTS: Si TRIGGERED (precio >= trigger): pre-flight 6 gates → PRIORIDAD MAXIMA
     → Si NEAR (razonar sobre contexto): alerta + pre-flight preparado
   → Self-check: listo para razonar desde principios?
+
+FASE 0.5: SESSION PLAN (auto-activar en modo SESSION PLAN)
+  → Leer 8 fuentes de estado: calendar, pipeline_tracker, SOs, watchlist, system, portfolio, universe, session_continuity
+  → **DEDUP CHECK**: si session_continuity.session.date == today → apply same-day dedup rules
+  → Ejecutar 3 tools rapidos: forward_return.py, sector_health.py freshness --stale-only, r1_prioritizer.py --top 5
+  → Clasificar items por prioridad P0-P8 (ver session-planner skill)
+  → Generar plan con template: ESTADO RAPIDO + URGENTE + PRIORIDAD NORMAL + MANTENIMIENTO + SECUENCIACION
+  → Presentar plan → humano aprueba/ajusta → ejecutar waves
+  → Modo DIRECTO: skip plan mode formal, generar plan como contexto mental interno
 
 FASE 1: Vigilancia
   → news-monitor + market-pulse (paralelo)
@@ -51,12 +60,23 @@ FASE 2.5: Rotation Check + Net Exposure Reasoning (P13)
     → Si 0% short: documentar POR QUE (P12 — ¿estoy buscando activamente shorts?)
     → Principios: P4 (Exposicion Activa), P10-P11 (Short), P12-P14 (Portfolio Bidireccional)
 
-FASE 2.7: Universe Work + Fragility Scan
+FASE 2.7: Universe Work + Fragility Scan + R1 PROCESSING
   → quality_universe.py stats/stale → decidir + ejecutar algo HOY
   → **EXPANSION**: batch_scorer.py --index {INDEX} --new-only --add-to-universe (si hay indices no cubiertos)
   → **FRAGILITY SCAN** (semanal, OBLIGATORIO): quality_universe.py --fragility
     → Evaluar candidatos short del universe + sector views
     → Si fragility_watch vencido → ejecutar scan como parte del universe work
+  → **R1 PROCESSING (OBLIGATORIO, min 3 por sesion — L-08):**
+    → python3 tools/r1_prioritizer.py --top 10
+    → Seleccionar 3-5 candidatos, lanzar fundamental-analyst en paralelo
+    → Prioridad: QS alto + near entry + geographic diversification
+    → Esto es PRIORIDAD PERMANENTE, no "si queda tiempo"
+    → Si 0 R1s completados al final de sesion → documentar POR QUE en meta-reflexion
+  → **SECTOR HEALTH CHECK** (semanal, OBLIGATORIO):
+    → sector_health.py freshness --stale-only
+    → Si STALE con deps portfolio: programar sector-deep-dive ANTES de R1
+    → Si changes vs snapshot: evaluar si cascade necesario
+    → Despues de actualizar sector views: sector_health.py snapshot
 
 FASE 3: Verificaciones
   → Standing orders (long + short), cash, pipeline (<3 = vacio), world view (>7d stale), rebalanceo, health check
@@ -67,10 +87,15 @@ FASE 4: Acciones
   → Shorts: si catalizador inminente + thesis aprobada → ejecutar
 
 FASE 5: Meta-Reflexion (OBLIGATORIO al final)
-  → Pipeline tracker, cumplimiento v4.2, auditoria delegacion, universe work, auto-mejora
+  → Pipeline tracker, cumplimiento v4.6, auditoria delegacion, universe work, auto-mejora
   → Shorts: effectiveness separada + Sharpe total (long + short)
   → **NET EXPOSURE AUDIT**: ¿Razone sobre exposicion neta hoy? ¿Actualice system.yaml? ¿La decision fue explicita?
   → **CAPITAL OCIOSO AUDIT** (P14): ¿Cuanto cash hay? ¿Ejecute screening L+S? ¿Pipeline suficiente?
+
+FASE 6: Evolution Micro-Step (ULTIMA operacion)
+  → Audit plan vs execution, R1 fantasy rate check
+  → Propose 1 micro-improvement (What/Why/How/Measure/Apply)
+  → **WRITE session_continuity.yaml** — dedup signals, cooldowns, handoff. ULTIMA ESCRITURA.
 ```
 
 Detalle completo de cada fase: `.claude/skills/session-phases/SKILL.md`

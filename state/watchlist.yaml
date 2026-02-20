@@ -35,6 +35,9 @@ on_watch:
   - { ticker: ALFA.L, entry: "165 GBp", fv: "235 GBp", notes: "R3 COMPLETE 2026-02-19. QS 80/83 Tier A. FV 265→235p (DA -11.3%, CHP overhang + liquidity discount). Entry 180→165p. WIDE moat (14/25). CHP selling = STRUCTURAL (3 sales GBP 57M+, accepted EQT 208p exit). Solifi/TA Associates threat MONITOR. HARD GATE: Mar 12 FY2025 results (receivables, SE guidance, FCF margin). UK #5 risk." }
   - { ticker: FSG.L, entry: "375 GBp", fv: "530 GBp", notes: "R1 COMPLETE 2026-02-19. QS 83/70 Tier B (AM adjustment -13). NARROW moat (15/25). ROIC 47.6% structurally inflated (asset-light AM). 34.6% insider. VCT tax cut Apr 2026 CRITICAL. Receivables +49% vs rev +9% = RED FLAG. Rev CAGR 21% vs EPS CAGR 8% dilution gap. UK #5 risk." }
   - { ticker: CKN.L, entry: "3200 GBp", fv: "5200 GBp", notes: "R1 COMPLETE 2026-02-19. QS 83/80 Tier A borderline. #1 global shipbroker 25% share. NARROW moat (trending Wide via Research). Net cash GBP 291M. 23yr div growth. 10.4% insider. PROFIT WARNING: FY2025 PBT GBP 85-95M (-18-26%). H1 PBT -24%. HARD GATE: FY2025 prelims Mar 2026 before R2. FCF margin declining 28→16%. 5th UK position risk." }
+  - { ticker: KLR.L, entry: "1750 GBp", fv: "2600 GBp", notes: "R1 COMPLETE 2026-02-20. QS 76/79 Tier A. #1 global geotechnical contractor 12.5% share. ROCE 28.2%. Margins 3.7→7.1% transformation. Record order book GBP 1.6B. Reverse DCF implies -10.5% FCF decline = too pessimistic. E[CAGR] 16.7% at 1,750p. HARD GATE: FY2025 results Mar 3 before SO. UK-listed but 55% US revenue. 5th UK position risk." }
+  - { ticker: GDWN.L, entry: "11500 GBp", fv: "14320 GBp", notes: "R1 COMPLETE 2026-02-20. QS 86/80 Tier A. Specialty industrial castings. FV 14,320p vs current 25,761p = SEVERELY OVERVALUED. Entry 11,000-12,000p (fantasy, -55% away). Insider selling GBP 25M+ at peak. Crisis-only." }
+  - { ticker: RMS.PA, entry: "EUR 1200", fv: "EUR 1350", notes: "R1 COMPLETE 2026-02-20. QS 78/86 Tier A (WIDE moat +8). Best luxury business globally. FV EUR 1,350 vs current EUR 2,091. Entry EUR 1,200 (fantasy, -43% away). ROIC 49%, 67% insider. Crisis-only." }
 
 tier_2:
   - { ticker: AGN.NV, entry: "5.90-6.10", notes: "Earnings 19-Feb." }
@@ -167,8 +170,14 @@ price_monitors:
   - { ticker: DSY.PA, entry_eur: 14.50, condition: "WAIT Q1. Revised down S75 post -21% crash." }
   - { ticker: PAYC, entry_usd: 92, note: "R3 complete. Deferred." }
   - { ticker: MORN, entry_usd: 133, note: "R3 complete. Deferred." }
+  - { ticker: AON, entry_usd: 300, note: "R1 complete. QS 70 Tier B. FV $361. Near 52wL." }
+  - { ticker: BZU.MI, entry_eur: 42, note: "R1 complete. QS 70 Tier B. FV EUR 58. Cyclical — buy in downturn only." }
+  - { ticker: KNEBV.HE, entry_eur: 46, note: "R1 complete. QS 80 Tier A. FV EUR 54. Elevator oligopoly. Near 52wL." }
   - { ticker: ADDT-B.ST, entry_sek: 180, note: "R3 complete. QS 77 Tier A lower. FV SEK 225. Crisis only (-44%)." }
   - { ticker: RAA.DE, entry_eur: 485, note: "R3 complete. QS 92 Tier A. FV EUR 570. HARD GATE Mar 19." }
   - { ticker: ALFA.L, entry_gbp: 165, note: "R3 complete. QS 83 Tier A. FV 235p (DA -11.3%). CHP structural overhang. HARD GATE Mar 12." }
   - { ticker: FSG.L, entry_gbp: 375, note: "R1 complete. QS 70 Tier B (AM adj). FV 530p. VCT tax cut CRITICAL." }
   - { ticker: CKN.L, entry_gbp: 3200, note: "R1 complete. QS 80 Tier A borderline. FV 5200p. PROFIT WARNING. HARD GATE Mar 2026." }
+  - { ticker: AON, entry_usd: 300, note: "R1 COMPLETE 2026-02-20. QS 62/70 Tier B (insurance ROE adj +5, market position +3). FV $361. #2 global broker. Pure intermediary, no underwriting risk. AI fear overblown. Insiders buying 17.7:1. Entry $300 = MoS 16.9%, E[CAGR] 14.2%. Near 52wL $305." }
+  - { ticker: BZU.MI, entry_eur: 42, note: "R1 COMPLETE 2026-02-20. QS 73/70 Tier B (cyclical adj -3, treat as Tier B despite borderline score). FV EUR 58 through-cycle. 53% family ownership. Net cash EUR 1.1B. Best cement margins globally. CYCLICAL — buy only in downturn. Near 52wH = wrong time." }
+  - { ticker: KNEBV.HE, entry_eur: 46, note: "R1 COMPLETE 2026-02-20. QS 72/80 Tier A (+8 adj: market position +5, FX distortion +3). FV EUR 54. #2-3 global elevator oligopoly. Razor/blade model. ROIC 30.6%. Net cash. OVERVALUED at EUR 63 (P/E 33x). Entry EUR 46 near 52wL (EUR 45.94). Distance -27%." }

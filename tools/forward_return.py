@@ -41,6 +41,7 @@ THESIS_ACTIVE_DIR = os.path.join(BASE_DIR, 'thesis', 'active')
 THESIS_RESEARCH_DIR = os.path.join(BASE_DIR, 'thesis', 'research')
 THESIS_SHORT_DIR = os.path.join(BASE_DIR, 'thesis', 'short', 'active')
 DECISIONS_LOG = os.path.join(BASE_DIR, 'learning', 'decisions_log.yaml')
+UNIVERSE_PATH = os.path.join(BASE_DIR, 'state', 'quality_universe.yaml')
 
 # Default annual carry cost for CFD shorts (eToro overnight fees)
 DEFAULT_ANNUAL_CARRY_PCT = 7.5
@@ -684,9 +685,101 @@ def find_research_tickers():
     return results
 
 
+def load_universe_best_candidates():
+    """Load best pipeline candidates from quality_universe for rotation comparison.
+
+    Returns list of dicts with ticker, qs, mos_pct for companies with pipeline >= R3_COMPLETE
+    and entry prices defined. Sorted by QS descending.
+    """
+    if not os.path.exists(UNIVERSE_PATH):
+        return []
+    try:
+        with open(UNIVERSE_PATH, 'r') as f:
+            data = yaml.safe_load(f) or {}
+        companies = data.get('quality_universe', {}).get('companies', [])
+    except Exception:
+        return []
+
+    advanced = {'R3_COMPLETE', 'APPROVED', 'STANDING_ORDER'}
+    candidates = []
+    for c in companies:
+        if c.get('direction', 'long') != 'long':
+            continue
+        if c.get('pipeline_status', '') not in advanced:
+            continue
+        qs = c.get('qs_adj') or c.get('qs_tool') or 0
+        dist = c.get('distance_to_entry')
+        if dist is None:
+            continue
+        # MoS approximation: for pipeline candidates, distance_to_entry is
+        # (price - entry) / entry * 100.  A positive MoS would mean price < FV.
+        # We use the FV-based MoS if available, else approximate from distance.
+        fv = c.get('fair_value')
+        price = c.get('current_price')
+        if fv and price and price > 0:
+            mos = ((fv - price) / price) * 100
+        else:
+            mos = -dist  # Rough approximation
+        candidates.append({
+            'ticker': c['ticker'],
+            'qs': qs,
+            'mos_pct': mos,
+            'tier': c.get('tier', '?'),
+        })
+    candidates.sort(key=lambda x: -x['qs'])
+    return candidates
+
+
+def compute_rotation_flags(active_results, pipeline_candidates):
+    """Compute rotation opportunity scores for bottom-3 active positions.
+
+    OS = (MoS_candidate / MoS_position) * (QS_candidate / QS_position)
+    If OS > 2.0: flag as ROTATION CANDIDATE.
+
+    Returns dict of {ticker: (os_score, best_candidate_ticker)}.
+    """
+    if not pipeline_candidates or not active_results:
+        return {}
+
+    # Get bottom 3 by MoS (worst forward return positions)
+    valid = [r for r in active_results if r['mos_pct'] is not None and r['qs'] is not None]
+    if not valid:
+        return {}
+    sorted_by_mos = sorted(valid, key=lambda x: x['mos_pct'])
+    bottom_3 = sorted_by_mos[:3]
+
+    # Best pipeline candidate (highest QS with positive MoS)
+    best = None
+    for pc in pipeline_candidates:
+        if pc['mos_pct'] > 0:
+            best = pc
+            break
+    if not best:
+        return {}
+
+    flags = {}
+    for r in bottom_3:
+        pos_mos = max(r['mos_pct'], 0.1)  # Avoid division by zero
+        pos_qs = max(r['qs'], 1)
+        cand_mos = max(best['mos_pct'], 0.1)
+        cand_qs = max(best['qs'], 1)
+
+        os_score = (cand_mos / pos_mos) * (cand_qs / pos_qs)
+        if os_score > 2.0:
+            flags[r['ticker']] = (round(os_score, 1), best['ticker'])
+
+    return flags
+
+
 def print_ranking(active_results, research_results, short_results, show_active=True, show_pipeline=True):
     """Print the formatted data tables. No composite scores, no ranking highlights."""
     conv_short = {'high': 'H', 'medium': 'M', 'low': 'L'}
+
+    # Compute rotation flags for active positions
+    rotation_flags = {}
+    if show_active and active_results:
+        pipeline_candidates = load_universe_best_candidates()
+        rotation_flags = compute_rotation_flags(active_results, pipeline_candidates)
 
     if show_active and active_results:
         # Sort by MoS% descending (largest upside first), but this is just display order
@@ -709,10 +802,16 @@ def print_ranking(active_results, research_results, short_results, show_active=T
             gr_src_str = r['growth_source'] or '-'
             fv_str = r['fv_source'] if r['fv_source'] else 'N/A'
 
+            # Rotation flag suffix
+            rot_flag = ""
+            if r['ticker'] in rotation_flags:
+                os_score, cand_ticker = rotation_flags[r['ticker']]
+                rot_flag = f"  [ROTATION CANDIDATE OS={os_score} vs {cand_ticker}]"
+
             if r['error']:
                 print(f"{r['ticker']:<10} {'':>3} {'':>4} {'ERR':>7} {'':>6} {'':>6} {'':>4} {'':>7}  {r['error']}")
             else:
-                print(f"{r['ticker']:<10} {qs_str:>3} {tier_str:>4} {mos_str:>7} {grw_str:>6} {yld_str:>6} {conv_str:>4} {gr_src_str:>7}  {fv_str:>16}")
+                print(f"{r['ticker']:<10} {qs_str:>3} {tier_str:>4} {mos_str:>7} {grw_str:>6} {yld_str:>6} {conv_str:>4} {gr_src_str:>7}  {fv_str:>16}{rot_flag}")
 
         print("-" * 100)
         print(f"  {len(active_results)} long positions | [Apply learning/principles.md to reason about this data]")
@@ -720,6 +819,16 @@ def print_ranking(active_results, research_results, short_results, show_active=T
         no_fv = [r for r in ranked if r['mos_pct'] is None and r['error'] is None]
         if no_fv:
             print(f"  FV not found in thesis: {', '.join(r['ticker'] for r in no_fv)}")
+
+        # Print rotation summary if any flags
+        if rotation_flags:
+            print()
+            print("ROTATION OPPORTUNITIES (OS > 2.0):")
+            for ticker, (os_score, cand) in rotation_flags.items():
+                r = next((x for x in active_results if x['ticker'] == ticker), None)
+                mos = f"{r['mos_pct']:+.1f}%" if r and r['mos_pct'] is not None else "?"
+                qs = r['qs'] if r else "?"
+                print(f"  {ticker} (QS {qs}, MoS {mos}) → {cand} | Opportunity Score: {os_score}x")
 
     # SHORT POSITIONS section
     if show_active and short_results is not None:
