@@ -9,7 +9,7 @@ capital_deployment:
   trigger: "cash > 25%"
   last_run: 2026-02-20
   next_due: 2026-02-21
-  last_result: "S98: R2+R3 ADVANCEMENT SESSION. IHP.L R2→R3 complete (FV 415→390p, entry 300p, MoS 23.1%, UK concentration gate). AON R2→R3 complete (FV 361→350, entry 300→285, P/E method removed as consensus-anchored, soft market cycle headwind, MMC mutual exclusivity gate). Pipeline: 118 SCORED, 23 R1_COMPLETE, 2 R3_COMPLETE today (IHP.L, AON). Addressing ACTIONABLE advancement bottleneck."
+  last_result: "S103: STMN.SW R4 APPROVED. KLR.L R2→R3 (FV 2,600→2,100, SO 1,700p gated Mar 3). RO.SW R1 (QS 80adj, AT_FV CHF 282). 4 velocity units. so_probability.py + r1_prioritizer E[CAGR] enhancements deployed."
   skill: ".claude/skills/capital-deployment/SKILL.md"
   tool: "tools/quality_universe.py"
 
@@ -108,8 +108,8 @@ r1_processing:
   trigger: "SCORED count > 0 in universe"
   last_run: 2026-02-20
   next_due: 2026-02-21
-  last_result: "S98: 0 new R1s (R2/R3 advancement session). Running total: 19 R1s in S92-S97. 23 R1_COMPLETE in universe. IHP.L + AON advanced to R3. Pipeline bottleneck: advancement, not R1 volume."
-  minimum_per_session: 3
+  last_result: "S102: 3 velocity units (STMN.SW R3=2u, REN.AS R1=1u). STMN.SW R3 resolved: FV CHF 118→110, entry CHF 85→80, bear CHF 92, R4 GATED. REN.AS R1 in progress."
+  minimum_per_session: "3 velocity units (1 R1=1u, 1 R2→R3=2u, 1 R4=1u)"
   skill: ".claude/skills/capital-deployment/SKILL.md"
   tool: "tools/r1_prioritizer.py"
   efficiency:
@@ -154,7 +154,7 @@ so_reality_check:
   frequency: daily
   last_run: 2026-02-20
   next_due: 2026-02-21
-  last_result: "S90: 7 real, 7 borderline, 4 fantasy reclassified."
+  last_result: "S99→S100: Restructured S99 (7 ACTIVE, 10 GATED, 1 BORDERLINE, 4 EXTREME). S100: +IHP.L ACTIVE → 8 ACTIVE, 23 total."
 
 # MAINTENANCE
 maintenance:

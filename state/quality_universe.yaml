@@ -243,11 +243,11 @@ quality_universe:
     currency: USD
     current_price: 324.3
     distance_to_entry: 7.5
-    pipeline_status: R1_COMPLETE
+    pipeline_status: R3_COMPLETE
     thesis_path: thesis/research/AON/thesis.md
     last_scored: '2026-02-20'
     last_price_check: '2026-02-20'
-    notes: 'R1 S92. QS 62→70 adj. FV $361. Entry $300 (7.5% below, near 52wL $305). #2 global broker. AI selloff overblown.
+    notes: 'R3 complete. QS 62→70 adj. FV $361. Entry $300 (7.5% below, near 52wL $305). #2 global broker. AI selloff overblown.
       Insiders net buyers 17.7:1.'
     direction: long
     r1_verdict: ACTIONABLE
@@ -279,12 +279,12 @@ quality_universe:
     fair_value: 70.0
     entry_price: 60.0
     currency: USD
-    current_price: null
-    distance_to_entry: null
+    current_price: 70.9
+    distance_to_entry: 18.2
     pipeline_status: R1_COMPLETE
     thesis_path: thesis/research/WRB/thesis.md
     last_scored: '2026-02-20'
-    last_price_check: null
+    last_price_check: '2026-02-20'
     notes: 'R1 S95: Insurer adj +10 (ROE 21.2%). AT FV. Soft cycle = wait. ACGL preferred. Entry 60.'
     r1_verdict: AT_FV
     r1_session: 95
@@ -325,14 +325,20 @@ quality_universe:
   - ticker: RO.SW
     name: ROCHE I
     qs_tool: 72
-    qs_adj: 72
-    tier: B
+    qs_adj: 80
+    tier: A
     sector: Pharma/Diagnostics
-    fair_value: 380.0
-    entry_price: 300.0
-    currency: USD
-    current_price: 374.4
-    distance_to_entry: 24.8
+    fair_value: 282.0
+    entry_price: 270.0
+    currency: CHF
+    current_price: 375.8
+    distance_to_entry: 28.2
+    pipeline_status: R1_COMPLETE
+    r1_session: 103
+    r1_verdict: AT_FV
+    thesis_path: thesis/research/RO.SW/thesis.md
+    last_scored: '2026-02-20'
+    notes: "R1 S103. QS 72→80adj (market position #1 IVD 19.6%, pharma-diagnostics moat). FV CHF 282, OVERVALUED at CHF 376 (-25%). eToro: ROG.ZU. 72.8% family. No R2 until <CHF 320."
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-12'
@@ -384,12 +390,12 @@ quality_universe:
     fair_value: 52.0
     entry_price: 47.0
     currency: USD
-    current_price: null
-    distance_to_entry: null
+    current_price: 83.69
+    distance_to_entry: 78.1
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-20'
-    last_price_check: null
+    last_price_check: '2026-02-20'
     notes: 'R1 S97: QS 83 adj. Exceptional quality but P/E 46.6. Buy zone -47.'
     r1_session: 97
     r1_verdict: FANTASY
@@ -403,12 +409,12 @@ quality_universe:
     fair_value: 284.0
     entry_price: 250.0
     currency: USD
-    current_price: null
-    distance_to_entry: null
+    current_price: 472.27
+    distance_to_entry: 88.9
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-20'
-    last_price_check: null
+    last_price_check: '2026-02-20'
     notes: 'R1 S97: QS 73 adj. #1 beauty globally. Buy zone EUR 200-250.'
     r1_session: 97
     r1_verdict: OVERVALUED
@@ -541,12 +547,12 @@ quality_universe:
     fair_value: 38.0
     entry_price: 38.0
     currency: USD
-    current_price: null
-    distance_to_entry: null
+    current_price: 60.81
+    distance_to_entry: 60.0
     pipeline_status: R1_COMPLETE
     thesis_path: thesis/research/ROL/thesis.md
     last_scored: '2026-02-20'
-    last_price_check: null
+    last_price_check: '2026-02-20'
     notes: 'R1 S95: WIDE moat 22/25. QS 82 tool, adj 79. OVERVALUED at 61 (-37.5%). Entry 38 FANTASY. Pipeline quality Tier
       A.'
     r1_verdict: FANTASY
@@ -656,20 +662,20 @@ quality_universe:
     direction: long
   - ticker: MORN
     name: Morningstar, Inc.
-    qs_tool: 78
+    qs_tool: 60
     qs_adj: 78
     tier: A
     sector: Financial Data
-    fair_value: 180.0
-    entry_price: 135.0
+    fair_value: 195.0
+    entry_price: 140.0
     currency: USD
     current_price: 161.85
-    distance_to_entry: 19.9
-    pipeline_status: STANDING_ORDER
-    thesis_path: thesis/research/MORN/thesis.md
+    distance_to_entry: -13.5
+    pipeline_status: ACTIVE
+    thesis_path: thesis/active/MORN/thesis.md
     last_scored: '2026-02-14'
     last_price_check: '2026-02-20'
-    notes: ''
+    notes: 'Bought S101 at $161.85. E[CAGR] 15.6%. FV $195 (v4.0 post-CRSP). QS Tool 60/83adj 78.'
     direction: long
   - ticker: IT
     name: Gartner, Inc.
@@ -1161,19 +1167,19 @@ quality_universe:
     qs_adj: 72
     tier: B
     sector: Healthcare/Dental
-    fair_value: 118.0
-    entry_price: 85.0
+    fair_value: 110.0
+    entry_price: 80.0
     currency: CHF
-    current_price: 93.96
-    distance_to_entry: 10.5
-    pipeline_status: R1_COMPLETE
+    current_price: 94.16
+    distance_to_entry: 17.7
+    pipeline_status: R4_APPROVED
     thesis_path: thesis/research/STMN.SW/thesis.md
     last_scored: '2026-02-20'
     last_price_check: '2026-02-20'
-    notes: 'R1 S92. QS 60→72 adj (+8 market pos, +4 EPS distortion). FV CHF 118. Entry CHF 85. eToro STMN.ZU. #1 global dental
-      implants 35% share. ROIC 21%.'
+    notes: 'R3 resolved: FV CHF 118→110, entry CHF 85→80, bear CHF 92. GM kill condition AMBER (70.1%). R4 pending with GM
+      condition.'
+    r1_session: 102
     r1_verdict: ACTIONABLE
-    r1_session: 92
   - ticker: SOON.SW
     name: SONOVA N
     direction: long
@@ -1241,12 +1247,12 @@ quality_universe:
     fair_value: 135.0
     entry_price: 125.0
     currency: USD
-    current_price: null
-    distance_to_entry: null
+    current_price: 197.99
+    distance_to_entry: 58.4
     pipeline_status: R1_COMPLETE
     thesis_path: thesis/research/ODFL/thesis.md
     last_scored: '2026-02-20'
-    last_price_check: null
+    last_price_check: '2026-02-20'
     notes: 'R1 S95: WIDE moat. OVERVALUED at 195 (-31%). Entry 125 FANTASY. Monitor only.'
     r1_verdict: OVERVALUED
     r1_session: 95
@@ -1731,16 +1737,16 @@ quality_universe:
     qs_adj: 80
     tier: A
     sector: financial-services
-    fair_value: 415.0
+    fair_value: 390.0
     entry_price: 300.0
     currency: GBp
     current_price: 315.0
     distance_to_entry: 5.0
-    pipeline_status: R1_COMPLETE
+    pipeline_status: R4_APPROVED
     thesis_path: thesis/research/IHP.L/thesis.md
     last_scored: '2026-02-20'
     last_price_check: '2026-02-20'
-    notes: SCORED. QS 80 Tier A. UK investment platform (Transact). P/E 19.8. Yield 3.5%. -20% from 52wH. eToro confirmed.
+    notes: 'R4 APPROVED S100. QS 80 Tier A. UK investment platform (Transact). FV 415→390p post-DA (-6%). ROIC 49%, 24.2% insider. SO at 300p.'
     r1_verdict: ACTIONABLE
     r1_session: 92
   - ticker: KLR.L
@@ -1750,14 +1756,16 @@ quality_universe:
     qs_adj: 79
     tier: A
     sector: Industrials
-    fair_value: 2600
-    entry_price: 1750
+    fair_value: 2100
+    entry_price: 1700
     currency: GBp
     current_price: 2026
-    distance_to_entry: 15.8
-    pipeline_status: R1_COMPLETE
+    distance_to_entry: 16.1
+    pipeline_status: R3_COMPLETE
+    r1_verdict: WATCHLIST
     thesis_path: thesis/research/KLR.L/r1_thesis.md
     last_scored: '2026-02-20'
+    notes: "R3 S103. FV 2600→2100 (-19.2%). Entry 1750→1700. Margin 6%→5.5%, multiple 10.5x→9.5x. GATED on Mar 3 FY2025 results."
     last_price_check: '2026-02-20'
     notes: 'R1 S93. QS 76/79 adj (+3 market position). FV 2,600p. #1 global geotechnical. Entry 1,700-1,800p. FY2025 Mar 3
       = hard gate before SO.'
@@ -1851,22 +1859,25 @@ quality_universe:
     last_price_check: '2026-02-20'
     notes: Auto-scored by batch_scorer. Needs R1 analysis.
   - ticker: REN.AS
-    name: RELX
+    name: RELX PLC
     direction: long
     qs_tool: 73
-    qs_adj: 73
-    tier: B
-    sector: Industrials
-    fair_value: 0
-    entry_price: 0
+    qs_adj: 78
+    tier: A
+    sector: business-services
+    fair_value: 33.5
+    entry_price: 23.5
     currency: EUR
-    current_price: 26.46
-    distance_to_entry: null
-    pipeline_status: SCORED
-    thesis_path: ''
-    last_scored: '2026-02-18'
+    current_price: 26.8
+    distance_to_entry: 14.0
+    pipeline_status: R1_COMPLETE
+    thesis_path: thesis/research/REN.AS/thesis.md
+    last_scored: '2026-02-20'
     last_price_check: '2026-02-20'
-    notes: Auto-scored by batch_scorer. Needs R1 analysis.
+    notes: Info analytics WIDE moat. AI tailwind. 23% ROIC. Entry EUR 23.50 (12% below market). E[CAGR] 10.6% at market, 14.5%
+      at entry.
+    r1_session: 102
+    r1_verdict: AT_FV
   - ticker: BCG.L
     name: BALTIC CLASSIFIEDS GROUP PLC OR
     direction: long
@@ -2612,12 +2623,12 @@ quality_universe:
     fair_value: 398.0
     entry_price: 320.0
     currency: USD
-    current_price: null
-    distance_to_entry: null
+    current_price: 416.06
+    distance_to_entry: 30.0
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-20'
-    last_price_check: null
+    last_price_check: '2026-02-20'
     notes: 'R1 S97: QS 80 adj. 220 Rafale backlog. Near ATH. Buy zone EUR 310-320.'
     r1_session: 97
     r1_verdict: OVERVALUED
@@ -2631,12 +2642,12 @@ quality_universe:
     fair_value: 470.0
     entry_price: 400.0
     currency: USD
-    current_price: null
-    distance_to_entry: null
+    current_price: 916.0
+    distance_to_entry: 129.0
     pipeline_status: SCORED
     thesis_path: null
     last_scored: '2026-02-20'
-    last_price_check: null
+    last_price_check: '2026-02-20'
     notes: 'R1 S97: QS 80 adj. #1 HVAC actuators. P/E 65.2. Buy zone CHF 400.'
     r1_session: 97
     r1_verdict: FANTASY

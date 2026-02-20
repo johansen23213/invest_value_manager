@@ -169,6 +169,35 @@ sizing_decisions:
       Precedente similar: NVO con guidance shock → compra exitosa.
     outcome: "Pendiente - posición recién abierta"
 
+  - date: 2026-02-20
+    ticker: MORN
+    action: BUY
+    sizing: "3.9%"
+    context:
+      quality_score: 78
+      tier: A
+      mos: "17%"
+      ecagr_3yr: "15.6%"
+      price_vs_52w: "-51% from high ($328.70)"
+      conviction: "Medium"
+      macro: "Mid-cycle US, Fair-Value regime"
+      framework: "E[CAGR] deployment (Session 90)"
+    reasoning: |
+      FIRST E[CAGR]-framework market buy — NEW PRECEDENT.
+      Historical Tier A entries had 29-38% MoS. MORN at 17% MoS is below precedent.
+      JUSTIFIED by Expected Return framework (S90): E[CAGR] 15.6% >> 12% Tier A threshold.
+      FV revised $180→$195 post-CRSP accretion ($55-65M high-margin revenue).
+      At old FV $180, SO was $135 (MoS 25%). At new FV $195, market buy at $162 = MoS 17%.
+      Same risk-reward profile as committee-approved $135 entry.
+      Cash drag argument: EUR 400 at 4.5%/yr = ~EUR 18/yr opportunity cost of waiting.
+      $150 SO would require 7.3% decline with no catalyst driving it.
+      We HOLD positions with worse forward returns (DTE.DE ~7%, LULU ~7%).
+      Zero overlap with existing 10 positions. Excellent diversification.
+      46% insider (Mansueto). 0/10 value trap. WIDE moat (switching costs + data).
+      Si cae 50%, pierdo 2.0% del portfolio — aceptable para Tier A at this sizing.
+      KEY: This sets precedent for E[CAGR]-justified market buys when MoS < historical range.
+    outcome: "Pendiente - posición recién abierta. Monitor Q1 2026 earnings (~April)."
+
 # =============================================================================
 # DECISIONES DE TRIM/SELL
 # =============================================================================

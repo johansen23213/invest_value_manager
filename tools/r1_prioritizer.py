@@ -6,12 +6,20 @@ Reads quality_universe.yaml, filters SCORED entries, ranks by quality and
 proximity to entry, and flags earnings gates. Designed to be the first
 step in Fase 2.7 R1 processing each session.
 
+When R1_COMPLETE count >= 20 in the universe, auto-filters to distance_to_entry
+<= 25% (near-entry focus). Use --include-far to override.
+
+Shows E[CAGR] column for companies with FV + entry_price defined:
+  E[CAGR] = (FV/entry)^(1/3) - 1 + dividend_yield
+
 Usage:
   python3 tools/r1_prioritizer.py                  # Top 10 candidates
   python3 tools/r1_prioritizer.py --top 20          # Top 20
   python3 tools/r1_prioritizer.py --exclude-uk      # Skip UK #5 risk
-  python3 tools/r1_prioritizer.py --near-entry-only  # Only <20% from entry
+  python3 tools/r1_prioritizer.py --near-entry-only  # Only <20% from entry (forced)
+  python3 tools/r1_prioritizer.py --include-far      # Override auto near-entry filter
   python3 tools/r1_prioritizer.py --tier-a-only      # Only QS >= 75
+  python3 tools/r1_prioritizer.py --no-ecagr         # Skip E[CAGR] (no yfinance calls)
 """
 
 import sys
@@ -84,7 +92,7 @@ def load_earnings_tickers(days_ahead=30):
 
 
 def get_stale_sector_views():
-    """Self-contained: parse sector view dates, return dict of filename → age_days.
+    """Self-contained: parse sector view dates, return dict of filename -> age_days.
 
     Only includes views with age > 14 days (BORDERLINE+). Also tracks which
     sector labels map to which files for flagging universe companies.
@@ -93,7 +101,7 @@ def get_stale_sector_views():
         return {}, {}
 
     today = date.today()
-    stale = {}  # filename → age_days
+    stale = {}  # filename -> age_days
 
     for f in os.listdir(SECTORS_DIR):
         if not f.endswith(".md") or f == "_TEMPLATE.md":
@@ -120,7 +128,7 @@ def get_stale_sector_views():
     return stale
 
 
-# Lightweight sector label → file mapping for stale-sector flagging
+# Lightweight sector label -> file mapping for stale-sector flagging
 _SECTOR_TO_FILE = {
     "Technology": "technology", "Enterprise Software": "technology",
     "Financial Technology": "technology", "Software": "technology",
@@ -247,7 +255,79 @@ def load_cooldowns():
     return cooldowns
 
 
-def rank_candidates(companies, args):
+def count_r1_complete(companies):
+    """Count R1_COMPLETE long companies in universe (for auto-filter threshold)."""
+    return sum(
+        1 for c in companies
+        if c.get("pipeline_status") == "R1_COMPLETE"
+        and c.get("direction", "long") == "long"
+    )
+
+
+def get_dividend_yields(tickers):
+    """Batch-fetch dividend yields from yfinance for E[CAGR] calculation.
+
+    Returns dict of ticker -> dividend_yield_pct (e.g., 2.5 for 2.5%).
+    Only fetches for tickers that have both fair_value and entry_price.
+    Gracefully handles failures.
+    """
+    import warnings
+    warnings.filterwarnings('ignore')
+
+    yields = {}
+    if not tickers:
+        return yields
+
+    try:
+        import yfinance as yf
+    except ImportError:
+        return yields
+
+    # Map tickers that have different yfinance symbols
+    TICKER_MAP = {'LIGHT.NV': 'LIGHT.AS'}
+
+    for ticker in tickers:
+        yf_ticker = TICKER_MAP.get(ticker, ticker)
+        try:
+            info = yf.Ticker(yf_ticker).info
+            dy = info.get('dividendYield')
+            if dy is not None and isinstance(dy, (int, float)) and dy >= 0:
+                # yfinance dividendYield is already percentage (e.g., 2.97 = 2.97%)
+                yields[ticker] = dy
+            else:
+                yields[ticker] = 0.0
+        except Exception:
+            yields[ticker] = 0.0
+
+    return yields
+
+
+def compute_ecagr(fair_value, entry_price, div_yield_pct):
+    """Compute E[CAGR] = (FV/entry)^(1/3) - 1 + dividend_yield.
+
+    Args:
+        fair_value: Fair value in native currency
+        entry_price: Entry price in native currency
+        div_yield_pct: Dividend yield as percentage (e.g., 2.5 for 2.5%)
+
+    Returns:
+        E[CAGR] as percentage (e.g., 14.5 for 14.5%), or None if inputs invalid.
+    """
+    if not fair_value or not entry_price or entry_price <= 0 or fair_value <= 0:
+        return None
+
+    # MoS convergence component: (FV/entry)^(1/3) - 1
+    ratio = fair_value / entry_price
+    mos_cagr = (ratio ** (1.0 / 3.0)) - 1.0
+
+    # Add dividend yield (convert from pct to decimal, then back to pct)
+    div_decimal = (div_yield_pct or 0.0) / 100.0
+    ecagr = (mos_cagr + div_decimal) * 100.0
+
+    return ecagr
+
+
+def rank_candidates(companies, args, auto_near_entry_applied=False):
     """Filter and rank SCORED companies for R1 processing."""
     # Filter: only SCORED, only long direction
     scored = [
@@ -260,11 +340,18 @@ def rank_candidates(companies, args):
     if args.exclude_uk:
         scored = [c for c in scored if not c["ticker"].endswith(UK_SUFFIX)]
 
+    # Near-entry filtering (manual --near-entry-only OR auto-applied)
     if args.near_entry_only:
         scored = [
             c for c in scored
             if c.get("distance_to_entry") is not None
             and c["distance_to_entry"] <= 20.0
+        ]
+    elif auto_near_entry_applied and not args.include_far:
+        scored = [
+            c for c in scored
+            if c.get("distance_to_entry") is not None
+            and c["distance_to_entry"] <= 25.0
         ]
 
     if args.tier_a_only:
@@ -293,8 +380,8 @@ def rank_candidates(companies, args):
         scored = filtered
 
     # Sort by composite priority:
-    # 1. QS adjusted (desc) — quality first
-    # 2. Distance to entry (asc) — closer to buy = higher priority
+    # 1. QS adjusted (desc) -- quality first
+    # 2. Distance to entry (asc) -- closer to buy = higher priority
     # 3. Non-UK bonus (UK companies rank slightly lower due to concentration)
     def sort_key(c):
         qs = c.get("qs_adj") or c.get("qs_tool") or 0
@@ -369,11 +456,11 @@ def show_advancement_pipeline(companies):
 
             # Determine advancement status
             if ticker in continuity_r3:
-                status = "R3 DONE — needs R4"
+                status = "R3 DONE -- needs R4"
             elif ticker in continuity_r2:
-                status = "R2 DONE — needs R3"
+                status = "R2 DONE -- needs R3"
             else:
-                status = "NO R2 — ready for advancement"
+                status = "NO R2 -- ready for advancement"
 
             # Add gate info if present
             gate = c.get("gate") or c.get("pre_execution_condition") or ""
@@ -393,17 +480,19 @@ def show_advancement_pipeline(companies):
         if len(non_actionable) > 5:
             print(f"  ... and {len(non_actionable) - 5} more")
 
-    print(f"\n[Pipeline velocity: 1 R1 = 1 unit, 1 R2→R3 = 2 units, 1 R4 = 1 unit. Target: 3+ units/session]")
+    print(f"\n[Pipeline velocity: 1 R1 = 1 unit, 1 R2->R3 = 2 units, 1 R4 = 1 unit. Target: 3+ units/session]")
 
 
 def main():
-    parser = argparse.ArgumentParser(description="R1 Prioritizer — Rank SCORED companies for R1 analysis")
+    parser = argparse.ArgumentParser(description="R1 Prioritizer -- Rank SCORED companies for R1 analysis")
     parser.add_argument("--top", type=int, default=10, help="Number of candidates to show (default: 10)")
     parser.add_argument("--exclude-uk", action="store_true", help="Exclude UK tickers (.L)")
-    parser.add_argument("--near-entry-only", action="store_true", help="Only show companies within 20%% of entry")
+    parser.add_argument("--near-entry-only", action="store_true", help="Only show companies within 20%% of entry (forced)")
+    parser.add_argument("--include-far", action="store_true", help="Override auto near-entry filter (show all distances)")
     parser.add_argument("--tier-a-only", action="store_true", help="Only show Tier A (QS >= 75)")
     parser.add_argument("--ignore-cooldowns", action="store_true", help="Bypass R1 cooldowns (show all including recently analyzed)")
     parser.add_argument("--advancement", action="store_true", help="Show R1_COMPLETE ACTIONABLE candidates needing R2 advancement")
+    parser.add_argument("--no-ecagr", action="store_true", help="Skip E[CAGR] calculation (avoids yfinance calls)")
     args = parser.parse_args()
     args._cooled_entries = []  # populated by rank_candidates
 
@@ -421,24 +510,73 @@ def main():
     all_scored = [c for c in companies if c.get("pipeline_status") == "SCORED" and c.get("direction", "long") == "long"]
     total_universe = len([c for c in companies if c.get("direction", "long") == "long"])
 
+    # Auto near-entry filter: when R1_COMPLETE count >= 20, focus on near-entry
+    r1_complete_count = count_r1_complete(companies)
+    auto_near_entry_applied = False
+    if r1_complete_count >= 20 and not args.near_entry_only and not args.include_far:
+        auto_near_entry_applied = True
+
     # Load earnings calendar + stale sector views
     earnings = load_earnings_tickers(30)
     stale_sectors = get_stale_sector_views()
 
     # Rank
-    candidates = rank_candidates(companies, args)
+    candidates = rank_candidates(companies, args, auto_near_entry_applied)
 
     if not candidates:
-        print(f"\nNo SCORED candidates match filters. Total SCORED: {len(all_scored)}/{total_universe}")
+        msg = f"\nNo SCORED candidates match filters. Total SCORED: {len(all_scored)}/{total_universe}"
+        if auto_near_entry_applied:
+            msg += "\n  Auto-filter applied (R1_COMPLETE >= 20, distance <= 25%). Use --include-far to see all."
+        print(msg)
         sys.exit(0)
+
+    # E[CAGR] computation (only when not --no-ecagr)
+    ecagr_map = {}  # ticker -> ecagr_pct
+    if not args.no_ecagr:
+        # Collect tickers that need E[CAGR] (have both FV and entry_price)
+        ecagr_tickers = []
+        for c in candidates:
+            fv = c.get("fair_value")
+            ep = c.get("entry_price")
+            if fv and ep and fv > 0 and ep > 0:
+                ecagr_tickers.append(c["ticker"])
+
+        # Batch-fetch dividend yields for E[CAGR] calculation
+        div_yields = {}
+        if ecagr_tickers:
+            print(f"Fetching dividend yields for {len(ecagr_tickers)} tickers...")
+            div_yields = get_dividend_yields(ecagr_tickers)
+
+        # Compute E[CAGR] for each candidate
+        for c in candidates:
+            ticker = c["ticker"]
+            fv = c.get("fair_value")
+            ep = c.get("entry_price")
+            if fv and ep and fv > 0 and ep > 0:
+                dy = div_yields.get(ticker, 0.0)
+                ecagr = compute_ecagr(fv, ep, dy)
+                if ecagr is not None:
+                    ecagr_map[ticker] = ecagr
+
+    # Determine if we show E[CAGR] column (at least one computed)
+    show_ecagr = len(ecagr_map) > 0
 
     # Print header
     today = date.today()
     print(f"\nR1 PRIORITY QUEUE | {today}")
     print(f"SCORED: {len(all_scored)}/{total_universe} long companies need R1")
-    print("=" * 120)
-    print(f"{'#':>2} {'Ticker':<12} {'QS':>3} {'Tier':>4} {'Sector':<24} {'Dist%':>7} {'Currency':>8} {'Flags'}")
-    print("-" * 120)
+
+    if auto_near_entry_applied:
+        print(f"Auto-filtered to near-entry (R1_COMPLETE >= 20, dist <= 25%). Use --include-far to see all.")
+
+    col_width = 130 if show_ecagr else 120
+    print("=" * col_width)
+
+    if show_ecagr:
+        print(f"{'#':>2} {'Ticker':<12} {'QS':>3} {'Tier':>4} {'Sector':<24} {'Dist%':>7} {'E[CAGR]':>8} {'Currency':>8} {'Flags'}")
+    else:
+        print(f"{'#':>2} {'Ticker':<12} {'QS':>3} {'Tier':>4} {'Sector':<24} {'Dist%':>7} {'Currency':>8} {'Flags'}")
+    print("-" * col_width)
 
     for i, c in enumerate(candidates, 1):
         qs = c.get("qs_adj") or c.get("qs_tool") or "?"
@@ -447,6 +585,10 @@ def main():
         dist = c.get("distance_to_entry")
         dist_str = f"{dist:+.1f}%" if dist is not None else "N/A"
         currency = c.get("currency", "USD")
+
+        # E[CAGR] string
+        ecagr_val = ecagr_map.get(c["ticker"])
+        ecagr_str = f"{ecagr_val:.1f}%" if ecagr_val is not None else "-"
 
         # Build flags
         flags = []
@@ -487,7 +629,7 @@ def main():
             if sf_name in stale_sectors:
                 flags.append(f"STALE-SECTOR({stale_sectors[sf_name]}d)")
         elif sector_label:
-            # No mapping found — might be missing sector view
+            # No mapping found -- might be missing sector view
             expected = sector_label.lower().replace("/", "-").replace(" ", "-") + ".md"
             sector_files = set(os.listdir(SECTORS_DIR)) if os.path.isdir(SECTORS_DIR) else set()
             if expected not in sector_files:
@@ -495,10 +637,13 @@ def main():
 
         flags_str = " | ".join(flags) if flags else ""
 
-        print(f"{i:>2} {c['ticker']:<12} {qs:>3} {tier:>4} {sector:<24} {dist_str:>7} {currency:>8}  {flags_str}")
+        if show_ecagr:
+            print(f"{i:>2} {c['ticker']:<12} {qs:>3} {tier:>4} {sector:<24} {dist_str:>7} {ecagr_str:>8} {currency:>8}  {flags_str}")
+        else:
+            print(f"{i:>2} {c['ticker']:<12} {qs:>3} {tier:>4} {sector:<24} {dist_str:>7} {currency:>8}  {flags_str}")
 
     # Summary
-    print("-" * 120)
+    print("-" * col_width)
     print(f"Showing {len(candidates)}/{len(all_scored)} SCORED candidates")
 
     # Tier breakdown of all scored
@@ -509,6 +654,10 @@ def main():
 
     print(f"\nAll SCORED breakdown:")
     print(f"  Tier A: {tier_a_scored} | Tier B: {tier_b_scored} | Near entry (<20%%): {near_entry_scored} | UK: {uk_scored}")
+    print(f"  R1_COMPLETE in universe: {r1_complete_count}")
+
+    if show_ecagr:
+        print(f"\nE[CAGR] = (FV/entry)^(1/3) - 1 + div_yield. Threshold: >=12% Tier A, >=15% Tier B.")
 
     if earnings:
         earning_scored = [t for t in earnings if any(c["ticker"] == t and c.get("pipeline_status") == "SCORED" for c in companies)]

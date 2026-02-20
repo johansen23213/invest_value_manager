@@ -7,7 +7,7 @@
 # =============================================================================
 
 cash:
-  amount: 6151  # Updated 2026-02-15. Confirmed post-ALL sale (+~399 EUR).
+  amount: 5755  # Updated 2026-02-20. Post-MORN BUY (-EUR 396).
   currency: EUR
 
 positions:
@@ -137,6 +137,19 @@ positions:
     last_review: 2026-02-11
     exit_plan: "HOLD LOW conviction. April 2026 pricing event = MAKE-OR-BREAK. May 2026 FY results = MANDATORY REVIEW. EXIT if April causes >200 cancellations or dealer count -3%+. EXIT if CMA formal investigation. EXIT if ARPR <3%. If Tier A opportunity needs capital, candidate for rotation."
     notes: "Adversarial + urgent re-eval 2026-02-11: QS 79->71 (Tier A->B). FV 688->617->580p. Moat under active siege (180+ downgrades, Jefferies/Berenberg downgrade). Financial quality 40/40 exceptional. ROIC +42pp. Position small (3.4%), loss manageable (-3.3%)."
+
+  - ticker: MORN
+    name: "Morningstar, Inc."
+    shares: 2.9
+    invested_usd: 466.20
+    avg_cost_usd: 160.76  # 466.20 / 2.9
+    date_opened: 2026-02-20
+    thesis: thesis/active/MORN/thesis.md
+    conviction: medium
+    fair_value: "$195 (v4.0. QS Tool 60/83, Adj 78 Tier A. FV raised $180→$195 post-CRSP accretion.)"
+    last_review: 2026-02-20
+    exit_plan: "HOLD. TRIM at $220+. ADD at $140 (MoS 28%). SELL if KC#1 (rev growth negative 2Q) or KC#8 (CRSP regulatory investigation). Next earnings ~April 2026."
+    notes: "FIRST E[CAGR]-framework market buy. E[CAGR] 15.6% at $161.85. MoS 17% (below historical 29-38% Tier A precedent, justified by Expected Return framework S90). 46% insider (Mansueto). Zero portfolio overlap. Financial data/analytics sector."
 
   - ticker: BYIT.L
     name: "Bytes Technology Group plc"
@@ -565,3 +578,11 @@ transactions:
     pnl_eur: ~23
     pnl_pct: 5.9
     notes: "EXIT - Tier C ON PROBATION (QS 56). MoS insufficient (11.3% vs 30% required for Tier C). Peak cycle (CR 85.2% best in 15 years, not sustainable). 6/6 SELL precedent consistency. Freed capital to deploy in pipeline R4-approved opportunities."
+
+  - date: 2026-02-20
+    action: BUY
+    ticker: MORN
+    shares: 2.9
+    price_usd: 160.76
+    total_usd: 466.20
+    notes: "BUY - FIRST E[CAGR]-framework market buy (new precedent). QS 78 Tier A. FV $195. MoS 17% (below historical 29-38%, justified by E[CAGR] 15.6% >> 12% threshold). 46% insider. Zero portfolio overlap. Financial data/analytics. SO at $150 replaced by market execution."

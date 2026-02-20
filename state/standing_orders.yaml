@@ -29,31 +29,22 @@ standing_orders:
     last_analysis_date: 2026-02-20
     expiry: 2026-08-01
 
-  - ticker: MORN
-    action: BUY
-    category: ACTIVE
-    fill_prob_6m: 50
-    trigger: "<=$150"
-    current_distance: "7.3%"
-    size_eur: 400
-    fair_value: "$195"
-    mos_at_trigger: "23.1%"
-    tier: "A (QS 60/78 adj)"
-    notes: "GATE CLEARED S92. FV $180→$195 (CRSP accretion: $55-65M high-margin revenue). Mansueto selling = 10b5-1 plan, not discretionary. FY2025: $2.45B rev +8%, adj EPS +25%. E[CAGR] at $150 = ~18.4%. Trigger raised $135→$150 (7.9% from current $161.85)."
-    last_analysis_date: 2026-02-20
-    expiry: 2026-05-31
+  # MORN — EXECUTED 2026-02-20 (Session 101). Market buy at $160.76, 2.9 shares, $466.20.
+  # First E[CAGR]-framework market buy. E[CAGR] 15.6% at $162 >> 12% threshold. MoS 17%.
+  # SO at $150 superseded by market execution. New precedent logged in decisions_log.yaml.
 
   - ticker: DNLM.L
     action: BUY
     category: ACTIVE
-    fill_prob_6m: 50
-    trigger: "<=900 GBp"
-    current_distance: "8.4%"
+    fill_prob_6m: 60
+    trigger: "<=950 GBp"
+    current_distance: "3.3%"
     size_eur: 375
     fair_value: "1008 GBp"
-    mos_at_trigger: "10.7%"
+    mos_at_trigger: "5.8%"
     tier: "A (QS 79)"
-    notes: "TRIGGER RAISED 780p→900p (Session 91). Expected Return framework: E[CAGR] 15.4% at 900p (growth 7% + yield 4.6% + MoS convergence 3.8%). RACE.MI precedent (Tier A Fair-Value mode, MoS 5-15% acceptable). R4 approved. UK homewares leader, 8.4% ROIC-WACC spread, 30.5% insider."
+    notes: "TRIGGER RAISED 780p→900p (S91) →950p (S101). E[CAGR] 13.6% at 950p (growth 7% + yield 4.6% + MoS convergence 2.0%). Last justifiable raise (at 970p+, E[CAGR] approaches 12%). R4 approved. UK homewares leader, 8.4% ROIC-WACC spread, 30.5% insider."
+    conditions: "REQUIRED: Verify UK positions <=4 before execution (would be 5th UK position with IHP.L)."
     last_analysis_date: 2026-02-20
     expiry: 2026-06-01
 
@@ -99,6 +90,21 @@ standing_orders:
     last_analysis_date: 2026-02-10
     expiry: 2026-08-01
 
+  - ticker: IHP.L
+    action: BUY
+    category: ACTIVE
+    fill_prob_6m: 50
+    trigger: "<=300 GBp"
+    current_distance: "5.0%"
+    size_eur: 200
+    fair_value: "390 GBp"
+    mos_at_trigger: "23.1%"
+    tier: "A (QS 80)"
+    notes: "R4 APPROVED S100. UK adviser platform (#1 independent, Transact). ROIC 49%, 24.2% insider, 0/10 value trap, net cash. FV 415→390p post-DA (-6%). 2% sizing cap for UK concentration (5th UK position). Preferred: validate H1 FY26 operating leverage (~June). REQUIRED: pause if UK positions >5. 7 KCs."
+    conditions: "PREFERRED: validate H1 FY26 ops leverage. REQUIRED: pause if UK >5 positions."
+    last_analysis_date: 2026-02-20
+    expiry: 2026-08-01
+
   - ticker: MRSH
     action: BUY
     category: ACTIVE
@@ -116,6 +122,42 @@ standing_orders:
   # ═══════════════════════════════════════════════════════════════════════
   # GATED — Cannot execute until pre-execution condition is met.
   # ═══════════════════════════════════════════════════════════════════════
+
+  - ticker: STMN.SW
+    action: BUY
+    category: GATED
+    fill_prob_6m: 25
+    trigger: "<=CHF 80"
+    current_distance: "15.0%"
+    gate: "GM >=70% at most recent reporting date (R4 APPROVED S103)"
+    size_eur: 400
+    shares_approx: 5
+    fair_value: "CHF 110"
+    mos_at_trigger: "27.3%"
+    tier: "B (QS 60/72 adj)"
+    notes: "R3 RESOLVED (S102). FV revised 118→110, entry 85→80, bear 92 (was 102.5). WACC 9.0% (was 8.5%). FCF margin 13% (was 15%). EV/EBIT 27x (was 29x). R2 was 11/19 MODERATE COUNTER. GM 70.1% = AMBER (kill at 69%). #1 dental implants, 71% GM, 29% insider, near-zero debt."
+    kill_conditions: "GM <69%, ROIC <WACC 2yr, market share <30%, US tariffs >20% 12mo"
+    pre_execution_condition: "R4 committee required. GM must be >=70% at most recent report. If H1 2026 (July) shows GM <70%, CANCEL this SO."
+    last_analysis_date: 2026-02-20
+    expiry: 2026-10-01
+
+  - ticker: KLR.L
+    action: BUY
+    category: GATED
+    fill_prob_6m: 20
+    trigger: "<=1,700p"
+    current_distance: "16.1%"
+    gate: "FY2025 results (Mar 3, 2026) — PASS: OP margin >=6.5% AND order book >=GBP 1.4B"
+    size_eur: 400
+    shares_approx: 23
+    fair_value: "2,100p"
+    mos_at_trigger: "19.0%"
+    tier: "A (QS 76/79 adj)"
+    notes: "R3 RESOLVED (S103). FV 2,600→2,100 (-19.2%). Entry 1,750→1,700. Margin 6%→5.5%, EV/EBIT 10.5x→9.5x. R2 was 11/19 MODERATE COUNTER: margin mean reversion + IIJA cliff + H1 2025 weakness. Bear 1,450p. #1 global geotechnical, ROIC 19.7%, ND/EBITDA 0.4x."
+    kill_conditions: "OP margin <5% 2Q, order book <GBP 1.2B, ROIC <WACC, CEO acquisition >GBP 200M, US infra spending -15%"
+    pre_execution_condition: "FY2025 results Mar 3, 2026. PASS: OP margin >=6.5% + order book >=1.4B. FAIL: margin <5.5% or OB <1.2B → CANCEL. CONDITIONAL: 5.5-6.5% margin → reassess with tighter entry."
+    last_analysis_date: 2026-02-20
+    expiry: 2026-10-01
 
   - ticker: NVO
     action: ADD
@@ -369,11 +411,11 @@ review_flags:
   # Trigger lowered $300→$285. FV revised $385→$365. See thesis/research/ROP/review_feb2026.md
 
 # =============================================================================
-# SO SUMMARY (Session 99, 2026-02-20)
-# ACTIVE:     7 (RACE.MI BUY 3.8%, MORN 7.3%, DNLM.L 8.4%, ACGL 10.5%,
+# SO SUMMARY (Session 102, 2026-02-20)
+# ACTIVE:     7 (RACE.MI BUY 3.8%, IHP.L 5.0%, DNLM.L 3.3%, ACGL 10.5%,
 #              RACE.MI ADD 12%, GL ADD 13.2%, MRSH 13.3%)
-# GATED:     10 (NVO, BYIT.L, ROP, FDS, VLTO, DSY.PA, KNSL, SOON.SW, EEFT, MEGP.L)
+# GATED:     11 (+STMN.SW: NVO, BYIT.L, ROP, FDS, VLTO, DSY.PA, KNSL, SOON.SW, EEFT, MEGP.L, STMN.SW)
 # BORDERLINE: 1 (V 18.5%)
 # EXTREME:    4 (MA, PAYC, ZTS, V_ADD)
-# TOTAL:     22 (18 standing + 4 extreme)
+# TOTAL:     23 (19 standing + 4 extreme)
 # =============================================================================

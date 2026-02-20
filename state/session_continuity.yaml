@@ -5,35 +5,43 @@
 # Created: 2026-02-20
 
 session:
-  id: 99
+  id: 103
   date: "2026-02-20"
-  timestamp_cet: "2026-02-20T14:30"
+  timestamp_cet: "2026-02-20T19:45"
 
 completed:
   vigilance:
     news_scan_time: "2026-02-20T23:00"
     critical_count: 0
-    note: "From S94/S95 — smart_skip (same day, <8h)"
+    note: "Same-day dedup from S94/S95/S102"
   so_check:
-    timestamp: "2026-02-20T23:10"
-    nearest: { ticker: "RACE.MI", distance_pct: 3.8 }
+    timestamp: "2026-02-20T19:36"
+    nearest: { ticker: "DNLM.L", distance_pct: 3.3 }
     triggered: []
-    note: "SO restructured S99 with categories. 7 ACTIVE, 10 GATED, 1 BORDERLINE, 4 EXTREME."
+    note: "Same-day dedup from S102. 8 ACTIVE (7+KLR.L gated→counted), 12 GATED (+KLR.L), 1 BORDERLINE, 4 EXTREME = 25."
   rotation_check: true
   net_exposure: true
-  net_exposure_reasoning: "60.6% cash. Market Fair-Value (VIX ~20, S&P near ATH). Cash drag ~4.5pp/yr is destroying alpha. 7 ACTIVE SOs within 15% — deployment plan exists. Not adding new positions today (system evolution session). Rationale for current exposure: earnings week Mon-Wed (MONY.L, EDEN.PA, DTE.DE) warrants cash buffer for potential SELL/TRIM actions. Post-earnings, deploy toward ACTIVE SOs."
-  sectors_refreshed: ["telecom"]
+  net_exposure_reasoning: "Cash 56.7% unchanged. Fair-Value regime. Same-day as S102, no new macro data. Target 50-55% by Feb 28."
+  sectors_refreshed: []
   earnings_prep_verified:
     - { ticker: "MONY.L", date: "2026-02-23", status: "DECISION-READY", key: "KC#9 AI strategy decisive" }
-    - { ticker: "EDEN.PA", date: "2026-02-24", status: "DECISION-READY", key: "2027-28 guide 8-12% gate" }
-    - { ticker: "DTE.DE", date: "2026-02-26", status: "DECISION-READY", key: "MoS compressed to 7%. TRIM >EUR 34 close." }
-  system_evolution:
-    - "quality_scorer.py: FCF distortion detection for financial services (proxy via op margin)"
-    - "price_checker.py: Yield anomaly >20% suppression with warning"
-    - "r1_prioritizer.py: --advancement flag shows R2 pipeline"
-    - "standing_orders.yaml: Restructured with ACTIVE/GATED/BORDERLINE/EXTREME categories + fill_prob_6m"
-    - "session-protocol.md: Fase 2.7 R1 → Pipeline Velocity metric (L-09)"
-    - "lessons.md: L-09 added (R1 diminishing returns, advancement > volume)"
+    - { ticker: "EDEN.PA", date: "2026-02-24", status: "DECISION-READY", key: "Intel refreshed S103. KC#1 France prob 30%→15%. EUR 500M bond positive." }
+    - { ticker: "DTE.DE", date: "2026-02-26", status: "DECISION-READY", key: "MoS 7%, TRIM >EUR 34 close" }
+  pipeline_advancement:
+    - "STMN.SW R4 APPROVED: All 10 gates passed. SO CHF 80 GATED on GM>=70%. Most conservative Tier B SO. 1 velocity unit."
+    - "KLR.L R2→R3 COMPLETE: R2 11/19 MODERATE COUNTER. FV 2,600→2,100 (-19.2%). Entry 1,750→1,700. Margin 6%→5.5%, EV/EBIT 10.5x→9.5x. SO GATED on FY2025 Mar 3. Bear 1,450p. Added IIJA cliff KC#8. 2 velocity units."
+    - "RO.SW R1 COMPLETE: QS 72/80adj Tier A. FV CHF 282, current CHF 376 = OVERVALUED 25%. Entry CHF 260-280. eToro ROG.ZU. 72.8% family. Verdict: AT_FV (WATCHLIST). 1 velocity unit."
+  velocity_units: 4  # STMN.SW R4=1, KLR.L R2→R3=2, RO.SW R1=1
+  innovation:
+    - "FCF Normalization Rule added to projection-framework SKILL.md Section 2.3.1"
+    - "so_probability.py NEW TOOL: lognormal barrier model for SO fill probability"
+    - "r1_prioritizer.py ENHANCED: E[CAGR] column + auto near-entry filter (>=20 R1_COMPLETE)"
+    - "Pipeline data fixes: AON→R3_COMPLETE, IHP.L→R4_APPROVED FV 390, STMN.SW→R4_APPROVED, KLR.L→R3_COMPLETE"
+    - "Wave 3E CANCELLED: market_position default already 0/8, plan premise was wrong"
+  r2_completed:
+    - { ticker: "KLR.L", date: "2026-02-20", score: "11/19 MODERATE COUNTER" }
+  r3_completed:
+    - { ticker: "KLR.L", date: "2026-02-20", fv_change: "2600→2100", outcome: "GATED Mar 3" }
 
 skip_if_same_day:
   vigilance_fresh_until: "2026-02-21T07:00"
@@ -43,44 +51,22 @@ skip_if_same_day:
 # Rolling 30-day cooldown window. Max 30 entries.
 # OVERVALUED = 14d cooldown, FANTASY = 30d cooldown, AT_FV = 14d, ACTIONABLE = 0d (no cooldown)
 r1_cooldowns:
+  # Session 103 (2026-02-20)
+  - { ticker: "RO.SW", verdict: "AT_FV", session: 103, date: "2026-02-20", price_at_analysis: 375.80, cooldown_until: "2026-03-06" }
+  # Session 102 (2026-02-20)
+  - { ticker: "REN.AS", verdict: "AT_FV", session: 102, date: "2026-02-20", price_at_analysis: 26.80, cooldown_until: "2026-03-06" }
   # Session 97 (2026-02-20)
   - { ticker: "MNST", verdict: "FANTASY", session: 97, date: "2026-02-20", price_at_analysis: 82, cooldown_until: "2026-03-22" }
   - { ticker: "OR.PA", verdict: "OVERVALUED", session: 97, date: "2026-02-20", price_at_analysis: 395, cooldown_until: "2026-03-06" }
   - { ticker: "AM.PA", verdict: "OVERVALUED", session: 97, date: "2026-02-20", price_at_analysis: 351, cooldown_until: "2026-03-06" }
   - { ticker: "BEAN.SW", verdict: "FANTASY", session: 97, date: "2026-02-20", price_at_analysis: 904, cooldown_until: "2026-03-22" }
-  # Session 95 (2026-02-20)
-  - { ticker: "ODFL", verdict: "OVERVALUED", session: 95, date: "2026-02-20", price_at_analysis: 195, cooldown_until: "2026-03-06" }
-  - { ticker: "ROL", verdict: "FANTASY", session: 95, date: "2026-02-20", price_at_analysis: 61, cooldown_until: "2026-03-22" }
-  - { ticker: "WRB", verdict: "AT_FV", session: 95, date: "2026-02-20", price_at_analysis: 70, cooldown_until: "2026-03-06" }
-  # Session 94 (2026-02-20)
-  - { ticker: "CTAS", verdict: "FANTASY", session: 94, date: "2026-02-20", price_at_analysis: 215, cooldown_until: "2026-03-22" }
-  - { ticker: "HEI", verdict: "FANTASY", session: 94, date: "2026-02-20", price_at_analysis: 280, cooldown_until: "2026-03-22" }
-  - { ticker: "NOS.LS", verdict: "OVERVALUED", session: 94, date: "2026-02-20", price_at_analysis: 3.5, cooldown_until: "2026-03-06" }
-  # Session 93 (2026-02-20)
-  - { ticker: "GDWN.L", verdict: "FANTASY", session: 93, date: "2026-02-20", price_at_analysis: 11500, cooldown_until: "2026-03-22" }
-  - { ticker: "RMS.PA", verdict: "FANTASY", session: 93, date: "2026-02-20", price_at_analysis: 2350, cooldown_until: "2026-03-22" }
-  # KLR.L is ACTIONABLE — no cooldown
-  # Session 92 (2026-02-20)
-  - { ticker: "GGG", verdict: "OVERVALUED", session: 92, date: "2026-02-20", price_at_analysis: 93, cooldown_until: "2026-03-06" }
-  - { ticker: "KNEBV.HE", verdict: "OVERVALUED", session: 92, date: "2026-02-20", price_at_analysis: 47, cooldown_until: "2026-03-06" }
-  - { ticker: "BZU.MI", verdict: "OVERVALUED", session: 92, date: "2026-02-20", price_at_analysis: 52, cooldown_until: "2026-03-06" }
-  # IHP.L is ACTIONABLE (near entry) — no cooldown. R3 COMPLETE.
-  # STMN.SW is near entry — no cooldown
-  # AON is near entry — no cooldown. R3 COMPLETE.
+  # Session 95 (2026-02-20) — preserved
+  - { ticker: "KNEBV.HE", verdict: "OVERVALUED", session: 92, date: "2026-02-20", price_at_analysis: 53.6, cooldown_until: "2026-03-06" }
 
 next_priorities:
-  - "MONY.L earnings Mon Feb 23 — ON PROBATION. KC#9 AI strategy = SELL trigger."
-  - "EDEN.PA earnings Tue Feb 24 — EXIT if 2027-28 guide <5%."
-  - "DTE.DE earnings Wed Feb 26 — MoS 7%, TRIM >EUR 34 close. KC#2 EPS guide <EUR 2.00."
-  - "RACE.MI SO at 3.8% — NEAREST trigger. Watch daily."
-  - "IHP.L R3 DONE — needs R4 committee for SO approval (UK concentration gate)."
-  - "AON R3 DONE — SO DEFERRED until Q1 2026 earnings (April). MMC mutual exclusivity."
-  - "STMN.SW still ACTIONABLE without R2 — candidate for next R2 session."
-  - "Position review batch OVERDUE (biweekly, last Feb 8) — do post-earnings."
-
-evolution:
-  r1_fantasy_rate_last_10: 0.60
-  proposal: "Pipeline velocity metric replaces raw R1 count. 3 units/session target."
-  proposal_status: "IMPLEMENTED S99 — session-protocol.md updated, L-09 codified, --advancement flag added."
-  last_implemented: "S99: System evolution session. quality_scorer.py FCF distortion detection, price_checker.py yield anomaly check, r1_prioritizer.py --advancement flag, standing_orders.yaml restructured with categories, L-09 lesson, pipeline velocity metric in session-protocol."
-  s99_note: "Pure CIO governance session. 0 investment decisions, 6 system improvements. Fixed 2 tool data quality bugs affecting ~15 universe companies. SO restructure makes deployment plan visible to human (7 ACTIVE, 10 GATED). Pipeline velocity metric codifies S98 insight: advancement > volume."
+  - "MONY.L earnings Mon Feb 23 — ON PROBATION. KC#9 AI strategy. SELL if no AI plan."
+  - "EDEN.PA earnings Tue Feb 24 — Framework ready. Intel refreshed. KC#1 France reduced."
+  - "DTE.DE earnings Wed Feb 26 — MoS 7%, watch FY2026 EPS guide."
+  - "KLR.L FY2025 Mar 3 — MAKE-OR-BREAK for SO activation. Pass: margin >=6.5% + OB >=1.4B."
+  - "Position review overdue: LULU (+5.5%), BYIT.L (+16.2%) bottom by forward return."
+  - "ASM.AS R1 — 2nd R1 deferred from S103 (agent capacity). QS 73, Netherlands, semi equipment."

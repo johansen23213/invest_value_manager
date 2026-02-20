@@ -141,6 +141,26 @@ Histórico FCF Conversion:
 Proyección FCF Conversion: ___% (why?)
 ```
 
+### 2.3.1 FCF Normalization Rule (MANDATORY)
+```
+RULE: If projected FCF margin > trailing 3-year average + 200bps:
+  → REQUIRE management guidance citation for the improvement.
+  → WITHOUT explicit mgmt guidance for FCF margin targets,
+    use trailing FCF margin as the base case projection.
+  → 3+ consecutive years of "heavy investment" or "transition" = new normal,
+    NOT temporary. Do NOT assume reversion to historical peak without evidence.
+
+RATIONALE: Prevents FV inflation from speculative capex normalization.
+  Origin: STMN.SW R3 (S102) — R1 projected 15% FCF margin when trailing was
+  11.1% and declining for 5 years with no mgmt guidance. R2 corrected to 13%.
+
+EXAMPLE:
+  Trailing 3yr avg FCF margin: 12%
+  Projected FCF margin: 15% (+300bps)
+  → Does management explicitly guide FCF margin recovery? If YES → cite source.
+  → If NO → use 12-13% as base case (trailing + modest improvement only).
+```
+
 ---
 
 ## SECCIÓN 3: Derivación de WACC
