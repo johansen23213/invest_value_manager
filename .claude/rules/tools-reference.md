@@ -19,6 +19,7 @@
 | `constraint_checker.py` | `python3 tools/constraint_checker.py {REPORT\|CHECK TICKER AMT\|CHECK_SHORT TICKER AMT}` | Concentracion, net/gross exposure, drawdown. Contexto, no juicio. |
 | `correlation_matrix.py` | `python3 tools/correlation_matrix.py` | Correlaciones entre posiciones. |
 | `insider_tracker.py` | `python3 tools/insider_tracker.py TICKER [--sections insider,institutional,short,analyst]` | Insider txns, institutional holders, short interest, analyst consensus. Datos crudos. |
+| `portfolio_dashboard.py` | `python3 tools/portfolio_dashboard.py [--no-prices]` | Dashboard visual 6 paneles: allocation, P&L, quality map, pipeline funnel, SO proximity, summary. Output: docs/portfolio_dashboard.png. `--no-prices` skip yfinance. |
 
 ## Screening & Valuation
 
