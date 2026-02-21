@@ -34,8 +34,13 @@ warnings.filterwarnings('ignore')
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUTPUT = os.path.join(BASE, 'docs', 'ownership_graph.html')
 
+sys.path.insert(0, os.path.join(BASE, 'tools'))
+from ownership_cache import load_or_fetch, is_indexer
+
 # Args
 PORTFOLIO_ONLY = '--portfolio-only' in sys.argv
+USE_CACHE = '--cached' in sys.argv
+FORCE_FRESH = '--fresh' in sys.argv
 TOP_FUNDS = 5
 for i, arg in enumerate(sys.argv):
     if arg == '--top-funds' and i + 1 < len(sys.argv):
@@ -74,10 +79,7 @@ for so in standing_orders:
 
 print(f"Stocks to process: {len(stocks)} ({len(positions)} portfolio + {len(stocks) - len(positions)} SOs)")
 
-# ─── Fetch ownership data from yfinance ───────────────────────────────────────
-
-import yfinance as yf
-import pandas as pd
+# ─── Fetch ownership data (via shared cache) ─────────────────────────────────
 
 nodes = []
 edges = []
@@ -106,123 +108,84 @@ for ticker, info in stocks.items():
         'conviction': info['conviction'],
     })
 
-# Fetch data per stock
-total = len(stocks)
-for idx, (ticker, info) in enumerate(stocks.items()):
-    print(f"  [{idx+1}/{total}] {ticker}...", end=" ", flush=True)
+# Load ownership data via shared cache
+all_tickers = list(stocks.keys())
+ownership_data = load_or_fetch(all_tickers, force_fresh=FORCE_FRESH, top_funds=TOP_FUNDS)
+
+# Build graph from cached data
+for ticker, info in stocks.items():
     stock_nid = get_node_id(ticker, 'stock')
+    data = ownership_data.get(ticker, {})
 
-    try:
-        t = yf.Ticker(ticker)
+    # --- Institutional holders ---
+    for h in data.get('holders', [])[:TOP_FUNDS]:
+        fund_name = h.get('name', 'Unknown')
+        pct_held = h.get('pct', 0)
 
-        # --- Institutional holders ---
-        try:
-            inst = t.institutional_holders
-            if inst is not None and isinstance(inst, pd.DataFrame) and not inst.empty:
-                # Take top N by value or shares
-                holder_col = 'Holder' if 'Holder' in inst.columns else inst.columns[0]
-                top = inst.head(TOP_FUNDS)
-                for _, row in top.iterrows():
-                    fund_name = str(row.get(holder_col, 'Unknown'))
-                    if not fund_name or fund_name == 'nan':
-                        continue
+        if fund_name not in fund_stock_count:
+            fund_stock_count[fund_name] = set()
+        fund_stock_count[fund_name].add(ticker)
 
-                    # Track for indexer detection
-                    if fund_name not in fund_stock_count:
-                        fund_stock_count[fund_name] = set()
-                    fund_stock_count[fund_name].add(ticker)
+        fund_nid = get_node_id(fund_name, 'fund')
+        if not any(n['id'] == fund_nid for n in nodes):
+            nodes.append({
+                'id': fund_nid,
+                'label': fund_name[:30],
+                'name': fund_name,
+                'type': 'fund',
+                'status': 'active',
+            })
 
-                    shares_held = row.get('Shares', 0)
-                    pct_held = row.get('% Out', row.get('pctHeld', 0))
-                    value = row.get('Value', 0)
+        edges.append({
+            'source': fund_nid,
+            'target': stock_nid,
+            'type': 'holds',
+            'weight': float(pct_held) if pct_held else 0.01,
+            'label': f'{float(pct_held)*100:.1f}%' if pct_held and float(pct_held) < 1 else f'{float(pct_held):.1f}%' if pct_held else '',
+        })
 
-                    fund_nid = get_node_id(fund_name, 'fund')
-                    # Add fund node if not already added
-                    if not any(n['id'] == fund_nid for n in nodes):
-                        nodes.append({
-                            'id': fund_nid,
-                            'label': fund_name[:30],
-                            'name': fund_name,
-                            'type': 'fund',
-                            'status': 'active',  # will be reclassified later
-                        })
+    # --- Insider transactions ---
+    for ins in data.get('insiders', [])[:10]:
+        insider_name = ins.get('name', 'Unknown')
+        txn_type_raw = ins.get('type', 'SELL')
+        text = ins.get('text', '')
 
-                    edges.append({
-                        'source': fund_nid,
-                        'target': stock_nid,
-                        'type': 'holds',
-                        'weight': float(pct_held) if pct_held else 0.01,
-                        'label': f'{float(pct_held)*100:.1f}%' if pct_held and float(pct_held) < 1 else f'{float(pct_held):.1f}%' if pct_held else '',
-                    })
-                print(f"inst:{len(top)}", end=" ")
-            else:
-                print("inst:0", end=" ")
-        except Exception as e:
-            print(f"inst:ERR", end=" ")
+        if txn_type_raw in ('BUY', 'BUYBACK'):
+            txn_type = 'insider_buy'
+        else:
+            txn_type = 'insider_sell'
 
-        # --- Insider transactions ---
-        try:
-            ins_txn = t.insider_transactions
-            if ins_txn is not None and isinstance(ins_txn, pd.DataFrame) and not ins_txn.empty:
-                # Recent transactions (top 10)
-                recent = ins_txn.head(10)
-                for _, row in recent.iterrows():
-                    insider_name = str(row.get('Insider', row.get('insider', 'Unknown')))
-                    text = str(row.get('Text', row.get('text', '')))
-                    shares_val = row.get('Shares', row.get('shares', 0))
-                    # Determine buy or sell
-                    text_lower = text.lower() if text else ''
-                    if 'purchase' in text_lower or 'buy' in text_lower or 'acquisition' in text_lower:
-                        txn_type = 'insider_buy'
-                    elif 'sale' in text_lower or 'sell' in text_lower or 'disposition' in text_lower:
-                        txn_type = 'insider_sell'
-                    else:
-                        txn_type = 'insider_sell'  # default for options exercises etc
+        person_nid = get_node_id(insider_name, 'person')
+        if not any(n['id'] == person_nid for n in nodes):
+            nodes.append({
+                'id': person_nid,
+                'label': insider_name.split(' ')[-1][:15],
+                'name': insider_name,
+                'type': 'person',
+                'status': txn_type,
+            })
 
-                    if not insider_name or insider_name == 'nan':
-                        continue
-
-                    person_nid = get_node_id(insider_name, 'person')
-                    if not any(n['id'] == person_nid for n in nodes):
-                        nodes.append({
-                            'id': person_nid,
-                            'label': insider_name.split(' ')[-1][:15],  # last name
-                            'name': insider_name,
-                            'type': 'person',
-                            'status': txn_type,
-                        })
-
-                    edges.append({
-                        'source': person_nid,
-                        'target': stock_nid,
-                        'type': txn_type,
-                        'weight': 0.5,
-                        'label': text[:40] if text else '',
-                    })
-                print(f"ins:{len(recent)}", end=" ")
-            else:
-                print("ins:0", end=" ")
-        except Exception as e:
-            print(f"ins:ERR", end=" ")
-
-        print("OK")
-
-    except Exception as e:
-        print(f"FAILED: {e}")
+        edges.append({
+            'source': person_nid,
+            'target': stock_nid,
+            'type': txn_type,
+            'weight': 0.5,
+            'label': text[:40] if text else '',
+        })
 
 # ─── Post-process: classify funds as indexer vs active ────────────────────────
 
 n_stocks = len(stocks)
-indexer_threshold = max(n_stocks * 0.6, 3)  # appears in >60% of stocks = indexer
+indexer_threshold = max(n_stocks * 0.6, 3)
 
 for node in nodes:
     if node['type'] == 'fund':
         fund_name = node['name']
         n_held = len(fund_stock_count.get(fund_name, set()))
-        if n_held >= indexer_threshold:
+        if n_held >= indexer_threshold or is_indexer(fund_name):
             node['status'] = 'indexer'
         elif n_held >= 3:
-            node['status'] = 'quality'  # appears in 3+ of our stocks
+            node['status'] = 'quality'
         else:
             node['status'] = 'active'
 
