@@ -1,0 +1,678 @@
+ADBE:
+  holders:
+  - is_indexer: true
+    name: Vanguard Group Inc
+    pct: 0.100600004
+  - is_indexer: true
+    name: Blackrock Inc.
+    pct: 0.098500006
+  - is_indexer: true
+    name: State Street Corporation
+    pct: 0.0499
+  - is_indexer: true
+    name: Geode Capital Management, LLC
+    pct: 0.028099999
+  - is_indexer: false
+    name: NORGES BANK
+    pct: 0.015800001
+  - is_indexer: false
+    name: Arrowstreet Capital, Limited Partnership
+    pct: 0.0152
+  - is_indexer: false
+    name: Morgan Stanley
+    pct: 0.0150999995
+  - is_indexer: true
+    name: Bank Of New York Mellon Corporation
+    pct: 0.0136
+  - is_indexer: false
+    name: UBS AM, a distinct business unit of UBS ASSET MANAGEMENT AMERICAS LLC
+    pct: 0.0124
+  - is_indexer: true
+    name: Northern Trust Corporation
+    pct: 0.012200001
+  insiders:
+  - name: DURN DANIEL J
+    shares: 1646
+    text: Sale at price 294.85 per share.
+    type: SELL
+  - name: CHAKRAVARTHY ANIL
+    shares: 24213
+    text: ''
+    type: OTHER
+  - name: NARAYEN SHANTANU
+    shares: 69553
+    text: ''
+    type: OTHER
+  - name: WADHWANI DAVID
+    shares: 24213
+    text: ''
+    type: OTHER
+  - name: CHEN GLORIA T
+    shares: 10663
+    text: ''
+    type: OTHER
+  - name: FORUSZ JILLIAN
+    shares: 559
+    text: ''
+    type: OTHER
+  - name: DURN DANIEL J
+    shares: 15660
+    text: ''
+    type: OTHER
+  - name: CHAKRAVARTHY ANIL
+    shares: 1895
+    text: ''
+    type: OTHER
+  - name: NARAYEN SHANTANU
+    shares: 5443
+    text: ''
+    type: OTHER
+  - name: WADHWANI DAVID
+    shares: 1895
+    text: ''
+    type: OTHER
+  - name: CHEN GLORIA T
+    shares: 1938
+    text: ''
+    type: OTHER
+  - name: BALAZS LARA
+    shares: 4919
+    text: ''
+    type: OTHER
+  - name: FORUSZ JILLIAN
+    shares: 117
+    text: ''
+    type: OTHER
+  - name: DURN DANIEL J
+    shares: 2833
+    text: ''
+    type: OTHER
+  - name: FORUSZ JILLIAN
+    shares: 550
+    text: Stock Gift at price 0.00 per share.
+    type: OTHER
+AUTO.L:
+  holders:
+  - is_indexer: false
+    name: Pacer Advisors, Inc.
+    pct: 0
+  insiders:
+  - name: Auto Trader Group Plc
+    shares: 850000
+    text: Buy Back at price 6.46 per share.
+    type: BUYBACK
+  - name: Auto Trader Group Plc
+    shares: 823812
+    text: Buy Back at price 6.31 per share.
+    type: BUYBACK
+  - name: Auto Trader Group Plc
+    shares: 700000
+    text: Buy Back at price 6.48 per share.
+    type: BUYBACK
+  - name: Auto Trader Group Plc
+    shares: 800000
+    text: Buy Back at price 6.56 per share.
+    type: BUYBACK
+  - name: FIL Limited
+    shares: 0
+    text: ''
+    type: OTHER
+  - name: Auto Trader Group Plc
+    shares: 461692
+    text: Buy Back at price 6.85 per share.
+    type: BUYBACK
+  - name: Auto Trader Group Plc
+    shares: 460000
+    text: Buy Back at price 7.08 per share.
+    type: BUYBACK
+  - name: Auto Trader Group Plc
+    shares: 430000
+    text: Buy Back at price 7.32 per share.
+    type: BUYBACK
+  - name: Auto Trader Group Plc
+    shares: 0
+    text: ''
+    type: OTHER
+  - name: Auto Trader Group Plc
+    shares: 421532
+    text: Buy Back at price 7.66 per share.
+    type: BUYBACK
+  - name: Auto Trader Group Plc
+    shares: 420000
+    text: Buy Back at price 7.67 per share.
+    type: BUYBACK
+  - name: Auto Trader Group Plc
+    shares: 420000
+    text: Buy Back at price 7.59 per share.
+    type: BUYBACK
+  - name: Auto Trader Group Plc
+    shares: 419318
+    text: Buy Back at price 7.49 per share.
+    type: BUYBACK
+  - name: Auto Trader Group Plc
+    shares: 420000
+    text: Buy Back at price 7.56 per share.
+    type: BUYBACK
+  - name: Auto Trader Group Plc
+    shares: 400000
+    text: Buy Back at price 7.70 per share.
+    type: BUYBACK
+BYIT.L:
+  holders: []
+  insiders:
+  - name: Coronation Asset Management (Pty), Ltd.
+    shares: 983064
+    text: ''
+    type: OTHER
+  - name: J.P. Morgan Securities PLC
+    shares: 93707
+    text: ''
+    type: OTHER
+  - name: J.P. Morgan Securities PLC
+    shares: 141352
+    text: ''
+    type: OTHER
+  - name: Camissa Global Flexible Fund
+    shares: 2861453
+    text: ''
+    type: OTHER
+  - name: J.P. Morgan Securities PLC
+    shares: 0
+    text: ''
+    type: OTHER
+  - name: Camissa Global Flexible Fund
+    shares: 11980680
+    text: ''
+    type: OTHER
+  - name: Coronation Asset Management (Pty), Ltd.
+    shares: 102639
+    text: ''
+    type: OTHER
+  - name: Coronation Asset Management (Pty), Ltd.
+    shares: 746113
+    text: ''
+    type: OTHER
+  - name: J.P. Morgan Securities PLC
+    shares: 259528
+    text: ''
+    type: OTHER
+  - name: Public Investment Corporation SOC, Ltd.
+    shares: 862657
+    text: ''
+    type: OTHER
+  - name: J.P. Morgan Securities PLC
+    shares: 110299
+    text: ''
+    type: OTHER
+  - name: J.P. Morgan Securities PLC
+    shares: 0
+    text: ''
+    type: OTHER
+  - name: Coronation Asset Management (Pty), Ltd.
+    shares: 2361348
+    text: ''
+    type: OTHER
+  - name: J.P. Morgan Securities PLC
+    shares: 0
+    text: ''
+    type: OTHER
+  - name: Public Investment Corporation SOC, Ltd.
+    shares: 1282751
+    text: ''
+    type: OTHER
+DOM.L:
+  holders: []
+  insiders:
+  - name: HOLD Alapkezelo Zrt
+    shares: 3643970
+    text: ''
+    type: OTHER
+  - name: Saray Capital (DIFC) Limited
+    shares: 3448684
+    text: ''
+    type: OTHER
+  - name: Saray Capital (DIFC) Limited
+    shares: 3906959
+    text: ''
+    type: OTHER
+  - name: Liontrust Asset Management Plc
+    shares: 2520025
+    text: ''
+    type: OTHER
+  - name: Liontrust Asset Management Plc
+    shares: 3152592
+    text: ''
+    type: OTHER
+  - name: Saray Capital (DIFC) Limited
+    shares: 3593041
+    text: ''
+    type: OTHER
+  - name: Frampton (Nicola)
+    shares: 29382
+    text: Bought at price 2.25 per share.
+    type: OTHER
+  - name: Liontrust Asset Management Plc
+    shares: 224133
+    text: ''
+    type: OTHER
+  - name: Bull (Ian)
+    shares: 20000
+    text: Bought at price 2.30 per share.
+    type: OTHER
+  - name: Capital Research Global Investors
+    shares: 18751264
+    text: ''
+    type: OTHER
+  - name: Liontrust Asset Management Plc
+    shares: 559348
+    text: ''
+    type: OTHER
+  - name: Alberta Investment Management Corporation
+    shares: 2240047
+    text: ''
+    type: OTHER
+  - name: Alberta Investment Management Corporation
+    shares: 4333056
+    text: ''
+    type: OTHER
+  - name: HOLD Alapkezelo Zrt
+    shares: 0
+    text: ''
+    type: OTHER
+  - name: Capital Research Global Investors
+    shares: 3404714
+    text: ''
+    type: OTHER
+DTE.DE:
+  holders:
+  - is_indexer: false
+    name: Pacer Advisors, Inc.
+    pct: 0.0005
+  - is_indexer: false
+    name: Gamma Investing LLC
+    pct: 0
+  - is_indexer: false
+    name: Paradigm Asset Management Company, LLC
+    pct: 0
+  insiders: []
+EDEN.PA:
+  holders:
+  - is_indexer: false
+    name: Pacer Advisors, Inc.
+    pct: 0
+  insiders: []
+GL:
+  holders:
+  - is_indexer: true
+    name: Vanguard Group Inc
+    pct: 0.1268
+  - is_indexer: true
+    name: Blackrock Inc.
+    pct: 0.0715
+  - is_indexer: false
+    name: Invesco Ltd.
+    pct: 0.048299998
+  - is_indexer: true
+    name: State Street Corporation
+    pct: 0.0399
+  - is_indexer: false
+    name: Wellington Management Group, LLP
+    pct: 0.0353
+  - is_indexer: true
+    name: Geode Capital Management, LLC
+    pct: 0.034
+  - is_indexer: false
+    name: Dimensional Fund Advisors LP
+    pct: 0.026800001
+  - is_indexer: false
+    name: Morgan Stanley
+    pct: 0.0234
+  - is_indexer: false
+    name: Arrowstreet Capital, Limited Partnership
+    pct: 0.018
+  - is_indexer: false
+    name: AQR Capital Management, LLC
+    pct: 0.0175
+  insiders:
+  - name: SVOBODA FRANK M
+    shares: 12500
+    text: Sale at price 143.95 - 145.52 per share.
+    type: SELL
+  - name: SVOBODA FRANK M
+    shares: 12500
+    text: Conversion of Exercise of derivative security at price 82.56
+    type: OPTION
+  - name: HAWORTH JENNIFER ALLISON
+    shares: 10000
+    text: Sale at price 142.21 - 143.72 per share.
+    type: SELL
+  - name: HAWORTH JENNIFER ALLISON
+    shares: 10000
+    text: Conversion of Exercise of derivative security at price 50.64
+    type: OPTION
+  - name: BLINN MARK A
+    shares: 1750
+    text: Sale at price 147.91 per share.
+    type: SELL
+  - name: MAJORS MICHAEL CLAY
+    shares: 30000
+    text: Sale at price 146.04 - 148.63 per share.
+    type: SELL
+  - name: MAJORS MICHAEL CLAY
+    shares: 30000
+    text: Conversion of Exercise of derivative security at price 98.32
+    type: OPTION
+  - name: ALSTON CHERYL D
+    shares: 1373
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - name: ADDISON LINDA L.
+    shares: 723
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - name: CHO ALICE S
+    shares: 1373
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - name: ADAMS MATTHEW J
+    shares: 1373
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - name: ADAMS MATTHEW J
+    shares: 1373
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - name: JACOBS PHILIP M.
+    shares: 1373
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - name: BRANNEN JAMES PATRICK
+    shares: 1373
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - name: BLINN MARK A
+    shares: 1373
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+LULU:
+  holders:
+  - is_indexer: true
+    name: Vanguard Group Inc
+    pct: 0.118999995
+  - is_indexer: true
+    name: Blackrock Inc.
+    pct: 0.0885
+  - is_indexer: true
+    name: State Street Corporation
+    pct: 0.040799998
+  - is_indexer: false
+    name: FMR, LLC
+    pct: 0.036199998
+  - is_indexer: true
+    name: Geode Capital Management, LLC
+    pct: 0.0272
+  - is_indexer: false
+    name: Susquehanna International Group, LLP
+    pct: 0.0214
+  - is_indexer: false
+    name: Marshall Wace LLP
+    pct: 0.0211
+  - is_indexer: false
+    name: Invesco Ltd.
+    pct: 0.0196
+  - is_indexer: false
+    name: Morgan Stanley
+    pct: 0.0196
+  - is_indexer: false
+    name: Flossbach von Storch SE
+    pct: 0.016900001
+  insiders:
+  - name: FRANK MEGHAN
+    shares: 2658
+    text: Sale at price 211.37 per share.
+    type: SELL
+  - name: FRANK MEGHAN
+    shares: 2763
+    text: Conversion of Exercise of derivative security at price 167.5
+    type: OPTION
+  - name: MORFITT MARTHA A M
+    shares: 6500
+    text: Stock Gift at price 0.00 per share.
+    type: OTHER
+  - name: MORFITT MARTHA A M
+    shares: 3608
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - name: BURGOYNE CELESTE
+    shares: 13511
+    text: Sale at price 203.48 - 204.08 per share.
+    type: SELL
+  - name: NEUBURGER NICOLE
+    shares: 6059
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - name: FRANK MEGHAN
+    shares: 10907
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - name: MAESTRINI ANDRE
+    shares: 10907
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - name: NEUBURGER NICOLE
+    shares: 615
+    text: Sale at price 178.00 per share.
+    type: SELL
+  - name: DAS RANJU
+    shares: 6176
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - name: MCDONALD CALVIN
+    shares: 27049
+    text: Sale at price 235.54 - 236.33 per share.
+    type: SELL
+  - name: MCDONALD CALVIN
+    shares: 35355
+    text: Conversion of Exercise of derivative security at price 136.6
+    type: OPTION
+  - name: MAHE ISABEL
+    shares: 634
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - name: LOEHNIS ALISON
+    shares: 634
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - name: GRANT SHANE
+    shares: 634
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+MONY.L:
+  holders: []
+  insiders:
+  - name: Whittle (Matthew)
+    shares: 59
+    text: Bought at price 2.31 per share.
+    type: OTHER
+  - name: Duffy (Peter)
+    shares: 88
+    text: Bought at price 2.31 per share.
+    type: OTHER
+  - name: BlackRock Investment Management (UK) Ltd.
+    shares: 175
+    text: ''
+    type: OTHER
+  - name: Cresswell (Matthew)
+    shares: 88
+    text: Bought at price 2.31 per share.
+    type: OTHER
+  - name: BlackRock Investment Management (UK) Ltd.
+    shares: 309073
+    text: ''
+    type: OTHER
+  - name: BlackRock Investment Management (UK) Ltd.
+    shares: 8714
+    text: ''
+    type: OTHER
+  - name: BlackRock Investment Management (UK) Ltd.
+    shares: 10511
+    text: ''
+    type: OTHER
+  - name: BlackRock Investment Management (UK) Ltd.
+    shares: 1808447
+    text: ''
+    type: OTHER
+  - name: Cresswell (Matthew)
+    shares: 81
+    text: Bought at price 2.50 per share.
+    type: OTHER
+  - name: Whittle (Matthew)
+    shares: 54
+    text: Bought at price 2.50 per share.
+    type: OTHER
+  - name: Duffy (Peter)
+    shares: 81
+    text: Bought at price 2.50 per share.
+    type: OTHER
+  - name: Gruppo MutuiOnline SpA
+    shares: 5000000
+    text: ''
+    type: OTHER
+  - name: Duffy (Peter)
+    shares: 78
+    text: Bought at price 2.56 per share.
+    type: OTHER
+  - name: Cresswell (Matthew)
+    shares: 78
+    text: Bought at price 2.56 per share.
+    type: OTHER
+  - name: Whittle (Matthew)
+    shares: 52
+    text: Bought at price 2.56 per share.
+    type: OTHER
+MORN:
+  holders:
+  - is_indexer: true
+    name: Vanguard Group Inc
+    pct: 0.0577
+  - is_indexer: true
+    name: Blackrock Inc.
+    pct: 0.0575
+  - is_indexer: false
+    name: Select Equity Group LP
+    pct: 0.0511
+  - is_indexer: false
+    name: Morgan Stanley
+    pct: 0.048800003
+  - is_indexer: false
+    name: BAMCO Inc.
+    pct: 0.0344
+  - is_indexer: true
+    name: State Street Corporation
+    pct: 0.0182
+  - is_indexer: false
+    name: Wellington Management Group, LLP
+    pct: 0.0149
+  - is_indexer: false
+    name: AQR Capital Management, LLC
+    pct: 0.0148
+  - is_indexer: true
+    name: Geode Capital Management, LLC
+    pct: 0.0145000005
+  - is_indexer: false
+    name: Dimensional Fund Advisors LP
+    pct: 0.0115
+  insiders:
+  - name: MANSUETO JOSEPH D
+    shares: 14041
+    text: Sale at price 157.97 - 162.69 per share.
+    type: SELL
+  - name: MANSUETO JOSEPH D
+    shares: 14189
+    text: Sale at price 154.61 - 159.75 per share.
+    type: SELL
+  - name: MANSUETO JOSEPH D
+    shares: 4867
+    text: Sale at price 162.84 - 165.88 per share.
+    type: SELL
+  - name: MANSUETO JOSEPH D
+    shares: 20066
+    text: Sale at price 168.53 - 188.12 per share.
+    type: SELL
+  - name: MANSUETO JOSEPH D
+    shares: 857
+    text: Sale at price 201.47 - 203.34 per share.
+    type: SELL
+  - name: TSAY CAROLINE J
+    shares: 600
+    text: Sale at price 218.48 per share.
+    type: SELL
+  - name: MANSUETO JOSEPH D
+    shares: 27775
+    text: Stock Gift at price 0.00 per share.
+    type: OTHER
+  - name: MANSUETO JOSEPH D
+    shares: 1602
+    text: Sale at price 211.31 - 214.51 per share.
+    type: SELL
+  - name: MANSUETO JOSEPH D
+    shares: 14500
+    text: Sale at price 209.82 - 214.84 per share.
+    type: SELL
+  - name: MANSUETO JOSEPH D
+    shares: 14500
+    text: Sale at price 207.27 - 211.27 per share.
+    type: SELL
+  - name: MANSUETO JOSEPH D
+    shares: 8039
+    text: Sale at price 211.12 - 213.32 per share.
+    type: SELL
+  - name: WIERSEMA CONAN
+    shares: 471
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - name: WIERSEMA CONAN
+    shares: 12
+    text: ''
+    type: OTHER
+  - name: HOLT MICHAEL CFA
+    shares: 163
+    text: ''
+    type: OTHER
+  - name: KAPOOR KUNAL
+    shares: 1861
+    text: ''
+    type: OTHER
+NVO:
+  holders:
+  - is_indexer: false
+    name: LOOMIS SAYLES & CO L P
+    pct: 0.0050999997
+  - is_indexer: false
+    name: Franklin Resources, Inc.
+    pct: 0.0043
+  - is_indexer: false
+    name: FMR, LLC
+    pct: 0.0042
+  - is_indexer: false
+    name: Bank of America Corporation
+    pct: 0.004
+  - is_indexer: false
+    name: Morgan Stanley
+    pct: 0.0038
+  - is_indexer: false
+    name: Capital International Investors
+    pct: 0.0033000002
+  - is_indexer: false
+    name: Goldman Sachs Group Inc
+    pct: 0.0032
+  - is_indexer: false
+    name: Folketrygdfondet
+    pct: 0.003
+  - is_indexer: false
+    name: Fisher Asset Management, LLC
+    pct: 0.0029
+  - is_indexer: false
+    name: Everett Harris & Co/CA/
+    pct: 0.0019
+  insiders: []

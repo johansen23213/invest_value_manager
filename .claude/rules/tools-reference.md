@@ -37,6 +37,7 @@
 |------|---------|-----------|
 | `ownership_graph.py` | `python3 tools/ownership_graph.py [--portfolio-only] [--top-funds N]` | Interactive force-directed graph: stocks ↔ funds/insiders. Output: docs/ownership_graph.html. |
 | `ownership_analyzer.py` | `python3 tools/ownership_analyzer.py [--risk\|--sentiment\|--discover [TICKERS]]` | Institutional intelligence: overlap matrix, insider sentiment, smart money discovery. `--discover` checks pipeline candidates vs quality funds. |
+| `risk_heatmap.py` | `python3 tools/risk_heatmap.py [--cached\|--diff]` | Interactive HTML heatmap: 7 risk dimensions per position. Caches ownership snapshots for temporal diff. Output: docs/risk_heatmap.html. |
 
 ## Macro & Risk
 
