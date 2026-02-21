@@ -13,7 +13,7 @@
 | `portfolio_stats.py` | `python3 tools/portfolio_stats.py` | P&L long+short, net/gross exposure, allocation. NUNCA a mano. |
 | `effectiveness_tracker.py` | `python3 tools/effectiveness_tracker.py [--summary]` | Win rate, hit rate, Sharpe, attribution. Cada sesion. |
 | `quality_scorer.py` | `python3 tools/quality_scorer.py TICKER [--detailed\|--raw]` | Quality Profile + Legacy Score. TOOL-FIRST. |
-| `forward_return.py` | `python3 tools/forward_return.py [--active-only\|--pipeline-only\|--deployment-ready]` | MoS%, Growth%, Yield%, E[CAGR]@market por posicion. `--deployment-ready` filtra pipeline a E[CAGR]>=threshold. |
+| `forward_return.py` | `python3 tools/forward_return.py [--active-only\|--pipeline-only\|--deployment-ready\|--signals]` | MoS%, Growth%, Yield%, E[CAGR]@market por posicion. `--deployment-ready` filtra pipeline a E[CAGR]>=threshold. `--signals` adds insider sentiment + quality fund overlap from ownership cache. |
 | `quality_universe.py` | `python3 tools/quality_universe.py {report\|actionable\|add\|stale\|coverage\|stats\|archive\|approaching} [--fragility]` | Capital deployment machine. Universe. `approaching`=stocks moving toward entry (delta tracking). |
 | `r1_prioritizer.py` | `python3 tools/r1_prioritizer.py [--top N] [--exclude-uk] [--near-entry-only] [--tier-a-only] [--exclude-fantasy-risk] [--pre-flight] [--advancement]` | R1 prioritizer + fantasy gates. `--advancement`=3-section pipeline with E[CAGR]@mkt. `--pre-flight`=only viable E[CAGR]. Fantasy rate in footer. |
 | `constraint_checker.py` | `python3 tools/constraint_checker.py {REPORT\|CHECK TICKER AMT\|CHECK_SHORT TICKER AMT}` | Concentracion, net/gross exposure, drawdown. Contexto, no juicio. |

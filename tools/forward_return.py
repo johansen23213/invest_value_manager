@@ -23,6 +23,7 @@ Usage:
   python3 tools/forward_return.py --active-only        # Only active positions (long + short)
   python3 tools/forward_return.py --pipeline-only      # Only research pipeline
   python3 tools/forward_return.py --deployment-ready   # Filter pipeline to deployment-viable E[CAGR]
+  python3 tools/forward_return.py --signals            # Add ownership intelligence columns (Ins, QF)
 """
 
 import sys
@@ -813,7 +814,7 @@ def compute_rotation_flags(active_results, pipeline_candidates):
     return flags
 
 
-def print_ranking(active_results, research_results, short_results, show_active=True, show_pipeline=True, deployment_ready=False):
+def print_ranking(active_results, research_results, short_results, show_active=True, show_pipeline=True, deployment_ready=False, signals_data=None):
     """Print the formatted data tables. No composite scores, no ranking highlights."""
     conv_short = {'high': 'H', 'medium': 'M', 'low': 'L'}
 
@@ -828,11 +829,17 @@ def print_ranking(active_results, research_results, short_results, show_active=T
         ranked = sorted(active_results, key=lambda x: x['mos_pct'] if x['mos_pct'] is not None else -999, reverse=True)
 
         print()
-        print("=" * 110)
+        sig_hdr = " {'Ins':>4} {'QF':>3}" if signals_data else ""
+        w = 126 if signals_data else 110
+        print("=" * w)
         print("FORWARD RETURN COMPONENTS -- ACTIVE LONG POSITIONS")
-        print("=" * 110)
-        print(f"{'Ticker':<10} {'QS':>3} {'Tier':>4} {'MoS%':>7} {'Grw%':>6} {'Yld%':>6} {'E[CAGR]':>8} {'Conv':>4} {'GrSrc':>7}  {'FV':>16}")
-        print("-" * 110)
+        print("=" * w)
+        hdr = f"{'Ticker':<10} {'QS':>3} {'Tier':>4} {'MoS%':>7} {'Grw%':>6} {'Yld%':>6} {'E[CAGR]':>8} {'Conv':>4} {'GrSrc':>7}"
+        if signals_data:
+            hdr += f" {'Ins':>5} {'QF':>3}"
+        hdr += f"  {'FV':>16}"
+        print(hdr)
+        print("-" * w)
 
         for r in ranked:
             qs_str = str(r['qs']) if r['qs'] is not None else '?'
@@ -845,6 +852,16 @@ def print_ranking(active_results, research_results, short_results, show_active=T
             gr_src_str = r['growth_source'] or '-'
             fv_str = r['fv_source'] if r['fv_source'] else 'N/A'
 
+            # Signals columns
+            sig_cols = ""
+            if signals_data:
+                sig = signals_data.get(r['ticker'], {})
+                ins_net = sig.get('ins_net')
+                ins_str = f"{ins_net:+d}" if ins_net is not None else '-'
+                qf = sig.get('qf_count')
+                qf_str = str(qf) if qf is not None else '-'
+                sig_cols = f" {ins_str:>5} {qf_str:>3}"
+
             # Rotation flag suffix
             rot_flag = ""
             if r['ticker'] in rotation_flags:
@@ -854,7 +871,8 @@ def print_ranking(active_results, research_results, short_results, show_active=T
             if r['error']:
                 print(f"{r['ticker']:<10} {'':>3} {'':>4} {'ERR':>7} {'':>6} {'':>6} {'':>8} {'':>4} {'':>7}  {r['error']}")
             else:
-                print(f"{r['ticker']:<10} {qs_str:>3} {tier_str:>4} {mos_str:>7} {grw_str:>6} {yld_str:>6} {ecagr_str:>8} {conv_str:>4} {gr_src_str:>7}  {fv_str:>16}{rot_flag}")
+                line = f"{r['ticker']:<10} {qs_str:>3} {tier_str:>4} {mos_str:>7} {grw_str:>6} {yld_str:>6} {ecagr_str:>8} {conv_str:>4} {gr_src_str:>7}{sig_cols}  {fv_str:>16}{rot_flag}"
+                print(line)
 
         print("-" * 110)
         print(f"  {len(active_results)} long positions | E[CAGR] = (FV/Price)^(1/3)-1 + Growth + Yield")
@@ -957,13 +975,18 @@ def print_ranking(active_results, research_results, short_results, show_active=T
                 deployment.append(r)
 
         print()
-        print("=" * 110)
+        dw = 126 if signals_data else 110
+        print("=" * dw)
         print("DEPLOYMENT-READY PIPELINE (E[CAGR] >= 12% Tier A, >= 15% Tier B)")
-        print("=" * 110)
+        print("=" * dw)
         if deployment:
             deployment.sort(key=lambda r: r.get('ecagr_at_market', 0), reverse=True)
-            print(f"{'Ticker':<10} {'QS':>3} {'Tier':>4} {'MoS%':>7} {'E[CAGR]':>8} {'Price':>10}  {'FV':>16} {'Status'}")
-            print("-" * 110)
+            dhdr = f"{'Ticker':<10} {'QS':>3} {'Tier':>4} {'MoS%':>7} {'E[CAGR]':>8} {'Price':>10}"
+            if signals_data:
+                dhdr += f" {'Ins':>5} {'QF':>3}"
+            dhdr += f"  {'FV':>16} {'Status'}"
+            print(dhdr)
+            print("-" * dw)
             for r in deployment:
                 qs_str = str(r['qs']) if r['qs'] is not None else '?'
                 tier_str = r['tier'] if r['tier'] else '?'
@@ -972,8 +995,22 @@ def print_ranking(active_results, research_results, short_results, show_active=T
                 price_str = f"{r['price']:.2f}" if r['price'] is not None else 'N/A'
                 fv_str = r['fv_source'] if r['fv_source'] else 'N/A'
                 status = (r.get('status') or '')[:40]
-                print(f"{r['ticker']:<10} {qs_str:>3} {tier_str:>4} {mos_str:>7} {ecagr_str:>8} {price_str:>10}  {fv_str:>16} {status}")
-            print(f"\n  {len(deployment)} deployment-ready candidates (worth buying at current prices)")
+                sig_cols = ""
+                if signals_data:
+                    sig = signals_data.get(r['ticker'], {})
+                    ins_net = sig.get('ins_net')
+                    ins_str = f"{ins_net:+d}" if ins_net is not None else '-'
+                    qf = sig.get('qf_count')
+                    qf_str = str(qf) if qf is not None else '-'
+                    sig_cols = f" {ins_str:>5} {qf_str:>3}"
+                print(f"{r['ticker']:<10} {qs_str:>3} {tier_str:>4} {mos_str:>7} {ecagr_str:>8} {price_str:>10}{sig_cols}  {fv_str:>16} {status}")
+            # Signal alignment summary
+            if signals_data:
+                bullish = [r for r in deployment if signals_data.get(r['ticker'], {}).get('ins_signal') == 'BULLISH']
+                qf_positive = [r for r in deployment if (signals_data.get(r['ticker'], {}).get('qf_count') or 0) > 0]
+                print(f"\n  {len(deployment)} deployment-ready | {len(bullish)} with bullish insiders | {len(qf_positive)} with quality fund overlap")
+            else:
+                print(f"\n  {len(deployment)} deployment-ready candidates (worth buying at current prices)")
         else:
             print("  No pipeline candidates meet deployment-ready E[CAGR] thresholds at current prices.")
             print("  Tier A needs E[CAGR] >= 12%, Tier B needs >= 15%.")
@@ -1018,12 +1055,68 @@ def _print_net_forward_return(active_results, short_results):
     print(f"  Combined:              Long {long_avg:+.1f}% + Short {short_avg:+.1f}%")
 
 
+def _load_ownership_signals(active_results, research_results):
+    """Load ownership intelligence from cache (zero API calls).
+
+    Returns dict: {ticker: {'ins_net': int, 'ins_signal': str, 'qf_count': int}}
+    """
+    try:
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        from ownership_cache import load_cache, get_latest_cache, get_quality_funds, get_insider_sentiment
+    except ImportError:
+        print("  WARNING: ownership_cache.py not found, skipping signals")
+        return None
+
+    # Load from today's cache or latest available
+    cache = load_cache()
+    if not cache:
+        cache, date_str = get_latest_cache()
+        if cache:
+            print(f"  Signals: using cached ownership data from {date_str}")
+        else:
+            print("  Signals: no ownership cache found")
+            return None
+    else:
+        print(f"  Signals: using today's ownership cache ({len(cache)} tickers)")
+
+    # Identify quality funds from all cached data
+    quality_funds = get_quality_funds(cache, min_stocks=2)
+    qf_names = set(name for name, _ in quality_funds)
+
+    signals = {}
+    all_tickers = set()
+    for r in active_results:
+        all_tickers.add(r['ticker'])
+    for r in research_results:
+        all_tickers.add(r['ticker'])
+
+    for ticker in all_tickers:
+        if ticker not in cache:
+            signals[ticker] = {'ins_net': None, 'ins_signal': '-', 'qf_count': None}
+            continue
+
+        # Insider sentiment
+        buys, sells, _, _, net, signal = get_insider_sentiment(cache, ticker)
+        # Quality fund overlap: how many quality funds hold this ticker
+        holders = cache.get(ticker, {}).get('holders', [])
+        qf_count = sum(1 for h in holders if h.get('name', '') in qf_names and not h.get('is_indexer', False))
+
+        signals[ticker] = {
+            'ins_net': net,
+            'ins_signal': signal,
+            'qf_count': qf_count,
+        }
+
+    return signals
+
+
 def main():
     parser = argparse.ArgumentParser(description='Forward Return Ranking for portfolio positions (long + short)')
     parser.add_argument('--ticker', nargs='+', help='Specific tickers to analyze')
     parser.add_argument('--active-only', action='store_true', help='Only show active positions (long + short)')
     parser.add_argument('--pipeline-only', action='store_true', help='Only show research pipeline')
     parser.add_argument('--deployment-ready', action='store_true', help='Filter pipeline to E[CAGR] >= 12%% (Tier A) or >= 15%% (Tier B)')
+    parser.add_argument('--signals', action='store_true', help='Add ownership intelligence columns (insider sentiment, quality fund overlap)')
 
     args = parser.parse_args()
 
@@ -1084,9 +1177,15 @@ def main():
                 result = process_position(ticker, thesis_path, eurusd, gbpeur, dkkeur, decisions_log, system_qs=system_qs, is_research=True)
                 research_results.append(result)
 
+    # Load ownership signals if requested
+    signals_data = None
+    if args.signals:
+        signals_data = _load_ownership_signals(active_results, research_results)
+
     # Pass short_results (even if empty) when show_active, None when not
     print_ranking(active_results, research_results, short_results if show_active else None,
-                  show_active, show_pipeline, deployment_ready=args.deployment_ready)
+                  show_active, show_pipeline, deployment_ready=args.deployment_ready,
+                  signals_data=signals_data)
 
 
 if __name__ == '__main__':
