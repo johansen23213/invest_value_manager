@@ -303,16 +303,35 @@ if __name__ == '__main__':
 
     # Determine tickers to fetch
     tickers = []
-    if '--portfolio' in sys.argv or '--all' in sys.argv:
+    if '--portfolio' in sys.argv or '--all' in sys.argv or '--pipeline' in sys.argv:
         portfolio = yaml.safe_load(open(os.path.join(BASE, 'portfolio', 'current.yaml')))
         tickers = [p['ticker'] for p in portfolio.get('positions', [])]
 
-    if '--all' in sys.argv:
+    if '--all' in sys.argv or '--pipeline' in sys.argv:
         so_data = yaml.safe_load(open(os.path.join(BASE, 'state', 'standing_orders.yaml')))
         for so in so_data.get('standing_orders', []):
             t = so.get('ticker', '')
             if t and t not in tickers:
                 tickers.append(t)
+
+    if '--pipeline' in sys.argv:
+        # Add top pipeline candidates from quality_universe (by QS, near entry)
+        universe_path = os.path.join(BASE, 'state', 'quality_universe.yaml')
+        if os.path.exists(universe_path):
+            udata = yaml.safe_load(open(universe_path))
+            companies = udata.get('quality_universe', {}).get('companies', [])
+            # Filter: has thesis, long direction, reasonable distance
+            pipeline = [
+                c for c in companies
+                if c.get('direction', 'long') == 'long'
+                and c.get('pipeline_status') in ('SCORED', 'R1_COMPLETE', 'R3_COMPLETE', 'APPROVED', 'STANDING_ORDER')
+                and c.get('ticker') not in tickers
+            ]
+            # Sort by QS descending, take top 20
+            pipeline.sort(key=lambda c: -(c.get('qs_adj') or c.get('qs_tool') or 0))
+            for c in pipeline[:20]:
+                tickers.append(c['ticker'])
+            print(f"  Pipeline: added {min(20, len(pipeline))} universe candidates (top by QS)")
 
     # Add any explicit tickers
     for arg in sys.argv[1:]:
@@ -320,7 +339,7 @@ if __name__ == '__main__':
             tickers.append(arg)
 
     if not tickers:
-        print("Usage: python3 tools/ownership_cache.py [--portfolio|--all|TICK1 TICK2] [--status]")
+        print("Usage: python3 tools/ownership_cache.py [--portfolio|--all|--pipeline|TICK1 TICK2] [--status|--fresh]")
         sys.exit(1)
 
     print(f"Fetching/caching ownership data for {len(tickers)} tickers...")
