@@ -20,6 +20,7 @@
 | `correlation_matrix.py` | `python3 tools/correlation_matrix.py` | Correlaciones entre posiciones. |
 | `insider_tracker.py` | `python3 tools/insider_tracker.py TICKER [--sections insider,institutional,short,analyst]` | Insider txns, institutional holders, short interest, analyst consensus. Datos crudos. |
 | `portfolio_dashboard.py` | `python3 tools/portfolio_dashboard.py [--no-prices]` | Dashboard visual 6 paneles: allocation, P&L, quality map, pipeline funnel, SO proximity, summary. Output: docs/portfolio_dashboard.png. `--no-prices` skip yfinance. |
+| `command_center.py` | `python3 tools/command_center.py [--fresh]` | Session-start command center: KPIs + risk matrix + calendar + SOs + insider sentiment + pipeline funnel. Single interactive HTML. Output: docs/command_center.html. |
 
 ## Screening & Valuation
 
