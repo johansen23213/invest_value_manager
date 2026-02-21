@@ -2,16 +2,13 @@
 """
 Ownership Analyzer — Extracts actionable signals from institutional ownership data.
 
+Uses shared ownership_cache.py for data (avoids redundant yfinance calls).
+
 Three analysis modes:
   --risk       Overlap matrix + concentration analysis for portfolio positions
   --discover   Check if quality funds (holding 3+ our stocks) also hold candidates
   --sentiment  Net insider buy/sell sentiment per position
   (default)    Risk + Sentiment combined report
-
-Smart Money Discovery:
-  Identifies "quality funds" = non-indexer institutional holders appearing in 3+ portfolio stocks.
-  Then checks candidate tickers (from pipeline/universe) for shared quality fund ownership.
-  Higher overlap with quality funds = stronger conviction signal.
 
 Usage:
     python3 tools/ownership_analyzer.py                    # Full risk + sentiment report
@@ -19,6 +16,7 @@ Usage:
     python3 tools/ownership_analyzer.py --sentiment        # Insider sentiment only
     python3 tools/ownership_analyzer.py --discover         # Smart money screen (top pipeline candidates)
     python3 tools/ownership_analyzer.py --discover TICK1 TICK2  # Check specific tickers
+    python3 tools/ownership_analyzer.py --fresh            # Force fresh data (skip cache)
 """
 
 import os
@@ -31,6 +29,8 @@ from itertools import combinations
 warnings.filterwarnings('ignore')
 
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(BASE, 'tools'))
+from ownership_cache import load_or_fetch, get_quality_funds, get_insider_sentiment, is_indexer
 
 # ─── Parse args ──────────────────────────────────────────────────────────────
 
@@ -38,14 +38,12 @@ MODE_RISK = '--risk' in sys.argv
 MODE_DISCOVER = '--discover' in sys.argv
 MODE_SENTIMENT = '--sentiment' in sys.argv
 MODE_ALL = not (MODE_RISK or MODE_DISCOVER or MODE_SENTIMENT)
+FORCE_FRESH = '--fresh' in sys.argv
 
-# Discover tickers (if provided after --discover)
 DISCOVER_TICKERS = []
 if MODE_DISCOVER:
     idx = sys.argv.index('--discover')
     DISCOVER_TICKERS = [a for a in sys.argv[idx+1:] if not a.startswith('--')]
-
-TOP_FUNDS = 10  # fetch top 10 institutional holders per stock for better overlap detection
 
 # ─── Load data ───────────────────────────────────────────────────────────────
 
@@ -57,100 +55,13 @@ portfolio = load_yaml(os.path.join(BASE, 'portfolio', 'current.yaml'))
 positions = portfolio.get('positions', [])
 port_tickers = [p['ticker'] for p in positions]
 
-# ─── Fetch ownership data ────────────────────────────────────────────────────
-
-import yfinance as yf
-import pandas as pd
-
-# Data stores
-inst_holders = {}     # ticker -> [(fund_name, pct_held, shares, value), ...]
-insider_txns = {}     # ticker -> [(name, type, shares, date, text), ...]
-fund_stocks = defaultdict(set)  # fund_name -> set of tickers it appears in
-
-# Known indexer/passive fund parent names (aggregate holders are mostly passive)
-INDEXER_KEYWORDS = [
-    'vanguard', 'blackrock', 'ishares', 'spdr', 'state street', 'schwab',
-    'fidelity 500', 'total stock', 'total market', 'russell',
-    's&p 500', 'index fund', 'etf trust', 'geode capital',
-    'northern trust', 'bank of new york', 'legal & general',
-]
-
-def is_indexer_name(name):
-    nl = name.lower()
-    return any(kw in nl for kw in INDEXER_KEYWORDS)
-
-
-def fetch_stock_data(ticker):
-    """Fetch institutional holders + insider transactions for a ticker."""
-    holders = []
-    insiders = []
-
-    try:
-        t = yf.Ticker(ticker)
-
-        # Institutional holders
-        try:
-            inst = t.institutional_holders
-            if inst is not None and isinstance(inst, pd.DataFrame) and not inst.empty:
-                holder_col = 'Holder' if 'Holder' in inst.columns else inst.columns[0]
-                for _, row in inst.head(TOP_FUNDS).iterrows():
-                    fund_name = str(row.get(holder_col, 'Unknown')).strip()
-                    if not fund_name or fund_name == 'nan':
-                        continue
-                    pct = row.get('% Out', row.get('pctHeld', 0))
-                    shares = row.get('Shares', 0)
-                    value = row.get('Value', 0)
-                    holders.append((fund_name, float(pct) if pct else 0, int(shares) if shares else 0, float(value) if value else 0))
-                    fund_stocks[fund_name].add(ticker)
-        except Exception:
-            pass
-
-        # Insider transactions
-        try:
-            ins = t.insider_transactions
-            if ins is not None and isinstance(ins, pd.DataFrame) and not ins.empty:
-                for _, row in ins.head(15).iterrows():
-                    name = str(row.get('Insider', row.get('insider', 'Unknown'))).strip()
-                    text = str(row.get('Text', row.get('text', '')))
-                    shares = row.get('Shares', row.get('shares', 0))
-                    date = str(row.get('Start Date', row.get('startDate', '')))
-
-                    text_lower = text.lower() if text else ''
-                    if 'buy back' in text_lower or 'buyback' in text_lower or 'repurchase' in text_lower:
-                        txn_type = 'BUYBACK'
-                    elif 'purchase' in text_lower or 'buy' in text_lower or 'acquisition' in text_lower:
-                        txn_type = 'BUY'
-                    elif 'sale' in text_lower or 'sell' in text_lower or 'disposition' in text_lower:
-                        txn_type = 'SELL'
-                    elif 'option' in text_lower or 'exercise' in text_lower:
-                        txn_type = 'OPTION'
-                    else:
-                        txn_type = 'OTHER'
-
-                    if name and name != 'nan':
-                        insiders.append((name, txn_type, int(shares) if shares else 0, date, text[:60]))
-        except Exception:
-            pass
-
-    except Exception as e:
-        print(f"  FAILED {ticker}: {e}")
-
-    return holders, insiders
-
-
-# ─── Fetch portfolio data ────────────────────────────────────────────────────
+# ─── Fetch via shared cache ──────────────────────────────────────────────────
 
 print("=" * 70)
 print("OWNERSHIP ANALYZER — Portfolio Institutional Intelligence")
 print("=" * 70)
-print(f"\nFetching data for {len(port_tickers)} portfolio positions...")
 
-for ticker in port_tickers:
-    print(f"  {ticker}...", end=" ", flush=True)
-    h, i = fetch_stock_data(ticker)
-    inst_holders[ticker] = h
-    insider_txns[ticker] = i
-    print(f"holders:{len(h)} insiders:{len(i)}")
+ownership_data = load_or_fetch(port_tickers, force_fresh=FORCE_FRESH)
 
 
 # ─── RISK ANALYSIS ──────────────────────────────────────────────────────────
@@ -166,40 +77,33 @@ def analyze_risk():
     print("-" * 55)
 
     for ticker in port_tickers:
-        holders = inst_holders.get(ticker, [])
+        holders = ownership_data.get(ticker, {}).get('holders', [])
         if not holders:
             print(f"{ticker:<10} {'N/A':>6} {'N/A':>6} {'N/A':>9} {'N/A':>9} {'NO DATA':>10}")
             continue
 
-        # Sort by pct held
-        sorted_h = sorted(holders, key=lambda x: x[1], reverse=True)
-        top1_pct = sorted_h[0][1] * 100 if sorted_h[0][1] < 1 else sorted_h[0][1]
-        top3_pct = sum(h[1] for h in sorted_h[:3]) * 100 if sorted_h[0][1] < 1 else sum(h[1] for h in sorted_h[:3])
+        sorted_h = sorted(holders, key=lambda x: x.get('pct', 0), reverse=True)
+        top1_pct = sorted_h[0]['pct']
+        if top1_pct < 1:
+            top1_pct *= 100
+        top3_raw = sum(h.get('pct', 0) for h in sorted_h[:3])
+        top3_pct = top3_raw * 100 if top3_raw < 1 else top3_raw
 
         n_holders = len(holders)
-        n_indexer = sum(1 for h in holders if is_indexer_name(h[0]))
+        n_indexer = sum(1 for h in holders if h.get('is_indexer'))
         indexer_pct = n_indexer / n_holders * 100 if n_holders > 0 else 0
 
-        # Risk classification
-        if top3_pct > 30:
-            risk = "HIGH"
-        elif top3_pct > 20:
-            risk = "MODERATE"
-        else:
-            risk = "LOW"
-
+        risk = "HIGH" if top3_pct > 30 else "MODERATE" if top3_pct > 20 else "LOW"
         print(f"{ticker:<10} {top1_pct:>5.1f}% {top3_pct:>5.1f}% {n_holders:>9} {indexer_pct:>8.0f}% {risk:>10}")
 
     # 1b. Overlap matrix
     print("\n── Institutional Overlap Matrix ──────────────────────────────────")
     print("  (Shared holders between positions — higher = more correlated selling risk)\n")
 
-    # Build holder sets per ticker
     holder_sets = {}
     for ticker in port_tickers:
-        holder_sets[ticker] = set(h[0] for h in inst_holders.get(ticker, []))
+        holder_sets[ticker] = set(h['name'] for h in ownership_data.get(ticker, {}).get('holders', []))
 
-    # Find pairs with highest overlap
     overlaps = []
     for t1, t2 in combinations(port_tickers, 2):
         s1, s2 = holder_sets.get(t1, set()), holder_sets.get(t2, set())
@@ -220,17 +124,11 @@ def analyze_risk():
             fund_names += f" +{len(shared)-3}"
         print(f"{t1+'/'+t2:<22} {n_shared:>7} {pct:>8.1f}% {risk:>8}  {fund_names[:45]}")
 
-    # 1c. Quality funds (non-indexer, holding 3+ of our stocks)
+    # 1c. Quality funds
     print("\n── Quality Fund Detection ────────────────────────────────────────")
-    print("  (Non-indexer funds holding 3+ portfolio stocks = potential smart money)\n")
+    print("  (Non-indexer funds holding 2+ portfolio stocks = potential smart money)\n")
 
-    quality_funds = []
-    for fund_name, stock_set in fund_stocks.items():
-        portfolio_stocks = stock_set & set(port_tickers)
-        if len(portfolio_stocks) >= 2 and not is_indexer_name(fund_name):
-            quality_funds.append((fund_name, portfolio_stocks))
-
-    quality_funds.sort(key=lambda x: len(x[1]), reverse=True)
+    quality_funds = get_quality_funds(ownership_data, min_stocks=2)
 
     if quality_funds:
         print(f"{'Fund':<40} {'#Stocks':>8}  Stocks Held")
@@ -255,56 +153,39 @@ def analyze_sentiment():
     print("-" * 55)
 
     for ticker in port_tickers:
-        txns = insider_txns.get(ticker, [])
-        if not txns:
+        buys, sells, buybacks, options, net, signal = get_insider_sentiment(ownership_data, ticker)
+        insiders = ownership_data.get(ticker, {}).get('insiders', [])
+
+        if not insiders:
             print(f"{ticker:<10} {'--':>5} {'--':>6} {'--':>6} {'--':>5} {'--':>5} {'NO DATA':>10}")
-            continue
-
-        buys = sum(1 for t in txns if t[1] == 'BUY')
-        sells = sum(1 for t in txns if t[1] == 'SELL')
-        buybacks = sum(1 for t in txns if t[1] == 'BUYBACK')
-        options = sum(1 for t in txns if t[1] == 'OPTION')
-        # Net = insider buys - insider sells (buybacks are corporate, not insider sentiment)
-        net = buys - sells
-
-        if buys > 0 and net > 0:
-            signal = "BULLISH"
-        elif net < -2:
-            signal = "BEARISH"
-        elif sells > 0 and buys == 0:
-            signal = "CAUTIOUS"
-        elif buybacks > 0 and sells == 0:
-            signal = "CORP BB+"
         else:
-            signal = "NEUTRAL"
-
-        print(f"{ticker:<10} {buys:>5} {sells:>6} {buybacks:>6} {options:>5} {net:>+5} {signal:>10}")
+            print(f"{ticker:<10} {buys:>5} {sells:>6} {buybacks:>6} {options:>5} {net:>+5} {signal:>10}")
 
     # Detail for positions with notable insider activity
     print("\n── Notable Insider Transactions ──────────────────────────────────")
     for ticker in port_tickers:
-        txns = insider_txns.get(ticker, [])
-        buys = [t for t in txns if t[1] == 'BUY']
-        sells = [t for t in txns if t[1] == 'SELL']
-        buybacks = [t for t in txns if t[1] == 'BUYBACK']
+        insiders = ownership_data.get(ticker, {}).get('insiders', [])
+        buy_txns = [i for i in insiders if i.get('type') == 'BUY']
+        sell_txns = [i for i in insiders if i.get('type') == 'SELL']
+        bb_txns = [i for i in insiders if i.get('type') == 'BUYBACK']
 
-        if buys:
+        if buy_txns:
             print(f"\n  {ticker} — INSIDER BUYS:")
-            for name, ttype, shares, date, text in buys[:5]:
-                date_str = date[:10] if date and date != 'nan' else '?'
-                print(f"    {name[:30]:<30} {shares:>10,} shares  {date_str}  {text}")
+            for txn in buy_txns[:5]:
+                date_str = txn.get('date', '?')[:10]
+                print(f"    {txn['name'][:30]:<30} {txn.get('shares', 0):>10,} shares  {date_str}  {txn.get('text', '')}")
 
-        if len(sells) >= 3:  # only show if pattern of selling
-            print(f"\n  {ticker} — INSIDER SELLS ({len(sells)} transactions):")
-            for name, ttype, shares, date, text in sells[:5]:
-                date_str = date[:10] if date and date != 'nan' else '?'
-                print(f"    {name[:30]:<30} {shares:>10,} shares  {date_str}  {text}")
+        if len(sell_txns) >= 3:
+            print(f"\n  {ticker} — INSIDER SELLS ({len(sell_txns)} transactions):")
+            for txn in sell_txns[:5]:
+                date_str = txn.get('date', '?')[:10]
+                print(f"    {txn['name'][:30]:<30} {txn.get('shares', 0):>10,} shares  {date_str}  {txn.get('text', '')}")
 
-        if buybacks:
-            print(f"\n  {ticker} — CORPORATE BUYBACKS ({len(buybacks)} transactions):")
-            for name, ttype, shares, date, text in buybacks[:3]:
-                date_str = date[:10] if date and date != 'nan' else '?'
-                print(f"    {name[:30]:<30} {shares:>10,} shares  {date_str}  {text}")
+        if bb_txns:
+            print(f"\n  {ticker} — CORPORATE BUYBACKS ({len(bb_txns)} transactions):")
+            for txn in bb_txns[:3]:
+                date_str = txn.get('date', '?')[:10]
+                print(f"    {txn['name'][:30]:<30} {txn.get('shares', 0):>10,} shares  {date_str}  {txn.get('text', '')}")
 
 
 # ─── SMART MONEY DISCOVERY ───────────────────────────────────────────────────
@@ -316,7 +197,6 @@ def discover_smart_money(quality_funds):
 
     if not quality_funds:
         print("\n  No quality funds detected from portfolio analysis.")
-        print("  Run without --discover first to identify quality funds.")
         return
 
     quality_fund_names = set(f[0] for f in quality_funds)
@@ -328,63 +208,50 @@ def discover_smart_money(quality_funds):
     if DISCOVER_TICKERS:
         candidates = DISCOVER_TICKERS
     else:
-        # Auto-select: pipeline candidates near entry
         try:
             universe = load_yaml(os.path.join(BASE, 'state', 'quality_universe.yaml'))
             companies = universe.get('quality_universe', {}).get('companies', [])
-            # Filter: not in portfolio, distance < 40%, has pipeline status
             candidates = []
             for c in companies:
                 t = c.get('ticker', '')
                 dist = c.get('distance_to_entry')
                 if t not in port_tickers and dist is not None and dist < 40:
                     candidates.append(t)
-            candidates = candidates[:20]  # limit to 20 for API rate limits
+            candidates = candidates[:20]
         except Exception:
             print("  Could not load quality_universe.yaml. Provide tickers: --discover TICK1 TICK2")
             return
 
     if not candidates:
-        print("  No candidates to check. Provide tickers or ensure universe has near-entry stocks.")
+        print("  No candidates to check.")
         return
 
+    # Fetch candidate ownership data (also via cache)
     print(f"\n  Checking {len(candidates)} candidates for quality fund overlap...")
-    print("-" * 70)
+    candidate_data = load_or_fetch(candidates, force_fresh=FORCE_FRESH)
 
     results = []
     for ticker in candidates:
-        print(f"  {ticker}...", end=" ", flush=True)
-        holders, _ = fetch_stock_data(ticker)
-        holder_names = set(h[0] for h in holders)
+        holders = candidate_data.get(ticker, {}).get('holders', [])
+        holder_names = set(h['name'] for h in holders)
         shared = holder_names & quality_fund_names
-        results.append((ticker, len(shared), shared, holders))
-        print(f"quality_overlap: {len(shared)}/{len(quality_fund_names)}")
+        results.append((ticker, len(shared), shared))
 
-    # Sort by quality fund overlap
     results.sort(key=lambda x: x[1], reverse=True)
 
     print(f"\n{'Ticker':<12} {'QF Overlap':>11} {'Signal':>10}  Quality Funds Shared")
     print("-" * 75)
-    for ticker, n_shared, shared, holders in results:
-        if n_shared >= 3:
-            signal = "STRONG"
-        elif n_shared >= 2:
-            signal = "MODERATE"
-        elif n_shared >= 1:
-            signal = "WEAK"
-        else:
-            signal = "NONE"
-
+    for ticker, n_shared, shared in results:
+        signal = "STRONG" if n_shared >= 3 else "MODERATE" if n_shared >= 2 else "WEAK" if n_shared >= 1 else "NONE"
         fund_str = ', '.join(list(shared)[:3])
         if len(shared) > 3:
             fund_str += f" +{len(shared)-3}"
         print(f"{ticker:<12} {n_shared:>11} {signal:>10}  {fund_str[:45]}")
 
-    # Highlight
     strong = [r for r in results if r[1] >= 2]
     if strong:
         print(f"\n  ACTIONABLE: {len(strong)} candidates with quality fund overlap >= 2:")
-        for ticker, n_shared, shared, _ in strong:
+        for ticker, n_shared, shared in strong:
             print(f"    {ticker}: {n_shared} quality funds → {', '.join(shared)}")
 
 
@@ -400,7 +267,6 @@ if MODE_ALL or MODE_SENTIMENT:
 
 if MODE_DISCOVER:
     if not quality_funds:
-        # Need to run risk analysis first to identify quality funds
         quality_funds = analyze_risk()
     discover_smart_money(quality_funds)
 

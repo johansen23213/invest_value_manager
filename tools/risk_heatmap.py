@@ -34,11 +34,13 @@ warnings.filterwarnings('ignore')
 
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUTPUT = os.path.join(BASE, 'docs', 'risk_heatmap.html')
-CACHE_DIR = os.path.join(BASE, 'state', 'ownership_snapshots')
-os.makedirs(CACHE_DIR, exist_ok=True)
+
+sys.path.insert(0, os.path.join(BASE, 'tools'))
+from ownership_cache import load_or_fetch, get_insider_sentiment, get_previous_cache, compute_diff
 
 USE_CACHE = '--cached' in sys.argv
 SHOW_DIFF = '--diff' in sys.argv
+FORCE_FRESH = '--fresh' in sys.argv
 
 # ─── Load YAML files ────────────────────────────────────────────────────────
 
@@ -137,135 +139,10 @@ for ticker in tickers:
         print(f"  {ticker}: FAILED")
 
 
-# ─── Fetch ownership data (with caching) ────────────────────────────────────
+# ─── Fetch ownership data via shared cache ───────────────────────────────────
 
-INDEXER_KEYWORDS = [
-    'vanguard', 'blackrock', 'ishares', 'spdr', 'state street', 'schwab',
-    'fidelity 500', 'total stock', 'total market', 'russell',
-    's&p 500', 'index fund', 'etf trust', 'geode capital',
-    'northern trust', 'bank of new york', 'legal & general',
-]
-
-def is_indexer(name):
-    nl = name.lower()
-    return any(kw in nl for kw in INDEXER_KEYWORDS)
-
-
-def get_cache_path():
-    today = datetime.now().strftime('%Y-%m-%d')
-    return os.path.join(CACHE_DIR, f'ownership_{today}.yaml')
-
-
-def load_cached_ownership():
-    """Load most recent cached ownership data."""
-    cache_file = get_cache_path()
-    if os.path.exists(cache_file):
-        return load_yaml(cache_file), cache_file
-    # Try yesterday
-    yesterday = (datetime.now() - timedelta(days=1)).strftime('%Y-%m-%d')
-    alt_file = os.path.join(CACHE_DIR, f'ownership_{yesterday}.yaml')
-    if os.path.exists(alt_file):
-        return load_yaml(alt_file), alt_file
-    return None, None
-
-
-def save_ownership_cache(data):
-    """Save ownership data snapshot."""
-    cache_file = get_cache_path()
-    with open(cache_file, 'w', encoding='utf-8') as f:
-        yaml.dump(data, f, default_flow_style=False, allow_unicode=True)
-    print(f"  Ownership snapshot saved: {cache_file}")
-    return cache_file
-
-
-def get_previous_snapshot():
-    """Get the most recent snapshot BEFORE today."""
-    today = datetime.now().strftime('%Y-%m-%d')
-    files = sorted([f for f in os.listdir(CACHE_DIR) if f.startswith('ownership_') and f.endswith('.yaml')])
-    for f in reversed(files):
-        date_str = f.replace('ownership_', '').replace('.yaml', '')
-        if date_str < today:
-            return load_yaml(os.path.join(CACHE_DIR, f)), date_str
-    return None, None
-
-
-# Fetch or load ownership data
-ownership_data = {}
-
-if USE_CACHE:
-    cached, cache_path = load_cached_ownership()
-    if cached:
-        ownership_data = cached
-        print(f"\nUsing cached ownership data: {cache_path}")
-    else:
-        print("\nNo cache found, fetching fresh data...")
-        USE_CACHE = False
-
-if not USE_CACHE:
-    print(f"\nFetching ownership data for {len(tickers)} positions...")
-    for ticker in tickers:
-        print(f"  {ticker}...", end=" ", flush=True)
-        entry = {'holders': [], 'insiders': []}
-
-        try:
-            t = yf.Ticker(ticker)
-
-            # Institutional holders
-            try:
-                inst = t.institutional_holders
-                if inst is not None and isinstance(inst, pd.DataFrame) and not inst.empty:
-                    holder_col = 'Holder' if 'Holder' in inst.columns else inst.columns[0]
-                    for _, row in inst.head(10).iterrows():
-                        name = str(row.get(holder_col, 'Unknown')).strip()
-                        pct = row.get('% Out', row.get('pctHeld', 0))
-                        if name and name != 'nan':
-                            entry['holders'].append({
-                                'name': name,
-                                'pct': float(pct) if pct else 0,
-                                'is_indexer': is_indexer(name),
-                            })
-            except Exception:
-                pass
-
-            # Insider transactions
-            try:
-                ins = t.insider_transactions
-                if ins is not None and isinstance(ins, pd.DataFrame) and not ins.empty:
-                    for _, row in ins.head(15).iterrows():
-                        name = str(row.get('Insider', row.get('insider', 'Unknown'))).strip()
-                        text = str(row.get('Text', row.get('text', '')))
-                        shares = row.get('Shares', row.get('shares', 0))
-
-                        text_lower = text.lower() if text else ''
-                        if 'buy back' in text_lower or 'buyback' in text_lower:
-                            txn_type = 'BUYBACK'
-                        elif 'purchase' in text_lower or 'buy' in text_lower or 'acquisition' in text_lower:
-                            txn_type = 'BUY'
-                        elif 'sale' in text_lower or 'sell' in text_lower or 'disposition' in text_lower:
-                            txn_type = 'SELL'
-                        elif 'option' in text_lower or 'exercise' in text_lower:
-                            txn_type = 'OPTION'
-                        else:
-                            txn_type = 'OTHER'
-
-                        if name and name != 'nan':
-                            entry['insiders'].append({
-                                'name': name,
-                                'type': txn_type,
-                                'shares': int(shares) if shares else 0,
-                                'text': text[:60],
-                            })
-            except Exception:
-                pass
-
-            print(f"h:{len(entry['holders'])} i:{len(entry['insiders'])}")
-        except Exception as e:
-            print(f"ERR: {e}")
-
-        ownership_data[ticker] = entry
-
-    # Save snapshot
-    save_ownership_cache(ownership_data)
+print(f"\nLoading ownership data for {len(tickers)} positions...")
+ownership_data = load_or_fetch(tickers, force_fresh=FORCE_FRESH)
 
 
 # ─── Compute risk scores per position ───────────────────────────────────────
@@ -315,35 +192,18 @@ for pos in positions:
     else:
         risk['mos'] = 0
 
-    # 3. Insider Sentiment
-    own = ownership_data.get(ticker, {})
-    insiders = own.get('insiders', [])
-    buys = sum(1 for i in insiders if i.get('type') == 'BUY')
-    sells = sum(1 for i in insiders if i.get('type') == 'SELL')
-    buybacks = sum(1 for i in insiders if i.get('type') == 'BUYBACK')
-    net_insider = buys - sells
+    # 3. Insider Sentiment (via shared cache function)
+    buys, sells, buybacks, options, net_insider, signal = get_insider_sentiment(ownership_data, ticker)
     risk['insider_net'] = net_insider
     risk['insider_buys'] = buys
     risk['insider_sells'] = sells
     risk['insider_buybacks'] = buybacks
-    if buys > 0 and net_insider > 0:
-        risk['insider_signal'] = 'BULLISH'
-        risk['insider_score'] = 3
-    elif net_insider == 0 and buybacks > 0:
-        risk['insider_signal'] = 'BB+'
-        risk['insider_score'] = 2.5
-    elif net_insider == 0 or not insiders:
-        risk['insider_signal'] = 'NEUTRAL'
-        risk['insider_score'] = 2
-    elif net_insider >= -2:
-        risk['insider_signal'] = 'CAUTIOUS'
-        risk['insider_score'] = 1
-    else:
-        risk['insider_signal'] = 'BEARISH'
-        risk['insider_score'] = 0
+    risk['insider_signal'] = signal
+    score_map = {'BULLISH': 3, 'BB+': 2.5, 'NEUTRAL': 2, 'CAUTIOUS': 1, 'BEARISH': 0}
+    risk['insider_score'] = score_map.get(signal, 2)
 
     # 4. Holder Concentration
-    holders = own.get('holders', [])
+    holders = ownership_data.get(ticker, {}).get('holders', [])
     if holders:
         sorted_h = sorted(holders, key=lambda x: x.get('pct', 0), reverse=True)
         top3_pct = sum(h.get('pct', 0) for h in sorted_h[:3])
@@ -428,34 +288,10 @@ position_risks.sort(key=lambda x: x['composite'])
 
 diff_data = []
 if SHOW_DIFF:
-    prev_snapshot, prev_date = get_previous_snapshot()
+    prev_snapshot, prev_date = get_previous_cache()
     if prev_snapshot:
         print(f"\n  Comparing vs snapshot from {prev_date}...")
-        for ticker in tickers:
-            curr = ownership_data.get(ticker, {})
-            prev = prev_snapshot.get(ticker, {})
-
-            # Compare holders
-            curr_holders = set(h['name'] for h in curr.get('holders', []))
-            prev_holders = set(h.get('name', '') for h in prev.get('holders', []))
-            new_holders = curr_holders - prev_holders
-            lost_holders = prev_holders - curr_holders
-
-            # Compare insider sentiment
-            curr_ins = curr.get('insiders', [])
-            prev_ins = prev.get('insiders', [])
-            curr_buys = sum(1 for i in curr_ins if i.get('type') == 'BUY')
-            curr_sells = sum(1 for i in curr_ins if i.get('type') == 'SELL')
-            prev_buys = sum(1 for i in prev_ins if i.get('type') == 'BUY')
-            prev_sells = sum(1 for i in prev_ins if i.get('type') == 'SELL')
-
-            if new_holders or lost_holders or (curr_buys - curr_sells) != (prev_buys - prev_sells):
-                diff_data.append({
-                    'ticker': ticker,
-                    'new_holders': list(new_holders),
-                    'lost_holders': list(lost_holders),
-                    'insider_change': (curr_buys - curr_sells) - (prev_buys - prev_sells),
-                })
+        diff_data = compute_diff(ownership_data, prev_snapshot)
     else:
         print("  No previous snapshot found for diff.")
 
