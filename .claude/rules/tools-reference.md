@@ -31,6 +31,13 @@
 | `narrative_checker.py` | `python3 tools/narrative_checker.py TICKER` | Tendencias financieras (margins, R&D, SBC, receivables, FCF). Datos crudos. |
 | `opportunity_filter.py` | `python3 tools/opportunity_filter.py --csv FILE [--roic-min N]` | Stage 2 sobre CSV de screener. ROIC, FCF margin, rev CAGR. |
 
+## Ownership & Institutional Intelligence
+
+| Tool | Comando | Proposito |
+|------|---------|-----------|
+| `ownership_graph.py` | `python3 tools/ownership_graph.py [--portfolio-only] [--top-funds N]` | Interactive force-directed graph: stocks ↔ funds/insiders. Output: docs/ownership_graph.html. |
+| `ownership_analyzer.py` | `python3 tools/ownership_analyzer.py [--risk\|--sentiment\|--discover [TICKERS]]` | Institutional intelligence: overlap matrix, insider sentiment, smart money discovery. `--discover` checks pipeline candidates vs quality funds. |
+
 ## Macro & Risk
 
 | Tool | Comando | Proposito |
