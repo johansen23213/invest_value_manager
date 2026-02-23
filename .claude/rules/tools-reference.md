@@ -9,11 +9,14 @@
 
 | Tool | Comando | Proposito |
 |------|---------|-----------|
+| `session_opener.py` | `python3 tools/session_opener.py [--quick]` | Phase 0-1 session init: portfolio snapshot, SO triggers, earnings 7d, forward returns, pipeline health, alerts. ONE command replaces 6+ tools. `--quick` = SOs + earnings + alerts only. |
 | `price_checker.py` | `python3 tools/price_checker.py TICKER1 TICKER2` | Precios via yfinance. UNICA fuente. NUNCA WebSearch. |
 | `portfolio_stats.py` | `python3 tools/portfolio_stats.py` | P&L long+short, net/gross exposure, allocation. NUNCA a mano. |
 | `effectiveness_tracker.py` | `python3 tools/effectiveness_tracker.py [--summary]` | Win rate, hit rate, Sharpe, attribution. Cada sesion. |
 | `quality_scorer.py` | `python3 tools/quality_scorer.py TICKER [--detailed\|--raw]` | Quality Profile + Legacy Score. TOOL-FIRST. |
 | `forward_return.py` | `python3 tools/forward_return.py [--active-only\|--pipeline-only\|--deployment-ready\|--signals]` | MoS%, Growth%, Yield%, E[CAGR]@market por posicion. `--deployment-ready` filtra pipeline a E[CAGR]>=threshold. `--signals` adds insider sentiment + quality fund overlap from ownership cache. |
+| `thesis_monitor.py` | `python3 tools/thesis_monitor.py [--alerts\|--ticker X Y]` | Thesis assumption checker: MoS vs FV, kill condition proximity, conviction drift, bear/bull scenario flags, probation tracking, concentration. `--alerts` = alerts only. `--ticker` = specific positions. |
+| `portfolio_optimizer.py` | `python3 tools/portfolio_optimizer.py [--deploy\|--rotate\|--cash-drag]` | Portfolio-level E[CAGR]: position contribution, cash drag quantification, deployment simulation (best pipeline candidates), rotation simulation (swap weak→strong). Default = portfolio breakdown. |
 | `quality_universe.py` | `python3 tools/quality_universe.py {report\|actionable\|add\|stale\|coverage\|stats\|archive\|approaching} [--fragility]` | Capital deployment machine. Universe. `approaching`=stocks moving toward entry (delta tracking). |
 | `r1_prioritizer.py` | `python3 tools/r1_prioritizer.py [--top N] [--exclude-uk] [--near-entry-only] [--tier-a-only] [--exclude-fantasy-risk] [--pre-flight] [--advancement]` | R1 prioritizer + fantasy gates. `--advancement`=3-section pipeline with E[CAGR]@mkt. `--pre-flight`=only viable E[CAGR]. Fantasy rate in footer. Smart money + insider flags from ownership cache (auto). |
 | `constraint_checker.py` | `python3 tools/constraint_checker.py {REPORT\|CHECK TICKER AMT\|CHECK_SHORT TICKER AMT}` | Concentracion, net/gross exposure, drawdown. Contexto, no juicio. |
