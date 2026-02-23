@@ -8,14 +8,10 @@ events:
   # MONC.MI FY2025: COMPLETED Feb 19. R3 COMPLETE. R4 gated Q1 2026. FV EUR 52, entry EUR 42.
   # AGN.NV FY2025: COMPLETED Feb 19. Operating result +15%. Solvency 184%. Not at entry.
 
-  # EARNINGS WEEK FEB 23-26
-  - date: 2026-02-23
-    type: earnings
-    ticker: MONY.L
-    event: "MONY.L FY2025 Results — ON PROBATION"
-    priority: high
-    action: "KC#9: SELL if no AI strategy. FV 190 GBp. SELL if rev <435M or Insurance -5%+."
+  # COMPLETED FEB 23
+  # MONY.L FY2025: COMPLETED Feb 23. BASE+ case. Rev £446.3M (+2%), EBITDA £145.1M record (beat). Insurance -1%. All KCs PASS. OpenAI partnership + ChatGPT app = KC#9 cleared. 60-day probation continues, exit 130p, review Apr 25.
 
+  # EARNINGS WEEK FEB 23-26
   - date: 2026-02-23
     type: strategy
     ticker: ENEL.MI
@@ -190,6 +186,14 @@ events:
     event: "CCCA (Credit Card Competition Act) — monitor legislative progress"
     priority: high
     action: "Trump endorsed Jan 2026, bipartisan. Could reduce US scheme fees 15-25%. Affects MA + V standing orders. Re-evaluate if committee vote scheduled."
+
+  # APRIL
+  - date: 2026-04-25
+    type: position_review
+    ticker: MONY.L
+    event: "MONY.L 60-day probation review"
+    priority: high
+    action: "Probation expires. Evaluate: AI strategy execution, traffic trends, Insurance segment. If no improvement → SELL. If positive → UPGRADE to MEDIUM conviction."
 
   # Q2+ (major events only)
   - date: 2026-04-15

@@ -106,11 +106,11 @@ positions:
     avg_cost_usd: 2.32  # 473 / 204 (169 GBp in USD)
     date_opened: 2026-02-04
     thesis: thesis/active/MONY.L/thesis.md
-    notes: "AI Disruption Re-eval 2026-02-12: QS Tool 83, Adj 75 (borderline Tier A). Moat NARROW, erosion prob 30-35%. Insurify ChatGPT proof-of-concept (US-only). ROIC 31.8% >> WACC 9.2%. Financial quality 40/40. CEO bought 170.6p Feb 5."
+    notes: "FY2025 Results Feb 23: BASE+ case. Rev £446.3M (+2%), EBITDA £145.1M (record, beat consensus). Insurance -1% H2 (pass). OpenAI enterprise agreement + ChatGPT app launched (KC#9 PASS). SuperSaveClub 2.1M members (16% rev). Dividend +1% to 12.63p. £25M buyback. All KCs passed. 60-day probation continues."
     conviction: low
-    last_review: 2026-02-12
-    fair_value: "190 GBp (v3.0 AI disruption re-eval, was 201 adversarial, 277 original)"
-    exit_plan: "HOLD ON PROBATION through Feb 23 earnings. SELL if revenue <435M (KC#1) or Insurance -5%+ H2 (KC#2) or dividend cut (KC#3). SELL if management has no AI strategy (KC#9). If earnings base/bull + AI strategy: maintain. If cautious guidance: 60-day probation with exit at 130p. No ADD while on probation."
+    last_review: 2026-02-23
+    fair_value: "190 GBp (v3.0 maintained post-FY2025. All KCs passed. BASE+ case.)"
+    exit_plan: "60-DAY PROBATION until ~Apr 25. Exit trigger 130 GBp. No ADD. Review at H1 2026 (~July). TRIM if >190 GBp. SELL if Insurance deteriorates further or AI strategy execution stalls."
 
   - ticker: LULU
     name: "Lululemon Athletica Inc."

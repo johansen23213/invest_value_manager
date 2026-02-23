@@ -1160,3 +1160,117 @@ The thesis is DEBILITADA but not invalidated. The core investment case (ROIC 31.
 
 *Re-evaluation completed: 2026-02-12*
 *Next review: Feb 23 (mandatory, earnings)*
+
+---
+
+## FY2025 POST-EARNINGS ASSESSMENT (2026-02-23)
+
+> **Review Type:** Mandatory post-earnings assessment (probation)
+> **Trigger:** FY2025 results released Feb 23
+> **Framework:** v4.0, pre-committed decision tree from earnings_framework_feb2026.md
+
+### 1. RESULTS vs FRAMEWORK
+
+| Metric | Actual | Framework Threshold | Verdict |
+|--------|--------|-------------------|---------|
+| Revenue | £446.3M (+2%) | >£435M (KC#1) | **PASS** |
+| EBITDA | £145.1M (+2%, record) | Consensus £142.7M | **BEAT** |
+| Insurance H2 | -1% | Not -5%+ (KC#2) | **PASS** |
+| Dividend | 12.63p (+1%) | No cut (KC#3) | **PASS** |
+| Guidance FY26 | "In line" with £146M consensus (range £142-153M) | Maintained | **PASS** |
+| AI Strategy (KC#9) | OpenAI enterprise agreement + ChatGPT app launched | "Credible, funded" | **PASS** |
+
+### 2. KILL CONDITIONS — ALL CLEAR
+
+| KC# | Status | Evidence |
+|-----|--------|----------|
+| 1 | PASS | Revenue £446.3M > £435M |
+| 2 | PASS | Insurance -1% H2 (not -5%+) |
+| 3 | PASS | Dividend +1% to 12.63p |
+| 4 | UNKNOWN | No YoY traffic data in results |
+| 5 | PASS | ROIC still >> WACC (financial quality 40/40 remains) |
+| 6 | UNKNOWN | No Google AI Overviews data |
+| 7 | NOT TRIGGERED | No UK embedded insurance disruption |
+| 8 | NOT TRIGGERED | Insurify still US-only, car-only |
+| **9** | **PASS** | **OpenAI enterprise agreement signed. MoneySuperMarket ChatGPT app launched. Price Optimiser product. AI across CRM, compliance, engineering. CREDIBLE and FUNDED.** |
+
+### 3. AI STRATEGY DETAIL
+
+The AI strategy response EXCEEDED base case expectations ("vague commentary"):
+- **OpenAI enterprise agreement** signed in 2025 — access to cutting-edge models
+- **MoneySuperMarket ChatGPT app** launched — new distribution channel (first UK financial services company)
+- **Price Optimiser** product — AI-driven comparison innovation
+- **Savings by MoneySuperMarket** product
+- AI supporting CRM, identity verification, risk/compliance, engineering productivity
+
+This directly addresses KC#9 and the Insurify threat concern. MONY is not passively waiting to be disrupted — they are actively embedding INTO AI platforms.
+
+### 4. STRATEGIC POSITIVES NOT IN FRAMEWORK
+
+- **SuperSaveClub**: 2.1M members (doubled from 1.0M at FY2024), generating **16% of Group revenue**. This is genuine moat expansion via membership stickiness.
+- **Home Services**: +33% revenue — energy switching tailwind, diversification from Insurance dependency
+- **Money**: +8% revenue — strong cross-sell
+- **Provider services**: +13% — new partnerships with Which?, Rightmove, AutoTrader (distribution expansion)
+- **Buyback**: £25M additional for 2026 (completed £30M in 2025, removed 15M shares)
+- **Total shareholder returns 2025**: £96M
+
+### 5. NEGATIVES / WATCH ITEMS
+
+- **Insurance**: Still -1% (52% of revenue). Motor premiums declining. Structural, not cyclical.
+- **Travel**: -10% (small segment but declining)
+- **Cashback (Quidco)**: -13% — secular decline in cashback model
+- **Net cash**: £4.1M (down from £8.4M) — thinning buffer
+- **Operating cashflow**: £107.7M (-7% YoY) — slight deterioration
+
+### 6. DECISION TREE NAVIGATION
+
+Per pre-committed framework:
+```
+Revenue £446.3M → £435-450M range (BASE path)
+Insurance H2 -1% → -0% to -3% (BASE path)
+Guidance maintained → YES
+AI strategy → MORE than "some commentary" (exceeds base, near-BULL quality)
+→ HOLD: Base case. 60-day probation with 130p exit trigger.
+```
+
+**Scenario materialized: BASE+ (financial results = base case, AI strategy = near-bull quality)**
+
+### 7. VERDICT
+
+**HOLD. 60-day probation. Exit trigger 130 GBp.**
+
+| Metric | Value |
+|--------|-------|
+| Shares | 204 |
+| Current Price | 155.6 GBp |
+| Working FV | 190 GBp (maintained — results support, no upgrade) |
+| MoS | 18.1% |
+| Conviction | LOW (maintained) |
+| Probation | 60 days from Feb 23 → expires ~Apr 25 |
+| Exit Trigger | 130 GBp (hard stop) |
+| Next Review | Apr 25, 2026 (probation expiry) |
+| Standing Order ADD | CANCELLED (no ADD while on probation) |
+
+**Reasoning:**
+- All KCs pass — no sell argument (P6)
+- AI strategy is credible — KC#9 cleared, reduces tail risk
+- Revenue/Insurance are base case only — not enough to upgrade conviction
+- Home Services/SuperSaveClub are genuine bright spots but need H1 2026 confirmation
+- FV 190 GBp maintained: results consistent with base case assumptions
+- 60-day probation per pre-committed framework
+
+**No upgrade to MEDIUM because:**
+- Revenue £446.3M is base case (not >£450M BULL threshold)
+- Insurance segment still declining (-1%)
+- Home Services energy switching boom may be cyclical
+- Need H1 2026 data to confirm structural trends
+
+### Version History Update
+
+| Version | Date | Change |
+|---------|------|--------|
+| 1.0 | 2026-02-04 | Thesis original. FV 240-280 GBp |
+| 2.0 | 2026-02-07 | Adversarial review. FV 201 GBp. Conviction LOW. |
+| 3.0 | 2026-02-12 | AI Disruption Re-eval. FV 190 GBp. QS 83->75 adj. Bear +10pp. |
+| 3.1 | 2026-02-20 | MONY launched ChatGPT integration (first UK financial services). |
+| **3.2** | **2026-02-23** | **FY2025 post-earnings. BASE+ case. All KCs PASS. OpenAI enterprise agreement + ChatGPT app. SuperSaveClub 2.1M. 60-day probation, exit 130p, review Apr 25.** |

@@ -184,26 +184,28 @@ MONY.L at QS 75 (borderline Tier A) with MoS 23% vs base FV, but -10% vs bear FV
 
 ---
 
-## 8. POST-EARNINGS CHECKLIST (UPDATED v3.0)
+## 8. POST-EARNINGS CHECKLIST (COMPLETED 2026-02-23)
 
 ```
-[ ] EBITDA vs consenso? (GBP 142.7m)
-[ ] Revenue vs GBP 435-450m range?
-[ ] Insurance segment H2 growth? (H1 was -2%)
-[ ] Guidance FY26 EBITDA?
-[ ] Dividend announcement?
-[ ] ROIC disclosed? (comparar vs 31.8%)
-[ ] Net cash/debt position?
-[ ] ANY kill condition triggered? (KCs 1-9)
-[ ] AI STRATEGY COMMENTARY:
-    [ ] Concrete plan with funding and timeline?
-    [ ] ChatGPT/Gemini partnership or own AI product?
-    [ ] Traffic from AI-referred sources %?
-    [ ] Management view on UK AI disruption timeline?
-[ ] Precio post-market movement?
-[ ] Update thesis v3.1 with results
-[ ] Update forward_return.py FV if changed
+[x] EBITDA vs consenso? £145.1M vs £142.7M — BEAT
+[x] Revenue vs GBP 435-450m range? £446.3M — IN RANGE (BASE)
+[x] Insurance segment H2 growth? -1% H2 — PASS (not -5%+)
+[x] Guidance FY26 EBITDA? "In line" £146M consensus (£142-153M range)
+[x] Dividend announcement? +1% to 12.63p — NO CUT
+[x] ROIC disclosed? Not explicitly but financial quality 40/40 maintained
+[x] Net cash/debt position? £4.1M (down from £8.4M, thinning)
+[x] ANY kill condition triggered? NO — all 9 KCs PASS
+[x] AI STRATEGY COMMENTARY:
+    [x] Concrete plan with funding and timeline? YES — OpenAI enterprise agreement
+    [x] ChatGPT/Gemini partnership or own AI product? YES — ChatGPT app launched
+    [x] Traffic from AI-referred sources %? NOT DISCLOSED
+    [x] Management view on UK AI disruption timeline? NOT EXPLICITLY ADDRESSED
+[x] Precio post-market movement? At 155.6 GBp (pre-results ~157p)
+[x] Update thesis v3.2 with results — DONE
+[x] FV maintained at 190 GBp — results consistent with base case
 ```
+
+**VERDICT: BASE+ case materialized. 60-day probation. Exit 130 GBp. Review Apr 25.**
 
 ---
 

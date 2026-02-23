@@ -15,7 +15,7 @@
 | `quality_scorer.py` | `python3 tools/quality_scorer.py TICKER [--detailed\|--raw]` | Quality Profile + Legacy Score. TOOL-FIRST. |
 | `forward_return.py` | `python3 tools/forward_return.py [--active-only\|--pipeline-only\|--deployment-ready\|--signals]` | MoS%, Growth%, Yield%, E[CAGR]@market por posicion. `--deployment-ready` filtra pipeline a E[CAGR]>=threshold. `--signals` adds insider sentiment + quality fund overlap from ownership cache. |
 | `quality_universe.py` | `python3 tools/quality_universe.py {report\|actionable\|add\|stale\|coverage\|stats\|archive\|approaching} [--fragility]` | Capital deployment machine. Universe. `approaching`=stocks moving toward entry (delta tracking). |
-| `r1_prioritizer.py` | `python3 tools/r1_prioritizer.py [--top N] [--exclude-uk] [--near-entry-only] [--tier-a-only] [--exclude-fantasy-risk] [--pre-flight] [--advancement]` | R1 prioritizer + fantasy gates. `--advancement`=3-section pipeline with E[CAGR]@mkt. `--pre-flight`=only viable E[CAGR]. Fantasy rate in footer. |
+| `r1_prioritizer.py` | `python3 tools/r1_prioritizer.py [--top N] [--exclude-uk] [--near-entry-only] [--tier-a-only] [--exclude-fantasy-risk] [--pre-flight] [--advancement]` | R1 prioritizer + fantasy gates. `--advancement`=3-section pipeline with E[CAGR]@mkt. `--pre-flight`=only viable E[CAGR]. Fantasy rate in footer. Smart money + insider flags from ownership cache (auto). |
 | `constraint_checker.py` | `python3 tools/constraint_checker.py {REPORT\|CHECK TICKER AMT\|CHECK_SHORT TICKER AMT}` | Concentracion, net/gross exposure, drawdown. Contexto, no juicio. |
 | `correlation_matrix.py` | `python3 tools/correlation_matrix.py` | Correlaciones entre posiciones. |
 | `insider_tracker.py` | `python3 tools/insider_tracker.py TICKER [--sections insider,institutional,short,analyst]` | Insider txns, institutional holders, short interest, analyst consensus. Datos crudos. |
@@ -40,6 +40,8 @@
 | `ownership_graph.py` | `python3 tools/ownership_graph.py [--portfolio-only] [--top-funds N]` | Interactive force-directed graph: stocks ↔ funds/insiders. Output: docs/ownership_graph.html. |
 | `ownership_analyzer.py` | `python3 tools/ownership_analyzer.py [--risk\|--sentiment\|--discover [TICKERS]]` | Institutional intelligence: overlap matrix, insider sentiment, smart money discovery. `--discover` checks pipeline candidates vs quality funds. |
 | `risk_heatmap.py` | `python3 tools/risk_heatmap.py [--cached\|--diff]` | Interactive HTML heatmap: 7 risk dimensions per position. Caches ownership snapshots for temporal diff. Output: docs/risk_heatmap.html. |
+| `ownership_cache.py` | `python3 tools/ownership_cache.py [--portfolio\|--all\|--pipeline\|--status\|--fresh] [TICKERS]` | Shared ownership data layer. `--pipeline` adds top 20 universe candidates by QS. All ownership tools use this cache. |
+| `command_center.py` | `python3 tools/command_center.py [--fresh]` | Session-start command center: KPIs + risk matrix + calendar + SOs + insider sentiment + pipeline funnel. Single interactive HTML. Output: docs/command_center.html. |
 
 ## Macro & Risk
 
