@@ -25,6 +25,9 @@
 | `portfolio_dashboard.py` | `python3 tools/portfolio_dashboard.py [--no-prices]` | Dashboard visual 6 paneles: allocation, P&L, quality map, pipeline funnel, SO proximity, summary. Output: docs/portfolio_dashboard.png. `--no-prices` skip yfinance. |
 | `earnings_intel.py` | `python3 tools/earnings_intel.py [--days N\|--ticker TICK]` | Pre-earnings briefing: price/MoS/E[CAGR], insider activity, kill conditions, scenarios, frameworks. Default 7 days. |
 | `command_center.py` | `python3 tools/command_center.py [--fresh]` | Session-start command center: KPIs + risk matrix + calendar + SOs + insider sentiment + pipeline funnel. Single interactive HTML. Output: docs/command_center.html. |
+| `earnings_workflow.py` | `python3 tools/earnings_workflow.py [--week\|TICKER\|TICKER --assess]` | Semi-automated earnings workflow. `--week` = earnings calendar. `TICKER` = pre-earnings briefing (consensus, scenarios, KCs, decision tree). `TICKER --assess` = post-earnings assessment template with KC pass/fail. |
+| `decision_feedback.py` | `python3 tools/decision_feedback.py [--buys\|--sells\|--fv-accuracy\|--patterns\|--ticker TICK]` | Meta-learning: connects past decisions to outcomes. FV calibration (gap vs market, toward/away), sell accuracy, conviction/QS-based returns, time-to-profit. |
+| `pipeline_velocity.py` | `python3 tools/pipeline_velocity.py [--funnel\|--stale\|--history]` | Pipeline throughput metrics. Default = dashboard + bottleneck analysis. `--funnel` = conversion rates (universe→deployment). `--stale` = stuck candidates. `--history` = velocity units per session. Fantasy rate tracking. |
 
 ## Screening & Valuation
 

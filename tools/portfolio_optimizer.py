@@ -81,6 +81,18 @@ def to_eur(amount_usd, eurusd):
     return amount_usd
 
 
+def normalize_gbp_currency(ticker, currency):
+    """
+    Normalize GBP -> GBp for LSE tickers (.L suffix).
+    LSE stocks trade in pence (GBp). The quality_universe.yaml sometimes stores
+    currency as 'GBP' when fair values are actually in pence. yfinance always
+    reports .L tickers as GBp. This normalizer ensures consistency.
+    """
+    if ticker.endswith('.L') and currency == 'GBP':
+        return 'GBp'
+    return currency
+
+
 def price_to_eur(price, currency, eurusd, gbpeur, dkkeur):
     """Convert a price in any supported currency to EUR."""
     if currency == 'EUR':
@@ -386,10 +398,13 @@ def load_universe_candidates(eurusd, gbpeur, dkkeur):
             continue
 
         currency = c.get('currency', 'USD')
+        ticker = c['ticker']
+        # Normalize GBP -> GBp for LSE tickers: FVs in universe are in pence
+        currency = normalize_gbp_currency(ticker, currency)
         fv_eur = price_to_eur(fv, currency, eurusd, gbpeur, dkkeur)
 
         candidates.append({
-            'ticker': c['ticker'],
+            'ticker': ticker,
             'name': c.get('name', ''),
             'qs': c.get('qs_adj') or c.get('qs_tool') or 0,
             'tier': c.get('tier', '?'),
