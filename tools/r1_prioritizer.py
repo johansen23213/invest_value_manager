@@ -483,6 +483,24 @@ def show_advancement_pipeline(companies, near_entry_only=False):
             if ecagr is not None:
                 ecagr_market[ticker] = ecagr
 
+    # Load ownership cache for smart money flags (zero API calls)
+    ownership_signals = {}
+    try:
+        from ownership_cache import load_cache, get_latest_cache, get_quality_funds, get_insider_sentiment
+        ocache = load_cache()
+        if not ocache:
+            ocache, _ = get_latest_cache()
+        if ocache:
+            qf = get_quality_funds(ocache, min_stocks=2)
+            qf_names = set(name for name, _ in qf)
+            for tk, td in ocache.items():
+                holders = td.get('holders', [])
+                qf_count = sum(1 for h in holders if h.get('name', '') in qf_names and not h.get('is_indexer', False))
+                _, _, _, _, net, signal = get_insider_sentiment(ocache, tk)
+                ownership_signals[tk] = {'qf': qf_count, 'ins_net': net, 'ins_signal': signal}
+    except ImportError:
+        pass
+
     # Classify into three sections
     section_a = []  # READY FOR ADVANCEMENT
     section_b = []  # APPROACHING
@@ -558,6 +576,18 @@ def show_advancement_pipeline(companies, near_entry_only=False):
             if gate:
                 status += f" (GATE: {gate[:30]})"
 
+            # Smart money / insider flags
+            sig = ownership_signals.get(ticker)
+            if sig:
+                if sig['qf'] >= 2:
+                    status += f" SMART-MONEY({sig['qf']}QF)"
+                elif sig['qf'] == 1:
+                    status += " QF-1"
+                if sig['ins_signal'] == 'BEARISH':
+                    status += f" INS-BEAR({sig['ins_net']:+d})"
+                elif sig['ins_signal'] == 'BULLISH':
+                    status += f" INS-BULL({sig['ins_net']:+d})"
+
             print(f"{i:>2} {ticker:<14} {qs:>3} {tier:>4} {sector:<20} {dist_str:>7} {ecagr_str:>12} {verdict:<12} {status}")
 
     _print_section("SECTION A — READY FOR ADVANCEMENT (dist<=20% OR E[CAGR]>=threshold)", section_a)
@@ -616,9 +646,27 @@ def main():
     if r1_complete_count >= 20 and not args.near_entry_only and not args.include_far:
         auto_near_entry_applied = True
 
-    # Load earnings calendar + stale sector views
+    # Load earnings calendar + stale sector views + ownership signals
     earnings = load_earnings_tickers(30)
     stale_sectors = get_stale_sector_views()
+
+    # Load ownership cache for smart money flags (zero API calls)
+    ownership_signals = {}
+    try:
+        from ownership_cache import load_cache, get_latest_cache, get_quality_funds, get_insider_sentiment
+        cache = load_cache()
+        if not cache:
+            cache, _ = get_latest_cache()
+        if cache:
+            qf = get_quality_funds(cache, min_stocks=2)
+            qf_names = set(name for name, _ in qf)
+            for ticker_key, data in cache.items():
+                holders = data.get('holders', [])
+                qf_count = sum(1 for h in holders if h.get('name', '') in qf_names and not h.get('is_indexer', False))
+                _, _, _, _, net, signal = get_insider_sentiment(cache, ticker_key)
+                ownership_signals[ticker_key] = {'qf': qf_count, 'ins_net': net, 'ins_signal': signal}
+    except ImportError:
+        pass
 
     # Rank
     candidates = rank_candidates(companies, args, auto_near_entry_applied)
@@ -737,6 +785,18 @@ def main():
                 flags.append(f"FANTASY-RISK({price_vs_fv:.0%})")
             elif price_vs_fv > 1.25:
                 flags.append(f"EXPENSIVE({price_vs_fv:.0%})")
+
+        # Smart money / insider signals (from ownership cache)
+        sig = ownership_signals.get(c["ticker"])
+        if sig:
+            if sig['qf'] >= 2:
+                flags.append(f"SMART-MONEY({sig['qf']}QF)")
+            elif sig['qf'] == 1:
+                flags.append("QF-1")
+            if sig['ins_signal'] == 'BEARISH':
+                flags.append(f"INS-BEAR({sig['ins_net']:+d})")
+            elif sig['ins_signal'] == 'BULLISH':
+                flags.append(f"INS-BULL({sig['ins_net']:+d})")
 
         # Stale score warning
         last_scored = c.get("last_scored")
