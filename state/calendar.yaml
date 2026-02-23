@@ -10,14 +10,9 @@ events:
 
   # COMPLETED FEB 23
   # MONY.L FY2025: COMPLETED Feb 23. BASE+ case. Rev £446.3M (+2%), EBITDA £145.1M record (beat). Insurance -1%. All KCs PASS. OpenAI partnership + ChatGPT app = KC#9 cleared. 60-day probation continues, exit 130p, review Apr 25.
+  # ENEL.MI CMD: COMPLETED Feb 23. Plan 2026-28: €53B capex (+€10B), EPS €0.69→€0.80-82 (6% CAGR), DPS €0.49 +6% CAGR, €1B buyback, 90% EBITDA regulado. Incremental, no transformacional. No posicion, no entry a estos niveles.
 
-  # EARNINGS WEEK FEB 23-26
-  - date: 2026-02-23
-    type: strategy
-    ticker: ENEL.MI
-    event: "Enel Capital Markets Day"
-    priority: high
-    action: "Si FV sube 11-12 - entry 8.50."
+  # EARNINGS WEEK FEB 24-26
 
   - date: 2026-02-24
     type: earnings
