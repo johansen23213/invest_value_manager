@@ -144,6 +144,29 @@ def _extract_returns(t, info, profile):
     profile['roic_trajectory'] = roic_trajectory
     profile['roic_current'] = roic_trajectory[0][1] if roic_trajectory else None
 
+    # Goodwill detection (for M&A-heavy companies)
+    goodwill = None
+    goodwill_pct = None
+    try:
+        balance = t.balance_sheet
+        if not balance.empty:
+            for gw_key in ['Goodwill', 'Goodwill And Other Intangible Assets']:
+                if gw_key in balance.index:
+                    gw_val = balance.loc[gw_key].iloc[0]
+                    if gw_val and gw_val > 0:
+                        goodwill = gw_val
+                        ta = balance.loc['Total Assets'].iloc[0] if 'Total Assets' in balance.index else None
+                        if ta and ta > 0:
+                            goodwill_pct = gw_val / ta
+                    break
+    except Exception:
+        pass
+
+    profile['goodwill'] = goodwill
+    profile['goodwill_pct'] = goodwill_pct
+    if goodwill_pct and goodwill_pct > 0.40:
+        profile['data_gaps'].append(f'HIGH GOODWILL ({goodwill_pct*100:.0f}% of assets) — ROIC methodology sensitive, check company-reported ROIC')
+
     # ROE trajectory
     roe_trajectory = []
     try:
@@ -763,6 +786,15 @@ def print_profile(profile, show_legacy=True, show_detail=False):
     if spread is not None:
         print(f"  ROIC-WACC spread: {spread*100:+.1f}pp")
 
+    # Goodwill warning
+    gw = profile.get('goodwill')
+    gw_pct = profile.get('goodwill_pct')
+    if gw is not None and gw_pct is not None:
+        gw_status = f"{gw_pct*100:.0f}% of assets"
+        if gw_pct > 0.40:
+            gw_status += " [!] HIGH — ROIC may differ from company-reported"
+        print(f"  Goodwill:         {fmt_money(gw)} ({gw_status})")
+
     # --- MARGINS ---
     print(f"\n{'─'*70}")
     print("MARGINS & CASH FLOW")
@@ -915,8 +947,8 @@ def main():
         print(f"\n{'='*70}")
         print("SUMMARY")
         print(f"{'='*70}")
-        print(f"{'Ticker':<10} {'Sector':<22} {'ROIC':>6} {'WACC':>6} {'Spread':>7} {'FCF%':>6} {'Lev':>5} {'RevCAGR':>8} {'GM':>6} {'Legacy':>7} {'Tier':>5}")
-        print(f"{'-'*95}")
+        print(f"{'Ticker':<10} {'Sector':<22} {'ROIC':>6} {'WACC':>6} {'Spread':>7} {'FCF%':>6} {'Lev':>5} {'RevCAGR':>8} {'GM':>6} {'GW%':>5} {'Legacy':>7} {'Tier':>5}")
+        print(f"{'-'*100}")
 
         for profile, legacy in results:
             roic_str = fmt_pct(profile.get('roic_current')) if profile.get('roic_current') is not None else 'N/A'
@@ -929,8 +961,12 @@ def main():
             rc = profile.get('rev_cagr')
             rc_str = fmt_pct(rc, show_sign=True) if rc is not None else 'N/A'
             gm_str = fmt_pct(profile.get('gm_current')) if profile.get('gm_current') is not None else 'N/A'
+            gw_pct = profile.get('goodwill_pct')
+            gw_str = f"{gw_pct*100:.0f}%" if gw_pct is not None else '-'
+            if gw_pct and gw_pct > 0.40:
+                gw_str += '!'
 
-            print(f"{profile['ticker']:<10} {profile['sector'][:22]:<22} {roic_str:>6} {wacc_str:>6} {spread_str:>7} {fcf_str:>6} {lev_str:>5} {rc_str:>8} {gm_str:>6} {legacy['total']:>5}/100 {legacy['tier']:>5}")
+            print(f"{profile['ticker']:<10} {profile['sector'][:22]:<22} {roic_str:>6} {wacc_str:>6} {spread_str:>7} {fcf_str:>6} {lev_str:>5} {rc_str:>8} {gm_str:>6} {gw_str:>5} {legacy['total']:>5}/100 {legacy['tier']:>5}")
 
 
 if __name__ == '__main__':

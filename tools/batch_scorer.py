@@ -140,6 +140,7 @@ def score_single_ticker(ticker):
             "rev_cagr": profile.get("rev_cagr"),
             "eps_cagr": profile.get("eps_cagr"),
             "insider_ownership": profile.get("insider_ownership", 0),
+            "goodwill_pct": float(profile["goodwill_pct"]) if profile.get("goodwill_pct") is not None else None,
             "data_gaps": profile.get("data_gaps", []),
         }
     except Exception as e:
@@ -268,6 +269,7 @@ def add_new_to_universe(data, new_discoveries, dry_run=False):
             "thesis_path": "",
             "last_scored": today,
             "last_price_check": today,
+            "goodwill_pct": r.get("goodwill_pct"),
             "notes": "Auto-scored by batch_scorer. Needs R1 analysis.",
         }
 
@@ -303,6 +305,8 @@ def update_existing_in_universe(data, existing_matches):
         entry["current_price"] = r["price"]
         entry["last_scored"] = today
         entry["last_price_check"] = today
+        if r.get("goodwill_pct") is not None:
+            entry["goodwill_pct"] = r["goodwill_pct"]
 
         # Update tier based on new QS (but only qs_tool, not qs_adj)
         # Tier from qs_tool only -- qs_adj is manual and not touched
@@ -405,7 +409,7 @@ def _print_company_table(companies, show_existing=False):
     header = (
         f"{'Ticker':<12} {'Name':<28} {'QS':>3} {'Tier':>4} "
         f"{'Sector':<24} {'Price':>10} {'MCap':>8} "
-        f"{'ROIC':>6} {'Spread':>7} {'FCF%':>6} {'RevCAGR':>8} {'Insider':>7}"
+        f"{'ROIC':>6} {'Spread':>7} {'FCF%':>6} {'RevCAGR':>8} {'GW%':>5} {'Insider':>7}"
     )
     print(header)
     print("-" * len(header))
@@ -420,6 +424,10 @@ def _print_company_table(companies, show_existing=False):
         insider_str = fmt_pct(insider) if insider > 0 else "N/A"
         mcap_str = fmt_money_short(r.get("market_cap", 0))
         price_str = fmt_price(r.get("price"), r.get("currency", "USD"))
+        gw_pct = r.get("goodwill_pct")
+        gw_str = f"{gw_pct*100:.0f}%" if gw_pct is not None else "-"
+        if gw_pct and gw_pct > 0.40:
+            gw_str += "!"
 
         # Tier A marker
         tier_marker = r["tier"]
@@ -429,7 +437,7 @@ def _print_company_table(companies, show_existing=False):
         print(
             f"{r['ticker']:<12} {r['name'][:28]:<28} {r['qs']:>3} {tier_marker:>4} "
             f"{r['sector'][:24]:<24} {price_str:>10} {mcap_str:>8} "
-            f"{roic_str:>6} {spread_str:>7} {fcf_str:>6} {rev_str:>8} {insider_str:>7}"
+            f"{roic_str:>6} {spread_str:>7} {fcf_str:>6} {rev_str:>8} {gw_str:>5} {insider_str:>7}"
         )
 
     # Data gap warnings
@@ -449,7 +457,7 @@ def save_results_csv(results, filepath):
         "ticker", "name", "qs", "tier", "category", "sector", "industry",
         "currency", "price", "market_cap", "roic", "roic_wacc_spread",
         "fcf_margin", "gm_current", "net_debt_ebitda", "rev_cagr",
-        "eps_cagr", "insider_ownership",
+        "eps_cagr", "insider_ownership", "goodwill_pct",
     ]
 
     with open(filepath, "w", newline="", encoding="utf-8") as f:

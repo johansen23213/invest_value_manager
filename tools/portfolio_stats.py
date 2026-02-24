@@ -1,14 +1,19 @@
 #!/usr/bin/env python3
 """
 Portfolio Statistics - Real-time P&L, allocation, and performance
-Usage: python3 tools/portfolio_stats.py
+Usage:
+  python3 tools/portfolio_stats.py           # Normal portfolio stats
+  python3 tools/portfolio_stats.py --shock   # Portfolio stats + macro shock scenarios
+
 Reads positions (long + short) from portfolio/current.yaml via yfinance
 
 Supports:
   - Long positions (positions list)
   - Short positions (short_positions list) with inverted P&L and carry cost
   - Net/Gross exposure breakdown
+  - Macro shock analysis by geography (--shock)
 """
+import argparse
 import yfinance as yf
 import yaml
 import os
@@ -65,7 +70,223 @@ def fetch_price_usd(ticker, eurusd, gbpusd):
         return None, None
     return to_usd(price, currency, eurusd, gbpusd), currency
 
+
+def detect_geo(ticker):
+    """Detect geography from ticker suffix.
+    .DE, .PA, .MI, .AS, .BR, .MC, .HE = EUR
+    .L = GBP
+    .CO = DKK
+    No suffix = USD
+    """
+    if '.' not in ticker:
+        return 'USD'
+    suffix = ticker.rsplit('.', 1)[1].upper()
+    eur_suffixes = {'DE', 'PA', 'MI', 'AS', 'BR', 'MC', 'HE'}
+    if suffix in eur_suffixes:
+        return 'EUR'
+    if suffix == 'L':
+        return 'GBP'
+    if suffix == 'CO':
+        return 'DKK'
+    return 'USD'
+
+
+def classify_tariff(ticker):
+    """Classify a ticker for the Tariff War scenario.
+    Returns a label used to look up the shock percentage.
+    """
+    # US domestic companies
+    us_domestic = {'MORN', 'GL', 'ADBE', 'LULU'}
+    # UK domestic companies
+    uk_domestic = {'DOM.L', 'MONY.L', 'AUTO.L', 'BYIT.L'}
+    # Special cases
+    if ticker == 'NVO':
+        return 'NVO'
+    if ticker == 'DTE.DE':
+        return 'DTE.DE'
+    if ticker in us_domestic:
+        return 'US_DOMESTIC'
+    if ticker in uk_domestic:
+        return 'UK_DOMESTIC'
+    # Fallback: EUR-listed = EU exporter
+    geo = detect_geo(ticker)
+    if geo == 'EUR':
+        return 'EU_EXPORTER'
+    if geo == 'GBP':
+        return 'UK_DOMESTIC'
+    return 'US_DOMESTIC'
+
+
+def run_shock_analysis(rows, short_rows, cash_usd, eurusd, gbpusd):
+    """Run 3 macro shock scenarios and print estimated portfolio impact by geography."""
+
+    # Build position buckets by geography
+    # Each item: (ticker, value_usd, geo, is_short)
+    items = []
+    for r in rows:
+        geo = detect_geo(r['ticker'])
+        items.append({'ticker': r['ticker'], 'value': r['value'], 'geo': geo, 'is_short': False})
+    for r in short_rows:
+        geo = detect_geo(r['ticker'])
+        items.append({'ticker': r['ticker'], 'value': r['market_value'], 'geo': geo, 'is_short': True})
+
+    # Aggregate by geography
+    geo_values = {'USD': 0.0, 'EUR': 0.0, 'GBP': 0.0, 'DKK': 0.0}
+    for item in items:
+        sign = -1.0 if item['is_short'] else 1.0
+        geo_values[item['geo']] = geo_values.get(item['geo'], 0.0) + item['value'] * sign
+
+    total_before = sum(geo_values.values()) + cash_usd
+
+    # =========================================================================
+    # SCENARIO DEFINITIONS
+    # =========================================================================
+
+    # Scenario 1: USD Strength (+10%)
+    def scenario_usd_strength():
+        impacts = {}
+        impacts['USD'] = {'pct': 0.0, 'label': 'US positions'}
+        impacts['EUR'] = {'pct': -10.0, 'label': 'EUR positions'}
+        impacts['GBP'] = {'pct': -7.0, 'label': 'GBP positions'}
+        impacts['DKK'] = {'pct': -10.0, 'label': 'DKK positions'}
+        cash_pct = -10.0
+        return impacts, cash_pct
+
+    # Scenario 2: EU Crisis (EUR -15%, European equities -20%)
+    def scenario_eu_crisis():
+        impacts = {}
+        impacts['USD'] = {'pct': 3.0, 'label': 'US positions'}
+        impacts['EUR'] = {'pct': -20.0, 'label': 'EUR positions'}
+        impacts['GBP'] = {'pct': -10.0, 'label': 'GBP positions'}
+        impacts['DKK'] = {'pct': -15.0, 'label': 'DKK positions'}
+        cash_pct = -15.0
+        return impacts, cash_pct
+
+    # Scenario 3: Tariff War (US tariffs on EU) -- per-position
+    def scenario_tariff_war():
+        tariff_shocks = {
+            'US_DOMESTIC': -5.0,
+            'EU_EXPORTER': -15.0,
+            'UK_DOMESTIC': -3.0,
+            'NVO': -8.0,
+            'DTE.DE': -8.0,
+        }
+        return tariff_shocks
+
+    # =========================================================================
+    # COMPUTE AND PRINT
+    # =========================================================================
+
+    print()
+    print("=" * 60)
+    print("MACRO SHOCK ANALYSIS")
+    print("=" * 60)
+
+    scenario_results = []
+
+    # --- Scenario 1 & 2: geography-based ---
+    for name, scenario_fn in [("Scenario 1: USD Strength (+10%)", scenario_usd_strength),
+                               ("Scenario 2: EU Crisis (EUR -15%, equities -20%)", scenario_eu_crisis)]:
+        impacts, cash_pct = scenario_fn()
+        print(f"\n{name}")
+
+        total_after = 0.0
+        for geo in ['USD', 'EUR', 'GBP', 'DKK']:
+            val = geo_values.get(geo, 0.0)
+            if val == 0.0 and geo == 'DKK':
+                # Check if any DKK positions exist before printing
+                has_dkk = any(item['geo'] == 'DKK' for item in items)
+                if not has_dkk:
+                    continue
+            pct = impacts.get(geo, {}).get('pct', 0.0)
+            label = impacts.get(geo, {}).get('label', f'{geo} positions')
+            after = val * (1 + pct / 100.0)
+            total_after += after
+            print(f"  {label + ':':<20} ${val:>10,.0f} -> ${after:>10,.0f} ({pct:+.0f}%)")
+
+        cash_after = cash_usd * (1 + cash_pct / 100.0)
+        total_after += cash_after
+        print(f"  {'Cash (EUR):':<20} ${cash_usd:>10,.0f} -> ${cash_after:>10,.0f} ({cash_pct:+.0f}%)")
+
+        total_pct = ((total_after - total_before) / total_before) * 100.0 if total_before > 0 else 0.0
+        print(f"  {'TOTAL:':<20} ${total_before:>10,.0f} -> ${total_after:>10,.0f} ({total_pct:+.1f}%)")
+
+        scenario_results.append((name, total_pct, total_after))
+
+    # --- Scenario 3: Tariff War (per-position) ---
+    tariff_shocks = scenario_tariff_war()
+    sc3_name = "Scenario 3: Tariff War (US tariffs on EU)"
+    print(f"\n{sc3_name}")
+
+    # Group by tariff classification
+    tariff_buckets = {}
+    for item in items:
+        cls = classify_tariff(item['ticker'])
+        if cls not in tariff_buckets:
+            tariff_buckets[cls] = 0.0
+        sign = -1.0 if item['is_short'] else 1.0
+        tariff_buckets[cls] += item['value'] * sign
+
+    tariff_labels = {
+        'US_DOMESTIC': 'US domestic',
+        'EU_EXPORTER': 'EU exporters',
+        'UK_DOMESTIC': 'UK domestic',
+        'NVO': 'NVO (DK healthcare)',
+        'DTE.DE': 'DTE.DE (domestic+TMUS)',
+    }
+
+    total_after_tariff = 0.0
+    # Print in consistent order
+    for cls in ['US_DOMESTIC', 'EU_EXPORTER', 'UK_DOMESTIC', 'NVO', 'DTE.DE']:
+        val = tariff_buckets.get(cls, 0.0)
+        if val == 0.0:
+            continue
+        pct = tariff_shocks.get(cls, 0.0)
+        label = tariff_labels.get(cls, cls)
+        after = val * (1 + pct / 100.0)
+        total_after_tariff += after
+        print(f"  {label + ':':<25} ${val:>10,.0f} -> ${after:>10,.0f} ({pct:+.0f}%)")
+
+    # Cash: 0% impact in tariff scenario
+    total_after_tariff += cash_usd
+    print(f"  {'Cash:':<25} ${cash_usd:>10,.0f} -> ${cash_usd:>10,.0f} (+0%)")
+
+    total_pct_tariff = ((total_after_tariff - total_before) / total_before) * 100.0 if total_before > 0 else 0.0
+    print(f"  {'TOTAL:':<25} ${total_before:>10,.0f} -> ${total_after_tariff:>10,.0f} ({total_pct_tariff:+.1f}%)")
+
+    scenario_results.append((sc3_name, total_pct_tariff, total_after_tariff))
+
+    # =========================================================================
+    # SUMMARY
+    # =========================================================================
+    print()
+    print("-" * 60)
+    worst = min(scenario_results, key=lambda x: x[1])
+    print(f"WORST CASE: {worst[0]} ({worst[1]:+.1f}%)")
+
+    # Diversification benefit: compare worst portfolio loss to a 100% concentrated scenario
+    # 100% concentrated in worst-hit geography
+    all_pcts = []
+    # Collect all applied percentages from scenarios 1 and 2
+    for _, scenario_fn in [("s1", scenario_usd_strength), ("s2", scenario_eu_crisis)]:
+        impacts, cash_pct = scenario_fn()
+        for geo_data in impacts.values():
+            all_pcts.append(geo_data['pct'])
+        all_pcts.append(cash_pct)
+    for pct in tariff_shocks.values():
+        all_pcts.append(pct)
+
+    worst_concentrated = min(all_pcts)
+    print(f"DIVERSIFICATION BENEFIT: Max single-scenario loss {abs(worst[1]):.1f}% vs 100% concentrated {abs(worst_concentrated):.1f}%")
+    print()
+    print("[Scenario analysis. Estimates only. Actual correlations may differ.]")
+
+
 def main():
+    parser = argparse.ArgumentParser(description='Portfolio Statistics - Real-time P&L, allocation, performance')
+    parser.add_argument('--shock', action='store_true', help='Run macro shock scenarios after portfolio stats')
+    args = parser.parse_args()
+
     portfolio = load_portfolio()
     positions = portfolio.get('positions', [])
     short_positions = portfolio.get('short_positions', [])
@@ -121,7 +342,7 @@ def main():
             'pnl': pnl, 'pnl_pct': pnl_pct
         })
 
-    # We need portfolio_total for allocation % — compute after shorts too
+    # We need portfolio_total for allocation % -- compute after shorts too
     # For now, store long rows and print after we know the total
 
     # =========================================================================
@@ -232,6 +453,12 @@ def main():
         print(f"Combined P&L (long + short): ${combined_pnl:>+,.2f}")
     print()
     print("[Raw data. Reason from principles.md]")
+
+    # =========================================================================
+    # SHOCK ANALYSIS (if requested)
+    # =========================================================================
+    if args.shock:
+        run_shock_analysis(rows, short_rows, cash_usd, eurusd, gbpusd)
 
 if __name__ == '__main__':
     main()

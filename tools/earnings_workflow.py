@@ -9,6 +9,7 @@ Cuts per-position earnings assessment from ~30 minutes to ~5 minutes by:
 
 Modes:
   python3 tools/earnings_workflow.py --week           # Earnings calendar this week with status
+  python3 tools/earnings_workflow.py --phase          # Quick phase transition check only
   python3 tools/earnings_workflow.py TICKER            # Pre-earnings briefing for one ticker
   python3 tools/earnings_workflow.py TICKER --assess   # Post-earnings assessment template
 
@@ -541,6 +542,11 @@ def extract_metrics_table(content):
     """Extract metrics from consensus tables in framework.
 
     Returns list of dicts: {metric, expected, context}
+
+    Handles formats:
+    - | Revenue | EUR 2,955M | EUR 2,856M |
+    - | **Revenue** | EUR 118.7B | "Increasing" |
+    - | **EBITDA AL (adj)** | EUR 44.1B | ~EUR 45.3B |
     """
     if not content:
         return []
@@ -553,22 +559,52 @@ def extract_metrics_table(content):
     metrics = []
     seen = set()
 
-    # Pattern: table rows with financial metrics
-    # "| Revenue | EUR 2,955M | EUR 2,856M | +3.5% |"
+    # Words that indicate header/non-metric rows
+    header_words = {'metric', 'metrica', 'date', 'escenario', 'source', 'field',
+                    'my base', 'company guide', 'company stated', 'consensus',
+                    'fy2025', 'fy2026', 'fy2024', 'q4 2025', 'q1 2026', 'prior'}
+
+    # Financial metric keywords (to identify real metrics vs header artifacts)
+    metric_keywords = {'revenue', 'ebitda', 'ebit', 'net income', 'eps', 'fcf',
+                       'dps', 'dividend', 'margin', 'growth', 'operating',
+                       'free cash', 'capex', 'debt', 'leverage', 'solvency',
+                       'combined ratio', 'nwp', 'gwp', 'roe', 'roic', 'roa',
+                       'cev', 'anp', 'book value', 'nav', 'arpu', 'churn',
+                       'subscribers', 'users', 'organic', 'like-for-like',
+                       'same-store', 'comp', 'occupancy', 'adr', 'revpar',
+                       'premium', 'claims', 'loss ratio', 'cash flow', 'profit'}
+
+    # Pattern: table rows — handle **bold** and regular metric names
+    # Match: | metric_text | value | (optionally more columns)
     for m in re.finditer(
-        r'\|\s*([A-Z][^|]{3,30})\s*\|\s*([^|]{3,25})\s*\|',
+        r'\|\s*(\*{0,2}[A-Z][^|]{2,40}?\*{0,2})\s*\|\s*([^|]{2,30})\s*\|',
         consensus_section
     ):
-        metric = m.group(1).strip().strip('*')
-        value = m.group(2).strip().strip('*')
-        if metric.lower() in ('metric', 'metrica', '---', 'date', 'escenario'):
+        raw_metric = m.group(1).strip().strip('*').strip()
+        value = m.group(2).strip().strip('*').strip()
+
+        # Skip separator rows
+        if '---' in raw_metric or '---' in value:
             continue
-        if '---' in value:
+
+        # Skip header rows
+        if raw_metric.lower() in header_words:
             continue
-        key = metric.lower()[:20]
+
+        # Skip if value looks like a header
+        if value.lower() in header_words:
+            continue
+
+        # Validate: metric should contain a financial keyword
+        metric_lower = raw_metric.lower()
+        is_financial = any(kw in metric_lower for kw in metric_keywords)
+        if not is_financial:
+            continue
+
+        key = metric_lower[:25]
         if key not in seen:
             seen.add(key)
-            metrics.append({'metric': metric, 'expected': value, 'context': ''})
+            metrics.append({'metric': raw_metric, 'expected': value, 'context': ''})
 
     return metrics[:15]
 
@@ -617,6 +653,7 @@ def get_position_info(ticker):
 
 def get_pipeline_info(ticker):
     """Check watchlist and research directories for pipeline info."""
+    result = None
     watchlist = load_yaml(WATCHLIST_FILE)
 
     # Search all watchlist sections
@@ -624,7 +661,7 @@ def get_pipeline_info(ticker):
         items = watchlist.get(section, []) or []
         for item in items:
             if isinstance(item, dict) and item.get('ticker') == ticker:
-                return {
+                result = {
                     'type': 'PIPELINE',
                     'section': section,
                     'entry': item.get('entry', '?'),
@@ -632,12 +669,78 @@ def get_pipeline_info(ticker):
                     'notes': item.get('notes', ''),
                     'status': item.get('status', ''),
                 }
+                break
+        if result:
+            break
 
-    # Check if thesis/research directory exists
-    if os.path.isdir(os.path.join(THESIS_RESEARCH_DIR, ticker)):
-        return {'type': 'PIPELINE', 'section': 'research', 'notes': 'Thesis in research dir'}
+    # Check if thesis/research directory exists (fallback if not in watchlist)
+    if not result and os.path.isdir(os.path.join(THESIS_RESEARCH_DIR, ticker)):
+        result = {'type': 'PIPELINE', 'section': 'research', 'notes': 'Thesis in research dir'}
 
-    return None
+    # Enrich with quality_universe data
+    qu_path = os.path.join(BASE_DIR, 'state', 'quality_universe.yaml')
+    if os.path.exists(qu_path):
+        try:
+            qu = load_yaml(qu_path)
+            for c in (qu.get('quality_universe', {}).get('companies', []) or []):
+                if c.get('ticker') == ticker:
+                    qu_data = {
+                        'pipeline_status': c.get('pipeline_status', '?'),
+                        'qu_fv': c.get('fair_value'),
+                        'qu_entry': c.get('entry_price'),
+                        'qu_qs': c.get('qs_adj') or c.get('qs_tool'),
+                        'qu_tier': c.get('tier'),
+                        'qu_goodwill_pct': c.get('goodwill_pct'),
+                    }
+                    if result:
+                        result.update(qu_data)
+                    else:
+                        result = {'type': 'PIPELINE', 'section': 'universe', **qu_data}
+                    break
+        except Exception:
+            pass
+
+    return result
+
+
+# =============================================================================
+# Phase Transition Detection (shared logic)
+# =============================================================================
+
+def detect_phase_transition(events):
+    """Detect if the current week qualifies as a phase transition week.
+
+    Returns (is_transition, portfolio_events, pipeline_events, missing_frameworks) or
+    (False, [], [], []) if no transition.
+    """
+    portfolio_events = [ev for ev in events if get_position_info(ev.get('ticker', '')) is not None]
+    pipeline_events = [ev for ev in events if get_position_info(ev.get('ticker', '')) is None and not is_completed(ev)]
+    missing_fw = [ev.get('ticker', '') for ev in events if not find_earnings_framework(ev.get('ticker', ''))[0] and not is_completed(ev)]
+
+    is_transition = len(portfolio_events) >= 3 or (len(portfolio_events) >= 2 and len(pipeline_events) >= 3)
+
+    return is_transition, portfolio_events, pipeline_events, missing_fw
+
+
+def print_phase_transition(portfolio_events, pipeline_events, missing_fw):
+    """Print the phase transition warning block."""
+    print()
+    print("!" * 80)
+    print("  PHASE TRANSITION WEEK -- High earnings density detected")
+    print("!" * 80)
+    print(f"  {len(portfolio_events)} active positions + {len(pipeline_events)} pipeline reporting this week")
+    print()
+    print("  PROTOCOL:")
+    print("  1. Verify ALL frameworks exist (check column above)")
+    if missing_fw:
+        print(f"     MISSING FRAMEWORKS: {', '.join(missing_fw)}")
+    else:
+        print("     All frameworks present")
+    print("  2. Process by position size (largest first)")
+    print("  3. Pre-commit decisions BEFORE market open on earnings day")
+    print("  4. Batch post-earnings assessment (don't let queue build)")
+    print("  5. Emotional check: F (Psychology) amplified this week")
+    print()
 
 
 # =============================================================================
@@ -697,8 +800,58 @@ def mode_week():
     active_count = sum(1 for ev in events if get_position_info(ev.get('ticker', '')) is not None)
     pending_count = sum(1 for ev in events if not is_completed(ev))
     print(f"  {len(events)} events total | {active_count} active positions | {pending_count} pending")
+
+    # Phase transition detection
+    is_transition, portfolio_events, pipeline_events, missing_fw = detect_phase_transition(events)
+    if is_transition:
+        print_phase_transition(portfolio_events, pipeline_events, missing_fw)
+
     print()
     print("[Raw data. Earnings workflow context.]")
+
+
+# =============================================================================
+# MODE 1b: --phase (Quick Phase Transition Check)
+# =============================================================================
+
+def mode_phase():
+    """Quick check: is this a phase transition week? Minimal output."""
+    events = get_earnings_events(days=7)
+    today = datetime.now().date()
+
+    if not events:
+        print(f"\n[{today}] No earnings events in the next 7 days. No phase transition.")
+        return
+
+    is_transition, portfolio_events, pipeline_events, missing_fw = detect_phase_transition(events)
+
+    print()
+    if is_transition:
+        print_phase_transition(portfolio_events, pipeline_events, missing_fw)
+        # List the portfolio tickers reporting
+        if portfolio_events:
+            print("  PORTFOLIO REPORTING:")
+            for ev in sorted(portfolio_events, key=lambda e: e.get('_date', today)):
+                ticker = ev.get('ticker', '?')
+                date = ev.get('_date')
+                date_str = date.strftime('%a %m-%d') if date else '?'
+                completed = is_completed(ev)
+                status = 'COMPLETED' if completed else 'PENDING'
+                print(f"    {date_str}  {ticker:<12} {status}")
+        if pipeline_events:
+            print("  PIPELINE REPORTING:")
+            for ev in sorted(pipeline_events, key=lambda e: e.get('_date', today)):
+                ticker = ev.get('ticker', '?')
+                date = ev.get('_date')
+                date_str = date.strftime('%a %m-%d') if date else '?'
+                print(f"    {date_str}  {ticker:<12}")
+        print()
+    else:
+        print(f"  No phase transition this week.")
+        print(f"  {len(portfolio_events)} portfolio + {len(pipeline_events)} pipeline earnings (below threshold)")
+        print()
+
+    print("[Raw data. Phase transition check.]")
 
 
 # =============================================================================
@@ -866,6 +1019,146 @@ def mode_briefing(ticker):
 
 
 # =============================================================================
+# Earnings Context (auto-populated financial data for assessment)
+# =============================================================================
+
+def fetch_earnings_context(ticker):
+    """Fetch auto-populated financial data for post-earnings assessment.
+
+    Returns dict with:
+    - price_reaction: price before/after earnings, % change
+    - yoy_financials: latest 2 years revenue, EPS, margins from yfinance
+    - analyst_estimates: forward estimates if available
+    """
+    ctx = {
+        'price_reaction': None,
+        'yoy_financials': None,
+        'latest_quarter': None,
+        'analyst_estimates': None,
+    }
+
+    try:
+        import yfinance as yf
+        t = yf.Ticker(ticker)
+
+        # --- Price Reaction (5-day history for pre/post earnings) ---
+        try:
+            hist = t.history(period='10d')
+            if len(hist) >= 2:
+                closes = [(idx.strftime('%Y-%m-%d'), row['Close']) for idx, row in hist.iterrows()]
+                if len(closes) >= 2:
+                    ctx['price_reaction'] = {
+                        'recent_closes': closes[-5:],  # Last 5 days
+                        'latest': closes[-1],
+                        'prev': closes[-2],
+                        'change_pct': ((closes[-1][1] - closes[-2][1]) / closes[-2][1]) * 100,
+                    }
+        except Exception:
+            pass
+
+        # --- YoY Financials (latest 2 years annual) ---
+        try:
+            financials = t.financials
+            if not financials.empty:
+                yoy = {}
+                # Revenue
+                if 'Total Revenue' in financials.index:
+                    revs = [(str(c.year), financials.loc['Total Revenue'][c]) for c in financials.columns[:2]
+                            if financials.loc['Total Revenue'][c] is not None]
+                    if len(revs) >= 2:
+                        yoy['revenue'] = revs
+                        yoy['revenue_growth'] = ((revs[0][1] - revs[1][1]) / abs(revs[1][1])) * 100 if revs[1][1] else None
+
+                # Operating Income
+                if 'Operating Income' in financials.index:
+                    ops = [(str(c.year), financials.loc['Operating Income'][c]) for c in financials.columns[:2]
+                           if financials.loc['Operating Income'][c] is not None]
+                    if len(ops) >= 2:
+                        yoy['op_income'] = ops
+                        yoy['op_growth'] = ((ops[0][1] - ops[1][1]) / abs(ops[1][1])) * 100 if ops[1][1] else None
+
+                # Net Income
+                if 'Net Income' in financials.index:
+                    nis = [(str(c.year), financials.loc['Net Income'][c]) for c in financials.columns[:2]
+                           if financials.loc['Net Income'][c] is not None]
+                    if len(nis) >= 2:
+                        yoy['net_income'] = nis
+
+                # EPS
+                eps_key = 'Basic EPS' if 'Basic EPS' in financials.index else 'Diluted EPS'
+                if eps_key in financials.index:
+                    eps_vals = [(str(c.year), financials.loc[eps_key][c]) for c in financials.columns[:2]
+                               if financials.loc[eps_key][c] is not None]
+                    if len(eps_vals) >= 2:
+                        yoy['eps'] = eps_vals
+                        yoy['eps_growth'] = ((eps_vals[0][1] - eps_vals[1][1]) / abs(eps_vals[1][1])) * 100 if eps_vals[1][1] else None
+
+                # Margins
+                if 'Total Revenue' in financials.index and 'Operating Income' in financials.index:
+                    rev0 = financials.loc['Total Revenue'].iloc[0]
+                    op0 = financials.loc['Operating Income'].iloc[0]
+                    if rev0 and rev0 > 0 and op0 is not None:
+                        yoy['op_margin_latest'] = (op0 / rev0) * 100
+
+                if 'Total Revenue' in financials.index and 'Gross Profit' in financials.index:
+                    rev0 = financials.loc['Total Revenue'].iloc[0]
+                    gp0 = financials.loc['Gross Profit'].iloc[0]
+                    if rev0 and rev0 > 0 and gp0 is not None:
+                        yoy['gm_latest'] = (gp0 / rev0) * 100
+
+                if yoy:
+                    ctx['yoy_financials'] = yoy
+                    ctx['latest_quarter'] = str(financials.columns[0].strftime('%Y-%m-%d')) if hasattr(financials.columns[0], 'strftime') else str(financials.columns[0])
+        except Exception:
+            pass
+
+        # --- FCF from cashflow ---
+        try:
+            cf = t.cashflow
+            if not cf.empty and 'Free Cash Flow' in cf.index:
+                fcf_vals = [(str(c.year), cf.loc['Free Cash Flow'][c]) for c in cf.columns[:2]
+                            if cf.loc['Free Cash Flow'][c] is not None]
+                if fcf_vals and ctx.get('yoy_financials') is not None:
+                    ctx['yoy_financials']['fcf'] = fcf_vals
+        except Exception:
+            pass
+
+        # --- Analyst Estimates ---
+        try:
+            info = t.info
+            if info:
+                estimates = {}
+                for key, label in [('forwardEps', 'Forward EPS'),
+                                   ('forwardPE', 'Forward P/E'),
+                                   ('earningsQuarterlyGrowth', 'Quarterly Earnings Growth'),
+                                   ('revenueQuarterlyGrowth', 'Quarterly Revenue Growth')]:
+                    val = info.get(key)
+                    if val is not None:
+                        estimates[label] = val
+                if estimates:
+                    ctx['analyst_estimates'] = estimates
+        except Exception:
+            pass
+
+    except ImportError:
+        pass
+
+    return ctx
+
+
+def fmt_large(val):
+    """Format large numbers as B/M for display."""
+    if val is None:
+        return 'N/A'
+    if abs(val) >= 1e9:
+        return f"{val/1e9:.2f}B"
+    elif abs(val) >= 1e6:
+        return f"{val/1e6:.0f}M"
+    else:
+        return f"{val:,.0f}"
+
+
+# =============================================================================
 # MODE 3: TICKER --assess (Post-Earnings Assessment Template)
 # =============================================================================
 
@@ -908,7 +1201,101 @@ def mode_assess(ticker):
     if pos:
         print(f"  Position: {pos['shares']} shares | Conviction: {pos.get('conviction', '?').upper()}")
     elif pipe:
-        print(f"  Pipeline candidate [{pipe.get('section', '?')}]")
+        pipe_details = f"Pipeline [{pipe.get('pipeline_status', pipe.get('section', '?'))}]"
+        if pipe.get('qu_qs'):
+            pipe_details += f" | QS {pipe['qu_qs']} Tier {pipe.get('qu_tier', '?')}"
+        if pipe.get('qu_fv'):
+            pipe_details += f" | FV {pipe['qu_fv']}"
+        if pipe.get('qu_entry'):
+            pipe_details += f" | Entry {pipe['qu_entry']}"
+        if pipe.get('qu_goodwill_pct') and pipe['qu_goodwill_pct'] > 0.40:
+            pipe_details += f" | HIGH-GW({pipe['qu_goodwill_pct']*100:.0f}%)"
+        print(f"  {pipe_details}")
+
+    # Fetch auto-populated market/financial data
+    ctx = fetch_earnings_context(ticker)
+
+    # MARKET REACTION section
+    pr = ctx.get('price_reaction')
+    if pr:
+        print()
+        print("-" * 80)
+        print("MARKET REACTION (auto-populated):")
+        print("-" * 80)
+        print(f"  {'Date':<12} {'Close':>12}")
+        print(f"  {'-'*12} {'-'*12}")
+        for date, close in pr['recent_closes']:
+            print(f"  {date:<12} {close:>12.2f}")
+        chg = pr['change_pct']
+        chg_emoji = "+" if chg >= 0 else ""
+        print(f"\n  Latest move: {chg_emoji}{chg:.1f}% ({pr['prev'][0]} -> {pr['latest'][0]})")
+
+    # YoY FINANCIAL SNAPSHOT
+    yoy = ctx.get('yoy_financials')
+    if yoy:
+        print()
+        print("-" * 80)
+        print(f"YoY FINANCIAL SNAPSHOT (yfinance, latest filing: {ctx.get('latest_quarter', '?')}):")
+        print("-" * 80)
+        print(f"  {'Metric':<22} {'Latest':>14} {'Prior Year':>14} {'YoY Change':>12}")
+        print(f"  {'-'*22} {'-'*14} {'-'*14} {'-'*12}")
+
+        if 'revenue' in yoy:
+            r = yoy['revenue']
+            growth = f"{yoy['revenue_growth']:+.1f}%" if yoy.get('revenue_growth') is not None else '?'
+            print(f"  {'Revenue':<22} {fmt_large(r[0][1]):>14} {fmt_large(r[1][1]):>14} {growth:>12}")
+
+        if 'op_income' in yoy:
+            o = yoy['op_income']
+            growth = f"{yoy['op_growth']:+.1f}%" if yoy.get('op_growth') is not None else '?'
+            print(f"  {'Operating Income':<22} {fmt_large(o[0][1]):>14} {fmt_large(o[1][1]):>14} {growth:>12}")
+
+        if 'net_income' in yoy:
+            n = yoy['net_income']
+            ni_growth = ((n[0][1] - n[1][1]) / abs(n[1][1])) * 100 if n[1][1] else None
+            growth_str = f"{ni_growth:+.1f}%" if ni_growth is not None else '?'
+            print(f"  {'Net Income':<22} {fmt_large(n[0][1]):>14} {fmt_large(n[1][1]):>14} {growth_str:>12}")
+
+        if 'eps' in yoy:
+            e = yoy['eps']
+            growth = f"{yoy['eps_growth']:+.1f}%" if yoy.get('eps_growth') is not None else '?'
+            print(f"  {'EPS':<22} {e[0][1]:>14.2f} {e[1][1]:>14.2f} {growth:>12}")
+
+        if 'fcf' in yoy:
+            f_vals = yoy['fcf']
+            if len(f_vals) >= 2:
+                fcf_growth = ((f_vals[0][1] - f_vals[1][1]) / abs(f_vals[1][1])) * 100 if f_vals[1][1] else None
+                growth_str = f"{fcf_growth:+.1f}%" if fcf_growth is not None else '?'
+                print(f"  {'Free Cash Flow':<22} {fmt_large(f_vals[0][1]):>14} {fmt_large(f_vals[1][1]):>14} {growth_str:>12}")
+            elif len(f_vals) >= 1:
+                print(f"  {'Free Cash Flow':<22} {fmt_large(f_vals[0][1]):>14}")
+
+        # Margins
+        margins_line = "  Margins (latest):"
+        if yoy.get('gm_latest'):
+            margins_line += f"  GM {yoy['gm_latest']:.1f}%"
+        if yoy.get('op_margin_latest'):
+            margins_line += f"  OP {yoy['op_margin_latest']:.1f}%"
+        if yoy.get('gm_latest') or yoy.get('op_margin_latest'):
+            print(margins_line)
+
+        print(f"\n  [NOTE: yfinance reflects FILED results. Just-reported quarter may not be reflected yet.]")
+
+    # Analyst estimates
+    est = ctx.get('analyst_estimates')
+    if est:
+        print()
+        print("-" * 80)
+        print("ANALYST ESTIMATES (yfinance):")
+        print("-" * 80)
+        for label, val in est.items():
+            if isinstance(val, float):
+                if 'Growth' in label or 'P/E' in label:
+                    print(f"  {label}: {val:.2f}")
+                else:
+                    print(f"  {label}: {val:.2f}")
+            else:
+                print(f"  {label}: {val}")
 
     if not fw_content:
         print()
@@ -1034,18 +1421,22 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""Examples:
   python3 tools/earnings_workflow.py --week            # Earnings calendar this week
+  python3 tools/earnings_workflow.py --phase           # Quick phase transition check
   python3 tools/earnings_workflow.py EDEN.PA           # Pre-earnings briefing
   python3 tools/earnings_workflow.py MONY.L --assess   # Post-earnings assessment template
 """
     )
     parser.add_argument('ticker', nargs='?', help='Ticker symbol (e.g., EDEN.PA)')
     parser.add_argument('--week', action='store_true', help='Show earnings calendar for this week')
+    parser.add_argument('--phase', action='store_true', help='Quick phase transition check (high earnings density)')
     parser.add_argument('--assess', action='store_true', help='Generate post-earnings assessment template')
     parser.add_argument('--days', type=int, default=7, help='Lookahead window in days (default: 7, used with --week)')
 
     args = parser.parse_args()
 
-    if args.week:
+    if args.phase:
+        mode_phase()
+    elif args.week:
         mode_week()
     elif args.ticker and args.assess:
         mode_assess(args.ticker)

@@ -17,6 +17,7 @@ Usage:
   python3 tools/thesis_monitor.py              # Full monitor
   python3 tools/thesis_monitor.py --alerts     # Only show alerts section
   python3 tools/thesis_monitor.py --ticker X   # Monitor single position
+  python3 tools/thesis_monitor.py --ai-kc      # AI disruption kill condition check
 """
 
 import sys
@@ -766,6 +767,293 @@ def print_full_report(results, alerts_only=False):
 
 
 # ---------------------------------------------------------------------------
+# AI Disruption Kill Condition Check
+# ---------------------------------------------------------------------------
+
+# Regex patterns for AI-related terms in kill condition text
+_AI_KC_PATTERNS = re.compile(
+    r'\bAI\b|artificial intelligence|automation|machine learning|'
+    r'\bGPT\b|\bLLM\b|AI[ -]agent|AI[ -]automat|'
+    r'open[- ]source AI|AI[ -]native|AI[ -]generated|'
+    r'AI[ -]tool|AI[ -]platform|AI[ -]disrupt',
+    re.IGNORECASE,
+)
+
+# Moat type detection patterns: (category, regex)
+_MOAT_TYPE_PATTERNS = [
+    ('regulatory', re.compile(
+        r'moat.*(?:regulat|certification|licens|compliance|government framework|approved)',
+        re.IGNORECASE,
+    )),
+    ('network', re.compile(
+        r'moat.*(?:network\s*effect|two[- ]sided|marketplace|platform effect)|'
+        r'network\s*effect.*moat',
+        re.IGNORECASE,
+    )),
+    ('brand', re.compile(
+        r'moat.*(?:\bbrand\b|brand\s*(?:equity|loyalty|recognition|power))|'
+        r'brand.*moat',
+        re.IGNORECASE,
+    )),
+    ('switching_costs', re.compile(
+        r'moat.*(?:switching\s*cost|lock[- ]in|embedded|sticky|retention)|'
+        r'switching\s*cost.*moat',
+        re.IGNORECASE,
+    )),
+    ('IP', re.compile(
+        r'moat.*(?:intellectual property|\bIP\b|patent|proprietary tech)|'
+        r'(?:intellectual property|\bIP\b|patent).*moat',
+        re.IGNORECASE,
+    )),
+    ('process', re.compile(
+        r'moat.*(?:process|operational\s*efficien|operational\s*excellen|'
+        r'expertise|advisory|know[- ]how|specializ|relationship)|'
+        r'(?:process|operational\s*efficien|expertise|advisory).*moat',
+        re.IGNORECASE,
+    )),
+    ('scale', re.compile(
+        r'moat.*(?:\bscale\b|cost\s*advantage|economies\s*of\s*scale)|'
+        r'(?:\bscale\b|cost\s*advantage).*moat',
+        re.IGNORECASE,
+    )),
+]
+
+
+def _detect_moat_types(thesis_content):
+    """Detect moat types mentioned in thesis content.
+
+    Returns list of detected moat type strings, ordered by first appearance.
+    """
+    if not thesis_content:
+        return []
+
+    # Also look for explicit "Moat Type:" lines (common pattern)
+    explicit = re.search(
+        r'[Mm]oat\s*[Tt]ype\s*:\s*(.+?)(?:\n|$)', thesis_content
+    )
+    explicit_types = []
+    if explicit:
+        line = explicit.group(1).lower()
+        type_map = {
+            'regulatory': ['regulat', 'certification', 'licens'],
+            'network': ['network'],
+            'brand': ['brand'],
+            'switching_costs': ['switching', 'lock-in', 'embedded', 'sticky'],
+            'IP': ['ip', 'patent', 'proprietary'],
+            'process': ['process', 'operational', 'expertise', 'advisory',
+                        'relationship', 'know-how', 'specializ'],
+            'scale': ['scale', 'cost advantage'],
+        }
+        for mtype, keywords in type_map.items():
+            if any(kw in line for kw in keywords):
+                explicit_types.append(mtype)
+
+    # Pattern-based detection across full text
+    detected = []
+    for mtype, pattern in _MOAT_TYPE_PATTERNS:
+        if pattern.search(thesis_content):
+            if mtype not in detected:
+                detected.append(mtype)
+
+    # Merge: explicit types first, then pattern-detected
+    result = list(explicit_types)
+    for mt in detected:
+        if mt not in result:
+            result.append(mt)
+
+    return result
+
+
+def _has_ai_kc(kill_conditions):
+    """Check if any kill condition mentions AI/automation disruption.
+
+    Returns (bool, list_of_matching_kc_texts).
+    """
+    matches = []
+    for kc in kill_conditions:
+        if _AI_KC_PATTERNS.search(kc['text']):
+            matches.append(kc['text'])
+    return bool(matches), matches
+
+
+def _ai_mentioned_in_thesis(thesis_content):
+    """Check if the thesis discusses AI disruption risk anywhere (not just KCs)."""
+    if not thesis_content:
+        return False
+    # Look for AI discussion in risk/disruption context
+    ai_risk_pattern = re.compile(
+        r'(?:AI|artificial intelligence|machine learning|automation|'
+        r'\bGPT\b|\bLLM\b).*(?:disrupt|risk|threat|replac|eliminat|obsole)|'
+        r'(?:disrupt|risk|threat|replac|eliminat|obsole).*'
+        r'(?:AI|artificial intelligence|machine learning|automation|\bGPT\b|\bLLM\b)',
+        re.IGNORECASE,
+    )
+    return bool(ai_risk_pattern.search(thesis_content))
+
+
+def _classify_ai_risk(moat_types, has_ai_kill_condition, ai_mentioned):
+    """Classify AI disruption risk level.
+
+    HIGH:   process/expertise moat + no AI-KC
+    MEDIUM: partial exposure (process moat with AI-KC, or non-process moat
+            without AI-KC but AI mentioned as risk)
+    LOW:    regulatory/network/brand moat, or has AI-KC already
+    """
+    # Moats more vulnerable to AI disruption
+    vulnerable_moats = {'process', 'scale'}
+    # Moats less vulnerable
+    defensive_moats = {'regulatory', 'network', 'brand', 'switching_costs', 'IP'}
+
+    has_vulnerable = bool(set(moat_types) & vulnerable_moats)
+    has_defensive = bool(set(moat_types) & defensive_moats)
+
+    if has_vulnerable and not has_ai_kill_condition:
+        return 'HIGH'
+    elif has_vulnerable and has_ai_kill_condition:
+        return 'MEDIUM'
+    elif not has_defensive and not has_ai_kill_condition and ai_mentioned:
+        return 'MEDIUM'
+    elif not has_ai_kill_condition and ai_mentioned:
+        return 'MEDIUM'
+    elif has_ai_kill_condition:
+        return 'LOW'
+    elif has_defensive and not ai_mentioned:
+        return 'LOW'
+    else:
+        return 'MEDIUM'
+
+
+def check_ai_disruption_kc():
+    """Scan all active thesis files for AI disruption kill conditions.
+
+    For each active position:
+    - Reads thesis file
+    - Detects moat type(s)
+    - Checks if AI-related kill conditions exist
+    - Classifies AI disruption risk level
+    - Prints summary table with actionable flags
+    """
+    portfolio = load_portfolio()
+    positions = portfolio.get('positions', [])
+
+    if not positions:
+        print("No positions to check.")
+        return
+
+    print()
+    print(f"=== AI DISRUPTION KC CHECK | {TODAY.strftime('%Y-%m-%d')} ===")
+    print()
+
+    rows = []
+    for pos in positions:
+        ticker = pos['ticker']
+        thesis_content = read_thesis(ticker)
+
+        if thesis_content is None:
+            rows.append({
+                'ticker': ticker,
+                'moat_types': [],
+                'has_ai_kc': False,
+                'ai_kc_texts': [],
+                'ai_mentioned': False,
+                'risk': 'UNKNOWN',
+                'notes': 'No thesis file found',
+            })
+            continue
+
+        # Extract kill conditions and check for AI KCs
+        kcs = extract_kill_conditions(thesis_content)
+        has_ai_kc_flag, ai_kc_texts = _has_ai_kc(kcs)
+
+        # Also scan full KC sections for AI terms (some KC text is longer
+        # than what extract_kill_conditions captures in the 'text' field)
+        if not has_ai_kc_flag:
+            # Re-scan the raw KC section text for AI patterns
+            kc_sections_raw = []
+            for m in re.finditer(
+                r'#+\s*(?:Kill Conditions|Updated Kill Conditions|'
+                r'Model Disruption Kill Conditions)[^\n]*\n',
+                thesis_content, re.IGNORECASE
+            ):
+                start = m.end()
+                next_b = re.search(r'\n(?:##\s|---)', thesis_content[start:])
+                end = start + next_b.start() if next_b else len(thesis_content)
+                kc_sections_raw.append(thesis_content[start:end])
+            full_kc_text = '\n'.join(kc_sections_raw)
+            if _AI_KC_PATTERNS.search(full_kc_text):
+                has_ai_kc_flag = True
+                ai_kc_texts = ['(see Model Disruption KCs in thesis)']
+
+        # Detect moat types
+        moat_types = _detect_moat_types(thesis_content)
+
+        # Check if AI risk discussed anywhere
+        ai_mentioned = _ai_mentioned_in_thesis(thesis_content)
+
+        # Classify risk
+        risk = _classify_ai_risk(moat_types, has_ai_kc_flag, ai_mentioned)
+
+        # Build notes
+        notes_parts = []
+        if ai_kc_texts:
+            notes_parts.append(ai_kc_texts[0][:60])
+        elif ai_mentioned and not has_ai_kc_flag:
+            notes_parts.append('AI risk discussed but no KC defined')
+        elif not ai_mentioned:
+            notes_parts.append('No AI risk discussion in thesis')
+
+        rows.append({
+            'ticker': ticker,
+            'moat_types': moat_types,
+            'has_ai_kc': has_ai_kc_flag,
+            'ai_kc_texts': ai_kc_texts,
+            'ai_mentioned': ai_mentioned,
+            'risk': risk,
+            'notes': '; '.join(notes_parts) if notes_parts else '',
+        })
+
+    # Sort: HIGH first, then MEDIUM, then LOW, then UNKNOWN
+    risk_order = {'HIGH': 0, 'MEDIUM': 1, 'LOW': 2, 'UNKNOWN': 3}
+    rows.sort(key=lambda r: risk_order.get(r['risk'], 9))
+
+    # Print table
+    print(f"  {'Ticker':<10} {'Moat Type':<20} {'AI-KC?':<8} {'Risk':<8} {'Notes'}")
+    print("  " + "-" * 100)
+
+    for r in rows:
+        moat_str = '/'.join(r['moat_types'][:3]) if r['moat_types'] else '?'
+        ai_kc_str = 'YES' if r['has_ai_kc'] else 'NO'
+        notes_str = r['notes'][:65] if r['notes'] else ''
+
+        # Risk level marker
+        if r['risk'] == 'HIGH':
+            risk_str = '** HIGH'
+        elif r['risk'] == 'UNKNOWN':
+            risk_str = '?? UNK'
+        else:
+            risk_str = f"   {r['risk']}"
+
+        print(f"  {r['ticker']:<10} {moat_str:<20} {ai_kc_str:<8} {risk_str:<8} {notes_str}")
+
+    print("  " + "-" * 100)
+
+    # Summary
+    high_count = sum(1 for r in rows if r['risk'] == 'HIGH')
+    medium_count = sum(1 for r in rows if r['risk'] == 'MEDIUM')
+    no_kc = [r['ticker'] for r in rows if not r['has_ai_kc'] and r['risk'] != 'UNKNOWN']
+
+    print()
+    print(f"  HIGH: {high_count} | MEDIUM: {medium_count} | LOW: {len(rows) - high_count - medium_count}")
+    if no_kc:
+        print(f"  Positions needing AI disruption KC: {', '.join(no_kc)}")
+    else:
+        print(f"  All positions have AI disruption KCs.")
+
+    print()
+    print("[Raw data. AI disruption risk context for thesis review.]")
+
+
+# ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 
@@ -773,7 +1061,12 @@ def main():
     parser = argparse.ArgumentParser(description='Thesis Monitor - Automated thesis assumption checker')
     parser.add_argument('--alerts', action='store_true', help='Only show alerts section')
     parser.add_argument('--ticker', nargs='+', help='Monitor specific ticker(s)')
+    parser.add_argument('--ai-kc', action='store_true', help='AI disruption kill condition check across all active positions')
     args = parser.parse_args()
+
+    if args.ai_kc:
+        check_ai_disruption_kc()
+        return
 
     portfolio = load_portfolio()
     positions = portfolio.get('positions', [])

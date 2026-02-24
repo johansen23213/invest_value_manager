@@ -12,21 +12,11 @@ events:
   # MONY.L FY2025: COMPLETED Feb 23. BASE+ case. Rev £446.3M (+2%), EBITDA £145.1M record (beat). Insurance -1%. All KCs PASS. OpenAI partnership + ChatGPT app = KC#9 cleared. 60-day probation continues, exit 130p, review Apr 25.
   # ENEL.MI CMD: COMPLETED Feb 23. Plan 2026-28: €53B capex (+€10B), EPS €0.69→€0.80-82 (6% CAGR), DPS €0.49 +6% CAGR, €1B buyback, 90% EBITDA regulado. Incremental, no transformacional. No posicion, no entry a estos niveles.
 
-  # EARNINGS WEEK FEB 24-26
+  # COMPLETED FEB 24
+  # EDEN.PA FY2025: COMPLETED Feb 24. NEAR-BULL. EBITDA EUR 1,360M (+1.3% beat), FCF EUR 1,111M (+25% beat). All KCs clear. 2027-28 confirmed. HOLD, conviction strengthened.
+  # UTG.L FY2025: COMPLETED Feb 24. DISAPPOINTING. Occupancy 95.2% (from 97.5%), FY2026 EPS guided -9/-13%, reservations weakening. Stock -8%. PASS — not advancing pipeline.
 
-  - date: 2026-02-24
-    type: earnings
-    ticker: EDEN.PA
-    event: "EDEN.PA FY2025 Results"
-    priority: high
-    action: "Framework ready. See thesis/active/EDEN.PA/earnings_framework_feb2026.md"
-
-  - date: 2026-02-24
-    type: earnings
-    ticker: UTG.L
-    event: "Unite Group FY2025 Preliminary Results"
-    priority: high
-    action: "Watch occupancy FY2027 reservations, Empiric synergies."
+  # EARNINGS WEEK FEB 25-26
 
   - date: 2026-02-25
     type: watchlist_review

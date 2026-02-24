@@ -325,32 +325,32 @@ EARNINGS FEB 24
 
 ## SECCION 9: DECISION FINAL
 
-### Recomendacion: **HOLD / WAIT FOR EARNINGS FEB 24**
+### Recomendacion: **HOLD -- Post FY2025 NEAR-BULL**
 
 **Razonamiento desde principios (Framework v4.0):**
 
-1. **Principio 6 (Vender requiere argumento):** No hay kill condition triggered. La tesis esta DEBILITADA por el decreto Brasil pero NO INVALIDADA. El 90.5% del negocio sigue intacto. Vender ahora seria vender en el punto de maxima incertidumbre, con earnings en 18 dias que clarificaran materialmente.
+1. **Principio 6 (Vender requiere argumento):** No hay kill condition triggered. FY2025 results confirmed NEAR-BULL scenario (EBITDA EUR 1,360M, FCF EUR 1,111M = +25% beat). Zero kill conditions triggered. Thesis STRENGTHENED by execution quality.
 
-2. **Principio 5 (QS como input):** QS 62 (Tier B), sin cambio. Precedentes de Tier B aceptan MoS de 20-25%. Incluso vs Bear case, nuestro MoS es 34.7% -- bien por encima.
+2. **Principio 5 (QS como input):** QS 62 (Tier B), sin cambio. Precedentes de Tier B aceptan MoS de 20-25%. At EUR 18.98, MoS vs adversarial FV EUR 29.0 = 34.5% -- well above precedent.
 
-3. **Principio 1 (Sizing por conviccion):** Posicion ~4% del portfolio. Si EDEN cae 50% adicional (a EUR ~9), perdemos ~2% del portfolio. Aceptable para Tier B con tesis debilitada pero intacta.
+3. **Principio 1 (Sizing por conviccion):** Posicion ~4% del portfolio. Conviction upgraded from MEDIUM to MEDIUM-HIGH post-earnings. Management delivered near-bull EBITDA and massive FCF beat. 2027-28 guidance confirmed.
 
 4. **Precedentes consultados (decisions_log.yaml):**
    - SHEL.L HOLD post-earnings con MoS -5% y tesis debilitada: HOLD decision
    - TEP.PA HOLD pre-earnings con MoS 38-51%: HOLD decision
-   - EDEN tiene mejor MoS que ambos precedentes, misma logica aplica
+   - EDEN has stronger MoS than both precedents AND thesis was just CONFIRMED by results
 
 **NO ADD porque:**
-- Conviccion reducida por decreto Brasil (de 70% a 60%)
-- Earnings Feb 24 proporcionara informacion material
-- Mejor esperar claridad antes de aumentar exposicion
+- Capital better deployed elsewhere (NVO E[CAGR] 34.1% vs EDEN 21.8%)
+- 2026 rebasing year (-8/-12%) still ahead -- patience warranted
+- Wait for confirmation that 2026 trough plays out as guided
 
 **NO TRIM/SELL porque:**
-- No kill condition triggered
-- MoS sustancial incluso en Bear (34.7%)
-- Posicion ya pequena (~4%)
-- Injunction activa es catalizador positivo
-- Vender antes de earnings = vender con maxima incertidumbre
+- No kill condition triggered (ZERO of 12)
+- MoS sustancial at 34.5% vs adversarial FV
+- FCF generation exceptional (82% conversion)
+- Net Debt/EBITDA improved to 0.9x (well below 3.0x KC)
+- 2027-28 recovery guidance CONFIRMED
 
 ### Targets Actualizados (v3.0)
 
@@ -395,6 +395,7 @@ EARNINGS FEB 24
 | 2.0 | 2026-02-03 | Re-evaluation Framework v2.0. WACC derivado, segundo metodo. FV EUR 51.5 |
 | 3.0 | 2026-02-06 | URGENT review: Brazil decree. FV reducido a EUR 38.4 expected. 2026 guidance -8/-12%. Kill conditions expandidas. Status HOLD pre-earnings Feb 24 |
 | **4.0** | **2026-02-07** | **Adversarial review. FV revised EUR 38.4 → EUR 29.0 (-24.5%). Italy EUR 120M/yr NOT in FV calculation. Brazil 19% not 9.5%. Kill conditions: 7 → 10. Conviction MEDIUM.** |
+| **5.0** | **2026-02-24** | **Post-earnings FY2025 addendum. NEAR-BULL results (EBITDA 1,360M, FCF +25% beat). Zero KCs triggered. FV EUR 29.0 MAINTAINED. Conviction MEDIUM → MEDIUM-HIGH. Net Debt/EBITDA 0.9x.** |
 
 ---
 
@@ -442,6 +443,58 @@ EARNINGS FEB 24
 ### Model Disruption Kill Conditions (added 2026-02-11)
 11. **Digital wallets eliminate meal voucher model** — If Apple Pay/Google Wallet or a fintech launches employer-subsidized meal payments directly via wallet (bypassing Edenred's closed-loop network) AND captures >15% of any market where Edenred operates, the intermediation model is broken. The moat IS the closed network; direct wallet payments destroy it. Monitor: Apple/Google employer benefit partnerships, fintech meal benefit startups.
 12. **Corporate expense platforms absorb Edenred's mobility/corporate payments** — If Brex, Ramp, SAP Concur, or similar expand to cover meal+mobility+corporate benefits in a single platform with >10% penetration in France or LATAM, Edenred's multi-product bundle loses cross-sell advantage. Monitor: corporate card platform expansion into benefits.
+
+---
+
+## POST-EARNINGS FY2025 ADDENDUM (2026-02-24)
+
+> **Trigger:** FY2025 results released 24 Feb 2026
+> **Price at review:** EUR 18.98
+
+### FY2025 Results Summary
+
+| Metric | Consensus | Actual | vs Consensus | Scenario |
+|--------|-----------|--------|--------------|----------|
+| EBITDA | EUR 1,342M | **EUR 1,360M** | **+1.3% beat** | NEAR-BULL (Bull was EUR 1,370M) |
+| FCF | EUR 888M | **EUR 1,111M** | **+25.1% MASSIVE beat** | ABOVE-BULL |
+| FCF/EBITDA | ~70% target | **82%** | +12pp | Exceptional conversion |
+| Adjusted EPS | -- | **EUR 2.59** | Record (+10% YoY) | -- |
+| DPS | -- | **EUR 1.33** | +10% YoY, beat consensus | -- |
+| Net Debt/EBITDA | ~1.4x prior | **0.9x** | Dramatic improvement | Well below 3.0x KC |
+
+### Kill Conditions Check (ZERO triggered)
+
+| KC | Status | Evidence |
+|----|--------|----------|
+| 1. Francia caps | OK | No regulation announced |
+| 2. ND/EBITDA >3.0x | **CLEAR** | 0.9x -- best level in years |
+| 3. FCF <50% 2yr | **CLEAR** | 82% conversion |
+| 4. Dividend cut | **CLEAR** | DPS +10% to EUR 1.33 |
+| 5. Share loss >5pp | OK | No evidence |
+| 6. 2027-28 guidance <5% | **CLEAR** | +8/+12% CONFIRMED |
+| 7. Brasil + spreads | MONITORING | Italy 5% cap impact ~EUR 120M as expected |
+| 8. 3rd market regulation | OK | No new markets |
+| 9. Credit downgrade | OK | Balance IMPROVED |
+| 10. 2027-28 delivered <3% | N/A | Not yet in period |
+| 11. Digital wallet disruption | OK | No material threat |
+| 12. Corporate platform absorption | OK | No material threat |
+
+### Guidance & Forward View
+
+- **2026 guidance: EBITDA -8/-12% UNCHANGED** -- rebasing year as expected (Italy 5% cap + Brazil decree)
+- **2027-28 target: +8/+12% CONFIRMED** -- KEY thesis anchor remains INTACT
+- Italy 5% cap impact ~EUR 120M quantified and absorbed
+- No fraud investigation escalation
+
+### Decision
+
+**HOLD. FV EUR 29.0 MAINTAINED (adversarial).** Conviction upgraded from MEDIUM to **MEDIUM-HIGH**.
+
+At EUR 18.98: MoS 34.5% vs adversarial FV. E[CAGR] 21.8%.
+
+No ADD recommended -- capital better deployed elsewhere (NVO E[CAGR] 34.1% offers superior risk-adjusted return). 2026 rebasing year still ahead; patience warranted before increasing position.
+
+Full post-earnings assessment: `thesis/active/EDEN.PA/post_earnings_fy2025.md`
 
 ---
 

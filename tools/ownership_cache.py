@@ -149,13 +149,21 @@ def fetch_ticker(ticker, top_funds=10, max_insiders=15):
                     else:
                         txn_type = 'OTHER'
 
+                    # Extract position/title and value
+                    position = str(row.get('Position', row.get('position', '')))
+                    if position == 'nan' or not position:
+                        position = ''
+                    value = row.get('Value', row.get('value', 0))
+
                     if name and name != 'nan':
                         entry['insiders'].append({
                             'name': name,
+                            'title': position[:50],
                             'type': txn_type,
                             'shares': int(shares) if shares else 0,
+                            'value': float(value) if value and str(value) != 'nan' else 0,
                             'date': date_val[:10] if date_val and date_val != 'nan' else '',
-                            'text': text[:60],
+                            'text': text[:80],
                         })
         except Exception:
             pass

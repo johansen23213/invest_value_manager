@@ -7,7 +7,7 @@
 # =============================================================================
 
 cash:
-  amount: 5755  # Updated 2026-02-20. Post-MORN BUY (-EUR 396).
+  amount: 5558  # Updated 2026-02-24. Post-NVO ADD 6 shares (-EUR 197).
   currency: EUR
 
 positions:
@@ -88,16 +88,16 @@ positions:
 
   - ticker: NVO
     name: "Novo Nordisk A/S"
-    shares: 8.31
-    invested_usd: 400.00
-    avg_cost_usd: 48.13  # 400 / 8.31
+    shares: 14.31
+    invested_usd: 632.56
+    avg_cost_usd: 44.21  # 632.56 / 14.31
     date_opened: 2026-02-05
     conviction: medium
-    exit_plan: "HOLD through CagriSema H2H data (March 2026). ADD if CagriSema positive OR price <=$40. SELL if CagriSema inferior + FY2026 guidance miss >10%. TRIM at $80+."
+    exit_plan: "HOLD through CagriSema H2H data (March 2026). ADD phase complete (8.31→14.31 shares). SELL if CagriSema inferior + FY2026 guidance miss >10%. TRIM at $80+."
     fair_value: "$66 (v3.0. QS Tool 73, Adj 73 Tier B. OEY+DCF+Reverse DCF weighted.)"
-    last_review: 2026-02-05
+    last_review: 2026-02-24
     thesis: thesis/active/NVO/thesis.md
-    notes: "Framework v3.0 validation. QS Tool 73, Thesis 82, Adj 73 Tier B. MoS 38% at entry. Phased entry 4%. CagriSema March = BINARY catalyst."
+    notes: "ADD executed 2026-02-24: +6 shares @ $38.76 ($232.56). Total 14.31 shares, avg $44.21. Position ~4%→~6%. CagriSema March = BINARY catalyst. Original entry $48.13 (Feb 5). Framework v3.0 validation. QS Tool 73, Adj 73 Tier B."
 
   - ticker: MONY.L
     name: "Mony Group PLC"
@@ -586,3 +586,11 @@ transactions:
     price_usd: 160.76
     total_usd: 466.20
     notes: "BUY - FIRST E[CAGR]-framework market buy (new precedent). QS 78 Tier A. FV $195. MoS 17% (below historical 29-38%, justified by E[CAGR] 15.6% >> 12% threshold). 46% insider. Zero portfolio overlap. Financial data/analytics. SO at $150 replaced by market execution."
+
+  - date: 2026-02-24
+    action: ADD
+    ticker: NVO
+    shares: 6
+    price_usd: 38.76
+    total_usd: 232.56
+    notes: "ADD - CagriSema positive gate triggered (price <=$40 condition met). 8.31→14.31 shares. Avg cost $48.13→$44.21. Position ~4%→~6%. MoS 41% at $38.76 vs FV $66. QS 73 Tier B. CagriSema H2H data March = key catalyst."

@@ -8,7 +8,7 @@
 # Creado: 2026-02-05 | Framework v4.0
 
 version: "4.0"
-last_updated: 2026-02-20
+last_updated: 2026-02-24
 
 # =============================================================================
 # DECISIONES DE SIZING (BUY/ADD)
@@ -197,6 +197,33 @@ sizing_decisions:
       Si cae 50%, pierdo 2.0% del portfolio — aceptable para Tier A at this sizing.
       KEY: This sets precedent for E[CAGR]-justified market buys when MoS < historical range.
     outcome: "Pendiente - posición recién abierta. Monitor Q1 2026 earnings (~April)."
+
+  - date: 2026-02-24
+    ticker: NVO
+    action: ADD
+    sizing: "from ~2.7% to ~4.7%"
+    context:
+      quality_score: 73
+      tier: B
+      mos: "41.3%"
+      ecagr_3yr: "34.1%"
+      price_vs_52w: "-62% from high, standing order leg triggered"
+      conviction: "Medium"
+      macro: "Healthcare defensive, GLP-1 competition intensifying"
+      framework: "Standing order price leg ($38.76 < $40 trigger)"
+    reasoning: |
+      Standing order price leg triggered ($38.76 < $40). E[CAGR] 34.1% = highest in portfolio.
+      MoS 41.3% vs Tier B precedent 20-25% — EXCEPTIONAL margin of safety for this tier.
+      Position increases from ~2.7% to ~4.7% — coherent with medium conviction Tier B.
+      CagriSema March binary catalyst still ahead; ADD justified at this valuation regardless
+      of CagriSema outcome because MoS alone provides sufficient downside protection.
+      Constraint check passed (50% drop = -2.3% portfolio impact).
+      Original entry $48.13 (Session 52, Feb 5). MORN market buy Session 101 at E[CAGR] 15.6%
+      established E[CAGR] framework precedent — NVO ADD at 34.1% E[CAGR] is well above threshold.
+      6 shares at $38.76 = $232.56 (~EUR 197). Total position 14.31 shares, avg $44.21.
+      Principios applied: P1 (sizing coherent with conviction — if NVO drops 50%, -2.3% portfolio
+      is acceptable), P5 (QS 73 Tier B, adequate quality), P14 (deploying capital vs cash drag).
+    outcome: "Pendiente. Monitor CagriSema H2H data March 2026. TRIM at $80+."
 
 # =============================================================================
 # DECISIONES DE TRIM/SELL

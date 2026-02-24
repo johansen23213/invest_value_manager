@@ -159,20 +159,9 @@ standing_orders:
     last_analysis_date: 2026-02-20
     expiry: 2026-10-01
 
-  - ticker: NVO
-    action: ADD
-    category: GATED
-    fill_prob_6m: 25
-    trigger: "CagriSema positive (March 2026) OR price <=$40"
-    current_distance: "conditional"
-    gate: "CagriSema H2H data March 2026"
-    size_eur: 300
-    shares_approx: 6
-    fair_value: "$66"
-    mos_at_trigger: "40%+ at $40"
-    notes: "ADD to 8.31 shares. Brings position 4%→6-7%."
-    last_analysis_date: 2026-02-05
-    expiry: 2026-06-01
+  # NVO ADD — EXECUTED 2026-02-24. Price <=$40 gate triggered ($38.76).
+  # +6 shares @ $38.76 = $232.56. Total 14.31 shares (was 8.31). Avg cost $44.21.
+  # Position ~4%→~6%. MoS 41% at execution price vs FV $66.
 
   - ticker: BYIT.L
     action: ADD
@@ -411,11 +400,12 @@ review_flags:
   # Trigger lowered $300→$285. FV revised $385→$365. See thesis/research/ROP/review_feb2026.md
 
 # =============================================================================
-# SO SUMMARY (Session 102, 2026-02-20)
+# SO SUMMARY (Updated 2026-02-24)
 # ACTIVE:     7 (RACE.MI BUY 3.8%, IHP.L 5.0%, DNLM.L 3.3%, ACGL 10.5%,
 #              RACE.MI ADD 12%, GL ADD 13.2%, MRSH 13.3%)
-# GATED:     11 (+STMN.SW: NVO, BYIT.L, ROP, FDS, VLTO, DSY.PA, KNSL, SOON.SW, EEFT, MEGP.L, STMN.SW)
+# GATED:     10 (STMN.SW, BYIT.L, ROP, FDS, VLTO, DSY.PA, KNSL, SOON.SW, EEFT, MEGP.L)
+#              NVO ADD EXECUTED 2026-02-24
 # BORDERLINE: 1 (V 18.5%)
 # EXTREME:    4 (MA, PAYC, ZTS, V_ADD)
-# TOTAL:     23 (19 standing + 4 extreme)
+# TOTAL:     22 (18 standing + 4 extreme)
 # =============================================================================

@@ -171,6 +171,15 @@ MoS vs Bear Case = ___%
 2. ___
 3. ___
 
+**AI/Automation Disruption Kill Condition:**
+_Required for stocks with process-dependent or expertise-based moats (not regulatory/network)._
+| Aspect | Assessment |
+|--------|------------|
+| Moat type | [regulatory / network / brand / switching / process / scale / IP] |
+| AI vulnerability | [HIGH: process/scale moat / MEDIUM: mixed / LOW: regulatory/network] |
+| AI disruption KC | [e.g., "AI tool replaces >30% of service value within 2 years" or "N/A - regulatory moat"] |
+| Monitoring signal | [what to watch: competitor AI launches, customer self-serve adoption, margin compression from AI alternatives] |
+
 ---
 
 ### 8. Catalizadores

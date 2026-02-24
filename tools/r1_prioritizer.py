@@ -12,6 +12,11 @@ When R1_COMPLETE count >= 20 in the universe, auto-filters to distance_to_entry
 Shows E[CAGR] column for companies with FV + entry_price defined:
   E[CAGR] = (FV/entry)^(1/3) - 1 + dividend_yield
 
+Insider signal tiers:
+  INS-STRONG(N C-suite, $XM) — C-suite discretionary buys >$200K with cluster (2+ people)
+  INS-BULL(+N)               — Basic bullish: more buys than sells
+  INS-BEAR(-N)               — Basic bearish: more sells than buys
+
 Usage:
   python3 tools/r1_prioritizer.py                       # Top 10 candidates
   python3 tools/r1_prioritizer.py --top 20               # Top 20
@@ -51,6 +56,16 @@ ETORO_UNAVAILABLE = {
 
 # UK tickers: .L suffix. Already 5 UK positions = concentration risk
 UK_SUFFIX = ".L"
+
+# C-suite title keywords for enhanced insider signal detection
+_CSUITE_KEYWORDS = [
+    'chief', 'ceo', 'cfo', 'coo', 'cto', 'cio',
+    'president', 'director', 'officer', 'chairman', 'vp',
+    'vice president', 'general counsel', 'secretary',
+]
+
+# Minimum value threshold for a "high conviction" insider buy (USD)
+_HIGH_VALUE_THRESHOLD = 200_000
 
 
 def load_universe():
@@ -431,6 +446,157 @@ def compute_ecagr_at_market(fair_value, current_price, div_yield_pct):
     return round(ecagr, 1)
 
 
+def compute_enhanced_insider_signal(insiders):
+    """Analyze insider transactions to distinguish STRONG vs basic signals.
+
+    Enhanced signal tiers:
+      INS-STRONG: C-suite discretionary buys >$200K AND 2+ distinct buyers (cluster)
+      INS-BULL:   Basic bullish (buys > sells, but not strong)
+      INS-BEAR:   Basic bearish (sells > buys)
+
+    Args:
+        insiders: list of insider transaction dicts from ownership_cache.
+                  Each has: name, title, type, shares, value, date, text.
+
+    Returns:
+        dict with keys:
+          - ins_net: int (buys - sells)
+          - ins_signal: str ('STRONG', 'BULLISH', 'BEARISH', 'NEUTRAL', 'BB+', 'CAUTIOUS')
+          - strong_count: int (number of C-suite high-value buys)
+          - strong_total_value: float (total $ of strong buys)
+          - cluster_size: int (distinct buyer names)
+    """
+    if not insiders:
+        return {
+            'ins_net': 0, 'ins_signal': 'NEUTRAL',
+            'strong_count': 0, 'strong_total_value': 0.0, 'cluster_size': 0,
+        }
+
+    buys = sum(1 for i in insiders if i.get('type') == 'BUY')
+    sells = sum(1 for i in insiders if i.get('type') == 'SELL')
+    buybacks = sum(1 for i in insiders if i.get('type') == 'BUYBACK')
+    net = buys - sells
+
+    # Identify strong buys: C-suite + high value
+    strong_buys = []
+    for ins in insiders:
+        if ins.get('type') != 'BUY':
+            continue
+        title = (ins.get('title') or '').lower()
+        value = ins.get('value') or 0
+        is_csuite = any(kw in title for kw in _CSUITE_KEYWORDS)
+        is_high_value = value and value > _HIGH_VALUE_THRESHOLD
+        if is_csuite and is_high_value:
+            strong_buys.append(ins)
+
+    strong_count = len(strong_buys)
+    strong_total_value = sum(ins.get('value', 0) for ins in strong_buys)
+
+    # Cluster signal: count distinct buyer names
+    buy_names = set(
+        ins.get('name', '').strip()
+        for ins in insiders
+        if ins.get('type') == 'BUY' and ins.get('name', '').strip()
+    )
+    cluster_size = len(buy_names)
+
+    # Determine signal tier
+    # STRONG: has C-suite high-value buys AND cluster (2+ different buyers)
+    if strong_count > 0 and cluster_size >= 2:
+        signal = 'STRONG'
+    elif buys > 0 and net > 0:
+        signal = 'BULLISH'
+    elif net == 0 and buybacks > 0:
+        signal = 'BB+'
+    elif net == 0 or not insiders:
+        signal = 'NEUTRAL'
+    elif net >= -2:
+        signal = 'CAUTIOUS'
+    else:
+        signal = 'BEARISH'
+
+    return {
+        'ins_net': net,
+        'ins_signal': signal,
+        'strong_count': strong_count,
+        'strong_total_value': strong_total_value,
+        'cluster_size': cluster_size,
+    }
+
+
+def _format_value_short(value):
+    """Format dollar value as compact string: $1.2M, $450K, etc."""
+    if not value or value <= 0:
+        return "$0"
+    if value >= 1_000_000:
+        return f"${value / 1_000_000:.1f}M"
+    elif value >= 1_000:
+        return f"${value / 1_000:.0f}K"
+    else:
+        return f"${value:.0f}"
+
+
+def _load_ownership_signals(cache):
+    """Build ownership_signals dict from ownership cache data.
+
+    Uses enhanced insider signal computation with C-suite/value/cluster analysis.
+    Returns dict: ticker -> {qf, ins_net, ins_signal, strong_count, strong_total_value, cluster_size}
+    """
+    from ownership_cache import get_quality_funds
+
+    ownership_signals = {}
+    if not cache:
+        return ownership_signals
+
+    qf = get_quality_funds(cache, min_stocks=2)
+    qf_names = set(name for name, _ in qf)
+
+    for tk, td in cache.items():
+        holders = td.get('holders', [])
+        qf_count = sum(
+            1 for h in holders
+            if h.get('name', '') in qf_names and not h.get('is_indexer', False)
+        )
+        insiders = td.get('insiders', [])
+        enhanced = compute_enhanced_insider_signal(insiders)
+        ownership_signals[tk] = {
+            'qf': qf_count,
+            **enhanced,
+        }
+
+    return ownership_signals
+
+
+def _append_insider_flags(flags, sig):
+    """Append ownership/insider flags to a flags list based on signal data.
+
+    Handles the three-tier insider signal display:
+      INS-STRONG(N C-suite, $XM) — C-suite cluster buys
+      INS-BULL(+N)               — basic bullish
+      INS-BEAR(-N)               — basic bearish
+    Also appends SMART-MONEY / QF-1 for quality fund presence.
+    """
+    if not sig:
+        return
+
+    # Quality fund flags
+    if sig['qf'] >= 2:
+        flags.append(f"SMART-MONEY({sig['qf']}QF)")
+    elif sig['qf'] == 1:
+        flags.append("QF-1")
+
+    # Insider signal flags (three-tier)
+    signal = sig.get('ins_signal', 'NEUTRAL')
+    if signal == 'STRONG':
+        sc = sig.get('strong_count', 0)
+        sv = _format_value_short(sig.get('strong_total_value', 0))
+        flags.append(f"INS-STRONG({sc} C-suite, {sv})")
+    elif signal == 'BEARISH':
+        flags.append(f"INS-BEAR({sig['ins_net']:+d})")
+    elif signal == 'BULLISH':
+        flags.append(f"INS-BULL({sig['ins_net']:+d})")
+
+
 def show_advancement_pipeline(companies, near_entry_only=False):
     """Show R1_COMPLETE candidates organized by deployment readiness.
 
@@ -486,18 +652,12 @@ def show_advancement_pipeline(companies, near_entry_only=False):
     # Load ownership cache for smart money flags (zero API calls)
     ownership_signals = {}
     try:
-        from ownership_cache import load_cache, get_latest_cache, get_quality_funds, get_insider_sentiment
+        from ownership_cache import load_cache, get_latest_cache
         ocache = load_cache()
         if not ocache:
             ocache, _ = get_latest_cache()
         if ocache:
-            qf = get_quality_funds(ocache, min_stocks=2)
-            qf_names = set(name for name, _ in qf)
-            for tk, td in ocache.items():
-                holders = td.get('holders', [])
-                qf_count = sum(1 for h in holders if h.get('name', '') in qf_names and not h.get('is_indexer', False))
-                _, _, _, _, net, signal = get_insider_sentiment(ocache, tk)
-                ownership_signals[tk] = {'qf': qf_count, 'ins_net': net, 'ins_signal': signal}
+            ownership_signals = _load_ownership_signals(ocache)
     except ImportError:
         pass
 
@@ -538,9 +698,9 @@ def show_advancement_pipeline(companies, near_entry_only=False):
 
     def _get_status(ticker):
         if ticker in continuity_r3:
-            return "R3 DONE → R4"
+            return "R3 DONE -> R4"
         elif ticker in continuity_r2:
-            return "R2 DONE → R3"
+            return "R2 DONE -> R3"
         else:
             return "needs R2"
 
@@ -549,11 +709,17 @@ def show_advancement_pipeline(companies, near_entry_only=False):
             print(f"\n{label}: None")
             return
 
-        # Sort by E[CAGR]-at-market descending (best opportunities first), then QS
-        items.sort(key=lambda c: (
-            -(ecagr_market.get(c["ticker"]) or -999),
-            -(c.get("qs_adj") or c.get("qs_tool") or 0),
-        ))
+        # Sort by E[CAGR]-at-market descending (best opportunities first), then QS,
+        # with INS-STRONG boost: items with INS-STRONG sort slightly higher (secondary tiebreak)
+        def _adv_sort_key(c):
+            ecagr_val = ecagr_market.get(c["ticker"]) or -999
+            qs_val = c.get("qs_adj") or c.get("qs_tool") or 0
+            # INS-STRONG boost: treated as +0.5 to E[CAGR] for sort only
+            sig = ownership_signals.get(c["ticker"])
+            ins_boost = 0.5 if sig and sig.get('ins_signal') == 'STRONG' else 0.0
+            return (-(ecagr_val + ins_boost), -qs_val)
+
+        items.sort(key=_adv_sort_key)
 
         print(f"\n{label} ({len(items)}):")
         print(f"{'#':>2} {'Ticker':<14} {'QS':>3} {'Tier':>4} {'Sector':<20} {'Dist%':>7} {'E[CAGR]@mkt':>12} {'Verdict':<12} {'Status'}")
@@ -576,25 +742,26 @@ def show_advancement_pipeline(companies, near_entry_only=False):
             if gate:
                 status += f" (GATE: {gate[:30]})"
 
-            # Smart money / insider flags
+            # Smart money / insider flags (enhanced three-tier)
             sig = ownership_signals.get(ticker)
             if sig:
-                if sig['qf'] >= 2:
-                    status += f" SMART-MONEY({sig['qf']}QF)"
-                elif sig['qf'] == 1:
-                    status += " QF-1"
-                if sig['ins_signal'] == 'BEARISH':
-                    status += f" INS-BEAR({sig['ins_net']:+d})"
-                elif sig['ins_signal'] == 'BULLISH':
-                    status += f" INS-BULL({sig['ins_net']:+d})"
+                status_flags = []
+                _append_insider_flags(status_flags, sig)
+                if status_flags:
+                    status += " " + " ".join(status_flags)
+
+            # Data quality flags (goodwill, missing data)
+            gw = c.get("goodwill_pct")
+            if gw is not None and gw > 0.40:
+                status += f" HIGH-GW({gw*100:.0f}%)"
 
             print(f"{i:>2} {ticker:<14} {qs:>3} {tier:>4} {sector:<20} {dist_str:>7} {ecagr_str:>12} {verdict:<12} {status}")
 
-    _print_section("SECTION A — READY FOR ADVANCEMENT (dist<=20% OR E[CAGR]>=threshold)", section_a)
-    _print_section("SECTION B — APPROACHING (dist 20-35%)", section_b)
+    _print_section("SECTION A -- READY FOR ADVANCEMENT (dist<=20% OR E[CAGR]>=threshold)", section_a)
+    _print_section("SECTION B -- APPROACHING (dist 20-35%)", section_b)
 
     if section_c:
-        print(f"\nSECTION C — PARKED ({len(section_c)} companies, dist>35% or no data):")
+        print(f"\nSECTION C -- PARKED ({len(section_c)} companies, dist>35% or no data):")
         # Just show count + top 5 by QS for reference
         section_c.sort(key=lambda c: -(c.get("qs_adj") or c.get("qs_tool") or 0))
         for c in section_c[:5]:
@@ -602,7 +769,11 @@ def show_advancement_pipeline(companies, near_entry_only=False):
             dist = c.get("distance_to_entry")
             dist_str = f"{dist:+.1f}%" if dist is not None else "N/A"
             verdict = c.get("r1_verdict", "?")
-            print(f"  {c['ticker']:<14} QS {qs:>3} {dist_str:>7} {verdict}")
+            extra = ""
+            gw = c.get("goodwill_pct")
+            if gw is not None and gw > 0.40:
+                extra = f" HIGH-GW({gw*100:.0f}%)"
+            print(f"  {c['ticker']:<14} QS {qs:>3} {dist_str:>7} {verdict}{extra}")
         if len(section_c) > 5:
             print(f"  ... and {len(section_c) - 5} more")
 
@@ -650,21 +821,15 @@ def main():
     earnings = load_earnings_tickers(30)
     stale_sectors = get_stale_sector_views()
 
-    # Load ownership cache for smart money flags (zero API calls)
+    # Load ownership cache for smart money + enhanced insider flags (zero API calls)
     ownership_signals = {}
     try:
-        from ownership_cache import load_cache, get_latest_cache, get_quality_funds, get_insider_sentiment
+        from ownership_cache import load_cache, get_latest_cache
         cache = load_cache()
         if not cache:
             cache, _ = get_latest_cache()
         if cache:
-            qf = get_quality_funds(cache, min_stocks=2)
-            qf_names = set(name for name, _ in qf)
-            for ticker_key, data in cache.items():
-                holders = data.get('holders', [])
-                qf_count = sum(1 for h in holders if h.get('name', '') in qf_names and not h.get('is_indexer', False))
-                _, _, _, _, net, signal = get_insider_sentiment(cache, ticker_key)
-                ownership_signals[ticker_key] = {'qf': qf_count, 'ins_net': net, 'ins_signal': signal}
+            ownership_signals = _load_ownership_signals(cache)
     except ImportError:
         pass
 
@@ -786,17 +951,13 @@ def main():
             elif price_vs_fv > 1.25:
                 flags.append(f"EXPENSIVE({price_vs_fv:.0%})")
 
-        # Smart money / insider signals (from ownership cache)
-        sig = ownership_signals.get(c["ticker"])
-        if sig:
-            if sig['qf'] >= 2:
-                flags.append(f"SMART-MONEY({sig['qf']}QF)")
-            elif sig['qf'] == 1:
-                flags.append("QF-1")
-            if sig['ins_signal'] == 'BEARISH':
-                flags.append(f"INS-BEAR({sig['ins_net']:+d})")
-            elif sig['ins_signal'] == 'BULLISH':
-                flags.append(f"INS-BULL({sig['ins_net']:+d})")
+        # High goodwill warning (ROIC may be overstated)
+        gw = c.get("goodwill_pct")
+        if gw is not None and gw > 0.40:
+            flags.append(f"HIGH-GW({gw*100:.0f}%)")
+
+        # Smart money / insider signals (enhanced three-tier from ownership cache)
+        _append_insider_flags(flags, ownership_signals.get(c["ticker"]))
 
         # Stale score warning
         last_scored = c.get("last_scored")
@@ -875,7 +1036,7 @@ def main():
         fantasy_verdicts = sum(1 for c in r1_complete_all if c.get("r1_verdict") in ("OVERVALUED", "FANTASY"))
         fantasy_rate = fantasy_verdicts / len(r1_complete_all) * 100
         rate_label = "ALARM" if fantasy_rate > 50 else "OK"
-        print(f"\nFANTASY RATE: {fantasy_rate:.0f}% ({fantasy_verdicts}/{len(r1_complete_all)} R1s → OVERVALUED/FANTASY) [{rate_label}]")
+        print(f"\nFANTASY RATE: {fantasy_rate:.0f}% ({fantasy_verdicts}/{len(r1_complete_all)} R1s -> OVERVALUED/FANTASY) [{rate_label}]")
         if fantasy_rate > 50:
             print("  WARNING: >50%. Use --exclude-fantasy-risk or --near-entry-only or --pre-flight to focus.")
 

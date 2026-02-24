@@ -11,32 +11,51 @@
   #legend {
     position: fixed; left: 16px; bottom: 16px;
     background: rgba(22, 22, 40, 0.92); border: 1px solid #333;
-    border-radius: 8px; padding: 16px 20px; font-size: 12px;
-    min-width: 190px; z-index: 10; backdrop-filter: blur(8px);
+    border-radius: 8px; padding: 14px 18px; font-size: 11px;
+    min-width: 200px; z-index: 10; backdrop-filter: blur(8px);
   }
-  #legend h3 { font-size: 14px; margin-bottom: 10px; color: #fff; }
-  #legend .section { margin-bottom: 8px; }
-  #legend .section-title { font-weight: 600; color: #aaa; margin-bottom: 4px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; }
-  #legend .item { display: flex; align-items: center; gap: 8px; margin: 3px 0; }
-  #legend .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
-  #legend .diamond { width: 10px; height: 10px; transform: rotate(45deg); display: inline-block; }
-  #legend .triangle { width: 0; height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent; border-bottom: 10px solid; display: inline-block; }
-  #legend .line { width: 20px; height: 2px; display: inline-block; border-radius: 1px; }
+  #legend h3 { font-size: 13px; margin-bottom: 8px; color: #fff; }
+  .section { margin-bottom: 6px; }
+  .section-title { font-weight: 600; color: #aaa; margin-bottom: 3px; font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .item { display: flex; align-items: center; gap: 6px; margin: 2px 0; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+  .diamond { width: 9px; height: 9px; transform: rotate(45deg); display: inline-block; }
+  .tri { width: 0; height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent; border-bottom: 9px solid; display: inline-block; }
+  .line { width: 18px; height: 0; display: inline-block; border-radius: 1px; }
 
   #tooltip {
-    position: fixed; display: none; background: rgba(22, 22, 40, 0.95);
-    border: 1px solid #555; border-radius: 6px; padding: 10px 14px;
-    font-size: 12px; max-width: 300px; z-index: 20; pointer-events: none;
-    backdrop-filter: blur(8px);
+    position: fixed; display: none; background: rgba(18, 18, 35, 0.96);
+    border: 1px solid #555; border-radius: 8px; padding: 12px 16px;
+    font-size: 11px; max-width: 350px; z-index: 20; pointer-events: none;
+    backdrop-filter: blur(10px); line-height: 1.5;
   }
-  #tooltip .tt-title { font-weight: 600; font-size: 13px; color: #fff; margin-bottom: 4px; }
-  #tooltip .tt-type { color: #888; font-size: 11px; }
-  #tooltip .tt-detail { margin-top: 4px; color: #ccc; }
+  #tooltip b { color: #fff; }
+  #tooltip i { color: #8898b0; }
+
+  #detail-panel {
+    position: fixed; right: 0; top: 0; width: 340px; height: 100vh;
+    background: rgba(18, 18, 35, 0.96); border-left: 1px solid #333;
+    padding: 20px; overflow-y: auto; z-index: 15;
+    transform: translateX(100%); transition: transform 0.25s ease;
+    backdrop-filter: blur(10px);
+  }
+  #detail-panel.open { transform: translateX(0); }
+  #detail-panel h3 { font-size: 14px; color: #fff; margin-bottom: 4px; }
+  #detail-panel .subtitle { font-size: 11px; color: #8898b0; margin-bottom: 12px; }
+  #detail-panel .close-btn { position: absolute; top: 12px; right: 16px; cursor: pointer; color: #888; font-size: 18px; }
+  #detail-panel .close-btn:hover { color: #fff; }
+  #detail-panel .detail-content { font-size: 11px; line-height: 1.6; }
+  #detail-panel .detail-content b { color: #fff; }
+  #detail-panel .txn-row { padding: 4px 0; border-bottom: 1px solid rgba(40,40,70,0.4); }
+  .txn-buy { color: #50c060; } .txn-sell { color: #f06060; } .txn-bb { color: #40b0c0; } .txn-opt { color: #b0b060; }
+  .pattern-tag { display: inline-block; padding: 2px 8px; border-radius: 3px; font-size: 10px; font-weight: 600; margin: 4px 0; }
+  .pattern-prog { background: rgba(64,176,192,0.2); color: #40b0c0; }
+  .pattern-disc { background: rgba(224,160,80,0.2); color: #e0a050; }
 
   #info {
     position: fixed; right: 16px; top: 16px;
     background: rgba(22, 22, 40, 0.92); border: 1px solid #333;
-    border-radius: 8px; padding: 12px 16px; font-size: 11px; color: #888;
+    border-radius: 8px; padding: 10px 14px; font-size: 11px; color: #888;
     z-index: 10;
   }
   #info span { color: #fff; font-weight: 600; }
@@ -44,16 +63,16 @@
   #controls {
     position: fixed; left: 16px; top: 16px;
     background: rgba(22, 22, 40, 0.92); border: 1px solid #333;
-    border-radius: 8px; padding: 12px 16px; font-size: 12px;
-    z-index: 10; display: flex; gap: 8px; flex-wrap: wrap; align-items: center;
+    border-radius: 8px; padding: 10px 14px; font-size: 11px;
+    z-index: 10; display: flex; gap: 6px; flex-wrap: wrap; align-items: center;
   }
   #controls button {
     background: #2a2a4a; color: #e0e0e0; border: 1px solid #444;
-    border-radius: 4px; padding: 4px 10px; cursor: pointer; font-size: 11px;
+    border-radius: 4px; padding: 3px 8px; cursor: pointer; font-size: 10px;
   }
   #controls button:hover { background: #3a3a5a; }
   #controls button.active { background: #4a6a8a; border-color: #6a9aca; }
-  #controls label { color: #aaa; font-size: 11px; }
+  #controls label { color: #aaa; font-size: 10px; }
 </style>
 </head>
 <body>
@@ -61,8 +80,9 @@
 <div id="controls">
   <button onclick="toggleInsiders()" id="btn-insiders" class="active">Insiders</button>
   <button onclick="toggleIndexers()" id="btn-indexers">Indexers</button>
+  <button onclick="toggleLabels()" id="btn-labels" class="active">Labels</button>
   <button onclick="resetView()">Reset</button>
-  <label>Click node to highlight. Scroll to zoom. Drag to pan.</label>
+  <label>Click node for detail panel. Hover for tooltip. Scroll=zoom. Drag=pan.</label>
 </div>
 
 <div id="info">
@@ -71,32 +91,29 @@
 
 <div id="tooltip"></div>
 
+<div id="detail-panel">
+  <span class="close-btn" onclick="closePanel()">&times;</span>
+  <div id="panel-content"></div>
+</div>
+
 <div id="legend">
   <h3>Legend</h3>
   <div class="section">
-    <div class="section-title">Node Shapes</div>
-    <div class="item"><span class="dot" style="background:#6ca0dc"></span> Stock</div>
-    <div class="item"><span class="diamond" style="background:#4caf50"></span> Fund</div>
-    <div class="item"><span class="triangle" style="border-bottom-color:#e0a060"></span> Person</div>
+    <div class="section-title">Nodes</div>
+    <div class="item"><span class="dot" style="background:#e8863a"></span> Portfolio stock</div>
+    <div class="item"><span class="dot" style="background:#f0c040"></span> Standing order</div>
+    <div class="item"><span class="diamond" style="background:#4caf50"></span> Quality fund (3+)</div>
+    <div class="item"><span class="diamond" style="background:#607d8b"></span> Active fund</div>
+    <div class="item"><span class="tri" style="border-bottom-color:#50c060"></span> Insider buyer</div>
+    <div class="item"><span class="tri" style="border-bottom-color:#f06060"></span> Insider seller</div>
+    <div class="item"><span class="tri" style="border-bottom-color:#40b0c0"></span> Buyback</div>
   </div>
   <div class="section">
-    <div class="section-title">Stock Colors</div>
-    <div class="item"><span class="dot" style="background:#e8863a"></span> Portfolio</div>
-    <div class="item"><span class="dot" style="background:#f0c040"></span> SO Active</div>
-    <div class="item"><span class="dot" style="background:#40b0a0"></span> SO Gated</div>
-    <div class="item"><span class="dot" style="background:#5080c0"></span> Other</div>
-  </div>
-  <div class="section">
-    <div class="section-title">Fund Colors</div>
-    <div class="item"><span class="diamond" style="background:#4caf50"></span> Quality (3+ stocks)</div>
-    <div class="item"><span class="diamond" style="background:#607d8b"></span> Active</div>
-    <div class="item"><span class="diamond" style="background:#444"></span> Indexer</div>
-  </div>
-  <div class="section">
-    <div class="section-title">Edge Colors</div>
-    <div class="item"><span class="line" style="background:#4caf80"></span> Holds</div>
-    <div class="item"><span class="line" style="background:#c08040"></span> Insider buy</div>
-    <div class="item"><span class="line" style="background:#e06060"></span> Insider sell</div>
+    <div class="section-title">Edges (width = value)</div>
+    <div class="item"><span class="line" style="border-top: 2px solid #4caf80"></span> Fund holds</div>
+    <div class="item"><span class="line" style="border-top: 2px solid #c08040"></span> Personal buy</div>
+    <div class="item"><span class="line" style="border-top: 2px solid #e06060"></span> Personal sell</div>
+    <div class="item"><span class="line" style="border-top: 2px solid #40b0c0"></span> Buyback</div>
   </div>
 </div>
 
@@ -326,1050 +343,2199 @@ const DATA = {
       "label": "Pacer Advisors, Inc.",
       "name": "Pacer Advisors, Inc.",
       "type": "fund",
-      "status": "quality"
+      "status": "quality",
+      "detail": ""
     },
     {
       "id": 28,
       "label": "Gamma Investing LLC",
       "name": "Gamma Investing LLC",
       "type": "fund",
-      "status": "active"
+      "status": "active",
+      "detail": ""
     },
     {
       "id": 29,
       "label": "Paradigm Asset Management Comp",
       "name": "Paradigm Asset Management Company, LLC",
       "type": "fund",
-      "status": "active"
+      "status": "active",
+      "detail": ""
     },
     {
       "id": 30,
       "label": "Zrt",
       "name": "HOLD Alapkezelo Zrt",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "",
+      "title_short": "",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>HOLD Alapkezelo Zrt</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-22 [?] 3.6M sh <br>2025-11-19 [?] 0 sh ",
+      "n_txns": 2
     },
     {
       "id": 31,
       "label": "Limited",
       "name": "Saray Capital (DIFC) Limited",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "",
+      "title_short": "",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>Saray Capital (DIFC) Limited</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-06 [?] 3.4M sh <br>2025-12-30 [?] 3.9M sh <br>2025-12-12 [?] 3.6M sh ",
+      "n_txns": 3
     },
     {
       "id": 32,
       "label": "Plc",
       "name": "Liontrust Asset Management Plc",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "",
+      "title_short": "",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>Liontrust Asset Management Plc</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-12-19 [?] 2.5M sh <br>2025-12-18 [?] 3.2M sh <br>2025-12-03 [?] 224.1K sh <br>2025-12-01 [?] 559.3K sh ",
+      "n_txns": 4
     },
     {
       "id": 33,
       "label": "(Nicola)",
       "name": "Frampton (Nicola)",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "",
+      "title_short": "",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>Frampton (Nicola)</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-12-08 [?] 29.4K sh $66K",
+      "n_txns": 1
     },
     {
       "id": 34,
       "label": "(Ian)",
       "name": "Bull (Ian)",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "",
+      "title_short": "",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>Bull (Ian)</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-12-03 [?] 20.0K sh $46K",
+      "n_txns": 1
     },
     {
       "id": 35,
       "label": "Investors",
       "name": "Capital Research Global Investors",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "",
+      "title_short": "",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>Capital Research Global Investors</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-12-02 [?] 18.8M sh <br>2025-11-06 [?] 3.4M sh ",
+      "n_txns": 2
     },
     {
       "id": 36,
-      "label": "Vanguard Group Inc",
-      "name": "Vanguard Group Inc",
-      "type": "fund",
-      "status": "indexer"
+      "label": "Corporation",
+      "name": "Alberta Investment Management Corporation",
+      "type": "person",
+      "status": "other",
+      "title": "",
+      "title_short": "",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>Alberta Investment Management Corporation</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-11-28 [?] 2.2M sh <br>2025-11-27 [?] 4.3M sh ",
+      "n_txns": 2
     },
     {
       "id": 37,
-      "label": "Blackrock Inc.",
-      "name": "Blackrock Inc.",
+      "label": "Vanguard Group Inc",
+      "name": "Vanguard Group Inc",
       "type": "fund",
-      "status": "indexer"
+      "status": "indexer",
+      "detail": ""
     },
     {
       "id": 38,
-      "label": "Invesco Ltd.",
-      "name": "Invesco Ltd.",
+      "label": "Blackrock Inc.",
+      "name": "Blackrock Inc.",
       "type": "fund",
-      "status": "active"
+      "status": "indexer",
+      "detail": ""
     },
     {
       "id": 39,
-      "label": "State Street Corporation",
-      "name": "State Street Corporation",
+      "label": "Invesco Ltd.",
+      "name": "Invesco Ltd.",
       "type": "fund",
-      "status": "indexer"
+      "status": "active",
+      "detail": ""
     },
     {
       "id": 40,
-      "label": "Geode Capital Management, LLC",
-      "name": "Geode Capital Management, LLC",
+      "label": "State Street Corporation",
+      "name": "State Street Corporation",
       "type": "fund",
-      "status": "indexer"
+      "status": "indexer",
+      "detail": ""
     },
     {
       "id": 41,
-      "label": "M",
-      "name": "SVOBODA FRANK M",
-      "type": "person",
-      "status": "insider_sell"
+      "label": "Geode Capital Management, LLC",
+      "name": "Geode Capital Management, LLC",
+      "type": "fund",
+      "status": "indexer",
+      "detail": ""
     },
     {
       "id": 42,
-      "label": "ALLISON",
-      "name": "HAWORTH JENNIFER ALLISON",
+      "label": "M (CEO)",
+      "name": "SVOBODA FRANK M",
       "type": "person",
-      "status": "insider_sell"
+      "status": "insider_sell",
+      "title": "Chief Executive Officer",
+      "title_short": "CEO",
+      "pattern": "Discretionary",
+      "total_value": 1809702.0,
+      "detail": "<b>SVOBODA FRANK M</b><br><i>Chief Executive Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>Sells: 12.5K sh ($1.8M)<br>---<br>2026-02-17 [-] 12.5K sh $1.8M<br>2026-02-17 [OPT] 12.5K sh $1.0M",
+      "n_txns": 2
     },
     {
       "id": 43,
-      "label": "A",
-      "name": "BLINN MARK A",
+      "label": "ALLISON (Officer)",
+      "name": "HAWORTH JENNIFER ALLISON",
       "type": "person",
-      "status": "insider_sell"
+      "status": "insider_sell",
+      "title": "Officer",
+      "title_short": "Officer",
+      "pattern": "Discretionary",
+      "total_value": 1431355.0,
+      "detail": "<b>HAWORTH JENNIFER ALLISON</b><br><i>Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>Sells: 10.0K sh ($1.4M)<br>---<br>2026-02-12 [-] 10.0K sh $1.4M<br>2026-02-12 [OPT] 10.0K sh $506K",
+      "n_txns": 2
     },
     {
       "id": 44,
-      "label": "CLAY",
-      "name": "MAJORS MICHAEL CLAY",
+      "label": "A (CTO)",
+      "name": "BLINN MARK A",
       "type": "person",
-      "status": "insider_sell"
+      "status": "insider_sell",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 258842.0,
+      "detail": "<b>BLINN MARK A</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>Sells: 1.8K sh ($259K)<br>---<br>2026-02-06 [-] 1.8K sh $259K<br>2026-01-02 [?] 1.4K sh ",
+      "n_txns": 2
     },
     {
       "id": 45,
-      "label": "D",
-      "name": "ALSTON CHERYL D",
+      "label": "CLAY (Officer)",
+      "name": "MAJORS MICHAEL CLAY",
       "type": "person",
-      "status": "insider_sell"
+      "status": "insider_sell",
+      "title": "Officer",
+      "title_short": "Officer",
+      "pattern": "Discretionary",
+      "total_value": 4406824.0,
+      "detail": "<b>MAJORS MICHAEL CLAY</b><br><i>Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>Sells: 30.0K sh ($4.4M)<br>---<br>2026-02-06 [-] 30.0K sh $4.4M<br>2026-02-06 [OPT] 30.0K sh $3.0M",
+      "n_txns": 2
     },
     {
       "id": 46,
-      "label": "L.",
-      "name": "ADDISON LINDA L.",
+      "label": "D (CTO)",
+      "name": "ALSTON CHERYL D",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>ALSTON CHERYL D</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-02 [?] 1.4K sh ",
+      "n_txns": 1
     },
     {
       "id": 47,
-      "label": "S",
-      "name": "CHO ALICE S",
+      "label": "L. (CTO)",
+      "name": "ADDISON LINDA L.",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>ADDISON LINDA L.</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-02 [?] 723 sh ",
+      "n_txns": 1
     },
     {
       "id": 48,
-      "label": "NORGES BANK",
-      "name": "NORGES BANK",
-      "type": "fund",
-      "status": "active"
+      "label": "S (CTO)",
+      "name": "CHO ALICE S",
+      "type": "person",
+      "status": "other",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>CHO ALICE S</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-02 [?] 1.4K sh ",
+      "n_txns": 1
     },
     {
       "id": 49,
-      "label": "J",
-      "name": "DURN DANIEL J",
+      "label": "J (CTO)",
+      "name": "ADAMS MATTHEW J",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>ADAMS MATTHEW J</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-02 [?] 1.4K sh <br>2026-01-02 [?] 1.4K sh ",
+      "n_txns": 2
     },
     {
       "id": 50,
-      "label": "ANIL",
-      "name": "CHAKRAVARTHY ANIL",
+      "label": "M. (CTO)",
+      "name": "JACOBS PHILIP M.",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>JACOBS PHILIP M.</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-02 [?] 1.4K sh ",
+      "n_txns": 1
     },
     {
       "id": 51,
-      "label": "SHANTANU",
-      "name": "NARAYEN SHANTANU",
+      "label": "PATRICK (CTO)",
+      "name": "BRANNEN JAMES PATRICK",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>BRANNEN JAMES PATRICK</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-02 [?] 1.4K sh ",
+      "n_txns": 1
     },
     {
       "id": 52,
-      "label": "DAVID",
-      "name": "WADHWANI DAVID",
-      "type": "person",
-      "status": "insider_sell"
+      "label": "NORGES BANK",
+      "name": "NORGES BANK",
+      "type": "fund",
+      "status": "active",
+      "detail": ""
     },
     {
       "id": 53,
-      "label": "T",
-      "name": "CHEN GLORIA T",
+      "label": "J (CFO)",
+      "name": "DURN DANIEL J",
       "type": "person",
-      "status": "insider_sell"
+      "status": "insider_sell",
+      "title": "Chief Financial Officer",
+      "title_short": "CFO",
+      "pattern": "Discretionary",
+      "total_value": 485323.0,
+      "detail": "<b>DURN DANIEL J</b><br><i>Chief Financial Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>Sells: 1.6K sh ($485K)<br>---<br>2026-01-27 [-] 1.6K sh $485K<br>2026-01-23 [?] 15.7K sh <br>2026-01-15 [?] 2.8K sh ",
+      "n_txns": 3
     },
     {
       "id": 54,
-      "label": "JILLIAN",
-      "name": "FORUSZ JILLIAN",
+      "label": "DAVID (Officer)",
+      "name": "WADHWANI DAVID",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "Officer",
+      "title_short": "Officer",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>WADHWANI DAVID</b><br><i>Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-23 [?] 24.2K sh <br>2026-01-15 [?] 1.9K sh ",
+      "n_txns": 2
     },
     {
       "id": 55,
-      "label": "LOOMIS SAYLES & CO L P",
-      "name": "LOOMIS SAYLES & CO L P",
-      "type": "fund",
-      "status": "active"
+      "label": "ANIL (President)",
+      "name": "CHAKRAVARTHY ANIL",
+      "type": "person",
+      "status": "other",
+      "title": "President",
+      "title_short": "President",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>CHAKRAVARTHY ANIL</b><br><i>President</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-23 [?] 24.2K sh <br>2026-01-15 [?] 1.9K sh ",
+      "n_txns": 2
     },
     {
       "id": 56,
-      "label": "Franklin Resources, Inc.",
-      "name": "Franklin Resources, Inc.",
-      "type": "fund",
-      "status": "active"
+      "label": "SHANTANU (CEO)",
+      "name": "NARAYEN SHANTANU",
+      "type": "person",
+      "status": "other",
+      "title": "Chief Executive Officer",
+      "title_short": "CEO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>NARAYEN SHANTANU</b><br><i>Chief Executive Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-23 [?] 69.6K sh <br>2026-01-15 [?] 5.4K sh ",
+      "n_txns": 2
     },
     {
       "id": 57,
-      "label": "Morgan Stanley",
-      "name": "Morgan Stanley",
-      "type": "fund",
-      "status": "quality"
+      "label": "T (Officer)",
+      "name": "CHEN GLORIA T",
+      "type": "person",
+      "status": "other",
+      "title": "Officer",
+      "title_short": "Officer",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>CHEN GLORIA T</b><br><i>Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-23 [?] 10.7K sh <br>2026-01-15 [?] 1.9K sh ",
+      "n_txns": 2
     },
     {
       "id": 58,
-      "label": "Bank of America Corporation",
-      "name": "Bank of America Corporation",
-      "type": "fund",
-      "status": "active"
+      "label": "JILLIAN (Officer)",
+      "name": "FORUSZ JILLIAN",
+      "type": "person",
+      "status": "other",
+      "title": "Officer",
+      "title_short": "Officer",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>FORUSZ JILLIAN</b><br><i>Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-23 [?] 559 sh <br>2026-01-15 [?] 117 sh <br>2025-12-24 [?] 550 sh ",
+      "n_txns": 3
     },
     {
       "id": 59,
-      "label": "Capital International Investor",
-      "name": "Capital International Investors",
-      "type": "fund",
-      "status": "active"
+      "label": "LARA (Officer)",
+      "name": "BALAZS LARA",
+      "type": "person",
+      "status": "other",
+      "title": "Officer",
+      "title_short": "Officer",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>BALAZS LARA</b><br><i>Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-15 [?] 4.9K sh ",
+      "n_txns": 1
     },
     {
       "id": 60,
-      "label": "Ltd.",
-      "name": "BlackRock Investment Management (UK) Ltd.",
-      "type": "person",
-      "status": "insider_sell"
+      "label": "LOOMIS SAYLES & CO L P",
+      "name": "LOOMIS SAYLES & CO L P",
+      "type": "fund",
+      "status": "active",
+      "detail": ""
     },
     {
       "id": 61,
-      "label": "(Matthew)",
-      "name": "Cresswell (Matthew)",
-      "type": "person",
-      "status": "insider_sell"
+      "label": "Franklin Resources, Inc.",
+      "name": "Franklin Resources, Inc.",
+      "type": "fund",
+      "status": "active",
+      "detail": ""
     },
     {
       "id": 62,
-      "label": "(Peter)",
-      "name": "Duffy (Peter)",
-      "type": "person",
-      "status": "insider_sell"
+      "label": "Morgan Stanley",
+      "name": "Morgan Stanley",
+      "type": "fund",
+      "status": "quality",
+      "detail": ""
     },
     {
       "id": 63,
-      "label": "(Matthew)",
-      "name": "Whittle (Matthew)",
-      "type": "person",
-      "status": "insider_sell"
+      "label": "Bank of America Corporation",
+      "name": "Bank of America Corporation",
+      "type": "fund",
+      "status": "active",
+      "detail": ""
     },
     {
       "id": 64,
-      "label": "FMR, LLC",
-      "name": "FMR, LLC",
+      "label": "Capital International Investor",
+      "name": "Capital International Investors",
       "type": "fund",
-      "status": "active"
+      "status": "active",
+      "detail": ""
     },
     {
       "id": 65,
-      "label": "MEGHAN",
-      "name": "FRANK MEGHAN",
+      "label": "Ltd.",
+      "name": "BlackRock Investment Management (UK) Ltd.",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "",
+      "title_short": "",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>BlackRock Investment Management (UK) Ltd.</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-02-13 [?] 446.8K sh <br>2026-02-05 [?] 175 sh <br>2026-02-04 [?] 309.1K sh <br>2026-01-29 [?] 8.7K sh <br>2026-01-28 [?] 10.5K sh <br>2026-01-23 [?] 1.8M sh ",
+      "n_txns": 6
     },
     {
       "id": 66,
-      "label": "M",
-      "name": "MORFITT MARTHA A M",
+      "label": "(Matthew)",
+      "name": "Cresswell (Matthew)",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "",
+      "title_short": "",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>Cresswell (Matthew)</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-02-05 [?] 88 sh $203<br>2026-01-07 [?] 81 sh $202",
+      "n_txns": 2
     },
     {
       "id": 67,
-      "label": "CELESTE",
-      "name": "BURGOYNE CELESTE",
+      "label": "(Peter)",
+      "name": "Duffy (Peter)",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "",
+      "title_short": "",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>Duffy (Peter)</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-02-05 [?] 88 sh $203<br>2026-01-07 [?] 81 sh $202<br>2025-12-04 [?] 78 sh $199",
+      "n_txns": 3
     },
     {
       "id": 68,
-      "label": "NICOLE",
-      "name": "NEUBURGER NICOLE",
+      "label": "(Matthew)",
+      "name": "Whittle (Matthew)",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "",
+      "title_short": "",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>Whittle (Matthew)</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-02-05 [?] 59 sh $136<br>2026-01-07 [?] 54 sh $135<br>2025-12-04 [?] 52 sh $133",
+      "n_txns": 3
     },
     {
       "id": 69,
-      "label": "ANDRE",
-      "name": "MAESTRINI ANDRE",
+      "label": "SpA",
+      "name": "Gruppo MutuiOnline SpA",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "",
+      "title_short": "",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>Gruppo MutuiOnline SpA</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-07 [?] 5.0M sh ",
+      "n_txns": 1
     },
     {
       "id": 70,
-      "label": "RANJU",
-      "name": "DAS RANJU",
-      "type": "person",
-      "status": "insider_sell"
+      "label": "FMR, LLC",
+      "name": "FMR, LLC",
+      "type": "fund",
+      "status": "active",
+      "detail": ""
     },
     {
       "id": 71,
-      "label": "Plc",
-      "name": "Auto Trader Group Plc",
+      "label": "MEGHAN (CFO)",
+      "name": "FRANK MEGHAN",
       "type": "person",
-      "status": "insider_buy"
+      "status": "insider_sell",
+      "title": "Chief Financial Officer",
+      "title_short": "CFO",
+      "pattern": "Discretionary",
+      "total_value": 561821.0,
+      "detail": "<b>FRANK MEGHAN</b><br><i>Chief Financial Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>Sells: 2.7K sh ($562K)<br>---<br>2025-12-30 [-] 2.7K sh $562K<br>2025-12-30 [OPT] 2.8K sh $463K<br>2025-12-15 [?] 10.9K sh ",
+      "n_txns": 3
     },
     {
       "id": 72,
-      "label": "Limited",
-      "name": "FIL Limited",
+      "label": "M (CTO)",
+      "name": "MORFITT MARTHA A M",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>MORFITT MARTHA A M</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-12-19 [?] 6.5K sh <br>2025-12-17 [?] 3.6K sh ",
+      "n_txns": 2
     },
     {
       "id": 73,
-      "label": "Select Equity Group LP",
-      "name": "Select Equity Group LP",
-      "type": "fund",
-      "status": "active"
+      "label": "CELESTE (Officer)",
+      "name": "BURGOYNE CELESTE",
+      "type": "person",
+      "status": "insider_sell",
+      "title": "Officer",
+      "title_short": "Officer",
+      "pattern": "Discretionary",
+      "total_value": 2756181.0,
+      "detail": "<b>BURGOYNE CELESTE</b><br><i>Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>Sells: 13.5K sh ($2.8M)<br>---<br>2025-12-16 [-] 13.5K sh $2.8M",
+      "n_txns": 1
     },
     {
       "id": 74,
-      "label": "BAMCO Inc.",
-      "name": "BAMCO Inc.",
-      "type": "fund",
-      "status": "quality"
+      "label": "NICOLE (Officer)",
+      "name": "NEUBURGER NICOLE",
+      "type": "person",
+      "status": "insider_sell",
+      "title": "Officer",
+      "title_short": "Officer",
+      "pattern": "Discretionary",
+      "total_value": 109470.0,
+      "detail": "<b>NEUBURGER NICOLE</b><br><i>Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>Sells: 615 sh ($109K)<br>---<br>2025-12-15 [?] 6.1K sh <br>2025-09-30 [-] 615 sh $109K",
+      "n_txns": 2
     },
     {
       "id": 75,
-      "label": "D",
-      "name": "MANSUETO JOSEPH D",
+      "label": "ANDRE (President)",
+      "name": "MAESTRINI ANDRE",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "President",
+      "title_short": "President",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>MAESTRINI ANDRE</b><br><i>President</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-12-15 [?] 10.9K sh ",
+      "n_txns": 1
     },
     {
       "id": 76,
-      "label": "J",
-      "name": "TSAY CAROLINE J",
+      "label": "RANJU (CTO)",
+      "name": "DAS RANJU",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "Chief Technology Officer",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>DAS RANJU</b><br><i>Chief Technology Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-09-09 [?] 6.2K sh ",
+      "n_txns": 1
     },
     {
       "id": 77,
-      "label": "Ltd.",
-      "name": "Coronation Asset Management (Pty), Ltd.",
+      "label": "CALVIN (CEO)",
+      "name": "MCDONALD CALVIN",
       "type": "person",
-      "status": "insider_sell"
+      "status": "insider_sell",
+      "title": "Chief Executive Officer",
+      "title_short": "CEO",
+      "pattern": "Discretionary",
+      "total_value": 6375226.0,
+      "detail": "<b>MCDONALD CALVIN</b><br><i>Chief Executive Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>Sells: 27.0K sh ($6.4M)<br>---<br>2025-06-27 [-] 27.0K sh $6.4M<br>2025-06-27 [OPT] 35.4K sh $4.8M",
+      "n_txns": 2
     },
     {
       "id": 78,
-      "label": "PLC",
-      "name": "J.P. Morgan Securities PLC",
+      "label": "ISABEL (CTO)",
+      "name": "MAHE ISABEL",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>MAHE ISABEL</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-06-11 [?] 634 sh ",
+      "n_txns": 1
     },
     {
       "id": 79,
-      "label": "Fund",
-      "name": "Camissa Global Flexible Fund",
+      "label": "ALISON (CTO)",
+      "name": "LOEHNIS ALISON",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>LOEHNIS ALISON</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-06-11 [?] 634 sh ",
+      "n_txns": 1
     },
     {
       "id": 80,
-      "label": "Groupama Asset Managment",
-      "name": "Groupama Asset Managment",
-      "type": "fund",
-      "status": "active"
+      "label": "SHANE (CTO)",
+      "name": "GRANT SHANE",
+      "type": "person",
+      "status": "other",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>GRANT SHANE</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-06-11 [?] 634 sh ",
+      "n_txns": 1
     },
     {
       "id": 81,
-      "label": "BAILLIE GIFFORD & CO",
-      "name": "BAILLIE GIFFORD & CO",
-      "type": "fund",
-      "status": "active"
+      "label": "Plc",
+      "name": "Auto Trader Group Plc",
+      "type": "person",
+      "status": "buyback",
+      "title": "",
+      "title_short": "",
+      "pattern": "Discretionary",
+      "total_value": 43311308.0,
+      "detail": "<b>Auto Trader Group Plc</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>Buybacks: 6.4M sh ($43.3M)<br>---<br>2026-02-18 [BB] 540.0K sh $3.4M<br>2026-02-17 [BB] 12.3K sh $77K<br>2026-02-16 [BB] 530.0K sh $3.4M<br>2026-02-11 [BB] 850.0K sh $5.5M<br>2026-02-11 [BB] 823.8K sh $5.2M<br>2026-02-10 [BB] 700.0K sh $4.5M<br>2026-02-09 [BB] 800.0K sh $5.2M<br>2026-02-04 [BB] 461.7K sh $3.2M",
+      "n_txns": 13
     },
     {
       "id": 82,
-      "label": "Amundi",
-      "name": "Amundi",
-      "type": "fund",
-      "status": "active"
+      "label": "Limited",
+      "name": "FIL Limited",
+      "type": "person",
+      "status": "other",
+      "title": "",
+      "title_short": "",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>FIL Limited</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-02-13 [?] 2.4M sh <br>2026-02-06 [?] 0 sh ",
+      "n_txns": 2
     },
     {
       "id": 83,
-      "label": "Plc",
-      "name": "Dunelm Group Plc",
-      "type": "person",
-      "status": "insider_buy"
+      "label": "Select Equity Group LP",
+      "name": "Select Equity Group LP",
+      "type": "fund",
+      "status": "active",
+      "detail": ""
     },
     {
       "id": 84,
-      "label": "Ann)",
-      "name": "Wright (Luisa Ann)",
-      "type": "person",
-      "status": "insider_sell"
+      "label": "BAMCO Inc.",
+      "name": "BAMCO Inc.",
+      "type": "fund",
+      "status": "quality",
+      "detail": ""
     },
     {
       "id": 85,
-      "label": "Ian)",
-      "name": "Cooper (Geoffrey Ian)",
+      "label": "D (CTO)",
+      "name": "MANSUETO JOSEPH D",
       "type": "person",
-      "status": "insider_sell"
+      "status": "insider_sell",
+      "title": "Officer, Director and Beneficial Owner",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 19386652.0,
+      "detail": "<b>MANSUETO JOSEPH D</b><br><i>Officer, Director and Beneficial Owner</i><br>Pattern: <b>Discretionary</b><br>---<br>Sells: 106.5K sh ($19.4M)<br>---<br>2026-02-20 [-] 13.9K sh $2.2M<br>2026-02-18 [-] 14.0K sh $2.2M<br>2026-02-13 [-] 14.2K sh $2.2M<br>2026-02-10 [-] 4.9K sh $796K<br>2026-02-06 [-] 20.1K sh $3.6M<br>2026-02-02 [-] 857 sh $173K<br>2025-12-12 [?] 27.8K sh <br>2025-11-25 [-] 1.6K sh $341K",
+      "n_txns": 11
     },
     {
       "id": 86,
-      "label": "(Karen)",
-      "name": "Witts (Karen)",
+      "label": "J (CTO)",
+      "name": "TSAY CAROLINE J",
       "type": "person",
-      "status": "insider_sell"
+      "status": "insider_sell",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 131090.0,
+      "detail": "<b>TSAY CAROLINE J</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>Sells: 600 sh ($131K)<br>---<br>2025-12-29 [-] 600 sh $131K",
+      "n_txns": 1
     },
     {
       "id": 87,
-      "label": "Artisan Partners Limited Partn",
-      "name": "Artisan Partners Limited Partnership",
-      "type": "fund",
-      "status": "active"
+      "label": "CONAN (Officer)",
+      "name": "WIERSEMA CONAN",
+      "type": "person",
+      "status": "other",
+      "title": "Officer",
+      "title_short": "Officer",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>WIERSEMA CONAN</b><br><i>Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-11-14 [?] 471 sh <br>2025-11-14 [?] 12 sh ",
+      "n_txns": 2
     },
     {
       "id": 88,
-      "label": "MAAMOUN",
-      "name": "RAJEH MAAMOUN",
+      "label": "CFA (CFO)",
+      "name": "HOLT MICHAEL CFA",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "Chief Financial Officer",
+      "title_short": "CFO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>HOLT MICHAEL CFA</b><br><i>Chief Financial Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-11-14 [?] 163 sh ",
+      "n_txns": 1
     },
     {
       "id": 89,
-      "label": "MURRAY",
-      "name": "PASQUESI JOHN MURRAY",
+      "label": "Ltd.",
+      "name": "Coronation Asset Management (Pty), Ltd.",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "",
+      "title_short": "",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>Coronation Asset Management (Pty), Ltd.</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-02-16 [?] 938.9K sh <br>2026-02-04 [?] 983.1K sh <br>2026-01-15 [?] 102.6K sh <br>2026-01-12 [?] 746.1K sh <br>2025-12-19 [?] 2.4M sh ",
+      "n_txns": 5
     },
     {
       "id": 90,
-      "label": "T",
-      "name": "PETRILLO LOUIS T",
+      "label": "PLC",
+      "name": "J.P. Morgan Securities PLC",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "",
+      "title_short": "",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>J.P. Morgan Securities PLC</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-26 [?] 93.7K sh <br>2026-01-23 [?] 141.4K sh <br>2026-01-22 [?] 0 sh <br>2026-01-08 [?] 259.5K sh <br>2026-01-02 [?] 110.3K sh <br>2025-12-30 [?] 0 sh <br>2025-12-05 [?] 0 sh ",
+      "n_txns": 7
     },
     {
       "id": 91,
-      "label": "FRANCOIS",
-      "name": "MORIN FRANCOIS",
+      "label": "Fund",
+      "name": "Camissa Global Flexible Fund",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "",
+      "title_short": "",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>Camissa Global Flexible Fund</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-22 [?] 2.9M sh <br>2026-01-20 [?] 12.0M sh ",
+      "n_txns": 2
     },
     {
       "id": 92,
-      "label": "D",
-      "name": "VOLLARO JOHN D",
+      "label": "Ltd.",
+      "name": "Public Investment Corporation SOC, Ltd.",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "",
+      "title_short": "",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>Public Investment Corporation SOC, Ltd.</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-06 [?] 862.7K sh ",
+      "n_txns": 1
     },
     {
       "id": 93,
-      "label": "VANGUARD STAR FUNDS-Vanguard T",
-      "name": "VANGUARD STAR FUNDS-Vanguard Total International Stock Index Fund",
+      "label": "Groupama Asset Managment",
+      "name": "Groupama Asset Managment",
       "type": "fund",
-      "status": "indexer"
+      "status": "active",
+      "detail": ""
     },
     {
       "id": 94,
-      "label": "VANGUARD TAX-MANAGED FUNDS-Van",
-      "name": "VANGUARD TAX-MANAGED FUNDS-Vanguard Developed Markets Index Fund",
+      "label": "BAILLIE GIFFORD & CO",
+      "name": "BAILLIE GIFFORD & CO",
       "type": "fund",
-      "status": "indexer"
+      "status": "active",
+      "detail": ""
     },
     {
       "id": 95,
-      "label": "iShares Trust-iShares Core MSC",
-      "name": "iShares Trust-iShares Core MSCI EAFE ETF",
+      "label": "Amundi",
+      "name": "Amundi",
       "type": "fund",
-      "status": "indexer"
+      "status": "active",
+      "detail": ""
     },
     {
       "id": 96,
-      "label": "iShares Trust-iShares MSCI EAF",
-      "name": "iShares Trust-iShares MSCI EAFE Small-Cap ETF",
-      "type": "fund",
-      "status": "indexer"
+      "label": "Plc",
+      "name": "Dunelm Group Plc",
+      "type": "person",
+      "status": "buyback",
+      "title": "",
+      "title_short": "",
+      "pattern": "Discretionary",
+      "total_value": 4188051.0,
+      "detail": "<b>Dunelm Group Plc</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>Buybacks: 317.1K sh ($4.2M)<br>---<br>2026-02-18 [BB] 107.5K sh $1.4M<br>2026-02-17 [BB] 105.5K sh $1.4M<br>2026-02-16 [BB] 104.2K sh $1.4M<br>2026-02-02 [?] 956.1K sh <br>2025-12-31 [?] 95.9K sh <br>2025-11-28 [?] 101.4K sh <br>2025-10-31 [?] 168.4K sh ",
+      "n_txns": 7
     },
     {
       "id": 97,
-      "label": "VANGUARD Intl Eqy. INDEX Fd.S-",
-      "name": "VANGUARD Intl Eqy. INDEX Fd.S-Vanguard FTSE All-World ex-US Small-Cap",
-      "type": "fund",
-      "status": "indexer"
+      "label": "Ann)",
+      "name": "Wright (Luisa Ann)",
+      "type": "person",
+      "status": "other",
+      "title": "",
+      "title_short": "",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>Wright (Luisa Ann)</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-02-13 [?] 2.4K sh $32K<br>2025-11-10 [?] 4.8K sh <br>2025-11-10 [?] 2.3K sh $33K",
+      "n_txns": 3
     },
     {
       "id": 98,
-      "label": "William)",
-      "name": "Marshall (Euan William)",
+      "label": "Ian)",
+      "name": "Cooper (Geoffrey Ian)",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "",
+      "title_short": "",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>Cooper (Geoffrey Ian)</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-12-08 [?] 5.8K sh <br>2025-12-08 [?] 2.7K sh $40K",
+      "n_txns": 2
     },
     {
       "id": 99,
-      "label": "(Alexander)",
-      "name": "Scott (Alexander)",
+      "label": "(Karen)",
+      "name": "Witts (Karen)",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "",
+      "title_short": "",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>Witts (Karen)</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-12-01 [?] 10.8K sh $157K",
+      "n_txns": 1
     },
     {
       "id": 100,
-      "label": "(Thomas)",
-      "name": "Dunbar (Thomas)",
+      "label": "(Ajay)",
+      "name": "Kavan (Ajay)",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "",
+      "title_short": "",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>Kavan (Ajay)</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-11-24 [?] 3.2K sh $45K",
+      "n_txns": 1
     },
     {
       "id": 101,
-      "label": "Capital World Investors",
-      "name": "Capital World Investors",
-      "type": "fund",
-      "status": "active"
+      "label": "Mark)",
+      "name": "Taylor (Daniel Mark)",
+      "type": "person",
+      "status": "other",
+      "title": "",
+      "title_short": "",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>Taylor (Daniel Mark)</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-11-03 [?] 7.0K sh $107K",
+      "n_txns": 1
     },
     {
       "id": 102,
-      "label": "A",
-      "name": "MILLS STEVEN A",
-      "type": "person",
-      "status": "insider_sell"
+      "label": "Artisan Partners Limited Partn",
+      "name": "Artisan Partners Limited Partnership",
+      "type": "fund",
+      "status": "active",
+      "detail": ""
     },
     {
       "id": 103,
-      "label": "Q",
-      "name": "DOYLE JOHN Q",
+      "label": "MAAMOUN (Officer)",
+      "name": "RAJEH MAAMOUN",
       "type": "person",
-      "status": "insider_sell"
+      "status": "insider_sell",
+      "title": "Officer",
+      "title_short": "Officer",
+      "pattern": "Discretionary",
+      "total_value": 5500322.0,
+      "detail": "<b>RAJEH MAAMOUN</b><br><i>Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>Sells: 57.4K sh ($5.5M)<br>---<br>2026-02-11 [-] 47.4K sh $4.6M<br>2026-02-11 [OPT] 47.4K sh $1.3M<br>2025-08-22 [-] 10.0K sh $941K",
+      "n_txns": 3
     },
     {
       "id": 104,
-      "label": "K",
-      "name": "ANDERSON ANTHONY K",
+      "label": "MURRAY (Chairman of )",
+      "name": "PASQUESI JOHN MURRAY",
       "type": "person",
-      "status": "insider_buy"
+      "status": "insider_sell",
+      "title": "Chairman of the Board",
+      "title_short": "Chairman of ",
+      "pattern": "Discretionary",
+      "total_value": 29299731.0,
+      "detail": "<b>PASQUESI JOHN MURRAY</b><br><i>Chairman of the Board</i><br>Pattern: <b>Discretionary</b><br>---<br>Sells: 311.7K sh ($29.3M)<br>---<br>2025-12-15 [-] 212.7K sh $20.0M<br>2025-12-12 [?] 53.0K sh <br>2025-05-13 [-] 99.1K sh $9.3M",
+      "n_txns": 3
     },
     {
       "id": 105,
-      "label": "Albert D Mason Inc",
-      "name": "Albert D Mason Inc",
-      "type": "fund",
-      "status": "active"
+      "label": "T (Officer)",
+      "name": "PETRILLO LOUIS T",
+      "type": "person",
+      "status": "insider_sell",
+      "title": "Officer",
+      "title_short": "Officer",
+      "pattern": "Discretionary",
+      "total_value": 1573944.0,
+      "detail": "<b>PETRILLO LOUIS T</b><br><i>Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>Sells: 16.6K sh ($1.6M)<br>---<br>2025-12-10 [?] 42 sh <br>2025-05-09 [?] 10 sh <br>2025-05-09 [-] 16.6K sh $1.6M<br>2025-05-09 [OPT] 16.6K sh $315K",
+      "n_txns": 4
     },
     {
       "id": 106,
-      "label": "DFA INVESTMENT DIMENSIONS GROU",
-      "name": "DFA INVESTMENT DIMENSIONS GROUP INC-DFA Intl Small Cap Value PORT.",
-      "type": "fund",
-      "status": "active"
+      "label": "FRANCOIS (CFO)",
+      "name": "MORIN FRANCOIS",
+      "type": "person",
+      "status": "insider_sell",
+      "title": "Chief Financial Officer",
+      "title_short": "CFO",
+      "pattern": "Discretionary",
+      "total_value": 1951572.0,
+      "detail": "<b>MORIN FRANCOIS</b><br><i>Chief Financial Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>Sells: 20.6K sh ($2.0M)<br>---<br>2025-11-28 [-] 8.0K sh $757K<br>2025-05-16 [-] 12.6K sh $1.2M<br>2025-05-16 [OPT] 12.6K sh $239K",
+      "n_txns": 3
     },
     {
       "id": 107,
-      "label": "American Century ETF Trust-Ava",
-      "name": "American Century ETF Trust-Avantis International Small Cap Value ETF",
-      "type": "fund",
-      "status": "indexer"
+      "label": "D (CTO)",
+      "name": "VOLLARO JOHN D",
+      "type": "person",
+      "status": "other",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>VOLLARO JOHN D</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-10-30 [?] 2.2K sh <br>2025-08-05 [?] 195.0K sh ",
+      "n_txns": 2
     },
     {
       "id": 108,
-      "label": "DFA INVESTMENT DIMENSIONS GROU",
-      "name": "DFA INVESTMENT DIMENSIONS GROUP INC-Intl Core Eqy. 2 PORT.",
+      "label": "VANGUARD STAR FUNDS-Vanguard T",
+      "name": "VANGUARD STAR FUNDS-Vanguard Total International Stock Index Fund",
       "type": "fund",
-      "status": "active"
+      "status": "indexer",
+      "detail": ""
     },
     {
       "id": 109,
-      "label": "Plc",
-      "name": "Keller Group Plc",
-      "type": "person",
-      "status": "insider_sell"
+      "label": "VANGUARD TAX-MANAGED FUNDS-Van",
+      "name": "VANGUARD TAX-MANAGED FUNDS-Vanguard Developed Markets Index Fund",
+      "type": "fund",
+      "status": "indexer",
+      "detail": ""
     },
     {
       "id": 110,
-      "label": "(Paul)",
-      "name": "Leonard (Paul)",
-      "type": "person",
-      "status": "insider_sell"
+      "label": "iShares Trust-iShares Core MSC",
+      "name": "iShares Trust-iShares Core MSCI EAFE ETF",
+      "type": "fund",
+      "status": "indexer",
+      "detail": ""
     },
     {
       "id": 111,
-      "label": "Rockefeller Capital Management",
-      "name": "Rockefeller Capital Management L.P.",
+      "label": "iShares Trust-iShares MSCI EAF",
+      "name": "iShares Trust-iShares MSCI EAFE Small-Cap ETF",
       "type": "fund",
-      "status": "active"
+      "status": "indexer",
+      "detail": ""
     },
     {
       "id": 112,
-      "label": "JR",
-      "name": "JOYCE THOMAS PATRICK JR",
-      "type": "person",
-      "status": "insider_buy"
+      "label": "VANGUARD Intl Eqy. INDEX Fd.S-",
+      "name": "VANGUARD Intl Eqy. INDEX Fd.S-Vanguard FTSE All-World ex-US Small-Cap",
+      "type": "fund",
+      "status": "indexer",
+      "detail": ""
     },
     {
       "id": 113,
-      "label": "F.",
-      "name": "WALLMAN RICHARD F.",
+      "label": "William)",
+      "name": "Marshall (Euan William)",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "",
+      "title_short": "",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>Marshall (Euan William)</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-02-12 [?] 4.0K sh $18K<br>2026-01-21 [?] 43 sh $201<br>2026-01-21 [?] 86 sh <br>2026-01-13 [?] 4.5K sh $21K<br>2026-01-13 [?] 4.5K sh $21K<br>2026-01-09 [?] 1.0K sh $5K",
+      "n_txns": 6
     },
     {
       "id": 114,
-      "label": "JASON",
-      "name": "CONLEY JASON",
+      "label": "(Alexander)",
+      "name": "Scott (Alexander)",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "",
+      "title_short": "",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>Scott (Alexander)</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-30 [?] 413 sh $2K<br>2026-01-21 [?] 43 sh $201<br>2026-01-21 [?] 86 sh <br>2026-01-09 [?] 1.0K sh $5K",
+      "n_txns": 4
     },
     {
       "id": 115,
-      "label": "NEIL",
-      "name": "HUNN LAURENCE NEIL",
+      "label": "(Thomas)",
+      "name": "Dunbar (Thomas)",
       "type": "person",
-      "status": "insider_buy"
+      "status": "other",
+      "title": "",
+      "title_short": "",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>Dunbar (Thomas)</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-21 [?] 43 sh $201<br>2026-01-21 [?] 86 sh <br>2026-01-09 [?] 1.0K sh $5K<br>2025-12-22 [?] 43 sh $205<br>2025-12-22 [?] 86 sh ",
+      "n_txns": 5
     },
     {
       "id": 116,
-      "label": "WOODS",
-      "name": "BRINKLEY AMY WOODS",
-      "type": "person",
-      "status": "insider_buy"
+      "label": "Capital World Investors",
+      "name": "Capital World Investors",
+      "type": "fund",
+      "status": "active",
+      "detail": ""
     },
     {
       "id": 117,
-      "label": "L",
-      "name": "ARCHAMBEAU SHELLYE L",
+      "label": "A (CTO)",
+      "name": "MILLS STEVEN A",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>MILLS STEVEN A</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-02-13 [?] 244 sh $42K<br>2025-11-14 [?] 231 sh $42K<br>2025-08-15 [?] 204 sh $42K<br>2025-05-30 [?] 929 sh $215K<br>2025-05-15 [?] 185 sh $41K",
+      "n_txns": 5
     },
     {
       "id": 118,
-      "label": "M",
-      "name": "SHAVEL LEE M",
+      "label": "Q (CEO)",
+      "name": "DOYLE JOHN Q",
       "type": "person",
-      "status": "insider_sell"
+      "status": "insider_sell",
+      "title": "Chief Executive Officer",
+      "title_short": "CEO",
+      "pattern": "Programmatic (10b5-1)",
+      "total_value": 13067525.0,
+      "detail": "<b>DOYLE JOHN Q</b><br><i>Chief Executive Officer</i><br>Pattern: <b>Programmatic (10b5-1)</b><br>---<br>Sells: 63.2K sh ($13.1M)<br>---<br>2025-12-01 [-] 21.1K sh $3.8M<br>2025-12-01 [OPT] 21.1K sh $1.3M<br>2025-09-02 [-] 21.1K sh $4.3M<br>2025-09-02 [OPT] 21.1K sh $1.3M<br>2025-06-02 [-] 21.1K sh $4.9M<br>2025-06-02 [OPT] 21.1K sh $1.3M",
+      "n_txns": 6
     },
     {
       "id": 119,
-      "label": "BARAK",
-      "name": "EILAM BARAK",
+      "label": "K (CTO)",
+      "name": "ANDERSON ANTHONY K",
       "type": "person",
-      "status": "insider_sell"
+      "status": "insider_buy",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 201612.0,
+      "detail": "<b>ANDERSON ANTHONY K</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>Buys: 1.0K sh ($202K)<br>---<br>2025-07-30 [+] 1.0K sh $202K",
+      "n_txns": 1
     },
     {
       "id": 120,
-      "label": "MALCOLM",
-      "name": "FRANK MALCOLM",
+      "label": "JUDITH (CTO)",
+      "name": "HARTMANN JUDITH",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>HARTMANN JUDITH</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-05-30 [?] 929 sh $215K",
+      "n_txns": 1
     },
     {
       "id": 121,
-      "label": "ANN",
-      "name": "ABRAMS ROBIN ANN",
+      "label": "EDWARD (CTO)",
+      "name": "HANWAY H EDWARD",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>HANWAY H EDWARD</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-05-30 [?] 929 sh $215K",
+      "n_txns": 1
     },
     {
       "id": 122,
-      "label": "G",
-      "name": "HYLTON LAURIE G",
+      "label": "STACY (Officer)",
+      "name": "MILLS STACY",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "Officer",
+      "title_short": "Officer",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>MILLS STACY</b><br><i>Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-05-20 [?] 218 sh ",
+      "n_txns": 1
     },
     {
       "id": 123,
-      "label": "A",
-      "name": "SIEGEL LAURIE A",
-      "type": "person",
-      "status": "insider_sell"
+      "label": "Albert D Mason Inc",
+      "name": "Albert D Mason Inc",
+      "type": "fund",
+      "status": "active",
+      "detail": ""
     },
     {
       "id": 124,
-      "label": "KAI",
-      "name": "CHOY SIEW KAI",
-      "type": "person",
-      "status": "insider_sell"
+      "label": "DFA INVESTMENT DIMENSIONS GROU",
+      "name": "DFA INVESTMENT DIMENSIONS GROUP INC-DFA Intl Small Cap Value PORT.",
+      "type": "fund",
+      "status": "active",
+      "detail": ""
     },
     {
       "id": 125,
-      "label": "TERESA",
-      "name": "TEJADA MARIA TERESA",
-      "type": "person",
-      "status": "insider_sell"
+      "label": "American Century ETF Trust-Ava",
+      "name": "American Century ETF Trust-Avantis International Small Cap Value ETF",
+      "type": "fund",
+      "status": "indexer",
+      "detail": ""
     },
     {
       "id": 126,
-      "label": "ELISHA",
-      "name": "WIESEL SHLOMO ELISHA",
-      "type": "person",
-      "status": "insider_sell"
+      "label": "DFA INVESTMENT DIMENSIONS GROU",
+      "name": "DFA INVESTMENT DIMENSIONS GROUP INC-Intl Core Eqy. 2 PORT.",
+      "type": "fund",
+      "status": "active",
+      "detail": ""
     },
     {
       "id": 127,
-      "label": "Alliancebernstein L.P.",
-      "name": "Alliancebernstein L.P.",
-      "type": "fund",
-      "status": "active"
+      "label": "Plc",
+      "name": "Keller Group Plc",
+      "type": "person",
+      "status": "buyback",
+      "title": "",
+      "title_short": "",
+      "pattern": "Discretionary",
+      "total_value": 5898552.0,
+      "detail": "<b>Keller Group Plc</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>Buybacks: 261.4K sh ($5.9M)<br>---<br>2026-01-30 [?] 0 sh <br>2026-01-21 [BB] 23.9K sh $546K<br>2026-01-20 [BB] 24.4K sh $553K<br>2026-01-15 [BB] 19.8K sh $450K<br>2026-01-14 [BB] 13.0K sh $291K<br>2026-01-13 [BB] 25.8K sh $580K<br>2026-01-12 [BB] 25.6K sh $584K<br>2026-01-09 [BB] 26.7K sh $607K",
+      "n_txns": 13
     },
     {
       "id": 128,
-      "label": "MATTIAS",
-      "name": "BYSTROM MATTIAS",
+      "label": "(Paul)",
+      "name": "Leonard (Paul)",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "",
+      "title_short": "",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>Leonard (Paul)</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-12 [?] 10.1K sh <br>2026-01-12 [?] 3.3K sh $76K",
+      "n_txns": 2
     },
     {
       "id": 129,
-      "label": "LESLEY",
-      "name": "BENETEAU LESLEY",
-      "type": "person",
-      "status": "insider_sell"
+      "label": "Rockefeller Capital Management",
+      "name": "Rockefeller Capital Management L.P.",
+      "type": "fund",
+      "status": "active",
+      "detail": ""
     },
     {
       "id": 130,
-      "label": "L",
-      "name": "HONEYCUTT JENNIFER L",
+      "label": "JR (CTO)",
+      "name": "JOYCE THOMAS PATRICK JR",
       "type": "person",
-      "status": "insider_sell"
+      "status": "insider_buy",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 501844.0,
+      "detail": "<b>JOYCE THOMAS PATRICK JR</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>Buys: 1.4K sh ($502K)<br>---<br>2026-02-06 [+] 1.4K sh $502K<br>2025-09-15 [?] 59 sh ",
+      "n_txns": 2
     },
     {
       "id": 131,
-      "label": "JR",
-      "name": "LOHR WALTER G JR",
+      "label": "F. (CTO)",
+      "name": "WALLMAN RICHARD F.",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>WALLMAN RICHARD F.</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-12-08 [?] 4.0K sh <br>2025-09-15 [?] 64 sh ",
+      "n_txns": 2
     },
     {
       "id": 132,
-      "label": "L",
-      "name": "COMAS DANIEL L",
+      "label": "JASON (CFO)",
+      "name": "CONLEY JASON",
       "type": "person",
-      "status": "insider_sell"
+      "status": "insider_sell",
+      "title": "Chief Financial Officer",
+      "title_short": "CFO",
+      "pattern": "Discretionary",
+      "total_value": 2673390.0,
+      "detail": "<b>CONLEY JASON</b><br><i>Chief Financial Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>Sells: 6.0K sh ($2.7M)<br>---<br>2025-12-01 [-] 6.0K sh $2.7M<br>2025-12-01 [OPT] 6.0K sh $1.0M",
+      "n_txns": 2
     },
     {
       "id": 133,
-      "label": "T",
-      "name": "SCHWIETERS JOHN T",
+      "label": "NEIL (CEO)",
+      "name": "HUNN LAURENCE NEIL",
       "type": "person",
-      "status": "insider_sell"
+      "status": "insider_sell",
+      "title": "Chief Executive Officer",
+      "title_short": "CEO",
+      "pattern": "Discretionary",
+      "total_value": 17829486.0,
+      "detail": "<b>HUNN LAURENCE NEIL</b><br><i>Chief Executive Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>Buys: 10.0K sh ($4.5M)<br>Sells: 30.0K sh ($13.3M)<br>---<br>2025-11-12 [+] 10.0K sh $4.5M<br>2025-11-11 [-] 30.0K sh $13.3M<br>2025-11-11 [OPT] 30.0K sh $5.6M",
+      "n_txns": 3
     },
     {
       "id": 134,
-      "label": "II",
-      "name": "WILLIAMS THOMAS L II",
+      "label": "WOODS (CTO)",
+      "name": "BRINKLEY AMY WOODS",
       "type": "person",
-      "status": "insider_sell"
+      "status": "insider_buy",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 540856.0,
+      "detail": "<b>BRINKLEY AMY WOODS</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>Buys: 1.2K sh ($541K)<br>---<br>2025-11-12 [+] 1.2K sh $541K",
+      "n_txns": 1
     },
     {
       "id": 135,
-      "label": "A",
-      "name": "MITTS HEATH A",
+      "label": "L (CTO)",
+      "name": "ARCHAMBEAU SHELLYE L",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>ARCHAMBEAU SHELLYE L</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-09-15 [?] 64 sh ",
+      "n_txns": 1
     },
     {
       "id": 136,
-      "label": "H",
-      "name": "KING WILLIAM H",
+      "label": "M (CTO)",
+      "name": "ESTEVES IRENE M",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>ESTEVES IRENE M</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-09-15 [?] 59 sh ",
+      "n_txns": 1
     },
     {
       "id": 137,
-      "label": "J",
-      "name": "BENSINGER STEVEN J",
+      "label": "D. (CTO)",
+      "name": "JOHNSON ROBERT D.",
       "type": "person",
-      "status": "insider_sell"
+      "status": "insider_sell",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 210158.0,
+      "detail": "<b>JOHNSON ROBERT D.</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>Sells: 400 sh ($210K)<br>---<br>2025-08-15 [-] 400 sh $210K",
+      "n_txns": 1
     },
     {
       "id": 138,
-      "label": "JANE",
-      "name": "FORTIN MARY JANE",
+      "label": "K (GC)",
+      "name": "STIPANCICH JOHN K",
       "type": "person",
-      "status": "insider_sell"
+      "status": "insider_sell",
+      "title": "General Counsel",
+      "title_short": "GC",
+      "pattern": "Discretionary",
+      "total_value": 846255.0,
+      "detail": "<b>STIPANCICH JOHN K</b><br><i>General Counsel</i><br>Pattern: <b>Discretionary</b><br>---<br>Sells: 1.5K sh ($846K)<br>---<br>2025-07-24 [?] 100 sh <br>2025-07-23 [-] 1.5K sh $846K",
+      "n_txns": 2
     },
     {
       "id": 139,
-      "label": "III",
-      "name": "LIPPINCOTT ROBERT III",
+      "label": "M (CTO)",
+      "name": "SHAVEL LEE M",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>SHAVEL LEE M</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-15 [?] 571 sh ",
+      "n_txns": 1
     },
     {
       "id": 140,
-      "label": "M",
-      "name": "SHARE GREGORY M",
+      "label": "BARAK (CTO)",
+      "name": "EILAM BARAK",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>EILAM BARAK</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-15 [?] 439 sh ",
+      "n_txns": 1
     },
     {
       "id": 141,
-      "label": "D",
-      "name": "HANEY BRIAN D",
+      "label": "MALCOLM (CTO)",
+      "name": "FRANK MALCOLM",
       "type": "person",
-      "status": "insider_sell"
+      "status": "insider_sell",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 760547.0,
+      "detail": "<b>FRANK MALCOLM</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>Sells: 2.6K sh ($761K)<br>---<br>2026-01-15 [?] 713 sh <br>2026-01-12 [-] 2.6K sh $761K<br>2026-01-12 [OPT] 2.6K sh $535K",
+      "n_txns": 3
     },
     {
       "id": 142,
-      "label": "JR.",
-      "name": "RUSSELL FREDERICK LEROY JR.",
+      "label": "ANN (CTO)",
+      "name": "ABRAMS ROBIN ANN",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>ABRAMS ROBIN ANN</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-15 [?] 604 sh <br>2026-01-07 [OPT] 2.6K sh $535K",
+      "n_txns": 2
     },
     {
       "id": 143,
-      "label": "C",
-      "name": "KRONENBERG ANNE C",
+      "label": "G (CTO)",
+      "name": "HYLTON LAURIE G",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>HYLTON LAURIE G</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-15 [?] 439 sh ",
+      "n_txns": 1
     },
     {
       "id": 144,
-      "label": "III",
-      "name": "HATCHER ROBERT V. III",
+      "label": "A (CTO)",
+      "name": "SIEGEL LAURIE A",
       "type": "person",
-      "status": "insider_sell"
+      "status": "insider_sell",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 761944.0,
+      "detail": "<b>SIEGEL LAURIE A</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>Sells: 2.6K sh ($762K)<br>---<br>2026-01-15 [?] 626 sh <br>2026-01-08 [-] 2.6K sh $762K<br>2026-01-08 [OPT] 2.6K sh $535K",
+      "n_txns": 3
     },
     {
       "id": 145,
-      "label": "P.",
-      "name": "CHIA TERESA P.",
+      "label": "KAI (CTO)",
+      "name": "CHOY SIEW KAI",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>CHOY SIEW KAI</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-15 [?] 439 sh ",
+      "n_txns": 1
     },
     {
       "id": 146,
-      "label": "P",
-      "name": "KEHOE MICHAEL P",
+      "label": "TERESA (CTO)",
+      "name": "TEJADA MARIA TERESA",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>TEJADA MARIA TERESA</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-15 [?] 439 sh ",
+      "n_txns": 1
     },
     {
       "id": 147,
-      "label": "Bank of Montreal /CAN/",
-      "name": "Bank of Montreal /CAN/",
-      "type": "fund",
-      "status": "active"
+      "label": "ELISHA (CTO)",
+      "name": "WIESEL SHLOMO ELISHA",
+      "type": "person",
+      "status": "other",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>WIESEL SHLOMO ELISHA</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-15 [?] 571 sh ",
+      "n_txns": 1
     },
     {
       "id": 148,
-      "label": "American Century Companies Inc",
-      "name": "American Century Companies Inc",
-      "type": "fund",
-      "status": "active"
+      "label": "GORAN (Officer)",
+      "name": "SKOKO GORAN",
+      "type": "person",
+      "status": "insider_buy",
+      "title": "Officer",
+      "title_short": "Officer",
+      "pattern": "Discretionary",
+      "total_value": 126465.0,
+      "detail": "<b>SKOKO GORAN</b><br><i>Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>Buys: 500 sh ($126K)<br>---<br>2025-11-06 [+] 500 sh $126K",
+      "n_txns": 1
     },
     {
       "id": 149,
-      "label": "Voss Capital, LP",
-      "name": "Voss Capital, LP",
+      "label": "Alliancebernstein L.P.",
+      "name": "Alliancebernstein L.P.",
       "type": "fund",
-      "status": "active"
+      "status": "active",
+      "detail": ""
     },
     {
       "id": 150,
-      "label": "C",
-      "name": "BIANCHI JUAN C",
+      "label": "MATTIAS (Officer)",
+      "name": "BYSTROM MATTIAS",
       "type": "person",
-      "status": "insider_sell"
+      "status": "insider_sell",
+      "title": "Officer",
+      "title_short": "Officer",
+      "pattern": "Discretionary",
+      "total_value": 101730.0,
+      "detail": "<b>BYSTROM MATTIAS</b><br><i>Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>Sells: 1.0K sh ($102K)<br>---<br>2025-12-01 [-] 1.0K sh $102K",
+      "n_txns": 1
     },
     {
       "id": 151,
-      "label": "L.",
-      "name": "WELLER RICK L.",
+      "label": "LESLEY (Officer)",
+      "name": "BENETEAU LESLEY",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "Officer",
+      "title_short": "Officer",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>BENETEAU LESLEY</b><br><i>Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-11-14 [OPT] 1.6K sh $38K",
+      "n_txns": 1
     },
     {
       "id": 152,
-      "label": "J.",
-      "name": "BROWN MICHAEL J.",
+      "label": "L (CEO)",
+      "name": "HONEYCUTT JENNIFER L",
       "type": "person",
-      "status": "insider_sell"
+      "status": "insider_sell",
+      "title": "Chief Executive Officer",
+      "title_short": "CEO",
+      "pattern": "Discretionary",
+      "total_value": 1131244.0,
+      "detail": "<b>HONEYCUTT JENNIFER L</b><br><i>Chief Executive Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>Sells: 10.6K sh ($1.1M)<br>---<br>2025-08-29 [-] 10.6K sh $1.1M<br>2025-08-29 [OPT] 10.6K sh $306K",
+      "n_txns": 2
     },
     {
       "id": 153,
-      "label": "NIKOLAOS",
-      "name": "FOUNTAS NIKOLAOS",
+      "label": "JR (CTO)",
+      "name": "LOHR WALTER G JR",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>LOHR WALTER G JR</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-07-15 [?] 818 sh ",
+      "n_txns": 1
     },
     {
       "id": 154,
-      "label": "L",
-      "name": "BRUCKNER MARTIN L",
+      "label": "L (CTO)",
+      "name": "COMAS DANIEL L",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>COMAS DANIEL L</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-07-15 [?] 818 sh ",
+      "n_txns": 1
     },
     {
       "id": 155,
-      "label": "S",
-      "name": "ALTHASEN PAUL S",
+      "label": "T (CTO)",
+      "name": "SCHWIETERS JOHN T",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>SCHWIETERS JOHN T</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-07-15 [?] 818 sh ",
+      "n_txns": 1
     },
     {
       "id": 156,
-      "label": "N",
-      "name": "FRUMKIN MICHAEL N",
+      "label": "II (CTO)",
+      "name": "WILLIAMS THOMAS L II",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>WILLIAMS THOMAS L II</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-07-15 [?] 818 sh ",
+      "n_txns": 1
     },
     {
       "id": 157,
-      "label": "ANDRZEJ",
-      "name": "OLECHOWSKI ANDRZEJ",
+      "label": "A (CTO)",
+      "name": "MITTS HEATH A",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>MITTS HEATH A</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-07-15 [?] 818 sh ",
+      "n_txns": 1
     },
     {
       "id": 158,
-      "label": "SARA",
-      "name": "BAACK SARA",
+      "label": "H (CTO)",
+      "name": "KING WILLIAM H",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>KING WILLIAM H</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-07-15 [?] 818 sh ",
+      "n_txns": 1
     },
     {
       "id": 159,
-      "label": "LIGIA",
-      "name": "TORRES FENTANES LIGIA",
+      "label": "SHYAM (CTO)",
+      "name": "KAMBEYANDA SHYAM",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>KAMBEYANDA SHYAM</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-07-15 [?] 818 sh ",
+      "n_txns": 1
     },
     {
       "id": 160,
-      "label": "Ltd.",
-      "name": "Schroder Investment Management, Ltd.",
+      "label": "FRANCOISE (CTO)",
+      "name": "COLPRON FRANCOISE",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>COLPRON FRANCOISE</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-07-15 [?] 818 sh ",
+      "n_txns": 1
     },
     {
       "id": 161,
-      "label": "Investment",
-      "name": "Montefiore Investment",
+      "label": "L (CTO)",
+      "name": "WALLIS-LAGE CINDY L",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>WALLIS-LAGE CINDY L</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-07-15 [?] 818 sh ",
+      "n_txns": 1
     },
     {
       "id": 162,
-      "label": "Bank",
-      "name": "Norges Bank",
+      "label": "LINDA (CTO)",
+      "name": "FILLER LINDA",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>FILLER LINDA</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-07-15 [?] 1.6K sh ",
+      "n_txns": 1
     },
     {
       "id": 163,
-      "label": "Inc.",
-      "name": "BlackRock Inc.",
+      "label": "P (CTO)",
+      "name": "SANKARAN VIJAY P",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>SANKARAN VIJAY P</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-07-15 [?] 818 sh ",
+      "n_txns": 1
     },
     {
       "id": 164,
-      "label": "LLC",
-      "name": "FMR LLC",
+      "label": "J (CTO)",
+      "name": "BENSINGER STEVEN J",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>BENSINGER STEVEN J</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-12-31 [?] 460 sh $180K",
+      "n_txns": 1
     },
     {
       "id": 165,
-      "label": "plc",
-      "name": "Legal & General Group plc",
+      "label": "JANE (CTO)",
+      "name": "FORTIN MARY JANE",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>FORTIN MARY JANE</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-12-31 [?] 460 sh $180K",
+      "n_txns": 1
     },
     {
       "id": 166,
-      "label": "Ltd",
-      "name": "Standard Life Investments Ltd",
+      "label": "III (CTO)",
+      "name": "LIPPINCOTT ROBERT III",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>LIPPINCOTT ROBERT III</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-12-31 [?] 460 sh $180K",
+      "n_txns": 1
     },
     {
       "id": 167,
-      "label": "RYAN",
-      "name": "MCINERNEY RYAN",
+      "label": "M (CTO)",
+      "name": "SHARE GREGORY M",
       "type": "person",
-      "status": "insider_sell"
+      "status": "insider_buy",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 1048460.0,
+      "detail": "<b>SHARE GREGORY M</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>Buys: 2.7K sh ($1.0M)<br>---<br>2025-12-31 [?] 460 sh $180K<br>2025-12-15 [+] 2.7K sh $1.0M",
+      "n_txns": 2
     },
     {
       "id": 168,
-      "label": "KELLY",
-      "name": "MAHON TULLIER KELLY",
+      "label": "D (President)",
+      "name": "HANEY BRIAN D",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "President",
+      "title_short": "President",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>HANEY BRIAN D</b><br><i>President</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-12-31 [?] 460 sh $180K",
+      "n_txns": 1
     },
     {
       "id": 169,
-      "label": "D",
-      "name": "FABARA PAUL D",
+      "label": "JR. (CTO)",
+      "name": "RUSSELL FREDERICK LEROY JR.",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>RUSSELL FREDERICK LEROY JR.</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-12-31 [?] 460 sh $180K",
+      "n_txns": 1
     },
     {
       "id": 170,
-      "label": "RAJAT",
-      "name": "TANEJA RAJAT",
+      "label": "C (CTO)",
+      "name": "KRONENBERG ANNE C",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>KRONENBERG ANNE C</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-12-31 [?] 460 sh $180K<br>2025-11-19 [?] 100 sh ",
+      "n_txns": 2
     },
     {
       "id": 171,
-      "label": "J",
-      "name": "READY WILLIAM J",
+      "label": "III (CTO)",
+      "name": "HATCHER ROBERT V. III",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>HATCHER ROBERT V. III</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-12-31 [?] 460 sh $180K",
+      "n_txns": 1
     },
     {
       "id": 172,
-      "label": "PAM",
-      "name": "MURPHY PAM",
+      "label": "P. (CTO)",
+      "name": "CHIA TERESA P.",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>CHIA TERESA P.</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-12-31 [?] 460 sh $180K",
+      "n_txns": 1
     },
     {
       "id": 173,
-      "label": "F",
-      "name": "LUNDGREN JOHN F",
+      "label": "P (CEO)",
+      "name": "KEHOE MICHAEL P",
       "type": "person",
-      "status": "insider_sell"
+      "status": "insider_sell",
+      "title": "Chief Executive Officer",
+      "title_short": "CEO",
+      "pattern": "Discretionary",
+      "total_value": 2260764.0,
+      "detail": "<b>KEHOE MICHAEL P</b><br><i>Chief Executive Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>Sells: 5.0K sh ($2.3M)<br>---<br>2025-12-19 [?] 250 sh <br>2025-08-25 [-] 5.0K sh $2.3M<br>2025-08-25 [OPT] 5.0K sh $80K",
+      "n_txns": 3
     },
     {
       "id": 174,
-      "label": "A",
-      "name": "CARNEY LLOYD A",
+      "label": "D (CTO)",
+      "name": "SCHNUPP DIANE D",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "Chief Technology Officer",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>SCHNUPP DIANE D</b><br><i>Chief Technology Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-06-06 [?] 66 sh ",
+      "n_txns": 1
     },
     {
       "id": 175,
-      "label": "L.",
-      "name": "LIST-STOLL TERI L.",
-      "type": "person",
-      "status": "insider_sell"
+      "label": "Bank of Montreal /CAN/",
+      "name": "Bank of Montreal /CAN/",
+      "type": "fund",
+      "status": "active",
+      "detail": ""
     },
     {
       "id": 176,
-      "label": "M",
+      "label": "American Century Companies Inc",
+      "name": "American Century Companies Inc",
+      "type": "fund",
+      "status": "active",
+      "detail": ""
+    },
+    {
+      "id": 177,
+      "label": "Voss Capital, LP",
+      "name": "Voss Capital, LP",
+      "type": "fund",
+      "status": "active",
+      "detail": ""
+    },
+    {
+      "id": 178,
+      "label": "C (Officer)",
+      "name": "BIANCHI JUAN C",
+      "type": "person",
+      "status": "other",
+      "title": "Officer",
+      "title_short": "Officer",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>BIANCHI JUAN C</b><br><i>Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-12-10 [OPT] 3.3K sh $244K<br>2025-02-25 [?] 11.3K sh ",
+      "n_txns": 2
+    },
+    {
+      "id": 179,
+      "label": "L. (CFO)",
+      "name": "WELLER RICK L.",
+      "type": "person",
+      "status": "other",
+      "title": "Chief Financial Officer",
+      "title_short": "CFO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>WELLER RICK L.</b><br><i>Chief Financial Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-12-10 [OPT] 25.5K sh $1.9M",
+      "n_txns": 1
+    },
+    {
+      "id": 180,
+      "label": "J. (CEO)",
+      "name": "BROWN MICHAEL J.",
+      "type": "person",
+      "status": "insider_sell",
+      "title": "Chief Executive Officer",
+      "title_short": "CEO",
+      "pattern": "Discretionary",
+      "total_value": 9565550.0,
+      "detail": "<b>BROWN MICHAEL J.</b><br><i>Chief Executive Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>Sells: 95.0K sh ($9.6M)<br>---<br>2025-12-10 [OPT] 61.3K sh $4.6M<br>2025-03-13 [-] 95.0K sh $9.6M",
+      "n_txns": 2
+    },
+    {
+      "id": 181,
+      "label": "NIKOLAOS (Officer)",
+      "name": "FOUNTAS NIKOLAOS",
+      "type": "person",
+      "status": "other",
+      "title": "Officer",
+      "title_short": "Officer",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>FOUNTAS NIKOLAOS</b><br><i>Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-12-10 [OPT] 16.3K sh $1.2M",
+      "n_txns": 1
+    },
+    {
+      "id": 182,
+      "label": "L (CTO)",
+      "name": "BRUCKNER MARTIN L",
+      "type": "person",
+      "status": "other",
+      "title": "Chief Technology Officer",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>BRUCKNER MARTIN L</b><br><i>Chief Technology Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-12-10 [OPT] 10.2K sh $763K",
+      "n_txns": 1
+    },
+    {
+      "id": 183,
+      "label": "S (CTO)",
+      "name": "ALTHASEN PAUL S",
+      "type": "person",
+      "status": "other",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>ALTHASEN PAUL S</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-05-14 [?] 2.5K sh ",
+      "n_txns": 1
+    },
+    {
+      "id": 184,
+      "label": "N (CTO)",
+      "name": "FRUMKIN MICHAEL N",
+      "type": "person",
+      "status": "other",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>FRUMKIN MICHAEL N</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-05-14 [?] 2.5K sh ",
+      "n_txns": 1
+    },
+    {
+      "id": 185,
+      "label": "A (CTO)",
+      "name": "MCDONNELL THOMAS A",
+      "type": "person",
+      "status": "other",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>MCDONNELL THOMAS A</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-05-14 [?] 2.6K sh ",
+      "n_txns": 1
+    },
+    {
+      "id": 186,
+      "label": "ANDRZEJ (CTO)",
+      "name": "OLECHOWSKI ANDRZEJ",
+      "type": "person",
+      "status": "other",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>OLECHOWSKI ANDRZEJ</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-05-14 [?] 1.5K sh ",
+      "n_txns": 1
+    },
+    {
+      "id": 187,
+      "label": "SARA (CTO)",
+      "name": "BAACK SARA",
+      "type": "person",
+      "status": "other",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>BAACK SARA</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-05-14 [?] 2.4K sh ",
+      "n_txns": 1
+    },
+    {
+      "id": 188,
+      "label": "LIGIA (CTO)",
+      "name": "TORRES FENTANES LIGIA",
+      "type": "person",
+      "status": "other",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>TORRES FENTANES LIGIA</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-05-14 [?] 1.5K sh ",
+      "n_txns": 1
+    },
+    {
+      "id": 189,
+      "label": "SERGI (CTO)",
+      "name": "HERRERO SERGI",
+      "type": "person",
+      "status": "other",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>HERRERO SERGI</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-05-14 [?] 2.4K sh ",
+      "n_txns": 1
+    },
+    {
+      "id": 190,
+      "label": "NIXON (CTO)",
+      "name": "SPRONG BRADLEY NIXON",
+      "type": "person",
+      "status": "other",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>SPRONG BRADLEY NIXON</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-05-14 [?] 2.6K sh ",
+      "n_txns": 1
+    },
+    {
+      "id": 191,
+      "label": "Ltd.",
+      "name": "Schroder Investment Management, Ltd.",
+      "type": "person",
+      "status": "other",
+      "title": "",
+      "title_short": "",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>Schroder Investment Management, Ltd.</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-30 [?] 629.1K sh <br>2025-12-03 [?] 75.6K sh $164K",
+      "n_txns": 2
+    },
+    {
+      "id": 192,
+      "label": "Investment",
+      "name": "Montefiore Investment",
+      "type": "person",
+      "status": "other",
+      "title": "",
+      "title_short": "",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>Montefiore Investment</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-14 [?] 12.7M sh ",
+      "n_txns": 1
+    },
+    {
+      "id": 193,
+      "label": "Bank",
+      "name": "Norges Bank",
+      "type": "person",
+      "status": "other",
+      "title": "",
+      "title_short": "",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>Norges Bank</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-12-05 [?] 284.9K sh $604K<br>2025-12-04 [?] 11.8K sh $26K<br>2025-12-03 [?] 520.4K sh $1.1M",
+      "n_txns": 3
+    },
+    {
+      "id": 194,
+      "label": "Inc.",
+      "name": "BlackRock Inc.",
+      "type": "person",
+      "status": "other",
+      "title": "",
+      "title_short": "",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>BlackRock Inc.</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-12-03 [?] 3.8K sh $8K<br>2025-12-01 [?] 72.1K sh $154K",
+      "n_txns": 2
+    },
+    {
+      "id": 195,
+      "label": "LLC",
+      "name": "FMR LLC",
+      "type": "person",
+      "status": "other",
+      "title": "",
+      "title_short": "",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>FMR LLC</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-12-03 [?] 432.5K sh $941K<br>2025-12-02 [?] 28.7K sh $61K<br>2025-12-01 [?] 26.0K sh $56K<br>2025-11-28 [?] 10.5K sh $23K",
+      "n_txns": 4
+    },
+    {
+      "id": 196,
+      "label": "plc",
+      "name": "Legal & General Group plc",
+      "type": "person",
+      "status": "other",
+      "title": "",
+      "title_short": "",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>Legal & General Group plc</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-12-03 [?] 12.3K sh $27K<br>2025-11-28 [?] 78.8K sh $170K",
+      "n_txns": 2
+    },
+    {
+      "id": 197,
+      "label": "Ltd",
+      "name": "Standard Life Investments Ltd",
+      "type": "person",
+      "status": "other",
+      "title": "",
+      "title_short": "",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>Standard Life Investments Ltd</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-12-02 [?] 28.2K sh $60K",
+      "n_txns": 1
+    },
+    {
+      "id": 198,
+      "label": "D (Officer)",
+      "name": "FABARA PAUL D",
+      "type": "person",
+      "status": "other",
+      "title": "Officer",
+      "title_short": "Officer",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>FABARA PAUL D</b><br><i>Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-02-13 [?] 21.3K sh ",
+      "n_txns": 1
+    },
+    {
+      "id": 199,
+      "label": "RAJAT (Officer)",
+      "name": "TANEJA RAJAT",
+      "type": "person",
+      "status": "other",
+      "title": "Officer",
+      "title_short": "Officer",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>TANEJA RAJAT</b><br><i>Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-02-13 [?] 35.5K sh ",
+      "n_txns": 1
+    },
+    {
+      "id": 200,
+      "label": "RYAN (CEO)",
+      "name": "MCINERNEY RYAN",
+      "type": "person",
+      "status": "insider_sell",
+      "title": "Chief Executive Officer",
+      "title_short": "CEO",
+      "pattern": "Discretionary",
+      "total_value": 3661152.0,
+      "detail": "<b>MCINERNEY RYAN</b><br><i>Chief Executive Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>Sells: 10.5K sh ($3.7M)<br>---<br>2026-02-13 [?] 11.8K sh <br>2026-01-02 [-] 10.5K sh $3.7M<br>2026-01-02 [OPT] 10.5K sh $1.2M",
+      "n_txns": 3
+    },
+    {
+      "id": 201,
+      "label": "KELLY (Officer)",
+      "name": "MAHON TULLIER KELLY",
+      "type": "person",
+      "status": "other",
+      "title": "Officer",
+      "title_short": "Officer",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>MAHON TULLIER KELLY</b><br><i>Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-02-13 [?] 35.5K sh ",
+      "n_txns": 1
+    },
+    {
+      "id": 202,
+      "label": "F (CTO)",
+      "name": "LUNDGREN JOHN F",
+      "type": "person",
+      "status": "other",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>LUNDGREN JOHN F</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-27 [?] 861 sh ",
+      "n_txns": 1
+    },
+    {
+      "id": 203,
+      "label": "A (CTO)",
+      "name": "CARNEY LLOYD A",
+      "type": "person",
+      "status": "other",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>CARNEY LLOYD A</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-27 [?] 861 sh ",
+      "n_txns": 1
+    },
+    {
+      "id": 204,
+      "label": "M (CTO)",
       "name": "MORRISON DENISE M",
       "type": "person",
-      "status": "insider_sell"
+      "status": "other",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>MORRISON DENISE M</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-27 [?] 861 sh ",
+      "n_txns": 1
+    },
+    {
+      "id": 205,
+      "label": "J (CTO)",
+      "name": "READY WILLIAM J",
+      "type": "person",
+      "status": "other",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>READY WILLIAM J</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-27 [?] 861 sh ",
+      "n_txns": 1
+    },
+    {
+      "id": 206,
+      "label": "PAM (CTO)",
+      "name": "MURPHY PAM",
+      "type": "person",
+      "status": "other",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>MURPHY PAM</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-27 [?] 861 sh ",
+      "n_txns": 1
+    },
+    {
+      "id": 207,
+      "label": "JAVIER (CTO)",
+      "name": "FERNANDEZ CARBAJAL FRANCISCO JAVIER",
+      "type": "person",
+      "status": "other",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>FERNANDEZ CARBAJAL FRANCISCO JAVIER</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-27 [?] 861 sh ",
+      "n_txns": 1
+    },
+    {
+      "id": 208,
+      "label": "L. (CTO)",
+      "name": "LIST-STOLL TERI L.",
+      "type": "person",
+      "status": "other",
+      "title": "Director",
+      "title_short": "CTO",
+      "pattern": "Discretionary",
+      "total_value": 0,
+      "detail": "<b>LIST-STOLL TERI L.</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-27 [?] 861 sh ",
+      "n_txns": 1
+    },
+    {
+      "id": 209,
+      "label": "B (GC)",
+      "name": "ROTTENBERG JULIE B",
+      "type": "person",
+      "status": "insider_sell",
+      "title": "General Counsel",
+      "title_short": "GC",
+      "pattern": "Discretionary",
+      "total_value": 699315.0,
+      "detail": "<b>ROTTENBERG JULIE B</b><br><i>General Counsel</i><br>Pattern: <b>Discretionary</b><br>---<br>Sells: 2.0K sh ($699K)<br>---<br>2025-12-11 [-] 2.0K sh $699K<br>2025-12-11 [OPT] 2.0K sh $223K",
+      "n_txns": 2
     }
   ],
   "edges": [
@@ -1378,1435 +2544,1880 @@ const DATA = {
       "target": 0,
       "type": "holds",
       "weight": 0.0005,
-      "label": "0.1%"
+      "label": "0.1%",
+      "detail": "Pacer Advisors, Inc.: 0.1% (2.5M shares, $83.4M)"
     },
     {
       "source": 28,
       "target": 0,
       "type": "holds",
       "weight": 0.01,
-      "label": ""
+      "label": "",
+      "detail": "Gamma Investing LLC:  (8.3K shares, $277K)"
     },
     {
       "source": 29,
       "target": 0,
       "type": "holds",
       "weight": 0.01,
-      "label": ""
+      "label": "",
+      "detail": "Paradigm Asset Management Company, LLC:  (83.1K shares, $2.8M)"
     },
     {
       "source": 27,
       "target": 1,
       "type": "holds",
       "weight": 0.01,
-      "label": ""
+      "label": "",
+      "detail": "Pacer Advisors, Inc.:  (1.2K shares, $22K)"
     },
     {
       "source": 30,
       "target": 2,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": ""
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>HOLD Alapkezelo Zrt</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-22 [?] 3.6M sh <br>2025-11-19 [?] 0 sh "
     },
     {
       "source": 31,
       "target": 2,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": ""
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>Saray Capital (DIFC) Limited</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-06 [?] 3.4M sh <br>2025-12-30 [?] 3.9M sh <br>2025-12-12 [?] 3.6M sh "
     },
     {
       "source": 32,
       "target": 2,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": ""
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>Liontrust Asset Management Plc</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-12-19 [?] 2.5M sh <br>2025-12-18 [?] 3.2M sh <br>2025-12-03 [?] 224.1K sh <br>2025-12-01 [?] 559.3K sh "
     },
     {
       "source": 33,
       "target": 2,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Bought at price 2.25 per share."
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>Frampton (Nicola)</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-12-08 [?] 29.4K sh $66K"
     },
     {
       "source": 34,
       "target": 2,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Bought at price 2.30 per share."
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>Bull (Ian)</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-12-03 [?] 20.0K sh $46K"
     },
     {
       "source": 35,
       "target": 2,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": ""
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>Capital Research Global Investors</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-12-02 [?] 18.8M sh <br>2025-11-06 [?] 3.4M sh "
     },
     {
       "source": 36,
-      "target": 3,
-      "type": "holds",
-      "weight": 0.1268,
-      "label": "12.7%"
+      "target": 2,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>Alberta Investment Management Corporation</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-11-28 [?] 2.2M sh <br>2025-11-27 [?] 4.3M sh "
     },
     {
       "source": 37,
       "target": 3,
       "type": "holds",
-      "weight": 0.0715,
-      "label": "7.1%"
+      "weight": 0.1268,
+      "label": "12.7%",
+      "detail": "Vanguard Group Inc: 12.7% (10.1M shares, $1439.5M)"
     },
     {
       "source": 38,
       "target": 3,
       "type": "holds",
-      "weight": 0.0496,
-      "label": "5.0%"
+      "weight": 0.0715,
+      "label": "7.1%",
+      "detail": "Blackrock Inc.: 7.1% (5.7M shares, $811.5M)"
     },
     {
       "source": 39,
       "target": 3,
       "type": "holds",
-      "weight": 0.0399,
-      "label": "4.0%"
+      "weight": 0.0496,
+      "label": "5.0%",
+      "detail": "Invesco Ltd.: 5.0% (3.9M shares, $563.3M)"
     },
     {
       "source": 40,
       "target": 3,
       "type": "holds",
-      "weight": 0.034,
-      "label": "3.4%"
+      "weight": 0.0399,
+      "label": "4.0%",
+      "detail": "State Street Corporation: 4.0% (3.2M shares, $452.7M)"
     },
     {
       "source": 41,
       "target": 3,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Sale at price 143.95 - 145.52 per share."
+      "type": "holds",
+      "weight": 0.034,
+      "label": "3.4%",
+      "detail": "Geode Capital Management, LLC: 3.4% (2.7M shares, $386.5M)"
     },
     {
       "source": 42,
       "target": 3,
       "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Sale at price 142.21 - 143.72 per share."
+      "weight": 3.619404,
+      "label": "-$1.8M",
+      "detail": "<b>SVOBODA FRANK M</b><br><i>Chief Executive Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>Sells: 12.5K sh ($1.8M)<br>---<br>2026-02-17 [-] 12.5K sh $1.8M<br>2026-02-17 [OPT] 12.5K sh $1.0M"
     },
     {
       "source": 43,
       "target": 3,
       "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Sale at price 147.91 per share."
+      "weight": 2.86271,
+      "label": "-$1.4M",
+      "detail": "<b>HAWORTH JENNIFER ALLISON</b><br><i>Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>Sells: 10.0K sh ($1.4M)<br>---<br>2026-02-12 [-] 10.0K sh $1.4M<br>2026-02-12 [OPT] 10.0K sh $506K"
     },
     {
       "source": 44,
       "target": 3,
       "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Sale at price 146.04 - 148.63 per share."
+      "weight": 0.517684,
+      "label": "-$259K",
+      "detail": "<b>BLINN MARK A</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>Sells: 1.8K sh ($259K)<br>---<br>2026-02-06 [-] 1.8K sh $259K<br>2026-01-02 [?] 1.4K sh "
     },
     {
       "source": 45,
       "target": 3,
       "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Stock Award(Grant) at price 0.00 per sha"
+      "weight": 5,
+      "label": "-$4.4M",
+      "detail": "<b>MAJORS MICHAEL CLAY</b><br><i>Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>Sells: 30.0K sh ($4.4M)<br>---<br>2026-02-06 [-] 30.0K sh $4.4M<br>2026-02-06 [OPT] 30.0K sh $3.0M"
     },
     {
       "source": 46,
       "target": 3,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Stock Award(Grant) at price 0.00 per sha"
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>ALSTON CHERYL D</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-02 [?] 1.4K sh "
     },
     {
       "source": 47,
       "target": 3,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Stock Award(Grant) at price 0.00 per sha"
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>ADDISON LINDA L.</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-02 [?] 723 sh "
     },
     {
-      "source": 36,
-      "target": 4,
-      "type": "holds",
-      "weight": 0.100600004,
-      "label": "10.1%"
+      "source": 48,
+      "target": 3,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>CHO ALICE S</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-02 [?] 1.4K sh "
+    },
+    {
+      "source": 49,
+      "target": 3,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>ADAMS MATTHEW J</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-02 [?] 1.4K sh <br>2026-01-02 [?] 1.4K sh "
+    },
+    {
+      "source": 50,
+      "target": 3,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>JACOBS PHILIP M.</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-02 [?] 1.4K sh "
+    },
+    {
+      "source": 51,
+      "target": 3,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>BRANNEN JAMES PATRICK</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-02 [?] 1.4K sh "
     },
     {
       "source": 37,
       "target": 4,
       "type": "holds",
-      "weight": 0.098500006,
-      "label": "9.9%"
+      "weight": 0.100600004,
+      "label": "10.1%",
+      "detail": "Vanguard Group Inc: 10.1% (41.3M shares, $10183.8M)"
     },
     {
-      "source": 39,
+      "source": 38,
       "target": 4,
       "type": "holds",
-      "weight": 0.0499,
-      "label": "5.0%"
+      "weight": 0.098500006,
+      "label": "9.9%",
+      "detail": "Blackrock Inc.: 9.9% (40.4M shares, $9973.3M)"
     },
     {
       "source": 40,
       "target": 4,
       "type": "holds",
-      "weight": 0.028099999,
-      "label": "2.8%"
+      "weight": 0.0499,
+      "label": "5.0%",
+      "detail": "State Street Corporation: 5.0% (20.5M shares, $5050.5M)"
     },
     {
-      "source": 48,
+      "source": 41,
       "target": 4,
       "type": "holds",
-      "weight": 0.015800001,
-      "label": "1.6%"
-    },
-    {
-      "source": 49,
-      "target": 4,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Sale at price 294.85 per share."
-    },
-    {
-      "source": 50,
-      "target": 4,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": ""
-    },
-    {
-      "source": 51,
-      "target": 4,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": ""
+      "weight": 0.028099999,
+      "label": "2.8%",
+      "detail": "Geode Capital Management, LLC: 2.8% (11.5M shares, $2844.6M)"
     },
     {
       "source": 52,
       "target": 4,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": ""
+      "type": "holds",
+      "weight": 0.015800001,
+      "label": "1.6%",
+      "detail": "NORGES BANK: 1.6% (6.5M shares, $1603.6M)"
     },
     {
       "source": 53,
       "target": 4,
       "type": "insider_sell",
-      "weight": 0.5,
-      "label": ""
+      "weight": 0.970646,
+      "label": "-$485K",
+      "detail": "<b>DURN DANIEL J</b><br><i>Chief Financial Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>Sells: 1.6K sh ($485K)<br>---<br>2026-01-27 [-] 1.6K sh $485K<br>2026-01-23 [?] 15.7K sh <br>2026-01-15 [?] 2.8K sh "
     },
     {
       "source": 54,
       "target": 4,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": ""
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>WADHWANI DAVID</b><br><i>Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-23 [?] 24.2K sh <br>2026-01-15 [?] 1.9K sh "
     },
     {
       "source": 55,
-      "target": 5,
-      "type": "holds",
-      "weight": 0.0050999997,
-      "label": "0.5%"
+      "target": 4,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>CHAKRAVARTHY ANIL</b><br><i>President</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-23 [?] 24.2K sh <br>2026-01-15 [?] 1.9K sh "
     },
     {
       "source": 56,
-      "target": 5,
-      "type": "holds",
-      "weight": 0.0043,
-      "label": "0.4%"
+      "target": 4,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>NARAYEN SHANTANU</b><br><i>Chief Executive Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-23 [?] 69.6K sh <br>2026-01-15 [?] 5.4K sh "
     },
     {
       "source": 57,
-      "target": 5,
-      "type": "holds",
-      "weight": 0.0038,
-      "label": "0.4%"
+      "target": 4,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>CHEN GLORIA T</b><br><i>Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-23 [?] 10.7K sh <br>2026-01-15 [?] 1.9K sh "
     },
     {
       "source": 58,
-      "target": 5,
-      "type": "holds",
-      "weight": 0.0034999999,
-      "label": "0.3%"
+      "target": 4,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>FORUSZ JILLIAN</b><br><i>Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-23 [?] 559 sh <br>2026-01-15 [?] 117 sh <br>2025-12-24 [?] 550 sh "
     },
     {
       "source": 59,
-      "target": 5,
-      "type": "holds",
-      "weight": 0.0033000002,
-      "label": "0.3%"
+      "target": 4,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>BALAZS LARA</b><br><i>Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-15 [?] 4.9K sh "
     },
     {
       "source": 60,
-      "target": 6,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": ""
+      "target": 5,
+      "type": "holds",
+      "weight": 0.0050999997,
+      "label": "0.5%",
+      "detail": "LOOMIS SAYLES & CO L P: 0.5% (17.1M shares, $679.1M)"
     },
     {
       "source": 61,
-      "target": 6,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Bought at price 2.31 per share."
+      "target": 5,
+      "type": "holds",
+      "weight": 0.0043,
+      "label": "0.4%",
+      "detail": "Franklin Resources, Inc.: 0.4% (14.7M shares, $582.7M)"
     },
     {
       "source": 62,
-      "target": 6,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Bought at price 2.31 per share."
+      "target": 5,
+      "type": "holds",
+      "weight": 0.0038,
+      "label": "0.4%",
+      "detail": "Morgan Stanley: 0.4% (12.8M shares, $508.9M)"
     },
     {
       "source": 63,
-      "target": 6,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Bought at price 2.31 per share."
+      "target": 5,
+      "type": "holds",
+      "weight": 0.0034999999,
+      "label": "0.3%",
+      "detail": "Bank of America Corporation: 0.3% (11.9M shares, $470.3M)"
     },
     {
-      "source": 36,
-      "target": 7,
+      "source": 64,
+      "target": 5,
       "type": "holds",
-      "weight": 0.118999995,
-      "label": "11.9%"
+      "weight": 0.0033000002,
+      "label": "0.3%",
+      "detail": "Capital International Investors: 0.3% (11.2M shares, $444.3M)"
+    },
+    {
+      "source": 65,
+      "target": 6,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>BlackRock Investment Management (UK) Ltd.</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-02-13 [?] 446.8K sh <br>2026-02-05 [?] 175 sh <br>2026-02-04 [?] 309.1K sh <br>2026-01-29 [?] 8.7K sh <br>2026-01-28 [?] 10.5K sh <br>2026-01-23 [?] 1.8M sh "
+    },
+    {
+      "source": 66,
+      "target": 6,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>Cresswell (Matthew)</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-02-05 [?] 88 sh $203<br>2026-01-07 [?] 81 sh $202"
+    },
+    {
+      "source": 67,
+      "target": 6,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>Duffy (Peter)</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-02-05 [?] 88 sh $203<br>2026-01-07 [?] 81 sh $202<br>2025-12-04 [?] 78 sh $199"
+    },
+    {
+      "source": 68,
+      "target": 6,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>Whittle (Matthew)</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-02-05 [?] 59 sh $136<br>2026-01-07 [?] 54 sh $135<br>2025-12-04 [?] 52 sh $133"
+    },
+    {
+      "source": 69,
+      "target": 6,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>Gruppo MutuiOnline SpA</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-07 [?] 5.0M sh "
     },
     {
       "source": 37,
       "target": 7,
       "type": "holds",
-      "weight": 0.0885,
-      "label": "8.8%"
+      "weight": 0.118999995,
+      "label": "11.9%",
+      "detail": "Vanguard Group Inc: 11.9% (13.4M shares, $2378.6M)"
     },
     {
-      "source": 64,
+      "source": 38,
+      "target": 7,
+      "type": "holds",
+      "weight": 0.0885,
+      "label": "8.8%",
+      "detail": "Blackrock Inc.: 8.8% (9.9M shares, $1767.6M)"
+    },
+    {
+      "source": 70,
       "target": 7,
       "type": "holds",
       "weight": 0.0444,
-      "label": "4.4%"
-    },
-    {
-      "source": 39,
-      "target": 7,
-      "type": "holds",
-      "weight": 0.040799998,
-      "label": "4.1%"
+      "label": "4.4%",
+      "detail": "FMR, LLC: 4.4% (5.0M shares, $887.8M)"
     },
     {
       "source": 40,
       "target": 7,
       "type": "holds",
+      "weight": 0.040799998,
+      "label": "4.1%",
+      "detail": "State Street Corporation: 4.1% (4.6M shares, $815.5M)"
+    },
+    {
+      "source": 41,
+      "target": 7,
+      "type": "holds",
       "weight": 0.0272,
-      "label": "2.7%"
+      "label": "2.7%",
+      "detail": "Geode Capital Management, LLC: 2.7% (3.0M shares, $543.2M)"
     },
     {
-      "source": 65,
+      "source": 71,
       "target": 7,
       "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Sale at price 211.37 per share."
+      "weight": 1.123642,
+      "label": "-$562K",
+      "detail": "<b>FRANK MEGHAN</b><br><i>Chief Financial Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>Sells: 2.7K sh ($562K)<br>---<br>2025-12-30 [-] 2.7K sh $562K<br>2025-12-30 [OPT] 2.8K sh $463K<br>2025-12-15 [?] 10.9K sh "
     },
     {
-      "source": 66,
+      "source": 72,
       "target": 7,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Stock Gift at price 0.00 per share."
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>MORFITT MARTHA A M</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-12-19 [?] 6.5K sh <br>2025-12-17 [?] 3.6K sh "
     },
     {
-      "source": 67,
+      "source": 73,
       "target": 7,
       "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Sale at price 203.48 - 204.08 per share."
+      "weight": 5,
+      "label": "-$2.8M",
+      "detail": "<b>BURGOYNE CELESTE</b><br><i>Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>Sells: 13.5K sh ($2.8M)<br>---<br>2025-12-16 [-] 13.5K sh $2.8M"
     },
     {
-      "source": 68,
+      "source": 74,
       "target": 7,
       "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Stock Award(Grant) at price 0.00 per sha"
+      "weight": 0.3,
+      "label": "-$109K",
+      "detail": "<b>NEUBURGER NICOLE</b><br><i>Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>Sells: 615 sh ($109K)<br>---<br>2025-12-15 [?] 6.1K sh <br>2025-09-30 [-] 615 sh $109K"
     },
     {
-      "source": 69,
+      "source": 75,
       "target": 7,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Stock Award(Grant) at price 0.00 per sha"
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>MAESTRINI ANDRE</b><br><i>President</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-12-15 [?] 10.9K sh "
     },
     {
-      "source": 70,
+      "source": 76,
+      "target": 7,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>DAS RANJU</b><br><i>Chief Technology Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-09-09 [?] 6.2K sh "
+    },
+    {
+      "source": 77,
       "target": 7,
       "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Stock Award(Grant) at price 0.00 per sha"
+      "weight": 5,
+      "label": "-$6.4M",
+      "detail": "<b>MCDONALD CALVIN</b><br><i>Chief Executive Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>Sells: 27.0K sh ($6.4M)<br>---<br>2025-06-27 [-] 27.0K sh $6.4M<br>2025-06-27 [OPT] 35.4K sh $4.8M"
+    },
+    {
+      "source": 78,
+      "target": 7,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>MAHE ISABEL</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-06-11 [?] 634 sh "
+    },
+    {
+      "source": 79,
+      "target": 7,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>LOEHNIS ALISON</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-06-11 [?] 634 sh "
+    },
+    {
+      "source": 80,
+      "target": 7,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>GRANT SHANE</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-06-11 [?] 634 sh "
     },
     {
       "source": 27,
       "target": 8,
       "type": "holds",
       "weight": 0.01,
-      "label": ""
-    },
-    {
-      "source": 71,
-      "target": 8,
-      "type": "insider_buy",
-      "weight": 0.5,
-      "label": "Buy Back at price 6.29 per share."
-    },
-    {
-      "source": 72,
-      "target": 8,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": ""
-    },
-    {
-      "source": 36,
-      "target": 9,
-      "type": "holds",
-      "weight": 0.06,
-      "label": "6.0%"
-    },
-    {
-      "source": 37,
-      "target": 9,
-      "type": "holds",
-      "weight": 0.059699997,
-      "label": "6.0%"
-    },
-    {
-      "source": 57,
-      "target": 9,
-      "type": "holds",
-      "weight": 0.0507,
-      "label": "5.1%"
-    },
-    {
-      "source": 73,
-      "target": 9,
-      "type": "holds",
-      "weight": 0.0385,
-      "label": "3.9%"
-    },
-    {
-      "source": 74,
-      "target": 9,
-      "type": "holds",
-      "weight": 0.031400003,
-      "label": "3.1%"
-    },
-    {
-      "source": 75,
-      "target": 9,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Sale at price 157.97 - 162.69 per share."
-    },
-    {
-      "source": 76,
-      "target": 9,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Sale at price 218.48 per share."
-    },
-    {
-      "source": 77,
-      "target": 10,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": ""
-    },
-    {
-      "source": 78,
-      "target": 10,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": ""
-    },
-    {
-      "source": 79,
-      "target": 10,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": ""
-    },
-    {
-      "source": 80,
-      "target": 11,
-      "type": "holds",
-      "weight": 0.0949,
-      "label": "9.5%"
-    },
-    {
-      "source": 36,
-      "target": 11,
-      "type": "holds",
-      "weight": 0.0291,
-      "label": "2.9%"
+      "label": "",
+      "detail": "Pacer Advisors, Inc.:  (1.1K shares, $531K)"
     },
     {
       "source": 81,
-      "target": 11,
-      "type": "holds",
-      "weight": 0.0217,
-      "label": "2.2%"
-    },
-    {
-      "source": 58,
-      "target": 11,
-      "type": "holds",
-      "weight": 0.0187,
-      "label": "1.9%"
+      "target": 8,
+      "type": "buyback",
+      "weight": 5,
+      "label": "BB $43.3M",
+      "detail": "<b>Auto Trader Group Plc</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>Buybacks: 6.4M sh ($43.3M)<br>---<br>2026-02-18 [BB] 540.0K sh $3.4M<br>2026-02-17 [BB] 12.3K sh $77K<br>2026-02-16 [BB] 530.0K sh $3.4M<br>2026-02-11 [BB] 850.0K sh $5.5M<br>2026-02-11 [BB] 823.8K sh $5.2M<br>2026-02-10 [BB] 700.0K sh $4.5M<br>2026-02-09 [BB] 800.0K sh $5.2M<br>2026-02-04 [BB] 461.7K sh $3.2M"
     },
     {
       "source": 82,
-      "target": 11,
+      "target": 8,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>FIL Limited</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-02-13 [?] 2.4M sh <br>2026-02-06 [?] 0 sh "
+    },
+    {
+      "source": 37,
+      "target": 9,
       "type": "holds",
-      "weight": 0.0184,
-      "label": "1.8%"
+      "weight": 0.06,
+      "label": "6.0%",
+      "detail": "Vanguard Group Inc: 6.0% (2.4M shares, $372.5M)"
+    },
+    {
+      "source": 38,
+      "target": 9,
+      "type": "holds",
+      "weight": 0.059699997,
+      "label": "6.0%",
+      "detail": "Blackrock Inc.: 6.0% (2.4M shares, $370.8M)"
+    },
+    {
+      "source": 62,
+      "target": 9,
+      "type": "holds",
+      "weight": 0.0507,
+      "label": "5.1%",
+      "detail": "Morgan Stanley: 5.1% (2.0M shares, $314.8M)"
     },
     {
       "source": 83,
-      "target": 12,
-      "type": "insider_buy",
-      "weight": 0.5,
-      "label": "Buy Back at price 13.14 per share."
+      "target": 9,
+      "type": "holds",
+      "weight": 0.0385,
+      "label": "3.9%",
+      "detail": "Select Equity Group LP: 3.9% (1.5M shares, $238.9M)"
     },
     {
       "source": 84,
-      "target": 12,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Bought at price 13.14 per share."
-    },
-    {
-      "source": 83,
-      "target": 12,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": ""
+      "target": 9,
+      "type": "holds",
+      "weight": 0.031400003,
+      "label": "3.1%",
+      "detail": "BAMCO Inc.: 3.1% (1.2M shares, $194.8M)"
     },
     {
       "source": 85,
-      "target": 12,
+      "target": 9,
       "type": "insider_sell",
-      "weight": 0.5,
-      "label": ""
+      "weight": 5,
+      "label": "-$19.4M",
+      "detail": "<b>MANSUETO JOSEPH D</b><br><i>Officer, Director and Beneficial Owner</i><br>Pattern: <b>Discretionary</b><br>---<br>Sells: 106.5K sh ($19.4M)<br>---<br>2026-02-20 [-] 13.9K sh $2.2M<br>2026-02-18 [-] 14.0K sh $2.2M<br>2026-02-13 [-] 14.2K sh $2.2M<br>2026-02-10 [-] 4.9K sh $796K<br>2026-02-06 [-] 20.1K sh $3.6M<br>2026-02-02 [-] 857 sh $173K<br>2025-12-12 [?] 27.8K sh <br>2025-11-25 [-] 1.6K sh $341K"
     },
     {
       "source": 86,
-      "target": 12,
+      "target": 9,
       "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Bought at price 14.58 per share."
-    },
-    {
-      "source": 36,
-      "target": 13,
-      "type": "holds",
-      "weight": 0.113900006,
-      "label": "11.4%"
-    },
-    {
-      "source": 37,
-      "target": 13,
-      "type": "holds",
-      "weight": 0.0875,
-      "label": "8.8%"
+      "weight": 0.3,
+      "label": "-$131K",
+      "detail": "<b>TSAY CAROLINE J</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>Sells: 600 sh ($131K)<br>---<br>2025-12-29 [-] 600 sh $131K"
     },
     {
       "source": 87,
-      "target": 13,
-      "type": "holds",
-      "weight": 0.0641,
-      "label": "6.4%"
-    },
-    {
-      "source": 74,
-      "target": 13,
-      "type": "holds",
-      "weight": 0.0496,
-      "label": "5.0%"
-    },
-    {
-      "source": 39,
-      "target": 13,
-      "type": "holds",
-      "weight": 0.0454,
-      "label": "4.5%"
+      "target": 9,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>WIERSEMA CONAN</b><br><i>Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-11-14 [?] 471 sh <br>2025-11-14 [?] 12 sh "
     },
     {
       "source": 88,
-      "target": 13,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Sale at price 96.12 per share."
+      "target": 9,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>HOLT MICHAEL CFA</b><br><i>Chief Financial Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-11-14 [?] 163 sh "
     },
     {
       "source": 89,
-      "target": 13,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Sale at price 93.81 - 94.17 per share."
+      "target": 10,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>Coronation Asset Management (Pty), Ltd.</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-02-16 [?] 938.9K sh <br>2026-02-04 [?] 983.1K sh <br>2026-01-15 [?] 102.6K sh <br>2026-01-12 [?] 746.1K sh <br>2025-12-19 [?] 2.4M sh "
     },
     {
       "source": 90,
-      "target": 13,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Stock Gift at price 0.00 per share."
+      "target": 10,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>J.P. Morgan Securities PLC</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-26 [?] 93.7K sh <br>2026-01-23 [?] 141.4K sh <br>2026-01-22 [?] 0 sh <br>2026-01-08 [?] 259.5K sh <br>2026-01-02 [?] 110.3K sh <br>2025-12-30 [?] 0 sh <br>2025-12-05 [?] 0 sh "
     },
     {
       "source": 91,
-      "target": 13,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Sale at price 94.62 per share."
+      "target": 10,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>Camissa Global Flexible Fund</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-22 [?] 2.9M sh <br>2026-01-20 [?] 12.0M sh "
     },
     {
       "source": 92,
-      "target": 13,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Stock Gift at price 0.00 per share."
+      "target": 10,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>Public Investment Corporation SOC, Ltd.</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-06 [?] 862.7K sh "
     },
     {
       "source": 93,
-      "target": 14,
+      "target": 11,
       "type": "holds",
-      "weight": 0.0108,
-      "label": "1.1%"
+      "weight": 0.0949,
+      "label": "9.5%",
+      "detail": "Groupama Asset Managment: 9.5% (17.0M shares, $5163.4M)"
+    },
+    {
+      "source": 37,
+      "target": 11,
+      "type": "holds",
+      "weight": 0.0291,
+      "label": "2.9%",
+      "detail": "Vanguard Group Inc: 2.9% (5.2M shares, $1584.4M)"
     },
     {
       "source": 94,
-      "target": 14,
+      "target": 11,
       "type": "holds",
-      "weight": 0.0069999998,
-      "label": "0.7%"
+      "weight": 0.0217,
+      "label": "2.2%",
+      "detail": "BAILLIE GIFFORD & CO: 2.2% (3.9M shares, $1182.2M)"
+    },
+    {
+      "source": 63,
+      "target": 11,
+      "type": "holds",
+      "weight": 0.0187,
+      "label": "1.9%",
+      "detail": "Bank of America Corporation: 1.9% (3.4M shares, $1018.4M)"
     },
     {
       "source": 95,
-      "target": 14,
+      "target": 11,
       "type": "holds",
-      "weight": 0.0055,
-      "label": "0.5%"
+      "weight": 0.0184,
+      "label": "1.8%",
+      "detail": "Amundi: 1.8% (3.3M shares, $1003.9M)"
     },
     {
       "source": 96,
-      "target": 14,
-      "type": "holds",
-      "weight": 0.0033000002,
-      "label": "0.3%"
+      "target": 12,
+      "type": "buyback",
+      "weight": 5,
+      "label": "BB $4.2M",
+      "detail": "<b>Dunelm Group Plc</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>Buybacks: 317.1K sh ($4.2M)<br>---<br>2026-02-18 [BB] 107.5K sh $1.4M<br>2026-02-17 [BB] 105.5K sh $1.4M<br>2026-02-16 [BB] 104.2K sh $1.4M<br>2026-02-02 [?] 956.1K sh <br>2025-12-31 [?] 95.9K sh <br>2025-11-28 [?] 101.4K sh <br>2025-10-31 [?] 168.4K sh "
     },
     {
       "source": 97,
-      "target": 14,
-      "type": "holds",
-      "weight": 0.0027,
-      "label": "0.3%"
+      "target": 12,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>Wright (Luisa Ann)</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-02-13 [?] 2.4K sh $32K<br>2025-11-10 [?] 4.8K sh <br>2025-11-10 [?] 2.3K sh $33K"
     },
     {
       "source": 98,
-      "target": 14,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Bought at price 4.62 per share."
+      "target": 12,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>Cooper (Geoffrey Ian)</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-12-08 [?] 5.8K sh <br>2025-12-08 [?] 2.7K sh $40K"
     },
     {
       "source": 99,
-      "target": 14,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Bought at price 4.87 per share."
+      "target": 12,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>Witts (Karen)</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-12-01 [?] 10.8K sh $157K"
     },
     {
       "source": 100,
-      "target": 14,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Bought at price 4.68 per share."
+      "target": 12,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>Kavan (Ajay)</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-11-24 [?] 3.2K sh $45K"
     },
     {
-      "source": 36,
-      "target": 15,
+      "source": 101,
+      "target": 12,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>Taylor (Daniel Mark)</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-11-03 [?] 7.0K sh $107K"
+    },
+    {
+      "source": 37,
+      "target": 13,
       "type": "holds",
-      "weight": 0.0962,
-      "label": "9.6%"
+      "weight": 0.113900006,
+      "label": "11.4%",
+      "detail": "Vanguard Group Inc: 11.4% (41.3M shares, $4075.2M)"
+    },
+    {
+      "source": 38,
+      "target": 13,
+      "type": "holds",
+      "weight": 0.0875,
+      "label": "8.8%",
+      "detail": "Blackrock Inc.: 8.8% (31.7M shares, $3132.3M)"
+    },
+    {
+      "source": 102,
+      "target": 13,
+      "type": "holds",
+      "weight": 0.0641,
+      "label": "6.4%",
+      "detail": "Artisan Partners Limited Partnership: 6.4% (23.2M shares, $2294.5M)"
+    },
+    {
+      "source": 84,
+      "target": 13,
+      "type": "holds",
+      "weight": 0.0496,
+      "label": "5.0%",
+      "detail": "BAMCO Inc.: 5.0% (18.0M shares, $1775.4M)"
+    },
+    {
+      "source": 40,
+      "target": 13,
+      "type": "holds",
+      "weight": 0.0454,
+      "label": "4.5%",
+      "detail": "State Street Corporation: 4.5% (16.5M shares, $1623.7M)"
+    },
+    {
+      "source": 103,
+      "target": 13,
+      "type": "insider_sell",
+      "weight": 5,
+      "label": "-$5.5M",
+      "detail": "<b>RAJEH MAAMOUN</b><br><i>Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>Sells: 57.4K sh ($5.5M)<br>---<br>2026-02-11 [-] 47.4K sh $4.6M<br>2026-02-11 [OPT] 47.4K sh $1.3M<br>2025-08-22 [-] 10.0K sh $941K"
+    },
+    {
+      "source": 104,
+      "target": 13,
+      "type": "insider_sell",
+      "weight": 5,
+      "label": "-$29.3M",
+      "detail": "<b>PASQUESI JOHN MURRAY</b><br><i>Chairman of the Board</i><br>Pattern: <b>Discretionary</b><br>---<br>Sells: 311.7K sh ($29.3M)<br>---<br>2025-12-15 [-] 212.7K sh $20.0M<br>2025-12-12 [?] 53.0K sh <br>2025-05-13 [-] 99.1K sh $9.3M"
+    },
+    {
+      "source": 105,
+      "target": 13,
+      "type": "insider_sell",
+      "weight": 3.147888,
+      "label": "-$1.6M",
+      "detail": "<b>PETRILLO LOUIS T</b><br><i>Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>Sells: 16.6K sh ($1.6M)<br>---<br>2025-12-10 [?] 42 sh <br>2025-05-09 [?] 10 sh <br>2025-05-09 [-] 16.6K sh $1.6M<br>2025-05-09 [OPT] 16.6K sh $315K"
+    },
+    {
+      "source": 106,
+      "target": 13,
+      "type": "insider_sell",
+      "weight": 3.903144,
+      "label": "-$2.0M",
+      "detail": "<b>MORIN FRANCOIS</b><br><i>Chief Financial Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>Sells: 20.6K sh ($2.0M)<br>---<br>2025-11-28 [-] 8.0K sh $757K<br>2025-05-16 [-] 12.6K sh $1.2M<br>2025-05-16 [OPT] 12.6K sh $239K"
+    },
+    {
+      "source": 107,
+      "target": 13,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>VOLLARO JOHN D</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-10-30 [?] 2.2K sh <br>2025-08-05 [?] 195.0K sh "
+    },
+    {
+      "source": 108,
+      "target": 14,
+      "type": "holds",
+      "weight": 0.0108,
+      "label": "1.1%",
+      "detail": "VANGUARD STAR FUNDS-Vanguard Total International Stock Index Fund: 1.1% (3.6M shares, $1126.7M)"
+    },
+    {
+      "source": 109,
+      "target": 14,
+      "type": "holds",
+      "weight": 0.0069999998,
+      "label": "0.7%",
+      "detail": "VANGUARD TAX-MANAGED FUNDS-Vanguard Developed Markets Index Fund: 0.7% (2.3M shares, $728.1M)"
+    },
+    {
+      "source": 110,
+      "target": 14,
+      "type": "holds",
+      "weight": 0.0055,
+      "label": "0.5%",
+      "detail": "iShares Trust-iShares Core MSCI EAFE ETF: 0.5% (1.8M shares, $569.1M)"
+    },
+    {
+      "source": 111,
+      "target": 14,
+      "type": "holds",
+      "weight": 0.0033000002,
+      "label": "0.3%",
+      "detail": "iShares Trust-iShares MSCI EAFE Small-Cap ETF: 0.3% (1.1M shares, $338.7M)"
+    },
+    {
+      "source": 112,
+      "target": 14,
+      "type": "holds",
+      "weight": 0.0027,
+      "label": "0.3%",
+      "detail": "VANGUARD Intl Eqy. INDEX Fd.S-Vanguard FTSE All-World ex-US Small-Cap: 0.3% (898.6K shares, $281.7M)"
+    },
+    {
+      "source": 113,
+      "target": 14,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>Marshall (Euan William)</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-02-12 [?] 4.0K sh $18K<br>2026-01-21 [?] 43 sh $201<br>2026-01-21 [?] 86 sh <br>2026-01-13 [?] 4.5K sh $21K<br>2026-01-13 [?] 4.5K sh $21K<br>2026-01-09 [?] 1.0K sh $5K"
+    },
+    {
+      "source": 114,
+      "target": 14,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>Scott (Alexander)</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-30 [?] 413 sh $2K<br>2026-01-21 [?] 43 sh $201<br>2026-01-21 [?] 86 sh <br>2026-01-09 [?] 1.0K sh $5K"
+    },
+    {
+      "source": 115,
+      "target": 14,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>Dunbar (Thomas)</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-21 [?] 43 sh $201<br>2026-01-21 [?] 86 sh <br>2026-01-09 [?] 1.0K sh $5K<br>2025-12-22 [?] 43 sh $205<br>2025-12-22 [?] 86 sh "
     },
     {
       "source": 37,
       "target": 15,
       "type": "holds",
-      "weight": 0.083500005,
-      "label": "8.4%"
+      "weight": 0.0962,
+      "label": "9.6%",
+      "detail": "Vanguard Group Inc: 9.6% (46.6M shares, $8245.9M)"
     },
     {
-      "source": 39,
+      "source": 38,
+      "target": 15,
+      "type": "holds",
+      "weight": 0.083500005,
+      "label": "8.4%",
+      "detail": "Blackrock Inc.: 8.4% (40.4M shares, $7158.4M)"
+    },
+    {
+      "source": 40,
       "target": 15,
       "type": "holds",
       "weight": 0.0452,
-      "label": "4.5%"
+      "label": "4.5%",
+      "detail": "State Street Corporation: 4.5% (21.9M shares, $3871.1M)"
     },
     {
-      "source": 59,
+      "source": 64,
       "target": 15,
       "type": "holds",
       "weight": 0.0388,
-      "label": "3.9%"
+      "label": "3.9%",
+      "detail": "Capital International Investors: 3.9% (18.8M shares, $3321.5M)"
     },
     {
-      "source": 101,
+      "source": 116,
       "target": 15,
       "type": "holds",
       "weight": 0.035,
-      "label": "3.5%"
+      "label": "3.5%",
+      "detail": "Capital World Investors: 3.5% (16.9M shares, $2995.6M)"
     },
     {
-      "source": 102,
+      "source": 117,
+      "target": 15,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>MILLS STEVEN A</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-02-13 [?] 244 sh $42K<br>2025-11-14 [?] 231 sh $42K<br>2025-08-15 [?] 204 sh $42K<br>2025-05-30 [?] 929 sh $215K<br>2025-05-15 [?] 185 sh $41K"
+    },
+    {
+      "source": 118,
       "target": 15,
       "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Stock Award(Grant) at price 173.51 per s"
+      "weight": 5,
+      "label": "-$13.1M",
+      "detail": "<b>DOYLE JOHN Q</b><br><i>Chief Executive Officer</i><br>Pattern: <b>Programmatic (10b5-1)</b><br>---<br>Sells: 63.2K sh ($13.1M)<br>---<br>2025-12-01 [-] 21.1K sh $3.8M<br>2025-12-01 [OPT] 21.1K sh $1.3M<br>2025-09-02 [-] 21.1K sh $4.3M<br>2025-09-02 [OPT] 21.1K sh $1.3M<br>2025-06-02 [-] 21.1K sh $4.9M<br>2025-06-02 [OPT] 21.1K sh $1.3M"
     },
     {
-      "source": 103,
-      "target": 15,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Sale at price 182.22 per share."
-    },
-    {
-      "source": 104,
+      "source": 119,
       "target": 15,
       "type": "insider_buy",
-      "weight": 0.5,
-      "label": "Purchase at price 201.02 - 202.20 per sh"
+      "weight": 0.403224,
+      "label": "+$202K",
+      "detail": "<b>ANDERSON ANTHONY K</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>Buys: 1.0K sh ($202K)<br>---<br>2025-07-30 [+] 1.0K sh $202K"
     },
     {
-      "source": 105,
+      "source": 120,
+      "target": 15,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>HARTMANN JUDITH</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-05-30 [?] 929 sh $215K"
+    },
+    {
+      "source": 121,
+      "target": 15,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>HANWAY H EDWARD</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-05-30 [?] 929 sh $215K"
+    },
+    {
+      "source": 122,
+      "target": 15,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>MILLS STACY</b><br><i>Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-05-20 [?] 218 sh "
+    },
+    {
+      "source": 123,
       "target": 16,
       "type": "holds",
       "weight": 0.0001,
-      "label": "0.0%"
+      "label": "0.0%",
+      "detail": "Albert D Mason Inc: 0.0% (12.4K shares, $1.1M)"
     },
     {
-      "source": 106,
+      "source": 124,
       "target": 17,
       "type": "holds",
       "weight": 0.020299999,
-      "label": "2.0%"
+      "label": "2.0%",
+      "detail": "DFA INVESTMENT DIMENSIONS GROUP INC-DFA Intl Small Cap Value PORT.: 2.0% (1.4M shares, $2875.2M)"
     },
     {
-      "source": 107,
+      "source": 125,
       "target": 17,
       "type": "holds",
       "weight": 0.0186,
-      "label": "1.9%"
-    },
-    {
-      "source": 93,
-      "target": 17,
-      "type": "holds",
-      "weight": 0.014099999,
-      "label": "1.4%"
-    },
-    {
-      "source": 94,
-      "target": 17,
-      "type": "holds",
-      "weight": 0.009,
-      "label": "0.9%"
+      "label": "1.9%",
+      "detail": "American Century ETF Trust-Avantis International Small Cap Value ETF: 1.9% (1.3M shares, $2631.8M)"
     },
     {
       "source": 108,
       "target": 17,
       "type": "holds",
-      "weight": 0.0078,
-      "label": "0.8%"
+      "weight": 0.014099999,
+      "label": "1.4%",
+      "detail": "VANGUARD STAR FUNDS-Vanguard Total International Stock Index Fund: 1.4% (986.2K shares, $1992.2M)"
     },
     {
       "source": 109,
       "target": 17,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": ""
-    },
-    {
-      "source": 109,
-      "target": 17,
-      "type": "insider_buy",
-      "weight": 0.5,
-      "label": "Buy Back at price 22.82 per share."
-    },
-    {
-      "source": 110,
-      "target": 17,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": ""
-    },
-    {
-      "source": 36,
-      "target": 18,
       "type": "holds",
-      "weight": 0.1171,
-      "label": "11.7%"
-    },
-    {
-      "source": 37,
-      "target": 18,
-      "type": "holds",
-      "weight": 0.0863,
-      "label": "8.6%"
-    },
-    {
-      "source": 39,
-      "target": 18,
-      "type": "holds",
-      "weight": 0.0478,
-      "label": "4.8%"
-    },
-    {
-      "source": 57,
-      "target": 18,
-      "type": "holds",
-      "weight": 0.0317,
-      "label": "3.2%"
-    },
-    {
-      "source": 111,
-      "target": 18,
-      "type": "holds",
-      "weight": 0.0308,
-      "label": "3.1%"
-    },
-    {
-      "source": 112,
-      "target": 18,
-      "type": "insider_buy",
-      "weight": 0.5,
-      "label": "Purchase at price 358.46 per share."
-    },
-    {
-      "source": 113,
-      "target": 18,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Stock Gift at price 0.00 per share."
-    },
-    {
-      "source": 114,
-      "target": 18,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Sale at price 445.56 per share."
-    },
-    {
-      "source": 115,
-      "target": 18,
-      "type": "insider_buy",
-      "weight": 0.5,
-      "label": "Purchase at price 451.58 - 452.40 per sh"
-    },
-    {
-      "source": 116,
-      "target": 18,
-      "type": "insider_buy",
-      "weight": 0.5,
-      "label": "Purchase at price 450.71 per share."
-    },
-    {
-      "source": 115,
-      "target": 18,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Sale at price 441.97 - 448.40 per share."
-    },
-    {
-      "source": 117,
-      "target": 18,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Stock Award(Grant) at price 0.00 per sha"
-    },
-    {
-      "source": 36,
-      "target": 19,
-      "type": "holds",
-      "weight": 0.1201,
-      "label": "12.0%"
-    },
-    {
-      "source": 37,
-      "target": 19,
-      "type": "holds",
-      "weight": 0.0817,
-      "label": "8.2%"
-    },
-    {
-      "source": 74,
-      "target": 19,
-      "type": "holds",
-      "weight": 0.0779,
-      "label": "7.8%"
-    },
-    {
-      "source": 39,
-      "target": 19,
-      "type": "holds",
-      "weight": 0.0512,
-      "label": "5.1%"
-    },
-    {
-      "source": 55,
-      "target": 19,
-      "type": "holds",
-      "weight": 0.0403,
-      "label": "4.0%"
-    },
-    {
-      "source": 118,
-      "target": 19,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Stock Award(Grant) at price 0.00 per sha"
-    },
-    {
-      "source": 119,
-      "target": 19,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Stock Award(Grant) at price 0.00 per sha"
-    },
-    {
-      "source": 120,
-      "target": 19,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Stock Award(Grant) at price 0.00 per sha"
-    },
-    {
-      "source": 121,
-      "target": 19,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Stock Award(Grant) at price 0.00 per sha"
-    },
-    {
-      "source": 122,
-      "target": 19,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Stock Award(Grant) at price 0.00 per sha"
-    },
-    {
-      "source": 123,
-      "target": 19,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Stock Award(Grant) at price 0.00 per sha"
-    },
-    {
-      "source": 124,
-      "target": 19,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Stock Award(Grant) at price 0.00 per sha"
-    },
-    {
-      "source": 125,
-      "target": 19,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Stock Award(Grant) at price 0.00 per sha"
+      "weight": 0.009,
+      "label": "0.9%",
+      "detail": "VANGUARD TAX-MANAGED FUNDS-Vanguard Developed Markets Index Fund: 0.9% (634.1K shares, $1281.0M)"
     },
     {
       "source": 126,
-      "target": 19,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Stock Award(Grant) at price 0.00 per sha"
+      "target": 17,
+      "type": "holds",
+      "weight": 0.0078,
+      "label": "0.8%",
+      "detail": "DFA INVESTMENT DIMENSIONS GROUP INC-Intl Core Eqy. 2 PORT.: 0.8% (550.0K shares, $1111.1M)"
     },
     {
-      "source": 36,
-      "target": 20,
+      "source": 127,
+      "target": 17,
+      "type": "buyback",
+      "weight": 5,
+      "label": "BB $5.9M",
+      "detail": "<b>Keller Group Plc</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>Buybacks: 261.4K sh ($5.9M)<br>---<br>2026-01-30 [?] 0 sh <br>2026-01-21 [BB] 23.9K sh $546K<br>2026-01-20 [BB] 24.4K sh $553K<br>2026-01-15 [BB] 19.8K sh $450K<br>2026-01-14 [BB] 13.0K sh $291K<br>2026-01-13 [BB] 25.8K sh $580K<br>2026-01-12 [BB] 25.6K sh $584K<br>2026-01-09 [BB] 26.7K sh $607K"
+    },
+    {
+      "source": 128,
+      "target": 17,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>Leonard (Paul)</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-12 [?] 10.1K sh <br>2026-01-12 [?] 3.3K sh $76K"
+    },
+    {
+      "source": 37,
+      "target": 18,
       "type": "holds",
-      "weight": 0.12060001,
-      "label": "12.1%"
+      "weight": 0.1171,
+      "label": "11.7%",
+      "detail": "Vanguard Group Inc: 11.7% (12.5M shares, $4188.6M)"
+    },
+    {
+      "source": 38,
+      "target": 18,
+      "type": "holds",
+      "weight": 0.0863,
+      "label": "8.6%",
+      "detail": "Blackrock Inc.: 8.6% (9.2M shares, $3089.0M)"
+    },
+    {
+      "source": 40,
+      "target": 18,
+      "type": "holds",
+      "weight": 0.0478,
+      "label": "4.8%",
+      "detail": "State Street Corporation: 4.8% (5.1M shares, $1709.4M)"
+    },
+    {
+      "source": 62,
+      "target": 18,
+      "type": "holds",
+      "weight": 0.0317,
+      "label": "3.2%",
+      "detail": "Morgan Stanley: 3.2% (3.4M shares, $1133.4M)"
+    },
+    {
+      "source": 129,
+      "target": 18,
+      "type": "holds",
+      "weight": 0.0308,
+      "label": "3.1%",
+      "detail": "Rockefeller Capital Management L.P.: 3.1% (3.3M shares, $1103.4M)"
+    },
+    {
+      "source": 130,
+      "target": 18,
+      "type": "insider_buy",
+      "weight": 1.003688,
+      "label": "+$502K",
+      "detail": "<b>JOYCE THOMAS PATRICK JR</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>Buys: 1.4K sh ($502K)<br>---<br>2026-02-06 [+] 1.4K sh $502K<br>2025-09-15 [?] 59 sh "
+    },
+    {
+      "source": 131,
+      "target": 18,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>WALLMAN RICHARD F.</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-12-08 [?] 4.0K sh <br>2025-09-15 [?] 64 sh "
+    },
+    {
+      "source": 132,
+      "target": 18,
+      "type": "insider_sell",
+      "weight": 5,
+      "label": "-$2.7M",
+      "detail": "<b>CONLEY JASON</b><br><i>Chief Financial Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>Sells: 6.0K sh ($2.7M)<br>---<br>2025-12-01 [-] 6.0K sh $2.7M<br>2025-12-01 [OPT] 6.0K sh $1.0M"
+    },
+    {
+      "source": 133,
+      "target": 18,
+      "type": "insider_sell",
+      "weight": 5,
+      "label": "-$13.3M",
+      "detail": "<b>HUNN LAURENCE NEIL</b><br><i>Chief Executive Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>Buys: 10.0K sh ($4.5M)<br>Sells: 30.0K sh ($13.3M)<br>---<br>2025-11-12 [+] 10.0K sh $4.5M<br>2025-11-11 [-] 30.0K sh $13.3M<br>2025-11-11 [OPT] 30.0K sh $5.6M"
+    },
+    {
+      "source": 134,
+      "target": 18,
+      "type": "insider_buy",
+      "weight": 1.081712,
+      "label": "+$541K",
+      "detail": "<b>BRINKLEY AMY WOODS</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>Buys: 1.2K sh ($541K)<br>---<br>2025-11-12 [+] 1.2K sh $541K"
+    },
+    {
+      "source": 135,
+      "target": 18,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>ARCHAMBEAU SHELLYE L</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-09-15 [?] 64 sh "
+    },
+    {
+      "source": 136,
+      "target": 18,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>ESTEVES IRENE M</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-09-15 [?] 59 sh "
+    },
+    {
+      "source": 137,
+      "target": 18,
+      "type": "insider_sell",
+      "weight": 0.420316,
+      "label": "-$210K",
+      "detail": "<b>JOHNSON ROBERT D.</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>Sells: 400 sh ($210K)<br>---<br>2025-08-15 [-] 400 sh $210K"
+    },
+    {
+      "source": 138,
+      "target": 18,
+      "type": "insider_sell",
+      "weight": 1.69251,
+      "label": "-$846K",
+      "detail": "<b>STIPANCICH JOHN K</b><br><i>General Counsel</i><br>Pattern: <b>Discretionary</b><br>---<br>Sells: 1.5K sh ($846K)<br>---<br>2025-07-24 [?] 100 sh <br>2025-07-23 [-] 1.5K sh $846K"
+    },
+    {
+      "source": 37,
+      "target": 19,
+      "type": "holds",
+      "weight": 0.1201,
+      "label": "12.0%",
+      "detail": "Vanguard Group Inc: 12.0% (4.5M shares, $847.6M)"
+    },
+    {
+      "source": 38,
+      "target": 19,
+      "type": "holds",
+      "weight": 0.0817,
+      "label": "8.2%",
+      "detail": "Blackrock Inc.: 8.2% (3.0M shares, $576.8M)"
+    },
+    {
+      "source": 84,
+      "target": 19,
+      "type": "holds",
+      "weight": 0.0779,
+      "label": "7.8%",
+      "detail": "BAMCO Inc.: 7.8% (2.9M shares, $549.6M)"
+    },
+    {
+      "source": 40,
+      "target": 19,
+      "type": "holds",
+      "weight": 0.0512,
+      "label": "5.1%",
+      "detail": "State Street Corporation: 5.1% (1.9M shares, $361.7M)"
+    },
+    {
+      "source": 60,
+      "target": 19,
+      "type": "holds",
+      "weight": 0.0403,
+      "label": "4.0%",
+      "detail": "LOOMIS SAYLES & CO L P: 4.0% (1.5M shares, $284.5M)"
+    },
+    {
+      "source": 139,
+      "target": 19,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>SHAVEL LEE M</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-15 [?] 571 sh "
+    },
+    {
+      "source": 140,
+      "target": 19,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>EILAM BARAK</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-15 [?] 439 sh "
+    },
+    {
+      "source": 141,
+      "target": 19,
+      "type": "insider_sell",
+      "weight": 1.521094,
+      "label": "-$761K",
+      "detail": "<b>FRANK MALCOLM</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>Sells: 2.6K sh ($761K)<br>---<br>2026-01-15 [?] 713 sh <br>2026-01-12 [-] 2.6K sh $761K<br>2026-01-12 [OPT] 2.6K sh $535K"
+    },
+    {
+      "source": 142,
+      "target": 19,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>ABRAMS ROBIN ANN</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-15 [?] 604 sh <br>2026-01-07 [OPT] 2.6K sh $535K"
+    },
+    {
+      "source": 143,
+      "target": 19,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>HYLTON LAURIE G</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-15 [?] 439 sh "
+    },
+    {
+      "source": 144,
+      "target": 19,
+      "type": "insider_sell",
+      "weight": 1.523888,
+      "label": "-$762K",
+      "detail": "<b>SIEGEL LAURIE A</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>Sells: 2.6K sh ($762K)<br>---<br>2026-01-15 [?] 626 sh <br>2026-01-08 [-] 2.6K sh $762K<br>2026-01-08 [OPT] 2.6K sh $535K"
+    },
+    {
+      "source": 145,
+      "target": 19,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>CHOY SIEW KAI</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-15 [?] 439 sh "
+    },
+    {
+      "source": 146,
+      "target": 19,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>TEJADA MARIA TERESA</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-15 [?] 439 sh "
+    },
+    {
+      "source": 147,
+      "target": 19,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>WIESEL SHLOMO ELISHA</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-15 [?] 571 sh "
+    },
+    {
+      "source": 148,
+      "target": 19,
+      "type": "insider_buy",
+      "weight": 0.3,
+      "label": "+$126K",
+      "detail": "<b>SKOKO GORAN</b><br><i>Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>Buys: 500 sh ($126K)<br>---<br>2025-11-06 [+] 500 sh $126K"
     },
     {
       "source": 37,
       "target": 20,
       "type": "holds",
-      "weight": 0.097799994,
-      "label": "9.8%"
+      "weight": 0.12060001,
+      "label": "12.1%",
+      "detail": "Vanguard Group Inc: 12.1% (30.0M shares, $2774.0M)"
     },
     {
-      "source": 39,
+      "source": 38,
       "target": 20,
       "type": "holds",
-      "weight": 0.0432,
-      "label": "4.3%"
+      "weight": 0.097799994,
+      "label": "9.8%",
+      "detail": "Blackrock Inc.: 9.8% (24.3M shares, $2249.4M)"
     },
     {
       "source": 40,
       "target": 20,
       "type": "holds",
-      "weight": 0.0292,
-      "label": "2.9%"
+      "weight": 0.0432,
+      "label": "4.3%",
+      "detail": "State Street Corporation: 4.3% (10.7M shares, $992.7M)"
     },
     {
-      "source": 127,
+      "source": 41,
+      "target": 20,
+      "type": "holds",
+      "weight": 0.0292,
+      "label": "2.9%",
+      "detail": "Geode Capital Management, LLC: 2.9% (7.2M shares, $671.3M)"
+    },
+    {
+      "source": 149,
       "target": 20,
       "type": "holds",
       "weight": 0.0221,
-      "label": "2.2%"
+      "label": "2.2%",
+      "detail": "Alliancebernstein L.P.: 2.2% (5.5M shares, $507.6M)"
     },
     {
-      "source": 128,
+      "source": 150,
       "target": 20,
       "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Sale at price 101.73 per share."
+      "weight": 0.3,
+      "label": "-$102K",
+      "detail": "<b>BYSTROM MATTIAS</b><br><i>Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>Sells: 1.0K sh ($102K)<br>---<br>2025-12-01 [-] 1.0K sh $102K"
     },
     {
-      "source": 129,
+      "source": 151,
       "target": 20,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Conversion of Exercise of derivative sec"
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>BENETEAU LESLEY</b><br><i>Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-11-14 [OPT] 1.6K sh $38K"
     },
     {
-      "source": 130,
+      "source": 152,
       "target": 20,
       "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Sale at price 106.26 per share."
+      "weight": 2.262488,
+      "label": "-$1.1M",
+      "detail": "<b>HONEYCUTT JENNIFER L</b><br><i>Chief Executive Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>Sells: 10.6K sh ($1.1M)<br>---<br>2025-08-29 [-] 10.6K sh $1.1M<br>2025-08-29 [OPT] 10.6K sh $306K"
     },
     {
-      "source": 131,
+      "source": 153,
       "target": 20,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Stock Award(Grant) at price 0.00 per sha"
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>LOHR WALTER G JR</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-07-15 [?] 818 sh "
     },
     {
-      "source": 132,
+      "source": 154,
       "target": 20,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Stock Award(Grant) at price 0.00 per sha"
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>COMAS DANIEL L</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-07-15 [?] 818 sh "
     },
     {
-      "source": 133,
+      "source": 155,
       "target": 20,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Stock Award(Grant) at price 0.00 per sha"
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>SCHWIETERS JOHN T</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-07-15 [?] 818 sh "
     },
     {
-      "source": 134,
+      "source": 156,
       "target": 20,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Stock Award(Grant) at price 0.00 per sha"
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>WILLIAMS THOMAS L II</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-07-15 [?] 818 sh "
     },
     {
-      "source": 135,
+      "source": 157,
       "target": 20,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Stock Award(Grant) at price 0.00 per sha"
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>MITTS HEATH A</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-07-15 [?] 818 sh "
     },
     {
-      "source": 136,
+      "source": 158,
       "target": 20,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Stock Award(Grant) at price 0.00 per sha"
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>KING WILLIAM H</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-07-15 [?] 818 sh "
+    },
+    {
+      "source": 159,
+      "target": 20,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>KAMBEYANDA SHYAM</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-07-15 [?] 818 sh "
+    },
+    {
+      "source": 160,
+      "target": 20,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>COLPRON FRANCOISE</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-07-15 [?] 818 sh "
+    },
+    {
+      "source": 161,
+      "target": 20,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>WALLIS-LAGE CINDY L</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-07-15 [?] 818 sh "
+    },
+    {
+      "source": 162,
+      "target": 20,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>FILLER LINDA</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-07-15 [?] 1.6K sh "
+    },
+    {
+      "source": 163,
+      "target": 20,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>SANKARAN VIJAY P</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-07-15 [?] 818 sh "
     },
     {
       "source": 27,
       "target": 21,
       "type": "holds",
       "weight": 0.01,
-      "label": ""
+      "label": "",
+      "detail": "Pacer Advisors, Inc.:  (14.4K shares, $250K)"
+    },
+    {
+      "source": 38,
+      "target": 22,
+      "type": "holds",
+      "weight": 0.091800004,
+      "label": "9.2%",
+      "detail": "Blackrock Inc.: 9.2% (2.1M shares, $795.8M)"
     },
     {
       "source": 37,
       "target": 22,
       "type": "holds",
-      "weight": 0.091800004,
-      "label": "9.2%"
-    },
-    {
-      "source": 36,
-      "target": 22,
-      "type": "holds",
       "weight": 0.08930001,
-      "label": "8.9%"
+      "label": "8.9%",
+      "detail": "Vanguard Group Inc: 8.9% (2.1M shares, $773.9M)"
     },
     {
-      "source": 74,
+      "source": 84,
       "target": 22,
       "type": "holds",
       "weight": 0.0766,
-      "label": "7.7%"
+      "label": "7.7%",
+      "detail": "BAMCO Inc.: 7.7% (1.8M shares, $663.9M)"
     },
     {
-      "source": 101,
+      "source": 116,
       "target": 22,
       "type": "holds",
       "weight": 0.0425,
-      "label": "4.2%"
+      "label": "4.2%",
+      "detail": "Capital World Investors: 4.2% (987.8K shares, $368.2M)"
     },
     {
-      "source": 39,
+      "source": 40,
       "target": 22,
       "type": "holds",
       "weight": 0.0295,
-      "label": "2.9%"
+      "label": "2.9%",
+      "detail": "State Street Corporation: 2.9% (685.9K shares, $255.6M)"
     },
     {
-      "source": 137,
+      "source": 164,
       "target": 22,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Stock Award(Grant) at price 391.12 per s"
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>BENSINGER STEVEN J</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-12-31 [?] 460 sh $180K"
     },
     {
-      "source": 138,
+      "source": 165,
       "target": 22,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Stock Award(Grant) at price 391.12 per s"
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>FORTIN MARY JANE</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-12-31 [?] 460 sh $180K"
     },
     {
-      "source": 139,
+      "source": 166,
       "target": 22,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Stock Award(Grant) at price 391.12 per s"
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>LIPPINCOTT ROBERT III</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-12-31 [?] 460 sh $180K"
     },
     {
-      "source": 140,
+      "source": 167,
       "target": 22,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Stock Award(Grant) at price 391.12 per s"
+      "type": "insider_buy",
+      "weight": 2.09692,
+      "label": "+$1.0M",
+      "detail": "<b>SHARE GREGORY M</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>Buys: 2.7K sh ($1.0M)<br>---<br>2025-12-31 [?] 460 sh $180K<br>2025-12-15 [+] 2.7K sh $1.0M"
     },
     {
-      "source": 141,
+      "source": 168,
       "target": 22,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Stock Award(Grant) at price 391.12 per s"
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>HANEY BRIAN D</b><br><i>President</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-12-31 [?] 460 sh $180K"
     },
     {
-      "source": 142,
+      "source": 169,
       "target": 22,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Stock Award(Grant) at price 391.12 per s"
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>RUSSELL FREDERICK LEROY JR.</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-12-31 [?] 460 sh $180K"
     },
     {
-      "source": 143,
+      "source": 170,
       "target": 22,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Stock Award(Grant) at price 391.12 per s"
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>KRONENBERG ANNE C</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-12-31 [?] 460 sh $180K<br>2025-11-19 [?] 100 sh "
     },
     {
-      "source": 144,
+      "source": 171,
       "target": 22,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Stock Award(Grant) at price 391.12 per s"
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>HATCHER ROBERT V. III</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-12-31 [?] 460 sh $180K"
     },
     {
-      "source": 145,
+      "source": 172,
       "target": 22,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Stock Award(Grant) at price 391.12 per s"
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>CHIA TERESA P.</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-12-31 [?] 460 sh $180K"
     },
     {
-      "source": 146,
+      "source": 173,
       "target": 22,
       "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Stock Gift at price 0.00 per share."
+      "weight": 4.521528,
+      "label": "-$2.3M",
+      "detail": "<b>KEHOE MICHAEL P</b><br><i>Chief Executive Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>Sells: 5.0K sh ($2.3M)<br>---<br>2025-12-19 [?] 250 sh <br>2025-08-25 [-] 5.0K sh $2.3M<br>2025-08-25 [OPT] 5.0K sh $80K"
+    },
+    {
+      "source": 174,
+      "target": 22,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>SCHNUPP DIANE D</b><br><i>Chief Technology Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-06-06 [?] 66 sh "
     },
     {
       "source": 27,
       "target": 23,
       "type": "holds",
       "weight": 0.01,
-      "label": ""
+      "label": "",
+      "detail": "Pacer Advisors, Inc.:  (51 shares, $10K)"
     },
     {
-      "source": 36,
+      "source": 37,
       "target": 24,
       "type": "holds",
       "weight": 0.0896,
-      "label": "9.0%"
+      "label": "9.0%",
+      "detail": "Vanguard Group Inc: 9.0% (3.8M shares, $265.7M)"
     },
     {
-      "source": 37,
+      "source": 38,
       "target": 24,
       "type": "holds",
       "weight": 0.082100004,
-      "label": "8.2%"
+      "label": "8.2%",
+      "detail": "Blackrock Inc.: 8.2% (3.5M shares, $243.5M)"
     },
     {
-      "source": 147,
+      "source": 175,
       "target": 24,
       "type": "holds",
       "weight": 0.047399998,
-      "label": "4.7%"
+      "label": "4.7%",
+      "detail": "Bank of Montreal /CAN/: 4.7% (2.0M shares, $140.6M)"
     },
     {
-      "source": 148,
+      "source": 176,
       "target": 24,
       "type": "holds",
       "weight": 0.0422,
-      "label": "4.2%"
+      "label": "4.2%",
+      "detail": "American Century Companies Inc: 4.2% (1.8M shares, $125.1M)"
     },
     {
-      "source": 149,
+      "source": 177,
       "target": 24,
       "type": "holds",
       "weight": 0.034,
-      "label": "3.4%"
+      "label": "3.4%",
+      "detail": "Voss Capital, LP: 3.4% (1.4M shares, $100.9M)"
     },
     {
-      "source": 150,
+      "source": 178,
+      "target": 24,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>BIANCHI JUAN C</b><br><i>Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-12-10 [OPT] 3.3K sh $244K<br>2025-02-25 [?] 11.3K sh "
+    },
+    {
+      "source": 179,
+      "target": 24,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>WELLER RICK L.</b><br><i>Chief Financial Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-12-10 [OPT] 25.5K sh $1.9M"
+    },
+    {
+      "source": 180,
       "target": 24,
       "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Conversion of Exercise of derivative sec"
+      "weight": 5,
+      "label": "-$9.6M",
+      "detail": "<b>BROWN MICHAEL J.</b><br><i>Chief Executive Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>Sells: 95.0K sh ($9.6M)<br>---<br>2025-12-10 [OPT] 61.3K sh $4.6M<br>2025-03-13 [-] 95.0K sh $9.6M"
     },
     {
-      "source": 151,
+      "source": 181,
       "target": 24,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Conversion of Exercise of derivative sec"
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>FOUNTAS NIKOLAOS</b><br><i>Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-12-10 [OPT] 16.3K sh $1.2M"
     },
     {
-      "source": 152,
+      "source": 182,
       "target": 24,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Conversion of Exercise of derivative sec"
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>BRUCKNER MARTIN L</b><br><i>Chief Technology Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-12-10 [OPT] 10.2K sh $763K"
     },
     {
-      "source": 153,
+      "source": 183,
       "target": 24,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Conversion of Exercise of derivative sec"
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>ALTHASEN PAUL S</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-05-14 [?] 2.5K sh "
     },
     {
-      "source": 154,
+      "source": 184,
       "target": 24,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Conversion of Exercise of derivative sec"
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>FRUMKIN MICHAEL N</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-05-14 [?] 2.5K sh "
     },
     {
-      "source": 155,
+      "source": 185,
       "target": 24,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Stock Award(Grant) at price 0.00 per sha"
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>MCDONNELL THOMAS A</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-05-14 [?] 2.6K sh "
     },
     {
-      "source": 156,
+      "source": 186,
       "target": 24,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Stock Award(Grant) at price 0.00 per sha"
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>OLECHOWSKI ANDRZEJ</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-05-14 [?] 1.5K sh "
     },
     {
-      "source": 157,
+      "source": 187,
       "target": 24,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Stock Award(Grant) at price 0.00 per sha"
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>BAACK SARA</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-05-14 [?] 2.4K sh "
     },
     {
-      "source": 158,
+      "source": 188,
       "target": 24,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Stock Award(Grant) at price 0.00 per sha"
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>TORRES FENTANES LIGIA</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-05-14 [?] 1.5K sh "
     },
     {
-      "source": 159,
+      "source": 189,
       "target": 24,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Stock Award(Grant) at price 0.00 per sha"
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>HERRERO SERGI</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-05-14 [?] 2.4K sh "
     },
     {
-      "source": 160,
+      "source": 190,
+      "target": 24,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>SPRONG BRADLEY NIXON</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-05-14 [?] 2.6K sh "
+    },
+    {
+      "source": 191,
       "target": 25,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": ""
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>Schroder Investment Management, Ltd.</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-30 [?] 629.1K sh <br>2025-12-03 [?] 75.6K sh $164K"
     },
     {
-      "source": 161,
+      "source": 192,
       "target": 25,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": ""
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>Montefiore Investment</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-14 [?] 12.7M sh "
     },
     {
-      "source": 162,
+      "source": 193,
       "target": 25,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Sold at price 2.12 per share."
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>Norges Bank</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-12-05 [?] 284.9K sh $604K<br>2025-12-04 [?] 11.8K sh $26K<br>2025-12-03 [?] 520.4K sh $1.1M"
     },
     {
-      "source": 163,
+      "source": 194,
       "target": 25,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Bought at price 2.16 per share."
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>BlackRock Inc.</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-12-03 [?] 3.8K sh $8K<br>2025-12-01 [?] 72.1K sh $154K"
     },
     {
-      "source": 164,
+      "source": 195,
       "target": 25,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Bought at price 2.18 per share."
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>FMR LLC</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-12-03 [?] 432.5K sh $941K<br>2025-12-02 [?] 28.7K sh $61K<br>2025-12-01 [?] 26.0K sh $56K<br>2025-11-28 [?] 10.5K sh $23K"
     },
     {
-      "source": 165,
+      "source": 196,
       "target": 25,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Bought at price 2.16 per share."
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>Legal & General Group plc</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-12-03 [?] 12.3K sh $27K<br>2025-11-28 [?] 78.8K sh $170K"
     },
     {
-      "source": 166,
+      "source": 197,
       "target": 25,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Bought at price 2.14 per share."
-    },
-    {
-      "source": 36,
-      "target": 26,
-      "type": "holds",
-      "weight": 0.0958,
-      "label": "9.6%"
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>Standard Life Investments Ltd</b><br><i></i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2025-12-02 [?] 28.2K sh $60K"
     },
     {
       "source": 37,
       "target": 26,
       "type": "holds",
-      "weight": 0.0834,
-      "label": "8.3%"
+      "weight": 0.0958,
+      "label": "9.6%",
+      "detail": "Vanguard Group Inc: 9.6% (161.0M shares, $49342.3M)"
     },
     {
-      "source": 39,
+      "source": 38,
+      "target": 26,
+      "type": "holds",
+      "weight": 0.0834,
+      "label": "8.3%",
+      "detail": "Blackrock Inc.: 8.3% (140.2M shares, $42958.9M)"
+    },
+    {
+      "source": 40,
       "target": 26,
       "type": "holds",
       "weight": 0.0493,
-      "label": "4.9%"
+      "label": "4.9%",
+      "detail": "State Street Corporation: 4.9% (82.8M shares, $25379.3M)"
     },
     {
-      "source": 57,
+      "source": 62,
       "target": 26,
       "type": "holds",
       "weight": 0.0279,
-      "label": "2.8%"
+      "label": "2.8%",
+      "detail": "Morgan Stanley: 2.8% (46.9M shares, $14364.5M)"
     },
     {
-      "source": 64,
+      "source": 70,
       "target": 26,
       "type": "holds",
       "weight": 0.0278,
-      "label": "2.8%"
+      "label": "2.8%",
+      "detail": "FMR, LLC: 2.8% (46.7M shares, $14317.7M)"
     },
     {
-      "source": 167,
+      "source": 198,
       "target": 26,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": ""
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>FABARA PAUL D</b><br><i>Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-02-13 [?] 21.3K sh "
     },
     {
-      "source": 168,
+      "source": 199,
       "target": 26,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": ""
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>TANEJA RAJAT</b><br><i>Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-02-13 [?] 35.5K sh "
     },
     {
-      "source": 169,
+      "source": 200,
       "target": 26,
       "type": "insider_sell",
-      "weight": 0.5,
-      "label": ""
+      "weight": 5,
+      "label": "-$3.7M",
+      "detail": "<b>MCINERNEY RYAN</b><br><i>Chief Executive Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>Sells: 10.5K sh ($3.7M)<br>---<br>2026-02-13 [?] 11.8K sh <br>2026-01-02 [-] 10.5K sh $3.7M<br>2026-01-02 [OPT] 10.5K sh $1.2M"
     },
     {
-      "source": 170,
+      "source": 201,
       "target": 26,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": ""
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>MAHON TULLIER KELLY</b><br><i>Officer</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-02-13 [?] 35.5K sh "
     },
     {
-      "source": 171,
+      "source": 202,
       "target": 26,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Stock Award(Grant) at price 0.00 per sha"
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>LUNDGREN JOHN F</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-27 [?] 861 sh "
     },
     {
-      "source": 172,
+      "source": 203,
       "target": 26,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Stock Award(Grant) at price 0.00 per sha"
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>CARNEY LLOYD A</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-27 [?] 861 sh "
     },
     {
-      "source": 173,
+      "source": 204,
       "target": 26,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Stock Award(Grant) at price 0.00 per sha"
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>MORRISON DENISE M</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-27 [?] 861 sh "
     },
     {
-      "source": 174,
+      "source": 205,
       "target": 26,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Stock Award(Grant) at price 0.00 per sha"
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>READY WILLIAM J</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-27 [?] 861 sh "
     },
     {
-      "source": 175,
+      "source": 206,
       "target": 26,
-      "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Stock Award(Grant) at price 0.00 per sha"
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>MURPHY PAM</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-27 [?] 861 sh "
     },
     {
-      "source": 176,
+      "source": 207,
+      "target": 26,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>FERNANDEZ CARBAJAL FRANCISCO JAVIER</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-27 [?] 861 sh "
+    },
+    {
+      "source": 208,
+      "target": 26,
+      "type": "other",
+      "weight": 0.3,
+      "label": "",
+      "detail": "<b>LIST-STOLL TERI L.</b><br><i>Director</i><br>Pattern: <b>Discretionary</b><br>---<br>---<br>2026-01-27 [?] 861 sh "
+    },
+    {
+      "source": 209,
       "target": 26,
       "type": "insider_sell",
-      "weight": 0.5,
-      "label": "Stock Award(Grant) at price 0.00 per sha"
+      "weight": 1.39863,
+      "label": "-$699K",
+      "detail": "<b>ROTTENBERG JULIE B</b><br><i>General Counsel</i><br>Pattern: <b>Discretionary</b><br>---<br>Sells: 2.0K sh ($699K)<br>---<br>2025-12-11 [-] 2.0K sh $699K<br>2025-12-11 [OPT] 2.0K sh $223K"
     }
   ]
 };
@@ -2815,21 +4426,17 @@ const W = window.innerWidth, H = window.innerHeight;
 const svg = document.getElementById('graph');
 svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
 
-// Colors
 const stockColors = {
   portfolio: '#e8863a', so_active: '#f0c040', so_gated: '#40b0a0',
   so_borderline: '#5080c0', so_extreme: '#3a5070', default: '#5080c0'
 };
 const fundColors = { quality: '#4caf50', active: '#607d8b', indexer: '#444' };
-const edgeColors = { holds: '#4caf8080', insider_buy: '#c0804080', insider_sell: '#e0606080' };
-const edgeColorsHi = { holds: '#4caf80', insider_buy: '#c08040', insider_sell: '#e06060' };
+const edgeColors = { holds: '#4caf8060', insider_buy: '#c0804060', insider_sell: '#e0606060', buyback: '#40b0c060', other: '#55555540' };
+const edgeColorsHi = { holds: '#4caf80', insider_buy: '#c08040', insider_sell: '#e06060', buyback: '#40b0c0', other: '#888' };
+const personColors = { insider_buy: '#50c060', insider_sell: '#f06060', buyback: '#40b0c0', other: '#888' };
 
-// State
-let showInsiders = true;
-let showIndexers = false;
-let selectedNode = null;
+let showInsiders = true, showIndexers = false, showLabels = true, selectedNode = null;
 
-// Build adjacency
 const adjMap = {};
 DATA.edges.forEach(e => {
   if (!adjMap[e.source]) adjMap[e.source] = [];
@@ -2838,16 +4445,15 @@ DATA.edges.forEach(e => {
   adjMap[e.target].push(e);
 });
 
-// Node size
 function nodeSize(n) {
-  if (n.type === 'stock') {
-    if (n.status === 'portfolio') return 12;
-    if (n.status.startsWith('so_active')) return 9;
-    return 7;
-  }
-  if (n.type === 'fund') {
-    const conns = (adjMap[n.id] || []).length;
-    return Math.max(4, Math.min(conns * 2.5, 14));
+  if (n.type === 'stock') return n.status === 'portfolio' ? 14 : 8;
+  if (n.type === 'fund') return Math.max(5, Math.min((adjMap[n.id] || []).length * 2.5, 14));
+  if (n.type === 'person') {
+    const v = n.total_value || 0;
+    if (v >= 5_000_000) return 10;
+    if (v >= 1_000_000) return 7;
+    if (v >= 100_000) return 5;
+    return 4;
   }
   return 4;
 }
@@ -2855,7 +4461,7 @@ function nodeSize(n) {
 function nodeColor(n) {
   if (n.type === 'stock') return stockColors[n.status] || stockColors.default;
   if (n.type === 'fund') return fundColors[n.status] || fundColors.active;
-  if (n.type === 'person') return n.status === 'insider_buy' ? '#c08040' : '#e06060';
+  if (n.type === 'person') return personColors[n.status] || '#888';
   return '#888';
 }
 
@@ -2866,50 +4472,33 @@ function isVisible(n) {
 }
 
 function edgeVisible(e) {
-  const sn = DATA.nodes.find(n => n.id === e.source);
-  const tn = DATA.nodes.find(n => n.id === e.target);
-  if (!sn || !tn) return false;
-  return isVisible(sn) && isVisible(tn);
+  const sn = nodeMap[e.source], tn = nodeMap[e.target];
+  return sn && tn && isVisible(sn) && isVisible(tn);
 }
 
-// Simple force simulation
+// Initialize positions
 const nodes = DATA.nodes.map(n => ({
-  ...n,
-  x: W/2 + (Math.random() - 0.5) * W * 0.6,
-  y: H/2 + (Math.random() - 0.5) * H * 0.6,
-  vx: 0, vy: 0,
-  size: nodeSize(n),
+  ...n, x: W/2 + (Math.random()-0.5)*W*0.6, y: H/2 + (Math.random()-0.5)*H*0.6,
+  vx: 0, vy: 0, size: nodeSize(n),
 }));
-
 const nodeMap = {};
 nodes.forEach(n => nodeMap[n.id] = n);
 
-// Force simulation
 function simulate(iterations) {
-  const alpha = 0.3;
-  const repulsion = 800;
-  const attraction = 0.008;
-  const centerForce = 0.002;
-  const damping = 0.85;
-
+  const repulsion = 900, attraction = 0.007, centerForce = 0.002, damping = 0.85;
   for (let iter = 0; iter < iterations; iter++) {
     const decay = 1 - iter / iterations;
-
-    // Repulsion (all pairs — use spatial hashing for perf)
-    const visibleNodes = nodes.filter(n => isVisible(n));
-    for (let i = 0; i < visibleNodes.length; i++) {
-      for (let j = i + 1; j < visibleNodes.length; j++) {
-        const a = visibleNodes[i], b = visibleNodes[j];
+    const vis = nodes.filter(isVisible);
+    for (let i = 0; i < vis.length; i++) {
+      for (let j = i + 1; j < vis.length; j++) {
+        const a = vis[i], b = vis[j];
         let dx = b.x - a.x, dy = b.y - a.y;
         let dist = Math.sqrt(dx*dx + dy*dy) || 1;
         let force = repulsion * decay / (dist * dist);
-        let fx = dx / dist * force, fy = dy / dist * force;
-        a.vx -= fx; a.vy -= fy;
-        b.vx += fx; b.vy += fy;
+        let fx = dx/dist*force, fy = dy/dist*force;
+        a.vx -= fx; a.vy -= fy; b.vx += fx; b.vy += fy;
       }
     }
-
-    // Attraction (edges)
     DATA.edges.forEach(e => {
       if (!edgeVisible(e)) return;
       const a = nodeMap[e.source], b = nodeMap[e.target];
@@ -2917,36 +4506,22 @@ function simulate(iterations) {
       let dx = b.x - a.x, dy = b.y - a.y;
       let dist = Math.sqrt(dx*dx + dy*dy) || 1;
       let force = dist * attraction * decay;
-      let fx = dx / dist * force, fy = dy / dist * force;
-      a.vx += fx; a.vy += fy;
-      b.vx -= fx; b.vy -= fy;
+      a.vx += dx/dist*force; a.vy += dy/dist*force;
+      b.vx -= dx/dist*force; b.vy -= dy/dist*force;
     });
-
-    // Center gravity
-    visibleNodes.forEach(n => {
+    vis.forEach(n => {
       n.vx += (W/2 - n.x) * centerForce * decay;
       n.vy += (H/2 - n.y) * centerForce * decay;
-    });
-
-    // Apply velocities
-    visibleNodes.forEach(n => {
-      n.vx *= damping;
-      n.vy *= damping;
-      n.x += n.vx;
-      n.y += n.vy;
-      // Bounds
-      n.x = Math.max(30, Math.min(W - 30, n.x));
-      n.y = Math.max(30, Math.min(H - 30, n.y));
+      n.vx *= damping; n.vy *= damping;
+      n.x += n.vx; n.y += n.vy;
+      n.x = Math.max(30, Math.min(W-30, n.x));
+      n.y = Math.max(30, Math.min(H-30, n.y));
     });
   }
 }
 
-// Run simulation
-console.time('simulation');
 simulate(300);
-console.timeEnd('simulation');
 
-// Render
 let transform = { x: 0, y: 0, k: 1 };
 
 function render() {
@@ -2957,69 +4532,126 @@ function render() {
     if (!edgeVisible(e)) return;
     const a = nodeMap[e.source], b = nodeMap[e.target];
     if (!a || !b) return;
-
     const hi = selectedNode !== null && (e.source === selectedNode || e.target === selectedNode);
-    const color = hi ? (edgeColorsHi[e.type] || '#888') : (edgeColors[e.type] || '#88888840');
-    const width = hi ? 1.8 : 0.6;
-    const opacity = selectedNode !== null ? (hi ? 1 : 0.08) : 0.5;
-
+    const color = hi ? (edgeColorsHi[e.type] || '#888') : (edgeColors[e.type] || '#55555530');
+    const width = hi ? Math.max(1.5, (e.weight || 0.5) * 1.2) : Math.max(0.4, (e.weight || 0.5) * 0.6);
+    const opacity = selectedNode !== null ? (hi ? 1 : 0.06) : 0.5;
     els.push(`<line x1="${a.x}" y1="${a.y}" x2="${b.x}" y2="${b.y}" stroke="${color}" stroke-width="${width}" opacity="${opacity}"/>`);
+
+    // Edge label (only when highlighted)
+    if (hi && showLabels && e.label) {
+      const mx = (a.x + b.x) / 2, my = (a.y + b.y) / 2;
+      els.push(`<text x="${mx}" y="${my-3}" text-anchor="middle" fill="#ddd" font-size="8" font-weight="600">${e.label}</text>`);
+    }
   });
 
   // Nodes
   nodes.forEach(n => {
     if (!isVisible(n)) return;
-
     const hi = selectedNode === null || selectedNode === n.id ||
                (adjMap[selectedNode] || []).some(e => e.source === n.id || e.target === n.id);
-    const opacity = hi ? 1 : 0.12;
+    const opacity = hi ? 1 : 0.1;
     const color = nodeColor(n);
     const s = n.size;
 
     if (n.type === 'stock') {
-      els.push(`<circle cx="${n.x}" cy="${n.y}" r="${s}" fill="${color}" opacity="${opacity}" stroke="${hi && selectedNode === n.id ? '#fff' : 'none'}" stroke-width="2" data-id="${n.id}" class="node"/>`);
-      // Label
-      if (s >= 7 && (selectedNode === null || hi)) {
-        els.push(`<text x="${n.x}" y="${n.y - s - 3}" text-anchor="middle" fill="${hi ? '#fff' : '#aaa'}" font-size="${s >= 10 ? 11 : 9}" opacity="${opacity}" font-weight="${n.status === 'portfolio' ? 600 : 400}">${n.label}</text>`);
+      els.push(`<circle cx="${n.x}" cy="${n.y}" r="${s}" fill="${color}" opacity="${opacity}" stroke="${selectedNode === n.id ? '#fff' : 'none'}" stroke-width="2" data-id="${n.id}" class="node"/>`);
+      if (s >= 7 && showLabels && (selectedNode === null || hi)) {
+        els.push(`<text x="${n.x}" y="${n.y - s - 3}" text-anchor="middle" fill="${hi ? '#fff' : '#aaa'}" font-size="${s >= 12 ? 11 : 9}" opacity="${opacity}" font-weight="600">${n.label}</text>`);
       }
     } else if (n.type === 'fund') {
-      // Diamond
       const d = s;
-      els.push(`<polygon points="${n.x},${n.y-d} ${n.x+d},${n.y} ${n.x},${n.y+d} ${n.x-d},${n.y}" fill="${color}" opacity="${opacity}" stroke="${hi && selectedNode === n.id ? '#fff' : 'none'}" stroke-width="1.5" data-id="${n.id}" class="node"/>`);
-      if (hi && selectedNode !== null && (selectedNode === n.id || (adjMap[selectedNode] || []).some(e => e.source === n.id || e.target === n.id))) {
-        els.push(`<text x="${n.x}" y="${n.y - d - 3}" text-anchor="middle" fill="#ccc" font-size="8" opacity="${opacity}">${n.label}</text>`);
+      els.push(`<polygon points="${n.x},${n.y-d} ${n.x+d},${n.y} ${n.x},${n.y+d} ${n.x-d},${n.y}" fill="${color}" opacity="${opacity}" stroke="${selectedNode === n.id ? '#fff' : 'none'}" stroke-width="1.5" data-id="${n.id}" class="node"/>`);
+      if (hi && showLabels && selectedNode !== null) {
+        els.push(`<text x="${n.x}" y="${n.y - d - 3}" text-anchor="middle" fill="#ccc" font-size="8">${n.label}</text>`);
       }
     } else if (n.type === 'person') {
-      // Triangle
       const d = s + 1;
-      els.push(`<polygon points="${n.x},${n.y-d} ${n.x+d},${n.y+d} ${n.x-d},${n.y+d}" fill="${color}" opacity="${opacity}" data-id="${n.id}" class="node"/>`);
+      els.push(`<polygon points="${n.x},${n.y-d} ${n.x+d},${n.y+d} ${n.x-d},${n.y+d}" fill="${color}" opacity="${opacity}" data-id="${n.id}" class="node" stroke="${selectedNode === n.id ? '#fff' : 'none'}" stroke-width="1.5"/>`);
+      if (showLabels && (selectedNode === null || hi) && s >= 5) {
+        els.push(`<text x="${n.x}" y="${n.y + d + 10}" text-anchor="middle" fill="${hi ? '#ccc' : '#666'}" font-size="8" opacity="${opacity}">${n.label}</text>`);
+      }
     }
   });
 
   svg.innerHTML = `<g transform="translate(${transform.x},${transform.y}) scale(${transform.k})">${els.join('')}</g>`;
-
-  // Info
-  const visN = nodes.filter(isVisible).length;
-  const visE = DATA.edges.filter(edgeVisible).length;
-  document.getElementById('n-nodes').textContent = visN;
-  document.getElementById('n-edges').textContent = visE;
+  document.getElementById('n-nodes').textContent = nodes.filter(isVisible).length;
+  document.getElementById('n-edges').textContent = DATA.edges.filter(edgeVisible).length;
 }
 
 render();
 
-// Interaction: click to highlight
+// Click -> detail panel
 svg.addEventListener('click', (e) => {
   const el = e.target.closest('.node');
   if (el) {
     const id = parseInt(el.dataset.id);
     selectedNode = selectedNode === id ? null : id;
+    if (selectedNode !== null) showDetailPanel(selectedNode);
+    else closePanel();
   } else {
     selectedNode = null;
+    closePanel();
   }
   render();
 });
 
-// Tooltip
+function showDetailPanel(nodeId) {
+  const n = nodeMap[nodeId];
+  if (!n) return;
+  const panel = document.getElementById('detail-panel');
+  const content = document.getElementById('panel-content');
+
+  let html = `<h3>${n.name}</h3>`;
+
+  if (n.type === 'stock') {
+    html += `<div class="subtitle">${n.status.toUpperCase()} | Conviction: ${n.conviction || 'n/a'}</div>`;
+    // Show all connected insiders and funds
+    const conns = adjMap[nodeId] || [];
+    const funds = conns.filter(e => nodeMap[e.source]?.type === 'fund');
+    const people = conns.filter(e => nodeMap[e.source]?.type === 'person');
+
+    if (funds.length) {
+      html += `<div class="detail-content"><b>Institutional Holders (${funds.length})</b><br>`;
+      funds.forEach(e => {
+        const fn = nodeMap[e.source];
+        html += `<div class="txn-row">${fn?.name || '?'}: ${e.label}</div>`;
+      });
+      html += '</div><br>';
+    }
+    if (people.length) {
+      html += `<div class="detail-content"><b>Insiders (${people.length})</b><br>`;
+      people.forEach(e => {
+        const pn = nodeMap[e.source];
+        if (pn?.detail) html += `<div class="txn-row">${pn.detail}</div>`;
+      });
+      html += '</div>';
+    }
+  } else if (n.type === 'person') {
+    html += `<div class="subtitle">${n.title || ''}</div>`;
+    const patCls = n.pattern?.includes('10b5-1') ? 'pattern-prog' : 'pattern-disc';
+    html += `<span class="pattern-tag ${patCls}">${n.pattern || 'Unknown'}</span>`;
+    if (n.detail) html += `<div class="detail-content" style="margin-top:8px">${n.detail}</div>`;
+  } else if (n.type === 'fund') {
+    html += `<div class="subtitle">${n.status?.toUpperCase() || ''}</div>`;
+    const conns = adjMap[nodeId] || [];
+    html += `<div class="detail-content"><b>Holds ${conns.length} of our stocks:</b><br>`;
+    conns.forEach(e => {
+      const sn = nodeMap[e.target];
+      html += `<div class="txn-row">${sn?.label || '?'}: ${e.label}</div>`;
+    });
+    html += '</div>';
+  }
+
+  content.innerHTML = html;
+  panel.classList.add('open');
+}
+
+function closePanel() {
+  document.getElementById('detail-panel').classList.remove('open');
+}
+
+// Tooltip on hover
 const tooltip = document.getElementById('tooltip');
 svg.addEventListener('mousemove', (e) => {
   const el = e.target.closest('.node');
@@ -3027,15 +4659,19 @@ svg.addEventListener('mousemove', (e) => {
     const id = parseInt(el.dataset.id);
     const n = nodeMap[id];
     if (n) {
-      const conns = (adjMap[n.id] || []).length;
-      let detail = '';
-      if (n.type === 'stock') detail = `Status: ${n.status} | Conviction: ${n.conviction || 'n/a'} | Connections: ${conns}`;
-      else if (n.type === 'fund') detail = `Holds ${conns} of our stocks | Type: ${n.status}`;
-      else detail = `${n.status === 'insider_buy' ? 'Buyer' : 'Seller'} | Connections: ${conns}`;
-
-      tooltip.innerHTML = `<div class="tt-title">${n.name}</div><div class="tt-type">${n.type}</div><div class="tt-detail">${detail}</div>`;
+      let html = '';
+      if (n.type === 'person') {
+        html = n.detail || `<b>${n.name}</b>`;
+      } else if (n.type === 'fund') {
+        const conns = (adjMap[n.id] || []).length;
+        html = `<b>${n.name}</b><br><i>${n.status}</i><br>Holds ${conns} of our stocks`;
+      } else {
+        const conns = (adjMap[n.id] || []).length;
+        html = `<b>${n.label}</b> — ${n.name}<br><i>${n.status}</i> | ${n.conviction || ''}<br>${conns} connections`;
+      }
+      tooltip.innerHTML = html;
       tooltip.style.display = 'block';
-      tooltip.style.left = (e.clientX + 12) + 'px';
+      tooltip.style.left = (e.clientX + 14) + 'px';
       tooltip.style.top = (e.clientY - 10) + 'px';
     }
   } else {
@@ -3063,30 +4699,30 @@ svg.addEventListener('mousedown', (e) => {
 });
 window.addEventListener('mousemove', (e) => {
   if (!dragging) return;
-  transform.x += e.clientX - lastX;
-  transform.y += e.clientY - lastY;
+  transform.x += e.clientX - lastX; transform.y += e.clientY - lastY;
   lastX = e.clientX; lastY = e.clientY;
   render();
 });
 window.addEventListener('mouseup', () => { dragging = false; });
 
-// Controls
 function toggleInsiders() {
   showInsiders = !showInsiders;
   document.getElementById('btn-insiders').classList.toggle('active', showInsiders);
-  simulate(50);
-  render();
+  simulate(50); render();
 }
 function toggleIndexers() {
   showIndexers = !showIndexers;
   document.getElementById('btn-indexers').classList.toggle('active', showIndexers);
-  simulate(50);
+  simulate(50); render();
+}
+function toggleLabels() {
+  showLabels = !showLabels;
+  document.getElementById('btn-labels').classList.toggle('active', showLabels);
   render();
 }
 function resetView() {
   transform = { x: 0, y: 0, k: 1 };
-  selectedNode = null;
-  render();
+  selectedNode = null; closePanel(); render();
 }
 </script>
 </body>
