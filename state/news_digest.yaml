@@ -1,185 +1,293 @@
 # =============================================================================
-# NEWS DIGEST - Session 92+ Update (2026-02-20 evening scan)
+# NEWS DIGEST - Session 106 (2026-02-25 morning scan)
 # =============================================================================
 
-last_scan: "2026-02-20 ~21:30 CET"
-session: "92+"
-tickers_scanned: 16  # 10 active + 4 near-entry watchlist + 2 short
-classification: "0 CRITICAL | 4 MATERIAL | 10 MINOR | 2 RUIDO"
-detailed_scan: "state/news_scan_20260220.md"
+last_scan: "2026-02-25 ~10:00 CET"
+session: "106"
+tickers_scanned: 21  # 11 active + 10 watchlist/earnings
+classification: "0 CRITICAL | 5 MATERIAL | 12 MINOR | 4 RUIDO"
 
 # =============================================================================
-# CHANGES vs SESSION 91 (~19:00 CET same day)
+# MAJOR DEVELOPMENTS SINCE LAST SCAN (2026-02-20)
 # =============================================================================
 
-changes_vs_last_scan:
-  new_items:
-    - "ADBE: Claude Opus 4.6 + OpenAI Frontier agent launch caused 3.1% drop. Stock -26% YTD."
-    - "MONY.L: CEO Duffy appointed non-exec at GPE (Mar 2). Tuio Home app adds to AI disruption trend."
-    - "DTE.DE: TMUS CMD blowout ($2.14 beat, 7.8M adds, $37-37.5B 2026 EBITDA). EUR 2.5B bond. EUR 1/share div + EUR 2B buyback."
-    - "DNLM.L: JPMorgan + Jefferies UPGRADES. Insider buying (Luisa Wright, 2,442 shares @ 963p). Stock 972p, 7.7% above SO trigger 900p."
-    - "MORN: FY2025 $2.45B rev +8%, adj EPS +25%. BMO cut PT $257->$193. Stock -50% 1yr. 7.3% above SO trigger $150."
-    - "GL: CEO options exercise + 12,500 share sale (routine). Pzena acquiring shares."
-    - "EDEN.PA: Brazil gov to APPEAL Ticket injunction. France digitalization Feb 2027 confirmed."
-    - "NVO: REDEFINE 4 H2H data (CagriSema vs Zepbound) confirmed end of March."
-    - "RACE.MI: EUR 3.5B multi-year buyback, treasury >8.6%. 20-F filed."
-    - "ROP: Review completed Session 92. FV $385->$365. Trigger $300->$285."
-  no_change:
-    - "DOM.L: Quiet. Mar 5 results."
-    - "BYIT.L: 52wL. No operational news."
-    - "MEGP.L: Quiet pre-earnings. Feb 27 HARD GATE."
-    - "AUTO.L: Buyback continuing. No new developments."
+major_developments:
+  - ticker: NVO
+    event: "CagriSema REDEFINE 4 FAILED primary endpoint (Feb 23)"
+    classification: MATERIAL
+    detail: "CagriSema 23% weight loss vs tirzepatide 25.5%. Non-inferiority NOT achieved. Stock -16% to ~$38.64. Multiple analyst downgrades (DB, Nordea, Kepler, JPM all to Hold/Neutral). 52-week low."
+
+  - ticker: EDEN.PA
+    event: "FY2025 results published Feb 24"
+    classification: MATERIAL
+    detail: "Record year: EBITDA >EUR 1.36B (+11.2% LfL), adj EPS EUR 2.59 (+10%), FCF EUR 1.11B (+34%). Stock SURGED +8%. BUT 2026 = rebasing year: EBITDA decline 8-12% LfL (Italy + Brazil regulation). Intrinsic growth 8-12% maintained."
+
+  - ticker: MONY.L
+    event: "FY2025 results published Feb 23"
+    classification: MINOR
+    detail: "Already captured in portfolio: BASE+ case. Rev GBP 446.3M, EBITDA GBP 145.1M record. ChatGPT app launched. All KCs passed. Stock +3.3%."
+
+  - ticker: BVI.PA
+    event: "FY2025 results published Feb 25"
+    classification: MATERIAL
+    detail: "Organic revenue growth 6.5% (sector-leading). AOP margin 16.3% (+51bps cc). Adj EPS EUR 1.42 (+2.8%, +9.2% cc). FCF EUR 824M. EUR 200M buyback. Dividend EUR 0.92 (+2.2%). 2026 guidance: mid-to-high single digit organic growth + margin improvement."
+
+  - ticker: WKL.AS
+    event: "FY2025 results scheduled TODAY Feb 25"
+    classification: PENDING
+    detail: "Not yet indexed in search results. 9M update showed 6% organic growth, 15% adj OP growth cc. Guidance: mid-high single digit EPS growth. EUR 1.1B buyback completed. Watch for actuals + 2026 guidance + new buyback."
+
+  - ticker: PROX.BR
+    event: "EUR 275M goodwill impairment on Proximus Global announced pre-results"
+    classification: MATERIAL
+    detail: "Non-cash impairment allocated to Global division goodwill. Results + new strategic plan Feb 27. Domestic outlook: stable revenue, EBITDA up to +2%."
+
+  - ticker: MORN
+    event: "Chairman Mansueto selling shares + BMO PT cut"
+    classification: MINOR
+    detail: "Mansueto sold $2.2M in stock at $159-162. BMO cut PT $257->$193. Stock still ~$162. Already in portfolio (bought $160.76)."
 
 # =============================================================================
-# ACTIVE POSITIONS (10) - SUMMARY
+# ACTIVE POSITIONS (11) - SUMMARY
 # =============================================================================
 
 positions:
 
-  DTE.DE:
-    classification: MINOR
+  NVO:
+    classification: MATERIAL
     headlines:
-      - "Stock EUR 32.37 (-3% Feb 20, no catalyst)"
-      - "Erste UPGRADED Buy (Feb 18), DB Buy (Feb 17), JPM Buy (Feb 12)"
-      - "TMUS Q4 blowout: $2.14 EPS beat, 7.8M adds, 2026 $37-37.5B EBITDA"
-      - "EUR 1/share div + EUR 2B buyback proposed"
-      - "FY2025 earnings Feb 26 -- 6 DAYS"
-    thesis_impact: NONE
+      - "CagriSema REDEFINE 4 FAILED primary endpoint (Feb 23). 23% vs tirzepatide 25.5%"
+      - "Stock -16% Mon to ~$38.64. New 52-week low (lowest since Jun 2021)"
+      - "Multiple downgrades: DB, Nordea, Kepler Cheuvreux, Jyske Bank to Hold. JPM to Neutral"
+      - "FDA decision on CagriSema anticipated late 2026 (based on REDEFINE 1/2)"
+      - "Exploring higher-dose CagriSema combinations for future trials"
+    thesis_impact: SIGNIFICANT_BUT_INCORPORATED
     action: HOLD
+    context: "We ADDED 6 shares at $38.76 on Feb 24, POST the CagriSema miss. This was priced into our entry. The NVO thesis v3.0 FV $66 already incorporated CagriSema uncertainty. CagriSema NDA already filed with FDA (REDEFINE 1/2 data), so commercial approval still likely. The H2H miss affects COMPETITIVE positioning vs Lilly, not standalone efficacy. Market is pricing in worst-case. Our avg cost is $44.21, stock at $38.64 = unrealized -12.6%. HOLD -- thesis intact at distressed valuation."
 
   EDEN.PA:
     classification: MATERIAL
     headlines:
-      - "FY2025 earnings Feb 24 -- 4 DAYS"
-      - "Brazil: injunction holding but gov will APPEAL"
-      - "France: transparency charter (not fee cap) + digitalization Feb 2027"
-      - "2026 rebasing year (2-4% EBITDA growth), 2027-28 target 8-12% maintained"
-    thesis_impact: MARGINAL_POSITIVE
-    action: MONITOR_EARNINGS
-    context: "FV EUR 29 likely conservative if injunction holds + France de-risks"
+      - "FY2025: Record year. EBITDA EUR 1.36B+ (+11.2% LfL). Adj EPS EUR 2.59 (+10%)"
+      - "FCF EUR 1.11B (+34%). Net debt down 31% to EUR 1.24B (0.9x EBITDA)"
+      - "Stock SURGED +8% on results (closed EUR 19.61)"
+      - "2026 guidance: EBITDA decline 8-12% LfL (Italy + Brazil regulation). Rebasing year"
+      - "Intrinsic EBITDA growth 8-12% for 2027-2028 maintained"
+      - "Brazil decree suspended by court. Gov will appeal"
+      - "Dividend + EUR 200M buyback"
+    thesis_impact: MIXED
+    action: REVIEW_THESIS
+    context: "Results BEAT slightly. Stock surged +8%. Our FV EUR 29 already accounted for regulatory headwinds. The 2026 rebasing (EBITDA -8-12%) is worse than our 'neutral' scenario of 2-4% growth. However, market reacted positively because it was already priced in (stock was down 50%+ from highs). Intrinsic growth 8-12% for 2027-28 is encouraging. Need to check if FV EUR 29 still valid given the deeper 2026 trough but faster 2027-28 recovery."
+
+  DTE.DE:
+    classification: MINOR
+    headlines:
+      - "FY2025 earnings TOMORROW Feb 26 (documents at 7:00 CET)"
+      - "Media webcast 10:00 CET, investor webcast 14:00 CET"
+      - "TMUS CMD blowout supports strong parent results"
+      - "EUR 1/share div + EUR 2B buyback proposed"
+    thesis_impact: NONE
+    action: MONITOR_EARNINGS_TOMORROW
+    context: "FV EUR 35. Watch: EBITDA vs EUR 48.5B, FCF vs EUR 20.1B. TMUS CMD supports thesis."
 
   DOM.L:
     classification: MINOR
     headlines:
-      - "Stock ~203p, stable"
-      - "FY25 results Mar 5 -- 13 DAYS"
+      - "Stock ~203p, stable. Revenue declined 2.7%"
+      - "FY25 results Mar 5 -- 8 DAYS"
       - "New CEO Dominic Paul starts Apr 6"
+      - "Analyst avg PT 241p (+20% upside)"
     thesis_impact: NONE
     action: HOLD
 
   GL:
     classification: MINOR
     headlines:
-      - "CEO options exercise + 12,500 share sale (routine)"
-      - "Pzena acquired shares (Feb 19)"
-      - "Bronstein Gewirtz investigating (ambulance chaser, old allegations)"
-      - "2026 guidance RAISED EPS $14.95-$15.65"
-    thesis_impact: NONE
+      - "Q4 2025: EPS $3.39 vs $3.14 prior year. Beat"
+      - "2026 guidance RAISED: $14.95-$15.65 EPS"
+      - "Share buybacks $170M in Q4"
+      - "FY2025 revenue $5.99B, net income $1.16B"
+    thesis_impact: MINOR_POSITIVE
     action: HOLD
+    context: "Guidance raise is positive. FV $191 looks conservative. SEC/DOJ cleared. Steady execution."
 
   ADBE:
     classification: MINOR
     headlines:
-      - "Stock -26% YTD on AI fears. MoS expanding to 33%"
-      - "Claude Opus 4.6 + OpenAI Frontier launch = 3.1% drop"
-      - "$1.4B ad spend to combat AI narrative"
-      - "Firefly: 100+ enterprise deals Q4. Cognizant + Runway partnerships"
-      - "FTC jury trial Oct 19, 2026"
-    thesis_impact: MINOR_POSITIVE
-    action: HOLD
-    context: "MoS expanding. AI narrative bearish but enterprise traction real."
-
-  NVO:
-    classification: MINOR
-    headlines:
-      - "CagriSema REIMAGINE 2: SUPERIOR to semaglutide in T2D (Feb 2)"
-      - "CagriSema NDA filed with FDA for obesity"
-      - "REDEFINE 4 H2H vs Zepbound: data END OF MARCH"
-      - "US chief Moore -> Miller (ex-UnitedHealth)"
+      - "No new material news since last scan"
+      - "FTC case ongoing (trial Oct 2026)"
+      - "AI narrative continues to weigh"
     thesis_impact: NONE
     action: HOLD
-    context: "On track. March H2H = next binary catalyst."
 
   MONY.L:
-    classification: MATERIAL
+    classification: MINOR
     headlines:
-      - "FY2025 earnings Feb 23 -- 3 DAYS. ON PROBATION"
-      - "Morgan Stanley DOWNGRADED underweight (AI disruption)"
-      - "CEO Duffy appointed non-exec at GPE (Mar 2)"
-      - "Insurify + Tuio = broadening AI disruption threat"
-      - "RBC counters: AI impact on UK comparisons overstated"
-    thesis_impact: UNCHANGED
-    action: PREPARE_RAPID_RESPONSE
-    context: "KC#9 (AI strategy) = THE question. SELL if no AI strategy or revenue <435M."
+      - "FY2025 results Feb 23: BASE+ case confirmed. All KCs passed"
+      - "Rev GBP 446.3M (+2%), record EBITDA GBP 145.1M"
+      - "ChatGPT app + OpenAI enterprise (KC#9 PASS)"
+      - "GBP 25M buyback. Div 12.63p (+1%)"
+      - "Stock +3.3% post-results"
+    thesis_impact: POSITIVE
+    action: HOLD_ON_PROBATION
+    context: "Already processed in S105. All KCs passed. 60-day probation continues to ~Apr 25."
 
   LULU:
-    classification: MATERIAL
+    classification: MINOR
     headlines:
-      - "Elliott $1B stake, pushing Jane Nielsen CEO. Wilson 3 board nominees"
-      - "Strategic update calls expected Feb-Mar"
-      - "6 new franchise markets for 2026"
-      - "Mar 31 Q4 = MAKE-OR-BREAK"
+      - "Wilson proxy fight continues. Seeking Advent director ouster"
+      - "Elliott $1B stake, pushing Jane Nielsen (ex-Ralph Lauren) as CEO"
+      - "Neither Wilson nor Elliott coordinating (parallel campaigns)"
+      - "Mar 31 Q4 earnings remain MAKE-OR-BREAK"
     thesis_impact: UNCHANGED
     action: HOLD_PROBATION
-    context: "ON PROBATION LOW. Governance resolution could be positive."
+    context: "No new developments beyond proxy fight escalation. Governance resolution could be catalyst."
 
   AUTO.L:
     classification: MINOR
     headlines:
-      - "823,812 share buyback Feb 12 @ avg 463p"
-      - "3 new dealer offers Feb 16"
-      - "April 2026 pricing event = binary"
+      - "Buyback: 625,000 shares @ 476p (Feb 23), 430,000 @ 536p (Feb 2)"
+      - "Stock 471.7p (-19% from our avg 580p FV)"
+      - "April 2026 pricing event remains binary"
     thesis_impact: NONE
     action: HOLD
+
+  MORN:
+    classification: MINOR
+    headlines:
+      - "Mansueto (chairman, 46% owner) sold $2.2M in stock at $159-162"
+      - "BMO Capital cut PT $257->$193"
+      - "New President of Direct Platform appointed (Scott Brown, Mar 2)"
+      - "FY2025 revenue $2.45B (+7.5%), adj EPS $9.86 (+25%)"
+    thesis_impact: MINOR_NEGATIVE
+    action: MONITOR
+    context: "Mansueto insider selling at near our entry price ($160.76) is a yellow flag, but he owns 46% -- small sales are routine estate/tax planning. BMO PT $193 = our FV $195. Stock at $162 = MoS 17%. Not alarming but monitor for pattern."
 
   BYIT.L:
     classification: MINOR
     headlines:
-      - "52-week low 285.8p (Feb 16)"
-      - "6 Buy, 3 Hold, 0 Sell. Avg PT 491p (+69% upside)"
-      - "Dividend yield 6.9% top quartile UK"
+      - "Hit 52-week low 285.8p in mid-Feb"
+      - "Analyst avg PT 491p (+69% upside from 285p)"
+      - "Div yield 6.9% top quartile UK"
+      - "No operational news"
     thesis_impact: NONE
     action: HOLD_PROBATION
 
 # =============================================================================
-# WATCHLIST NEAR ENTRY
+# WATCHLIST / EARNINGS THIS WEEK
 # =============================================================================
 
 watchlist:
 
-  RACE.MI:
-    classification: MINOR
-    so_distance: "5.3% (EUR 393 vs trigger EUR 295 = 24.9% -- NOTE: distance is from FV perspective)"
+  WKL.AS:
+    classification: PENDING
+    event: "FY2025 results TODAY Feb 25"
     headlines:
-      - "FY2025 20-F filed Feb 19. Revenue EUR 7.1B+ (+7%), EBIT 29.5%"
-      - "Dividend EUR 3.615 (+21%). EUR 3.5B buyback active"
-    action: MONITOR
+      - "Results published this morning (not yet indexed)"
+      - "9M: 6% organic growth, +15% adj OP (cc), cloud software rev +15%"
+      - "Guidance was mid-high single digit EPS growth"
+      - "EUR 1.1B 2025 buyback completed. New 2026 buyback to be announced today"
+    so_entry: "EUR 50-55"
+    action: CHECK_RESULTS_TODAY
+
+  BVI.PA:
+    classification: MATERIAL
+    event: "FY2025 results published TODAY Feb 25"
+    headlines:
+      - "Revenue EUR 6.47B (+6.5% organic, sector-leading)"
+      - "AOP margin 16.3% (+51bps cc, +32bps reported)"
+      - "Adj EPS EUR 1.42 (+2.8%, +9.2% cc)"
+      - "FCF EUR 824M. 9 bolt-on acquisitions (~EUR 96M rev added)"
+      - "EUR 200M buyback. Dividend EUR 0.92 (+2.2%)"
+      - "2026 guidance: mid-to-high single digit organic growth + margin improvement"
+    thesis_impact: POSITIVE_FOR_PIPELINE
+    action: EVALUATE_FOR_R3_ADVANCEMENT
+    context: "R3 complete. Results are strong: 6.5% organic growth beats LEAP I 28 targets. Margin expanding. Pipeline candidate looks healthy."
+
+  QTCOM.HE:
+    classification: PENDING
+    event: "FY2025 earnings TOMORROW Feb 26"
+    headlines:
+      - "HARD GATE: EBITA >= 18% to pass, <15% = ARCHIVE"
+      - "Previous earnings: -80.9% EPS surprise, -10.9% rev surprise"
+      - "CEO confidence in 2026 recovery from IAR integration + subscription shift"
+    so_entry: "EUR 22"
+    action: WAIT_EARNINGS_TOMORROW
+
+  INTU:
+    classification: MINOR
+    event: "Q2 FY2026 earnings TOMORROW Feb 26 after close"
+    headlines:
+      - "Q2 guidance: rev $4.52-4.55B, non-GAAP EPS $3.63-3.68"
+      - "Analyst consensus: EPS $3.65, rev $4.53B"
+      - "FY2026 guidance: rev $21.0-21.2B, EPS $22.98-23.18"
+      - "Tax season performance = focal point"
+    so_entry: "$330-365"
+    action: WAIT_EARNINGS_TOMORROW
+
+  CS.PA:
+    classification: MINOR
+    event: "AXA FY2025 earnings TOMORROW Feb 26"
+    headlines:
+      - "H1 2025 was +7% rev, +6% underlying earnings, +8% EPS"
+      - "Full year results Feb 26"
+    so_notes: "BUY trigger EUR 34.50-35.50"
+    action: WAIT_EARNINGS_TOMORROW
 
   MEGP.L:
     classification: MINOR
-    so_distance: "6.4% (145p vs trigger 135p)"
+    event: "FY2025 annual results Feb 27"
     headlines:
-      - "FY2025 results Feb 27 -- HARD GATE for R4/SO"
-      - "Quiet pre-earnings. No analyst previews"
-    action: WAIT_EARNINGS
+      - "Trading update (Nov): rev GBP 311-318M (+10%), PBT up to GBP 79M (record)"
+      - "1,145 net laundry machines installed in FY2025"
+      - "Online investor briefing Feb 27"
+    so_entry: "131 GBp (HARD GATE for R4)"
+    action: WAIT_EARNINGS_FEB27
 
-  MORN:
-    classification: MINOR
-    so_distance: "7.3% ($160 vs trigger $150)"
+  PROX.BR:
+    classification: MATERIAL
+    event: "FY2025 results + strategic plan Feb 27"
     headlines:
-      - "FY2025 $2.45B rev +8%, adj EPS +25%. Beat consensus"
-      - "BMO cut PT $257->$193. Stock -50% 1yr"
-      - "ChatGPT integrations for research+data moat"
-    action: MONITOR_APPROACH
+      - "EUR 275M non-cash goodwill impairment on Proximus Global"
+      - "Global EBITDA EUR 100-130M (new range)"
+      - "New strategic plan: B2B + Global growth from 2027"
+      - "Domestic: stable rev, EBITDA +2%, capex reduced, FCF ~EUR 100M"
+    so_entry: "EUR 7.50-7.70"
+    action: EVALUATE_POST_STRATEGIC_PLAN
+    context: "Impairment is a concern but non-cash. Strategic plan quality will determine if thesis holds. Capex decline positive."
+
+  IHP.L:
+    classification: MINOR
+    event: "Near standing order trigger (300 GBp)"
+    headlines:
+      - "Stock 311p (Feb 24). Distance to trigger: ~3.6%"
+      - "Insider buying: Euan Marshall 47 shares @ 318p (Feb 23), 4,000 shares @ 339p (Feb 12)"
+      - "Analyst consensus target 391p (+26% upside)"
+    so_entry: "300 GBp"
+    so_distance: "~3.6%"
+    action: MONITOR_CLOSELY
+    context: "Approaching trigger. Insider buying is POSITIVE signal. If reaches 300p, pre-flight check needed (5th UK position constraint)."
+
+  RACE.MI:
+    classification: MINOR
+    headlines:
+      - "Stock EUR 313-374 range. Buyback active (EUR 91.7M so far)"
+      - "FY2025 20-F filed: rev EUR 7.1B (+8%), EBIT >EUR 2.1B"
+      - "2026: 4 new models, EUR 200M FX headwinds"
+    so_entry: "EUR 295"
+    so_distance: "~21% (at EUR 374)"
+    action: MONITOR
 
   DNLM.L:
     classification: MINOR
-    so_distance: "7.7% (972p vs trigger 900p)"
     headlines:
-      - "JPMorgan + Jefferies UPGRADE (Feb 9-10)"
-      - "Insider buying: Luisa Wright 2,442 shares @ 963p (Feb 13)"
-      - "H1 div +3%. PBT guidance GBP 210-221M"
-    action: MONITOR_APPROACH
+      - "Stock 972-976p. SO trigger 950 GBp"
+      - "Profits at lower end of GBP 214-227M forecast"
+      - "Q2 sales +1.6% to GBP 498M"
+    so_entry: "950 GBp"
+    so_distance: "~2.5%"
+    action: MONITOR_CLOSELY
+    context: "VERY close to trigger. If dips below 950p, pre-flight check needed. 5th UK position constraint applies."
 
 # =============================================================================
 # SHORT CANDIDATES
@@ -189,12 +297,15 @@ shorts:
 
   LYV:
     classification: MATERIAL
-    status: "PAUSED (KC#3 triggered Session 90)"
+    status: "CATALYST IMMINENT -- Trial Mar 2 (5 DAYS)"
     headlines:
-      - "Judge REJECTED dismiss Feb 18. Trial Mar 2"
-      - "DOJ Assefi FAVORS trial. Settlement talks DIVIDED"
-      - "States will pursue REGARDLESS of DOJ"
-    action: REMAIN_PAUSED
+      - "Live Nation filed motion to POSTPONE trial (interlocutory appeal)"
+      - "DOJ antitrust head Assefi: case is STRONG, favors TRIAL"
+      - "Judge rejected dismiss (Feb 18). Amphitheater + ticketing monopoly claims proceed"
+      - "Settlement talks continuing but divided"
+      - "Bloomberg: LYV seeks to pause case a week before trial"
+    action: MONITOR_FROM_SIDELINES
+    context: "S4 APPROVED CONDITIONAL but PAUSED (KC#3). Trial Mar 2 = the catalyst we identified. LYV trying to delay is a sign of weakness. If judge denies postponement and trial proceeds, our thesis is validated. Monitor but no action until trial outcome clarifies."
 
 # =============================================================================
 # ALERTS & PRIORITIES
@@ -203,17 +314,21 @@ shorts:
 alerts:
   critical: []
   material:
-    - "MONY.L: Earnings Mon Feb 23 ON PROBATION. KC#9 = AI strategy test. Rapid response ready."
-    - "EDEN.PA: Earnings Tue Feb 24. Brazil gov appealing injunction. France de-risked."
-    - "LULU: Governance dual pressure. No new catalyst. Mar 31 binary."
-    - "LYV: Short PAUSED. Judge rejected dismiss. Trial Mar 2."
+    - "NVO: CagriSema H2H MISS. Stock -16%. We ADDED post-miss (priced in). HOLD. Watch for further downgrades or FDA signals."
+    - "EDEN.PA: FY2025 beat. Stock +8%. But 2026 EBITDA decline 8-12% = deeper trough than expected. Review FV."
+    - "BVI.PA: Strong FY2025. Pipeline candidate. Evaluate for R3 advancement."
+    - "PROX.BR: EUR 275M impairment pre-results. Strategic plan Feb 27 critical."
+    - "LYV: DOJ trial Mar 2. LYV trying to delay = weakness signal. Catalyst imminent."
 
-priorities_next_session:
-  - "1. [3 DAYS] MONY.L earnings Feb 23 -- rapid-response SELL/HOLD framework. P0."
-  - "2. [4 DAYS] EDEN.PA earnings Feb 24 -- Brazil guidance + France regulatory. P0."
-  - "3. [6 DAYS] DTE.DE earnings Feb 26 -- TMUS momentum supports strong results. P1."
-  - "4. [7 DAYS] MEGP.L FY2025 Feb 27 -- HARD GATE for R4/SO. 6.4% from trigger. P1."
-  - "5. [7.3%] MORN approaching SO trigger $150. Results strong. Monitor. P2."
-  - "6. [7.7%] DNLM.L approaching SO trigger 900p. Analyst upgrades + insider buy. P2."
-  - "7. [10 DAYS] LYV DOJ trial Mar 2 -- monitor from sidelines. P2."
-  - "8. [END MARCH] NVO H2H + LULU Q4 -- both BINARY. P2."
+priorities_next_48h:
+  - "1. [TODAY] WKL.AS FY2025 results -- check when indexed. Evaluate vs committee entry EUR 50-55. P0."
+  - "2. [TODAY] EDEN.PA post-earnings thesis review -- is FV EUR 29 still valid with deeper 2026 trough? P1."
+  - "3. [TOMORROW] DTE.DE FY2025 earnings. Watch EBITDA vs EUR 48.5B, FCF vs EUR 20.1B. P0."
+  - "4. [TOMORROW] QTCOM.HE FY2025 HARD GATE: EBITA >= 18%? <15% = ARCHIVE. P0."
+  - "5. [TOMORROW] INTU Q2 FY2026 after close. Tax season signals. Pipeline QS 75. P1."
+  - "6. [TOMORROW] CS.PA (AXA) FY2025. BUY trigger EUR 34.50-35.50. P1."
+  - "7. [FEB 27] MEGP.L annual results. HARD GATE for R4/SO. P1."
+  - "8. [FEB 27] PROX.BR results + strategic plan. EUR 275M impairment context. P1."
+  - "9. [MONITOR] IHP.L at 311p, 3.6% from 300p trigger. Pre-flight if triggers. P2."
+  - "10. [MONITOR] DNLM.L at 972p, 2.5% from 950p trigger. Pre-flight if triggers. P2."
+  - "11. [MAR 2] LYV DOJ trial. Monitor from sidelines. P2."

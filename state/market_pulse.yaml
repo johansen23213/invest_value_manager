@@ -1,131 +1,218 @@
 # =============================================================================
-# MARKET PULSE - Session 90 Update (2026-02-20 morning, EU markets open)
+# MARKET PULSE - Session Update (2026-02-25, markets open)
 # =============================================================================
-# FX: EUR/USD=1.1773 | GBP/EUR=1.1435
-# SPY: 684.48 (near ATH) | VIX: N/A (data unavailable)
-# Portfolio: 10 positions, cash EUR 6,151 (60.5%).
+# FX: EUR/USD=1.1779 | GBP/EUR=1.1457
+# SPY: $687.35 (+0.4% from last scan) | VIX: 19.55
+# Portfolio: 11 positions, cash EUR 5,558 (~54%).
 # =============================================================================
 
-last_scan: "2026-02-20T08:30"
-previous_scan: "2026-02-18T21:00"
+last_scan: "2026-02-25T10:00"
+previous_scan: "2026-02-20T08:30"
 
 market_context:
-  spy_level: 6845
-  spy_price: "$684.48"
-  spy_vs_52w_high: "-1.9%"
-  fx_eurusd: 1.1773
-  fx_gbpeur: 1.1435
+  spy_level: 6874
+  spy_price: "$687.35"
+  spy_vs_52w_high: "-1.5%"
+  vix: 19.55
+  fx_eurusd: 1.1779
+  fx_gbpeur: 1.1457
   market_summary: |
-    US markets near ATH. SPY $684.48, only -1.9% from 52wH ($697.84).
-    Russell 2000 (IWM) $264.60, near 52wH at $271.60. Broad US strength.
-    EU markets: FTSE 100 pulled back -0.3% from record high (miners drag: RIO -3%+ on flat results).
-    FX: EUR/USD 1.1773 (stable). GBP/EUR 1.1435 (stable).
-    No major macro shock. Quiet session for portfolio names.
+    US markets recovering from Feb 23 tariff-driven selloff ("Monday Disaster").
+    SPY $687.35, -1.5% from 52wH. VIX 19.55 = slightly elevated but not alarming.
+    Nvidia earnings tonight (Feb 25 after close) = major market catalyst.
+    EU markets mixed. Earnings-heavy week continues (WKL.AS, BVI.PA today; DTE.DE, QTCOM.HE, INTU, CS.PA tomorrow).
+    AI narrative continues pressuring SaaS names (ADBE at 52wL zone).
+    NVO suffered TWO material blows: Feb 4 guidance cut (-17%) + Feb 23 CagriSema trial miss (-16%).
 
 # =============================================================================
-# CHANGES SINCE LAST SCAN (Feb 18 close -> Feb 20 morning)
-# Note: covers ~1.5 trading days (Feb 19 full day + Feb 20 morning session)
+# CHANGES SINCE LAST SCAN (Feb 20 -> Feb 25, ~3 trading days)
 # =============================================================================
 
 portfolio_changes:
-  - { ticker: DTE.DE, prev: 32.37, now: 32.63, change: "+0.80%", flag: "NORMAL" }
-  - { ticker: EDEN.PA, prev: 17.76, now: 17.81, change: "+0.28%", flag: "NORMAL" }
-  - { ticker: DOM.L, prev: 200.80, now: 201.40, change: "+0.30%", flag: "NORMAL" }
-  - { ticker: GL, prev: 143.14, now: 144.01, change: "+0.61%", flag: "NORMAL" }
-  - { ticker: ADBE, prev: 261.36, now: 259.21, change: "-0.82%", flag: "NEAR 52wL" }
-  - { ticker: NVO, prev: 49.08, now: 48.45, change: "-1.28%", flag: "NORMAL" }
-  - { ticker: MONY.L, prev: 149.40, now: 150.60, change: "+0.80%", flag: "NORMAL (13yr low area)" }
-  - { ticker: LULU, prev: 181.25, now: 182.88, change: "+0.90%", flag: "NORMAL" }
-  - { ticker: AUTO.L, prev: 471.50, now: 473.30, change: "+0.38%", flag: "NEAR 52wL" }
-  - { ticker: BYIT.L, prev: 298.60, now: 295.80, change: "-0.94%", flag: "NORMAL" }
+  - { ticker: DTE.DE, prev: 32.63, now: 33.32, change_pct: "+2.1%", change_5d: "+2.1%", flag: "NORMAL. Pre-earnings rally. New 52wH zone." }
+  - { ticker: EDEN.PA, prev: 17.81, now: 18.92, change_pct: "+6.2%", change_5d: "+6.2%", flag: "MATERIAL RALLY -- FY2025 results beat expectations" }
+  - { ticker: DOM.L, prev: 201.40, now: 206.00, change_pct: "+2.3%", change_5d: "+2.3%", flag: "NORMAL" }
+  - { ticker: GL, prev: 144.01, now: 142.29, change_pct: "-1.2%", change_5d: "-1.2%", flag: "NORMAL" }
+  - { ticker: ADBE, prev: 259.21, now: 255.17, change_pct: "-1.6%", change_5d: "-1.6%", flag: "NEW 52wL. AI narrative continues." }
+  - { ticker: NVO, prev: 48.45, now: 38.59, change_pct: "-20.3%", change_5d: "-20.3%", flag: "CRITICAL -- CagriSema H2H trial miss Feb 23 (-16%)" }
+  - { ticker: MONY.L, prev: 150.60, now: 157.30, change_pct: "+4.4%", change_5d: "+4.4%", flag: "MATERIAL RALLY -- FY2025 BASE+ results" }
+  - { ticker: LULU, prev: 182.88, now: 179.49, change_pct: "-1.9%", change_5d: "-1.9%", flag: "NORMAL" }
+  - { ticker: AUTO.L, prev: 473.30, now: 471.50, change_pct: "-0.4%", change_5d: "-0.4%", flag: "NORMAL. Near 52wL." }
+  - { ticker: MORN, prev: 161.85, now: 162.94, change_pct: "+0.7%", change_5d: "+0.7%", flag: "NORMAL" }
+  - { ticker: BYIT.L, prev: 295.80, now: 290.60, change_pct: "-1.8%", change_5d: "-1.8%", flag: "NEAR 52wL (283.2p). Continued drift." }
 
 watchlist_changes:
-  - { ticker: MONC.MI, prev: 50.32, now: 50.26, change: "-0.12%", flag: "NORMAL" }
-  - { ticker: LYV, prev: 157.62, now: 157.46, change: "-0.10%", flag: "NOTE: Q4 beat but flat" }
-  - { ticker: MEGP.L, prev: 144.80, now: 143.00, change: "-1.24%", flag: "CLOSER TO TRIGGER" }
-  - { ticker: DSY.PA, prev_approx: 17.82, now: 17.54, change: "-1.57%", flag: "NORMAL" }
-  - { ticker: DNLM.L, prev_approx: 968.00, now: 973.00, change: "+0.52%", flag: "NORMAL" }
+  - { ticker: IHP.L, price: "305.5p", trigger: "300p", distance: "1.8%", flag: "VERY CLOSE TO TRIGGER. Nearest SO." }
+  - { ticker: DNLM.L, price: "995p", trigger: "950p", distance: "4.7%", flag: "APPROACHING trigger." }
+  - { ticker: RACE.MI, price: "EUR 316.50", trigger: "EUR 295", distance: "7.3%", flag: "MODERATE" }
+  - { ticker: WKL.AS, price: "EUR 62.20", trigger: "EUR 50-55", distance: "13-24%", flag: "REPORTING TODAY. Near 52wL (EUR 59.0)." }
+  - { ticker: BVI.PA, price: "EUR 27.58", notes: "REPORTED TODAY. Organic growth 6.5%, margin +51bps, EUR 200M buyback." }
+  - { ticker: MEGP.L, price: "146.6p", trigger: "135p", distance: "8.6%", flag: "FY2025 results Feb 27." }
+  - { ticker: QTCOM.HE, price: "EUR 24.26", trigger: "EUR 22", distance: "10.3%", flag: "NEAR 52wL (EUR 24.18). Reporting Feb 26. HARD GATE." }
+  - { ticker: ALFA.L, price: "184.2p", trigger: "165p", distance: "11.6%", flag: "NEAR 52wL. Mar 12 hard gate." }
 
 # =============================================================================
 # ANOMALIES DETECTED
 # =============================================================================
 
 anomalies:
-  critical: []
-  # No position with >10% single-day move.
-
-  material: []
-  # No position or watchlist name moved >3% since last scan.
-
-  notable_context:
-    - ticker: LYV
-      change_since_scan: "-0.10%"
-      context: |
-        Q4 2025 beat: EPS -$0.96 vs est -$1.04 (+7.69% beat). Revenue $25.2B FY2025.
-        Fan attendance 159M (+5%), GTV $26B (+9%). 2026 guide: double-digit AOI growth.
-        After-hours was +2.46% to $161.25 on Feb 19. But regular session gave it all back.
-        FLAT reaction to beat = market focused on DOJ trial risk (Mar 2, 10 days away).
-        SHORT ENTRY WINDOW: Price $157.46 within approved $145-160 range.
-        Q4 PRE-CONDITION for short: Q4 results confirm guidance-fueled AOI narrative but
-        DOJ/antitrust structural risk unchanged. No fundamental thesis change from Q4.
+  critical:
+    - ticker: NVO
+      change_since_scan: "-20.3%"
+      change_1d_feb23: "-16%"
+      cause: |
+        CagriSema REDEFINE 4 trial results (Feb 23): PRIMARY ENDPOINT NOT ACHIEVED.
+        CagriSema 2.4mg/2.4mg: 23.0% weight loss (full adherence) vs tirzepatide 15mg: 25.5%.
+        Non-inferiority vs Eli Lilly NOT demonstrated. Second major blow after Feb 4 guidance cut.
+        Stock now at $38.59, within 0.6% of 52-week low ($38.36).
+        ADD executed Feb 24 at $38.76 (6 shares). Total 14.31 shares, avg $44.21.
       cause_type: IDIOSYNCRATIC
-      action: "Q4 results CLEARED as pre-condition. Short entry decision for orchestrator."
+      already_known: true
+      thesis_impact: |
+        CagriSema was identified as BINARY catalyst in thesis. The result is NEGATIVE but not thesis-killing:
+        - FDA submission based on REDEFINE 1 & 2 (standalone data, not H2H). Decision late 2026.
+        - REDEFINE 11 (higher dose) data H1 2027.
+        - Phase 3 higher-dose trial initiation H2 2026.
+        - NVO still dominates semaglutide franchise (Ozempic, Wegovy).
+        - Forward P/E 10.6x at $38.59 prices in SEVERE pessimism.
+      action: "HOLD. ADD was pre-planned and executed. Monitor 52wL ($38.36) as support. If breaks significantly, reassess."
 
-    - ticker: ADBE
-      change_since_scan: "-0.82%"
-      context: |
-        Continued drift lower. Now $259.21, only 3.2% from 52wL ($251.10).
-        AI narrative intensifying: 24/7 Wall St article notes -26% YTD, questions
-        AI defense. Anthropic Claude Opus 4.6 + OpenAI agents narrative pressuring
-        all SaaS. Apple Creator Studio additional headwind.
-        No company-specific news. Sectoral AI disruption narrative.
-      cause_type: SECTORAL
-      action: "HOLD. MoS 33.5% ($259 vs FV $390). Near 52wL but thesis unchanged."
-
-    - ticker: MEGP.L
-      change_since_scan: "-1.24%"
-      context: |
-        Drifting toward trigger. Now 143.00p, 5.9% from trigger 135p.
-        Hard gate: FY2025 results Feb 27 (7 days). No news catalyst for drift.
-        Steady selling pressure since highs in 2024.
+  material:
+    - ticker: EDEN.PA
+      change_since_scan: "+6.2%"
+      cause: |
+        FY2025 results Feb 24 BEAT expectations:
+        - Operating revenue EUR 2,732M (+6.2% LFL, +8.3% ex-Italy regulation)
+        - EBITDA EUR 1,360M (+11.2% LFL, above >10% guidance)
+        - Net profit EUR 521M (+2.8%), EPS EUR 2.18 (+5.7%)
+        - FCF conversion 82% (well above 70% target)
+        - Adj EPS +10.0% to EUR 2.59
+        2026 outlook: REBASING year (EBITDA -8% to -12% LFL due to Italy/Brazil regulation).
+        Intrinsic growth 8-12%, which is the level expected for 2027-2028.
+        Stock surged ~8% post-results per MarketScreener.
       cause_type: IDIOSYNCRATIC
-      action: "MONITOR. Framework ready for Feb 27. If results strong + price dips, entry possible."
+      already_known: false
+      thesis_impact: |
+        POSITIVE for thesis. Record year 2025 confirms operational excellence.
+        2026 rebasing already anticipated in our FV EUR 29.0 (adversarial).
+        At EUR 18.92, MoS = 34.8% vs FV EUR 29.0. E[CAGR] remains attractive.
+        Key question: is FV EUR 29.0 too conservative given 2027-2028 growth guide of 8-12%?
+      action: "HOLD. Results validate thesis. Consider FV revision upward if 2027-2028 guidance materializes."
 
     - ticker: MONY.L
-      change_since_scan: "+0.80%"
-      context: |
-        Tiny bounce from 13-year low area. 150.60p, still 7.8% from 52wL (139.7p).
-        ON PROBATION. Earnings Feb 23 (3 days). KC#9 AI strategy test.
-        CEO bought at 170.6p (Feb 5) -- underwater.
-        Web search shows day range 146.70-151.70, some intraday volatility.
+      change_since_scan: "+4.4%"
+      cause: |
+        FY2025 results Feb 23: BASE+ case confirmed.
+        - Revenue GBP 446.3M (+2%)
+        - EBITDA GBP 145.1M (record, beat consensus)
+        - All KCs passed including KC#9 (OpenAI enterprise agreement + ChatGPT app)
+        - SuperSaveClub 2.1M members (16% of revenue)
+        - Dividend +1% to 12.63p
+        - GBP 25M buyback
+        Stock bounced from 13-year low area.
       cause_type: IDIOSYNCRATIC
-      action: "HOLD PROBATION. Feb 23 is binary. Framework ready."
+      already_known: true
+      action: "HOLD. 60-day probation continues to ~Apr 25. Results positive but conviction remains LOW."
+
+    - ticker: ADBE
+      change_since_scan: "-1.6% (cumulative drift, not single-day)"
+      price: "$255.17"
+      vs_52w_low: "4.4% from $244.28"
+      cause: |
+        Continued AI disruption narrative pressure. ADBE -26% YTD.
+        Anthropic Claude Opus 4.6 + OpenAI agents raising fear of SaaS cannibalization.
+        Multiple analyst downgrades. Class-action lawsuit (pirated books for AI training).
+        Canva, Figma, Apple competition narrative.
+        NO company-specific catalyst -- purely sectoral/narrative driven.
+      cause_type: SECTORIAL
+      already_known: true
+      action: "HOLD. MoS 34.6% ($255 vs FV $390). Near 52wL but thesis intact (FTC trial Oct 2026). If breaks $244.28 (52wL), monitor for capitulation buying opportunity."
+
+  notable_context:
+    - ticker: DTE.DE
+      change_since_scan: "+2.1%"
+      context: |
+        Pre-earnings rally to EUR 33.32. Near 52wH (EUR 35.91).
+        Erste Group upgrade to BUY (Feb 18). Dividend narrative + TMUS strength.
+        FY2025 results Feb 26 (TOMORROW). FV EUR 35.00.
+        At EUR 33.32: MoS 4.8%. Near FV. TRIM territory at EUR 34+.
+      cause_type: SECTORIAL
+      action: "HOLD through earnings. TRIM if >EUR 34 post-results. Watch EBITDA vs 48.5B, FCF vs 20.1B."
+
+    - ticker: WKL.AS
+      price: "EUR 62.20"
+      context: |
+        REPORTING TODAY FY2025. Near 52wL (EUR 59.0).
+        H1 2025: 5% organic growth, +190bps margin expansion.
+        9-month update: 6% organic growth, Q3 pickup in Health, Tax & Accounting.
+        Committee entry EUR 50-55. Current EUR 62.20 = 13-24% above entry.
+        Watch for FY2025 margin guidance and 2026 outlook.
+      cause_type: "PENDING -- results today"
+      action: "MONITOR results. Not at entry price. Watch for guidance miss that could bring closer to trigger."
+
+    - ticker: BVI.PA
+      price: "EUR 27.58"
+      context: |
+        FY2025 results released TODAY:
+        - Organic revenue growth 6.5% (sector-leading)
+        - Adj operating margin 16.3% (+51bps CC, +32bps reported)
+        - EUR 200M buyback announced
+        Strong results. R3 pipeline candidate.
+      cause_type: IDIOSYNCRATIC
+      action: "MONITOR. Strong results. Not at entry price. Pipeline advancement opportunity."
+
+    - ticker: QTCOM.HE
+      price: "EUR 24.26"
+      vs_52w_low: "0.3% from EUR 24.18"
+      context: |
+        AT 52-WEEK LOW. Reporting FY2025 tomorrow (Feb 26).
+        HARD GATE: EBITA margin >=18% = PASS. <15% = ARCHIVE.
+        R3 complete. FV EUR 30. Entry EUR 22 (10.3% away).
+        Critical results -- determines if pipeline continues.
+      cause_type: IDIOSYNCRATIC
+      action: "WAIT for results tomorrow. R2 HARD GATE. At 52wL = market pessimism priced in."
+
+    - ticker: IHP.L
+      price: "305.5p"
+      trigger: "300p"
+      distance: "1.8%"
+      context: |
+        CLOSEST standing order to trigger. R4 approved. QS 80 Tier A.
+        Only 5.5p from trigger. Could fill any day.
+        CONDITION: UK positions <=4 before execution (currently 4 UK: DOM.L, MONY.L, AUTO.L, BYIT.L).
+        Would be 5th UK position = at limit.
+      action: "PRE-FLIGHT READY. If price hits 300p, execute pre-execution check immediately."
 
   near_52w_low:
-    - { ticker: ADBE, price: "$259.21", low: "$251.10", distance: "3.2%", note: "CLOSEST to 52wL in portfolio. AI narrative." }
-    - { ticker: AUTO.L, price: "473.30p", low: "454.5p", distance: "4.1%", note: "Near 52wL. April pricing make-or-break." }
-    - { ticker: EDEN.PA, price: "EUR 17.81", low: "EUR 16.96", distance: "5.0%", note: "Near 52wL. Earnings Feb 24." }
-    - { ticker: BYIT.L, price: "295.80p", low: "283.2p", distance: "4.4%", note: "Gave back some of bounce. Still near 52wL." }
-    - { ticker: MONY.L, price: "150.60p", low: "139.7p", distance: "7.8%", note: "13-year low area. Feb 23 binary." }
+    - { ticker: NVO, price: "$38.59", low: "$38.36", distance: "0.6%", note: "ESSENTIALLY AT 52wL. CagriSema miss + guidance cut." }
+    - { ticker: QTCOM.HE, price: "EUR 24.26", low: "EUR 24.18", distance: "0.3%", note: "AT 52wL. Reporting tomorrow." }
+    - { ticker: ADBE, price: "$255.17", low: "$244.28", distance: "4.4%", note: "Drifting toward 52wL. AI narrative." }
+    - { ticker: AUTO.L, price: "471.50p", low: "454.5p", distance: "3.7%", note: "Near 52wL. April pricing make-or-break." }
+    - { ticker: BYIT.L, price: "290.60p", low: "283.2p", distance: "2.6%", note: "Closer to 52wL than last scan. Steady decline." }
+    - { ticker: ALFA.L, price: "184.2p", low: "181.8p", distance: "1.3%", note: "AT 52wL. Pipeline R3 complete." }
+    - { ticker: MONY.L, price: "157.30p", low: "139.7p", distance: "12.6%", note: "Bounced from 13yr low post-results." }
+    - { ticker: WKL.AS, price: "EUR 62.20", low: "EUR 59.0", distance: "5.4%", note: "Reporting today. Near 52wL." }
 
   near_52w_high:
-    - { ticker: GL, price: "$144.01", high: "$152.71", distance: "5.7%", note: "Strongest relative performer. TRIM at $185+." }
+    - { ticker: DTE.DE, price: "EUR 33.32", high: "EUR 35.91", distance: "7.2%", note: "Rallying pre-earnings. TRIM at EUR 34+." }
+    - { ticker: KLR.L, price: "2040p", high: "2073.25p", distance: "1.6%", note: "AT 52wH. Gated SO -- FY2025 Mar 3." }
 
 # =============================================================================
 # POSITION SUMMARY (with P&L vs avg_cost)
 # =============================================================================
 
 position_summary:
-  - { ticker: DTE.DE, price_eur: 32.63, avg_cost_usd: 33.91, pnl_pct_approx: "+13.5%", fv: "EUR 35.00", mos: "6.8%", vs_52w_high: "-9.1%", vs_52w_low: "+25.5%", status: "NORMAL. Feb 26 earnings. Rally intact." }
-  - { ticker: EDEN.PA, price_eur: 17.81, avg_cost_usd: 20.87, pnl_pct_approx: "+0.6%", fv: "EUR 29.0", mos: "38.6%", vs_52w_high: "-49.0%", vs_52w_low: "+5.0%", status: "BEST MoS. Near 52wL. Earnings Feb 24." }
-  - { ticker: DOM.L, price_gbp: 201.40, avg_cost_usd: 2.49, pnl_pct_approx: "+5.7%", fv: "240p", mos: "16.1%", vs_52w_high: "-33.0%", vs_52w_low: "+22.8%", status: "STABLE. FY25 Mar 5." }
-  - { ticker: GL, price_usd: 144.01, avg_cost_usd: 141.06, pnl_pct_approx: "+2.1%", fv: "$191", mos: "24.6%", vs_52w_high: "-5.7%", vs_52w_low: "+31.7%", status: "NEAR 52wH. Strong." }
-  - { ticker: ADBE, price_usd: 259.21, avg_cost_usd: 270.60, pnl_pct_approx: "-4.2%", fv: "$390", mos: "33.5%", vs_52w_high: "-42.9%", vs_52w_low: "+3.2%", status: "Near 52wL. AI pressure. MoS expanding." }
-  - { ticker: NVO, price_usd: 48.45, avg_cost_usd: 48.13, pnl_pct_approx: "+0.7%", fv: "$66", mos: "26.6%", vs_52w_high: "-48.3%", vs_52w_low: "+12.5%", status: "HOLD. CagriSema March binary." }
-  - { ticker: MONY.L, price_gbp: 150.60, avg_cost_usd: 2.32, pnl_pct_approx: "-15.0%", fv: "190p", mos: "20.7%", vs_52w_high: "-33.0%", vs_52w_low: "+7.8%", status: "PROBATION. Feb 23 binary. Worst P&L." }
-  - { ticker: LULU, price_usd: 182.88, avg_cost_usd: 171.62, pnl_pct_approx: "+6.6%", fv: "$196", mos: "6.7%", vs_52w_high: "-50.9%", vs_52w_low: "+14.8%", status: "PROBATION. Thin MoS. Mar 31 Q4." }
-  - { ticker: AUTO.L, price_gbp: 473.30, avg_cost_usd: 6.58, pnl_pct_approx: "-5.4%", fv: "580p", mos: "18.4%", vs_52w_high: "-48.6%", vs_52w_low: "+4.1%", status: "Near 52wL. LOW CONVICTION. April." }
-  - { ticker: BYIT.L, price_gbp: 295.80, avg_cost_usd: 4.04, pnl_pct_approx: "-16.3%", fv: "345p", mos: "14.3%", vs_52w_high: "-47.5%", vs_52w_low: "+4.4%", status: "Near 52wL. Bounce fading." }
+  - { ticker: DTE.DE, price_eur: 33.32, avg_cost_usd: 33.91, pnl_pct: "+15.7%", fv: "EUR 35.00", mos: "4.8%", vs_52w_high: "-7.2%", vs_52w_low: "+28.2%", status: "STRONG. Pre-earnings rally. Near FV. TRIM at EUR 34+." }
+  - { ticker: EDEN.PA, price_eur: 18.92, avg_cost_usd: 20.87, pnl_pct: "+6.8%", fv: "EUR 29.0", mos: "34.8%", vs_52w_high: "-45.8%", vs_52w_low: "+11.6%", status: "STRONG MoS. FY2025 beat. Rebasing year 2026 known." }
+  - { ticker: DOM.L, price_gbp: 206.00, avg_cost_usd: 2.49, pnl_pct: "+11.4%", fv: "240p", mos: "14.2%", vs_52w_high: "-31.5%", vs_52w_low: "+25.6%", status: "STABLE. FY25 Mar 5." }
+  - { ticker: GL, price_usd: 142.29, avg_cost_usd: 141.06, pnl_pct: "+0.9%", fv: "$191", mos: "25.5%", vs_52w_high: "-6.8%", vs_52w_low: "+30.1%", status: "SOLID. Near 52wH territory." }
+  - { ticker: ADBE, price_usd: 255.17, avg_cost_usd: 270.60, pnl_pct: "-5.7%", fv: "$390", mos: "34.6%", vs_52w_high: "-43.7%", vs_52w_low: "+4.4%", status: "LOSS. Near 52wL. AI narrative. Thesis intact." }
+  - { ticker: NVO, price_usd: 38.59, avg_cost_usd: 44.21, pnl_pct: "-12.7%", fv: "$66", mos: "41.5%", vs_52w_high: "-58.0%", vs_52w_low: "+0.6%", status: "CRITICAL. AT 52wL. CagriSema miss. HOLD -- ADD executed." }
+  - { ticker: MONY.L, price_gbp: 157.30, avg_cost_usd: 2.32, pnl_pct: "-8.4%", fv: "190p", mos: "17.2%", vs_52w_high: "-30.0%", vs_52w_low: "+12.6%", status: "PROBATION. Bounced on FY2025 beat. 60-day review." }
+  - { ticker: LULU, price_usd: 179.49, avg_cost_usd: 171.62, pnl_pct: "+4.6%", fv: "$196", mos: "8.4%", vs_52w_high: "-51.8%", vs_52w_low: "+12.7%", status: "PROBATION. Thin MoS. Mar 31 Q4 binary." }
+  - { ticker: AUTO.L, price_gbp: 471.50, avg_cost_usd: 6.58, pnl_pct: "-3.3%", fv: "580p", mos: "18.7%", vs_52w_high: "-48.7%", vs_52w_low: "+3.7%", status: "LOSS. Near 52wL. April pricing binary." }
+  - { ticker: MORN, price_usd: 162.94, avg_cost_usd: 160.76, pnl_pct: "+1.4%", fv: "$195", mos: "16.4%", vs_52w_high: "-50.0%", vs_52w_low: "+9.3%", status: "NORMAL. New position, tracking as expected." }
+  - { ticker: BYIT.L, price_gbp: 290.60, avg_cost_usd: 4.04, pnl_pct: "-2.8%", fv: "345p", mos: "15.8%", vs_52w_high: "-48.4%", vs_52w_low: "+2.6%", status: "LOSS. Near 52wL. Steady decline." }
 
 # =============================================================================
 # STANDING ORDER PROXIMITY (sorted by distance to trigger)
@@ -133,34 +220,35 @@ position_summary:
 
 standing_order_proximity:
   closest:
-    - { ticker: MEGP.L, price: "143.00p", trigger: "135p", distance: "5.9%", hard_gate: "FY2025 Feb 27", status: "CLOSE. Drifting toward trigger. Hard gate in 7 days." }
-    - { ticker: MONC.MI, price: "EUR 50.26", trigger: "EUR 48 (pipeline)", distance: "4.7%", status: "VERY CLOSE. R2 in progress. FY2025 results cleared." }
-  moderate:
-    - { ticker: ROP, price: "~$326", trigger: "$300", distance: "~8.5%", status: "Moderate distance." }
-    - { ticker: ACGL, price: "~$97", trigger: "$88", distance: "~10%", status: "Moderate." }
-  short_orders:
-    - { ticker: LYV, price: "$157.46", trigger: "$145-160", distance: "IN RANGE", catalyst: "DOJ trial Mar 2 (10 days)", status: "IN ENTRY WINDOW. Q4 pre-condition MET (beat confirms business but DOJ risk unchanged). Ready for orchestrator decision." }
+    - { ticker: IHP.L, price: "305.5p", trigger: "300p", distance: "1.8%", condition: "UK <=4 positions (currently 4)", status: "IMMINENT. Could trigger any day." }
+    - { ticker: DNLM.L, price: "995p", trigger: "950p", distance: "4.7%", condition: "UK <=4 check", status: "APPROACHING. Both IHP.L and DNLM.L are UK = mutual exclusion risk." }
+    - { ticker: RACE.MI, price: "EUR 316.50", trigger: "EUR 295", distance: "7.3%", status: "MODERATE. Committee approved." }
+    - { ticker: MEGP.L, price: "146.6p", trigger: "135p", distance: "8.6%", gate: "FY2025 Feb 27 + NOT ON ETORO", status: "GATED. Not executable." }
+    - { ticker: ACGL, price: "$99.18", trigger: "$88", distance: "11.3%", status: "MODERATE." }
+    - { ticker: QTCOM.HE, price: "EUR 24.26", trigger: "EUR 22", distance: "10.3%", gate: "FY2025 Feb 26", status: "GATED. Results tomorrow." }
+    - { ticker: GL_ADD, price: "$142.29", trigger: "$125", distance: "12.1%", status: "MODERATE." }
+    - { ticker: MRSH, price: "$178.43", trigger: "$155", distance: "13.1%", status: "MODERATE." }
+
+  short_orders: []
+  # LYV short order CANCELLED Session 93. No active short orders.
 
 # =============================================================================
-# SHORT CANDIDATES
+# EARNINGS CALENDAR (next 3 days)
 # =============================================================================
 
-short_candidates_status:
-  - ticker: LYV
-    price: "$157.46"
-    entry_range: "$145-160"
-    status: "IN RANGE. Q4 pre-condition CLEARED."
-    q4_summary: "Beat: EPS -$0.96 vs -$1.04. Rev $25.2B. Guide double-digit AOI 2026. Flat stock reaction = market pricing DOJ risk."
-    catalyst: "DOJ antitrust trial Mar 2 (10 days)"
-    pre_conditions_status:
-      sector_view: "DONE"
-      q4_review: "CLEARED -- beat confirms business momentum but does NOT change structural antitrust thesis. Ticketmaster still 52% of AOI."
-    action: "ENTRY DECISION READY for orchestrator. All pre-conditions met."
-
-  - ticker: CVNA
-    price: "~$300+"
-    entry: ">=$280"
-    status: "ABOVE entry range."
+earnings_calendar:
+  today_feb25:
+    - { ticker: WKL.AS, time: "pre-market", price: "EUR 62.20", relevance: "Pipeline. Entry EUR 50-55." }
+    - { ticker: BVI.PA, time: "pre-market", price: "EUR 27.58", relevance: "Pipeline R3. Organic growth 6.5% -- strong." }
+    - { ticker: IONQ, time: "after-close", price: "$31.62", relevance: "Short watchlist (WATCH only, 21% SI)." }
+  tomorrow_feb26:
+    - { ticker: DTE.DE, time: "pre-market", price: "EUR 33.32", relevance: "PORTFOLIO. FV EUR 35. Watch EBITDA/FCF." }
+    - { ticker: QTCOM.HE, time: "pre-market", price: "EUR 24.26", relevance: "Pipeline HARD GATE. EBITA margin test." }
+    - { ticker: INTU, time: "after-close", price: "$358.71", relevance: "Pipeline. QS 75. FV $465. Entry $330-365." }
+    - { ticker: CS.PA, time: "pre-market", price: "EUR 40.00", relevance: "Tier 2 watchlist. BUY trigger 34.50-35.50." }
+  feb27:
+    - { ticker: MEGP.L, time: "pre-market", price: "146.6p", relevance: "Pipeline HARD GATE R4. Entry 135p." }
+    - { ticker: PROX.BR, time: "pre-market", relevance: "Tier 2 watchlist. BUY 3% at 7.50-7.70." }
 
 # =============================================================================
 # RISK CLUSTERS
@@ -169,29 +257,33 @@ short_candidates_status:
 risk_clusters:
   - name: "UK concentration"
     tickers: ["AUTO.L", "BYIT.L", "MONY.L", "DOM.L"]
-    note: "4 UK positions. AUTO.L and BYIT.L near 52wL. MONY.L at 13yr low. DOM.L stable. Correlated GBP risk."
-  - name: "AI/SaaS compression"
-    tickers: ["ADBE", "BYIT.L", "MONY.L"]
-    note: "All under AI disruption narrative. ADBE closest to 52wL (3.2%)."
-  - name: "Earnings gauntlet (next 7 days)"
-    tickers: ["MONY.L", "EDEN.PA", "DTE.DE", "MEGP.L"]
-    note: "4 names reporting: MONY.L Feb 23, EDEN.PA Feb 24, DTE.DE Feb 26, MEGP.L Feb 27."
+    weight_approx: "~18% of invested"
+    note: "4 UK positions at limit. IHP.L (1.8% from trigger) would be 5th. DNLM.L also UK. MUTUAL EXCLUSION: cannot buy both IHP.L and DNLM.L without selling a UK name."
+  - name: "Near 52wL cluster"
+    tickers: ["NVO", "ADBE", "AUTO.L", "BYIT.L"]
+    note: "4 positions within 5% of 52-week lows. Concentrated downside if broad selloff."
+  - name: "AI/SaaS pressure"
+    tickers: ["ADBE", "BYIT.L"]
+    note: "Both under AI disruption narrative. ADBE -26% YTD, BYIT.L -48% from 52wH."
+  - name: "Earnings gauntlet"
+    tickers: ["DTE.DE", "QTCOM.HE", "INTU", "MEGP.L"]
+    note: "4 names reporting Feb 26-27. DTE.DE is portfolio. Others are pipeline."
   - name: "ON PROBATION"
     tickers: ["MONY.L", "LULU"]
-    note: "MONY.L Feb 23 (3 days). LULU Mar 31 (39 days)."
-  - name: "Near 52wL cluster"
-    tickers: ["ADBE", "AUTO.L", "BYIT.L", "EDEN.PA", "MONY.L"]
-    note: "5 portfolio positions within 8% of 52-week lows."
+    note: "MONY.L probation continues to ~Apr 25. LULU Mar 31 Q4."
+  - name: "Pharma/GLP-1"
+    tickers: ["NVO"]
+    note: "Single-stock pharma risk. CagriSema miss = major pipeline setback. Semaglutide franchise still intact."
 
 # =============================================================================
 # DATA QUALITY NOTES
 # =============================================================================
 
 data_corrections:
-  - "GL yield 75.0% -- yfinance error (actual ~0.8%)"
-  - "VIX data unavailable via yfinance this session"
-  - "LULU yield 0.0% -- correct (no dividend)"
-  - "ADBE yield 0.0% -- correct (no dividend)"
+  - "GL yield 76.0% -- yfinance error (actual ~0.8%)"
+  - "ALFA.L yield 76.0% -- yfinance error"
+  - "QQQ yield 45.0% -- yfinance error"
+  - "VIX data via ^VIX: 19.55 (used caret prefix)"
 
 # =============================================================================
 # META-REFLECTION
@@ -199,26 +291,32 @@ data_corrections:
 
 meta_reflection:
   movements_without_explanation: []
-  # All movements are small (<2%) and within normal daily noise. No unexplained anomalies.
+  # All significant movements have clear causes identified.
 
   correlations_detected:
-    - "ADBE (-0.82%) and BYIT.L (-0.94%) both negative while AI narrative continues (Claude Opus 4.6 + OpenAI agents news cycle). Correlated SaaS/tech pressure."
-    - "UK names split: MONY.L (+0.80%), DOM.L (+0.30%), AUTO.L (+0.38%) slightly positive; BYIT.L (-0.94%) negative. Not uniformly correlated today."
-    - "LYV flat despite Q4 beat (+2.46% AH on Feb 19, gave it back). Market pricing in antitrust risk, not earnings momentum. Confirms short thesis relevance."
+    - "ADBE (-1.6%) and BYIT.L (-1.8%) both declining while AI disruption narrative intensifies. Correlated SaaS/tech pressure. Sector-wide, not idiosyncratic."
+    - "UK names split: MONY.L (+4.4% on results), DOM.L (+2.3%), vs AUTO.L (-0.4%), BYIT.L (-1.8%). Not uniformly correlated."
+    - "DTE.DE (+2.1%) rallying pre-earnings while broader EU telecom sector benefits from dividend narrative and Erste Group upgrade."
+    - "NVO (-20.3%) is entirely idiosyncratic -- CagriSema miss is company-specific. No pharma/GLP-1 sector contagion detected."
 
   anomalies_data:
-    - "yfinance yield data continues to be unreliable for GL (75.0% shown vs actual ~0.8%). Known issue."
+    - "yfinance yield data unreliable for GL (76%), ALFA.L (76%), QQQ (45%). Known recurring issue."
 
   key_findings:
-    - "LYV Q4 CLEARED as short pre-condition. Beat confirms business but antitrust thesis UNCHANGED. Stock flat = market agrees risk is structural, not earnings-driven. Entry window open."
-    - "ADBE sliding toward 52wL ($259.21 vs $251.10 = 3.2%). If breaches, could accelerate. AI narrative (Opus 4.6 + OpenAI agents) is sector-wide, not ADBE-specific."
-    - "MEGP.L drifting toward trigger (143p -> 135p = 5.9%). FY2025 Feb 27 is hard gate. Tightest standing order proximity."
-    - "MONC.MI flat at EUR 50.26 post-FY2025 results. Only 4.7% from pipeline entry EUR 48. R2 in progress."
-    - "MONY.L tiny bounce (+0.80%) but still at 13-year low. Feb 23 earnings in 3 days. Binary event."
-    - "No CRITICAL or MATERIAL anomalies this scan. Quiet session. Focus shifts to earnings gauntlet (Feb 23-27)."
+    - "NVO is CRITICAL: -20.3% since last scan, AT 52-week low ($38.59 vs $38.36). CagriSema H2H miss is MATERIAL thesis event. ADD was pre-planned and executed correctly at $38.76. Monitor for 52wL breach."
+    - "EDEN.PA POSITIVE SURPRISE: +6.2% on FY2025 beat. EBITDA +11.2% LFL. Record year. 2026 rebasing already in our FV. Thesis STRENGTHENED."
+    - "MONY.L bounce: +4.4% on BASE+ FY2025 results. All KCs passed. Probation continues but results reduce near-term risk."
+    - "IHP.L at 305.5p = 1.8% from 300p trigger. IMMINENT execution. Pre-flight should be prepared NOW."
+    - "ADBE new 52wL territory ($255.17, -26% YTD). AI narrative sectoral, not idiosyncratic. MoS 34.6%. Approaching value zone."
+    - "QTCOM.HE at 52wL (EUR 24.26). HARD GATE results tomorrow. Binary for pipeline."
+    - "Dense earnings week: WKL.AS + BVI.PA today, DTE.DE + QTCOM.HE + INTU + CS.PA tomorrow, MEGP.L + PROX.BR Feb 27."
+    - "UK mutual exclusion: IHP.L and DNLM.L both approaching triggers but UK limit at 4/5. Cannot buy both."
 
   suggestions:
-    - "LYV short entry decision is NOW actionable. All pre-conditions met. Orchestrator should decide today."
-    - "MONC.MI at EUR 50.26 with R2 in progress -- if DA clears and price dips to EUR 48, this is the closest pipeline execution opportunity."
-    - "ADBE: if 52wL ($251.10) breached, consider ADD analysis. Current MoS 33.5% is compelling and expanding. No thesis damage from AI narrative (yet)."
-    - "Dense earnings week ahead. Prepare frameworks for MONY.L (probation decision), EDEN.PA, DTE.DE, MEGP.L."
+    - "NVO: Monitor 52wL ($38.36). If price stabilizes above, thesis intact. If breaks materially below, reassess FV given CagriSema no longer premium pipeline assumption."
+    - "IHP.L: Prepare pre-execution check NOW. At 1.8% from trigger, could fill this week."
+    - "EDEN.PA: Consider FV revision upward given 2027-2028 intrinsic growth guide of 8-12%."
+    - "ADBE: If breaks $244.28 (52wL), prepare ADD analysis. MoS 34.6% is compelling for Tier A."
+    - "DTE.DE earnings tomorrow: Be ready with TRIM plan if results push above EUR 34 (MoS ~3%)."
+    - "QTCOM.HE results tomorrow: Binary for pipeline. EBITA margin >=18% = pipeline continues. <15% = ARCHIVE."
+    - "UK constraint: Decide priority between IHP.L (300p, 1.8% away) and DNLM.L (950p, 4.7% away) BEFORE either triggers."

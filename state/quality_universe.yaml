@@ -1808,7 +1808,7 @@ quality_universe:
     last_scored: '2026-02-18'
     name: NOS, SGPS, SA
     notes: 'R2 S106: DO NOT ADVANCE. Digi risk MORE severe (Spain: 10% share, -11.6% ARPU). FCF overstated (EUR 360M not 446M). E[CAGR] 12% below 15% threshold. DTE.DE superior. Revised entry EUR 3.50.'
-    pipeline_status: R1_COMPLETE
+    pipeline_status: R2_REJECTED
     qs_adj: 73
     qs_tool: 73
     r1_session: 94
@@ -1839,19 +1839,22 @@ quality_universe:
   - currency: EUR
     current_price: 26.8
     direction: long
-    distance_to_entry: 14.0
-    entry_price: 23.5
-    fair_value: 33.5
+    distance_to_entry: 19.1
+    entry_price: 22.5
+    fair_value: 30.0
     goodwill_pct: 0.5429
     last_price_check: '2026-02-20'
     last_scored: '2026-02-20'
     name: RELX PLC
-    notes: Info analytics WIDE moat. AI tailwind. 23% ROIC. Entry EUR 23.50 (12% below market). E[CAGR] 10.6% at market, 14.5% at entry.
-    pipeline_status: R1_COMPLETE
+    notes: 'R3 S108: FV EUR 30 (down from 33.50). ROIC corrected to 15.4% company-reported (was 23% tool). Moat disaggregated: Risk+Legal WIDE, STM NARROWING. Entry EUR 22.50. E[CAGR] 12.9% at entry. SO pending R4.'
+    pipeline_status: R3_COMPLETE
     qs_adj: 78
     qs_tool: 73
     r1_session: 102
     r1_verdict: AT_FV
+    r2_session: 107
+    r2_verdict: MODERATE_COUNTER
+    r3_session: 108
     sector: business-services
     thesis_path: thesis/research/REN.AS/thesis.md
     ticker: REN.AS

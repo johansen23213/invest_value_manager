@@ -92,12 +92,12 @@ positions:
     invested_usd: 632.56
     avg_cost_usd: 44.21  # 632.56 / 14.31
     date_opened: 2026-02-05
-    conviction: medium
-    exit_plan: "HOLD through CagriSema H2H data (March 2026). ADD phase complete (8.31→14.31 shares). SELL if CagriSema inferior + FY2026 guidance miss >10%. TRIM at $80+."
-    fair_value: "$66 (v3.0. QS Tool 73, Adj 73 Tier B. OEY+DCF+Reverse DCF weighted.)"
-    last_review: 2026-02-24
+    conviction: low
+    exit_plan: "HOLD. Kill condition #1 TRIGGERED (CagriSema inferior H2H) but SELL requires ALSO FY2026 guidance miss >10%. At P/E 10.6x worst case priced. No further ADDs. SELL if FY2026 guidance miss >10% combined. TRIM at $65+. Full review-agent after FY2025 results assessment."
+    fair_value: "$55 (v4.0 post-REDEFINE-4. Down from $66. CagriSema loses best-in-class, still approved standalone. QS 73 Tier B.)"
+    last_review: 2026-02-25
     thesis: thesis/active/NVO/thesis.md
-    notes: "ADD executed 2026-02-24: +6 shares @ $38.76 ($232.56). Total 14.31 shares, avg $44.21. Position ~4%→~6%. CagriSema March = BINARY catalyst. Original entry $48.13 (Feb 5). Framework v3.0 validation. QS Tool 73, Adj 73 Tier B."
+    notes: "REDEFINE 4 FAILED Feb 23: CagriSema 23% vs tirzepatide 25.5% weight loss. Kill condition #1 triggered (H2H inferiority). HOLD because: (1) standalone FDA submission intact (REDEFINE 1/2), (2) P/E 10.6x prices extreme pessimism, (3) exit plan requires BOTH CagriSema inferior AND guidance miss, (4) selling at 52wL locks in -12.7% loss. FV reduced $66→$55. Conviction MEDIUM→LOW. No further ADDs. Multiple downgrades: Berenberg SELL, Goldman Neutral."
 
   - ticker: MONY.L
     name: "Mony Group PLC"

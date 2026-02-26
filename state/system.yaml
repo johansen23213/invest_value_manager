@@ -7,8 +7,8 @@
 system:
   system_version: "4.6.0"
   framework_version: "4.6"
-  last_session: 2026-02-20
-  session_number: 105
+  last_session: 2026-02-25
+  session_number: 108
   status: active
 
   framework_v4_status:
@@ -37,7 +37,7 @@ system:
       - { ticker: MONY.L, score: 75, tier: A, status: "ON PROBATION. FV 190 GBp. Feb 23 earnings." }
       - { ticker: LULU, score: 78, tier: A, status: "ON PROBATION. FV $196. Mar 31 MAKE-OR-BREAK." }
       - { ticker: ADBE, score: 76, tier: A, status: "FV $390. FTC trial Oct 2026." }
-      - { ticker: NVO, score: 73, tier: B, status: "FV $66. CagriSema March." }
+      - { ticker: NVO, score: 73, tier: B, status: "FV $55 (was $66). REDEFINE 4 FAILED. KC#1 triggered. HOLD LOW." }
       - { ticker: AUTO.L, score: 71, tier: B, status: "FV 580p. April pricing make-or-break." }
       - { ticker: BYIT.L, score: 68, tier: B, status: "FV 345 GBp. HOLD LOW." }
       - { ticker: EDEN.PA, score: 62, tier: B, status: "FV EUR 29. Feb 24 earnings." }
@@ -46,43 +46,42 @@ system:
       - { ticker: GL, score: 52, tier: C, status: "FV $191. SEC+DOJ cleared." }
 
   last_session_summary: |
-    Session 105 (2026-02-20, 13th session of day). HARD SESSION — governance + pipeline + system evolution.
+    Session 108 (2026-02-25). Earnings-dense week + critical NVO news.
     COMPLETED:
-      1. Position Reviews: LULU (HOLD PROBATION, E[CAGR] 6.75%), BYIT.L (HOLD PROBATION, E[CAGR] 14.4%), DOM.L (HOLD LOW, E[CAGR] 12.9%). All 3 HOLD.
-      2. Earnings Prep: EDEN.PA framework rewritten v2 (corrected consensus, added Italy KC#6). DTE.DE trim pre-calc ready. MONY.L sector view updated (ChatGPT launch, QS 81→75).
-      3. R1: ROR.L R1 COMPLETE — QS 73/78adj Tier A. FV 320p, OVERVALUED at 386p. Entry 270-280p. VLTO R1 validation (R3 thesis from S97 confirmed current).
-      4. System Evolution: Anti-fantasy protocol + earnings auto-prep gate added to session-planner SKILL.md.
-      5. Net Exposure Reasoning: 43.3% long, 0% short, 56.7% cash. UNCHANGED. Cash above target. Shorts justified (LYV paused, CVNA no catalyst).
-      6. E[CAGR] scan: ALFA.L 18.5%, IHP.L 23%, RACE.MI 16%, MEGP.L 16.1% — best deployment candidates but all gated.
-    Velocity: 2 units (1x ROR.L R1 + 1x system improvement). Below 3 minimum — acceptable for HARD governance session.
-    Portfolio: UNCHANGED. 11 positions. 43.3% long, 56.7% cash. 0 shorts.
-    R1_COMPLETE: 28 total (+ROR.L). 0 ACTIONABLE for advancement.
-    Fantasy rate: ~70% (25/28 R1s produce OVERVALUED/FANTASY). Anti-fantasy protocol now deployed.
-    Next: MONY.L earnings Mon Feb 23 (CRITICAL — ON PROBATION). EDEN.PA Tue Feb 24. DTE.DE Wed Feb 26.
+      1. NVO KC#1 TRIGGERED: CagriSema REDEFINE 4 failed H2H (23% vs 25.5%). FV $66→$55. Conviction MEDIUM→LOW. HOLD at P/E 10.6x.
+      2. REN.AS R3 COMPLETE: FV EUR 33.50→30.00. ROIC corrected 23%→15.4%. Entry EUR 22.50. WATCHLIST + SO pending R4.
+      3. BVI.PA FY2025 assessed: BASE+ case. Not actionable at EUR 27.58 (entry EUR 22).
+      4. Pipeline data fix: NOS.LS R2_REJECTED, REN.AS R3_COMPLETE with metadata.
+      5. IHP.L pre-flight: All gates ready, EUR 200, UK constraint pre-approved.
+      6. DTE/INTU/QTCOM pre-earnings: All decision trees ready for Feb 26.
+      7. LULU check: E[CAGR] -6.7% (real consensus). Mar 31 make-or-break. HOLD.
+    Velocity: 2 units (REN.AS R2→R3). Below 3 target.
+    Portfolio: 11 positions. 45.1% long, 54.9% cash. P&L +0.7%. 0 shorts.
+    R1_COMPLETE: 16. R3_COMPLETE: 27 (12 ready for R4 committee).
+    Next: DTE.DE TRIM >EUR34, INTU potential BUY, QTCOM HARD GATE — all Feb 26.
 
   # NET EXPOSURE REASONING — Principio 13. Re-evaluate EVERY session.
   # This is NOT a target or range. It's the CONCLUSION of reasoning.
   # History preserved for consistency checks.
   net_exposure:
     current:
-      long_pct: 43.3  # % of total portfolio value in long positions (post-MORN S101)
-      short_pct: 0.0   # % of total portfolio value in short positions
-      cash_pct: 56.7   # % of total portfolio value in cash
-      net_pct: 43.3    # long - short
-      gross_pct: 43.3  # long + short
+      long_pct: 45.1
+      short_pct: 0.0
+      cash_pct: 54.9
+      net_pct: 45.1
+      gross_pct: 45.1
     reasoning: |
-      Session 105 (2026-02-20 20:40 CET): Net exposure 43.3% long, 0% short, 56.7% cash.
-      NO CHANGE from S102. No trades executed S103-S105 (pipeline + system work).
-      MACRO (fresh data Feb 20 20:40):
-        VIX 18.96 (moderate, -19% 3m). S&P 6,902 (-1.4% from ATH). Gold $5,093 (+75% 12m — institutional hedging signal).
-        US 10Y 4.09% (declining). 2Y-10Y +0.61% (normalized). DXY 97.78 (-8% 12m, weak USD = favorable for EUR portfolio).
-        Oil $66.48 (low). HYG/LQD 0.7253 (credit stable).
-      REGIME: Fair-Value UNCHANGED. No panic (VIX moderate), no euphoria (S&P flat 3m). Gold surge = hedging, not crisis.
-      CASH 56.7% — STILL above target (50-55% by Feb 28). 8 days remain.
-        Deployment path: DNLM.L SO 950p only 2.7% away (nearest). RACE.MI 3.8%. IHP.L 5.0%.
-        Earnings week Mon-Wed: MONY.L (if SELL → frees EUR 473), EDEN.PA, DTE.DE (if TRIM → frees EUR 233).
-        Post-earnings: either capital freed or positions confirmed → enables new deployment.
-        Fantasy rate 70% = pipeline produces few actionable entries. Anti-fantasy protocol now in place (S105).
+      Session 108 (2026-02-25): Net exposure 45.1% long, 0% short, 54.9% cash.
+      CHANGE: NVO ADD $232 deployed S107. Cash 56.7% → 54.9%.
+      MACRO: Fair-Value regime continues. Dense earnings week (DTE, INTU, QTCOM tomorrow).
+      CASH 54.9% — Approaching target range. Two potential near-term events:
+        - DTE.DE TRIM >EUR 34 = +EUR 200 cash (if triggers)
+        - INTU BUY if strong = -EUR 300 cash (if entry confirmed)
+        - IHP.L SO 300p = -EUR 200 (1.8% from trigger)
+        Net: cash could move +/- EUR 300 in next 48h. Holding elevated cash through earnings is prudent.
+      SHORT 0%: No approved short thesis in pipeline. Not actively screening shorts this session (earnings-heavy week). Next fragility scan due per schedule.
+      NVO kill condition #1 triggered (CagriSema H2H inferior) — conviction reduced to LOW, FV $66→$55. HOLD at P/E 10.6x but no further deployment. LULU on probation, -6.7% E[CAGR], Mar 31 make-or-break.
+      Pipeline: 16 R1_COMPLETE, 12 R3_COMPLETE ready for R4 committee. Capital deployment potential exists once earnings clarity emerges.
         E[CAGR] scan: ALFA.L 18.5%, IHP.L 23%, RACE.MI 16%, MEGP.L 16.1% — best deployment candidates.
       TARGET: Cash 50-55% by Feb 28, 45-50% by Mar 1. Path is earnings-dependent.
       SHORT 0% — JUSTIFIED:

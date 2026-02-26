@@ -2,58 +2,49 @@
 # OVERWRITTEN each session (not accumulated). r1_cooldowns is rolling 30d.
 # Read by: session-planner, r1_prioritizer.py, session-phases
 # Written by: Fase 6 (last operation of each session)
-# Created: 2026-02-24
+# Created: 2026-02-25
 
 session:
-  id: 107
-  date: "2026-02-24"
-  timestamp_cet: "2026-02-24T22:00"
+  id: 108
+  date: "2026-02-25"
+  timestamp_cet: "2026-02-25T08:30"
 
 completed:
   vigilance:
-    news_scan_time: "2026-02-24T15:39"
-    critical_count: 0
-    note: "Session opener ran. No critical alerts. EDEN.PA FY2025 = NEAR-BULL."
+    news_scan_time: "2026-02-25T08:00"
+    critical_count: 1
+    note: "NVO CagriSema REDEFINE 4 FAILED (Feb 23). Stock -20%. Kill condition #1 triggered. HOLD at P/E 10.6x. FV $66→$55."
   so_check:
-    timestamp: "2026-02-24T15:39"
-    nearest: { ticker: "IHP.L", distance_pct: 2.8 }
-    triggered: [{ ticker: "NVO", action: "ADD", price: 38.76, executed: true }]
-    note: "NVO ADD 6 shares at $38.76 EXECUTED. IHP.L at 2.8% from trigger."
+    timestamp: "2026-02-25T08:00"
+    nearest: { ticker: "IHP.L", distance_pct: 1.8 }
+    triggered: []
+    note: "IHP.L at 305.5p, trigger 300p (1.8%). No triggers executed."
   rotation_check: true
   net_exposure: true
-  net_exposure_reasoning: "Cash 54.8% (was 56.8%). NVO ADD deployed EUR 197. Fair-Value regime. 0 shorts justified. Earnings week dense = hold cash for potential deployments (DTE TRIM would add, INTU potential). Bottom 3: LULU 2.7%, DTE 6.0%, AUTO 9.3% — all have events within 5 weeks."
+  net_exposure_reasoning: "Cash 54.9% (was 56.7%). NVO ADD deployed EUR 197 S107. Fair-Value regime. DTE TRIM + INTU BUY potential tomorrow could move cash +/- EUR 300. Holding elevated cash through dense earnings week is prudent."
   position_reviews:
-    - { ticker: "EDEN.PA", verdict: "HOLD MEDIUM-HIGH", e_cagr: 21.8, note: "FY2025 NEAR-BULL. EBITDA +1.3% beat, FCF +25% beat. Zero KCs. Conviction upgraded." }
-    - { ticker: "NVO", verdict: "ADD EXECUTED", e_cagr: 34.1, note: "ADD 6 shares at $38.76. Position 2.7%→4.7%. SO price trigger met." }
-    - { ticker: "DTE.DE", verdict: "HOLD, TRIM >EUR34", e_cagr: 6.0, note: "Framework ready. Price EUR 33.72 (0.8% from TRIM)." }
+    - { ticker: "NVO", verdict: "HOLD LOW — KC#1 triggered", e_cagr: 17.4, note: "REDEFINE 4 failed. FV $66→$55. Conviction MEDIUM→LOW. No further ADDs. P/E 10.6x prices extreme pessimism." }
+    - { ticker: "LULU", verdict: "HOLD PROBATION", e_cagr: -6.7, note: "E[CAGR] negative (yf growth -9.7%). Mar 31 make-or-break. No action." }
   earnings_assessed:
-    - { ticker: "EDEN.PA", date: "2026-02-24", result: "NEAR-BULL", action: "HOLD, conviction upgraded MEDIUM→MEDIUM-HIGH" }
-    - { ticker: "UTG.L", date: "2026-02-24", result: "DISAPPOINTING", action: "PASS — not advancing pipeline" }
+    - { ticker: "BVI.PA", date: "2026-02-25", result: "BASE+", action: "All KCs PASS. Organic +6.5%, margin 16.3%, FCF EUR 824M. FV EUR 29 validated. Not actionable at EUR 27.58." }
   earnings_prep_verified:
-    - { ticker: "WKL.AS", date: "2026-02-25", status: "DECISION-READY", key: "R4 WATCHLIST. FV EUR 72. Entry EUR 50-55. Currently EUR 62.20." }
-    - { ticker: "BVI.PA", date: "2026-02-25", status: "DECISION-READY", key: "R3 COMPLETE. FV EUR 29, entry EUR 22. Currently EUR 27.58." }
-    - { ticker: "DTE.DE", date: "2026-02-26", status: "DECISION-READY", key: "POSICION. TRIM >EUR 34. EBITDA vs EUR 45.3B, EPS EUR 2.50." }
+    - { ticker: "DTE.DE", date: "2026-02-26", status: "DECISION-READY", key: "POSICION. TRIM >EUR 34. Price EUR 33.72 (0.8%). EBITDA vs EUR 48.5B." }
     - { ticker: "QTCOM.HE", date: "2026-02-26", status: "DECISION-READY", key: "HARD GATE R2. Pass EBITA >=18%, Fail <15% → ARCHIVE." }
-    - { ticker: "INTU", date: "2026-02-26", status: "ALERT", key: "IN ENTRY RANGE at $358 (entry $330-365). QS 75. FV $465. After close." }
-    - { ticker: "CS.PA", date: "2026-02-26", status: "NOT ACTIONABLE", key: "BUY trigger 34.50-35.50. At EUR 40 = too high." }
-    - { ticker: "MEGP.L", date: "2026-02-27", status: "DECISION-READY", key: "HARD GATE R4. Entry 135p. NOT on eToro. At 147p." }
-    - { ticker: "PROX.BR", date: "2026-02-27", status: "NEAR", key: "BUY 3% at 7.50-7.70. At EUR 8.19 = 6-9% above." }
+    - { ticker: "INTU", date: "2026-02-26", status: "ALERT", key: "IN ENTRY RANGE at $358 (entry $330-365). QS 75. FV $465. After close. Pre-flight READY." }
+    - { ticker: "MEGP.L", date: "2026-02-27", status: "DECISION-READY", key: "HARD GATE R4. Entry 135p. NOT ON ETORO. At 147p." }
+    - { ticker: "PROX.BR", date: "2026-02-27", status: "NEAR", key: "BUY 3% at 7.50-7.70. At EUR 8.19 = 6-9% above. EUR 275M goodwill impairment reported." }
   pipeline_advancement:
-    - "REN.AS R2 COMPLETED — MODERATE COUNTER. DA FV EUR 27.50-28 (vs thesis 33.50). ROIC overstatement flagged (23% tool vs 15.4% company). Entry recommended EUR 21-22. R3 resolution needed."
-  velocity_units: 2  # REN.AS R2 advancement = 2 units.
+    - "REN.AS R3 COMPLETE (S108) — FV EUR 33.50→30.00. ROIC corrected 23%→15.4%. Entry EUR 22.50. WATCHLIST + SO pending R4."
+    - "NOS.LS pipeline_status corrected R1_COMPLETE→R2_REJECTED (R2 was done S106, DO_NOT_ADVANCE)."
+    - "REN.AS pipeline_status corrected R1_COMPLETE→R3_COMPLETE with r2/r3 session metadata."
+  velocity_units: 2  # REN.AS R2→R3 = 2 units. Below target (3+).
   system_improvements:
-    - "command_center.py v2.1→v2.2: Phase transition detection + enhanced 3-tier insider scoring (STRONG/BULL/BEAR with C-suite detection)"
-    - "thesis template: AI disruption KC section added (moat type, AI vulnerability, monitoring signal)"
-    - "tools-reference.md: Updated command_center v2.2 description, earnings_workflow --phase, thesis_monitor --ai-kc"
-    - "Complex systems analysis: 5/5 operational recommendations implemented"
-    - "quality_scorer.py: Goodwill detection (goodwill_pct, data_gap warning >40%). Tested: REN.AS 54%, ADBE 44%, HEI 43%, ROL 44%."
-    - "batch_scorer.py: Goodwill persistence to quality_universe.yaml (numpy→float conversion). GW% column in output."
-    - "r1_prioritizer.py: HIGH-GW flag in main ranking + advancement pipeline + Section C. Backfilled 16/18 R1_COMPLETE tickers."
-    - "earnings_workflow.py: Auto-populated --assess (market reaction, YoY financials, analyst estimates). Consensus parsing fix (bold markdown, header filtering). Pipeline info enriched with quality_universe (pipeline_status, QS, FV, entry, goodwill). Fixed early-return bug in get_pipeline_info."
+    - "quality_universe.yaml: Fixed NOS.LS (R2_REJECTED) and REN.AS (R3_COMPLETE) pipeline_status inconsistencies."
+    - "NVO FV revised $66→$55 post-REDEFINE-4. Conviction MEDIUM→LOW. Kill condition #1 documented."
 
 skip_if_same_day:
-  vigilance_fresh_until: "2026-02-25T07:00"
-  so_fresh_until: "2026-02-25T07:00"
+  vigilance_fresh_until: "2026-02-26T07:00"
+  so_fresh_until: "2026-02-26T07:00"
   rotation_done_today: true
 
 # Rolling 30-day cooldown window. Max 30 entries.
@@ -76,13 +67,15 @@ r1_cooldowns:
   - { ticker: "KNEBV.HE", verdict: "OVERVALUED", session: 92, date: "2026-02-20", price_at_analysis: 53.6, cooldown_until: "2026-03-06" }
 
 next_priorities:
-  - "INTU earnings Wed Feb 26 after close — IN ENTRY RANGE at $358. FV $465. QS 75. IF results strong + price holds/dips, potential BUY. Pre-flight needed."
-  - "DTE.DE earnings Wed Feb 26 — TRIM >EUR 34 pre-committed. 0.8% from trigger."
-  - "QTCOM.HE HARD GATE Wed Feb 26 — PASS/FAIL. At EUR 24.26 near 52wL."
-  - "WKL.AS + BVI.PA results Tue Feb 25 — monitor only, well above entry."
-  - "MEGP.L HARD GATE Thu Feb 27 — framework ready. NOT ON ETORO."
-  - "PROX.BR Thu Feb 27 — BUY 3% at 7.50-7.70. Near at EUR 8.19."
-  - "REN.AS R3 RESOLUTION NEEDED — R2 MODERATE COUNTER. DA FV EUR 27.50-28 vs thesis 33.50. ROIC correction, entry EUR 21-22."
+  - "DTE.DE earnings Wed Feb 26 — TRIM >EUR 34 pre-committed. At EUR 33.72, 0.8% from trigger. TRIM ~25% (5 shares) if triggers."
+  - "INTU earnings Wed Feb 26 after close — IN ENTRY RANGE at $358. FV $465. QS 75. Decision tree ready. BUY EUR 300 (3%) if strong results + price holds $330-365."
+  - "QTCOM.HE HARD GATE Wed Feb 26 — EBITA >=18% PASS, <15% ARCHIVE."
+  - "MEGP.L HARD GATE Thu Feb 27 — Entry 135p. NOT ON ETORO. At 147p."
+  - "PROX.BR Thu Feb 27 — BUY 3% at 7.50-7.70. At EUR 8.19. EUR 275M goodwill impairment = re-evaluate FV impact."
+  - "IHP.L SO 300p — 1.8% from trigger. Execute EUR 200 if triggers. UK constraint pre-approved."
+  - "NVO full review-agent — FV $55, KC#1 triggered. Formal thesis update needed."
+  - "EDEN.PA FV review — 2026 EBITDA guided -8-12% LfL. May need FV adjustment from EUR 29."
+  - "R4 COMMITTEE PIPELINE — 12 R3_COMPLETE ready: ITX.MC QS 86, ALFA.L QS 83, CDNS QS 82. Priority for next session."
   - "KLR.L FY2025 Mar 3 — HARD GATE for SO activation."
   - "ITRK.L FY2025 Mar 3 — HARD GATE for R4."
-  - "Pipeline velocity: 2 units S107 (target 3). Still below target. Prioritize advancement next session."
+  - "Pipeline velocity: 2 units S108 (target 3). Still below. 12 R3_COMPLETE ready for R4 = opportunity."
