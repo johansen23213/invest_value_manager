@@ -275,11 +275,13 @@ def load_cooldowns():
 
 
 def count_r1_complete(companies):
-    """Count R1_COMPLETE long companies in universe (for auto-filter threshold)."""
+    """Count R1_COMPLETE long companies in universe (for auto-filter threshold).
+    Excludes stale entries that have r2_session/r2_verdict but pipeline_status still R1_COMPLETE."""
     return sum(
         1 for c in companies
         if c.get("pipeline_status") == "R1_COMPLETE"
         and c.get("direction", "long") == "long"
+        and not c.get("r2_session") and not c.get("r2_verdict")
     )
 
 
@@ -605,11 +607,26 @@ def show_advancement_pipeline(companies, near_entry_only=False):
       B. APPROACHING: distance_to_entry 20-35%. Monitor zone.
       C. PARKED: distance_to_entry > 35% or FANTASY verdict. Count only.
     """
-    r1_complete = [
+    r1_complete_raw = [
         c for c in companies
         if c.get("pipeline_status") == "R1_COMPLETE"
         and c.get("direction", "long") == "long"
     ]
+
+    # Defensive check: detect stale pipeline_status (r2_session/r2_verdict exist but status still R1_COMPLETE)
+    stale_status = []
+    r1_complete = []
+    for c in r1_complete_raw:
+        if c.get("r2_session") or c.get("r2_verdict"):
+            stale_status.append(c)
+        else:
+            r1_complete.append(c)
+
+    if stale_status:
+        print(f"\n  ⚠ STALE PIPELINE STATUS ({len(stale_status)} tickers have R2 data but pipeline_status=R1_COMPLETE):")
+        for c in stale_status:
+            print(f"    {c['ticker']:16s} r2_session={c.get('r2_session')}, r2_verdict={c.get('r2_verdict')} — EXCLUDED from advancement")
+        print(f"    → Fix: update pipeline_status in quality_universe.yaml (R2_COMPLETE, R2_REJECTED, etc.)\n")
 
     if not r1_complete:
         print("\nNo R1_COMPLETE candidates in universe.")
@@ -1026,11 +1043,13 @@ def main():
         print(f"  [Use --ignore-cooldowns to bypass]")
 
     # Fantasy rate: % of R1_COMPLETE that are OVERVALUED/FANTASY
+    # Exclude stale entries with r2 data
     r1_complete_all = [
         c for c in companies
         if c.get("pipeline_status") == "R1_COMPLETE"
         and c.get("direction", "long") == "long"
         and c.get("r1_verdict")
+        and not c.get("r2_session") and not c.get("r2_verdict")
     ]
     if r1_complete_all:
         fantasy_verdicts = sum(1 for c in r1_complete_all if c.get("r1_verdict") in ("OVERVALUED", "FANTASY"))
