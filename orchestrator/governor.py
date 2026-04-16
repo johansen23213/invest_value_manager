@@ -50,20 +50,17 @@ class Governor:
     # ── flow stubs ──────────────────────────────────────────────────────
 
     async def run_on_demand(self, ticker: str) -> dict[str, Any]:
-        """On-demand analysis of a single ticker (stub)."""
+        """On-demand analysis of a single ticker."""
+        from orchestrator.flows.on_demand_analysis import run_on_demand_analysis
         run_id = self._new_run_id()
         self.audit.log_run_start(run_id, "on-demand", {"ticker": ticker})
-
         self._transition(GovernorState.ANALYSIS_FANOUT)
-        # Sprint 2+: fan out A2.1-A2.5 in parallel for `ticker`
+        result = await run_on_demand_analysis(ticker, run_id, self.audit)
         self._transition(GovernorState.DECISION)
-        # Sprint 2+: run A3.1 Decision Maker
-        self._transition(GovernorState.NOTIFY)
-        # Sprint 2+: send Telegram digest
+        # Sprint 3: A3.1 Decision Maker here
         self._transition(GovernorState.IDLE)
-
-        self.audit.log_run_end(run_id, True, {"flow": "on-demand", "ticker": ticker})
-        return {"run_id": run_id, "flow": "on-demand", "ticker": ticker, "status": "stub"}
+        self.audit.log_run_end(run_id, result.get("all_succeeded", False), result)
+        return result
 
     async def run_weekly(self) -> dict[str, Any]:
         """Weekly screening flow (stub)."""

@@ -49,11 +49,30 @@ def test_governor_state_transitions(governor):
 
 
 async def test_governor_on_demand_flow(governor):
-    result = await governor.run_on_demand("AAPL")
-    assert result["flow"] == "on-demand"
+    from unittest.mock import patch, AsyncMock
+    from orchestrator.base import AgentResult
+
+    def _mock_agent(agent_id):
+        inst = AsyncMock()
+        inst.agent_id = agent_id
+        inst.run = AsyncMock(return_value=AgentResult(
+            agent_id=agent_id, agent_name="test", success=True,
+            data={"ticker": "AAPL"}, tokens_used=100, duration_seconds=0.5,
+        ))
+        return inst
+
+    with patch("orchestrator.flows.on_demand_analysis.FinancialAnalystAgent") as m1, \
+         patch("orchestrator.flows.on_demand_analysis.BusinessAnalystAgent") as m2, \
+         patch("orchestrator.flows.on_demand_analysis.RiskAnalystAgent") as m3, \
+         patch("orchestrator.flows.on_demand_analysis.WebResearcherAgent") as m4:
+        m1.return_value = _mock_agent("a21")
+        m2.return_value = _mock_agent("a23")
+        m3.return_value = _mock_agent("a24")
+        m4.return_value = _mock_agent("a25")
+        result = await governor.run_on_demand("AAPL")
     assert result["ticker"] == "AAPL"
-    assert result["status"] == "stub"
     assert "run_id" in result
+    assert result["all_succeeded"] is True
     # Should return to IDLE after flow completes
     assert governor.state == GovernorState.IDLE
 
@@ -74,10 +93,29 @@ async def test_governor_daily_monitor_flow(governor):
 
 async def test_governor_audit_log_written(governor, tmp_path):
     """Verify audit JSONL files are created during flows."""
+    from unittest.mock import patch, AsyncMock
     from orchestrator.audit import AuditLogger
+    from orchestrator.base import AgentResult
+
+    def _mock_agent(agent_id):
+        inst = AsyncMock()
+        inst.agent_id = agent_id
+        inst.run = AsyncMock(return_value=AgentResult(
+            agent_id=agent_id, agent_name="test", success=True,
+            data={"ticker": "MSFT"}, tokens_used=100, duration_seconds=0.5,
+        ))
+        return inst
 
     governor.audit = AuditLogger(log_dir=tmp_path)
-    result = await governor.run_on_demand("MSFT")
+    with patch("orchestrator.flows.on_demand_analysis.FinancialAnalystAgent") as m1, \
+         patch("orchestrator.flows.on_demand_analysis.BusinessAnalystAgent") as m2, \
+         patch("orchestrator.flows.on_demand_analysis.RiskAnalystAgent") as m3, \
+         patch("orchestrator.flows.on_demand_analysis.WebResearcherAgent") as m4:
+        m1.return_value = _mock_agent("a21")
+        m2.return_value = _mock_agent("a23")
+        m3.return_value = _mock_agent("a24")
+        m4.return_value = _mock_agent("a25")
+        result = await governor.run_on_demand("MSFT")
     run_id = result["run_id"]
 
     events = governor.audit.read_run(run_id)
