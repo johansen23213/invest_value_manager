@@ -74,15 +74,12 @@ class Governor:
         return result
 
     async def run_daily_monitor(self) -> dict[str, Any]:
-        """Daily monitoring flow (stub)."""
+        """Daily monitoring flow — runs A3.2 Portfolio Monitor."""
+        from orchestrator.flows.daily_monitoring import run_daily_monitoring
         run_id = self._new_run_id()
-        self.audit.log_run_start(run_id, "daily-monitor", {})
-
-        self._transition(GovernorState.SCREENING)
-        # Sprint 2+: run A3.2 Portfolio Monitor
-        self._transition(GovernorState.NOTIFY)
-        # Sprint 2+: send Telegram digest if changes
+        self.audit.log_run_start(run_id, "daily-monitor")
+        self._transition(GovernorState.ANALYSIS_FANOUT)
+        result = await run_daily_monitoring(run_id, self.audit)
         self._transition(GovernorState.IDLE)
-
-        self.audit.log_run_end(run_id, True, {"flow": "daily-monitor"})
-        return {"run_id": run_id, "flow": "daily-monitor", "status": "stub"}
+        self.audit.log_run_end(run_id, result.get("success", False), result)
+        return result

@@ -129,9 +129,29 @@ async def test_governor_weekly_flow(governor):
 
 
 async def test_governor_daily_monitor_flow(governor):
-    result = await governor.run_daily_monitor()
+    from unittest.mock import patch, AsyncMock
+    from orchestrator.base import AgentResult
+
+    mock_data = {
+        "agent": "portfolio_monitor",
+        "portfolio_summary": {"total_positions": 11, "net_pnl_pct": 3.5},
+        "positions": [],
+        "summary": "All positions on track.",
+    }
+    with patch("orchestrator.flows.daily_monitoring.PortfolioMonitorAgent") as m:
+        inst = AsyncMock()
+        inst.agent_id = "a32"
+        inst.run = AsyncMock(return_value=AgentResult(
+            agent_id="a32", agent_name="test", success=True,
+            data=mock_data, tokens_used=200, duration_seconds=1.0,
+        ))
+        m.return_value = inst
+
+        result = await governor.run_daily_monitor()
+
     assert result["flow"] == "daily-monitor"
-    assert result["status"] == "stub"
+    assert result["success"] is True
+    assert result["data"]["agent"] == "portfolio_monitor"
     assert governor.state == GovernorState.IDLE
 
 
