@@ -30,7 +30,7 @@ scheduler = [
 ]
 
 [tool.setuptools.packages.find]
-include = ["orchestrator*", "agents*", "scrapers*", "knowledge_base*"]
+include = ["orchestrator*", "agents*", "scrapers*", "knowledge_base*", "models*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
