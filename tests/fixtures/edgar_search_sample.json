@@ -1,0 +1,30 @@
+{
+  "hits": {
+    "total": {
+      "value": 2,
+      "relation": "eq"
+    },
+    "hits": [
+      {
+        "_id": "0001234567-26-000001",
+        "_source": {
+          "form_type": "8-K",
+          "display_names": ["Acme Corp"],
+          "entity_id": "0001234567",
+          "file_date": "2026-04-10",
+          "file_num": "001-12345"
+        }
+      },
+      {
+        "_id": "0009876543-26-000002",
+        "_source": {
+          "form_type": "SC 14D9",
+          "display_names": ["Widget Industries Inc"],
+          "entity_id": "0009876543",
+          "file_date": "2026-04-09",
+          "file_num": "005-67890"
+        }
+      }
+    ]
+  }
+}
