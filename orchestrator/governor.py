@@ -63,24 +63,15 @@ class Governor:
         return result
 
     async def run_weekly(self) -> dict[str, Any]:
-        """Weekly screening flow (stub)."""
+        """Weekly screening flow — dual screener + analysis + decision pipeline."""
+        from orchestrator.flows.weekly_screening import run_weekly_screening
         run_id = self._new_run_id()
-        self.audit.log_run_start(run_id, "weekly", {})
-
+        self.audit.log_run_start(run_id, "weekly")
         self._transition(GovernorState.SCREENING)
-        # Sprint 2+: run A1.1 + A1.2 in parallel
-        self._transition(GovernorState.CANDIDATE_SELECTION)
-        # Sprint 2+: consolidate top-5
-        self._transition(GovernorState.ANALYSIS_FANOUT)
-        # Sprint 2+: for each candidate, fan out A2.*
-        self._transition(GovernorState.DECISION)
-        # Sprint 2+: run A3.1 per candidate
-        self._transition(GovernorState.NOTIFY)
-        # Sprint 2+: send Telegram digest
+        result = await run_weekly_screening(run_id, self.audit)
         self._transition(GovernorState.IDLE)
-
-        self.audit.log_run_end(run_id, True, {"flow": "weekly"})
-        return {"run_id": run_id, "flow": "weekly", "status": "stub"}
+        self.audit.log_run_end(run_id, result.get("all_succeeded", False), result)
+        return result
 
     async def run_daily_monitor(self) -> dict[str, Any]:
         """Daily monitoring flow (stub)."""

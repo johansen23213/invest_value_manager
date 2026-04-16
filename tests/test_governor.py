@@ -78,9 +78,53 @@ async def test_governor_on_demand_flow(governor):
 
 
 async def test_governor_weekly_flow(governor):
-    result = await governor.run_weekly()
+    from unittest.mock import patch, AsyncMock
+    from orchestrator.base import AgentResult
+
+    def _mock_screener(agent_id, data_key, data_value):
+        inst = AsyncMock()
+        inst.agent_id = agent_id
+        inst.run = AsyncMock(return_value=AgentResult(
+            agent_id=agent_id, agent_name="test", success=True,
+            data={data_key: data_value}, tokens_used=100, duration_seconds=0.5,
+        ))
+        return inst
+
+    def _mock_analysis(ticker, run_id, audit):
+        return {
+            "ticker": ticker, "all_succeeded": True, "total_tokens": 400,
+            "agents": {
+                "a21": {"success": True, "data": {"ticker": ticker}},
+                "a23": {"success": True, "data": {"ticker": ticker}},
+                "a24": {"success": True, "data": {"ticker": ticker}},
+                "a25": {"success": True, "data": {"ticker": ticker}},
+            }
+        }
+
+    def _mock_dm():
+        inst = AsyncMock()
+        inst.agent_id = "a31"
+        inst.run = AsyncMock(return_value=AgentResult(
+            agent_id="a31", agent_name="test", success=True,
+            data={"ticker": "TST", "decision": "BUY", "conviction": 7},
+            tokens_used=200, duration_seconds=1.0,
+        ))
+        return inst
+
+    with patch("orchestrator.flows.weekly_screening.QuantScreenerAgent") as m_quant, \
+         patch("orchestrator.flows.weekly_screening.SpecialSitsScreenerAgent") as m_spec, \
+         patch("orchestrator.flows.weekly_screening.run_on_demand_analysis") as m_analysis, \
+         patch("orchestrator.flows.weekly_screening.DecisionMakerAgent") as m_dm:
+        m_quant.return_value = _mock_screener("a11", "candidates", [{"ticker": "TST", "score": 85, "signal_reasons": ["value"]}])
+        m_spec.return_value = _mock_screener("a12", "situations", [])
+        m_analysis.side_effect = lambda t, r, a: _mock_analysis(t, r, a)
+        m_dm.return_value = _mock_dm()
+
+        result = await governor.run_weekly()
+
     assert result["flow"] == "weekly"
-    assert result["status"] == "stub"
+    assert result["screening"]["total_candidates"] == 1
+    assert result["all_succeeded"] is True
     assert governor.state == GovernorState.IDLE
 
 
