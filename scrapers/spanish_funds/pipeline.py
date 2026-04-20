@@ -111,5 +111,9 @@ def process_scraper(
             path.unlink()
         except Exception as unlink_err:
             logger.error("rollback unlink failed: %s", unlink_err)
+        try:
+            pdf_path.unlink()
+        except Exception as pdf_unlink_err:
+            logger.error("rollback pdf unlink failed: %s", pdf_unlink_err)
         raise
     return PipelineResult(fund_id=fid, processed=True, quarter=meta.quarter, persisted_path=path)

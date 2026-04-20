@@ -34,3 +34,13 @@ class TestValentumScraper:
         mock_response.raise_for_status.return_value = None
         with patch("scrapers.spanish_funds.valentum.httpx.get", return_value=mock_response):
             assert ValentumScraper().get_latest_letter() is None
+
+    def test_resolves_relative_href(self):
+        HTML_RELATIVE = '<html><body><a href="/wp-content/uploads/Carta-1T-2026.pdf">x</a></body></html>'
+        mock_response = MagicMock(status_code=200, text=HTML_RELATIVE)
+        mock_response.raise_for_status.return_value = None
+        with patch("scrapers.spanish_funds.valentum.httpx.get", return_value=mock_response), \
+             patch.object(ValentumScraper, "_fetch_content_hash", return_value="h"):
+            meta = ValentumScraper().get_latest_letter()
+        assert meta.url.startswith("https://")
+        assert "/wp-content/uploads/Carta-1T-2026.pdf" in meta.url

@@ -9,6 +9,7 @@ from bs4 import BeautifulSoup
 from scrapers.spanish_funds.base import FundScraper, LetterMeta
 
 VALENTUM_LETTERS_URL = "https://valentum.es/informacion-inversores/"
+BASE_URL = "https://valentum.es"
 FILENAME_RE = re.compile(r"Carta[\-_](\d)T[\-_](\d{4})\.pdf", re.IGNORECASE)
 
 
@@ -33,5 +34,6 @@ class ValentumScraper(FundScraper):
 
         candidates.sort(reverse=True)
         year, q, href = candidates[0]
-        content_hash = self._fetch_content_hash(href)
-        return LetterMeta(url=href, quarter=f"{year}-Q{q}", content_hash=content_hash)
+        url = href if href.startswith("http") else f"{BASE_URL}{href}"
+        content_hash = self._fetch_content_hash(url)
+        return LetterMeta(url=url, quarter=f"{year}-Q{q}", content_hash=content_hash)

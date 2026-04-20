@@ -81,3 +81,11 @@ class TestMergeLetter:
         merge_letter(long_letter, universe_path=universe_path)
         data = yaml.safe_load(universe_path.read_text())
         assert len(data["ATYM.L"]["thesis_snippets"]["cobas"]) == 500
+
+    def test_creates_universe_file_when_missing(self, tmp_path):
+        missing = tmp_path / "does-not-exist.yaml"
+        # Will not crash — should create the file
+        merge_letter(LETTER_A, universe_path=missing)
+        assert missing.exists()
+        data = yaml.safe_load(missing.read_text())
+        assert "ATYM.L" in data

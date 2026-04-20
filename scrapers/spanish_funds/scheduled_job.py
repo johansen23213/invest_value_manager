@@ -4,6 +4,7 @@ from __future__ import annotations
 import asyncio
 import logging
 import os
+from pathlib import Path
 from typing import Any
 
 from scrapers.spanish_funds.azvalor import AzValorScraper
@@ -17,6 +18,25 @@ from scrapers.spanish_funds.universe_merger import merge_letter
 from scrapers.spanish_funds.valentum import ValentumScraper
 
 logger = logging.getLogger("valuehunter.spanish_funds.scheduled_job")
+
+
+def _extract_multi_fund_tickers(letter: dict, universe_path: Path | None = None) -> list[str]:
+    """Return tickers from this letter that appear in the universe with 2+ fund coverage."""
+    import yaml
+    from scrapers.spanish_funds.universe_merger import DEFAULT_UNIVERSE_PATH
+    path = universe_path or DEFAULT_UNIVERSE_PATH
+    if not path.exists():
+        return []
+    try:
+        data = yaml.safe_load(path.read_text()) or {}
+    except Exception:
+        return []
+    result = []
+    for pos in letter.get("positions", []):
+        ticker = pos.get("ticker")
+        if ticker and data.get(ticker, {}).get("conviction_signal", "1_fund") != "1_fund":
+            result.append(ticker)
+    return result
 
 
 def _anthropic_client():
@@ -55,6 +75,15 @@ def run_weekly_check() -> dict[str, Any]:
 
         if not result.processed:
             skipped += 1
+            # Alert operator on real failures (not just "no new letter found")
+            if result.skipped_reason in ("download_failed", "extraction_failed"):
+                try:
+                    _send_telegram(
+                        f"⚠️ Spanish funds: {result.fund_id} {result.quarter or ''} — "
+                        f"{result.skipped_reason}: {result.error}"
+                    )
+                except Exception:
+                    logger.exception("alert send failed for %s", result.fund_id)
             continue
 
         processed += 1
@@ -66,7 +95,8 @@ def run_weekly_check() -> dict[str, Any]:
         except Exception:
             logger.exception("universe merge failed for %s %s", result.fund_id, result.quarter)
 
-        digest = build_digest(letter, multi_fund_tickers=[])  # cross-fund flags can be added later
+        multi = _extract_multi_fund_tickers(letter)
+        digest = build_digest(letter, multi_fund_tickers=multi)
         _send_telegram(digest)
 
     return {"processed": processed, "skipped": skipped, "errors": errors}

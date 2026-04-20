@@ -27,7 +27,7 @@ def _signal_label(n: int) -> str:
 
 def merge_letter(letter: dict, universe_path: Path | None = None) -> None:
     path = universe_path or DEFAULT_UNIVERSE_PATH
-    data = yaml.safe_load(path.read_text()) or {}
+    data = yaml.safe_load(path.read_text()) if path.exists() else {}
     fund_id = letter["fund_id"]
     quarter = letter["quarter"]
 

@@ -29,3 +29,13 @@ class TestHorosScraper:
             with patch.object(HorosScraper, "_fetch_content_hash", return_value="h"):
                 meta = HorosScraper().get_latest_letter()
         assert meta.quarter == "2026-Q1"
+
+    def test_matches_carta_trimestral_pattern(self):
+        HTML = '<html><body><a href="https://horosam.com/carta-trimestral-2026-q1.pdf">x</a></body></html>'
+        mock_response = MagicMock(status_code=200, text=HTML)
+        mock_response.raise_for_status.return_value = None
+        with patch("scrapers.spanish_funds.horos.httpx.get", return_value=mock_response), \
+             patch.object(HorosScraper, "_fetch_content_hash", return_value="h"):
+            meta = HorosScraper().get_latest_letter()
+        assert meta is not None
+        assert meta.quarter == "2026-Q1"

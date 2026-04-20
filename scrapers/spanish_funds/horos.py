@@ -14,7 +14,7 @@ from bs4 import BeautifulSoup
 from scrapers.spanish_funds.base import FundScraper, LetterMeta
 
 HOROS_LETTERS_URL = "https://horosam.com/articulos/cartas-al-inversor/"
-FILENAME_RE = re.compile(r"carta[\-_](\d{4})[\-_]q(\d)", re.IGNORECASE)
+FILENAME_RE = re.compile(r"carta[^/]*?[\-_](\d{4})[\-_]q(\d)", re.IGNORECASE)
 
 
 class HorosScraper(FundScraper):

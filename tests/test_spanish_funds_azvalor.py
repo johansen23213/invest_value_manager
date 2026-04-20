@@ -34,3 +34,13 @@ class TestAzValorScraper:
         mock_response.raise_for_status.return_value = None
         with patch("scrapers.spanish_funds.azvalor.httpx.get", return_value=mock_response):
             assert AzValorScraper().get_latest_letter() is None
+
+    def test_resolves_relative_href(self):
+        HTML_RELATIVE = '<html><body><a href="/uploads/Carta-Trimestral-1T-2026.pdf">x</a></body></html>'
+        mock_response = MagicMock(status_code=200, text=HTML_RELATIVE)
+        mock_response.raise_for_status.return_value = None
+        with patch("scrapers.spanish_funds.azvalor.httpx.get", return_value=mock_response), \
+             patch.object(AzValorScraper, "_fetch_content_hash", return_value="h"):
+            meta = AzValorScraper().get_latest_letter()
+        assert meta.url.startswith("https://")
+        assert "/uploads/Carta-Trimestral-1T-2026.pdf" in meta.url

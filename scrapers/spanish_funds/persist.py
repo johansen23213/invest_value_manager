@@ -21,7 +21,9 @@ def persist_letter(letter: dict, kb_root: Path | None = None) -> Path:
     quarter = letter["quarter"]
     d = _fund_dir(fund_id, kb_root)
     path = d / f"{quarter}.json"
-    path.write_text(json.dumps(letter, indent=2, ensure_ascii=False))
+    tmp = path.with_suffix(".json.tmp")
+    tmp.write_text(json.dumps(letter, indent=2, ensure_ascii=False))
+    tmp.replace(path)
     return path
 
 
@@ -56,7 +58,9 @@ def update_last_processed(
         "extraction_model": extraction_model,
         "timestamp": datetime.now(timezone.utc).isoformat(),
     }
-    path.write_text(json.dumps(payload, indent=2))
+    tmp = path.with_suffix(".json.tmp")
+    tmp.write_text(json.dumps(payload, indent=2))
+    tmp.replace(path)
 
 
 def already_processed(fund_id: str, content_hash: str, kb_root: Path | None = None) -> bool:
