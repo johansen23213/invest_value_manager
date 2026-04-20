@@ -61,7 +61,7 @@ def merge_letter(letter: dict, universe_path: Path | None = None) -> None:
         if thesis:
             snippets = entry.setdefault("thesis_snippets", {})
             snippets[fund_id] = thesis[:SNIPPET_MAX_CHARS]
-            # Keep only 2 most recent by lexicographic fund ordering (stable)
+            # Keep only the most recent 2 funds by insertion order
             if len(snippets) > 2:
                 keep = dict(list(snippets.items())[-2:])
                 entry["thesis_snippets"] = keep
