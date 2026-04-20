@@ -1,0 +1,8 @@
+{"run_id": "02d7fcb044ac", "event_type": "run_start", "timestamp": 1776319043.796951, "agent_id": "", "data": {"flow": "weekly", "params": {}}}
+{"run_id": "02d7fcb044ac", "event_type": "agent_start", "timestamp": 1776319043.797076, "agent_id": "a11", "data": {"inputs": {"flow": "weekly"}}}
+{"run_id": "02d7fcb044ac", "event_type": "agent_end", "timestamp": 1776319043.7971358, "agent_id": "a11", "data": {"success": true, "tokens": 100, "duration": 0.5, "error": null}}
+{"run_id": "02d7fcb044ac", "event_type": "agent_start", "timestamp": 1776319043.797208, "agent_id": "a12", "data": {"inputs": {"flow": "weekly"}}}
+{"run_id": "02d7fcb044ac", "event_type": "agent_end", "timestamp": 1776319043.7972999, "agent_id": "a12", "data": {"success": true, "tokens": 100, "duration": 0.5, "error": null}}
+{"run_id": "02d7fcb044ac", "event_type": "agent_start", "timestamp": 1776319043.797429, "agent_id": "a31", "data": {"inputs": {"ticker": "DUP"}}}
+{"run_id": "02d7fcb044ac", "event_type": "agent_end", "timestamp": 1776319043.797489, "agent_id": "a31", "data": {"success": true, "tokens": 200, "duration": 1.0, "error": null}}
+{"run_id": "02d7fcb044ac", "event_type": "run_end", "timestamp": 1776319043.797565, "agent_id": "", "data": {"success": true, "summary": {"run_id": "02d7fcb044ac", "flow": "weekly", "screening": {"total_candidates": 2, "top_n": 1, "top_tickers": ["DUP"]}, "analyses_completed": 1, "decisions": [{"ticker": "TEST", "decision": "BUY", "conviction": 7}], "total_tokens": 600, "all_succeeded": true}}}

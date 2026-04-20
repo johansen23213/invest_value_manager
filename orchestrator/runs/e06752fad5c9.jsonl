@@ -1,0 +1,10 @@
+{"run_id": "e06752fad5c9", "event_type": "run_start", "timestamp": 1776407288.6584058, "agent_id": "", "data": {"flow": "weekly", "params": {}}}
+{"run_id": "e06752fad5c9", "event_type": "agent_start", "timestamp": 1776407288.658685, "agent_id": "a11", "data": {"inputs": {"flow": "weekly"}}}
+{"run_id": "e06752fad5c9", "event_type": "agent_end", "timestamp": 1776407288.667446, "agent_id": "a11", "data": {"success": true, "tokens": 100, "duration": 0.5, "error": null}}
+{"run_id": "e06752fad5c9", "event_type": "agent_start", "timestamp": 1776407288.669579, "agent_id": "a12", "data": {"inputs": {"flow": "weekly"}}}
+{"run_id": "e06752fad5c9", "event_type": "agent_end", "timestamp": 1776407288.671906, "agent_id": "a12", "data": {"success": true, "tokens": 100, "duration": 0.5, "error": null}}
+{"run_id": "e06752fad5c9", "event_type": "agent_start", "timestamp": 1776407288.672031, "agent_id": "a31", "data": {"inputs": {"ticker": "AAA"}}}
+{"run_id": "e06752fad5c9", "event_type": "agent_end", "timestamp": 1776407288.67209, "agent_id": "a31", "data": {"success": true, "tokens": 200, "duration": 1.0, "error": null}}
+{"run_id": "e06752fad5c9", "event_type": "agent_start", "timestamp": 1776407288.6721642, "agent_id": "a31", "data": {"inputs": {"ticker": "BBB"}}}
+{"run_id": "e06752fad5c9", "event_type": "agent_end", "timestamp": 1776407288.6722481, "agent_id": "a31", "data": {"success": true, "tokens": 200, "duration": 1.0, "error": null}}
+{"run_id": "e06752fad5c9", "event_type": "run_end", "timestamp": 1776407288.672343, "agent_id": "", "data": {"success": true, "summary": {"run_id": "e06752fad5c9", "flow": "weekly", "screening": {"total_candidates": 2, "top_n": 2, "top_tickers": ["AAA", "BBB"]}, "analyses_completed": 2, "decisions": [{"ticker": "TEST", "decision": "BUY", "conviction": 7}, {"ticker": "TEST", "decision": "BUY", "conviction": 7}], "total_tokens": 1000, "all_succeeded": true}}}

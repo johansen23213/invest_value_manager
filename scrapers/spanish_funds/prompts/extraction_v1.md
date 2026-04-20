@@ -38,6 +38,7 @@ Rules:
 - If no exchange suffix is obvious, pick the most likely exchange (Spanish → .MC,
   Portuguese → .LS, UK → .L, German → .DE, French → .PA, Italian → .MI,
   Stockholm → .ST, Helsinki → .HE, Danish → .CO, US → no suffix).
+- Always set ticker_status to "unverified" — a downstream step validates tickers against yfinance.
 - The fields extracted_at / extraction_model / source_url will be overwritten
   downstream — you can fill placeholder strings.
 - Return positions in the order they appear in the letter.

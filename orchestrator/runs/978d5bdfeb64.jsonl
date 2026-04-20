@@ -1,0 +1,2 @@
+{"run_id": "978d5bdfeb64", "event_type": "run_start", "timestamp": 1776313076.136679, "agent_id": "", "data": {"flow": "on-demand", "params": {"ticker": "AAPL"}}}
+{"run_id": "978d5bdfeb64", "event_type": "run_end", "timestamp": 1776313076.136844, "agent_id": "", "data": {"success": true, "summary": {"flow": "on-demand", "ticker": "AAPL"}}}

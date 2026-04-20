@@ -1,0 +1,4 @@
+{"run_id": "65da6cf341f1", "event_type": "run_start", "timestamp": 1776319073.600288, "agent_id": "", "data": {"flow": "daily-monitor", "params": {}}}
+{"run_id": "65da6cf341f1", "event_type": "agent_start", "timestamp": 1776319073.601748, "agent_id": "a32", "data": {"inputs": {"flow": "daily-monitor"}}}
+{"run_id": "65da6cf341f1", "event_type": "agent_end", "timestamp": 1776319073.601844, "agent_id": "a32", "data": {"success": false, "tokens": 0, "duration": 5.0, "error": "API timeout"}}
+{"run_id": "65da6cf341f1", "event_type": "run_end", "timestamp": 1776319073.6019268, "agent_id": "", "data": {"success": false, "summary": {"run_id": "65da6cf341f1", "flow": "daily-monitor", "success": false, "data": {}, "tokens_used": 0, "duration_seconds": 5.0}}}

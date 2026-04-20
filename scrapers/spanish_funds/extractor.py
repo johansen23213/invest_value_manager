@@ -102,6 +102,12 @@ def extract_from_text(
         result["extracted_at"] = datetime.now(timezone.utc).isoformat()
         result["fund_id"] = fund_id
         result["quarter"] = quarter
+        # Force ticker_status=unverified to prevent LLM hallucination
+        positions = result.get("positions", [])
+        if isinstance(positions, list):
+            for pos in positions:
+                if isinstance(pos, dict):
+                    pos["ticker_status"] = "unverified"
         try:
             jsonschema.validate(result, schema)
             return result

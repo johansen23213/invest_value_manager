@@ -100,3 +100,35 @@ class TestExtractFromText:
         assert result["extraction_model"] == "claude-sonnet-4-6"
         assert "extracted_at" in result
         assert result["source_url"] == "https://x"
+
+    def test_forces_ticker_status_to_unverified(self, letter_text):
+        """Even if LLM claims verified, extractor overwrites to unverified."""
+        hallucinated = {
+            "fund_id": "cobas",
+            "fund_name": "Cobas",
+            "quarter": "2026-Q1",
+            "extracted_at": "PLACEHOLDER",
+            "extraction_model": "PLACEHOLDER",
+            "source_url": "PLACEHOLDER",
+            "fund_return_pct": None,
+            "aum_eur": None,
+            "positions": [
+                {
+                    "company_name": "Fake Co",
+                    "ticker": "FAKE.XX",
+                    "ticker_status": "verified",
+                    "weight_pct": 5.0,
+                    "action": "new",
+                    "upside_pct": None,
+                    "thesis_text": None,
+                }
+            ],
+        }
+        import json as _json
+        mock_client = MagicMock()
+        mock_client.messages.create.return_value = _mock_message(_json.dumps(hallucinated))
+        result = extract_from_text(
+            letter_text, fund_id="cobas", quarter="2026-Q1",
+            source_url="https://x", client=mock_client,
+        )
+        assert result["positions"][0]["ticker_status"] == "unverified"
