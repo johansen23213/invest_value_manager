@@ -9,6 +9,7 @@ from typing import Any
 from anthropic import AsyncAnthropic
 
 from orchestrator.base import AgentLayer, AgentModel, AgentResult, BaseAgent
+from scrapers.spanish_funds.lookup import lookup_spanish_funds
 
 PROMPT_PATH = pathlib.Path(__file__).resolve().parent / "prompts" / "a25_web_researcher.md"
 ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -81,12 +82,24 @@ class WebResearcherAgent(BaseAgent):
         return None
 
     # ------------------------------------------------------------------
+    def _load_spanish_funds_lookup(self, ticker: str) -> str:
+        """Run cross-fund lookup and format result for message injection."""
+        try:
+            result = lookup_spanish_funds(ticker)
+            return json.dumps(result, indent=2)
+        except Exception as e:
+            return f"[ERROR running spanish_funds lookup: {e}]"
+
+    # ------------------------------------------------------------------
     async def run(self, inputs: dict[str, Any], run_id: str = "") -> AgentResult:
         ticker = inputs.get("ticker", "")
         start = time.time()
 
         # Gather local KB data
         kb_data = self._load_local_kb(ticker)
+
+        # Gather Spanish value fund overlap
+        sf_data = self._load_spanish_funds_lookup(ticker)
 
         client = AsyncAnthropic()
         try:
@@ -107,7 +120,8 @@ class WebResearcherAgent(BaseAgent):
                         "content": (
                             f"Research {ticker}. Find recent news, earnings, regulatory and "
                             f"litigation information.\n\n"
-                            f"=== Local Knowledge Base ===\n{kb_data}"
+                            f"=== Local Knowledge Base ===\n{kb_data}\n\n"
+                            f"=== Spanish Value Fund Overlap (lookup_spanish_funds) ===\n{sf_data}"
                         ),
                     }
                 ],

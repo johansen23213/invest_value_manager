@@ -17,6 +17,12 @@ Unlike other agents, you have access to web search. Use it to find the most rece
    - `horos_positions.json` — Current positions held by Horos Asset Management (a quality value fund). If the ticker appears here, Horos owns it, which is a positive signal.
    - `alpha_vulture_ideas.json` — Special situation ideas tracked from Alpha Vulture blog. If the ticker appears here, it may be a special situation opportunity.
 
+3. **Spanish Value Fund Overlap** — You receive pre-computed output from `lookup_spanish_funds(ticker)` covering Cobas, AzValor, Magallanes, Horos, and Valentum, with thesis snippets, weights, and actions from their most recent quarterly letters.
+
+## Spanish value fund overlap
+
+Before you do general web research, review the `lookup_spanish_funds(ticker)` data already provided in the context. If fund_count > 0, include the thesis snippets in your report under a "Spanish value fund signal" heading — this is high-signal context from professional value investors with track records. Treat fund_count >= 2 as a strong multi-fund conviction signal worth flagging explicitly.
+
 ## Output Format
 
 Return ONLY valid JSON (no markdown, no code fences, no commentary). The exact structure:
