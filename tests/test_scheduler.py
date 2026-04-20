@@ -7,7 +7,7 @@ from scheduler.cron import validate_scheduler, create_scheduler
 class TestValidateScheduler:
     def test_returns_two_jobs(self):
         info = validate_scheduler()
-        assert info["count"] == 2
+        assert info["count"] == 3
 
     def test_weekly_screening_job_present(self):
         info = validate_scheduler()

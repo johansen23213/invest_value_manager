@@ -33,6 +33,16 @@ def _daily_job():
     logger.info(f"Daily monitoring complete: success={result.get('success')}")
 
 
+def _spanish_funds_weekly_job():
+    from scrapers.spanish_funds.scheduled_job import run_weekly_check
+    logger.info("Starting Spanish value fund ingestion")
+    result = run_weekly_check()
+    logger.info(
+        "Spanish funds ingestion complete: processed=%d skipped=%d errors=%s",
+        result["processed"], result["skipped"], result["errors"],
+    )
+
+
 def create_scheduler() -> BackgroundScheduler:
     scheduler = BackgroundScheduler()
     scheduler.add_job(
@@ -46,6 +56,12 @@ def create_scheduler() -> BackgroundScheduler:
         CronTrigger(day_of_week="mon-fri", hour=18, minute=0),
         id="daily_monitoring",
         name="Daily Monitoring (Mon-Fri 18:00)",
+    )
+    scheduler.add_job(
+        _spanish_funds_weekly_job,
+        CronTrigger(day_of_week="mon", hour=8, minute=0),
+        id="spanish_funds_weekly",
+        name="Spanish Value Fund Ingestion (Monday 08:00)",
     )
     return scheduler
 
