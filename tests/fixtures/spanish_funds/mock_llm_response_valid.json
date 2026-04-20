@@ -1,0 +1,39 @@
+{
+  "fund_id": "cobas",
+  "fund_name": "Cobas Selección",
+  "quarter": "2026-Q1",
+  "extracted_at": "PLACEHOLDER_WILL_BE_OVERWRITTEN",
+  "extraction_model": "PLACEHOLDER_WILL_BE_OVERWRITTEN",
+  "source_url": "PLACEHOLDER_WILL_BE_OVERWRITTEN",
+  "fund_return_pct": 4.2,
+  "aum_eur": 2100000000,
+  "positions": [
+    {
+      "company_name": "Atalaya Mining",
+      "ticker": "ATYM.L",
+      "ticker_status": "unverified",
+      "weight_pct": 7.3,
+      "action": "maintained",
+      "upside_pct": 45,
+      "thesis_text": "Seguimos convencidos del caso cobre."
+    },
+    {
+      "company_name": "Técnicas Reunidas",
+      "ticker": "TRE.MC",
+      "ticker_status": "unverified",
+      "weight_pct": 4.1,
+      "action": "maintained",
+      "upside_pct": null,
+      "thesis_text": "El mercado sigue sin ver la reestructuración completada."
+    },
+    {
+      "company_name": "Semapa",
+      "ticker": "SEM.LS",
+      "ticker_status": "unverified",
+      "weight_pct": 3.0,
+      "action": "new",
+      "upside_pct": null,
+      "thesis_text": "Conglomerado portugués con activos infravalorados."
+    }
+  ]
+}
