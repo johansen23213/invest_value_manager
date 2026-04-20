@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import hashlib
 import logging
+import time
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Literal
@@ -10,7 +11,7 @@ from typing import Literal
 import httpx
 
 from scrapers.spanish_funds.base import FundScraper, LetterMeta
-from scrapers.spanish_funds.extractor import AnthropicClient, extract_from_text
+from scrapers.spanish_funds.extractor import AnthropicClient, ExtractorError, extract_from_text
 from scrapers.spanish_funds.pdf import extract_text_from_pdf
 from scrapers.spanish_funds.persist import (
     already_processed,
@@ -37,18 +38,18 @@ class PipelineResult:
 
 def _download_pdf(url: str) -> bytes:
     """Download PDF with 3× exponential backoff retry."""
-    import time
     delays = [1, 2, 4]
     last_err: Exception | None = None
-    for d in delays:
+    for i, d in enumerate(delays):
         try:
             r = httpx.get(url, follow_redirects=True, timeout=60)
             r.raise_for_status()
             return r.content
-        except Exception as e:
+        except httpx.HTTPError as e:
             last_err = e
-            time.sleep(d)
-    raise RuntimeError(f"download failed after 3 attempts: {last_err}")
+            if i < len(delays) - 1:  # only sleep between attempts, not after the last one
+                time.sleep(d)
+    raise RuntimeError(f"download failed after {len(delays)} attempts: {last_err}")
 
 
 def process_scraper(
@@ -91,15 +92,24 @@ def process_scraper(
             source_url=meta.url,
             client=client,
         )
-    except Exception as e:
+    except ExtractorError as e:
         return PipelineResult(fund_id=fid, processed=False,
                               quarter=meta.quarter, skipped_reason="extraction_failed", error=str(e))
 
     extracted["positions"] = resolve_positions(extracted.get("positions", []))
 
     path = persist_letter(extracted, kb_root=kb_root)
-    update_last_processed(
-        fid, quarter=meta.quarter, content_hash=real_hash,
-        kb_root=kb_root, extraction_model=extracted.get("extraction_model", ""),
-    )
+    try:
+        update_last_processed(
+            fid, quarter=meta.quarter,
+            content_hash=real_hash, url_hash=meta.content_hash,
+            kb_root=kb_root, extraction_model=extracted.get("extraction_model", ""),
+        )
+    except Exception as e:
+        logger.error("update_last_processed failed after persist; rolling back %s: %s", path, e)
+        try:
+            path.unlink()
+        except Exception as unlink_err:
+            logger.error("rollback unlink failed: %s", unlink_err)
+        raise
     return PipelineResult(fund_id=fid, processed=True, quarter=meta.quarter, persisted_path=path)

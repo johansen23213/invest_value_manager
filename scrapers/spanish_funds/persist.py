@@ -46,11 +46,13 @@ def update_last_processed(
     content_hash: str,
     kb_root: Path | None = None,
     extraction_model: str = "",
+    url_hash: str = "",
 ) -> None:
     path = _fund_dir(fund_id, kb_root) / "last_processed.json"
     payload = {
         "quarter": quarter,
         "content_hash": content_hash,
+        "url_hash": url_hash,
         "extraction_model": extraction_model,
         "timestamp": datetime.now(timezone.utc).isoformat(),
     }
@@ -62,4 +64,4 @@ def already_processed(fund_id: str, content_hash: str, kb_root: Path | None = No
     if not path.exists():
         return False
     prev = json.loads(path.read_text())
-    return prev.get("content_hash") == content_hash
+    return prev.get("content_hash") == content_hash or prev.get("url_hash") == content_hash

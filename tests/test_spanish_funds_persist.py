@@ -68,3 +68,9 @@ class TestLastProcessed:
     def test_different_hash_is_not_processed(self, kb_root):
         update_last_processed("cobas", quarter="2026-Q1", content_hash="abc123", kb_root=kb_root)
         assert not already_processed("cobas", "def456", kb_root=kb_root)
+
+    def test_already_processed_matches_url_hash(self, kb_root):
+        update_last_processed("cobas", quarter="2026-Q1", content_hash="content", url_hash="url", kb_root=kb_root)
+        assert already_processed("cobas", "url", kb_root=kb_root)      # matches url_hash
+        assert already_processed("cobas", "content", kb_root=kb_root)  # matches content_hash
+        assert not already_processed("cobas", "other", kb_root=kb_root)

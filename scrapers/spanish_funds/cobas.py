@@ -6,7 +6,6 @@ We parse the most recent (largest YEAR then largest N).
 """
 from __future__ import annotations
 
-import hashlib
 import re
 
 import httpx
@@ -43,14 +42,3 @@ class CobasScraper(FundScraper):
         url = href if href.startswith("http") else f"{BASE_URL}{href}"
         content_hash = self._fetch_content_hash(url)
         return LetterMeta(url=url, quarter=f"{year}-Q{q}", content_hash=content_hash)
-
-    def _fetch_content_hash(self, url: str) -> str:
-        """HEAD request → prefer ETag; fall back to hashing the URL."""
-        try:
-            r = httpx.head(url, follow_redirects=True, timeout=30)
-            etag = r.headers.get("etag", "").strip('"')
-            if etag:
-                return etag
-        except Exception:
-            pass
-        return hashlib.sha256(url.encode()).hexdigest()[:16]

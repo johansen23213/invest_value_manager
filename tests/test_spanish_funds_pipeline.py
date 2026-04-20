@@ -9,6 +9,7 @@ import pytest
 
 from scrapers.spanish_funds.base import LetterMeta
 from scrapers.spanish_funds.cobas import CobasScraper
+from scrapers.spanish_funds.extractor import ExtractorError
 from scrapers.spanish_funds.pipeline import PipelineResult, process_scraper
 
 FIXTURES = Path(__file__).resolve().parent / "fixtures" / "spanish_funds"
@@ -72,3 +73,36 @@ class TestProcessScraper:
             result = process_scraper(scraper, client=MagicMock(), kb_root=tmp_path)
         assert result.processed is False
         assert result.skipped_reason == "no_letter_found"
+
+    def test_skips_when_download_fails(self, tmp_path: Path):
+        scraper = CobasScraper()
+        letter_meta = LetterMeta(url="https://x", quarter="2026-Q1", content_hash="hash1")
+        with patch.object(CobasScraper, "get_latest_letter", return_value=letter_meta), \
+             patch("scrapers.spanish_funds.pipeline._download_pdf",
+                   side_effect=RuntimeError("connection refused")):
+            result = process_scraper(scraper, client=MagicMock(), kb_root=tmp_path)
+        assert result.processed is False
+        assert result.skipped_reason == "download_failed"
+        assert "connection refused" in result.error
+
+    def test_skips_when_extraction_fails(self, tmp_path: Path):
+        scraper = CobasScraper()
+        letter_meta = LetterMeta(url="https://x", quarter="2026-Q1", content_hash="hash2")
+        with patch.object(CobasScraper, "get_latest_letter", return_value=letter_meta), \
+             patch("scrapers.spanish_funds.pipeline._download_pdf", return_value=b"PDFBYTES"), \
+             patch("scrapers.spanish_funds.pipeline.extract_text_from_pdf", return_value="text"), \
+             patch("scrapers.spanish_funds.pipeline.extract_from_text",
+                   side_effect=ExtractorError("bad llm output")):
+            result = process_scraper(scraper, client=MagicMock(), kb_root=tmp_path)
+        assert result.processed is False
+        assert result.skipped_reason == "extraction_failed"
+        assert "bad llm output" in result.error
+
+    def test_returns_error_when_get_latest_letter_raises(self, tmp_path: Path):
+        scraper = CobasScraper()
+        with patch.object(CobasScraper, "get_latest_letter",
+                          side_effect=RuntimeError("network timeout")):
+            result = process_scraper(scraper, client=MagicMock(), kb_root=tmp_path)
+        assert result.processed is False
+        assert result.error == "network timeout"
+        assert result.skipped_reason is None
