@@ -165,14 +165,13 @@ El contexto macro (late cycle, tariffs, consumer confidence debil en US/EU) pesa
 
 ## Nuestras Posiciones Actuales
 
-### LULU - Lululemon Athletica (Athleisure Premium)
-- **Holding:** 2 shares, ~$343 invested (EUR ~290)
-- **Entry:** $171.62, 2026-02-05
-- **Quality Score:** 82/100 (Tier A - Quality Compounder)
-- **Thesis:** Fallen angel -58% por problemas CICLICOS (producto stale, US debil). GM 59% intacto = moat intacto. International +33%. Product refresh Spring 2026. MoS 34%.
-- **Por que nos gusta:** ROIC 25%+, FCF Margin 15%, net cash, P/E 12x vs historico 40x
-- **Riesgos:** CEO transition, tariffs, Alo/Vuori share gains, US recovery uncertain
-- **Kill Conditions:** GM <50%, 3Q negative global comps, FCF negative 2Q
+### DNLM.L - Dunelm Group PLC (UK Homewares)
+- **Holding:** 34 shares, ~EUR 375 invested
+- **Entry:** 947 GBp, 2026-03-04 (SO triggered at 950p)
+- **Quality Score:** 79/100 (Tier A - Quality Compounder)
+- **Thesis:** UK #1 homewares specialist. 8.8% market share, 30.5% insider. ROIC-WACC +8.4pp. E[CAGR] 13.6%.
+- **FV:** 1008 GBp
+- **Status:** HOLD. TRIM >1,000p. ADD <800p.
 
 ---
 
@@ -182,8 +181,7 @@ El contexto macro (late cycle, tariffs, consumer confidence debil en US/EU) pesa
 
 | Tipo | Ticker | Thesis Path | Ultima Eval | Status |
 |------|--------|-------------|-------------|--------|
-| Portfolio | LULU | thesis/active/LULU/thesis.md | 2026-02-05 | HOLD - MoS 34% |
-| Watchlist | DNLM.L | thesis/research/DNLM.L/thesis.md | 2026-02-07 | WATCHLIST - Entry 900p |
+| Portfolio | DNLM.L | thesis/research/DNLM.L/thesis.md | 2026-03-04 | HOLD - FV 1008 GBp |
 | R1 Complete | DECK | thesis/research/DECK/thesis.md | 2026-02-19 | WATCHLIST - FV $135, Entry $100-105 |
 
 ### Protocolo de Cambio Material
@@ -233,7 +231,7 @@ Cuando actualices este sector view con cambio MATERIAL:
 
 | Ticker | Empresa | FV | Entry | MoS | Thesis | Fecha Analisis |
 |--------|---------|----|----- -|-----|--------|----------------|
-| DNLM.L | Dunelm Group | 1,328p | 900p | 29.5% | UK #1 homewares, QS 79 Tier A, OEY+Growth 16%, 38.5% insider | 2026-02-07 |
+| (moved to portfolio) | DNLM.L bought Mar 4 at 947p. See Nuestras Posiciones. | | | | | |
 
 ---
 
@@ -241,8 +239,8 @@ Cuando actualices este sector view con cambio MATERIAL:
 
 | Empresa | Ticker | P/E | GM% | ROIC | Yield | Mkt Cap | Geo | Moat | Status |
 |---------|--------|-----|-----|------|-------|---------|-----|------|--------|
-| **Lululemon** | LULU | 12x | 59% | 25%+ | 0% | $21B | US | Fuerte | **IN PORTFOLIO** |
-| **Dunelm** | DNLM.L | 12x | 52% | 26%+ | 4.8% | GBP 1.9B | UK | Fuerte | **WATCHLIST - Entry 900p** |
+| **Lululemon** | LULU | 12x | 55% | 25%+ | 0% | $21B | US | Debilitado | **ARCHIVED (sold Mar 20)** |
+| **Dunelm** | DNLM.L | 12x | 52% | 26%+ | 4.8% | GBP 1.9B | UK | Fuerte | **IN PORTFOLIO (bought Mar 4)** |
 | **Deckers** | DECK | 16x | ~55% | High | 0% | $17B | US | HOKA fuerte | **TARGET - Alta** |
 | **Hugo Boss** | BOSS.DE | 11x | ~62% | Med | ~4% | EUR 5B | DE | Heritage | **TARGET - Alta** |
 | **JD Sports** | JD.L | 7x | ~48% | Med | ~1% | GBP 3B | UK | Retailer #1 | **TARGET - Media** |
@@ -259,14 +257,14 @@ Cuando actualices este sector view con cambio MATERIAL:
 
 | Fecha | Evento | Impacto esperado |
 |-------|--------|------------------|
-| Feb 2026 | LULU Spring 2026 product launch | Sell-through data critical para thesis |
-| Mar 2026 | LULU Q4 FY26 earnings | US comps trend, China continuation, CEO search update |
+| ~~Feb 2026~~ | ~~LULU Spring 2026 product launch~~ | ~~ARCHIVED — position sold Mar 20~~ |
+| ~~Mar 2026~~ | ~~LULU Q4 FY26 earnings~~ | ~~ARCHIVED — position sold Mar 20~~ |
 | Q1 2026 | DECK Q3 FY26 earnings | HOKA growth rate, tariff impact quantification |
 | Q1 2026 | NKE Q3 FY26 earnings | Turnaround progress, China recovery |
 | Q1 2026 | BOSS.DE FY25 results | Brand reset guidance detail, 2026 outlook |
 | Q1 2026 | JD.L FY results | UK consumer strength, margin trend |
 | Sep 2026 | DNLM.L FY26 full year results | PBT vs guidance, market share progress, H2 consumer recovery |
-| Ongoing | LULU CEO search | New CEO announcement could be catalyst (+/-) |
+| ~~Ongoing~~ | ~~LULU CEO search~~ | ~~ARCHIVED — position sold Mar 20~~ |
 | Ongoing | US tariff policy | Any escalation/de-escalation impacts entire sector |
 
 ---
@@ -275,6 +273,7 @@ Cuando actualices este sector view con cambio MATERIAL:
 
 | Fecha | Cambio | Razon |
 |-------|--------|-------|
+| 2026-03-20 | LULU SOLD, moved to Historial. DNLM.L moved to Nuestras Posiciones. | Governance deterioration: no CEO 50+ days, proxy contest. Pre-set trigger met. MATERIAL change (portfolio dep removed). |
 | 2026-02-07 | Added UK Homewares sub-sector, DNLM.L to Watchlist | DNLM.L thesis completed, Tier A QS 79, entry 900p. MENOR change. |
 | 2026-02-06 | Sector view creado | LULU comprada sin sector view (error). Creacion retroactiva con full analysis. |
 
@@ -298,7 +297,7 @@ Cuando actualices este sector view con cambio MATERIAL:
 ### Historial de Analisis (Archivadas)
 | Ticker | Razon Archivo | Fecha | Leccion |
 |--------|---------------|-------|---------|
-| (vacio) | | | |
+| LULU | SOLD. Governance deterioration (no CEO 50+ days, proxy contest). Pre-set trigger ($165) met. P&L -8.2%. | 2026-03-20 | Avoid buying into active governance disputes. Pre-set SELL triggers work. GM declined from 59.2% (FY24) to 54.9% (Q4). Tariff impact worse than modeled. |
 
 ---
 

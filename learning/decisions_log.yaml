@@ -223,7 +223,34 @@ sizing_decisions:
       6 shares at $38.76 = $232.56 (~EUR 197). Total position 14.31 shares, avg $44.21.
       Principios applied: P1 (sizing coherent with conviction — if NVO drops 50%, -2.3% portfolio
       is acceptable), P5 (QS 73 Tier B, adequate quality), P14 (deploying capital vs cash drag).
-    outcome: "Pendiente. Monitor CagriSema H2H data March 2026. TRIM at $80+."
+    outcome: "KC#1 TRIGGERED (CagriSema H2H failed). FV $66→$50. HOLD LOW conviction. E[CAGR] 18.8%."
+
+  - date: 2026-03-04
+    ticker: DNLM.L
+    action: BUY
+    sizing: "3.7%"
+    context:
+      quality_score: 79
+      tier: A
+      mos: "6.1%"
+      ecagr_3yr: "13.6%"
+      price_vs_52w: "-24% from high (1249p)"
+      conviction: "Medium"
+      macro: "VIX 23.57 elevated, Fair-Value regime"
+      framework: "Standing order fill (trigger 950 GBp)"
+    reasoning: |
+      SO triggered at 947 GBp (trigger 950). R4 APPROVED. QS 79 Tier A.
+      FV 1008 GBp. MoS only 6.1% — thinnest in portfolio.
+      BUT E[CAGR] 13.6% (growth 7% + yield 4.8% + MoS convergence 2.1%) >> 12% Tier A threshold.
+      Precedent: MORN bought at 17% MoS justified by E[CAGR] 15.6% (S101). DNLM.L follows same framework.
+      UK homewares #1, 8.8% market share, 30.5% insider ownership.
+      ROIC-WACC spread +8.4pp. Net cash position.
+      5th UK position (DOM.L, MONY.L, AUTO.L, BYIT.L) — different sectors, low correlation.
+      UK geo 14.7%→18.4% — high but manageable given sector diversity.
+      Constraint check: 50% drop = -1.8% portfolio. Acceptable.
+      EUR 375 (~34 shares). Cash 54.5%→50.8%. 12th position.
+      Trigger was raised 780→900→950 over sessions. 950 = last justifiable raise.
+    outcome: "Pendiente — posición recién abierta. 1st SO fill since inception."
 
 # =============================================================================
 # DECISIONES DE TRIM/SELL

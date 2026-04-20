@@ -1,0 +1,93 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://valuehunter.local/schemas/decision.schema.json",
+  "title": "Investment Decision",
+  "description": "A single investment decision emitted by Decision Maker (A3.1) or logged historically",
+  "type": "object",
+  "required": ["date", "ticker", "decision", "conviction", "reasoning"],
+  "additionalProperties": false,
+  "properties": {
+    "date": { "type": "string", "format": "date" },
+    "ticker": { "type": "string" },
+    "decision": {
+      "type": "string",
+      "enum": ["BUY", "SELL", "SHORT", "COVER", "WATCH", "PASS", "ADD", "TRIM"]
+    },
+    "conviction": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 10
+    },
+    "fair_value": { "type": ["number", "null"] },
+    "price_at_decision": { "type": ["number", "null"] },
+    "mos_pct": {
+      "type": ["number", "null"],
+      "description": "Margin of safety at time of decision"
+    },
+    "e_cagr_pct": {
+      "type": ["number", "null"],
+      "description": "Expected 3-year CAGR at market price"
+    },
+    "position_size_pct": {
+      "type": ["number", "null"],
+      "description": "Suggested portfolio allocation percentage",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "target_price": { "type": ["number", "null"] },
+    "stop_loss": { "type": ["number", "null"] },
+    "review_trigger": {
+      "type": ["string", "null"],
+      "description": "Condition that should trigger re-evaluation"
+    },
+    "thesis_summary": {
+      "type": ["string", "null"],
+      "description": "One-paragraph thesis summary"
+    },
+    "key_risks": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "catalyst_expected": {
+      "type": ["string", "null"],
+      "description": "Primary catalyst and expected date"
+    },
+    "reasoning": {
+      "type": "string",
+      "description": "Full reasoning behind the decision"
+    },
+    "agent_outputs": {
+      "type": "object",
+      "description": "Aggregated scores/summaries from Layer 2 agents",
+      "properties": {
+        "financial_analyst": { "type": "object" },
+        "special_sit_modeler": { "type": "object" },
+        "business_analyst": { "type": "object" },
+        "risk_analyst": { "type": "object" },
+        "web_researcher": { "type": "object" }
+      },
+      "additionalProperties": false
+    },
+    "consistency_check": {
+      "type": ["string", "null"],
+      "description": "Output of consistency_checker.py"
+    },
+    "outcome": {
+      "type": ["string", "null"],
+      "description": "Post-hoc outcome (filled later)"
+    },
+    "lessons": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Lessons learned (filled post-exit)"
+    },
+    "session_id": {
+      "type": ["integer", "null"],
+      "description": "Session number when decision was made"
+    },
+    "run_id": {
+      "type": ["string", "null"],
+      "description": "Orchestrator run ID if decision came from automated flow"
+    }
+  }
+}

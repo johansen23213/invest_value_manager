@@ -2,80 +2,68 @@
 # OVERWRITTEN each session (not accumulated). r1_cooldowns is rolling 30d.
 # Read by: session-planner, r1_prioritizer.py, session-phases
 # Written by: Fase 6 (last operation of each session)
-# Created: 2026-02-25
+# Created: 2026-03-20
 
 session:
-  id: 108
-  date: "2026-02-25"
-  timestamp_cet: "2026-02-25T08:30"
+  id: 116
+  date: "2026-03-20"
+  timestamp_cet: "2026-03-20T20:00"
+  note: "S116: LULU SOLD (-8.2%, archived). 4 SOs TRIGGERED all PAUSED (Hormuz Day 21). GL CEO selling watchpoint. BEI.DE R2 MODERATE COUNTER (PARKED). NVO Wegovy HD approved. Cash 56.3%. P&L -3.8%."
 
 completed:
   vigilance:
-    news_scan_time: "2026-02-25T08:00"
+    news_scan_time: "2026-03-20T19:30"
     critical_count: 1
-    note: "NVO CagriSema REDEFINE 4 FAILED (Feb 23). Stock -20%. Kill condition #1 triggered. HOLD at P/E 10.6x. FV $66→$55."
+    note: "1 CRITICAL ongoing: Hormuz crisis Day 21 ESCALATING. Oil WTI $98/Brent $108 (peaked $119 intraday). Qatar LNG attacked. FOMC held 3.50-3.75%, 1 cut. S&P 6,506 (new 2026 low). VIX 27."
   so_check:
-    timestamp: "2026-02-25T08:00"
-    nearest: { ticker: "IHP.L", distance_pct: 1.8 }
-    triggered: []
-    note: "IHP.L at 305.5p, trigger 300p (1.8%). No triggers executed."
+    timestamp: "2026-03-20T19:15"
+    nearest: { ticker: "FOUR.L", distance_pct: 0.9, note: "FOUR.L 0.9% above trigger 3,400p" }
+    triggered: ["RACE.MI (PAUSED)", "ALFA.L (PAUSED)", "ITRK.L (PAUSED, FCF gate)", "STMN.SW (PAUSED, GM gate)"]
+    note: "4 triggered, all PAUSED. 7 NEAR: ACGL 5.2%, RACE.MI ADD 1.4%, GL ADD 9.7%, IHP.L 1.2%, FOUR.L 0.9%, KNSL 6.2%, MEGP.L 1.2%."
   rotation_check: true
   net_exposure: true
-  net_exposure_reasoning: "Cash 54.9% (was 56.7%). NVO ADD deployed EUR 197 S107. Fair-Value regime. DTE TRIM + INTU BUY potential tomorrow could move cash +/- EUR 300. Holding elevated cash through dense earnings week is prudent."
-  position_reviews:
-    - { ticker: "NVO", verdict: "HOLD LOW — KC#1 triggered", e_cagr: 17.4, note: "REDEFINE 4 failed. FV $66→$55. Conviction MEDIUM→LOW. No further ADDs. P/E 10.6x prices extreme pessimism." }
-    - { ticker: "LULU", verdict: "HOLD PROBATION", e_cagr: -6.7, note: "E[CAGR] negative (yf growth -9.7%). Mar 31 make-or-break. No action." }
+  lulu_sold:
+    price: "$157.50 (approximate, range $155-160)"
+    pnl: "-8.2%"
+    archived: true
+    lesson: "Governance risk underestimated. Pre-set SELL trigger worked."
   earnings_assessed:
-    - { ticker: "BVI.PA", date: "2026-02-25", result: "BASE+", action: "All KCs PASS. Organic +6.5%, margin 16.3%, FCF EUR 824M. FV EUR 29 validated. Not actionable at EUR 27.58." }
-  earnings_prep_verified:
-    - { ticker: "DTE.DE", date: "2026-02-26", status: "DECISION-READY", key: "POSICION. TRIM >EUR 34. Price EUR 33.72 (0.8%). EBITDA vs EUR 48.5B." }
-    - { ticker: "QTCOM.HE", date: "2026-02-26", status: "DECISION-READY", key: "HARD GATE R2. Pass EBITA >=18%, Fail <15% → ARCHIVE." }
-    - { ticker: "INTU", date: "2026-02-26", status: "ALERT", key: "IN ENTRY RANGE at $358 (entry $330-365). QS 75. FV $465. After close. Pre-flight READY." }
-    - { ticker: "MEGP.L", date: "2026-02-27", status: "DECISION-READY", key: "HARD GATE R4. Entry 135p. NOT ON ETORO. At 147p." }
-    - { ticker: "PROX.BR", date: "2026-02-27", status: "NEAR", key: "BUY 3% at 7.50-7.70. At EUR 8.19 = 6-9% above. EUR 275M goodwill impairment reported." }
+    - "LULU Q4 FY2025: Beat on rev/EPS but FY2026 guide bearish (EPS declining -7-9% YoY, $380M tariff headwind). GM 54.9% borderline KC. No CEO 50+ days. SOLD."
+    - "NVO: Wegovy HD 7.2mg FDA approved (positive). India generics launched (expected). Thesis unchanged."
   pipeline_advancement:
-    - "REN.AS R3 COMPLETE (S108) — FV EUR 33.50→30.00. ROIC corrected 23%→15.4%. Entry EUR 22.50. WATCHLIST + SO pending R4."
-    - "NOS.LS pipeline_status corrected R1_COMPLETE→R2_REJECTED (R2 was done S106, DO_NOT_ADVANCE)."
-    - "REN.AS pipeline_status corrected R1_COMPLETE→R3_COMPLETE with r2/r3 session metadata."
-  velocity_units: 2  # REN.AS R2→R3 = 2 units. Below target (3+).
+    - "BEI.DE R2 MODERATE COUNTER completed. FV EUR 95-100 STALE → EUR 80-85. NIVEA share loss 12mo. QS revised 75→73 (Tier B). PARKED at EUR 83.66 (no MoS). Entry revised EUR 70-75."
+    - "GL thesis updated: CEO selling $2.7M watchpoint, whistleblower monitoring. KC#4 NOT triggered."
+    - "4 SOs PAUSED: RACE.MI -7.2%, ALFA.L -8.2%, ITRK.L -2.9%, STMN.SW -5.3%. All below triggers but crisis-blocked."
+  velocity_units: 2  # BEI.DE R2 (2 units). Below 3-unit target — justified by crisis + LULU exit workload.
   system_improvements:
-    - "quality_universe.yaml: Fixed NOS.LS (R2_REJECTED) and REN.AS (R3_COMPLETE) pipeline_status inconsistencies."
-    - "NVO FV revised $66→$55 post-REDEFINE-4. Conviction MEDIUM→LOW. Kill condition #1 documented."
+    - "Pipeline tracker refreshed (10+ items updated)"
+    - "Net exposure reasoning updated to S116"
+    - "Standing orders updated with PAUSED status notes"
+    - "LULU archived — portfolio 12→11 positions"
+    - "NVO thesis updated with Wegovy HD + India generics note"
+    - "GL thesis updated with CEO selling watchpoint"
+    - "Drift detection clean (monthly, DUE TODAY → done)"
+    - "Macro refresh done via news/market scan"
+    - "Health check running (background)"
 
 skip_if_same_day:
-  vigilance_fresh_until: "2026-02-26T07:00"
-  so_fresh_until: "2026-02-26T07:00"
+  vigilance_fresh_until: "2026-03-20T23:59"
+  so_fresh_until: "2026-03-20T23:59"
   rotation_done_today: true
 
 # Rolling 30-day cooldown window. Max 30 entries.
 r1_cooldowns:
-  # Session 105 (2026-02-20)
-  - { ticker: "ROR.L", verdict: "OVERVALUED", session: 105, date: "2026-02-20", price_at_analysis: 385.6, cooldown_until: "2026-03-06" }
-  # Session 104 (2026-02-20)
-  - { ticker: "ASM.AS", verdict: "OVERVALUED", session: 104, date: "2026-02-20", price_at_analysis: 709.4, cooldown_until: "2026-03-06" }
-  - { ticker: "BEI.DE", verdict: "OVERVALUED", session: 104, date: "2026-02-20", price_at_analysis: 106.5, cooldown_until: "2026-03-06" }
-  # Session 103 (2026-02-20)
-  - { ticker: "RO.SW", verdict: "AT_FV", session: 103, date: "2026-02-20", price_at_analysis: 375.80, cooldown_until: "2026-03-06" }
-  # Session 102 (2026-02-20)
-  - { ticker: "REN.AS", verdict: "AT_FV", session: 102, date: "2026-02-20", price_at_analysis: 26.80, cooldown_until: "2026-03-06" }
-  # Session 97 (2026-02-20)
+  # MNST cooldown expires Mar 22 — clean up next session
   - { ticker: "MNST", verdict: "FANTASY", session: 97, date: "2026-02-20", price_at_analysis: 82, cooldown_until: "2026-03-22" }
-  - { ticker: "OR.PA", verdict: "OVERVALUED", session: 97, date: "2026-02-20", price_at_analysis: 395, cooldown_until: "2026-03-06" }
-  - { ticker: "AM.PA", verdict: "OVERVALUED", session: 97, date: "2026-02-20", price_at_analysis: 351, cooldown_until: "2026-03-06" }
-  - { ticker: "BEAN.SW", verdict: "FANTASY", session: 97, date: "2026-02-20", price_at_analysis: 904, cooldown_until: "2026-03-22" }
-  # Session 92 (2026-02-20)
-  - { ticker: "KNEBV.HE", verdict: "OVERVALUED", session: 92, date: "2026-02-20", price_at_analysis: 53.6, cooldown_until: "2026-03-06" }
 
 next_priorities:
-  - "DTE.DE earnings Wed Feb 26 — TRIM >EUR 34 pre-committed. At EUR 33.72, 0.8% from trigger. TRIM ~25% (5 shares) if triggers."
-  - "INTU earnings Wed Feb 26 after close — IN ENTRY RANGE at $358. FV $465. QS 75. Decision tree ready. BUY EUR 300 (3%) if strong results + price holds $330-365."
-  - "QTCOM.HE HARD GATE Wed Feb 26 — EBITA >=18% PASS, <15% ARCHIVE."
-  - "MEGP.L HARD GATE Thu Feb 27 — Entry 135p. NOT ON ETORO. At 147p."
-  - "PROX.BR Thu Feb 27 — BUY 3% at 7.50-7.70. At EUR 8.19. EUR 275M goodwill impairment = re-evaluate FV impact."
-  - "IHP.L SO 300p — 1.8% from trigger. Execute EUR 200 if triggers. UK constraint pre-approved."
-  - "NVO full review-agent — FV $55, KC#1 triggered. Formal thesis update needed."
-  - "EDEN.PA FV review — 2026 EBITDA guided -8-12% LfL. May need FV adjustment from EUR 29."
-  - "R4 COMMITTEE PIPELINE — 12 R3_COMPLETE ready: ITX.MC QS 86, ALFA.L QS 83, CDNS QS 82. Priority for next session."
-  - "KLR.L FY2025 Mar 3 — HARD GATE for SO activation."
-  - "ITRK.L FY2025 Mar 3 — HARD GATE for R4."
-  - "Pipeline velocity: 2 units S108 (target 3). Still below. 12 R3_COMPLETE ready for R4 = opportunity."
+  - "**MEGP.L Mar 23 — 3rd attempt at FY2025 results.** Clean audit MANDATORY. If another delay or qualified audit → ARCHIVE immediately. If clean → R4 evaluation. Framework valid."
+  - "**HORMUZ daily monitor.** Crisis Day 21+. If ceasefire/reopening → deploy ALFA.L FIRST (151p, -8.2% below trigger, QS 83 Tier A, UK software minimal oil exposure), then RACE.MI (EUR 273, QS 82 Tier A). VIX <22 sustained + oil <$90 = deployment gate cleared."
+  - "**GL CEO selling monitoring.** Watch for: (a) continued Darden sales, (b) DOJ/SEC reopening (KC#4), (c) whistleblower lawsuit developments. If formal government investigation → SELL."
+  - "**ADBE CEO succession.** Monitor for successor announcement. Internal (Belsky/Arora) = positive. External search dragging = negative."
+  - "**BEI.DE PARKED.** R2 MODERATE COUNTER. Wait Q1 2026 results (Apr/May) + price drop to EUR 70-75 for actionability. Revised FV EUR 80-85."
+  - "**DNLM.L near 52w low (811p vs 808p).** Fundamentals intact but -14.9% from entry. ADD at 800p per exit plan. Monitor UK consumer sentiment."
+  - "**8 STALE sectors with portfolio deps.** Priority: digital-marketplaces (42d, AUTO.L), consumer-discretionary (41d, DOM.L/DNLM.L), pharma-healthcare (36d, NVO), technology (36d, ADBE/BYIT.L). Batch refresh when session context allows."
+  - "**Position review overdue (12d).** Monthly batch — focus on positions with new data (GL, NVO, ADBE post-earnings). LULU removed."
+  - "**Universe refresh DUE TODAY but skipped.** Run batch_scorer on major indices next session if context allows."
+  - "**UK concentration risk.** 5 of 11 positions UK-exposed (45.5%). All near 52w lows. If UK enters recession from oil shock, these move together. Flag for position review."

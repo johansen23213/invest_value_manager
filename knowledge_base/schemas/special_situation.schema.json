@@ -1,0 +1,130 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://valuehunter.local/schemas/special_situation.schema.json",
+  "title": "Special Situation",
+  "description": "Tracking record for an active special situation (merger arb, liquidation, spin-off, etc.)",
+  "type": "object",
+  "required": ["ticker", "type", "announced_date", "status"],
+  "additionalProperties": false,
+  "properties": {
+    "ticker": { "type": "string" },
+    "company_name": { "type": ["string", "null"] },
+    "type": {
+      "type": "string",
+      "enum": ["MERGER_ARB", "LIQUIDATION", "SPINOFF", "NET_CASH", "ODD_LOT", "CVR", "TENDER_OFFER", "RIGHTS_OFFERING", "STUB", "BANKRUPTCY"]
+    },
+    "status": {
+      "type": "string",
+      "enum": ["ACTIVE", "CLOSED_SUCCESSFUL", "CLOSED_FAILED", "EXPIRED", "MONITORING"]
+    },
+    "announced_date": { "type": "string", "format": "date" },
+
+    "deal_price": {
+      "type": ["number", "null"],
+      "description": "Offer/deal price per share (merger arb, tender)"
+    },
+    "current_price": { "type": ["number", "null"] },
+    "spread_pct": {
+      "type": ["number", "null"],
+      "description": "Current spread to deal price"
+    },
+    "annualized_spread_pct": { "type": ["number", "null"] },
+    "break_fee_pct": {
+      "type": ["number", "null"],
+      "description": "Break/termination fee as % of deal value"
+    },
+    "close_probability_pct": {
+      "type": ["number", "null"],
+      "description": "Estimated probability of deal closing",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "expected_close_date": {
+      "type": ["string", "null"],
+      "format": "date"
+    },
+    "acquirer": {
+      "type": ["string", "null"],
+      "description": "Acquiring company (merger arb)"
+    },
+
+    "net_cash_per_share": {
+      "type": ["number", "null"],
+      "description": "Net cash per share (net cash plays, busted biotech)"
+    },
+    "burn_rate_monthly": {
+      "type": ["number", "null"],
+      "description": "Monthly cash burn (biotech)"
+    },
+    "months_until_zero_cash": { "type": ["number", "null"] },
+    "cvr_value": {
+      "type": ["number", "null"],
+      "description": "Contingent Value Right estimated value"
+    },
+
+    "stub_valuation": {
+      "type": ["number", "null"],
+      "description": "Implied stub value per share (spin-off)"
+    },
+    "parent_ticker": { "type": ["string", "null"] },
+    "spinoff_ticker": { "type": ["string", "null"] },
+    "spinoff_ratio": { "type": ["string", "null"] },
+
+    "liquidation_value_per_share": { "type": ["number", "null"] },
+    "liquidation_haircut_pct": {
+      "type": ["number", "null"],
+      "description": "Estimated haircut on asset values"
+    },
+    "distributions_received": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "date": { "type": "string", "format": "date" },
+          "amount_per_share": { "type": "number" },
+          "type": { "type": "string" }
+        },
+        "required": ["date", "amount_per_share"],
+        "additionalProperties": false
+      }
+    },
+
+    "regulatory_approvals": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "authority": { "type": "string" },
+          "status": { "type": "string", "enum": ["PENDING", "APPROVED", "DENIED", "CONDITIONAL"] },
+          "expected_date": { "type": ["string", "null"], "format": "date" }
+        },
+        "required": ["authority", "status"],
+        "additionalProperties": false
+      }
+    },
+
+    "sec_filings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "form_type": { "type": "string", "description": "8-K, 13D, SC 14D9, S-1, etc." },
+          "filing_date": { "type": "string", "format": "date" },
+          "url": { "type": ["string", "null"], "format": "uri" },
+          "summary": { "type": ["string", "null"] }
+        },
+        "required": ["form_type", "filing_date"],
+        "additionalProperties": false
+      }
+    },
+
+    "source": {
+      "type": ["string", "null"],
+      "description": "How we found this situation (HOROS, ALPHA_VULTURE, SEC_RSS, SCREENER, MANUAL)"
+    },
+    "source_url": { "type": ["string", "null"], "format": "uri" },
+    "thesis_path": { "type": ["string", "null"] },
+    "last_updated": { "type": "string", "format": "date" },
+    "notes": { "type": ["string", "null"] }
+  }
+}

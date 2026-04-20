@@ -402,7 +402,7 @@ v2.0 said "trending WIDE" — but store opening deceleration suggests franchise 
 
 ---
 
-## SECTION 9: PRE-EARNINGS FRAMEWORK (FY25 Results — March 5, 2026)
+## SECTION 9: PRE-EARNINGS FRAMEWORK (FY25 Results — March 10, 2026 (CORRECTED from Mar 5))
 
 ### Key Numbers to Watch
 
@@ -505,7 +505,7 @@ v2.0 had +67% expected return — was overly optimistic.
 
 | Date | Event | Impact |
 |------|-------|--------|
-| **Mar 5, 2026** | **FY25 Results** | **CRITICAL — SELL/HOLD decision** |
+| **Mar 10, 2026** | **FY25 Results** | **CRITICAL — SELL/HOLD decision** |
 | Mar 16, 2026 | New CFO Andy Andrea starts | MEDIUM — operational stability |
 | Apr 6, 2026 | New CEO Dominic Paul starts | HIGH — strategic direction |
 | Q2 2026 | H1 2026 trading update | MEDIUM — first read under new management |
@@ -560,3 +560,4 @@ v2.0 had +67% expected return — was overly optimistic.
 | 2026-02-02 | 1.1 | Added detail, profit warning context |
 | 2026-02-03 | 2.0 | Full v2.0 rewrite: derived WACC, multi-method valuation, FV 294p |
 | 2026-02-10 | 3.0 | **Adversarial v3.0**: FV 294→240p (-18.4%). CEO resolved (Dominic Paul). FCF conversion corrected (85→43-52%). Store growth revised (50→25-35/yr). Margins compressed (21→19-20%). Added KC#1 EBITDA<125M. Added pre-earnings framework Mar 5. Conviction LOW. QS Tool-First: 61/100 Tier B confirmed. |
+| 2026-03-10 | 3.1 | **Post-FY25 Assessment (S112)**: EBITDA GBP 133.9M = BASE case (130-137M). ALL KCs PASS. FCF GBP 80.7M major beat (consensus 57M, conversion 60% vs feared 43%). 31 stores opened (above mid-twenties guide). Revenue 685.4M (+3.1%). EPS 17.6p (-13.7% YoY). Market share 52.6% pizza. Dividend +2.7% to 11.3p. Net debt 284.6M (ND/EBITDA 2.12x). FY26 guidance "in line with expectations" (~132-142M EBITDA). Orders declining -2.3% LFL (volume concern). FV 240p MAINTAINED. Conviction LOW. Next catalyst: CEO Dominic Paul starts Apr 6, CFO Andy Andrea starts Mar 16. |

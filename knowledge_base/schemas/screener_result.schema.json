@@ -1,0 +1,96 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://valuehunter.local/schemas/screener_result.schema.json",
+  "title": "Screener Result",
+  "description": "Output of a screening run (quantitative or special situations)",
+  "type": "object",
+  "required": ["run_id", "run_date", "screener", "candidates"],
+  "additionalProperties": false,
+  "properties": {
+    "run_id": {
+      "type": "string",
+      "description": "Unique run identifier (e.g. quant-2026-04-15-001)"
+    },
+    "run_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "screener": {
+      "type": "string",
+      "enum": ["QUANT", "SPECIAL_SITS"]
+    },
+    "parameters": {
+      "type": "object",
+      "description": "Screening parameters used",
+      "properties": {
+        "universe": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Indices screened (sp500, stoxx600, etc.)"
+        },
+        "pe_max": { "type": ["number", "null"] },
+        "pb_max": { "type": ["number", "null"] },
+        "ev_ebitda_max": { "type": ["number", "null"] },
+        "net_cash_min": { "type": ["number", "null"] },
+        "insider_pct_min": { "type": ["number", "null"] },
+        "mcap_max_usd": { "type": ["number", "null"] },
+        "momentum_neg_days": { "type": ["integer", "null"] },
+        "lookback_days": { "type": ["integer", "null"] },
+        "sources": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "For SPECIAL_SITS: SEC_RSS, PR_NEWSWIRE, etc."
+        }
+      },
+      "additionalProperties": true
+    },
+    "candidates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["ticker", "score"],
+        "properties": {
+          "ticker": { "type": "string" },
+          "company_name": { "type": ["string", "null"] },
+          "score": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100,
+            "description": "Composite screening score"
+          },
+          "signal_reasons": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Why this candidate was flagged"
+          },
+          "situation_type": {
+            "type": ["string", "null"],
+            "enum": ["MERGER_ARB", "LIQUIDATION", "SPINOFF", "NET_CASH", "ODD_LOT", "CVR", "TENDER_OFFER", "RIGHTS_OFFERING", "STUB", null],
+            "description": "For SPECIAL_SITS screener"
+          },
+          "key_metrics": {
+            "type": "object",
+            "description": "Relevant metrics that drove the score",
+            "additionalProperties": true
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "total_universe_size": {
+      "type": ["integer", "null"],
+      "description": "Number of stocks in the universe before filtering"
+    },
+    "total_passed": {
+      "type": "integer",
+      "description": "Number of candidates that passed filters"
+    },
+    "duration_seconds": {
+      "type": ["number", "null"]
+    },
+    "agent_model": {
+      "type": ["string", "null"],
+      "description": "Model used for scoring (haiku-4-5, etc.)"
+    }
+  }
+}

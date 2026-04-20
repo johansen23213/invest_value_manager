@@ -1,7 +1,7 @@
 # STANDING ORDERS - Price alerts with pre-written thesis
 # NOT autonomous orders. Human alerts Claude when price hits trigger.
 # Claude runs fast-track validation (pre-execution-check + reverse DCF) before recommending.
-# Updated: 2026-02-20 (Session 99 — restructured with categories)
+# Updated: 2026-03-11 (Session 113 — FOUR.L SO added, distances refreshed)
 #
 # CATEGORIES:
 # ACTIVE     — trigger <15% away, no unmet gate, prob_fill >25%. Human should watch daily.
@@ -20,33 +20,20 @@ standing_orders:
     category: ACTIVE
     fill_prob_6m: 75
     trigger: "<=EUR 295"
-    current_distance: "3.8%"
+    current_distance: "2.2%"
     size_eur: 350
     fair_value: "EUR 355"
     mos_at_trigger: "16.9%"
     tier: "A (QS 82/84)"
-    notes: "Committee approved. Trigger RAISED EUR 270→295 (Session 90, Expected Return framework). E[CAGR] ~14.5% at EUR 295 vs cash 3%. Luce gate DE-RISKED (interior revealed Feb 9, positive feedback). Tariff gate DE-RISKED (25%→15%, Greenland threat withdrawn). Fair-Value mode: MoS 5-15% Tier A acceptable."
-    last_analysis_date: 2026-02-20
+    notes: "Committee approved. Trigger RAISED EUR 270→295 (Session 90). E[CAGR] ~14.5% at EUR 295. S116: STILL TRIGGERED (EUR 273.80, -7.2%) — PAUSED. Hormuz Day 21, Brent $108, VIX 26. Crisis ESCALATED (Qatar LNG attacked, UAE gas field struck). No off-ramp. HOLD PAUSE until VIX <22 sustained + Hormuz reopening."
+    last_analysis_date: 2026-03-12
     expiry: 2026-08-01
 
   # MORN — EXECUTED 2026-02-20 (Session 101). Market buy at $160.76, 2.9 shares, $466.20.
   # First E[CAGR]-framework market buy. E[CAGR] 15.6% at $162 >> 12% threshold. MoS 17%.
   # SO at $150 superseded by market execution. New precedent logged in decisions_log.yaml.
 
-  - ticker: DNLM.L
-    action: BUY
-    category: ACTIVE
-    fill_prob_6m: 60
-    trigger: "<=950 GBp"
-    current_distance: "3.3%"
-    size_eur: 375
-    fair_value: "1008 GBp"
-    mos_at_trigger: "5.8%"
-    tier: "A (QS 79)"
-    notes: "TRIGGER RAISED 780p→900p (S91) →950p (S101). E[CAGR] 13.6% at 950p (growth 7% + yield 4.6% + MoS convergence 2.0%). Last justifiable raise (at 970p+, E[CAGR] approaches 12%). R4 approved. UK homewares leader, 8.4% ROIC-WACC spread, 30.5% insider."
-    conditions: "REQUIRED: Verify UK positions <=4 before execution (would be 5th UK position with IHP.L)."
-    last_analysis_date: 2026-02-20
-    expiry: 2026-06-01
+  # DNLM.L — FILLED 2026-03-04 at 947 GBp. EUR 375 (~34 shares). S110. Moved to portfolio.
 
   - ticker: ACGL
     action: BUY
@@ -123,6 +110,60 @@ standing_orders:
   # GATED — Cannot execute until pre-execution condition is met.
   # ═══════════════════════════════════════════════════════════════════════
 
+  - ticker: ALFA.L
+    action: BUY
+    category: GATED
+    fill_prob_6m: 50
+    trigger: "<=165 GBp"
+    current_distance: "5.1%"
+    gate: "R4 APPROVED S114. Hormuz crisis → conservative entry. If crisis de-escalates + stock >180p, consider raising trigger."
+    size_eur: 350
+    shares_approx: 36
+    fair_value: "240 GBp (R4 revised up from 235p. FCF GBP 39M beat bull threshold)"
+    mos_at_trigger: "31.3%"
+    tier: "A (QS 80/83 adj)"
+    notes: "S114: R4 10/10 PASS. FY2025 ALL 5 hard gates passed (BASE-PLUS/BULL). FCF GBP 39M (+28%), NRR 109%, zero customer losses in 15 years. Vertical SaaS monopoly. 56.7% insider. S116: TRIGGERED at 151.40p (-8.2% below 165p). 8 analysts BUY avg PT 286.5p. RSI 27.54 oversold. PAUSED — Hormuz crisis (Brent $108, VIX 26). FIRST TO DEPLOY when crisis de-escalates. UK software, minimal oil exposure."
+    kill_conditions: "NRR<100%, CHP<40%, no wins 2yr, OM<25% 2yr, major client loss, receivables rising 3 periods, pricing erosion >10%, subscription growth <10%"
+    pre_execution_condition: "R4 approved. UK positions must be <=6 when executing."
+    last_analysis_date: 2026-03-12
+    expiry: 2026-09-01
+
+  - ticker: FOUR.L
+    action: BUY
+    category: GATED
+    fill_prob_6m: 40
+    trigger: "<=3,400 GBp"
+    current_distance: "3.4%"
+    gate: "R4 WATCHLIST CONDITIONAL (S115). Macro FAIL (Gate 6): Hormuz crisis, recession risk for cyclical SMB business. Condition A: Hormuz reopens OR oil <$80 + VIX <22. Condition B: Price drops to 3,000-3,100p (30% MoS, crisis-compensated). FY2025 gate PASSED."
+    size_eur: 375
+    shares_approx: 9
+    fair_value: "4,400 GBp (R3 revised, was 5,300 R1)"
+    mos_at_trigger: "22.7%"
+    tier: "B (QS 67/69 adj)"
+    notes: "S113: FY2025 results PASSED most R3 conditions. #1 promo products distributor, 85% ROIC, net cash $133M, drop-ship model. Stock -7.8% on results day to 3,515p. Key concern: KC#5 Year 1 (market share loss), new customer -12% 2nd yr. E[CAGR] at 3,400p ~17.8%. R4 committee required."
+    kill_conditions: "KC#1: new cust >-15% 2yr. KC#2: ROIC <30% 2yr. KC#3: GM <28%. KC#4: large acquisition. KC#5: share loss 2yr (Year 1 triggered). KC#6: CEO departure. KC#7: drop-ship model restructured. KC#8: mktg efficiency <$7.00"
+    pre_execution_condition: "R4 investment committee approval. Price must be <=3,400 GBp."
+    last_analysis_date: 2026-03-11
+    expiry: 2026-09-01
+
+  - ticker: ITRK.L
+    action: BUY
+    category: GATED
+    fill_prob_6m: 30
+    trigger: "<=3,700 GBp"
+    current_distance: "7.5%"
+    gate: "CONDITIONAL — margin PASS (18.1%) but FCF MISS (-14%). R4 committee required. Need H1 2026 FCF recovery confirmation OR further price drop to provide additional MoS."
+    size_eur: 400
+    shares_approx: 9
+    fair_value: "4,700 GBp"
+    mos_at_trigger: "21.3%"
+    tier: "B (QS 63/68 adj)"
+    notes: "S109: ITRK.L FY2025 MIXED — margin 18.1% PASS but FCF -14% FAIL. S116: TRIGGERED at 3,592p (-2.9% below 3,700p). Still GATED — FCF recovery gate not cleared (need H1 2026 data ~July). No R4 committee yet. At 3,592p E[CAGR] ~14%. PAUSED — Hormuz crisis + FCF gate unmet."
+    kill_conditions: "Op margin <15% 2Q, organic revenue negative 2Q, Tesco settlement >GBP 200M, CEO departure within 12mo"
+    pre_execution_condition: "R4 committee required. FCF recovery in H1 2026 OR price drop to 3,500p (providing 25.5% MoS) before executing."
+    last_analysis_date: 2026-03-03
+    expiry: 2026-10-01
+
   - ticker: STMN.SW
     action: BUY
     category: GATED
@@ -135,7 +176,7 @@ standing_orders:
     fair_value: "CHF 110"
     mos_at_trigger: "27.3%"
     tier: "B (QS 60/72 adj)"
-    notes: "R3 RESOLVED (S102). FV revised 118→110, entry 85→80, bear 92 (was 102.5). WACC 9.0% (was 8.5%). FCF margin 13% (was 15%). EV/EBIT 27x (was 29x). R2 was 11/19 MODERATE COUNTER. GM 70.1% = AMBER (kill at 69%). #1 dental implants, 71% GM, 29% insider, near-zero debt."
+    notes: "R3 RESOLVED (S102). FV CHF 110, bear 92. #1 dental implants, 71% GM, 29% insider, near-zero debt. S116: TRIGGERED at CHF 75.80 (-5.3% below CHF 80). GM gate needs verification — last reported 70.1% (AMBER, kill at 69%). Positive: Q1 results strong, EUR 263M Poland contract, stock +11.5%. PAUSED — verify GM >=70% in latest report before executing."
     kill_conditions: "GM <69%, ROIC <WACC 2yr, market share <30%, US tariffs >20% 12mo"
     pre_execution_condition: "R4 committee required. GM must be >=70% at most recent report. If H1 2026 (July) shows GM <70%, CANCEL this SO."
     last_analysis_date: 2026-02-20
@@ -143,20 +184,18 @@ standing_orders:
 
   - ticker: KLR.L
     action: BUY
-    category: GATED
-    fill_prob_6m: 20
+    category: BORDERLINE
+    fill_prob_6m: 15
     trigger: "<=1,700p"
-    current_distance: "16.1%"
-    gate: "FY2025 results (Mar 3, 2026) — PASS: OP margin >=6.5% AND order book >=GBP 1.4B"
+    current_distance: "~24%"
     size_eur: 400
     shares_approx: 23
     fair_value: "2,100p"
     mos_at_trigger: "19.0%"
     tier: "A (QS 76/79 adj)"
-    notes: "R3 RESOLVED (S103). FV 2,600→2,100 (-19.2%). Entry 1,750→1,700. Margin 6%→5.5%, EV/EBIT 10.5x→9.5x. R2 was 11/19 MODERATE COUNTER: margin mean reversion + IIJA cliff + H1 2025 weakness. Bear 1,450p. #1 global geotechnical, ROIC 19.7%, ND/EBITDA 0.4x."
+    notes: "HARD GATE PASSED S109 (Mar 3, 2026). FY2025 RECORD: OP margin 7.1% (PASS >=6.5%), OB GBP 1.5B (PASS >=1.4B), ROCE 30.7% (17yr high). Net cash GBP 59.7M (first in 25yr). FCF GBP 175.9M. DPS +41.6%. GBP 100M buyback 2026. Stock rallied +10.8% to ~2,200p. Entry 1,700p = 24% away. R3 FV 2,100p may be conservative given balance sheet transformation."
     kill_conditions: "OP margin <5% 2Q, order book <GBP 1.2B, ROIC <WACC, CEO acquisition >GBP 200M, US infra spending -15%"
-    pre_execution_condition: "FY2025 results Mar 3, 2026. PASS: OP margin >=6.5% + order book >=1.4B. FAIL: margin <5.5% or OB <1.2B → CANCEL. CONDITIONAL: 5.5-6.5% margin → reassess with tighter entry."
-    last_analysis_date: 2026-02-20
+    last_analysis_date: 2026-03-03
     expiry: 2026-10-01
 
   # NVO ADD — EXECUTED 2026-02-24. Price <=$40 gate triggered ($38.76).
@@ -293,24 +332,41 @@ standing_orders:
   - ticker: MEGP.L
     action: BUY
     category: GATED
-    fill_prob_6m: 10
+    fill_prob_6m: 5
     trigger: "<=135 GBp"
-    current_distance: "5.5%"
-    gate: "SUSPENDED — NOT AVAILABLE ON ETORO + FY2025 results Feb 27 + R4 committee"
-    status: "SUSPENDED — NOT AVAILABLE ON ETORO (confirmed Session 93). Pipeline continues but SO not executable."
+    current_distance: "BELOW TRIGGER — stock at 121p (SUSPENDED)"
+    gate: "SUSPENDED — NOT ON ETORO + shares SUSPENDED + audit delay + R4 committee"
+    status: "SUSPENDED — Shares suspended from Mar 2 due to audit delay. NOT on eToro. Results delayed AGAIN to Mar 23 (2nd delay)."
     size_eur: 400
     shares_approx: 259
     fair_value: "180 GBp"
     mos_at_trigger: "25%"
     tier: "A (QS 80)"
-    notes: "R3 complete. DA -10% (200→180p). ROIC +32pp, net cash, 37% insider. eToro does NOT list MEGP.L — no etoro.com/markets/megp.l page found. Explore alternative platforms or accept as pipeline-only."
-    pre_execution_condition: "HARD GATE: FY2025 results Feb 27 must confirm laundry installs >800, receivables explained, no KC triggered. R4 committee required post-earnings. ALSO: confirm tradeable platform."
-    last_analysis_date: 2026-02-20
+    notes: "S109 UPDATE: Shares SUSPENDED Mar 2 — KPMG audit not complete. Stock fell -17% to 121p (BELOW 135p trigger but UNTRADEABLE). FY2025 results delayed Feb 27→Mar 13. German Verpackungsgesetz regulation CONFIRMED as headwind. Unaudited: laundry installs ~1,000 (MARGINAL), revenue +3%, PBT 'broadly in line'. Clean audit opinion now MANDATORY gate. If audit issues → thesis potentially dead. NOT on eToro — platform availability unsolved."
+    pre_execution_condition: "HARD GATE: (1) Clean audit opinion on Mar 13, (2) laundry installs >=1000, (3) receivables explained, (4) no KC triggered, (5) R4 committee post-earnings, (6) confirm tradeable platform. ANY audit qualification → ARCHIVE."
+    last_analysis_date: 2026-03-03
     expiry: 2026-08-01
 
   # ═══════════════════════════════════════════════════════════════════════
   # BORDERLINE — 15-25% away, no unmet gate. Realistic in correction.
   # ═══════════════════════════════════════════════════════════════════════
+
+  - ticker: REN.AS
+    action: BUY
+    category: BORDERLINE
+    fill_prob_6m: 15
+    trigger: "<=EUR 22.50"
+    current_distance: "24.6%"
+    size_eur: 350
+    shares_approx: 15
+    fair_value: "EUR 30.00 (R3 resolved)"
+    mos_at_trigger: "25.0%"
+    tier: "A (QS 73/78 adj)"
+    kill_conditions: "8 KCs — see r3_resolution.md. Key: ROIC declining 2yr, >20 uni Elsevier opt-outs, Harvey cannibalization >GBP 200M, Legal/Risk decline 2Q, CEO departure."
+    pre_execution_condition: "Pre-flight MANDATORY: verify all 8 KCs, Elsevier count <20, CEO in role, ND/EBITDA <2.5x. MORN+RELX combined <10% portfolio."
+    notes: "R4 APPROVED S109. Information analytics data owner. WIDE moat Legal+Risk, NARROW STM. Goodwill 54% — company ROIC 15.4% (tool 23.2%). E[CAGR] ~12.9% at entry. Bear FV EUR 22 = near-zero cushion (documented weakness). CEO net seller GBP 2.5M."
+    last_analysis_date: 2026-03-03
+    expiry: 2026-09-01
 
   - ticker: V
     action: BUY
@@ -400,12 +456,16 @@ review_flags:
   # Trigger lowered $300→$285. FV revised $385→$365. See thesis/research/ROP/review_feb2026.md
 
 # =============================================================================
-# SO SUMMARY (Updated 2026-02-24)
-# ACTIVE:     7 (RACE.MI BUY 3.8%, IHP.L 5.0%, DNLM.L 3.3%, ACGL 10.5%,
-#              RACE.MI ADD 12%, GL ADD 13.2%, MRSH 13.3%)
-# GATED:     10 (STMN.SW, BYIT.L, ROP, FDS, VLTO, DSY.PA, KNSL, SOON.SW, EEFT, MEGP.L)
-#              NVO ADD EXECUTED 2026-02-24
-# BORDERLINE: 1 (V 18.5%)
+# SO SUMMARY (Updated 2026-03-11 S113)
+# ACTIVE:     6 (RACE.MI BUY 1.9%, IHP.L 5%, ACGL 8.1%,
+#              RACE.MI ADD 11.3%, GL ADD 13.9%, MRSH 12.1%)
+# GATED:     12 (FOUR.L 3.4%, ITRK.L 4.5%, STMN.SW 4.6%, BYIT.L, ROP, FDS,
+#              VLTO, DSY.PA, KNSL, SOON.SW, EEFT, MEGP.L)
+#              FOUR.L: NEW S113. FY2025 gate PASSED. R4 committee required.
+#              MEGP.L: shares SUSPENDED, audit delay to Mar 13
+#              ITRK.L: margin PASS, FCF MISS, R4 required
+# BORDERLINE: 3 (KLR.L 26%, REN.AS 35%, V 20.8%)
 # EXTREME:    4 (MA, PAYC, ZTS, V_ADD)
-# TOTAL:     22 (18 standing + 4 extreme)
+# TOTAL:     25 (21 standing + 4 extreme) — FOUR.L added S113
+# FILLED:    DNLM.L 2026-03-04 at 947 GBp, MORN 2026-02-20 at $161
 # =============================================================================

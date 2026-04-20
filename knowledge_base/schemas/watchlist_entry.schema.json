@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://valuehunter.local/schemas/watchlist_entry.schema.json",
+  "title": "Watchlist Entry",
+  "description": "A candidate on the watchlist (state/watchlist.yaml)",
+  "type": "object",
+  "required": ["ticker", "stage"],
+  "additionalProperties": false,
+  "properties": {
+    "ticker": { "type": "string" },
+    "company_name": { "type": ["string", "null"] },
+    "stage": {
+      "type": "string",
+      "enum": ["NEAR_ENTRY", "DEVELOPING", "MONITOR", "PRICE_WATCH", "ARCHIVED", "REJECTED"]
+    },
+    "side": { "type": "string", "enum": ["LONG", "SHORT"], "default": "LONG" },
+    "entry_price": {
+      "type": ["number", "null"],
+      "description": "Target entry price"
+    },
+    "current_price": { "type": ["number", "null"] },
+    "trigger_condition": {
+      "type": ["string", "null"],
+      "description": "What needs to happen for entry"
+    },
+    "qs_tier": { "type": ["string", "null"], "enum": ["A", "B", "C", "D", null] },
+    "qs_raw": { "type": ["number", "null"], "minimum": 0, "maximum": 100 },
+    "e_cagr_pct": { "type": ["number", "null"] },
+    "fair_value": { "type": ["number", "null"] },
+    "pipeline_stage": {
+      "type": ["string", "null"],
+      "enum": ["R1_COMPLETE", "R2_UNDERWAY", "R2_COMPLETE", "R3_COMPLETE", "R4_APPROVED", "S1_COMPLETE", "S2_UNDERWAY", "S2_COMPLETE", "S3_COMPLETE", "S4_APPROVED", null]
+    },
+    "thesis_path": { "type": ["string", "null"] },
+    "sector": { "type": ["string", "null"] },
+    "geo": { "type": ["string", "null"] },
+    "added_date": { "type": ["string", "null"], "format": "date" },
+    "last_updated": { "type": ["string", "null"], "format": "date" },
+    "notes": { "type": ["string", "null"] }
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://valuehunter.local/schemas/thesis.schema.json",
+  "title": "Investment Thesis",
+  "description": "Structured investment thesis (companion to thesis.md markdown)",
+  "type": "object",
+  "required": ["ticker", "side", "conviction", "entry_price", "fair_value", "created_date"],
+  "additionalProperties": false,
+  "properties": {
+    "ticker": { "type": "string" },
+    "company_name": { "type": "string" },
+    "side": { "type": "string", "enum": ["LONG", "SHORT"] },
+    "qs_tier": { "type": "string", "enum": ["A", "B", "C", "D"] },
+    "qs_raw": { "type": "number", "minimum": 0, "maximum": 100 },
+    "bull_case": {
+      "type": "object",
+      "properties": {
+        "narrative": { "type": "string" },
+        "fair_value": { "type": "number" },
+        "probability_pct": { "type": "number", "minimum": 0, "maximum": 100 }
+      },
+      "required": ["narrative", "fair_value"],
+      "additionalProperties": false
+    },
+    "base_case": {
+      "type": "object",
+      "properties": {
+        "narrative": { "type": "string" },
+        "fair_value": { "type": "number" },
+        "probability_pct": { "type": "number", "minimum": 0, "maximum": 100 }
+      },
+      "required": ["narrative", "fair_value"],
+      "additionalProperties": false
+    },
+    "bear_case": {
+      "type": "object",
+      "properties": {
+        "narrative": { "type": "string" },
+        "fair_value": { "type": "number" },
+        "probability_pct": { "type": "number", "minimum": 0, "maximum": 100 }
+      },
+      "required": ["narrative", "fair_value"],
+      "additionalProperties": false
+    },
+    "catalysts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "description": { "type": "string" },
+          "expected_date": { "type": ["string", "null"], "format": "date" },
+          "impact": { "type": "string", "enum": ["HIGH", "MEDIUM", "LOW"] }
+        },
+        "required": ["description"],
+        "additionalProperties": false
+      }
+    },
+    "kill_conditions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "condition": { "type": "string" },
+          "metric": { "type": ["string", "null"] },
+          "threshold": { "type": ["string", "null"] },
+          "status": { "type": "string", "enum": ["ACTIVE", "TRIGGERED", "EXPIRED"] }
+        },
+        "required": ["condition", "status"],
+        "additionalProperties": false
+      }
+    },
+    "conviction": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 10
+    },
+    "entry_price": { "type": "number" },
+    "fair_value": {
+      "type": "number",
+      "description": "Weighted expected fair value (base case unless scenarios weighted)"
+    },
+    "mos_pct": {
+      "type": "number",
+      "description": "Margin of safety percentage at entry"
+    },
+    "e_cagr_pct": {
+      "type": "number",
+      "description": "Expected 3-year CAGR at market price"
+    },
+    "valuation_methods": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Methods used (DCF, P/B, EV/EBIT, NAV, etc.)"
+    },
+    "sector_view_path": {
+      "type": ["string", "null"],
+      "description": "Path to sector view file"
+    },
+    "created_date": { "type": "string", "format": "date" },
+    "last_review_date": { "type": ["string", "null"], "format": "date" },
+    "pipeline_stage": {
+      "type": "string",
+      "enum": ["R1_COMPLETE", "R2_UNDERWAY", "R2_COMPLETE", "R3_COMPLETE", "R4_APPROVED", "S1_COMPLETE", "S2_UNDERWAY", "S2_COMPLETE", "S3_COMPLETE", "S4_APPROVED", "ACTIVE", "WATCH", "ARCHIVED"]
+    },
+    "exit_plan": { "type": ["string", "null"] },
+    "thesis_md_path": {
+      "type": "string",
+      "description": "Relative path to the thesis.md narrative file"
+    }
+  }
+}

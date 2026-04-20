@@ -1,4 +1,6 @@
-# LULU - Lululemon Athletica: Governance Re-Evaluation
+# LULU - Lululemon Athletica: Governance Re-Evaluation [ARCHIVED]
+
+> **ARCHIVED:** 2026-03-20 | Position closed. See thesis/archive/LULU/
 
 > **Date:** 2026-02-12
 > **Type:** Material Event Re-Evaluation (Governance Changes)

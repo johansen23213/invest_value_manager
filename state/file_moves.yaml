@@ -110,6 +110,14 @@ moves:
     triggered_by: "portfolio-ops: SELL confirmation"
     note: "Active files replaced with redirect stubs. Delete thesis/active/ALL/ directory manually."
 
+  - date: 2026-03-20
+    file: thesis/active/LULU/*
+    from: thesis/active/LULU/
+    to: thesis/archive/LULU/
+    reason: "Position closed - SELL 2 shares @ ~$157.50. Governance deterioration: no CEO 50+ days, proxy contest, GM declining, Americas negative 8Q. Pre-set trigger ($165) met. P&L -8.2%. 44-day hold."
+    triggered_by: "portfolio-ops: SELL confirmation"
+    note: "Files marked [ARCHIVED] in place. Move thesis/active/LULU/ directory to thesis/archive/LULU/ manually."
+
 # Format:
 #   - date: 2026-01-31
 #     file: thesis/research/SHEL/thesis.md

@@ -1,10 +1,10 @@
 # Deutsche Telekom AG (DTE.DE) - Investment Thesis
 
 **Status**: ACTIVE POSITION
-**Framework Version**: v4.0 (Updated 2026-02-18)
+**Framework Version**: v5.0 (Updated 2026-03-03)
 **Original Date**: 2026-01-26
 **Quality Score**: QS Tool 61/100 (Tier B). Adj 69/100 (Tier B, +8 market position). Was 48 Tier C.
-> **Fair Value:** EUR 35.00 (v3.1, post-TMUS Q4. EV weighted EUR 34.55)
+> **Fair Value:** EUR 33.00 (v5.0, post-FY2025. P/E 15x on FY2026 EPS EUR 2.20)
 
 ---
 
@@ -16,9 +16,9 @@
 | Current Price | EUR 33.24 (as of 2026-02-18) |
 | Shares | 20.62 |
 | Cost Basis | $699.56 |
-| Allocation | ~5.5% of portfolio |
+| Allocation | ~6.6% of portfolio |
 | Purchase Date | 2026-01-26 |
-| Conviction | MEDIUM |
+| Conviction | LOW-MEDIUM |
 
 ---
 
@@ -32,6 +32,7 @@
 | v3.0 | 2026-02-10 | EUR 34.00 | 48 Tier C | Risk-sentinel: net neutrality (low risk). Pre-earnings update. |
 | v3.1 | 2026-02-11 | EUR 35.00 | 48 Tier C | TMUS Q4 beat + 2026 EBITDA guide $37-37.5B (+10%). FV upgraded EUR 34->35. |
 | **v4.0** | **2026-02-18** | **EUR 35.00** | **61 Tool / 69 Adj (Tier B)** | **Pre-earnings review. QS upgraded 48->61 (ROIC>WACC confirmed). MoS 5%. HOLD.** |
+| **v5.0** | **2026-03-03** | **EUR 33.00** | **61 Tool / 69 Adj (Tier B)** | **FY2025 ASSESSED. EBITDA EUR 45.5B beat. EPS EUR 2.00 in-line. FY2026 guide EPS EUR 2.20 (miss vs 2.50). FX-driven. FV 35→33. Conviction MEDIUM→LOW-MEDIUM.** |
 
 **Bridge v3.1 -> v4.0**: EUR 35.00 -> EUR 35.00 (no FV change)
 - QS Tool upgraded 48->61 (+13 points) driven by FY2024 ROIC 8.7% (was showing -0.7pp spread, now +3.8pp), GM premium +11.1pp vs sector

@@ -495,5 +495,106 @@ GBP 600M market cap. Low daily volumes. Wide bid-ask spreads possible. Our typic
 
 ---
 
-**R1 Status:** COMPLETE
-**Next:** R2 (devil's-advocate) recommended. HARD GATE: FY2025 full results Mar 12, 2026.
+**R1 Status:** COMPLETE | **R3 Status:** COMPLETE
+**Next:** FY2025 results Mar 12 (HARD GATE). If PASS → R4 investment committee.
+
+---
+
+## PRE-RESULTS FRAMEWORK: FY2025 Full Year (March 12, 2026)
+
+> Added S113 (2026-03-11). Results released Mar 12. Webcasts at 9:30am and 2:30pm GMT.
+
+### Context
+- Stock at 194p. FV 235p (R3). Entry 165p. MoS at current price: 17.4%.
+- Q4 trading update (Jan 29) already disclosed: Rev GBP 126.5M (+15%), OP GBP 40.0M (+17%).
+- **Top/bottom line surprise unlikely** — focus on qualitative items and FY2026 guidance.
+- P/E 19.5x. Near 52w low (181.8p, Feb 12). SaaSpocalypse sell-off impact.
+- CFO Duncan Magrath retiring. Replacement Andrew Dickson (ex-Cerillion) starts Jul 6.
+- No CHP share disposals detected in 2025-2026 (POSITIVE signal).
+- 7/7 analysts BUY, targets 270-282p.
+
+### R3 HARD GATE Checklist (5 conditions)
+
+| Gate | What to Check | PASS/FAIL Threshold |
+|------|--------------|---------------------|
+| **(1) Receivables** | 54% growth vs 8% rev in FY2024 was anomaly. Normalized? | PASS if receivables growth <= revenue growth OR if explained as contract timing |
+| **(2) SE guidance** | Management guided SE revenue declining in 2026 | Need quantification: how much decline? If SE -20-30%, subscription must grow +18%+ to offset |
+| **(3) FCF margin** | FY2024 dipped to 20.7% from 28.2% (FY2023) | PASS if FCF margin >= 25% (or if decline explained by growth investment) |
+| **(4) CHP selling** | Any new share disposals? | PASS if no new sales OR if disclosed and manageable. Last known: May 2024 (GBP 25M) |
+| **(5) No Solifi wins** | Competitor winning from Alfa pipeline? | PASS if no Tier 1 losses disclosed. Monitor NRR commentary. |
+
+### Key Numbers to Watch
+
+| Metric | Already Known | Focus Tomorrow |
+|--------|--------------|----------------|
+| Revenue | GBP 126.5M (+15%) | Segment split, FX impact, H2 momentum |
+| Operating Profit | GBP 40.0M (+17%) | Margin 31.6%. Expanding trend confirmed? |
+| **FCF** | NOT YET DISCLOSED | Critical. FY2024 was GBP 22.8M (20.7% margin). Expect recovery to GBP 30-35M |
+| **Receivables** | NOT YET DISCLOSED | The anomaly. 54% growth in FY2024. Needs explanation. |
+| **FY2026 Guidance** | CEO: "well positioned for growth" | Specific revenue/OP range? Consensus GBP 136M rev. |
+| Subscription ARR | GBP 41.6M (H1, +16%) | Full year ARR. Trajectory for FY2026. |
+| NRR | 112% (H1) | Full year NRR. Must stay >110%. KC#1 if <100%. |
+| Pipeline | 10 late-stage (Q4 update) | Any conversions since Jan 29? New wins = catalyst. |
+| Dividend | Consensus 5.0p | Special component? Policy clarity. |
+| TCV | GBP 227M | Subscription TCV trend (was +18% in Q4). |
+
+### Bear / Base / Bull Scenarios
+
+**BEAR (20% prob) — FV range: 155-170p**
+
+| Metric | Bear Outcome | Implication |
+|--------|-------------|-------------|
+| FCF | <GBP 25M (margin <20%) | Cash conversion deterioration, investment phase not paying off |
+| Receivables | Still anomalous (>30% growth) | Revenue quality concern — possible KC#6 |
+| FY2026 guide | Below GBP 130M (SE decline not offset) | Growth deceleration → re-rate risk |
+| Pipeline | Losses or missed conversions | Competitive thesis weakened |
+| CHP | New sale announced | Overhang intensifies |
+
+**Action if BEAR:** DO NOT proceed to R4. Entry of 165p may not provide sufficient protection. Reassess FV downward.
+
+**BASE (55% prob) — FV confirmed: 235p**
+
+| Metric | Base Outcome | Implication |
+|--------|-------------|-------------|
+| FCF | GBP 28-35M (margin 22-28%) | Partial recovery from FY2024 dip. Acceptable. |
+| Receivables | Normalized or explained | Gate cleared. |
+| FY2026 guide | GBP 133-140M (+5-10%) | In-line with consensus. Growth moderating but healthy. |
+| NRR | 110-115% | Land-and-expand working. |
+| No Solifi wins | Confirmed | Moat intact. |
+
+**Action if BASE:** Gate PASSED → proceed to R4 investment committee. Maintain FV 235p, entry 165p. Set price alert. Monitor for price weakness (CHP sale or market pullback) to reach entry.
+
+**BULL (25% prob) — FV range: 280-320p**
+
+| Metric | Bull Outcome | Implication |
+|--------|-------------|-------------|
+| FCF | >GBP 35M (margin >28%) | Cash machine confirmed. |
+| FY2026 guide | >GBP 140M (+10%+) | Subscription acceleration. |
+| Pipeline | Major new wins announced (2-3) | Market share gains. |
+| Dividend | Special + ordinary = yield >3% | Capital allocation improving. |
+| No CHP sales | Confirmed quiet | Overhang dissipating. |
+
+**Action if BULL:** Gate PASSED emphatically. FV may need upward revision to 265p+ (toward original R1 FV). Consider raising entry from 165p to 175-180p if E[CAGR] at 175p exceeds 12% Tier A threshold. Calculate: E[CAGR] at 175p = (235/175)^(1/3) - 1 + 9% + 2.5% = 10.3% + 11.5% = ~21.8%. Even at 190p: (235/190)^(1/3) - 1 + 11.5% = 7.4% + 11.5% = 18.9%. Both well above threshold.
+
+### Kill Condition Proximity Check
+
+| KC | Threshold | Current Status | Risk |
+|----|-----------|---------------|------|
+| KC#1: NRR <100% | 112% (H1) | FAR | LOW |
+| KC#2: CHP <40% | ~55% | FAR | LOW-MED |
+| KC#3: No new wins 2yr | 8 wins FY2024, pipeline expanding | FAR | LOW |
+| KC#4: OM <25% 2yr | 31.6% (FY2025) | FAR | LOW |
+| KC#5: Major client loss | No evidence | NONE | LOW |
+| KC#6: Receivables/Rev rising | FY2024 anomaly | **MUST CHECK** | MEDIUM |
+| KC#7: Pricing erosion >10% | No evidence | NONE | LOW |
+
+### What To Watch in Webcasts
+1. **FCF and receivables** — the two unknowns
+2. **FY2026 revenue guidance** — is SE decline quantified? Subscription growth offsetting?
+3. **Solifi competitive commentary** — any client interactions or losses?
+4. **CHP intentions** — any questions about future sales?
+5. **AI strategy** — Alfa Systems 6 AI capabilities, customer adoption
+6. **CFO transition** — Dickson's background, vision
+7. **Pipeline conversion rate** — 10 late-stage prospects, how many expected to convert in FY2026?
+
+---

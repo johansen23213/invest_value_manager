@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://valuehunter.local/schemas/performance.schema.json",
+  "title": "Portfolio Performance",
+  "description": "Aggregate portfolio performance metrics",
+  "type": "object",
+  "required": ["as_of_date", "total_return_pct"],
+  "additionalProperties": false,
+  "properties": {
+    "as_of_date": { "type": "string", "format": "date" },
+    "inception_date": { "type": "string", "format": "date" },
+    "periods": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "label": { "type": "string", "description": "e.g. YTD, 1M, 3M, 6M, 1Y, inception" },
+          "return_pct": { "type": "number" },
+          "benchmark_return_pct": { "type": ["number", "null"], "description": "MSCI ACWI return for same period" },
+          "alpha_pct": { "type": ["number", "null"] }
+        },
+        "required": ["label", "return_pct"],
+        "additionalProperties": false
+      }
+    },
+    "total_return_pct": { "type": "number" },
+    "annualized_return_pct": { "type": ["number", "null"] },
+    "hit_rate_pct": {
+      "type": ["number", "null"],
+      "description": "Percentage of closed positions with positive return"
+    },
+    "avg_return_pct": {
+      "type": ["number", "null"],
+      "description": "Average return across closed positions"
+    },
+    "avg_winner_pct": { "type": ["number", "null"] },
+    "avg_loser_pct": { "type": ["number", "null"] },
+    "win_loss_ratio": { "type": ["number", "null"] },
+    "sharpe_ratio": { "type": ["number", "null"] },
+    "max_drawdown_pct": { "type": ["number", "null"] },
+    "alpha_vs_msci_acwi_pct": { "type": ["number", "null"] },
+    "total_positions_closed": { "type": ["integer", "null"] },
+    "total_positions_open": { "type": ["integer", "null"] },
+    "long_attribution_pct": {
+      "type": ["number", "null"],
+      "description": "Return contribution from long positions"
+    },
+    "short_attribution_pct": {
+      "type": ["number", "null"],
+      "description": "Return contribution from short positions"
+    }
+  }
+}
