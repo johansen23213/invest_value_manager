@@ -1,0 +1,30 @@
+{
+  "fund_id": "azvalor",
+  "fund_name": "AzValor Internacional",
+  "quarter": "2026-Q1",
+  "extracted_at": "2026-04-20T10:00:00Z",
+  "extraction_model": "claude-sonnet-4-6",
+  "source_url": "https://www.azvalor.com/cartas/2026-Q1.pdf",
+  "fund_return_pct": 4.2,
+  "aum_eur": 1500000000,
+  "positions": [
+    {
+      "company_name": "Atalaya Mining",
+      "ticker": "ATYM.L",
+      "ticker_status": "verified",
+      "weight_pct": 5.1,
+      "action": "increased",
+      "upside_pct": 45,
+      "thesis_text": "Cobre estructuralmente escaso. Permisos Sudamérica avanzando."
+    },
+    {
+      "company_name": "Sdiptech",
+      "ticker": "SDIP-B.ST",
+      "ticker_status": "unverified",
+      "weight_pct": 2.3,
+      "action": "new",
+      "upside_pct": null,
+      "thesis_text": null
+    }
+  ]
+}

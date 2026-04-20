@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://valuehunter.local/schemas/spanish_fund_position.schema.json",
+  "title": "Spanish Fund Position",
+  "description": "Quarterly letter holdings + thesis narratives from a Spanish value fund",
+  "type": "object",
+  "required": ["fund_id", "fund_name", "quarter", "extracted_at", "extraction_model", "source_url", "positions"],
+  "additionalProperties": false,
+  "properties": {
+    "fund_id": {
+      "type": "string",
+      "enum": ["cobas", "azvalor", "magallanes", "horos", "valentum"]
+    },
+    "fund_name": { "type": "string" },
+    "quarter": { "type": "string", "pattern": "^\\d{4}-Q[1-4]$" },
+    "extracted_at": { "type": "string", "format": "date-time" },
+    "extraction_model": { "type": "string" },
+    "source_url": { "type": "string", "format": "uri" },
+    "fund_return_pct": { "type": ["number", "null"] },
+    "aum_eur": { "type": ["number", "null"] },
+    "positions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["company_name", "ticker", "ticker_status", "action"],
+        "additionalProperties": false,
+        "properties": {
+          "company_name": { "type": "string" },
+          "ticker": { "type": "string" },
+          "ticker_status": {
+            "type": "string",
+            "enum": ["verified", "unverified", "ambiguous"]
+          },
+          "weight_pct": { "type": ["number", "null"], "minimum": 0, "maximum": 100 },
+          "action": {
+            "type": "string",
+            "enum": ["new", "maintained", "increased", "reduced", "exited"]
+          },
+          "upside_pct": { "type": ["number", "null"] },
+          "thesis_text": { "type": ["string", "null"] }
+        }
+      }
+    },
+    "macro_commentary": { "type": "null" }
+  }
+}
