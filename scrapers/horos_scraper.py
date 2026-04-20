@@ -7,6 +7,15 @@ and position actions (NEW / MAINTAINED / EXITED).
 
 from __future__ import annotations
 
+import warnings as _deprecation_warnings
+
+_deprecation_warnings.warn(
+    "scrapers.horos_scraper is deprecated. "
+    "Use scrapers.spanish_funds.horos.HorosScraper instead.",
+    DeprecationWarning,
+    stacklevel=2,
+)
+
 import json
 import re
 from datetime import date
