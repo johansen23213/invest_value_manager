@@ -1,7 +1,7 @@
 """🇪🇸 Spanish Funds — holdings from Cobas/AzValor/Magallanes/Horos/Valentum."""
 from __future__ import annotations
 
-from datetime import date
+from datetime import date, datetime, timezone
 
 import pandas as pd
 import streamlit as st
@@ -9,6 +9,30 @@ import streamlit as st
 from dashboard.components import COLOR, CONVICTION_COLORS
 from dashboard.data_loader import compute_multi_fund_signals, load_spanish_funds
 from dashboard.sidebar import render_sidebar
+
+_FUND_VIEW_LABELS = {
+    "new": "New position",
+    "increased": "Added to",
+    "maintained": "Holding",
+    "reduced": "Trimmed",
+    "exited": "Exited",
+}
+
+
+def _recency_emoji(extracted_at: str) -> str:
+    """Green <30d, yellow 30-60d, red >60d since extraction."""
+    if not extracted_at:
+        return "⚪"
+    try:
+        ts = datetime.fromisoformat(extracted_at.replace("Z", "+00:00"))
+    except ValueError:
+        return "⚪"
+    age_days = (datetime.now(timezone.utc) - ts).days
+    if age_days < 30:
+        return "🟢"
+    elif age_days <= 60:
+        return "🟡"
+    return "🔴"
 
 
 st.set_page_config(page_title="Spanish Funds · ValueHunter", page_icon="🇪🇸", layout="wide")
@@ -53,7 +77,8 @@ for col, fid in zip(cols, fund_ids):
             st.caption("_No letter yet._")
             continue
         st.markdown(f"**{letter.get('fund_name', fid.title())}**")
-        st.caption(f"Last: {letter.get('quarter', '?')}")
+        recency = _recency_emoji(letter.get("extracted_at", ""))
+        st.caption(f"Last: {letter.get('quarter', '?')} {recency}")
         aum = letter.get("aum_eur")
         ret = letter.get("fund_return_pct")
         if aum:
@@ -62,10 +87,15 @@ for col, fid in zip(cols, fund_ids):
         if ret is not None:
             sign = "+" if ret >= 0 else ""
             st.caption(f"Return: {sign}{ret:.1f}%")
-        st.caption(f"Positions: {len(letter.get('positions', []))}")
+        pos_count = len(letter.get("positions", []))
+        st.caption(f"Positions: {pos_count} (vs prior: n/a)")
+        # vs-prior comparison requires historical quarter data — deferred to v1.1
         src = letter.get("source_url")
         if src:
             st.markdown(f"[view letter ↗]({src})")
+            extracted_at = letter.get("extracted_at", "")
+            if extracted_at:
+                st.caption(f"Verified: {extracted_at[:10]}")
 
 st.markdown("---")
 
@@ -83,9 +113,9 @@ else:
         ticker = row["ticker"]
         count = row["fund_count"]
         label = "3+_funds" if count >= 3 else "2_funds"
-        color = CONVICTION_COLORS[label]
+        dot = "🟢" if count >= 3 else "🔵"
         with st.expander(
-            f"**{ticker}** — {row.get('company_name', '')} · **{count} funds**",
+            f"{dot}  **{ticker}** — {row.get('company_name', '')} · **{count} funds**",
             expanded=False,
         ):
             fund_cols = st.columns(min(count, 3))
@@ -97,10 +127,12 @@ else:
                     st.caption(
                         f"Weight: {weight:.1f}%" if weight is not None else "Weight: —"
                     )
-                    st.caption(f"Action: {action}")
-                    thesis = (f.get("thesis_text") or "")[:300]
+                    action_display = _FUND_VIEW_LABELS.get(action, action.title() if action else "—")
+                    st.caption(f"Fund view: {action_display}")
+                    thesis = f.get("thesis_text") or ""
                     if thesis:
-                        st.markdown(f"> {thesis}")
+                        snippet = thesis[:150] + "…" if len(thesis) > 150 else thesis
+                        st.caption(snippet)
 
 st.markdown("---")
 
@@ -131,8 +163,22 @@ for tab, fid in zip(tabs, fund_ids):
                 "thesis_snippet": (p.get("thesis_text") or "")[:200],
             })
         if rows:
-            df = pd.DataFrame(rows)
-            st.dataframe(df, use_container_width=True, hide_index=True)
+            df = pd.DataFrame(rows).rename(columns={
+                "company": "Company",
+                "ticker": "Ticker",
+                "weight_pct": "Weight %",
+                "fund_view": "Fund View",
+                "thesis_snippet": "Thesis",
+            })
+            st.dataframe(
+                df,
+                use_container_width=True,
+                hide_index=True,
+                column_config={
+                    "Thesis": st.column_config.TextColumn("Thesis", width="large"),
+                    "Weight %": st.column_config.NumberColumn("Weight %", format="%.1f%%"),
+                },
+            )
         else:
             st.caption("No verified holdings in this letter.")
         if unverified:
