@@ -1,0 +1,21 @@
+standing_orders:
+  - ticker: RACE.MI
+    action: BUY
+    category: ACTIVE
+    trigger: "<=EUR 295"
+    current_distance: "2.2%"
+    size_eur: 350
+    fair_value: "EUR 355"
+    mos_at_trigger: "16.9%"
+    tier: "A (QS 82/84)"
+    notes: "Committee approved."
+  - ticker: ALFA.L
+    action: BUY
+    category: GATED
+    trigger: "<=165 GBp"
+    current_distance: "-3.4%"
+    size_eur: 350
+    fair_value: "240 GBp"
+    mos_at_trigger: "33.6%"
+    tier: "A (QS 83)"
+    notes: "Triggered, Hormuz gates cleared."
