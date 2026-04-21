@@ -54,6 +54,24 @@ def _today() -> date:
     return date.today()
 
 
+def parse_distance_pct(value: Any) -> float | None:
+    """Parse a distance_pct from a raw value (e.g. '-3.4%', 2.2, '5.0%').
+
+    Returns a float (percentage, signed) or None if unparseable.
+    """
+    if value is None:
+        return None
+    if isinstance(value, (int, float)):
+        return float(value)
+    s = str(value).replace("%", "").strip()
+    if not s:
+        return None
+    try:
+        return float(s)
+    except ValueError:
+        return None
+
+
 # ---------------------------------------------------------------------------
 # Loaders (part 1)
 # ---------------------------------------------------------------------------
@@ -187,10 +205,8 @@ def compute_actions_today() -> list[dict[str, Any]]:
 
     # 1. Triggered SOs (distance <= 0 or marked TRIGGERED)
     for so in load_standing_orders():
-        dist_str = so.get("current_distance", "0%").replace("%", "")
-        try:
-            dist = float(dist_str)
-        except ValueError:
+        dist = parse_distance_pct(so.get("current_distance"))
+        if dist is None:
             continue
         if dist <= 0:
             actions.append({
@@ -215,10 +231,8 @@ def compute_actions_today() -> list[dict[str, Any]]:
     for so in load_standing_orders():
         if so.get("category") != "ACTIVE":
             continue
-        dist_str = so.get("current_distance", "100%").replace("%", "")
-        try:
-            dist = float(dist_str)
-        except ValueError:
+        dist = parse_distance_pct(so.get("current_distance"))
+        if dist is None:
             continue
         if 0 < dist <= 5:
             actions.append({

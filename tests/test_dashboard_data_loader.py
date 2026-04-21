@@ -19,6 +19,7 @@ from dashboard.data_loader import (
     compute_multi_fund_signals,
     load_macro,
     load_prices,
+    parse_distance_pct,
 )
 
 FIXTURES = Path(__file__).resolve().parent / "fixtures" / "dashboard"
@@ -240,3 +241,26 @@ class TestComputeMultiFundSignals:
         compute_multi_fund_signals.clear()
         df = compute_multi_fund_signals()
         assert len(df) == 0
+
+
+class TestParseDistancePct:
+    def test_percentage_string(self):
+        assert parse_distance_pct("2.2%") == 2.2
+
+    def test_negative_percentage_string(self):
+        assert parse_distance_pct("-3.4%") == -3.4
+
+    def test_raw_float(self):
+        assert parse_distance_pct(5.0) == 5.0
+
+    def test_raw_int(self):
+        assert parse_distance_pct(0) == 0.0
+
+    def test_none(self):
+        assert parse_distance_pct(None) is None
+
+    def test_empty_string(self):
+        assert parse_distance_pct("") is None
+
+    def test_garbage(self):
+        assert parse_distance_pct("N/A") is None
