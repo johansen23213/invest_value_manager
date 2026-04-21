@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Risk Heatmap — Value Investor System</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: 'Segoe UI', system-ui, sans-serif; padding: 20px; }
+
+  h1 { font-size: 20px; color: #fff; margin-bottom: 4px; }
+  .subtitle { font-size: 12px; color: #888; margin-bottom: 16px; }
+
+  .heatmap-container { overflow-x: auto; }
+
+  table { border-collapse: collapse; width: 100%; min-width: 900px; }
+  th { background: #252545; color: #aaa; font-size: 11px; font-weight: 600; text-transform: uppercase;
+       letter-spacing: 0.5px; padding: 10px 8px; cursor: pointer; user-select: none;
+       border-bottom: 2px solid #333; position: relative; white-space: nowrap; }
+  th:hover { color: #fff; }
+  th .sort-arrow { font-size: 9px; margin-left: 4px; color: #666; }
+  th.sorted .sort-arrow { color: #6ca0dc; }
+
+  td { padding: 8px; text-align: center; font-size: 13px; border-bottom: 1px solid #2a2a4a;
+       transition: all 0.15s ease; }
+  tr:hover td { background: rgba(100, 160, 220, 0.08); }
+
+  td.ticker { text-align: left; font-weight: 600; color: #fff; min-width: 80px; }
+  td.name { text-align: left; color: #aaa; font-size: 11px; max-width: 160px; overflow: hidden;
+            text-overflow: ellipsis; white-space: nowrap; }
+
+  /* Risk cell colors */
+  .risk-0 { background: rgba(220, 50, 50, 0.25); color: #f06060; }
+  .risk-1 { background: rgba(220, 140, 50, 0.2); color: #e0a050; }
+  .risk-2 { background: rgba(160, 160, 80, 0.15); color: #c0c060; }
+  .risk-3 { background: rgba(50, 180, 80, 0.2); color: #50c060; }
+
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 3px; font-size: 10px;
+           font-weight: 600; letter-spacing: 0.3px; }
+  .badge-a { background: rgba(50, 180, 80, 0.25); color: #50c060; }
+  .badge-b { background: rgba(160, 160, 80, 0.2); color: #c0c060; }
+  .badge-c { background: rgba(220, 50, 50, 0.25); color: #f06060; }
+  .badge-probation { background: rgba(220, 140, 50, 0.3); color: #e0a050; }
+  .badge-mob { background: rgba(220, 50, 50, 0.35); color: #ff6060; }
+
+  .composite-bar { display: inline-block; height: 8px; border-radius: 4px; min-width: 20px; }
+
+  /* Summary cards */
+  .summary { display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .card { background: rgba(30, 30, 60, 0.8); border: 1px solid #333; border-radius: 8px;
+          padding: 12px 16px; flex: 1; min-width: 140px; }
+  .card-label { font-size: 10px; color: #888; text-transform: uppercase; letter-spacing: 0.5px; }
+  .card-value { font-size: 22px; font-weight: 700; color: #fff; margin-top: 2px; }
+  .card-detail { font-size: 11px; color: #aaa; margin-top: 2px; }
+
+  .footer { margin-top: 16px; font-size: 10px; color: #555; }
+
+  /* Diff section */
+  .diff-section { margin-top: 20px; }
+  .diff-item { background: rgba(30, 30, 60, 0.6); border: 1px solid #333; border-radius: 6px;
+               padding: 10px 14px; margin-bottom: 8px; font-size: 12px; }
+  .diff-ticker { font-weight: 600; color: #6ca0dc; }
+  .diff-change-pos { color: #50c060; }
+  .diff-change-neg { color: #f06060; }
+</style>
+</head>
+<body>
+
+<h1>Risk Heatmap</h1>
+<p class="subtitle">Multi-dimensional risk dashboard | Generated 2026-02-23 09:41</p>
+
+<div class="summary" id="summary"></div>
+
+<div class="heatmap-container">
+<table id="heatmap">
+  <thead>
+    <tr>
+      <th data-col="ticker">Ticker <span class="sort-arrow">▼</span></th>
+      <th data-col="name">Name <span class="sort-arrow">▼</span></th>
+      <th data-col="tier_score" title="Quality Score Tier (A=best, C=worst)">QS Tier <span class="sort-arrow">▼</span></th>
+      <th data-col="mos" title="Margin of Safety (price vs fair value)">MoS% <span class="sort-arrow">▼</span></th>
+      <th data-col="insider_score" title="Net insider buy/sell sentiment">Insider <span class="sort-arrow">▼</span></th>
+      <th data-col="concentration_score" title="Top 3 holder concentration">Holders <span class="sort-arrow">▼</span></th>
+      <th data-col="earnings_score" title="Days until next earnings/catalyst">Earnings <span class="sort-arrow">▼</span></th>
+      <th data-col="conviction_score" title="Current conviction level">Convict. <span class="sort-arrow">▼</span></th>
+      <th data-col="status_score" title="Position status (probation/make-or-break)">Status <span class="sort-arrow">▼</span></th>
+      <th data-col="composite" title="Composite risk score (higher = lower risk)">Risk <span class="sort-arrow">▼</span></th>
+    </tr>
+  </thead>
+  <tbody id="tbody"></tbody>
+</table>
+</div>
+
+<div class="diff-section" id="diff-section"></div>
+
+<div class="footer">
+  Colors: <span style="color:#50c060">■ Low risk</span> &middot;
+  <span style="color:#c0c060">■ Moderate</span> &middot;
+  <span style="color:#e0a050">■ Elevated</span> &middot;
+  <span style="color:#f06060">■ High risk</span>
+  &middot; Click column headers to sort. Data is RAW — interpret with context.
+</div>
+
+<script>
+const DATA = [
+  {
+    "ticker": "LULU",
+    "name": "Lululemon Athletica Inc.",
+    "qs": 80,
+    "tier": "A",
+    "tier_score": 3,
+    "mos": 4.4,
+    "insider_net": -4,
+    "insider_buys": 0,
+    "insider_sells": 4,
+    "insider_buybacks": 0,
+    "insider_signal": "BEARISH",
+    "insider_score": 0,
+    "top3_pct": 25.2,
+    "indexer_pct": 40.0,
+    "n_holders": 10,
+    "concentration_score": 1,
+    "days_to_earnings": 35,
+    "next_event": "LULU Q4 \u2014 MAKE-OR-BREAK",
+    "earnings_score": 3,
+    "conviction": "low",
+    "conviction_score": 1,
+    "on_probation": true,
+    "make_or_break": false,
+    "status_score": 1,
+    "composite": 1.5
+  },
+  {
+    "ticker": "GL",
+    "name": "Globe Life Inc.",
+    "qs": 52,
+    "tier": "B",
+    "tier_score": 2,
+    "mos": 24.4,
+    "insider_net": -4,
+    "insider_buys": 0,
+    "insider_sells": 4,
+    "insider_buybacks": 0,
+    "insider_signal": "BEARISH",
+    "insider_score": 0,
+    "top3_pct": 24.8,
+    "indexer_pct": 40.0,
+    "n_holders": 10,
+    "concentration_score": 1,
+    "days_to_earnings": null,
+    "next_event": "",
+    "earnings_score": 3,
+    "conviction": "medium",
+    "conviction_score": 2,
+    "on_probation": false,
+    "make_or_break": false,
+    "status_score": 3,
+    "composite": 1.83
+  },
+  {
+    "ticker": "BYIT.L",
+    "name": "Bytes Technology Group plc",
+    "qs": 68,
+    "tier": "B",
+    "tier_score": 2,
+    "mos": 13.9,
+    "insider_net": 0,
+    "insider_buys": 0,
+    "insider_sells": 0,
+    "insider_buybacks": 0,
+    "insider_signal": "NEUTRAL",
+    "insider_score": 2,
+    "top3_pct": 0,
+    "indexer_pct": 0,
+    "n_holders": 0,
+    "concentration_score": 2,
+    "days_to_earnings": null,
+    "next_event": "",
+    "earnings_score": 3,
+    "conviction": "low",
+    "conviction_score": 1,
+    "on_probation": true,
+    "make_or_break": false,
+    "status_score": 1,
+    "composite": 1.83
+  },
+  {
+    "ticker": "AUTO.L",
+    "name": "AutoTrader Group plc",
+    "qs": 63,
+    "tier": "B",
+    "tier_score": 2,
+    "mos": 17.3,
+    "insider_net": 0,
+    "insider_buys": 0,
+    "insider_sells": 0,
+    "insider_buybacks": 12,
+    "insider_signal": "BB+",
+    "insider_score": 2.5,
+    "top3_pct": 0,
+    "indexer_pct": 0.0,
+    "n_holders": 1,
+    "concentration_score": 3,
+    "days_to_earnings": null,
+    "next_event": "",
+    "earnings_score": 3,
+    "conviction": "low",
+    "conviction_score": 1,
+    "on_probation": false,
+    "make_or_break": true,
+    "status_score": 0,
+    "composite": 1.92
+  },
+  {
+    "ticker": "DTE.DE",
+    "name": "Deutsche Telekom AG",
+    "qs": 61,
+    "tier": "B",
+    "tier_score": 2,
+    "mos": 5.9,
+    "insider_net": 0,
+    "insider_buys": 0,
+    "insider_sells": 0,
+    "insider_buybacks": 0,
+    "insider_signal": "NEUTRAL",
+    "insider_score": 2,
+    "top3_pct": 0.1,
+    "indexer_pct": 0.0,
+    "n_holders": 3,
+    "concentration_score": 3,
+    "days_to_earnings": 2,
+    "next_event": "Deutsche Telekom FY2025",
+    "earnings_score": 0,
+    "conviction": "medium",
+    "conviction_score": 2,
+    "on_probation": false,
+    "make_or_break": false,
+    "status_score": 3,
+    "composite": 2.0
+  },
+  {
+    "ticker": "EDEN.PA",
+    "name": "Edenred SA",
+    "qs": 62,
+    "tier": "B",
+    "tier_score": 2,
+    "mos": 37.4,
+    "insider_net": 0,
+    "insider_buys": 0,
+    "insider_sells": 0,
+    "insider_buybacks": 0,
+    "insider_signal": "NEUTRAL",
+    "insider_score": 2,
+    "top3_pct": 0,
+    "indexer_pct": 0.0,
+    "n_holders": 1,
+    "concentration_score": 3,
+    "days_to_earnings": 0,
+    "next_event": "EDEN.PA FY2025 Results",
+    "earnings_score": 0,
+    "conviction": "medium",
+    "conviction_score": 2,
+    "on_probation": false,
+    "make_or_break": false,
+    "status_score": 3,
+    "composite": 2.0
+  },
+  {
+    "ticker": "DOM.L",
+    "name": "Domino's Pizza Group PLC",
+    "qs": 61,
+    "tier": "B",
+    "tier_score": 2,
+    "mos": 14.2,
+    "insider_net": 0,
+    "insider_buys": 0,
+    "insider_sells": 0,
+    "insider_buybacks": 0,
+    "insider_signal": "NEUTRAL",
+    "insider_score": 2,
+    "top3_pct": 0,
+    "indexer_pct": 0,
+    "n_holders": 0,
+    "concentration_score": 2,
+    "days_to_earnings": 9,
+    "next_event": "Dominos Pizza Group FY25 results",
+    "earnings_score": 2,
+    "conviction": "low",
+    "conviction_score": 1,
+    "on_probation": false,
+    "make_or_break": false,
+    "status_score": 3,
+    "composite": 2.0
+  },
+  {
+    "ticker": "MONY.L",
+    "name": "Mony Group PLC",
+    "qs": 83,
+    "tier": "A",
+    "tier_score": 3,
+    "mos": 16.2,
+    "insider_net": 0,
+    "insider_buys": 0,
+    "insider_sells": 0,
+    "insider_buybacks": 0,
+    "insider_signal": "NEUTRAL",
+    "insider_score": 2,
+    "top3_pct": 0,
+    "indexer_pct": 0,
+    "n_holders": 0,
+    "concentration_score": 2,
+    "days_to_earnings": null,
+    "next_event": "",
+    "earnings_score": 3,
+    "conviction": "low",
+    "conviction_score": 1,
+    "on_probation": true,
+    "make_or_break": false,
+    "status_score": 1,
+    "composite": 2.0
+  },
+  {
+    "ticker": "ADBE",
+    "name": "Adobe Inc.",
+    "qs": 76,
+    "tier": "A",
+    "tier_score": 3,
+    "mos": 33.7,
+    "insider_net": -1,
+    "insider_buys": 0,
+    "insider_sells": 1,
+    "insider_buybacks": 0,
+    "insider_signal": "CAUTIOUS",
+    "insider_score": 1,
+    "top3_pct": 24.9,
+    "indexer_pct": 50.0,
+    "n_holders": 10,
+    "concentration_score": 1,
+    "days_to_earnings": null,
+    "next_event": "",
+    "earnings_score": 3,
+    "conviction": "medium",
+    "conviction_score": 2,
+    "on_probation": false,
+    "make_or_break": false,
+    "status_score": 3,
+    "composite": 2.17
+  },
+  {
+    "ticker": "NVO",
+    "name": "Novo Nordisk A/S",
+    "qs": 73,
+    "tier": "B",
+    "tier_score": 2,
+    "mos": 28.2,
+    "insider_net": 0,
+    "insider_buys": 0,
+    "insider_sells": 0,
+    "insider_buybacks": 0,
+    "insider_signal": "NEUTRAL",
+    "insider_score": 2,
+    "top3_pct": 1.3,
+    "indexer_pct": 0.0,
+    "n_holders": 10,
+    "concentration_score": 3,
+    "days_to_earnings": 19,
+    "next_event": "CagriSema vs Zepbound head-to-head data",
+    "earnings_score": 2,
+    "conviction": "medium",
+    "conviction_score": 2,
+    "on_probation": false,
+    "make_or_break": false,
+    "status_score": 3,
+    "composite": 2.33
+  },
+  {
+    "ticker": "MORN",
+    "name": "Morningstar, Inc.",
+    "qs": 60,
+    "tier": "A",
+    "tier_score": 3,
+    "mos": 18.2,
+    "insider_net": -10,
+    "insider_buys": 0,
+    "insider_sells": 10,
+    "insider_buybacks": 0,
+    "insider_signal": "BEARISH",
+    "insider_score": 0,
+    "top3_pct": 17.0,
+    "indexer_pct": 40.0,
+    "n_holders": 10,
+    "concentration_score": 3,
+    "days_to_earnings": null,
+    "next_event": "",
+    "earnings_score": 3,
+    "conviction": "medium",
+    "conviction_score": 2,
+    "on_probation": false,
+    "make_or_break": false,
+    "status_score": 3,
+    "composite": 2.33
+  }
+];
+const DIFF = [];
+
+// Risk class mapping (0=high risk red, 3=low risk green)
+function riskClass(score) {
+  if (score === null || score === undefined) return 'risk-2';
+  score = Math.round(score);
+  return 'risk-' + Math.max(0, Math.min(3, score));
+}
+
+function mosClass(mos) {
+  if (mos > 20) return 'risk-3';
+  if (mos > 10) return 'risk-2';
+  if (mos > 0) return 'risk-1';
+  return 'risk-0';
+}
+
+function mosRiskScore(mos) {
+  if (mos > 20) return 3;
+  if (mos > 10) return 2;
+  if (mos > 0) return 1;
+  return 0;
+}
+
+// Summary cards
+function renderSummary() {
+  const n = DATA.length;
+  const bearish = DATA.filter(d => d.insider_score <= 1).length;
+  const imminent = DATA.filter(d => d.days_to_earnings !== null && d.days_to_earnings <= 7).length;
+  const probation = DATA.filter(d => d.on_probation).length;
+  const avgComposite = (DATA.reduce((s, d) => s + d.composite, 0) / n).toFixed(1);
+
+  const riskLabel = avgComposite >= 2.5 ? 'LOW' : avgComposite >= 1.8 ? 'MODERATE' : 'ELEVATED';
+  const riskColor = avgComposite >= 2.5 ? '#50c060' : avgComposite >= 1.8 ? '#c0c060' : '#f06060';
+
+  document.getElementById('summary').innerHTML = `
+    <div class="card">
+      <div class="card-label">Positions</div>
+      <div class="card-value">${n}</div>
+      <div class="card-detail">${probation} on probation</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Avg Risk Score</div>
+      <div class="card-value" style="color:${riskColor}">${avgComposite}/3.0</div>
+      <div class="card-detail">${riskLabel}</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Insider Alerts</div>
+      <div class="card-value" style="color:${bearish > 0 ? '#f06060' : '#50c060'}">${bearish}</div>
+      <div class="card-detail">${bearish} bearish sentiment</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Earnings <7d</div>
+      <div class="card-value" style="color:${imminent > 0 ? '#e0a050' : '#50c060'}">${imminent}</div>
+      <div class="card-detail">imminent events</div>
+    </div>
+  `;
+}
+
+// Render table
+let sortCol = 'composite';
+let sortAsc = true;
+
+function renderTable() {
+  const sorted = [...DATA].sort((a, b) => {
+    let va = a[sortCol], vb = b[sortCol];
+    if (typeof va === 'string') return sortAsc ? va.localeCompare(vb) : vb.localeCompare(va);
+    va = va ?? -999; vb = vb ?? -999;
+    return sortAsc ? va - vb : vb - va;
+  });
+
+  const tbody = document.getElementById('tbody');
+  tbody.innerHTML = sorted.map(d => {
+    const tierBadge = d.tier === 'A' ? 'badge-a' : d.tier === 'C' ? 'badge-c' : 'badge-b';
+    const statusBadge = d.make_or_break ? 'badge-mob' : d.on_probation ? 'badge-probation' : '';
+    const statusText = d.make_or_break ? 'M-O-B' : d.on_probation ? 'PROBATION' : 'OK';
+
+    const daysText = d.days_to_earnings !== null ? d.days_to_earnings + 'd' : '>30d';
+    const insiderText = d.insider_signal + (d.insider_net !== 0 ? ' (' + (d.insider_net > 0 ? '+' : '') + d.insider_net + ')' : '');
+    const holdersText = d.n_holders > 0 ? d.top3_pct + '% / ' + d.indexer_pct + '%idx' : 'N/A';
+
+    // Composite bar width (0-3 mapped to 0-100%)
+    const barWidth = Math.round(d.composite / 3 * 100);
+    const barColor = d.composite >= 2.5 ? '#50c060' : d.composite >= 1.8 ? '#c0c060' : d.composite >= 1.2 ? '#e0a050' : '#f06060';
+
+    return `<tr>
+      <td class="ticker">${d.ticker}</td>
+      <td class="name" title="${d.name}">${d.name}</td>
+      <td class="${riskClass(d.tier_score)}"><span class="badge ${tierBadge}">${d.tier} (${d.qs})</span></td>
+      <td class="${mosClass(d.mos)}">${d.mos > 0 ? '+' : ''}${d.mos}%</td>
+      <td class="${riskClass(d.insider_score)}">${insiderText}</td>
+      <td class="${riskClass(d.concentration_score)}">${holdersText}</td>
+      <td class="${riskClass(d.earnings_score)}" title="${d.next_event}">${daysText}</td>
+      <td class="${riskClass(d.conviction_score)}">${d.conviction}</td>
+      <td class="${riskClass(d.status_score)}"><span class="badge ${statusBadge}">${statusText}</span></td>
+      <td><span class="composite-bar" style="width:${barWidth}px;background:${barColor}"></span> ${d.composite}</td>
+    </tr>`;
+  }).join('');
+
+  // Update sort indicators
+  document.querySelectorAll('th').forEach(th => {
+    th.classList.toggle('sorted', th.dataset.col === sortCol);
+    const arrow = th.querySelector('.sort-arrow');
+    if (arrow) arrow.textContent = th.dataset.col === sortCol ? (sortAsc ? '▲' : '▼') : '▼';
+  });
+}
+
+// Diff section
+function renderDiff() {
+  if (!DIFF.length) return;
+  const section = document.getElementById('diff-section');
+  section.innerHTML = '<h3 style="color:#fff;margin-bottom:8px">Ownership Changes</h3>' +
+    DIFF.map(d => {
+      let changes = [];
+      if (d.new_holders.length) changes.push(`<span class="diff-change-pos">+${d.new_holders.length} new holders: ${d.new_holders.join(', ')}</span>`);
+      if (d.lost_holders.length) changes.push(`<span class="diff-change-neg">-${d.lost_holders.length} lost holders: ${d.lost_holders.join(', ')}</span>`);
+      if (d.insider_change > 0) changes.push(`<span class="diff-change-pos">Insider sentiment improved (+${d.insider_change})</span>`);
+      if (d.insider_change < 0) changes.push(`<span class="diff-change-neg">Insider sentiment worsened (${d.insider_change})</span>`);
+      return `<div class="diff-item"><span class="diff-ticker">${d.ticker}</span> — ${changes.join(' | ')}</div>`;
+    }).join('');
+}
+
+// Sort handler
+document.querySelectorAll('th').forEach(th => {
+  th.addEventListener('click', () => {
+    const col = th.dataset.col;
+    if (col === sortCol) sortAsc = !sortAsc;
+    else { sortCol = col; sortAsc = true; }
+    renderTable();
+  });
+});
+
+renderSummary();
+renderTable();
+renderDiff();
+</script>
+</body>
+</html>

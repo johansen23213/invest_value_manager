@@ -1,0 +1,13 @@
+calendar:
+  - date: "2026-04-24"
+    type: earnings
+    ticker: MEGP.L
+    notes: "FY2025 results — 3rd attempt"
+  - date: "2026-05-01"
+    type: earnings
+    ticker: ADBE
+    notes: "Q2 earnings + CEO succession update"
+  - date: "2026-06-15"
+    type: catalyst
+    ticker: NVO
+    notes: "CagriSema phase 3 readout"

@@ -1,20 +1,29 @@
 #!/usr/bin/env python3
 """
 Forward Return Components - Shows MoS%, Growth%, Yield% for portfolio positions.
+Supports both LONG and SHORT positions.
 
 Outputs RAW DATA as separate columns. NO composite scores, rankings, or recommendations.
 The user reasons about these components applying principles.
 
-Components:
+Components (LONG):
   - MoS% = (Fair_Value - Current_Price) / Current_Price * 100
   - Growth% = Expected earnings/FCF growth rate (from thesis or yfinance)
   - Yield% = Current dividend yield (from yfinance)
 
+Components (SHORT):
+  - Fwd Ret% = (Current_Price - Fair_Value) / Current_Price * 100
+    (POSITIVE when price is ABOVE fair value = good for short thesis)
+  - Carry% = Annualized carry cost prorated (CFD overnight fees ~7-8% annual)
+  - Net Fwd% = Fwd Ret% - Carry% (net of carry drag)
+
 Usage:
   python3 tools/forward_return.py                     # All positions + pipeline
   python3 tools/forward_return.py --ticker ADBE NVO   # Specific tickers only
-  python3 tools/forward_return.py --active-only        # Only active positions
+  python3 tools/forward_return.py --active-only        # Only active positions (long + short)
   python3 tools/forward_return.py --pipeline-only      # Only research pipeline
+  python3 tools/forward_return.py --deployment-ready   # Filter pipeline to deployment-viable E[CAGR]
+  python3 tools/forward_return.py --signals            # Add ownership intelligence columns (Ins, QF)
 """
 
 import sys
@@ -23,6 +32,7 @@ import re
 import argparse
 import yaml
 import yfinance as yf
+from datetime import datetime
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -31,7 +41,12 @@ PORTFOLIO_FILE = os.path.join(BASE_DIR, 'portfolio', 'current.yaml')
 SYSTEM_FILE = os.path.join(BASE_DIR, 'state', 'system.yaml')
 THESIS_ACTIVE_DIR = os.path.join(BASE_DIR, 'thesis', 'active')
 THESIS_RESEARCH_DIR = os.path.join(BASE_DIR, 'thesis', 'research')
+THESIS_SHORT_DIR = os.path.join(BASE_DIR, 'thesis', 'short', 'active')
 DECISIONS_LOG = os.path.join(BASE_DIR, 'learning', 'decisions_log.yaml')
+UNIVERSE_PATH = os.path.join(BASE_DIR, 'state', 'quality_universe.yaml')
+
+# Default annual carry cost for CFD shorts (eToro overnight fees)
+DEFAULT_ANNUAL_CARRY_PCT = 7.5
 
 
 def load_portfolio():
@@ -343,6 +358,37 @@ def extract_growth_rate(thesis_content, ticker):
     return None
 
 
+def compute_ecagr_at_market(fv, price, growth_pct, yield_pct):
+    """Compute E[CAGR] at current market price.
+
+    E[CAGR] = (FV/Price)^(1/3) - 1 + growth + div_yield
+
+    Args:
+        fv: Fair value in same currency as price (already converted)
+        price: Current market price
+        growth_pct: Expected growth rate as percentage (e.g., 8.0 for 8%)
+        yield_pct: Dividend yield as percentage (e.g., 2.5 for 2.5%)
+
+    Returns:
+        E[CAGR] as percentage (e.g., 14.5 for 14.5%), or None if inputs invalid.
+    """
+    if not fv or not price or price <= 0 or fv <= 0:
+        return None
+
+    # MoS convergence component: (FV/Price)^(1/3) - 1
+    ratio = fv / price
+    mos_cagr = (ratio ** (1.0 / 3.0)) - 1.0
+
+    # Add sustainable growth (convert from pct to decimal, then back)
+    growth_decimal = (growth_pct or 0.0) / 100.0
+
+    # Add dividend yield
+    div_decimal = (yield_pct or 0.0) / 100.0
+
+    ecagr = (mos_cagr + growth_decimal + div_decimal) * 100.0
+    return round(ecagr, 1)
+
+
 def extract_qs_and_tier(thesis_content):
     """Extract Quality Score and Tier from thesis content."""
     qs = None
@@ -488,11 +534,13 @@ def process_position(ticker, thesis_path, eurusd, gbpeur, dkkeur, decisions_log,
         'mos_pct': None,
         'growth_pct': None,
         'yield_pct': None,
+        'ecagr_at_market': None,
         'conviction': None,
         'fv_source': None,
         'growth_source': None,
         'price': None,
         'fv': None,
+        'fv_in_stock_currency': None,
         'currency': None,
         'is_research': is_research,
         'status': None,
@@ -540,6 +588,7 @@ def process_position(ticker, thesis_path, eurusd, gbpeur, dkkeur, decisions_log,
         mos_pct = ((fv_in_stock_currency - price) / price) * 100
         result['mos_pct'] = mos_pct
         result['fv'] = fv_raw
+        result['fv_in_stock_currency'] = fv_in_stock_currency
         result['fv_source'] = f"{fv_raw:.1f} {fv_currency}"
     else:
         result['fv_source'] = 'N/A'
@@ -566,8 +615,102 @@ def process_position(ticker, thesis_path, eurusd, gbpeur, dkkeur, decisions_log,
     # Conviction from portfolio or decisions_log (raw data, no multiplier)
     result['conviction'] = get_conviction_for_ticker(decisions_log, ticker)
 
+    # Compute E[CAGR] at current market price
+    if result['fv_in_stock_currency'] is not None and price > 0:
+        result['ecagr_at_market'] = compute_ecagr_at_market(
+            result['fv_in_stock_currency'], price,
+            result['growth_pct'], result['yield_pct']
+        )
+
     if is_research:
         result['status'] = extract_status_from_research(thesis_content)
+
+    return result
+
+
+def process_short_position(ticker, short_pos, eurusd, gbpeur, dkkeur, system_qs=None):
+    """Process a single short position. Returns dict with short-specific data fields.
+
+    Short forward return = (current_price - fair_value) / current_price * 100
+    POSITIVE when price is ABOVE fair value (good for short thesis).
+    Carry cost is subtracted as a drag on net forward return.
+    """
+    result = {
+        'ticker': ticker,
+        'qs': None,
+        'tier': None,
+        'fwd_ret_pct': None,       # Gross forward return (before carry)
+        'carry_pct': None,          # Annualized carry cost
+        'net_fwd_pct': None,        # Net forward return (after carry)
+        'fv_source': None,
+        'price': None,
+        'fv': None,
+        'currency': None,
+        'invested_eur': None,
+        'date_opened': None,
+        'error': None,
+    }
+
+    # Read thesis from thesis/short/active/TICKER/thesis.md
+    thesis_path = short_pos.get('thesis', f'thesis/short/active/{ticker}/thesis.md')
+    thesis_content = read_thesis_file(thesis_path)
+
+    # QS/Tier from system.yaml or thesis
+    if system_qs and ticker in system_qs:
+        qs, tier = system_qs[ticker]
+    else:
+        qs, tier = extract_qs_and_tier(thesis_content)
+    result['qs'] = qs
+    result['tier'] = tier
+
+    # Get date_opened for carry proration
+    date_opened_str = short_pos.get('date_opened')
+    result['date_opened'] = date_opened_str
+
+    # Invested amount for weighting
+    invested_eur = short_pos.get('invested_eur') or short_pos.get('invested_usd')
+    result['invested_eur'] = invested_eur
+
+    TICKER_MAP = {'LIGHT.NV': 'LIGHT.AS'}
+    yf_ticker = TICKER_MAP.get(ticker, ticker)
+
+    info = get_yfinance_data(yf_ticker)
+    if info is None:
+        result['error'] = 'No yfinance data'
+        return result
+
+    price = info.get('currentPrice') or info.get('regularMarketPrice') or info.get('previousClose')
+    if price is None:
+        result['error'] = 'No price data'
+        return result
+
+    stock_currency = info.get('currency', 'USD')
+    result['price'] = price
+    result['currency'] = stock_currency
+
+    # Extract fair value from short thesis (same canonical format)
+    fv_raw, fv_currency = extract_fair_value(thesis_content, ticker, stock_currency)
+
+    if fv_raw is not None:
+        fv_in_stock_currency = convert_fv_to_price_currency(
+            fv_raw, fv_currency, stock_currency, eurusd, gbpeur, dkkeur
+        )
+        # SHORT forward return: positive when price > FV (overvalued = good for short)
+        fwd_ret_pct = ((price - fv_in_stock_currency) / price) * 100
+        result['fwd_ret_pct'] = fwd_ret_pct
+        result['fv'] = fv_raw
+        result['fv_source'] = f"{fv_raw:.1f} {fv_currency}"
+    else:
+        result['fv_source'] = 'N/A'
+
+    # Calculate carry cost (annualized, prorated from date_opened)
+    # Use carry_annual_pct from position data if specified, otherwise default
+    annual_carry = short_pos.get('carry_annual_pct', DEFAULT_ANNUAL_CARRY_PCT)
+    result['carry_pct'] = annual_carry
+
+    # Net forward return = gross forward return - annual carry cost
+    if result['fwd_ret_pct'] is not None:
+        result['net_fwd_pct'] = result['fwd_ret_pct'] - annual_carry
 
     return result
 
@@ -585,20 +728,118 @@ def find_research_tickers():
     return results
 
 
-def print_ranking(active_results, research_results, show_active=True, show_pipeline=True):
+def load_universe_best_candidates():
+    """Load best pipeline candidates from quality_universe for rotation comparison.
+
+    Returns list of dicts with ticker, qs, mos_pct for companies with pipeline >= R3_COMPLETE
+    and entry prices defined. Sorted by QS descending.
+    """
+    if not os.path.exists(UNIVERSE_PATH):
+        return []
+    try:
+        with open(UNIVERSE_PATH, 'r') as f:
+            data = yaml.safe_load(f) or {}
+        companies = data.get('quality_universe', {}).get('companies', [])
+    except Exception:
+        return []
+
+    advanced = {'R3_COMPLETE', 'APPROVED', 'STANDING_ORDER'}
+    candidates = []
+    for c in companies:
+        if c.get('direction', 'long') != 'long':
+            continue
+        if c.get('pipeline_status', '') not in advanced:
+            continue
+        qs = c.get('qs_adj') or c.get('qs_tool') or 0
+        dist = c.get('distance_to_entry')
+        if dist is None:
+            continue
+        # MoS approximation: for pipeline candidates, distance_to_entry is
+        # (price - entry) / entry * 100.  A positive MoS would mean price < FV.
+        # We use the FV-based MoS if available, else approximate from distance.
+        fv = c.get('fair_value')
+        price = c.get('current_price')
+        if fv and price and price > 0:
+            mos = ((fv - price) / price) * 100
+        else:
+            mos = -dist  # Rough approximation
+        candidates.append({
+            'ticker': c['ticker'],
+            'qs': qs,
+            'mos_pct': mos,
+            'tier': c.get('tier', '?'),
+        })
+    candidates.sort(key=lambda x: -x['qs'])
+    return candidates
+
+
+def compute_rotation_flags(active_results, pipeline_candidates):
+    """Compute rotation opportunity scores for bottom-3 active positions.
+
+    OS = (MoS_candidate / MoS_position) * (QS_candidate / QS_position)
+    If OS > 2.0: flag as ROTATION CANDIDATE.
+
+    Returns dict of {ticker: (os_score, best_candidate_ticker)}.
+    """
+    if not pipeline_candidates or not active_results:
+        return {}
+
+    # Get bottom 3 by MoS (worst forward return positions)
+    valid = [r for r in active_results if r['mos_pct'] is not None and r['qs'] is not None]
+    if not valid:
+        return {}
+    sorted_by_mos = sorted(valid, key=lambda x: x['mos_pct'])
+    bottom_3 = sorted_by_mos[:3]
+
+    # Best pipeline candidate (highest QS with positive MoS)
+    best = None
+    for pc in pipeline_candidates:
+        if pc['mos_pct'] > 0:
+            best = pc
+            break
+    if not best:
+        return {}
+
+    flags = {}
+    for r in bottom_3:
+        pos_mos = max(r['mos_pct'], 0.1)  # Avoid division by zero
+        pos_qs = max(r['qs'], 1)
+        cand_mos = max(best['mos_pct'], 0.1)
+        cand_qs = max(best['qs'], 1)
+
+        os_score = (cand_mos / pos_mos) * (cand_qs / pos_qs)
+        if os_score > 2.0:
+            flags[r['ticker']] = (round(os_score, 1), best['ticker'])
+
+    return flags
+
+
+def print_ranking(active_results, research_results, short_results, show_active=True, show_pipeline=True, deployment_ready=False, signals_data=None):
     """Print the formatted data tables. No composite scores, no ranking highlights."""
     conv_short = {'high': 'H', 'medium': 'M', 'low': 'L'}
+
+    # Compute rotation flags for active positions
+    rotation_flags = {}
+    if show_active and active_results:
+        pipeline_candidates = load_universe_best_candidates()
+        rotation_flags = compute_rotation_flags(active_results, pipeline_candidates)
 
     if show_active and active_results:
         # Sort by MoS% descending (largest upside first), but this is just display order
         ranked = sorted(active_results, key=lambda x: x['mos_pct'] if x['mos_pct'] is not None else -999, reverse=True)
 
         print()
-        print("=" * 100)
-        print("FORWARD RETURN COMPONENTS -- ACTIVE POSITIONS")
-        print("=" * 100)
-        print(f"{'Ticker':<10} {'QS':>3} {'Tier':>4} {'MoS%':>7} {'Grw%':>6} {'Yld%':>6} {'Conv':>4} {'GrSrc':>7}  {'FV':>16}")
-        print("-" * 100)
+        sig_hdr = " {'Ins':>4} {'QF':>3}" if signals_data else ""
+        w = 126 if signals_data else 110
+        print("=" * w)
+        print("FORWARD RETURN COMPONENTS -- ACTIVE LONG POSITIONS")
+        print("=" * w)
+        hdr = f"{'Ticker':<10} {'QS':>3} {'Tier':>4} {'MoS%':>7} {'Grw%':>6} {'Yld%':>6} {'E[CAGR]':>8} {'Conv':>4} {'GrSrc':>7}"
+        if signals_data:
+            hdr += f" {'Ins':>5} {'QF':>3}"
+        hdr += f"  {'FV':>16}"
+        print(hdr)
+        print("-" * w)
 
         for r in ranked:
             qs_str = str(r['qs']) if r['qs'] is not None else '?'
@@ -606,21 +847,90 @@ def print_ranking(active_results, research_results, show_active=True, show_pipel
             mos_str = f"{r['mos_pct']:+.1f}" if r['mos_pct'] is not None else 'N/A'
             grw_str = f"{r['growth_pct']:.1f}" if r['growth_pct'] is not None else 'N/A'
             yld_str = f"{r['yield_pct']:.1f}" if r['yield_pct'] is not None else '0.0'
+            ecagr_str = f"{r['ecagr_at_market']:.1f}%" if r.get('ecagr_at_market') is not None else '-'
             conv_str = conv_short.get(r['conviction'], '?') if r['conviction'] else '?'
             gr_src_str = r['growth_source'] or '-'
             fv_str = r['fv_source'] if r['fv_source'] else 'N/A'
 
-            if r['error']:
-                print(f"{r['ticker']:<10} {'':>3} {'':>4} {'ERR':>7} {'':>6} {'':>6} {'':>4} {'':>7}  {r['error']}")
-            else:
-                print(f"{r['ticker']:<10} {qs_str:>3} {tier_str:>4} {mos_str:>7} {grw_str:>6} {yld_str:>6} {conv_str:>4} {gr_src_str:>7}  {fv_str:>16}")
+            # Signals columns
+            sig_cols = ""
+            if signals_data:
+                sig = signals_data.get(r['ticker'], {})
+                ins_net = sig.get('ins_net')
+                ins_str = f"{ins_net:+d}" if ins_net is not None else '-'
+                qf = sig.get('qf_count')
+                qf_str = str(qf) if qf is not None else '-'
+                sig_cols = f" {ins_str:>5} {qf_str:>3}"
 
-        print("-" * 100)
-        print(f"  {len(active_results)} positions | [Apply learning/principles.md to reason about this data]")
+            # Rotation flag suffix
+            rot_flag = ""
+            if r['ticker'] in rotation_flags:
+                os_score, cand_ticker = rotation_flags[r['ticker']]
+                rot_flag = f"  [ROTATION CANDIDATE OS={os_score} vs {cand_ticker}]"
+
+            if r['error']:
+                print(f"{r['ticker']:<10} {'':>3} {'':>4} {'ERR':>7} {'':>6} {'':>6} {'':>8} {'':>4} {'':>7}  {r['error']}")
+            else:
+                line = f"{r['ticker']:<10} {qs_str:>3} {tier_str:>4} {mos_str:>7} {grw_str:>6} {yld_str:>6} {ecagr_str:>8} {conv_str:>4} {gr_src_str:>7}{sig_cols}  {fv_str:>16}{rot_flag}"
+                print(line)
+
+        print("-" * 110)
+        print(f"  {len(active_results)} long positions | E[CAGR] = (FV/Price)^(1/3)-1 + Growth + Yield")
 
         no_fv = [r for r in ranked if r['mos_pct'] is None and r['error'] is None]
         if no_fv:
             print(f"  FV not found in thesis: {', '.join(r['ticker'] for r in no_fv)}")
+
+        # Print rotation summary if any flags
+        if rotation_flags:
+            print()
+            print("ROTATION OPPORTUNITIES (OS > 2.0):")
+            for ticker, (os_score, cand) in rotation_flags.items():
+                r = next((x for x in active_results if x['ticker'] == ticker), None)
+                mos = f"{r['mos_pct']:+.1f}%" if r and r['mos_pct'] is not None else "?"
+                qs = r['qs'] if r else "?"
+                print(f"  {ticker} (QS {qs}, MoS {mos}) → {cand} | Opportunity Score: {os_score}x")
+
+    # SHORT POSITIONS section
+    if show_active and short_results is not None:
+        if short_results:
+            # Sort by net forward return descending (best shorts first)
+            ranked_shorts = sorted(short_results, key=lambda x: x['net_fwd_pct'] if x['net_fwd_pct'] is not None else -999, reverse=True)
+
+            print()
+            print("=" * 100)
+            print("FORWARD RETURN COMPONENTS -- SHORT POSITIONS")
+            print("=" * 100)
+            print(f"{'Ticker':<10} {'QS':>3} {'Tier':>4} {'FV':>16} {'Price':>10} {'FwdRet%':>8} {'Carry%':>7} {'NetFwd%':>8}")
+            print("-" * 100)
+
+            for r in ranked_shorts:
+                qs_str = str(r['qs']) if r['qs'] is not None else '?'
+                tier_str = r['tier'] if r['tier'] else '?'
+                fv_str = r['fv_source'] if r['fv_source'] else 'N/A'
+                price_str = f"{r['price']:.2f}" if r['price'] is not None else 'N/A'
+                fwd_str = f"{r['fwd_ret_pct']:+.1f}" if r['fwd_ret_pct'] is not None else 'N/A'
+                carry_str = f"-{r['carry_pct']:.1f}" if r['carry_pct'] is not None else 'N/A'
+                net_str = f"{r['net_fwd_pct']:+.1f}" if r['net_fwd_pct'] is not None else 'N/A'
+
+                if r['error']:
+                    print(f"{r['ticker']:<10} {'':>3} {'':>4} {'':>16} {'ERR':>10} {'':>8} {'':>7} {'':>8}  {r['error']}")
+                else:
+                    print(f"{r['ticker']:<10} {qs_str:>3} {tier_str:>4} {fv_str:>16} {price_str:>10} {fwd_str:>8} {carry_str:>7} {net_str:>8}")
+
+            print("-" * 100)
+            print(f"  {len(short_results)} short positions | Carry = annualized CFD cost (~{DEFAULT_ANNUAL_CARRY_PCT}% default)")
+
+            no_fv_shorts = [r for r in ranked_shorts if r['fwd_ret_pct'] is None and r['error'] is None]
+            if no_fv_shorts:
+                print(f"  FV not found in thesis: {', '.join(r['ticker'] for r in no_fv_shorts)}")
+        else:
+            print()
+            print("  No short positions.")
+
+    # NET FORWARD RETURN (long + short combined)
+    if show_active and active_results and short_results:
+        _print_net_forward_return(active_results, short_results)
 
     if show_pipeline and research_results:
         valid_research = [r for r in research_results if r['mos_pct'] is not None]
@@ -629,11 +939,11 @@ def print_ranking(active_results, research_results, show_active=True, show_pipel
         valid_research.sort(key=lambda x: x['mos_pct'], reverse=True)
 
         print()
-        print("=" * 100)
+        print("=" * 110)
         print("PIPELINE -- RESEARCH THESIS")
-        print("=" * 100)
-        print(f"{'Ticker':<10} {'QS':>3} {'Tier':>4} {'MoS%':>7} {'Grw%':>6} {'Yld%':>6} {'GrSrc':>7}  {'FV':>16} {'Status'}")
-        print("-" * 100)
+        print("=" * 110)
+        print(f"{'Ticker':<10} {'QS':>3} {'Tier':>4} {'MoS%':>7} {'Grw%':>6} {'Yld%':>6} {'E[CAGR]':>8} {'GrSrc':>7}  {'FV':>16} {'Status'}")
+        print("-" * 110)
 
         for r in valid_research:
             qs_str = str(r['qs']) if r['qs'] is not None else '?'
@@ -641,24 +951,172 @@ def print_ranking(active_results, research_results, show_active=True, show_pipel
             mos_str = f"{r['mos_pct']:+.1f}" if r['mos_pct'] is not None else 'N/A'
             grw_str = f"{r['growth_pct']:.1f}" if r['growth_pct'] is not None else 'N/A'
             yld_str = f"{r['yield_pct']:.1f}" if r['yield_pct'] is not None else '0.0'
+            ecagr_str = f"{r['ecagr_at_market']:.1f}%" if r.get('ecagr_at_market') is not None else '-'
             gr_src_str = r['growth_source'] or '-'
             fv_str = r['fv_source'] if r['fv_source'] else 'N/A'
-            status = (r['status'] or '')[:45]
+            status = (r['status'] or '')[:40]
 
-            print(f"{r['ticker']:<10} {qs_str:>3} {tier_str:>4} {mos_str:>7} {grw_str:>6} {yld_str:>6} {gr_src_str:>7}  {fv_str:>16} {status}")
+            print(f"{r['ticker']:<10} {qs_str:>3} {tier_str:>4} {mos_str:>7} {grw_str:>6} {yld_str:>6} {ecagr_str:>8} {gr_src_str:>7}  {fv_str:>16} {status}")
 
         if invalid_research:
             print()
             print(f"Skipped (no FV in thesis): {', '.join(r['ticker'] for r in invalid_research)}")
 
+    # DEPLOYMENT-READY summary (pipeline candidates with viable E[CAGR])
+    if show_pipeline and research_results and deployment_ready:
+        deployment = []
+        for r in research_results:
+            ecagr = r.get('ecagr_at_market')
+            if ecagr is None:
+                continue
+            tier = r.get('tier', '?')
+            threshold = 12.0 if tier == 'A' else 15.0
+            if ecagr >= threshold:
+                deployment.append(r)
+
+        print()
+        dw = 126 if signals_data else 110
+        print("=" * dw)
+        print("DEPLOYMENT-READY PIPELINE (E[CAGR] >= 12% Tier A, >= 15% Tier B)")
+        print("=" * dw)
+        if deployment:
+            deployment.sort(key=lambda r: r.get('ecagr_at_market', 0), reverse=True)
+            dhdr = f"{'Ticker':<10} {'QS':>3} {'Tier':>4} {'MoS%':>7} {'E[CAGR]':>8} {'Price':>10}"
+            if signals_data:
+                dhdr += f" {'Ins':>5} {'QF':>3}"
+            dhdr += f"  {'FV':>16} {'Status'}"
+            print(dhdr)
+            print("-" * dw)
+            for r in deployment:
+                qs_str = str(r['qs']) if r['qs'] is not None else '?'
+                tier_str = r['tier'] if r['tier'] else '?'
+                mos_str = f"{r['mos_pct']:+.1f}" if r['mos_pct'] is not None else 'N/A'
+                ecagr_str = f"{r['ecagr_at_market']:.1f}%"
+                price_str = f"{r['price']:.2f}" if r['price'] is not None else 'N/A'
+                fv_str = r['fv_source'] if r['fv_source'] else 'N/A'
+                status = (r.get('status') or '')[:40]
+                sig_cols = ""
+                if signals_data:
+                    sig = signals_data.get(r['ticker'], {})
+                    ins_net = sig.get('ins_net')
+                    ins_str = f"{ins_net:+d}" if ins_net is not None else '-'
+                    qf = sig.get('qf_count')
+                    qf_str = str(qf) if qf is not None else '-'
+                    sig_cols = f" {ins_str:>5} {qf_str:>3}"
+                print(f"{r['ticker']:<10} {qs_str:>3} {tier_str:>4} {mos_str:>7} {ecagr_str:>8} {price_str:>10}{sig_cols}  {fv_str:>16} {status}")
+            # Signal alignment summary
+            if signals_data:
+                bullish = [r for r in deployment if signals_data.get(r['ticker'], {}).get('ins_signal') == 'BULLISH']
+                qf_positive = [r for r in deployment if (signals_data.get(r['ticker'], {}).get('qf_count') or 0) > 0]
+                print(f"\n  {len(deployment)} deployment-ready | {len(bullish)} with bullish insiders | {len(qf_positive)} with quality fund overlap")
+            else:
+                print(f"\n  {len(deployment)} deployment-ready candidates (worth buying at current prices)")
+        else:
+            print("  No pipeline candidates meet deployment-ready E[CAGR] thresholds at current prices.")
+            print("  Tier A needs E[CAGR] >= 12%, Tier B needs >= 15%.")
+
+    print()
+    print("[Raw data. Reason from principles.md]")
     print()
 
 
+def _print_net_forward_return(active_results, short_results):
+    """Print NET FORWARD RETURN summary combining longs and shorts.
+
+    Weighted average of long MoS minus weighted average of short net forward return,
+    adjusted for relative sizing. Uses invested amounts where available.
+    """
+    # Calculate weighted long MoS
+    long_weighted_sum = 0.0
+    long_total_weight = 0.0
+    for r in active_results:
+        if r['mos_pct'] is not None:
+            # Equal weight per position (invested amounts not in long result dict)
+            long_weighted_sum += r['mos_pct']
+            long_total_weight += 1
+
+    # Calculate weighted short net forward return
+    short_weighted_sum = 0.0
+    short_total_weight = 0.0
+    for r in short_results:
+        if r['net_fwd_pct'] is not None:
+            short_weighted_sum += r['net_fwd_pct']
+            short_total_weight += 1
+
+    long_avg = long_weighted_sum / long_total_weight if long_total_weight > 0 else 0
+    short_avg = short_weighted_sum / short_total_weight if short_total_weight > 0 else 0
+
+    print()
+    print("-" * 100)
+    print("NET FORWARD RETURN SUMMARY")
+    print("-" * 100)
+    print(f"  Long avg MoS:          {long_avg:+.1f}% (across {int(long_total_weight)} positions)")
+    print(f"  Short avg Net Fwd:     {short_avg:+.1f}% (across {int(short_total_weight)} positions, net of carry)")
+    print(f"  Combined:              Long {long_avg:+.1f}% + Short {short_avg:+.1f}%")
+
+
+def _load_ownership_signals(active_results, research_results):
+    """Load ownership intelligence from cache (zero API calls).
+
+    Returns dict: {ticker: {'ins_net': int, 'ins_signal': str, 'qf_count': int}}
+    """
+    try:
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        from ownership_cache import load_cache, get_latest_cache, get_quality_funds, get_insider_sentiment
+    except ImportError:
+        print("  WARNING: ownership_cache.py not found, skipping signals")
+        return None
+
+    # Load from today's cache or latest available
+    cache = load_cache()
+    if not cache:
+        cache, date_str = get_latest_cache()
+        if cache:
+            print(f"  Signals: using cached ownership data from {date_str}")
+        else:
+            print("  Signals: no ownership cache found")
+            return None
+    else:
+        print(f"  Signals: using today's ownership cache ({len(cache)} tickers)")
+
+    # Identify quality funds from all cached data
+    quality_funds = get_quality_funds(cache, min_stocks=2)
+    qf_names = set(name for name, _ in quality_funds)
+
+    signals = {}
+    all_tickers = set()
+    for r in active_results:
+        all_tickers.add(r['ticker'])
+    for r in research_results:
+        all_tickers.add(r['ticker'])
+
+    for ticker in all_tickers:
+        if ticker not in cache:
+            signals[ticker] = {'ins_net': None, 'ins_signal': '-', 'qf_count': None}
+            continue
+
+        # Insider sentiment
+        buys, sells, _, _, net, signal = get_insider_sentiment(cache, ticker)
+        # Quality fund overlap: how many quality funds hold this ticker
+        holders = cache.get(ticker, {}).get('holders', [])
+        qf_count = sum(1 for h in holders if h.get('name', '') in qf_names and not h.get('is_indexer', False))
+
+        signals[ticker] = {
+            'ins_net': net,
+            'ins_signal': signal,
+            'qf_count': qf_count,
+        }
+
+    return signals
+
+
 def main():
-    parser = argparse.ArgumentParser(description='Forward Return Ranking for portfolio positions')
+    parser = argparse.ArgumentParser(description='Forward Return Ranking for portfolio positions (long + short)')
     parser.add_argument('--ticker', nargs='+', help='Specific tickers to analyze')
-    parser.add_argument('--active-only', action='store_true', help='Only show active positions')
+    parser.add_argument('--active-only', action='store_true', help='Only show active positions (long + short)')
     parser.add_argument('--pipeline-only', action='store_true', help='Only show research pipeline')
+    parser.add_argument('--deployment-ready', action='store_true', help='Filter pipeline to E[CAGR] >= 12%% (Tier A) or >= 15%% (Tier B)')
+    parser.add_argument('--signals', action='store_true', help='Add ownership intelligence columns (insider sentiment, quality fund overlap)')
 
     args = parser.parse_args()
 
@@ -668,6 +1126,7 @@ def main():
         sys.exit(1)
 
     positions = portfolio.get('positions', [])
+    short_positions = portfolio.get('short_positions', []) or []
     decisions_log = load_decisions_log()
     system_qs = load_system_qs()
 
@@ -682,7 +1141,7 @@ def main():
 
     active_results = []
     if show_active:
-        print(f"Processing {len(positions)} active positions...")
+        print(f"Processing {len(positions)} active long positions...")
         for p in positions:
             ticker = p['ticker']
             if args.ticker and ticker not in args.ticker:
@@ -691,11 +1150,25 @@ def main():
             result = process_position(ticker, thesis_path, eurusd, gbpeur, dkkeur, decisions_log, system_qs=system_qs, is_research=False)
             active_results.append(result)
 
+    short_results = []
+    if show_active and short_positions:
+        print(f"Processing {len(short_positions)} short positions...")
+        for sp in short_positions:
+            ticker = sp['ticker']
+            if args.ticker and ticker not in args.ticker:
+                continue
+            result = process_short_position(ticker, sp, eurusd, gbpeur, dkkeur, system_qs=system_qs)
+            short_results.append(result)
+    elif show_active:
+        # Empty list signals "show the section" (with "No short positions" message)
+        short_results = []
+
     research_results = []
     if show_pipeline:
         research_tickers = find_research_tickers()
         active_tickers = {p['ticker'] for p in positions}
-        research_tickers = [(t, path) for t, path in research_tickers if t not in active_tickers]
+        short_tickers = {sp['ticker'] for sp in short_positions}
+        research_tickers = [(t, path) for t, path in research_tickers if t not in active_tickers and t not in short_tickers]
         if args.ticker:
             research_tickers = [(t, path) for t, path in research_tickers if t in args.ticker]
         if research_tickers:
@@ -704,7 +1177,15 @@ def main():
                 result = process_position(ticker, thesis_path, eurusd, gbpeur, dkkeur, decisions_log, system_qs=system_qs, is_research=True)
                 research_results.append(result)
 
-    print_ranking(active_results, research_results, show_active, show_pipeline)
+    # Load ownership signals if requested
+    signals_data = None
+    if args.signals:
+        signals_data = _load_ownership_signals(active_results, research_results)
+
+    # Pass short_results (even if empty) when show_active, None when not
+    print_ranking(active_results, research_results, short_results if show_active else None,
+                  show_active, show_pipeline, deployment_ready=args.deployment_ready,
+                  signals_data=signals_data)
 
 
 if __name__ == '__main__':

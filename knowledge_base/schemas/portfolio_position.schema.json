@@ -1,0 +1,57 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://valuehunter.local/schemas/portfolio_position.schema.json",
+  "title": "Portfolio Position",
+  "description": "An active position in portfolio/current.yaml",
+  "type": "object",
+  "required": ["ticker", "shares", "side", "invested_usd", "avg_cost", "conviction", "fair_value"],
+  "additionalProperties": false,
+  "properties": {
+    "ticker": { "type": "string" },
+    "company_name": { "type": ["string", "null"] },
+    "shares": { "type": "number", "minimum": 0 },
+    "side": { "type": "string", "enum": ["LONG", "SHORT"] },
+    "invested_usd": {
+      "type": "number",
+      "description": "Total capital invested (cost basis)"
+    },
+    "avg_cost": {
+      "type": "number",
+      "description": "Average cost per share in local currency"
+    },
+    "currency": { "type": "string" },
+    "thesis_path": {
+      "type": "string",
+      "description": "Relative path to thesis file"
+    },
+    "conviction": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 10
+    },
+    "fair_value": {
+      "type": "number",
+      "description": "Current estimated fair value per share"
+    },
+    "qs_tier": { "type": "string", "enum": ["A", "B", "C", "D"] },
+    "qs_raw": { "type": ["number", "null"], "minimum": 0, "maximum": 100 },
+    "exit_plan": {
+      "type": ["string", "null"],
+      "description": "Conditions or price targets for exit"
+    },
+    "kill_conditions": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Conditions that invalidate the thesis"
+    },
+    "entry_date": { "type": "string", "format": "date" },
+    "last_review": {
+      "type": ["string", "null"],
+      "format": "date",
+      "description": "Date of last thesis review"
+    },
+    "sector": { "type": ["string", "null"] },
+    "geo": { "type": ["string", "null"] },
+    "notes": { "type": ["string", "null"] }
+  }
+}

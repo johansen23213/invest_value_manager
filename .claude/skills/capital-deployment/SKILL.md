@@ -87,16 +87,18 @@ python3 tools/quality_universe.py stats                # Métricas de salud del 
 
 | Fuente | Método | Filtro |
 |--------|--------|--------|
-| Screening de índices | dynamic_screener.py | QS >= 65 via quality_scorer.py |
+| **Mass scoring de índices** | **batch_scorer.py --index X --add-to-universe** | **QS >= 55 auto-add. Expansión masiva de universo.** |
+| Screening de índices | dynamic_screener.py | Screening inicial + filtro granular |
 | Sector deep-dives | sector-screener agent | Candidatas de sector views |
 | Oportunidades detectadas | opportunity-hunter, news | Empresas que caen fuerte con calidad |
 | Conocimiento propio | VALIDAR con datos | Anti-popularity-bias: solo si pasa screening |
 
-**Anti-bias:** Usar --undiscovered flag. No depender de "empresas que conozco".
+**Anti-bias:** Usar batch_scorer + --undiscovered flag. No depender de "empresas que conozco".
 
 ### MANTENIMIENTO: Cómo se mantienen vivas
 
 Cada sesión, como parte natural del flujo:
+- **Expandir universo** — `batch_scorer.py --index {INDEX} --new-only --add-to-universe` para descubrir en índices no cubiertos
 - **Mirar qué está stale** — `quality_universe.py stale` muestra qué necesita atención
 - **Re-evaluar unas pocas** — re-ejecutar quality_scorer, verificar si FV/entry siguen vigentes
 - **Actualizar precios** — `quality_universe.py refresh` para ver proximidad a entry
@@ -152,7 +154,17 @@ Agentes: fundamental-analyst + moat-assessor + risk-identifier (PARALELO) → va
 - Quitar empresas que se deterioraron
 - Verificar que thesis existentes siguen vigentes
 
-### FASE E: Execution Readiness (event-driven)
+### FASE E: Fragility Universe (oportunista)
+
+Mantenimiento del lado SHORT del quality universe.
+- Cuando macro-analyst detecta fragilidad sectorial → screening de candidatos short
+- Cuando narrative_checker revela divergencia datos-narrativa → evaluar short
+- No es rutina diaria como longs — es oportunista, se activa por senales
+- `python3 tools/quality_universe.py --fragility` para ver candidatos short
+
+**Principio:** El portfolio es bidireccional (P12). Buscar shorts con mismo rigor que longs — fragilidad real + catalizador (P10).
+
+### FASE F: Execution Readiness (event-driven)
 
 ```
 TRIGGER: Precio toca entry de empresa con pipeline status >= R1_COMPLETE

@@ -27,10 +27,12 @@ Key Metrics:
     - Max drawdown
     - Win/loss ratio
     - Attribution by sector/geography/tier/holding period
+    - Short performance (win rate, avg return, total P&L)
 
 Author: Quant Tools Dev Agent
-Version: 1.0.1
+Version: 1.1.0
 Created: 2026-02-03
+Updated: 2026-02-18
 """
 
 import argparse
@@ -334,13 +336,17 @@ def analyze_active_positions(portfolio: Dict, eurusd: float, gbpusd: float) -> L
 
 
 def analyze_closed_positions(history: Dict) -> List[Dict]:
-    """Analyze all closed positions from history."""
+    """Analyze all closed positions from history (long only)."""
     closed = history.get('closed_positions', [])
     results = []
 
     for p in closed:
         ticker = p.get('ticker')
         if not ticker:
+            continue
+
+        # Skip short closures - those are handled separately
+        if p.get('direction') == 'short' or p.get('action') == 'COVER':
             continue
 
         pnl_pct = p.get('pnl_percent', 0)
@@ -371,6 +377,65 @@ def analyze_closed_positions(history: Dict) -> List[Dict]:
             'thesis_correct': p.get('thesis_accuracy', {}).get('correct'),
             'thesis_notes': p.get('thesis_accuracy', {}).get('notes', ''),
             'exit_reason': p.get('exit_reason', 'unknown'),
+            'sector': sector,
+            'geography': geo,
+        })
+
+    return results
+
+
+def analyze_closed_shorts(history: Dict) -> List[Dict]:
+    """Analyze all closed short positions from history."""
+    closed = history.get('closed_positions', [])
+    results = []
+
+    for p in closed:
+        ticker = p.get('ticker')
+        if not ticker:
+            continue
+
+        # Only include short closures
+        is_short = (p.get('direction') == 'short' or p.get('action') == 'COVER')
+        if not is_short:
+            continue
+
+        entry_price = p.get('entry_price', p.get('entry_price_usd', 0))
+        exit_price = p.get('exit_price', p.get('exit_price_usd', 0))
+        pnl_pct = p.get('pnl_percent', 0)
+        holding_days = p.get('holding_days', 0)
+        carry_cost = p.get('carry_cost', 0)
+
+        # For shorts: win = entry_price > exit_price (price went down)
+        if entry_price > 0 and exit_price > 0:
+            # Short P&L: (entry - exit) / entry * 100, minus carry
+            raw_return = (entry_price - exit_price) / entry_price * 100
+        else:
+            raw_return = pnl_pct  # fallback to recorded pnl_percent
+
+        if pnl_pct > 1:
+            outcome = 'win'
+        elif pnl_pct < -1:
+            outcome = 'loss'
+        else:
+            outcome = 'breakeven'
+
+        sector, geo = SECTOR_MAP.get(ticker, ('Unknown', 'Unknown'))
+
+        results.append({
+            'ticker': ticker,
+            'name': p.get('name', ticker),
+            'entry_date': p.get('entry_date'),
+            'exit_date': p.get('exit_date'),
+            'holding_days': holding_days,
+            'entry_price': entry_price,
+            'exit_price': exit_price,
+            'pnl_amount': p.get('pnl_amount', p.get('pnl_amount_eur', 0)),
+            'pnl_pct': pnl_pct,
+            'raw_return': raw_return,
+            'carry_cost': carry_cost,
+            'outcome': outcome,
+            'exit_reason': p.get('exit_reason', 'unknown'),
+            'catalyst': p.get('catalyst', ''),
             'sector': sector,
             'geography': geo,
         })
@@ -534,51 +599,52 @@ def calculate_attribution(active: List[Dict], closed: List[Dict]) -> Dict:
 
 
 def generate_recommendations(metrics: Dict, attribution: Dict, active: List[Dict]) -> List[str]:
-    """Generate actionable recommendations based on patterns."""
-    recommendations = []
+    """Generate data observations for the orchestrator to reason about.
+    NOTE: These are RAW OBSERVATIONS, not recommendations. The orchestrator
+    reasons from principles (learning/principles.md) about what to do."""
+    observations = []
 
-    # Cash observation (no fixed threshold - apply principles)
-    recommendations.append(f"CASH: {metrics['cash_pct']:.1f}%. Apply Principle 4 (Cash as Active Position) to evaluate.")
+    # Cash level (always report — orchestrator applies Principle 4)
+    observations.append(f"CASH: {metrics['cash_pct']:.1f}% of portfolio.")
 
-    # Win rate check
-    if metrics['win_rate_active_pct'] < 50 and metrics['active_positions'] >= 5:
-        recommendations.append(f"LOW WIN RATE: Only {metrics['win_rate_active_pct']:.0f}% of positions profitable. Review thesis quality.")
+    # Win rate (always report if enough data)
+    if metrics['active_positions'] >= 3:
+        observations.append(f"WIN RATE: {metrics['win_rate_active_pct']:.0f}% of {metrics['active_positions']} positions profitable.")
 
-    # Sector concentration
+    # Sector concentration patterns (report all clusters)
     for sector, data in attribution['by_sector'].items():
-        if data['count'] >= 3 and data.get('avg_pnl_pct', 0) < -5:
-            recommendations.append(f"SECTOR UNDERPERFORMANCE: {sector} has {data['count']} positions avg {data['avg_pnl_pct']:.1f}%. Review exposure.")
+        if data['count'] >= 3:
+            observations.append(f"SECTOR CLUSTER: {sector} has {data['count']} positions avg {data['avg_pnl_pct']:.1f}%.")
 
-    # Geography performance
+    # Geography patterns (report all clusters)
     for geo, data in attribution['by_geography'].items():
-        if data['count'] >= 3 and data.get('avg_pnl_pct', 0) < -5:
-            recommendations.append(f"GEO UNDERPERFORMANCE: {geo} has {data['count']} positions avg {data['avg_pnl_pct']:.1f}%. Review exposure.")
+        if data['count'] >= 3:
+            observations.append(f"GEO CLUSTER: {geo} has {data['count']} positions avg {data['avg_pnl_pct']:.1f}%.")
 
-    # Tier analysis
+    # Tier performance comparison (report if data exists)
     tier_a = attribution['by_tier'].get('A', {})
+    tier_b = attribution['by_tier'].get('B', {})
     tier_c = attribution['by_tier'].get('C', {})
-    if tier_a.get('count', 0) > 0 and tier_c.get('count', 0) > 0:
-        if tier_c.get('avg_pnl_pct', 0) > tier_a.get('avg_pnl_pct', 0):
-            recommendations.append("TIER ANOMALY: Tier C outperforming Tier A. Review MoS calibration.")
+    for label, tier_data in [('A', tier_a), ('B', tier_b), ('C', tier_c)]:
+        if tier_data.get('count', 0) > 0:
+            observations.append(f"TIER {label}: {tier_data['count']} positions, avg P&L {tier_data.get('avg_pnl_pct', 0):.1f}%.")
 
-    # FV hit rate
-    if metrics['fv_hit_rate_pct'] < 20 and (metrics['fv_hit_count'] + len([p for p in active if p.get('fv_reached') is False])) >= 5:
-        recommendations.append(f"LOW FV HIT RATE: Only {metrics['fv_hit_rate_pct']:.0f}% reached 80%+ of FV. Targets may be too aggressive.")
+    # FV convergence (report rate)
+    total_with_fv = metrics['fv_hit_count'] + len([p for p in active if p.get('fv_reached') is False])
+    if total_with_fv >= 3:
+        observations.append(f"FV HIT RATE: {metrics['fv_hit_rate_pct']:.0f}% reached 80%+ of FV ({metrics['fv_hit_count']}/{total_with_fv}).")
 
-    # Positions near FV (consider taking profits)
+    # Positions approaching FV (data for rotation consideration)
     for p in active:
-        if p.get('distance_to_fv_pct') is not None and p['distance_to_fv_pct'] < 10 and p['pnl_pct'] > 20:
-            recommendations.append(f"NEAR FV TARGET: {p['ticker']} is {p['distance_to_fv_pct']:.1f}% from FV with {p['pnl_pct']:.1f}% gain. Consider TRIM/SELL.")
+        if p.get('distance_to_fv_pct') is not None and p['distance_to_fv_pct'] < 15:
+            observations.append(f"NEAR FV: {p['ticker']} is {p['distance_to_fv_pct']:.1f}% from FV (P&L {p['pnl_pct']:.1f}%).")
 
-    # Big losers
-    for p in active:
-        if p['pnl_pct'] < -15:
-            recommendations.append(f"SIGNIFICANT LOSS: {p['ticker']} down {p['pnl_pct']:.1f}%. Review thesis validity.")
+    if not observations:
+        observations.append("Insufficient data for observations.")
 
-    if not recommendations:
-        recommendations.append("NO CRITICAL ISSUES: Portfolio performing within expected parameters.")
+    observations.append("[Raw data. Reason from principles.md]")
 
-    return recommendations
+    return observations
 
 
 # ==============================================================================
@@ -612,7 +678,9 @@ def print_summary(metrics: Dict):
     print(f"FV Hit Rate:          {metrics['fv_hit_rate_pct']:.0f}% (reached 80%+ of target)")
     print(f"Avg Holding Period:   {metrics['avg_holding_days']:.0f} days")
     print(f"Annualized Return:    {metrics['annualized_return']:+.1f}% (est.)")
-    print(f"Sharpe Ratio:         {metrics['sharpe_estimate']:.2f} (est.)")
+    print(f"Sharpe Ratio (long):  {metrics['sharpe_estimate']:.2f} (est.)")
+    print()
+    print("[Raw data. Reason from principles.md]")
     print()
 
 
@@ -622,7 +690,7 @@ def print_positions(active: List[Dict]):
     print("POSITION DETAIL")
     print("=" * 100)
     print()
-    print(f"{'Ticker':<10} {'P&L%':>7} {'FV':>8} {'Dist%':>7} {'Tier':>5} {'Days':>5} {'Sector':<18} {'Status':<10}")
+    print(f"{'Ticker':<10} {'P&L%':>7} {'FV':>8} {'Dist%':>7} {'Tier':>5} {'Days':>5} {'Sector':<18}")
     print("-" * 100)
 
     # Sort by P&L descending
@@ -632,18 +700,10 @@ def print_positions(active: List[Dict]):
         fv_str = f"${p['fv_usd']:.0f}" if p.get('fv_usd') else "N/A"
         dist_str = f"{p['distance_to_fv_pct']:+.0f}%" if p.get('distance_to_fv_pct') is not None else "N/A"
 
-        # Status
-        if p.get('fv_reached'):
-            status = "AT FV"
-        elif p['pnl_pct'] > 10:
-            status = "WINNING"
-        elif p['pnl_pct'] < -10:
-            status = "LOSING"
-        else:
-            status = "TRACKING"
+        print(f"{p['ticker']:<10} {p['pnl_pct']:>+6.1f}% {fv_str:>8} {dist_str:>7} {p['tier']:>5} {p['holding_days']:>5} {p['sector']:<18}")
 
-        print(f"{p['ticker']:<10} {p['pnl_pct']:>+6.1f}% {fv_str:>8} {dist_str:>7} {p['tier']:>5} {p['holding_days']:>5} {p['sector']:<18} {status:<10}")
-
+    print()
+    print("[Raw data. Reason from principles.md]")
     print()
 
 
@@ -668,7 +728,7 @@ def print_attribution(attribution: Dict):
         print(f"{geo:<20} {data['count']:>3} pos  Avg P&L: {data.get('avg_pnl_pct', 0):>+6.1f}%")
     print()
 
-    print("BY TIER (MoS-based)")
+    print("BY TIER")
     print("-" * 50)
     for tier in ['A', 'B', 'C', 'Unknown']:
         if tier in attribution['by_tier']:
@@ -684,6 +744,9 @@ def print_attribution(attribution: Dict):
             print(f"{bucket:<10} {len(positions):>3} pos  Avg P&L: {avg_pnl:>+6.1f}%")
     print()
 
+    print("[Raw data. Reason from principles.md]")
+    print()
+
 
 def print_retrospective(active: List[Dict], closed: List[Dict]):
     """Print retrospective thesis evaluation."""
@@ -695,18 +758,7 @@ def print_retrospective(active: List[Dict], closed: List[Dict]):
     print("ACTIVE POSITIONS - THESIS STATUS")
     print("-" * 60)
     for p in sorted(active, key=lambda x: x['pnl_pct'], reverse=True):
-        if p['pnl_pct'] > 15:
-            status = "ON TRACK - Strong"
-        elif p['pnl_pct'] > 5:
-            status = "ON TRACK"
-        elif p['pnl_pct'] > -5:
-            status = "NEUTRAL"
-        elif p['pnl_pct'] > -15:
-            status = "MONITORING"
-        else:
-            status = "REVIEW NEEDED"
-
-        print(f"{p['ticker']:<10} {p['pnl_pct']:>+6.1f}%  {status}")
+        print(f"{p['ticker']:<10} {p['pnl_pct']:>+6.1f}%  {p['holding_days']:>3}d")
     print()
 
     if closed:
@@ -719,15 +771,89 @@ def print_retrospective(active: List[Dict], closed: List[Dict]):
                 print(f"           Notes: {p['thesis_notes'][:60]}...")
         print()
 
+    print("[Raw data. Reason from principles.md]")
+    print()
+
+
+def print_short_performance(closed_shorts: List[Dict], long_sharpe: float):
+    """Print short position performance section."""
+    print("=" * 80)
+    print("SHORT PERFORMANCE")
+    print("=" * 80)
+    print()
+
+    if not closed_shorts:
+        print("  No hay historial de shorts.")
+        print()
+        print("[Raw data. Reason from principles.md]")
+        print()
+        return
+
+    # Basic stats
+    total = len(closed_shorts)
+    winners = [s for s in closed_shorts if s['outcome'] == 'win']
+    losers = [s for s in closed_shorts if s['outcome'] == 'loss']
+    breakeven = [s for s in closed_shorts if s['outcome'] == 'breakeven']
+
+    win_rate = len(winners) / total * 100 if total > 0 else 0
+    avg_return = np.mean([s['pnl_pct'] for s in closed_shorts]) if closed_shorts else 0
+    total_pnl = sum(s.get('pnl_amount', 0) for s in closed_shorts)
+    total_carry = sum(s.get('carry_cost', 0) for s in closed_shorts)
+
+    avg_winner = np.mean([s['pnl_pct'] for s in winners]) if winners else 0
+    avg_loser = np.mean([s['pnl_pct'] for s in losers]) if losers else 0
+    avg_holding = np.mean([s['holding_days'] for s in closed_shorts]) if closed_shorts else 0
+
+    print(f"Closed Shorts:        {total}")
+    print(f"  Winners:            {len(winners)} ({win_rate:.0f}%)")
+    print(f"  Losers:             {len(losers)}")
+    print(f"  Breakeven:          {len(breakeven)}")
+    print()
+    print(f"Avg Return:           {avg_return:+.1f}%")
+    print(f"Avg Winner Return:    {avg_winner:+.1f}%")
+    print(f"Avg Loser Return:     {avg_loser:+.1f}%")
+    print(f"Avg Holding Period:   {avg_holding:.0f} days")
+    print(f"Total P&L:            {total_pnl:+.2f}")
+    print(f"Total Carry Cost:     {total_carry:.2f}")
+
+    # Individual short results
+    print()
+    print("SHORT DETAIL")
+    print("-" * 70)
+    print(f"{'Ticker':<10} {'Entry':>8} {'Exit':>8} {'P&L%':>7} {'Days':>5} {'Outcome':<10}")
+    print("-" * 70)
+    for s in closed_shorts:
+        print(f"{s['ticker']:<10} {s.get('entry_price', 0):>8.2f} {s.get('exit_price', 0):>8.2f} {s['pnl_pct']:>+6.1f}% {s['holding_days']:>5} {s['outcome']:<10}")
+
+    # Combined Sharpe estimate (long + short)
+    if total >= 2:
+        short_returns = [s['pnl_pct'] for s in closed_shorts]
+        if avg_holding > 0 and avg_return != 0:
+            short_annualized = (1 + avg_return/100) ** (365/avg_holding) - 1
+            risk_free = 0.05
+            short_vol = np.std(short_returns) / 100 * np.sqrt(365 / avg_holding) if len(short_returns) > 1 else 0.20
+            short_sharpe = (short_annualized - risk_free) / short_vol if short_vol > 0 else 0
+            print()
+            print(f"Short Sharpe (est.):  {short_sharpe:.2f}")
+            print(f"Long Sharpe (est.):   {long_sharpe:.2f}")
+            # Combined is not a simple average; report both for reasoning
+            print(f"  (Combined Sharpe requires portfolio-level daily returns)")
+
+    print()
+    print("[Raw data. Reason from principles.md]")
+    print()
+
 
 def print_recommendations(recommendations: List[str]):
     """Print actionable recommendations."""
     print("=" * 80)
-    print("RECOMMENDATIONS")
+    print("OBSERVATIONS")
     print("=" * 80)
     print()
     for i, rec in enumerate(recommendations, 1):
         print(f"{i}. {rec}")
+    print()
+    print("[Raw data. Reason from principles.md]")
     print()
 
 
@@ -762,7 +888,11 @@ def main():
 
     print("Analyzing closed positions...")
     closed = analyze_closed_positions(history)
-    print(f"Found {len(closed)} closed positions")
+    print(f"Found {len(closed)} closed long positions")
+
+    closed_shorts = analyze_closed_shorts(history)
+    if closed_shorts:
+        print(f"Found {len(closed_shorts)} closed short positions")
     print()
 
     print("Calculating metrics...")
@@ -784,11 +914,16 @@ def main():
     if show_all or args.retrospective:
         print_retrospective(active, closed)
 
+    # Short performance section (always show if data exists, or in full report)
+    if show_all:
+        print_short_performance(closed_shorts, metrics['sharpe_estimate'])
+
     if show_all or args.recommendations:
         print_recommendations(recommendations)
 
     print("=" * 80)
     print(f"Report generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    print("[Raw data. Reason from principles.md]")
     print("=" * 80)
 
 

@@ -23,7 +23,7 @@ Vigilancia de riesgos exógenos que pueden destruir una thesis: litigios, invest
 
 ```
 1. Leer `portfolio/current.yaml` → posiciones activas
-2. Leer `state/system.yaml` → watchlist crítica
+2. Leer `state/watchlist.yaml` → watchlist crítica
 3. Leer `state/risk_alerts.yaml` → alertas previas (si existe)
 4. Leer thesis de cada posición → sección "Kill Conditions"
 ```

@@ -1,0 +1,98 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://valuehunter.local/schemas/company.schema.json",
+  "title": "Company Fundamentals",
+  "description": "Financial fundamentals for a company in the ValueHunter knowledge base",
+  "type": "object",
+  "required": ["ticker", "name", "exchange", "sector", "geo", "last_refresh"],
+  "additionalProperties": false,
+  "properties": {
+    "ticker": {
+      "type": "string",
+      "description": "Exchange ticker symbol (e.g. MORN, MONY.L, EDEN.PA)"
+    },
+    "name": {
+      "type": "string"
+    },
+    "exchange": {
+      "type": "string",
+      "description": "Exchange identifier (NYSE, LSE, XETRA, EURONEXT, etc.)"
+    },
+    "sector": {
+      "type": "string"
+    },
+    "industry": {
+      "type": "string"
+    },
+    "geo": {
+      "type": "string",
+      "description": "Primary geographic exposure (US, UK, EU, Global, etc.)"
+    },
+    "market_cap_usd": {
+      "type": "number",
+      "minimum": 0
+    },
+    "currency": {
+      "type": "string",
+      "description": "Reporting currency (USD, GBP, EUR, etc.)"
+    },
+    "last_refresh": {
+      "type": "string",
+      "format": "date",
+      "description": "ISO date of last data refresh"
+    },
+    "financials": {
+      "type": "object",
+      "description": "Key financial metrics from most recent filings",
+      "properties": {
+        "revenue_ttm": { "type": "number" },
+        "revenue_growth_3yr_cagr": { "type": "number" },
+        "gross_margin_pct": { "type": "number" },
+        "operating_margin_pct": { "type": "number" },
+        "net_margin_pct": { "type": "number" },
+        "fcf_ttm": { "type": "number" },
+        "fcf_margin_pct": { "type": "number" },
+        "roic_pct": { "type": "number" },
+        "roe_pct": { "type": "number" },
+        "roa_pct": { "type": "number" },
+        "debt_to_equity": { "type": "number" },
+        "net_debt": { "type": "number" },
+        "interest_coverage": { "type": "number" },
+        "current_ratio": { "type": "number" },
+        "shares_outstanding": { "type": "number" },
+        "pe_ttm": { "type": ["number", "null"] },
+        "pb": { "type": ["number", "null"] },
+        "ev_ebitda": { "type": ["number", "null"] },
+        "dividend_yield_pct": { "type": ["number", "null"] }
+      },
+      "additionalProperties": false
+    },
+    "goodwill_pct": {
+      "type": ["number", "null"],
+      "description": "Goodwill as percentage of total assets (flag if >40%)",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "quality_score": {
+      "type": "object",
+      "description": "Quality Score from quality_scorer.py",
+      "properties": {
+        "raw_score": { "type": "number", "minimum": 0, "maximum": 100 },
+        "tier": { "type": "string", "enum": ["A", "B", "C", "D"] },
+        "adjusted_score": { "type": ["number", "null"], "minimum": 0, "maximum": 100 },
+        "adjustment_reason": { "type": ["string", "null"] },
+        "scored_date": { "type": "string", "format": "date" }
+      },
+      "required": ["raw_score", "tier", "scored_date"],
+      "additionalProperties": false
+    },
+    "insider_ownership_pct": {
+      "type": ["number", "null"],
+      "minimum": 0,
+      "maximum": 100
+    },
+    "notes": {
+      "type": ["string", "null"]
+    }
+  }
+}

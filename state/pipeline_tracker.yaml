@@ -1,0 +1,186 @@
+# PIPELINE TRACKER + MAINTENANCE
+# Operational metadata for the fund
+# Updated: 2026-03-20
+
+# PRIORITY #1 - CAPITAL DEPLOYMENT (while cash > 25%)
+capital_deployment:
+  frequency: daily
+  priority: 1
+  trigger: "cash > 25%"
+  last_run: 2026-03-20
+  next_due: 2026-03-21
+  last_result: "S116: LULU SOLD (-8.2%, archived). 4 SOs TRIGGERED (RACE.MI/ALFA.L/ITRK.L/STMN.SW) all PAUSED — Hormuz Day 21. GL CEO selling watchpoint added. NVO Wegovy HD approved + India generics (thesis unchanged). Cash 56.3% JUSTIFIED. BEI.DE R2 in progress."
+  skill: ".claude/skills/capital-deployment/SKILL.md"
+  tool: "tools/quality_universe.py"
+
+# DAILY
+vigilance:
+  frequency: daily
+  last_run: 2026-03-20
+  next_due: 2026-03-21
+  last_result: "S116: Hormuz Day 21 ESCALATING. Oil WTI $98/Brent $108 (peaked $119 intraday). Qatar LNG attacked. FOMC held 3.50-3.75%, 1 cut. S&P 6,506 (new 2026 low). LULU Q4 beat but FY26 guide bearish — SOLD. GL CEO selling $2.7M. NVO Wegovy HD approved."
+  smart_skip:
+    same_day_window_hours: 8
+    source: "state/session_continuity.yaml → skip_if_same_day"
+
+rotation_check:
+  frequency: daily
+  last_run: 2026-03-20
+  next_due: 2026-03-21
+  last_result: "S116: Bottom 3: DTE.DE 6.5%, MORN 6.1%, AUTO.L 9.3%. LULU SOLD. DTE.DE HOLD (defensive). No rotation action during crisis. 4 triggered SOs (ALFA.L, RACE.MI first) when crisis clears."
+  smart_skip:
+    same_day_window_hours: 12
+    earnings_blackout: true
+    note: "Skip during earnings week if >40% portfolio reporting in 5d"
+
+# WEEKLY
+opportunity_scan:
+  frequency: weekly
+  last_run: 2026-02-19
+  next_due: 2026-03-05
+  last_result: "S81: 20+ new companies found. Top: RAA.DE, KYGA.L, LAGR-B.ST, STF.PA. Universe 149+."
+
+risk_review:
+  frequency: weekly
+  last_run: 2026-03-20
+  next_due: 2026-03-27
+  last_result: "S116: GL CEO selling $2.7M + whistleblower (YELLOW flag, not KC). Hormuz ESCALATED. NVO India generics (expected). LULU SOLD. 5 UK positions near 52w lows (concentration risk). No RED alerts."
+
+# SHORT/FRAGILITY
+fragility_watch:
+  frequency: weekly
+  priority: 2
+  last_run: 2026-03-20
+  next_due: 2026-03-27
+  last_result: "S116: SKIPPED — inappropriate during peak crisis (VIX 27, Hormuz Day 21). Short 0% justified by 56.3% cash (de facto hedge). Portfolio fragility: GL (CEO selling, whistleblower), AUTO.L (moat siege), BYIT.L (MSFT). LULU sold. Resume fragility scan when VIX <22 sustained."
+  skill: ".claude/skills/short-thesis-framework/SKILL.md"
+  tool: "tools/quality_universe.py --fragility"
+  mandatory: true
+  notes: |
+    OBLIGATORIO — Part of Fase 2.7 Universe Work. NOT optional.
+    Weekly scan for fragility candidates.
+    If no candidates found → DOCUMENT "no fragility identified" (explicit, not by omission)
+
+# MONTHLY (changed from biweekly — S110 evolution)
+position_review:
+  frequency: monthly
+  last_run: 2026-02-08
+  next_due: 2026-03-08
+  last_result: "Adversarial Fase 2: 9 Tier C reviewed."
+  current_batch: "middle"
+  batch_rotation: ["bottom", "middle", "top"]
+  evolution_note: |
+    S110: Changed from biweekly to monthly.
+    Rationale: biweekly was routinely overdue (25d gap). Monthly is realistic.
+    Earnings assessments serve as implicit position reviews — no separate review needed
+    for positions with recent earnings. thesis_monitor.py --alerts catches drift between reviews.
+
+system_health:
+  frequency: biweekly
+  last_run: 2026-03-20
+  next_due: 2026-04-03
+  last_result: "S116: 6.5/10 (was 7.0 S109). 9 WARNINGS, 5 INFO. DNLM.L thesis still in research/. 8 sector views stale with portfolio deps. 10/17 pipeline items overdue. Tools all compile. LULU archived. Full report: state/health_check_results.md"
+
+# MONTHLY
+deep_performance:
+  frequency: monthly
+  last_run: 2026-02-11
+  next_due: 2026-03-11
+  last_result: "13 positions. P&L +$70 (+1.2%). Cash 48.5%."
+
+macro_refresh:
+  frequency: monthly
+  last_run: 2026-03-20
+  next_due: 2026-04-20
+  last_result: "S116: Hormuz crisis dominates. Oil WTI $98/Brent $108. FOMC held 3.50-3.75%, 1 cut (was 2). Core PCE raised 2.7%. Fed paralyzed. S&P 6,506 (new 2026 lows). VIX 27. Stagflation risk. Gold $4,549. DXY 99.5 (USD weak). UK/EU consumer discretionary weak."
+
+system_challenge:
+  frequency: monthly
+  last_run: 2026-02-11
+  next_due: 2026-03-11
+  last_result: "5 challenges. mentalidad competitiva removed, QS default fixed."
+
+# R1 PROCESSING (PRIORITY #1 — anti-cash-drag, L-08)
+r1_processing:
+  frequency: daily
+  priority: 1
+  trigger: "SCORED count > 0 in universe"
+  last_run: 2026-03-20
+  next_due: 2026-03-21
+  last_result: "S116: BEI.DE R2 devil's advocate launched (2 units pending completion). BEI.DE at EUR 83.66, -4.4% below entry EUR 87.50, QS 75 Tier A. Pipeline advancement Section A: BEI.DE + BZU.MI ready."
+  minimum_per_session: "3 velocity units (1 R1=1u, 1 R2→R3=2u, 1 R4=1u)"
+  skill: ".claude/skills/capital-deployment/SKILL.md"
+  tool: "tools/r1_prioritizer.py"
+  efficiency:
+    fantasy_rate_last_10: 0.70
+    actionable_rate_last_10: 0.21
+    triage_s110: "16 deferred (10 R1 + 6 R3). R1 threshold >35%, R3 threshold >45%. Thesis files preserved."
+    r2_completed_session_106: 2
+    note: "Updated each session from universe r1_verdict stats."
+
+# UNIVERSE REFRESH
+universe_refresh:
+  frequency: monthly
+  last_run: 2026-02-20
+  next_due: 2026-03-20
+  last_result: "S92: All major indices scanned. 176 companies. Index saturation reached."
+  tool: "tools/batch_scorer.py"
+
+# SECTOR HEALTH
+sector_health:
+  frequency: weekly
+  last_run: 2026-03-04
+  next_due: 2026-03-11
+  last_result: "S110: 10 STALE, 12 BORDERLINE. 7 stale with portfolio deps."
+  tool: "tools/sector_health.py"
+  mandatory: true
+  staleness_policy: |
+    S110 evolution: Staleness thresholds adjusted.
+    - WITH portfolio deps: 30 days (was 21)
+    - WITHOUT portfolio deps: 60 days
+    - Refresh priority: ONLY sectors with portfolio deps when stale.
+    - Batch refresh: if >5 stale with deps, run all in single session.
+
+# DRIFT DETECTION
+drift_detection:
+  frequency: monthly
+  last_run: 2026-03-20
+  next_due: 2026-04-20
+  last_result: "S116: Sizing 4.1% avg (stable, declining trend 4.5→3.6%). MoS Tier A min 6% avg 28%, Tier B avg 42%. 0 drift detected. Short 0% (justified by crisis)."
+  tool: "tools/drift_detector.py --verbose"
+
+# NET EXPOSURE REASONING (P13, mandatory)
+net_exposure_reasoning:
+  frequency: daily
+  last_run: 2026-03-20
+  next_due: 2026-03-21
+  last_result: "S116: 43.7% long, 0% short, 56.3% cash. LULU sold. Hormuz Day 21 ESCALATING. Cash REINFORCED. 4 SOs triggered, all PAUSED. FOMC paralyzed. Deployment priority: ALFA.L > RACE.MI > STMN.SW when crisis clears."
+
+# STANDING ORDER REALITY CHECK
+so_reality_check:
+  frequency: daily
+  last_run: 2026-03-20
+  next_due: 2026-03-21
+  last_result: "S116: 4 TRIGGERED — RACE.MI (-7.2%), ALFA.L (-8.2%), ITRK.L (-2.9%), STMN.SW (-5.3%). ALL PAUSED (Hormuz). 7 NEAR: ACGL 5.2%, RACE.MI ADD 1.4%, GL ADD 9.7%, IHP.L 1.2%, FOUR.L 0.9%, KNSL 6.2%, MEGP.L 1.2%."
+
+# MAINTENANCE
+maintenance:
+  last_health_check: 2026-03-20
+  next_health_check_due: 2026-04-03
+  health_score: 6.5/10
+  last_compact: 2026-02-01
+  memory_status: ok
+  agents_count: 24
+  skills_count: 38
+  tools_count: 36
+  rules_count: 6
+  evolution_tracking_summary: |
+    2026-03-04: v4.6.1 System Evolution — CLAUDE.md diet (193→138 lines, refs moved to references.md), system-context v4.2→v4.6, position_review biweekly→monthly, sector staleness 21d→30d/60d, session_opener formalized as Phase 0-1, pipeline triage protocol proposed
+    2026-02-20: v4.6 Auto-Evolution + Dedup — session_continuity.yaml, r1 cooldowns, Fase 6, smart_skip, R1 verdict tracking, 19 backfilled
+    2026-02-20: v4.5 Sector Health System — sector_health.py (6 subcommands), sector staleness detection, coverage mapping, cascade deps, macro-map, r1_prioritizer STALE-SECTOR flags, error #56
+    2026-02-20: v4.4 System Improvement — r1_prioritizer tool, pipeline funnel dashboard, staleness detection, rotation triggers, drift detector first run, 5 new pipeline items
+    2026-02-18: v4.1 short system + epistemic rigor audit — 12 files fixed, 2 new errors, source classification
+    2026-02-14: Scalability refactoring — system.yaml split, CLAUDE.md diet, session-protocol compact
+    2026-02-11: System Devil's Advocate — 5 challenges, mentalidad gestor, QS fixes
+    2026-02-05: Proactive Vigilance — 3 agents (news/market/risk), 3 skills, 3 state files
+    2026-02-05: Framework v4.0 compliance — session-protocol v3.0, calibration, precedents

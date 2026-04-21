@@ -144,6 +144,29 @@ def _extract_returns(t, info, profile):
     profile['roic_trajectory'] = roic_trajectory
     profile['roic_current'] = roic_trajectory[0][1] if roic_trajectory else None
 
+    # Goodwill detection (for M&A-heavy companies)
+    goodwill = None
+    goodwill_pct = None
+    try:
+        balance = t.balance_sheet
+        if not balance.empty:
+            for gw_key in ['Goodwill', 'Goodwill And Other Intangible Assets']:
+                if gw_key in balance.index:
+                    gw_val = balance.loc[gw_key].iloc[0]
+                    if gw_val and gw_val > 0:
+                        goodwill = gw_val
+                        ta = balance.loc['Total Assets'].iloc[0] if 'Total Assets' in balance.index else None
+                        if ta and ta > 0:
+                            goodwill_pct = gw_val / ta
+                    break
+    except Exception:
+        pass
+
+    profile['goodwill'] = goodwill
+    profile['goodwill_pct'] = goodwill_pct
+    if goodwill_pct and goodwill_pct > 0.40:
+        profile['data_gaps'].append(f'HIGH GOODWILL ({goodwill_pct*100:.0f}% of assets) — ROIC methodology sensitive, check company-reported ROIC')
+
     # ROE trajectory
     roe_trajectory = []
     try:
@@ -296,6 +319,24 @@ def _extract_margins(t, info, profile):
     profile['fcf_trajectory'] = fcf_trajectory
     profile['fcf_margin_trajectory'] = fcf_margin_trajectory
     profile['fcf_current_margin'] = fcf_margin_trajectory[0][1] if fcf_margin_trajectory else None
+
+    # FCF distortion detection for financial services
+    fcf_distortion = False
+    if fcf_margin_trajectory:
+        max_fcf_margin = max(abs(v) for _, v in fcf_margin_trajectory)
+        if max_fcf_margin > 1.0:  # Any year with FCF margin > 100%
+            fcf_distortion = True
+
+    sector = info.get('sector', 'Unknown')
+    financial_sectors = {'Financial Services', 'Insurance'}
+    sector_fcf_unreliable = sector in financial_sectors
+
+    profile['fcf_distortion'] = fcf_distortion
+    profile['sector_fcf_unreliable'] = sector_fcf_unreliable
+
+    if fcf_distortion:
+        profile['data_gaps'].append('FCF DISTORTION (margin >100%, likely client money flows)')
+
 
     # FCF consistency
     positive_fcf_years = sum(1 for _, fcf in fcf_trajectory if fcf and fcf > 0)
@@ -485,7 +526,26 @@ def calculate_legacy_score(profile):
 
     # FCF Margin (10 pts max)
     fcf_m = profile.get('fcf_current_margin')
-    if fcf_m is not None:
+    fcf_distortion = profile.get('fcf_distortion', False) or profile.get('sector_fcf_unreliable', False)
+
+    if fcf_distortion:
+        # Use operating margin as proxy when FCF is distorted
+        op_traj = profile.get('op_margin_trajectory', [])
+        if op_traj:
+            op_m = op_traj[0][1]  # latest operating margin
+            if op_m is not None:
+                if op_m > 0.20: s = 8  # Cap at 8 (not 10) since it's a proxy
+                elif op_m > 0.15: s = 6
+                elif op_m > 0.10: s = 4
+                elif op_m > 0.05: s = 2
+                else: s = 0
+                scores['fcf_margin'] = s
+                scores['fcf_margin_note'] = 'proxy:op_margin (FCF distorted)'
+            else:
+                scores['fcf_margin'] = 0
+        else:
+            scores['fcf_margin'] = 0
+    elif fcf_m is not None:
         if fcf_m > 0.20: s = 10
         elif fcf_m > 0.15: s = 8
         elif fcf_m > 0.10: s = 5
@@ -688,6 +748,11 @@ def print_profile(profile, show_legacy=True, show_detail=False):
     if profile['data_gaps']:
         print(f"\n[!] Data gaps: {', '.join(profile['data_gaps'])}")
 
+    # FCF distortion warning
+    if profile.get("fcf_distortion") or profile.get("sector_fcf_unreliable"):
+        print(f"\n[!] FCF DATA DISTORTION -- FCF margins likely include client money flows (financial services)")
+        print(f"  Legacy score uses operating margin as proxy for FCF component")
+
     # --- RETURNS ON CAPITAL ---
     print(f"\n{'─'*70}")
     print("RETURNS ON CAPITAL")
@@ -721,6 +786,15 @@ def print_profile(profile, show_legacy=True, show_detail=False):
     if spread is not None:
         print(f"  ROIC-WACC spread: {spread*100:+.1f}pp")
 
+    # Goodwill warning
+    gw = profile.get('goodwill')
+    gw_pct = profile.get('goodwill_pct')
+    if gw is not None and gw_pct is not None:
+        gw_status = f"{gw_pct*100:.0f}% of assets"
+        if gw_pct > 0.40:
+            gw_status += " [!] HIGH — ROIC may differ from company-reported"
+        print(f"  Goodwill:         {fmt_money(gw)} ({gw_status})")
+
     # --- MARGINS ---
     print(f"\n{'─'*70}")
     print("MARGINS & CASH FLOW")
@@ -750,6 +824,8 @@ def print_profile(profile, show_legacy=True, show_detail=False):
     if fcf_m_traj:
         traj_str = '  '.join(f"{yr}: {fmt_pct(v)}" for yr, v in reversed(fcf_m_traj))
         print(f"  FCF margin:       {traj_str}")
+        if profile.get("fcf_distortion"):
+            print(f"  [!] FCF margins >100% detected -- likely client money distortion")
 
     # --- LEVERAGE ---
     print(f"\n{'─'*70}")
@@ -814,7 +890,8 @@ def print_profile(profile, show_legacy=True, show_detail=False):
             s = legacy['scores']
             print(f"\n  Financial ({s['roic_spread']+s['fcf_margin']+s['leverage']+s['fcf_consistency']}/40):")
             print(f"    ROIC Spread:     {s['roic_spread']:2d}/15")
-            print(f"    FCF Margin:      {s['fcf_margin']:2d}/10")
+            fcf_note = f" ({s['fcf_margin_note']})" if 'fcf_margin_note' in s else ''
+            print(f"    FCF Margin:      {s['fcf_margin']:2d}/10{fcf_note}")
             print(f"    Leverage:        {s['leverage']:2d}/10")
             print(f"    FCF Consistency: {s['fcf_consistency']:2d}/5")
             print(f"  Growth ({s['rev_cagr']+s['eps_cagr']+s['gm_trend']}/25):")
@@ -870,8 +947,8 @@ def main():
         print(f"\n{'='*70}")
         print("SUMMARY")
         print(f"{'='*70}")
-        print(f"{'Ticker':<10} {'Sector':<22} {'ROIC':>6} {'WACC':>6} {'Spread':>7} {'FCF%':>6} {'Lev':>5} {'RevCAGR':>8} {'GM':>6} {'Legacy':>7} {'Tier':>5}")
-        print(f"{'-'*95}")
+        print(f"{'Ticker':<10} {'Sector':<22} {'ROIC':>6} {'WACC':>6} {'Spread':>7} {'FCF%':>6} {'Lev':>5} {'RevCAGR':>8} {'GM':>6} {'GW%':>5} {'Legacy':>7} {'Tier':>5}")
+        print(f"{'-'*100}")
 
         for profile, legacy in results:
             roic_str = fmt_pct(profile.get('roic_current')) if profile.get('roic_current') is not None else 'N/A'
@@ -884,8 +961,12 @@ def main():
             rc = profile.get('rev_cagr')
             rc_str = fmt_pct(rc, show_sign=True) if rc is not None else 'N/A'
             gm_str = fmt_pct(profile.get('gm_current')) if profile.get('gm_current') is not None else 'N/A'
+            gw_pct = profile.get('goodwill_pct')
+            gw_str = f"{gw_pct*100:.0f}%" if gw_pct is not None else '-'
+            if gw_pct and gw_pct > 0.40:
+                gw_str += '!'
 
-            print(f"{profile['ticker']:<10} {profile['sector'][:22]:<22} {roic_str:>6} {wacc_str:>6} {spread_str:>7} {fcf_str:>6} {lev_str:>5} {rc_str:>8} {gm_str:>6} {legacy['total']:>5}/100 {legacy['tier']:>5}")
+            print(f"{profile['ticker']:<10} {profile['sector'][:22]:<22} {roic_str:>6} {wacc_str:>6} {spread_str:>7} {fcf_str:>6} {lev_str:>5} {rc_str:>8} {gm_str:>6} {gw_str:>5} {legacy['total']:>5}/100 {legacy['tier']:>5}")
 
 
 if __name__ == '__main__':

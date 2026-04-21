@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://valuehunter.local/schemas/market_regime.schema.json",
+  "title": "Market Regime",
+  "description": "A market regime classification for a time period",
+  "type": "object",
+  "required": ["period_start", "regime"],
+  "additionalProperties": false,
+  "properties": {
+    "period_start": {
+      "type": "string",
+      "format": "date"
+    },
+    "period_end": {
+      "type": ["string", "null"],
+      "format": "date",
+      "description": "Null if regime is still active"
+    },
+    "regime": {
+      "type": "string",
+      "enum": ["RISK_ON", "RISK_OFF", "TRANSITION", "CRISIS", "EUPHORIA"]
+    },
+    "regime_confidence": {
+      "type": "string",
+      "enum": ["HIGH", "MEDIUM", "LOW"]
+    },
+    "indicators": {
+      "type": "object",
+      "description": "Key indicators at time of classification",
+      "properties": {
+        "vix": { "type": ["number", "null"] },
+        "vix_percentile": { "type": ["number", "null"], "description": "Percentile rank of VIX vs history" },
+        "yield_curve_10y2y_bps": { "type": ["number", "null"] },
+        "credit_spreads_bps": { "type": ["number", "null"] },
+        "dxy": { "type": ["number", "null"] },
+        "sp500_200d_distance_pct": { "type": ["number", "null"], "description": "S&P 500 distance from 200-day MA" },
+        "oil_wti": { "type": ["number", "null"] },
+        "gold": { "type": ["number", "null"] },
+        "fed_funds_rate_pct": { "type": ["number", "null"] },
+        "us_unemployment_pct": { "type": ["number", "null"] }
+      },
+      "additionalProperties": false
+    },
+    "trigger_event": {
+      "type": ["string", "null"],
+      "description": "What triggered the regime change (e.g. 'Hormuz crisis escalation')"
+    },
+    "portfolio_implications": {
+      "type": ["string", "null"],
+      "description": "How this regime affects portfolio positioning"
+    },
+    "notes": { "type": ["string", "null"] }
+  }
+}

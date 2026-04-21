@@ -1,0 +1,12 @@
+positions:
+  - ticker: MORN
+    name: Morningstar Inc
+    shares: 2.9
+    avg_cost_usd: 160.76
+    invested_usd: 466.20
+    tier: A
+    conviction: HIGH
+    fair_value: 195
+    sector: Financial Data
+    geo: US
+cash_usd: 6860.44

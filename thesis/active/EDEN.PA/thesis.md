@@ -1,22 +1,25 @@
-# Edenred SE (EDEN.PA) - Investment Thesis v3.0
+# Edenred SE (EDEN.PA) - Investment Thesis v6.0
 
-**Date:** 2026-02-06 (Framework v4.0 Re-evaluation - Brazil Decree Impact)
+**Date:** 2026-03-03 (Review Agent - Post-FY2025 Full Review)
 **Original Date:** 2026-02-01
-**Price at Review:** EUR 17.95
-**Quality Score:** 62/100 -- Tier B
-**Recommendation:** HOLD / WAIT FOR EARNINGS FEB 24
-**Framework Version:** 4.0 (Principios Adaptativos)
-> **Fair Value:** EUR 29.0 (adversarial, updated 2026-02-07)
+**Price at Review:** EUR 19.32
+**Quality Score Tool:** 59/100 | **QS Adjusted:** 67/100 -- Tier B
+**Recommendation:** HOLD | Conviction: MEDIUM-HIGH
+**Framework Version:** 4.6 (Principios Adaptativos)
+> **Fair Value:** EUR 29.0 (adversarial, MAINTAINED post-FY2025)
+> **E[CAGR] 3yr:** ~21.5%
 
 ---
 
 ## Resumen Ejecutivo
 
-Edenred es el lider global en soluciones de pago prepago (meal vouchers, mobility, incentives) con 60M+ usuarios, 2M merchants y 1M clientes corporativos en 45 paises. La accion cotiza a EUR 17.95 (8.7x P/E, 6.8% yield), cerca de su minimo de 52 semanas de EUR 16.96.
+Edenred es el lider global en soluciones de pago prepago (meal vouchers, mobility, incentives) con 60M+ usuarios, 2M merchants y 1M clientes corporativos en 45 paises. La accion cotiza a EUR 19.32 (8.7x P/E, 6.7% yield), un 45% por debajo de su 52wH de EUR 34.93.
 
-**EVENTO MATERIAL v3.0**: El 12 de noviembre 2025, Brasil firmo un decreto regulando el programa PAT de meal vouchers: interchange cap al 2%, settlement reducido de 30 a 15 dias, e interoperabilidad obligatoria en 360 dias. Edenred reviso su guidance de EBITDA 2026 de +2/+4% a -8/-12%. La accion cayo 9% con la noticia. Un tribunal de Sao Paulo concedio injunction suspendiendo la implementacion para Ticket SA (subsidiaria de Edenred), pero el gobierno puede apelar.
+**FY2025 results (Feb 24): NEAR-BULL.** EBITDA EUR 1,360M (+11.2% LfL, beat consensus +1.3%). FCF EUR 1,111M (+25% vs consensus = MASSIVE beat). Adjusted EPS EUR 2.59 RECORD (+10%). Net Debt/EBITDA 0.9x (from 1.4x). DPS EUR 1.33 (+10%). Zero kill conditions triggered. 2027-28 recovery +8/+12% CONFIRMED.
 
-A pesar de este golpe, la tesis fundamental sigue intacta: Brasil meal vouchers = 9.5% del revenue del Grupo. El 90.5% restante no esta afectado. El MoS sigue siendo sustancial incluso en escenario Bear. Guidance 2027-2028 (+8/+12% EBITDA) mantenido sin cambios.
+**2026 is a known rebasing year.** EBITDA guided -8% to -12% (reported) due to Italy 5% interchange cap (~EUR 120M) and Brazil PAT decree. But intrinsic EBITDA growth is +8/+12% (same company, excluding regulatory headwinds). 2030 ambition EUR 5B revenue (vs EUR 2,961M FY2025 = ~14% CAGR).
+
+**FV EUR 29.0 MAINTAINED.** The adversarial FV (set Feb 7) already incorporated the -8/-12% rebasing. FY2025 results confirmed or exceeded every assumption. No revision needed.
 
 ---
 
@@ -49,341 +52,261 @@ Retention rate: >95%
 Payback Period = <12 meses (negocio maduro)
 ```
 
-### 1.3 Estructura de Margenes
+### 1.3 Estructura de Margenes (UPDATED FY2025)
 
 ```
-Gross Margin 2024: 42.8% (yfinance) / 45.1% H1 2025 (IR)
-  -> Tendencia: ESTABLE (40-45% rango) pero PRESION REGULATORIA creciente
-EBITDA margin: 41.1% (EUR 1,174M / EUR 2,856M)
-Net Margin 2024: 17.7%
+Revenue FY2025: EUR 2,961M (+5.7% LfL)
+EBITDA margin FY2025: 45.9% (+2.3pp vs FY2024)
+Operating EBITDA FY2025: EUR 1,131M (+13.7% LfL)
+Adjusted EPS FY2025: EUR 2.59 (RECORD, +10.2% YoY)
+FCF FY2025: EUR 1,111M (82% FCF/EBITDA conversion vs 70% target)
 
-IMPACTO BRASIL (NUEVO v3.0):
-  -> Si decreto se implementa: EBITDA -8% a -12% en 2026
-  -> Interchange cap 2% reduce fee income en Brasil
-  -> Settlement 15 dias (vs 30) reduce float income en Brasil
-  -> Brasil meal/food = 9.5% del revenue total
+2026 GUIDANCE:
+  -> EBITDA -8% to -12% (reported) = EUR 1,195M - EUR 1,251M
+  -> Intrinsic EBITDA growth +8/+12% (excluding Italy + Brazil regulatory)
+  -> FCF conversion >= 65%
+  -> Italy 5% cap impact ~EUR 120M/yr
+  -> Brazil decree: interchange cap 2%, settlement 15 days, interoperability
 ```
 
 ### 1.4 Requerimientos de Capital (sin cambios)
 
 **Tipo:** ASSET-LIGHT (plataforma tech + network effects)
 - Capex de mantenimiento: ~EUR 100M/ano (~3.5% of revenue)
-- Float de EUR 1.3B genera intereses (parcialmente afectado por settlement acelerado en Brasil)
+- Float de EUR 1.3B genera intereses
 
 ---
 
-## SECCION 2: POR QUE ESTA BARATA (actualizado v3.0)
+## SECCION 2: POR QUE ESTA BARATA (actualizado v6.0)
 
-### 2.1 Narrativa del Mercado (ACTUALIZADA)
+### 2.1 Narrativa del Mercado
 
 | Razon | Status | Mi Evaluacion |
 |-------|--------|---------------|
-| Declive secular de la industria | NO | Mercado en expansion (digitalizacion) |
-| Disrupcion tecnologica (fintechs) | PARCIAL | Swile <5% share, incumbents adaptandose |
-| Problemas management/governance | NO | Management competente |
-| Balance deteriorandose | PARCIAL | Equity negativo pero Net Debt/EBITDA ~2.3x estable |
-| Margenes bajo presion | **SI - INTENSIFICADO** | Italia + Brasil regulacion |
-| Perdida market share | NO (vigilar Brasil) | Lider en 70% mercados |
-| Riesgo regulatorio | **MUY ALTO** | Italia + Brasil materializado, Francia potencial |
-| Guidance decepcionante | **SI - AHORA NEGATIVO** | 2026 de +2/+4% a -8/-12% |
+| Declive secular de la industria | NO | Digitalizacion en expansion |
+| Disrupcion tecnologica (fintechs) | NO | Swile <5% share, incumbents adaptandose |
+| Management destruyendo valor | NO | Management delivered NEAR-BULL, FCF +25% |
+| Balance deteriorandose | NO | ND/EBITDA 0.9x = DRAMATICALLY improved |
+| Margenes bajo presion | PARCIAL | Italy cap + Brazil, but ex-regulatory = expanding |
+| Perdida market share | NO | Lider en 70% mercados, Brasil +15.7% LfL |
+| Riesgo regulatorio | ALTO | Italia + Brasil materializado. Francia = watch |
+| Guidance decepcionante | PRICED IN | -8/-12% known, but intrinsic +8/+12% |
 | Sector out-of-favor | SI | De-rating masivo growth -> value |
 
-### 2.2 Mi Contra-Tesis (ACTUALIZADA)
+### 2.2 Mi Contra-Tesis
 
 ```
 Mercado cree: Regulacion destruira el negocio (Italia + Brasil = tendencia imparable)
 Yo creo: Regulacion erosiona margenes en mercados especificos pero no destruye el moat global
 Mi evidencia:
-  - Brasil = 9.5% revenue, no existencial
-  - Network effects intactos fuera de Brasil
-  - Injunction concedida = base legal para challenge
-  - 2027-28 guidance mantenido (+8/+12%)
-Probabilidad de equivocado: 35% (SUBIO desde 25% por patron Italia->Brasil)
+  - FY2025 NEAR-BULL despite Italy cap already in effect
+  - Q4 Europe +8.0% LfL ex-Italy = accelerating
+  - Brazil +15.7% LfL despite decree uncertainty
+  - 2027-28 +8/+12% confirmed, 2030 EUR 5B ambition
+  - FCF 82% conversion proves cash generation resilient
+  - ND/EBITDA 0.9x = fortress balance sheet
+Probabilidad de equivocado: 30% (DOWN from 35% post-earnings confirmation)
 
-Mercado cree: 2026 sera catastrofico (-8/-12% EBITDA)
-Yo creo: 2026 sera malo pero contenible, 2027+ recovery
+Mercado cree: 2026 sera catastrofico
+Yo creo: 2026 is a known trough, already guided and priced
 Mi evidencia:
-  - Injunction puede limitar impacto real
-  - Mitigacion measures (pricing, costes) aun no detalladas
-  - 90.5% del negocio sigue creciendo
-Probabilidad de equivocado: 30%
-
-Mercado cree: Brasil es precedente para Francia
-Yo creo: Posible pero no seguro -- Francia es mercado maduro con lobby mas fuerte
-Mi evidencia:
-  - Italia fue primer precedente, pero Francia no ha actuado en 2+ anos
-  - Politica francesa actual pro-business (vs Brasil populista)
-Probabilidad de equivocado: 30%
+  - -8/-12% guidance = worst case. Market already prices permanent decline (reverse DCF: -14.9%/yr)
+  - Intrinsic EBITDA growth +8/+12% continues
+  - 0.9x leverage = optionality for buybacks/M&A through trough
+Probabilidad de equivocado: 25%
 ```
 
-### 2.3 Value Trap Checklist (actualizada v3.0)
+### 2.3 Value Trap Checklist (v6.0)
 
 | Factor | Status | Comentario |
 |--------|--------|------------|
-| Industria en declive secular | **NO** | Digitalizacion en expansion |
-| Disrupcion tecnologica inminente | **NO** | Fintechs son ruido |
-| Management destruyendo valor | **NO** | Buybacks a 8x P/E |
-| Balance deteriorandose | **PARCIAL** | Equity negativo, Net Debt/EBITDA 2.3x estable |
+| Industria en declive secular | **NO** | Digitalizacion + employee benefits expanding |
+| Disrupcion tecnologica inminente | **NO** | Fintechs minimal share |
+| Management destruyendo valor | **NO** | Buybacks at 8.7x P/E accretive, FCF +25% |
+| Balance deteriorandose | **NO** | ND/EBITDA 0.9x improved from 1.4x |
 | Insider selling masivo | **NO** | No detectado |
-| Dividend cut probable | **NO** | Payout 60% sostenible aun con -12% EBITDA |
-| Perdida market share >2pp | **POSIBLE (Brasil)** | Interoperabilidad podria erosionar en Brasil |
+| Dividend cut probable | **NO** | DPS +10% to EUR 1.33, payout ~54% sustainable |
+| Perdida market share >2pp | **NO** | No evidence, Brazil growing +15.7% |
 | ROIC < WACC ultimos 3 anos | **NO** | ROIC ~15-18% vs WACC ~8.5% |
-| FCF negativo >2 anos | **NO** | FCF consistente EUR 800M+ |
-| Goodwill >50% equity | **N/A** | Equity negativo |
+| FCF negativo >2 anos | **NO** | FCF EUR 1,111M = RECORD |
+| Goodwill >50% equity | **N/A** | Equity negativo (fintech structure) |
 
-**RESULTADO: 1/10 factores confirmado, 1 posible = Bajo riesgo value trap**
+**RESULTADO: 0/10 factores confirmados = LOW value trap risk**
 
 ---
 
-## SECCION 3: PROYECCION FUNDAMENTADA (ACTUALIZADA v3.0)
+## SECCION 3: PROYECCION FUNDAMENTADA (UPDATED v6.0)
 
-### 3.1 Revenue/EBITDA Projection (POST-DECRETO)
+### 3.1 Revenue/EBITDA Projection
 
 ```
-2025 (estimado):
-  EBITDA: ~EUR 1,180-1,200M (guidance pre-decreto cumplido)
+FY2025 (actual): EBITDA EUR 1,360M, Revenue EUR 2,961M
 
-2026 (REVISADO POR DECRETO):
-  Scenario Range: EBITDA -8% a -12%
-  Base: EBITDA ~EUR 1,060-1,090M
-  Impacto absoluto: EUR 150-200M negativo vs original
+FY2026 (guided): EBITDA EUR 1,195M - EUR 1,251M (reported, -8/-12%)
+  Intrinsic: EUR 1,469M - EUR 1,523M (+8/+12%)
+  Regulatory headwind: ~EUR 270M (Italy ~EUR 120M + Brazil ~EUR 150M)
 
-2027-2028 (MANTENIDO por management):
-  EBITDA growth: +8% a +12% anual
-  Implicacion: recovery a EUR 1,200-1,400M para 2028
+FY2027: EBITDA ~EUR 1,350-1,400M (+8/+12% on rebased 2026)
+FY2028: EBITDA ~EUR 1,460-1,570M (+8/+12% on 2027)
 
-2029+: +5% (normalized growth)
+FY2030 (ambition): Revenue EUR 5B (from EUR 2,961M = ~14% CAGR)
 ```
 
-### 3.2 WACC (sin cambios) = 8.5% (derivado en v2.0)
+### 3.2 WACC = 8.5-9.5% (adversarial used 9.5%)
 
-### 3.3 Terminal Growth = 2.5% (sin cambios)
-
----
-
-## SECCION 4: VALORACION (ACTUALIZADA v3.0)
-
-### 4.1 Escenarios Post-Decreto
-
-| Escenario | 2026 EBITDA | 2027-28 Recovery | FV Estimate | Prob |
-|-----------|-------------|-----------------|-------------|------|
-| Bull (injunction holds) | -2% to flat | +10-12% | EUR 50-55 | 20% |
-| Base (partial implementation) | -8% to -10% | +8-10% | EUR 38-42 | 50% |
-| Bear (full implementation) | -12% to -15% | +5-8% | EUR 25-30 | 25% |
-| Disaster (regulation spreads) | -15%+ | <5% | EUR 18-22 | 5% |
-
-**Expected Fair Value = 0.20 x 52.5 + 0.50 x 40 + 0.25 x 27.5 + 0.05 x 20 = EUR 38.4**
-
-### 4.2 DCF Cross-Check
-
-| DCF Scenario | Growth | WACC | Terminal | FV/Share |
-|-------------|--------|------|----------|----------|
-| Permanent decline (-10%) | -10% | 9% | 2% | EUR 19.29 |
-| Rebasing year base (+3%) | 3% | 8.5% | 2.5% | EUR 50.15 |
-| Tool default scenarios | 5% | 8.5% | 2.5% | EUR 38-68 |
-
-The permanent decline scenario (EUR 19.29) represents absolute worst case and assumes EBITDA never recovers -- unrealistic given 90.5% of business is unaffected. The base case (EUR 50.15) aligns with pre-decree v2.0 estimates.
-
-### 4.3 Comparacion v2.0 vs v3.0
-
-| Metrica | v2.0 (2026-02-03) | v3.0 (2026-02-06) | Cambio |
-|---------|-------------------|-------------------|--------|
-| Precio | EUR 17.82 | EUR 17.95 | +0.7% |
-| FV Base | EUR 51.5 | EUR 38.4 (expected) | -25.4% |
-| FV Bear | EUR 33.5 | EUR 27.5 | -17.9% |
-| MoS vs Expected | 65.7% | 53.3% | -12.4pp |
-| MoS vs Bear | 46.8% | 34.7% | -12.1pp |
-| 2026 EBITDA growth | +2/+4% | -8/-12% | MATERIAL DOWNGRADE |
-| 2027-28 guidance | +8/+12% | +8/+12% | UNCHANGED |
-
-### 4.4 Analyst Consensus
-
-- Average target: EUR 29-35 (14-23 analysts)
-- Consensus: Buy (16 buy/strong buy, 5 hold, 2 sell)
-- Bear (Jefferies): EUR 22.20
-- Bull (Kepler Cheuvreux): EUR 40
+### 3.3 Terminal Growth = 2.5%
 
 ---
 
-## SECCION 5: MARGIN OF SAFETY
+## SECCION 4: VALORACION (v6.0 REVIEW)
 
-### Precio actual: EUR 17.95
-### Fair Value Expected (v3.0): EUR 38.4
-### Fair Value Bear (v3.0): EUR 27.5
+### 4.1 FV Assessment
 
-| Metrica | Valor |
-|---------|-------|
-| MoS vs Expected FV | (38.4 - 17.95) / 38.4 = **53.3%** |
-| MoS vs Bear Case | (27.5 - 17.95) / 27.5 = **34.7%** |
-| MoS vs Disaster | (20 - 17.95) / 20 = **10.3%** |
+**FV EUR 29.0 MAINTAINED (adversarial, set 2026-02-07).**
 
-**Tier B precedent MoS: ~20-25% (from decisions_log.yaml)**
-**Current MoS of 34.7% vs Bear and 53.3% vs Expected both exceed precedent Tier B requirements.**
+The adversarial FV already modeled:
+- 2026 EBITDA trough (-8/-12%): CONFIRMED unchanged
+- Italy EUR 120M/yr impact: CONFIRMED
+- Brazil 19% total exposure: CONFIRMED, still growing +15.7% LfL
+- WACC 9.5%: Appropriate
+- 2027-28 recovery +8/+12%: CONFIRMED
+
+**Upside factors NOT reflected in EUR 29.0 (conservative):**
+- FCF EUR 1,111M vs modeled ~EUR 850-900M (+25% beat)
+- ND/EBITDA 0.9x vs modeled ~1.4x (fortress balance sheet)
+- 2030 EUR 5B revenue ambition (~14% CAGR, not in model)
+- Adjusted EPS EUR 2.59 RECORD
+
+**The adversarial FV is CONSERVATIVE relative to FY2025 actuals.** True fair value is likely EUR 32-35 but I maintain EUR 29.0 until 2026 trough is confirmed in Q1/H1 results.
+
+### 4.2 Cross-Checks
+
+| Method | FV | Notes |
+|--------|-----|-------|
+| Adversarial (scenario-weighted) | EUR 29.0 | Working FV. Italy + Brazil + 2026 trough modeled |
+| DCF tool base case | EUR 55.47 | Uses yfinance defaults, overstated |
+| DCF tool bear case | EUR 43.01 | Still well above EUR 29.0 |
+| Reverse DCF implied growth | -14.9%/yr | Market prices PERMANENT decline. Absurd for business growing +5.7% LfL |
+| EV/EBITDA on 2026 trough | ~6.6x at EUR 29 FV | Conservative for ROIC 15-18%, 82% FCF conversion |
+| Analyst consensus | EUR 25-29 | Aligned with adversarial FV |
+
+### 4.3 MoS and E[CAGR]
+
+| Metric | Value |
+|--------|-------|
+| Price | EUR 19.32 |
+| Fair Value | EUR 29.0 |
+| MoS | (29.0 - 19.32) / 29.0 = **33.4%** |
+| Bear FV | EUR 20.0 |
+| MoS vs Bear | (20.0 - 19.32) / 20.0 = **3.4%** |
+| Dividend yield | 6.7% (EUR 1.33 / EUR 19.32) |
+| E[CAGR] 3yr | (29.0/19.32)^(1/3) - 1 + 4.6% growth + 6.7% yield = ~25.8% |
 
 ---
 
-## SECCION 6: QUALITY SCORE
+## SECCION 5: QUALITY SCORE
 
-**Quality Score: 62/100 = Tier B (unchanged from purchase)**
+### QS Tool: 59/100 (Tier B)
 
 | Component | Score | Notes |
 |-----------|-------|-------|
-| Financial Quality | 19/40 | ROIC spread 0 pts (tool issue - real ROIC 15-18% vs WACC 8.5%) |
-| Growth Quality | 21/25 | Revenue CAGR 15.1%, EPS CAGR 13.2% (historical) |
-| Moat Evidence | 17/25 | GM premium +12.8pp, strong market position |
-| Capital Allocation | 5/10 | 10yr shareholder returns, low insider ownership |
+| Financial Quality | 21/40 | ROIC Spread 0 pts (yfinance misclassifies as Financial Services) |
+| Growth Quality | 18/25 | Revenue CAGR 18.6%, EPS CAGR 12.6% |
+| Moat Evidence | 15/25 | GM premium +29.9pp, market position 0/8 (default) |
+| Capital Allocation | 5/10 | 10yr+ shareholder returns, insider 0.1% |
 
-Note: ROIC spread scored 0 by tool due to yfinance sector classification ("Financial Services"). Real business ROIC of 15-18% vs 8.5% WACC gives true spread of +6.5-9.5pp, which would add 8 points, bringing adjusted QS to ~70.
+### QS Adjusted: 67/100 (Tier B)
 
----
+Adjustment +8 points:
+- ROIC spread adjustment: Real business ROIC 15-18% vs WACC 8.5% = +6.5-9.5pp spread. Tool shows 0 because yfinance classifies EDEN.PA as "Financial Services" and ROIC calculation distorted by float/negative equity structure. **+8 points** (ROIC spread would score 8/15 at +6.5pp).
+- This is consistent with adversarial review (Feb 7) which acknowledged ROIC 15-18% vs WACC 9.5%.
+- Adjustment is below 10-point threshold for enhanced documentation.
 
-## SECCION 7: RIESGOS & KILL CONDITIONS (ACTUALIZADO v3.0)
-
-### Riesgos Principales (ACTUALIZADOS)
-
-| Riesgo | Severidad | Probabilidad | Cambio vs v2.0 |
-|--------|-----------|--------------|-----------------|
-| **Regulacion Brasil** | **MUY ALTO** | **MATERIALIZADO** | NEW - era bajo (20%) |
-| Regulacion Francia | ALTO | 30% | Sin cambio |
-| Regulacion se extiende a otros mercados | ALTO | 25% | NEW |
-| Growth no vuelve a 8%+ en 2027 | MEDIO | 30% | Subio de 25% |
-| Balance deteriora (decreto + menores ingresos) | MEDIO | 20% | Subio de 15% |
-| Fintech disruption | BAJO | 10% | Sin cambio |
-| Interoperabilidad Brasil erosiona share | MEDIO | 35% | NEW |
-
-### Kill Conditions (ACTUALIZADAS v3.0)
-
-1. Francia impone interchange caps Y management no presenta plan de mitigacion
-2. Net Debt/EBITDA > 3.0x
-3. FCF conversion < 50% por 2 anos consecutivos
-4. Dividend cut
-5. Perdida material de market share (>5pp en 2 anos) en cualquier mercado principal
-6. **NEW**: 2027-2028 EBITDA guidance reducido a <+5% (indicaria que impacto Brasil NO esta contenido)
-7. **NEW**: Decreto Brasil plenamente ratificado por Supreme Court Y regulacion se extiende a 2+ mercados adicionales
-
-### Kill Conditions Status (2026-02-06)
-
-| Kill Condition | Status | Notes |
-|---------------|--------|-------|
-| 1. Francia caps | OK | No regulacion anunciada |
-| 2. ND/EBITDA >3.0x | OK | Actualmente ~2.3x. Si EBITDA -12%: ~2.6x |
-| 3. FCF <50% 2yr | OK | Still >65% |
-| 4. Dividend cut | OK | No cut, payout sostenible |
-| 5. Share loss >5pp | OK | No evidencia |
-| 6. 2027-28 guidance <5% | OK | Mantenido +8/+12% |
-| 7. Brasil + spreads | MONITORING | Injunction activa, gobierno puede apelar |
+**Tier: B (unchanged from purchase). No tier change.**
 
 ---
 
-## SECCION 8: CATALIZADORES & TIMELINE (ACTUALIZADO)
+## SECCION 6: RIESGOS & KILL CONDITIONS (v6.0)
 
-| Catalizador | Fecha | Probabilidad | Impacto |
-|-------------|-------|--------------|---------|
-| **FY 2025 results** | **24 Feb 2026** | INMINENTE | MUY ALTO: full year results + Brazil update |
-| Injunction appeal resolution | Q1-Q2 2026 | 70% | ALTO: determines actual 2026 impact |
-| 2027-28 guidance update | Con earnings Feb 24 | 80% | ALTO: key for re-rating |
-| Belgium face value +25% | Q1-Q2 2026 | 90% | Medio: boosts non-Brazil revenue |
-| Mitigation plan details | Con earnings Feb 24 | 90% | ALTO: how management adapts |
-| Buyback continuation | Ongoing | 70% | Medio: EPS accretion |
+### Kill Conditions Status (2026-03-03)
 
-### Earnings Feb 24 Decision Tree
+| # | Kill Condition | Status | Evidence |
+|---|---------------|--------|----------|
+| 1 | Francia imposes interchange caps + no mitigation plan | OK | No regulation announced |
+| 2 | Net Debt/EBITDA > 3.0x | **CLEAR** | 0.9x = best level in years |
+| 3 | FCF conversion < 50% for 2 consecutive years | **CLEAR** | 82% conversion FY2025 |
+| 4 | Dividend cut | **CLEAR** | DPS +10% to EUR 1.33 |
+| 5 | Market share loss >5pp in any major market | OK | No evidence. Brazil +15.7% |
+| 6 | 2027-28 EBITDA guidance reduced to <+5% | **CLEAR** | +8/+12% CONFIRMED |
+| 7 | Brazil decree ratified by Supreme Court + regulation extends to 2+ new markets | MONITORING | Injunction active |
+| 8 | Regulation extends to 3rd major market (after Italy + Brazil) | OK | No new markets |
+| 9 | Credit rating downgrade to BBB+ or below | OK | Balance IMPROVED (0.9x) |
+| 10 | 2027-28 EBITDA growth delivered at <3% (not just guided) | N/A | Not yet in period |
+| 11 | Digital wallets eliminate meal voucher model | OK | No material threat |
+| 12 | Corporate expense platforms absorb Edenred's products | OK | No material threat |
 
-```
-EARNINGS FEB 24
-|
-+-- 2027-28 guidance MAINTAINED + Brazil better than feared
-|   --> HOLD, consider ADD if price <18 EUR
-|
-+-- 2027-28 guidance MAINTAINED + Brazil as expected (-8/-12%)
-|   --> HOLD, monitor legal process
-|
-+-- 2027-28 guidance REDUCED (but still >5%)
-|   --> Re-evaluate thesis, possible TRIM
-|
-+-- 2027-28 guidance REDUCED to <5%
-|   --> KILL CONDITION #6: Consider EXIT
-|
-+-- Dividend cut or Net Debt/EBITDA >3.0x
-|   --> KILL CONDITION: EXIT
-```
-
-### What to Watch on Feb 24
-
-| Data Point | Bull Signal | Bear Signal |
-|-----------|-------------|-------------|
-| 2025 EBITDA | Above EUR 1,180M | Below EUR 1,100M |
-| Brazil revenue Q4 2025 | Stable | Declining |
-| Legal update on injunction | Expanded/permanent | Overturned |
-| 2026 revised guidance | Better than -8% | Worse than -12% |
-| 2027-28 guidance | Maintained +8/+12% | Reduced |
-| Other market regulation | None | France/others following |
-| FCF conversion | >65% | <60% |
-| Net Debt/EBITDA | <2.5x | >3.0x |
-| Mitigation plan | Concrete with timeline | Vague |
+**ZERO kill conditions triggered. 4 out of 12 marked CLEAR (well within safe range).**
 
 ---
 
-## SECCION 9: DECISION FINAL
+## SECCION 7: DECISION (v6.0 Review)
 
-### Recomendacion: **HOLD / WAIT FOR EARNINGS FEB 24**
+### Status: HOLD | Conviction: MEDIUM-HIGH
 
-**Razonamiento desde principios (Framework v4.0):**
+**Razonamiento desde principios (Framework v4.6):**
 
-1. **Principio 6 (Vender requiere argumento):** No hay kill condition triggered. La tesis esta DEBILITADA por el decreto Brasil pero NO INVALIDADA. El 90.5% del negocio sigue intacto. Vender ahora seria vender en el punto de maxima incertidumbre, con earnings en 18 dias que clarificaran materialmente.
+**Principio 6 (Vender requiere argumento):** Zero kill conditions triggered. FY2025 NEAR-BULL. Every thesis assumption CONFIRMED or EXCEEDED. There is no argument for selling.
 
-2. **Principio 5 (QS como input):** QS 62 (Tier B), sin cambio. Precedentes de Tier B aceptan MoS de 20-25%. Incluso vs Bear case, nuestro MoS es 34.7% -- bien por encima.
+**Principio 5 (QS como input):** QS 59 tool / 67 adjusted (Tier B). Tier unchanged from purchase. MoS 33.4% at EUR 19.32 vs adversarial FV EUR 29.0 -- well above Tier B precedent of 18-25% MoS acceptance range.
 
-3. **Principio 1 (Sizing por conviccion):** Posicion ~4% del portfolio. Si EDEN cae 50% adicional (a EUR ~9), perdemos ~2% del portfolio. Aceptable para Tier B con tesis debilitada pero intacta.
+**Principio 1 (Sizing):** Position ~4% of portfolio (22 shares, invested USD 459). At 50% drawdown, portfolio impact -2% -- coherent with medium-high conviction for Tier B. No sizing change needed.
 
-4. **Precedentes consultados (decisions_log.yaml):**
-   - SHEL.L HOLD post-earnings con MoS -5% y tesis debilitada: HOLD decision
-   - TEP.PA HOLD pre-earnings con MoS 38-51%: HOLD decision
-   - EDEN tiene mejor MoS que ambos precedentes, misma logica aplica
+**Principio 9 (Quality Gravitation):** EDEN.PA is Tier B, not Tier A. However, its ROIC 15-18% >> WACC 8.5% with 82% FCF conversion is quality business behavior. The regulatory headwinds are temporary (Italy/Brazil) not structural. The portfolio has 5 other positions with lower E[CAGR] -- EDEN.PA is NOT a rotation candidate.
 
-**NO ADD porque:**
-- Conviccion reducida por decreto Brasil (de 70% a 60%)
-- Earnings Feb 24 proporcionara informacion material
-- Mejor esperar claridad antes de aumentar exposicion
+**Precedentes consultados:**
+- SHEL.L HOLD post-earnings (MoS -5%, tesis debilitada): HELD before rotation opportunity appeared. EDEN.PA has MoS +33.4% and thesis STRENGTHENED = much stronger HOLD.
+- NVO ADD at $38.76 (MoS 41%, E[CAGR] 34.1%): Similar conviction level. EDEN at 25.8% E[CAGR] is attractive but below NVO.
+- DTE.DE HOLD at 7.4% E[CAGR]: EDEN at 25.8% E[CAGR] is dramatically better -- not a rotation candidate FROM EDEN.
 
-**NO TRIM/SELL porque:**
-- No kill condition triggered
-- MoS sustancial incluso en Bear (34.7%)
-- Posicion ya pequena (~4%)
-- Injunction activa es catalizador positivo
-- Vender antes de earnings = vender con maxima incertidumbre
+**NOT ADD because:**
+- Price EUR 19.32 is above the optimal ADD zone (<EUR 18.00 from post-earnings assessment)
+- 2026 rebasing year still ahead -- Q1 2026 results will be first real data point
+- Capital better deployed in R4-approved pipeline (ALFA.L QS 83, ITX.MC QS 86, CDNS QS 82)
+- E[CAGR] 25.8% is strong but we have higher-E[CAGR] positions (NVO) and pipeline
 
-### Targets Actualizados (v3.0)
+**NOT TRIM/SELL because:**
+- MoS 33.4% substantial for Tier B
+- Zero KCs triggered (4 of 12 CLEAR)
+- FCF generation exceptional (82% conversion, EUR 1,111M)
+- Balance sheet fortress (0.9x ND/EBITDA)
+- 2027-28 recovery confirmed (+8/+12%)
+- Reverse DCF implies -14.9%/yr permanent decline -- absurd for business growing +5.7% LfL
 
-| Trigger | Precio | Accion |
-|---------|--------|--------|
-| Post-earnings Bull confirmation | EUR 20-22 | Consider ADD small |
-| 80% FV Expected | EUR 30.7 | Vender 25% |
-| 100% FV Expected | EUR 38.4 | Vender 50% adicional |
-| Kill condition triggered | Any | EXIT |
+### Updated Targets
+
+| Trigger | Price | Action |
+|---------|-------|--------|
+| ADD opportunity | < EUR 18.00 | Small ADD |
+| TRIM | > EUR 25.00 | Partial trim (approaching FV -15%) |
+| SELL | > EUR 29.00 | Full EXIT evaluation |
+| Kill condition | Any | EXIT immediately |
+| Q1 2026 results | May 2026 | Validate -8/-12% trajectory |
 
 ---
 
-## SECCION 10: AUTOCRITICA (Critical Thinking)
+## SECCION 8: AUTOCRITICA (Critical Thinking)
 
-**Asunciones criticas v3.0:**
-1. Brasil decreto NO se extiende a Francia (probabilidad: 70%)
-2. Management 2027-28 guidance intacto tras decreto (probabilidad: 75%)
-3. Injunction tiene base legal solida (probabilidad: 50% -- uncertain)
-4. 90.5% del negocio sigue creciendo normalmente (probabilidad: 85%)
-5. FCF conversion se mantiene >65% (probabilidad: 75%)
+**Asunciones criticas v6.0:**
+1. 2026 EBITDA decline contained to -8/-12% (prob: 80% -- management credibility improved by FY2025 delivery)
+2. Regulation does NOT spread to France (prob: 70% -- unchanged)
+3. 2027-28 recovery delivers +8/+12% (prob: 70% -- confirmed but still 2 years away)
+4. 90.5% of business continues growing (prob: 90% -- FY2025 confirmed: ex-Italy Europe +5.7% LfL)
+5. FCF conversion stays >65% (prob: 85% -- FY2025 was 82%)
 
 **Sesgos detectados:**
-1. **Anchoring**: FV v2.0 era EUR 51.5, v3.0 es EUR 38.4. Posible resistencia a reconocer deterioro completo
-2. **Endowment**: Tendencia a HOLD porque ya estamos invertidos. Pregunta: si no tuviera posicion, compraria hoy?
-   - Respuesta: SI, a este precio con MoS 53% vs expected FV, compraria una posicion inicial del 3-4%
-3. **Confirmation**: Busco evidencia de que injunction resolvera todo. Debo considerar seriamente que gobierno apele y gane.
-
-**Evidencia que podria invalidar:**
-1. Francia anuncia regulacion similar
-2. Gobierno Brasil apela injunction exitosamente Y implementa decreto completo
-3. Management reduce 2027-28 guidance en earnings Feb 24
-4. Otros mercados (Mexico, Belgica) siguen a Brasil con regulacion
-5. FCF se deteriora por costes legales y reestructuracion
+1. **Anchoring to EUR 29.0:** Adversarial FV is now 8 weeks old. Should it be higher given FCF beat? I maintain EUR 29.0 for conservatism, but acknowledge upside potential.
+2. **Endowment:** I own this and might resist selling. Endowment test: Would I buy at EUR 19.32 today? YES -- 33.4% MoS, 25.8% E[CAGR], NEAR-BULL results.
+3. **Complacency:** FY2025 was great but 2026 is the real test. Q1 2026 will show whether the -8/-12% is manageable or worse.
 
 ---
 
@@ -394,7 +317,9 @@ EARNINGS FEB 24
 | 1.0 | 2026-02-01 | Thesis inicial, BUY recommendation |
 | 2.0 | 2026-02-03 | Re-evaluation Framework v2.0. WACC derivado, segundo metodo. FV EUR 51.5 |
 | 3.0 | 2026-02-06 | URGENT review: Brazil decree. FV reducido a EUR 38.4 expected. 2026 guidance -8/-12%. Kill conditions expandidas. Status HOLD pre-earnings Feb 24 |
-| **4.0** | **2026-02-07** | **Adversarial review. FV revised EUR 38.4 → EUR 29.0 (-24.5%). Italy EUR 120M/yr NOT in FV calculation. Brazil 19% not 9.5%. Kill conditions: 7 → 10. Conviction MEDIUM.** |
+| 4.0 | 2026-02-07 | Adversarial review. FV revised EUR 38.4 to EUR 29.0 (-24.5%). Italy EUR 120M/yr NOT in FV calculation. Brazil 19% not 9.5%. Kill conditions: 7 to 10. Conviction MEDIUM. |
+| 5.0 | 2026-02-24 | Post-earnings FY2025 addendum. NEAR-BULL results (EBITDA 1,360M, FCF +25% beat). Zero KCs triggered. FV EUR 29.0 MAINTAINED. Conviction MEDIUM to MEDIUM-HIGH. Net Debt/EBITDA 0.9x. |
+| **6.0** | **2026-03-03** | **Full review-agent post-FY2025. QS 59 tool / 67 adj (Tier B unchanged). FV EUR 29.0 MAINTAINED (adversarial already incorporated -8/-12% 2026). MoS 33.4% at EUR 19.32. E[CAGR] 25.8%. Zero KCs triggered. HOLD MEDIUM-HIGH conviction. 2026 rebasing year = known trough. Next review: Q1 2026 results (May).** |
 
 ---
 
@@ -421,38 +346,42 @@ EARNINGS FEB 24
 2. **Brazil total exposure 19%, not 9.5%.** The 9.5% is meal/food only. Mobility and corporate payments add another 9.5%.
 3. **Cumulative Italy + Brazil = EUR 270-320M, 22-27% of EBITDA.** Correlated regulatory pattern, not isolated events.
 4. **Negative equity accelerating**: EUR -809M to EUR -1,046M in 6 months while buyback continues.
-5. **Management credibility damaged**: +2/+4% → -8/-12% guidance swing of 10-16pp.
+5. **Management credibility damaged**: +2/+4% to -8/-12% guidance swing of 10-16pp.
 
-### Verdict: HOLD through earnings Feb 24 | Conviction: MEDIUM
-
-**Reasoning:** ROIC 15-18% >> WACC 9.5% (distinguishes from TEP.PA/LIGHT.AS/PFE sells). MoS 39.2% vs adversarial FV still substantial. No kill conditions triggered. No replacement available. Earnings clarify all material uncertainties in 17 days.
-
-### Post-Earnings Decision Tree
-- 2027-28 guidance maintained + Italy manageable --> **HOLD, restore conviction**
-- 2027-28 guidance reduced but >5% --> **RE-EVALUATE, possible TRIM**
-- 2027-28 guidance <5% --> **EXIT (Kill Condition #6)**
-- Dividend cut or Net Debt/EBITDA >3.0x --> **EXIT**
-- France regulation announced --> **EXIT (Kill Condition #8)**
-
-### New Kill Conditions (expanded from 7 to 10)
+### New Kill Conditions (expanded from 7 to 12)
 8. Regulation extends to 3rd major market (after Italy + Brazil)
 9. Credit rating downgrade to BBB+ or below
 10. 2027-28 EBITDA growth delivered at <3% (not just guided)
+11. Digital wallets eliminate meal voucher model
+12. Corporate expense platforms absorb Edenred's mobility/corporate payments
 
-### Model Disruption Kill Conditions (added 2026-02-11)
-11. **Digital wallets eliminate meal voucher model** — If Apple Pay/Google Wallet or a fintech launches employer-subsidized meal payments directly via wallet (bypassing Edenred's closed-loop network) AND captures >15% of any market where Edenred operates, the intermediation model is broken. The moat IS the closed network; direct wallet payments destroy it. Monitor: Apple/Google employer benefit partnerships, fintech meal benefit startups.
-12. **Corporate expense platforms absorb Edenred's mobility/corporate payments** — If Brex, Ramp, SAP Concur, or similar expand to cover meal+mobility+corporate benefits in a single platform with >10% penetration in France or LATAM, Edenred's multi-product bundle loses cross-sell advantage. Monitor: corporate card platform expansion into benefits.
+---
+
+## POST-EARNINGS FY2025 ADDENDUM (2026-02-24)
+
+> **Trigger:** FY2025 results released 24 Feb 2026
+> **Price at review:** EUR 18.98
+
+### FY2025 Results Summary
+
+| Metric | Consensus | Actual | vs Consensus | Scenario |
+|--------|-----------|--------|--------------|----------|
+| EBITDA | EUR 1,342M | **EUR 1,360M** | **+1.3% beat** | NEAR-BULL (Bull was EUR 1,370M) |
+| FCF | EUR 888M | **EUR 1,111M** | **+25.1% MASSIVE beat** | ABOVE-BULL |
+| FCF/EBITDA | ~70% target | **82%** | +12pp | Exceptional conversion |
+| Adjusted EPS | -- | **EUR 2.59** | Record (+10% YoY) | -- |
+| DPS | -- | **EUR 1.33** | +10% YoY, beat consensus | -- |
+| Net Debt/EBITDA | ~1.4x prior | **0.9x** | Dramatic improvement | Well below 3.0x KC |
+
+Full assessment: `thesis/active/EDEN.PA/post_earnings_fy2025.md`
 
 ---
 
 ## Sources
 
-- [Edenred Financial Results](https://www.edenred.com/en/investors-shareholders/financial-results)
+- [Edenred FY2025 Results Presentation (Feb 24, 2026)](https://www.edenred.com/system/files/documents/2026-02-24-fy-2025-results-presentation-vdef.pdf)
+- [Edenred FY2025 Press Release](https://www.edenred.com/system/files/documents/2026-02-24-edenred-fy-2025-pr.pdf)
+- [Edenred 2025 Annual Results](https://media.edenred.com/2025-annual-results/)
+- [Edenred Financial Results Page](https://www.edenred.com/en/investors-shareholders/financial-results)
 - [Edenred: New regulatory framework Brazil](https://media.edenred.com/edenred-takes-note-of-the-new-regulatory-framework-for-the-meal-and-food-voucher-system-in-brazil/?lang=en)
-- [Investing.com: Edenred shares fall 9%](https://www.investing.com/news/earnings/edenred-shares-fall-9-after-brazils-new-meal-voucher-rules-threaten-earnings-4350187)
-- [MarketScreener: Edenred and Pluxee Shine After Suspension](https://www.marketscreener.com/news/edenred-and-pluxee-shine-amid-temporary-suspension-of-meal-voucher-reform-in-brazil-ce7e58ddd080f427)
-- [TradingView: Brazil court suspends meal voucher changes](https://www.tradingview.com/news/reuters.com,2026:newsml_S0N3XN04R:0-brazil-court-suspends-meal-voucher-changes-for-edenred-s-ticket-folha-reports/)
-- [TipRanks: Edenred Regulatory Challenges](https://www.tipranks.com/news/ratings/edenred-faces-regulatory-challenges-and-adjusted-growth-forecasts-amidst-brazils-meal-voucher-industry-changes-ratings)
-- [Il Sole 24 ORE: Edenred slips to 2017 low](https://en.ilsole24ore.com/art/in-paris-edenred-slips-2017-low-ebitda-guidance-cut-2026-AHqkd7gD)
-- [ADVFN: Edenred Brazil Rules Threaten Profitability](https://uk.advfn.com/market-news/article/7941/edenred-shares-slide-as-brazils-new-meal-voucher-rules-threaten-profitability)
 - yfinance API (precios y financials)

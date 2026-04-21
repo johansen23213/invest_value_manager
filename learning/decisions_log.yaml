@@ -1,13 +1,14 @@
 # DECISIONS_LOG.yaml - Framework v4.0
 #
-# Historial de decisiones de inversión con contexto y razonamiento.
-# Usar como PRECEDENTES para informar futuras decisiones.
-# NO son reglas. Son ejemplos de cómo razoné en situaciones similares.
+# Precedentes para consistencia. NO son reglas.
+# ROTATION POLICY: Max 30 entries per category. Older → decisions_log_archive.yaml.
+# Rotation during system-health pipeline (every 14 days).
+# Tools reading this: consistency_checker.py, drift_detector.py, forward_return.py.
 #
 # Creado: 2026-02-05 | Framework v4.0
 
 version: "4.0"
-last_updated: 2026-02-14
+last_updated: 2026-02-24
 
 # =============================================================================
 # DECISIONES DE SIZING (BUY/ADD)
@@ -167,6 +168,89 @@ sizing_decisions:
       CEO transition es riesgo adicional pero manejable (Co-CEOs interim competentes).
       Precedente similar: NVO con guidance shock → compra exitosa.
     outcome: "Pendiente - posición recién abierta"
+
+  - date: 2026-02-20
+    ticker: MORN
+    action: BUY
+    sizing: "3.9%"
+    context:
+      quality_score: 78
+      tier: A
+      mos: "17%"
+      ecagr_3yr: "15.6%"
+      price_vs_52w: "-51% from high ($328.70)"
+      conviction: "Medium"
+      macro: "Mid-cycle US, Fair-Value regime"
+      framework: "E[CAGR] deployment (Session 90)"
+    reasoning: |
+      FIRST E[CAGR]-framework market buy — NEW PRECEDENT.
+      Historical Tier A entries had 29-38% MoS. MORN at 17% MoS is below precedent.
+      JUSTIFIED by Expected Return framework (S90): E[CAGR] 15.6% >> 12% Tier A threshold.
+      FV revised $180→$195 post-CRSP accretion ($55-65M high-margin revenue).
+      At old FV $180, SO was $135 (MoS 25%). At new FV $195, market buy at $162 = MoS 17%.
+      Same risk-reward profile as committee-approved $135 entry.
+      Cash drag argument: EUR 400 at 4.5%/yr = ~EUR 18/yr opportunity cost of waiting.
+      $150 SO would require 7.3% decline with no catalyst driving it.
+      We HOLD positions with worse forward returns (DTE.DE ~7%, LULU ~7%).
+      Zero overlap with existing 10 positions. Excellent diversification.
+      46% insider (Mansueto). 0/10 value trap. WIDE moat (switching costs + data).
+      Si cae 50%, pierdo 2.0% del portfolio — aceptable para Tier A at this sizing.
+      KEY: This sets precedent for E[CAGR]-justified market buys when MoS < historical range.
+    outcome: "Pendiente - posición recién abierta. Monitor Q1 2026 earnings (~April)."
+
+  - date: 2026-02-24
+    ticker: NVO
+    action: ADD
+    sizing: "from ~2.7% to ~4.7%"
+    context:
+      quality_score: 73
+      tier: B
+      mos: "41.3%"
+      ecagr_3yr: "34.1%"
+      price_vs_52w: "-62% from high, standing order leg triggered"
+      conviction: "Medium"
+      macro: "Healthcare defensive, GLP-1 competition intensifying"
+      framework: "Standing order price leg ($38.76 < $40 trigger)"
+    reasoning: |
+      Standing order price leg triggered ($38.76 < $40). E[CAGR] 34.1% = highest in portfolio.
+      MoS 41.3% vs Tier B precedent 20-25% — EXCEPTIONAL margin of safety for this tier.
+      Position increases from ~2.7% to ~4.7% — coherent with medium conviction Tier B.
+      CagriSema March binary catalyst still ahead; ADD justified at this valuation regardless
+      of CagriSema outcome because MoS alone provides sufficient downside protection.
+      Constraint check passed (50% drop = -2.3% portfolio impact).
+      Original entry $48.13 (Session 52, Feb 5). MORN market buy Session 101 at E[CAGR] 15.6%
+      established E[CAGR] framework precedent — NVO ADD at 34.1% E[CAGR] is well above threshold.
+      6 shares at $38.76 = $232.56 (~EUR 197). Total position 14.31 shares, avg $44.21.
+      Principios applied: P1 (sizing coherent with conviction — if NVO drops 50%, -2.3% portfolio
+      is acceptable), P5 (QS 73 Tier B, adequate quality), P14 (deploying capital vs cash drag).
+    outcome: "KC#1 TRIGGERED (CagriSema H2H failed). FV $66→$50. HOLD LOW conviction. E[CAGR] 18.8%."
+
+  - date: 2026-03-04
+    ticker: DNLM.L
+    action: BUY
+    sizing: "3.7%"
+    context:
+      quality_score: 79
+      tier: A
+      mos: "6.1%"
+      ecagr_3yr: "13.6%"
+      price_vs_52w: "-24% from high (1249p)"
+      conviction: "Medium"
+      macro: "VIX 23.57 elevated, Fair-Value regime"
+      framework: "Standing order fill (trigger 950 GBp)"
+    reasoning: |
+      SO triggered at 947 GBp (trigger 950). R4 APPROVED. QS 79 Tier A.
+      FV 1008 GBp. MoS only 6.1% — thinnest in portfolio.
+      BUT E[CAGR] 13.6% (growth 7% + yield 4.8% + MoS convergence 2.1%) >> 12% Tier A threshold.
+      Precedent: MORN bought at 17% MoS justified by E[CAGR] 15.6% (S101). DNLM.L follows same framework.
+      UK homewares #1, 8.8% market share, 30.5% insider ownership.
+      ROIC-WACC spread +8.4pp. Net cash position.
+      5th UK position (DOM.L, MONY.L, AUTO.L, BYIT.L) — different sectors, low correlation.
+      UK geo 14.7%→18.4% — high but manageable given sector diversity.
+      Constraint check: 50% drop = -1.8% portfolio. Acceptable.
+      EUR 375 (~34 shares). Cash 54.5%→50.8%. 12th position.
+      Trigger was raised 780→900→950 over sessions. 950 = last justifiable raise.
+    outcome: "Pendiente — posición recién abierta. 1st SO fill since inception."
 
 # =============================================================================
 # DECISIONES DE TRIM/SELL
@@ -591,6 +675,52 @@ geography_decisions:
     outcome: "Standing order pending. Valid until Q2 2026 earnings (July 2026)."
 
 # =============================================================================
+# DECISIONES SHORT (NUEVAS — primera en sistema)
+# =============================================================================
+short_decisions:
+
+  - date: 2026-02-20
+    ticker: LYV
+    action: "PAUSE (post-S4 approval, pre-execution)"
+    context:
+      quality_score: 41
+      tier: C
+      fair_value_short: "$85 (S3, UNDER REVIEW → $107-127 at 8-10% growth)"
+      approved_sizing: "1% (EUR 100)"
+      stop_loss: "$195"
+      catalyst: "DOJ antitrust trial March 2, 2026"
+      pipeline: "S1→S2→S3→S4 complete (first full short pipeline)"
+    reasoning: |
+      S4 APPROVED CONDITIONAL (Session 76, Feb 18). Pre-condition: Q4 results review.
+      Q4 FY2025 published Feb 19: STRONG BEAT.
+      - Revenue $6.3B (+11% YoY) vs consensus $6.1B. FY $25.2B (+9%).
+      - AOI $2.4B (+10%). Operating income +52% YoY.
+      - TM AOI share DECLINED 52% → 45.8% (thesis pillar: "TM = profit engine" WEAKENED).
+      - Concerts AOI surged +30%. Diversification improving.
+      - FCF expanded 4.5% → ~5.2% (thesis pillar: "FCF stuck" WEAKENED).
+      - Deferred revenue $4.0B (+21%). 67M tickets already sold for 2026.
+      - KC#3 TRIGGERED: Q3 +11% + Q4 +11% = 2 consecutive quarters >10%.
+      POST-Q4 ASSESSMENT:
+      - 4 of 6 thesis pillars weakened (growth, TM concentration, FCF, reverse DCF gap)
+      - 2 of 6 GO conditions FAILED (growth >10%, FCF expanding)
+      - Pre-Q4 expected value was already marginal (-1.4% to +1%)
+      - Reverse DCF at 8-10% growth → FV $107-127 (below $130 CANCEL threshold)
+      - Error #46: overvaluation alone ≠ short thesis. Remaining pillars = valuation + antitrust.
+      DECISION: PAUSE, not CANCEL. FV still <$130. Trial Mar 2 still happening.
+      Monitor from sidelines. Re-evaluate post-trial first week of March.
+    outcome: "Standing order PAUSED. Entry window Feb 20-28 NOT used."
+    precedent_set: |
+      FIRST SHORT DECISION IN SYSTEM. Establishes:
+      1. Post-S4 PAUSE pattern: If pre-execution conditions reveal material thesis change,
+         PAUSE is valid even with S4 approval. S4 is not irrevocable commitment.
+      2. KC trigger = RE-EVALUATE, not automatic action. KC#3 triggered → re-evaluated →
+         decided PAUSE. The kill condition framework works as designed.
+      3. Earnings pre-condition governance: Q4 review CHANGED the decision. The pre-execution
+         condition prevented entering a weakened thesis. System worked correctly.
+      4. Discipline > conviction: Walking away from an approved short when data deteriorates
+         is MORE valuable than forcing execution because "we did the work."
+
+# =============================================================================
 # PATRONES IDENTIFICADOS
 # =============================================================================
 patterns:
@@ -636,6 +766,27 @@ patterns:
         reason: "Greensill A$7B trial Aug 2026. Upgrade to full after resolution."
         date: 2026-02-14
     note: "Aplicable a cualquier empresa con >$500M litigación pendiente o decisión regulatoria binaria."
+
+  fv_rounding_cap:
+    description: "FV quality premium above weighted method average capped at 10%. Larger premiums must use explicit higher multiples."
+    examples:
+      - ticker: ADDT-B.ST
+        weighted_avg: "SEK 210"
+        r1_fv: "SEK 250 (+19% premium — REJECTED)"
+        r3_fv: "SEK 225 (+7% premium — ACCEPTED)"
+        reason: "The +19% quality premium double-counted quality already in QS. If analyst believes multiple is conservative, use higher multiple explicitly, not backdoor through rounding."
+        date: 2026-02-19
+    note: "Max 10% quality premium on weighted FV. Beyond that, the analyst must justify a higher explicit multiple in the valuation method."
+
+  serial_acquirer_market_position:
+    description: "Serial acquirers with 100+ micro-niche subsidiaries do NOT have traditional market position in a measurable TAM. QS market position adjustment capped at +3."
+    examples:
+      - ticker: ADDT-B.ST
+        r1_adjustment: "+5 market position (REJECTED by R2/R3)"
+        r3_adjustment: "+3 market position (ACCEPTED)"
+        reason: "Serial acquirer ranking in Nordic space is business model quality, not addressable market dominance. Addtech has ~1.5-2% of EUR 50B industrial distribution — not #3-5 in any measurable TAM."
+        date: 2026-02-19
+    note: "For serial acquirers: +3 for brand/scale in acquirer ecosystem. +5 only if >10% share in a measurable addressable market."
 
 # =============================================================================
 # LECCIONES APRENDIDAS
@@ -775,3 +926,15 @@ lessons:
       6. N/A defaults inflate some sub-scores
       Action: Fix market_position default to 0. Review dividend scoring.
       This explains why 12/13 positions had overstated QS — the tool itself overrates.
+
+  - date: 2026-02-18
+    lesson: "Orchestrator must NEVER do WebSearch directly — always delegate to agents"
+    from_decision: "User caught Error #3 violation: orchestrator used WebSearch for VRSK Q4 and ALLE Q4 earnings instead of delegating to news-monitor or fundamental-analyst"
+    impact: |
+      The orchestrator rationalized doing WebSearch directly for "quick checks" on earnings results.
+      This violated the core principle: YO ORQUESTO, LOS AGENTES EJECUTAN.
+      Why it matters: 1) WebSearch introduces unfiltered narrative absorption risk (Error #48),
+      2) the orchestrator lacks the agent's systematic framework for classifying sources,
+      3) it bypasses the meta-reflection protocol that catches anomalies.
+      Rule reinforced: ANY information gathering from external sources → delegate to appropriate agent.
+      No exceptions for "quick" or "simple" lookups.

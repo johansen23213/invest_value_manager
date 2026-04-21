@@ -1,203 +1,85 @@
 # Agent Protocol
 
-> Este archivo se carga automáticamente junto con CLAUDE.md
+> Auto-loaded. Arbol de decision + reglas criticas de agentes.
+> Registro completo: `.claude/skills/agent-registry/SKILL.md`
 
-## Arquitectura Multi-Agente (24 agentes, todos opus)
+---
 
-### DOCUMENTO DE REFERENCIA: agent-registry skill
-**Ver `.claude/skills/agent-registry/SKILL.md`** para:
-- Inventario completo de los 24 agentes
-- Responsabilidades y single-responsibility de cada uno
-- Skills que usa cada agente
-- Qué lee y escribe cada agente
-- Mapa de dependencias
-- Protocolo de propagación de cambios
+## REGLA: TODOS opus. NUNCA haiku/sonnet.
 
-### PROTOCOLO DE CONSISTENCIA (CRÍTICO)
-**Cuando hay un cambio sistémico, TODOS los agentes afectados DEBEN actualizarse en la misma sesión.**
+---
 
-Checklist de propagación:
-```
-[ ] ¿Qué agentes leen esto? → Actualizar PASO 0
-[ ] ¿Qué agentes escriben esto? → Actualizar sección "Escribe"
-[ ] ¿Qué skills definen el framework? → Actualizar skill
-[ ] ¿file-system-rules conoce la ubicación? → Actualizar si nuevo fichero
-[ ] ¿health-check debe verificarlo? → Añadir check
-[ ] ¿CLAUDE.md lo documenta? → Añadir sección
-[ ] ¿agent-registry está actualizado? → Actualizar skill
-```
-
-### REGLA DURA: TODOS los agentes SIEMPRE con model: opus
-**NUNCA usar haiku ni sonnet para ningún agente.** Haiku comete errores de cálculo y consistencia que requieren corrección manual (incidente sesión 19: cash% mal, conteo posiciones mal, thesis duplicada). El ahorro de coste NO compensa el riesgo de corromper ficheros de estado.
-
-### Nivel 0: Orchestrator (CLAUDE.md)
-Delega directamente a agentes especializados. Sin capas intermedias.
-
-### ÁRBOL DE DECISIÓN: ¿Qué agente usar? (OBLIGATORIO)
+## Arbol de Decision (OBLIGATORIO antes de cualquier tarea)
 
 ```
-¿Qué necesito hacer?
-│
-├─► ANALIZAR EMPRESA nueva (buy-pipeline completo)
-│   └─► RONDA 1: fundamental-analyst + moat-assessor + risk-identifier (PARALELO)
-│   └─► RONDA 1: valuation-specialist (tras Ronda 1 paralela)
-│   └─► RONDA 2: devil's-advocate (contra-análisis)
-│   └─► RONDA 3: Resolución de conflictos (si necesario)
-│   └─► RONDA 4: investment-committee (10 gates, recibe TODO)
-│
-├─► DESAFIAR thesis existente
-│   └─► devil's-advocate
-│
-├─► RE-EVALUAR posición existente (post-earnings, cambio material)
-│   └─► review-agent
-│
-├─► APROBAR compra/venta
-│   └─► investment-committee (OBLIGATORIO, nunca saltarse, 10 gates)
-│
-├─► BUSCAR empresas en un sector
-│   └─► sector-screener
-│
-├─► ACTUALIZAR visión macro
-│   └─► macro-analyst
-│
-├─► VERIFICAR triggers de rebalanceo
-│   └─► rebalancer
-│
-├─► CALCULAR sizing de posición
-│   └─► position-calculator
-│
-├─► VERIFICAR watchlist y alertas de precio
-│   └─► watchlist-manager
-│
-├─► ACTUALIZAR portfolio/state tras confirmación humano
-│   └─► portfolio-ops
-│
-├─► VER performance del portfolio
-│   └─► performance-tracker
-│
-├─► VERIFICAR calendario próximos días
-│   └─► calendar-manager
-│
-├─► AUDITAR salud del sistema
-│   └─► health-check
-│
-├─► COMPACTAR memoria
-│   └─► memory-manager
-│
-├─► MOVER ficheros entre directorios
-│   └─► file-system-manager
-│
-├─► MEJORAR el sistema (agentes, skills, etc.)
-│   └─► system-evolver
-│
-└─► CREAR tool Python reutilizable
-    └─► quant-tools-dev
+Que necesito?
+├─ ANALIZAR empresa nueva LONG (buy-pipeline 4 rondas)
+│  R1: fundamental-analyst + moat-assessor + risk-identifier (PARALELO) → valuation-specialist
+│  R2: devil's-advocate
+│  R3: Resolucion conflictos (si necesario)
+│  R4: investment-committee (10 gates)
+├─ ANALIZAR fragilidad SHORT (short-pipeline 4 rondas)
+│  S1: fundamental-analyst (--short-thesis) + moat-assessor + risk-identifier (PARALELO) → valuation-specialist
+│  S2: devil's-advocate (BULL case — por que precio podria tener razon?)
+│  S3: Resolucion conflictos (si necesario)
+│  S4: investment-committee (modo SHORT_APPROVAL — 10+3 gates)
+├─ DESAFIAR thesis → devil's-advocate
+├─ RE-EVALUAR posicion long → review-agent
+├─ RE-EVALUAR posicion short → review-agent (--short-review)
+├─ APROBAR compra/venta → investment-committee (OBLIGATORIO)
+├─ APROBAR short/cover → investment-committee modo SHORT_APPROVAL (OBLIGATORIO)
+├─ CUBRIR short → cover-protocol skill → investment-committee
+├─ BUSCAR en sector → sector-screener
+├─ ACTUALIZAR macro → macro-analyst
+├─ SIZING → position-calculator
+├─ WATCHLIST → watchlist-manager
+├─ PORTFOLIO post-trade → portfolio-ops (soporta BUY/SELL/SHORT/COVER)
+├─ PERFORMANCE → performance-tracker
+├─ REBALANCEO → rebalancer
+├─ CALENDARIO → calendar-manager
+├─ HEALTH CHECK → health-check
+├─ MOVER ficheros → file-system-manager
+├─ MEJORAR sistema → system-evolver
+└─ CREAR tool Python → quant-tools-dev
 ```
 
-**REGLA:** Si no estoy seguro de qué agente usar → consultar agent-registry skill.
+---
 
-### INSTRUCCIONES v4.0 PARA AGENTES (ACTUALIZADO)
+## Instrucciones v4.0 para Agentes de Decision
 
-Al invocar agentes de decisión (fundamental-analyst, review-agent, investment-committee), INCLUIR en el prompt:
+Al invocar fundamental-analyst, review-agent, investment-committee, incluir:
 
 ```
 CONTEXTO v4.0:
-- Leer learning/principles.md para entender el framework
-- Consultar learning/decisions_log.yaml para precedentes similares
-- NO usar límites fijos (7%, 25%, etc.) - razonar desde principios
-- Documentar razonamiento explícito en el output
-- Si la decisión se desvía de precedentes, explicar por qué
-
-REGLA CRÍTICA - NÚMEROS:
-- NUNCA citar un número sin argumento explícito
-- Si dices "X está por encima de Y%" → explicar POR QUÉ ese Y% importa
-- Preguntar: "¿Por qué este número y no otro?"
-- Los "rangos típicos" en decisions_log son PATRONES observados, NO límites
-- Si no puedes argumentar un número desde principios, NO lo uses
-
-REGLA CRÍTICA - TOOLS:
-- Los tools como constraint_checker.py outputan DATOS CRUDOS
-- NO interpretar datos como "warnings" o "violations"
-- Aplicar principios de principles.md a los datos
-- El dato "EU 37%" no es bueno ni malo - es contexto para razonar
+- Leer learning/principles.md + learning/decisions_log.yaml
+- NO limites fijos — razonar desde principios
+- Razonamiento explicito. Si se desvia de precedentes, explicar por que.
+- Tools = DATOS CRUDOS, no interpretar como warnings/violations
+- Indicar si empresa califica Tier A (Principio 9: Quality Gravitation)
 ```
 
-DIRECCIÓN ESTRATÉGICA - QUALITY GRAVITATION (Principio 9):
-- El portfolio gravita hacia Tier A (QS >=75) como dirección estratégica
-- Al analizar: indicar explícitamente si la empresa califica como Tier A
-- Al re-evaluar: evaluar si la posición "gana su lugar" vs alternativas Tier A
-- Al aprobar: considerar si la operación mueve el portfolio hacia mayor calidad
-- Esto NO es "rechazar todo non-Tier A" — es una dirección que informa el razonamiento
-- Ejecutar forward_return.py para datos de ranking cuando sea relevante
+---
 
-Esto asegura que los agentes sigan Framework v4.0 y no usen números arbitrarios.
-
-### REGLA: AGENTES NO DEBEN HARDCODEAR REGLAS
-
-Si un agente detecta que está a punto de escribir código o output con reglas fijas:
-- PARAR
-- Reformular para output datos crudos
-- Dejar el razonamiento al orchestrator o al siguiente paso
-
-Los agentes producen DATOS y ANÁLISIS, no JUICIOS con thresholds fijos.
-
-### PROTOCOLO DE VERIFICACIÓN POST-AGENTE (OBLIGATORIO)
-
-Cuando un agente termina, ANTES de usar su output:
+## Verificacion Post-Agente
 
 ```
-VERIFICACIÓN POST-AGENTE:
-[ ] ¿El output tiene la estructura esperada? (ej: thesis completa, no parcial)
-[ ] ¿Refleja los frameworks de los skills? (ej: business-analysis si es fundamental-analyst)
-[ ] ¿Los datos son consistentes? (ej: FV calculado matches con inputs)
-[ ] ¿No hay errores obvios? (ej: MoS negativo cuando debería ser positivo)
-[ ] ¿Actualizó los ficheros que debía? (releer y verificar)
-
-Si ALGUNO falla:
-1. Identificar qué salió mal
-2. Re-ejecutar agente con instrucción más específica, o
-3. Corregir manualmente y documentar el problema
-4. Si es error recurrente → mejorar prompt del agente
+[ ] Output tiene estructura esperada?
+[ ] Refleja frameworks de los skills?
+[ ] Datos consistentes (FV matches inputs)?
+[ ] No hay errores obvios?
+[ ] Actualizo ficheros que debia? (releer y verificar)
 ```
 
-### Agentes por dominio (invocación directa, sin domain wrappers)
+Si falla → re-ejecutar con instruccion mas especifica o corregir + documentar.
 
-| Dominio | Agente | Cuándo |
-|---------|--------|--------|
-| **Inversión** | fundamental-analyst | Análisis profundo de empresa |
-| | investment-committee | Gate obligatorio antes de BUY/SELL (10 gates) |
-| | review-agent | Review post-earnings de posiciones activas |
-| | devil's-advocate | Contra-análisis adversarial de thesis |
-| | valuation-specialist | Valoración multi-método independiente |
-| | moat-assessor | Evaluación independiente de moat |
-| | risk-identifier | Identificación independiente de riesgos |
-| **Research** | sector-screener | Screening sistemático de sectores |
-| | macro-analyst | Análisis macro/geopolítico, actualiza world view |
-| **Portfolio** | rebalancer | Rebalanceo mensual y por triggers |
-| | position-calculator | Sizing óptimo respetando límites |
-| | performance-tracker | P&L, attribution, vs benchmark |
-| | watchlist-manager | Monitoreo de candidatos y alertas de precio |
-| | portfolio-ops | Escritura centralizada de portfolio/current.yaml |
-| **Sistema** | calendar-manager | Gestión de calendario y earnings |
-| | file-system-manager | Autoridad sobre ubicación de ficheros |
-| | health-check | Auditoría del sistema cada 14 días |
-| | memory-manager | Compactación de memoria 3 capas |
-| | system-evolver | Auto-mejora del sistema |
-| | quant-tools-dev | Creación/mantenimiento de tools Python |
+---
 
-### Skills (.claude/skills/)
-Knowledge bases compartidas entre agentes. **DEBEN leerse explícitamente.**
+## Propagacion de Cambios
 
-#### REGLA DE USO DE SKILLS (enforcement)
-**Los skills NO se inyectan automáticamente. Cada agente DEBE leerlos al inicio.**
-
-Cada agente tiene una sección "PASO 0: CARGAR SKILLS OBLIGATORIOS" que lista los archivos a leer.
-Si un agente no lee los skills → no seguirá los frameworks → producirá output de baja calidad.
-
-**YO (orchestrator) también debo leer skills cuando hago tareas directamente:**
-- Si analizo una empresa sin delegar → leer business-analysis-framework, projection-framework, valuation-methods
-- Si tomo decisión de compra/venta → leer investment-rules, decision-template
-- Si evalúo macro → leer macro-framework
-
-**Verificación post-agente:**
-Cuando un agente termina, verificar que su output refleja los frameworks de los skills. Si no → el agente no los leyó → re-ejecutar o corregir.
+Cuando hay cambio sistemico:
+```
+[ ] Que agentes leen/escriben esto? → Actualizar
+[ ] Que skills definen el framework? → Actualizar
+[ ] file-system-rules conoce ubicacion? [ ] health-check debe verificar?
+[ ] CLAUDE.md documenta? [ ] agent-registry actualizado?
+```

@@ -109,7 +109,7 @@ Kill condition: [qué me haría vender]
 - O condición: [qué debe pasar]
 
 **Configurar:**
-- Standing order en state/system.yaml
+- Standing order en state/standing_orders.yaml
 - Price alert en €[X]
 - Thesis queda en thesis/watchlist/[TICKER]/
 

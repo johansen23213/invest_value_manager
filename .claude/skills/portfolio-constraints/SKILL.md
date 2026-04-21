@@ -23,8 +23,9 @@ Para decisiones de sizing, consultar:
 ### Herramienta: constraint_checker.py
 
 ```bash
-python3 tools/constraint_checker.py REPORT    # Ver estado actual
-python3 tools/constraint_checker.py CHECK TICKER AMOUNT  # Simular compra
+python3 tools/constraint_checker.py REPORT           # Ver estado actual (long + short + net exposure)
+python3 tools/constraint_checker.py CHECK TICKER AMT  # Simular compra long
+python3 tools/constraint_checker.py CHECK_SHORT TICKER AMT  # Simular apertura short
 ```
 
 Este tool provee DATOS:
@@ -33,6 +34,9 @@ Este tool provee DATOS:
 - Concentración geográfica
 - Cash disponible
 - Impacto de pérdida 50% por posición
+- **Net exposure** (long - short) — cuanto realmente expuesto estoy
+- **Gross exposure** (long + short) — cuanto total tengo en juego
+- Para shorts: un short en sector X REDUCE la exposicion neta a ese sector
 
 El tool NO juzga. Tú razonas aplicando principios.
 

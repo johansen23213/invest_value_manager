@@ -62,12 +62,18 @@ def get_price(ticker, eurusd, gbpeur):
 
     mcap_b = mcap / 1e9 if mcap else 0
     # yfinance sometimes returns yield as decimal (0.05), sometimes as percent (5.0)
+    yield_warning = None
     if dy and dy > 1:
         dy_pct = dy  # already in percent
     elif dy:
         dy_pct = dy * 100
     else:
         dy_pct = 0
+
+    # Sanity check: yields >20% are almost certainly data errors
+    if dy_pct > 20:
+        yield_warning = f"YIELD_ANOMALY (raw: {dy_pct:.1f}%)"
+        dy_pct = 0  # Suppress erroneous yield
 
     return {
         'ticker': ticker,
@@ -80,6 +86,7 @@ def get_price(ticker, eurusd, gbpeur):
         'mcap_b': mcap_b,
         'pe': pe,
         'div_yield': dy_pct,
+        'yield_warning': yield_warning,
     }
 
 def main():
@@ -98,6 +105,8 @@ def main():
         if data:
             pe_str = f"{data['pe']:.1f}" if isinstance(data['pe'], (int, float)) else str(data['pe'])
             print(f"{data['ticker']:<10} {data['name']:<30} {data['price']:>10.2f} {data['currency']:>5} {data['price_eur']:>10.2f} {data['high52']:>10} {data['low52']:>10} {pe_str:>8} {data['div_yield']:>5.1f}% {data['mcap_b']:>7.1f}B")
+            if data.get('yield_warning'):
+                print(f"           ⚠ {data['yield_warning']}")
         else:
             print(f"{t:<10} ERROR: No price data available")
 

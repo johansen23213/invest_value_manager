@@ -9,11 +9,11 @@
 # Metadata
 metadata:
   created: 2026-02-03
-  last_updated: 2026-02-13
-  total_closed: 14
-  total_pnl_eur: -26.85  # Previous -90.85 + UHS +55 + VICI +9 = ~-26.85
-  win_rate: 50.0  # 7 winners / 14 positions (UHS +16.2%, VICI +1.7% are winners)
-  avg_holding_days: 7
+  last_updated: 2026-03-20
+  total_closed: 16
+  total_pnl_eur: -21.85  # Previous -3.85 + LULU -18 (approx EUR) = ~-21.85
+  win_rate: 50.0  # 8 winners / 16 positions
+  avg_holding_days: 10  # (8*15 + 44) / 16 = 10.25
 
 # ADVERSARIAL FV ACCURACY TRACKING (added Session 53 per Devil's Advocate)
 # Purpose: Track whether adversarial FVs are accurate or systematically pessimistic
@@ -29,6 +29,7 @@ adversarial_fv_tracking:
     - { ticker: IMB.L, sold: 2026-02-09, exit_price_gbp: 2472.5, thesis_fv: 3701, adversarial_fv: 3409, check_3mo: null, check_6mo: null, check_12mo: null }
     - { ticker: UHS, sold: 2026-02-13, exit_price_usd: 234.05, thesis_fv: 283.74, adversarial_fv: 213, check_3mo: null, check_6mo: null, check_12mo: null }
     - { ticker: VICI, sold: 2026-02-13, exit_price_usd: 29.06, thesis_fv: 33.75, adversarial_fv: 29.00, check_3mo: null, check_6mo: null, check_12mo: null }
+    - { ticker: ALL, sold: 2026-02-14, exit_price_usd: 207.51, thesis_fv: 240, adversarial_fv: 234, check_3mo: null, check_6mo: null, check_12mo: null }
   note: "If market price >> adversarial FV at 12mo for majority, adversarial is too pessimistic. If market price near or below adversarial FV, sells were correct."
 
 # Closed Positions
@@ -355,6 +356,54 @@ closed_positions:
     exit_reason: exit_protocol_zero_mos_weakened_thesis
     lesson_learned: "Rent coverage must be analyzed per-tenant, not blended. 25% of NOI at 1.03x coverage is binary risk. Original thesis missed critical tenant-level data. When MoS evaporates to 0% and thesis is weakened on 5/7 assumptions, selling is the clear precedent. REIT yield alone (6.1%) does not justify holding vs pipeline Tier A alternatives."
 
+  - ticker: ALL
+    name: "Allstate Corporation"
+    entry_date: 2026-01-27
+    exit_date: 2026-02-14
+    shares: 2.03874
+    entry_price_usd: 196.00
+    exit_price_usd: 207.51
+    entry_currency: USD
+    invested_eur: 339  # ~$399.59 / 1.179
+    proceeds_eur: 362  # Approximate, ~$422 / 1.165
+    pnl_amount_eur: 23
+    pnl_percent: 5.9
+    holding_days: 18
+    thesis_fv_at_entry: 240  # USD - original thesis
+    thesis_fv_adversarial: 234  # USD - adversarial review (Feb 8)
+    thesis_fv_risk_adjusted: 214  # USD - risk-adjusted FV
+    fv_reached: false
+    quality_score: 56  # Tier C (thesis claimed Tier A 8/10, WRONG)
+    thesis_accuracy:
+      correct: false
+      notes: "Original FV $240 close to adversarial $234 by accident (stale BV $80 offset by inflated ROE 22%). Actual normalized ROE 15-18%, not 37% (peak cycle). QS 56 Tier C, thesis claimed Tier A 8/10 (-24pt gap). Arity litigation, Senate fraud hearing, voluntary 17% rate cuts for 7.8M customers all absent from thesis. Combined ratio 85.2% was best in 15 years, not sustainable. MoS 11.3% insufficient for Tier C (precedent requires ~30%). 6/6 SELL precedent consistency for Tier C ON PROBATION with thin MoS."
+    exit_reason: exit_protocol_tier_c_on_probation_insufficient_mos
+    lesson_learned: "Peak cycle insurance P/E can be misleading (5.5x TTM looks cheap but uses $38 peak EPS). Combined ratio 85% is not the new normal. Always normalize ROE across full underwriting cycle (8-12 years). Tier C ON PROBATION with <15% MoS should be sold when pipeline has R4-approved alternatives. Small position (+5.9% gain) validates disciplined exit rather than waiting for Q1 earnings."
+
+  - ticker: LULU
+    name: "Lululemon Athletica Inc."
+    entry_date: 2026-02-05
+    exit_date: 2026-03-20
+    shares: 2
+    entry_price_usd: 171.62
+    exit_price_usd: 157.50
+    entry_currency: USD
+    invested_eur: 290
+    proceeds_eur: 272
+    pnl_amount_usd: -28.24
+    pnl_percent: -8.2
+    holding_days: 44
+    thesis_fv_at_entry: 261  # USD - original thesis
+    thesis_fv_adversarial: 202  # USD - adversarial review (Feb 11)
+    thesis_fv_governance: 196  # USD - governance re-eval (Feb 12)
+    fv_reached: false
+    quality_score: 78  # Tier A low-end (adj from tool 80)
+    thesis_accuracy:
+      correct: false
+      notes: "Governance risk underestimated. Bought during proxy fight on thesis of operational quality. CEO vacancy persisted 50+ days with no resolution. Wilson proxy contest escalated (GOLD proxy card filed). Elliott pushed external CEO. Board paralyzed. GM declined from 59.2% (FY2024) to 55.6% (Q3) to 54.9% (Q4 reported) — approaching KC threshold. Americas negative 8 consecutive quarters. FV revised $261->$202->$196 as governance discount deepened. Pre-set SELL trigger ($165) worked as designed."
+    exit_reason: governance_deterioration_pre_set_trigger
+    lesson_learned: "Governance risk underestimated. Bought during proxy fight on thesis of operational quality. Failed to weight CEO vacancy risk. Pre-set SELL trigger ($165) worked as designed. Tariff impact on GM was worse than modeled. EXIT after 44 days, -8.2% loss. Key learning: avoid buying into active governance disputes even with strong brand."
+
   - ticker: TATE.L
     name: "Tate & Lyle plc"
     entry_date: 2026-02-03
@@ -410,15 +459,15 @@ partial_sells:
 # Statistics (auto-calculated by effectiveness_tracker.py)
 statistics:
   # Will be populated by the tool
-  total_closed_positions: 14
+  total_closed_positions: 16
   total_partial_sells: 3
-  total_realized_pnl_eur: 401.00  # Previous 337 + UHS +55 + VICI +9 = ~401
-  winners: 7  # SHEL.L +2.3%, LIGHT.AS +13.7%, PFE +1.8%, TATE.L +3.5%, IMB.L +6.9%, UHS +16.2%, VICI +1.7%
-  losers: 5  # FUTR.L -2.8%, TEP.PA -6.7%, A2A.MI -1.5%, SAN.PA -0.84%, HRB -13.25%
+  total_realized_pnl_eur: 406.00  # Previous 424 + LULU -18 (approx EUR) = ~406
+  winners: 8  # SHEL.L +2.3%, LIGHT.AS +13.7%, PFE +1.8%, TATE.L +3.5%, IMB.L +6.9%, UHS +16.2%, VICI +1.7%, ALL +5.9%
+  losers: 6  # FUTR.L -2.8%, TEP.PA -6.7%, A2A.MI -1.5%, SAN.PA -0.84%, HRB -13.25%, LULU -8.2%
   breakeven: 2  # ENEL.MI 0%, VNA.DE 0%
   win_rate_pct: 50.0
-  avg_win_pct: 6.4  # (2.3 + 13.7 + 1.8 + 3.5 + 6.9 + 16.2 + 1.7) / 7
-  avg_loss_pct: -4.9  # (-2.8 + -6.7 + -1.5 + -0.84 + -13.25) / 5
-  avg_holding_days: 7
+  avg_win_pct: 6.4  # (2.3 + 13.7 + 1.8 + 3.5 + 6.9 + 16.2 + 1.7 + 5.9) / 8
+  avg_loss_pct: -5.5  # (-2.8 + -6.7 + -1.5 + -0.84 + -13.25 + -8.2) / 6
+  avg_holding_days: 10
   positions_reached_fv: 0
   thesis_accuracy_rate: null

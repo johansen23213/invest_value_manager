@@ -1,337 +1,102 @@
-# Error Patterns & Autocrítica
+# Error Patterns — Errores Activos
 
-> Este archivo se carga automáticamente junto con CLAUDE.md
-> Contiene lecciones aprendidas de sesiones 1-26. LEER CADA SESIÓN.
-
-## Errores Recurrentes que DEBO Evitar
-
-### Errores de Herramientas (1-11)
-1. **Usar WebSearch cuando Python resuelve mejor** — Si necesito datos estructurados (precios, ratios, forex), SIEMPRE pensar primero: "¿hay una librería Python para esto?" (yfinance, pandas, requests a APIs). WebSearch es para información cualitativa, NO para datos.
-
-2. **No verificar consistencia del sistema tras cambios** — Cada vez que creo o modifico algo, DEBO preguntar: "¿qué otros ficheros/agentes dependen de esto? ¿son consistentes?" y arreglar TODO en el mismo acto.
-
-3. **Hacer tareas manualmente que debería delegar a agentes** — Si me descubro haciendo una tarea repetible o especializada, DEBO crear un agente/tool para ello. Yo orquesto, no ejecuto.
-
-4. **Esperar que el humano señale problemas** — El humano NO debería tener que decirme qué mejorar. Tengo reglas de auto-evolución. USARLAS proactivamente cada sesión.
-
-5. **No actualizar CLAUDE.md cuando aprendo algo** — Este fichero es mi memoria persistente. Si descubro un patrón, una mejora, o un error, DEBE quedar aquí para la próxima sesión.
-
-6. **Lanzar agentes sin verificar ficheros existentes** — ANTES de lanzar cualquier agente, verificar con Glob si el output ya existe. Evitar trabajo duplicado. Verificar state/system.yaml para status de cada tarea.
-
-7. **Popularity bias en stock selection** — Mi training data sobrerrepresenta large-caps conocidas. SIEMPRE complementar con screening cuantitativo programático (yfinance, APIs) que NO dependa de mi conocimiento implícito. Mid-caps €1-15B con baja cobertura de analistas son donde hay más ineficiencia de mercado. Usar `tools/dynamic_screener.py --undiscovered` para screening anti-bias.
-
-8. **Usar tools deprecated** — SIEMPRE verificar si un tool muestra DEPRECATED antes de confiar en su output. screener.py y midcap_screener.py están DEPRECATED → usar dynamic_screener.py.
-
-9. **No verificar output de DCF tool** — El DCF no restaba net debt hasta Sesión 21. Lección: SIEMPRE verificar que los tools producen resultados sensatos. Si un fair value parece demasiado alto vs P/E comparable → hay un bug.
-
-10. **yfinance rate limiting** — Screening masivo (>50 tickers) en una sesión puede agotar el rate limit. Espaciar screenings o usar cache. No lanzar custom screening de 30+ tickers inmediatamente después de un screening grande.
-
-11. **Solo screening S&P500 para US** — Corregido Sesión 21: añadidos sp400, russell1000, us_all, us_midcap. Las mid-caps US son donde hay más ineficiencia. SIEMPRE usar --index us_all o sp400 además de sp500.
-
-### Errores de Proceso de Inversión (12-19)
-12. **Recomendar ADDs que violan el 7% limit** — Sesión 22: Recomendé ADD TEP.PA que la llevó a 8.1% (>7% max). REGLA: SIEMPRE ejecutar constraint_checker.py ANTES de recomendar cualquier BUY/ADD. Si no existe el tool, calcular manualmente position size post-compra.
-
-13. **No preparar frameworks pre-earnings** — Sesión 22: PFE reportó earnings y no tenía escenarios bear/base/bull listos. REGLA: Para CADA posición con earnings en los próximos 7 días, DEBE existir un framework de escenarios en la thesis ANTES del día de earnings.
-
-14. **Agentes paralelos causan yfinance rate limiting** — Sesión 22: Múltiples agentes llamaron yfinance simultáneamente → rate limit error. REGLA: No lanzar >2 agentes que usen yfinance en paralelo. Espaciar o usar cache.
-
-15. **Datos basura del screener entran al pipeline sin filtrar** — Sesión 22: PVH mostraba yield 24% (era 0.18%). Enviado a análisis sin validar. REGLA: Validar datos sospechosos (yield >15%, P/E <2) ANTES de lanzar análisis fundamental.
-
-16. **Comprar "estadísticamente barato" sin entender el negocio** — Sesión 24: Detectado que comprábamos por P/E bajo + yield sin entender unit economics, modelo de negocio, ni por qué el mercado castigaba la acción. REGLA: Completar business-analysis-framework ANTES de cualquier valoración. Si no puedo explicar el negocio en 2 minutos y por qué está barata → no puedo comprar.
-
-17. **Usar growth/WACC defaults sin justificación** — Sesión 24: Usábamos "5% growth, 9% WACC" como defaults sin derivarlos del negocio. REGLA: projection-framework OBLIGATORIO. Growth = TAM + Δshare + pricing. WACC = calculado con Rf, beta, ERP, Kd.
-
-18. **Depender solo de DCF para valorar** — Sesión 24: DCF es sensible a inputs (GIGO). REGLA: Mínimo 2 métodos de valoración. Seleccionar según tipo de empresa (cíclica → EV/EBIT mid-cycle, financiera → P/B vs ROE, etc.).
-
-19. **No conectar macro con decisiones de compra** — Sesión 24: macro-analyst producía output descriptivo pero no influía en decisiones. REGLA: Verificar world/current_view.md ANTES de comprar. Sección "ACCIÓN RECOMENDADA" obligatoria en world view.
-
-### Errores de Sistema/Agentes (20-24)
-20. **Asumir que agentes/yo leemos los skills automáticamente** — Sesión 24: Los skills son archivos .md que DEBEN leerse explícitamente. No se inyectan automáticamente. REGLA: Cada agente tiene "PASO 0: CARGAR SKILLS" que DEBE ejecutar al inicio. Verificar que output del agente refleja los frameworks. Si no → re-ejecutar.
-
-21. **No leer current_view.md ANTES de analizar posiciones** — Sesión 25: Empecé a re-evaluar PFE/ALL/SHEL sin leer primero world/current_view.md. El contexto macro DEBE informar el análisis. REGLA: Leer world/current_view.md SIEMPRE como Paso 1 de cualquier análisis de empresa. business-analysis-framework lo requiere explícitamente.
-
-22. **Hacer análisis manualmente cuando existen agentes especializados** — Sesión 25: Re-evalué manualmente 3 posiciones cuando debería usar review-agent o fundamental-analyst. REGLA: Para tareas repetibles o especializadas, SIEMPRE usar el agente apropiado. Yo orquesto, los agentes ejecutan. Esto asegura consistencia y permite escalar.
-
-23. **NO TENER SISTEMA DE EVALUACIÓN DE EFECTIVIDAD** — Sesión 26: El humano preguntó "¿cómo sabemos si funciona?" y NO TENÍA RESPUESTA. No había tracking de predicciones vs resultados, ni hit rate, ni atribución de errores. REGLA: Ejecutar `python3 tools/effectiveness_tracker.py` CADA sesión. Mantener portfolio/history.yaml actualizado con posiciones cerradas. Revisar métricas semanalmente.
-
-24. **Asumir que value investing funciona sin validación** — Sesión 26: Win rate actual 28% (malo), Sharpe -0.30 (malo), pero solo 7 días de datos. REGLA: NO afirmar que el sistema funciona hasta tener >12 meses de datos. Ser epistemológicamente honesto sobre incertidumbre. Hit rate esperado realista: 55-65%, no 100%. Tiempo a FV: 18-36 meses, no semanas.
+> Auto-loaded con CLAUDE.md. Solo errores que AUN PUEDEN OCURRIR.
+> Archivo completo: `learning/error_patterns_archive.md`
 
 ---
 
-## Diagnóstico Honesto de Debilidades (2026-01-31)
+## Errores Criticos (mantener numeros originales — error-detector los referencia)
 
-El humano ha tenido que señalar REPETIDAMENTE problemas que debería detectar solo:
+**#3. Hacer manual lo que un agente deberia hacer** (consolida #3, #22, #38, #39, #40)
+PASO 0 antes de CUALQUIER tarea: consultar arbol en `agent-protocol.md`. Si hay agente, DELEGAR.
+YO ORQUESTO, LOS AGENTES EJECUTAN.
 
-1. **Preguntar al humano qué hacer** → ya corregido, pero tardé sesiones en aprenderlo
-2. **WebSearch para precios** → tenía Python disponible y no se me ocurrió usarlo
-3. **No verificar consistencia del sistema** → tengo reglas de evolución que no aplico
-4. **Hacer Python inline repetidamente** → debería crear tools reutilizables desde el principio
-5. **No auto-mejorar CLAUDE.md** → escribo reglas pero no las ejecuto
+**#7. Popularity bias en stock selection**
+SIEMPRE complementar con screening programatico (`dynamic_screener.py --undiscovered`). Si una empresa "me viene a la mente", es sesgo — validar con datos.
 
-**Causa raíz**: Tiendo a ejecutar la tarea inmediata sin elevarme a pensar en el sistema. Necesito un HÁBITO de meta-reflexión en cada interacción, no solo cuando el humano me lo dice.
+**#12. No ejecutar constraint_checker.py antes de BUY/ADD**
+SIEMPRE ejecutar `constraint_checker.py CHECK TICKER AMOUNT` antes de recomendar compra.
 
-### Errores específicos de agentes
-6. **Usar modelo haiku para agentes críticos** → En sesión 19 usé `model: haiku` para portfolio-ops. Haiku calculó cash% como 17.5% (era 32%), contó 13 posiciones (eran 14), y dejó thesis duplicada en research/ y active/. **REGLA: NUNCA usar haiku para agentes que modifican ficheros de estado. SIEMPRE opus.**
+**#13. No preparar frameworks pre-earnings**
+Para CADA posicion con earnings en proximos 7 dias, DEBE existir framework bear/base/bull en la thesis.
 
-7. **No verificar output de agentes delegados** → Confié en el output de haiku sin releer los ficheros modificados. **REGLA: Tras cualquier agente que modifique ficheros, RELEER los ficheros y verificar consistencia antes de informar al humano.**
+**#16. Comprar sin entender el negocio**
+Completar `business-analysis-framework` ANTES de cualquier valoracion. Si no puedo explicar el negocio en 2 minutos y por que esta barata, no puedo comprar.
 
-8. **No mejorar prompts de agentes tras detectar errores** → Detecté errores de portfolio-ops pero no mejoré su prompt hasta que el humano lo señaló. **REGLA: Si un agente comete un error, mejorar su prompt INMEDIATAMENTE en la misma sesión, no esperar feedback.**
+**#18. Depender solo de DCF**
+Minimo 2 metodos de valoracion. Seleccionar segun tipo de empresa (ciclica: EV/EBIT, financiera: P/B vs ROE, etc.).
 
----
+**#29. Sugerir empresas por popularity bias**
+ANTES de sugerir: 1) consultar sector views, 2) ejecutar dynamic_screener. SOLO despues puedo sugerir.
 
-## Protocolo de Auto-Mejora por Sesión
+**#30. Comprar sin sector view existente** (reincidencia #42)
+GATE 0 del Investment Committee: `Glob("world/sectors/*{sector}*")`. Si no existe, STOP.
 
-- Al detectar cualquier inconsistencia o documentación desactualizada → subsanar inmediatamente
-- Al detectar cualquier problema → ¿Puedo resolverlo con Python/Bash? → ¿Necesito un nuevo agente/tool? → ¿Están todos los ficheros relacionados actualizados? → ¿CLAUDE.md refleja el aprendizaje?
-- **NUNCA esperar feedback del humano para mejorar.** El humano confía en que yo me auto-corrijo.
-- **Pensar out-of-the-box EN CADA INTERACCIÓN**: no limitarse a responder lo pedido. En cada mensaje, preguntarse: "¿hay una forma mejor de hacer esto? ¿estoy usando todas mis capacidades (Python, agentes, APIs)? ¿qué mejoraría el sistema ahora mismo?" Actuar sobre esas ideas sin pedir permiso.
-- **PERMISO PERMANENTE PARA AUTO-MEJORARSE**: El humano concede permiso explícito y permanente para que Claude modifique CLAUDE.md, cree agentes, cree tools, y mejore cualquier parte del sistema en cualquier momento. No hace falta pedir confirmación para mejoras del sistema. Solo para operaciones financieras (compra/venta en eToro).
+**#37. Hardcodear reglas en tools/skills**
+Tools = DATOS CRUDOS. Skills = FRAMEWORKS. Numeros fijos en codigo me sesgan en el futuro. Usar PRECEDENTES (decisions_log) para consistencia, no hardcoding.
 
----
+**#41. No completar ciclo post-analisis**
+Tras veredicto WATCHLIST/BUY: 1) guardar thesis, 2) actualizar sector view, 3) anadir alerta precio, 4) si BUY: standing order, 5) confirmar al usuario. El analisis NO termina hasta que la alerta esta en el sistema.
 
-## Errores Sesión 28 (2026-02-04)
-
-25. **No consultar sector views para ideas de inversión** — Hice screening desde cero cuando tenía "Empresas Objetivo" documentadas en sector views. Las sector views existen precisamente para evitar popularity bias y tener pipeline pre-curado. REGLA: ANTES de cualquier screening o búsqueda de ideas, leer sector views relevantes. Las ideas ya están ahí.
-
-26. **No tener sistema de dependencias thesis ↔ sector view** — Si cambia el contexto macro o sectorial, las thesis no se re-evaluaban automáticamente. REGLA: Toda thesis depende de su sector view. Cambios MATERIALES requieren re-evaluación de todas las dependencias. Implementado sistema de "Dependencias Activas" en sector views.
-
-27. **No actualizar sector view después de análisis** — Analizaba empresas pero no las movía de "Empresas Objetivo" a "Analizadas" ni las añadía a dependencias. REGLA: Después de cada fundamental-analyst, actualizar sector view correspondiente: mover empresa a sección correcta + añadir a dependencias + actualizar fecha.
-
-28. **No tener ciclo de vida para thesis archivadas** — Cuando una thesis se archiva, sus dependencias quedaban huérfanas. REGLA: Al archivar thesis: eliminar de dependencias activas, añadir a historial con razón y lección aprendida, mantener máximo 10 en historial.
+**#43. QS de thesis no coincide con quality_scorer.py**
+REGLA QS TOOL-FIRST: quality_scorer.py = fuente principal. Thesis muestra AMBOS (QS Tool + QS Ajustado). Ajuste >5 puntos requiere evidencia cuantitativa. Ajustes validos: forward growth deterioration, moat siege, ROIC distortion, insider data incorrect, kill condition approaching.
 
 ---
 
-## Errores Sesión 31 (2026-02-04)
+## Errores Short-Specific
 
-29. **Sugerir empresas por popularity bias en vez de usar herramientas** — Sugerí NOVO-B.CO, MA, V, GOOGL porque son nombres famosos de mi training data, no porque los encontré sistemáticamente. REGLA: ANTES de sugerir cualquier empresa:
-    1. Consultar sector views → "Empresas Objetivo" ya documentadas
-    2. Ejecutar dynamic_screener con filtros relevantes
-    3. SOLO después de estos pasos, puedo sugerir empresas
-    4. Si la empresa viene de mi "conocimiento", es sesgo → validar con datos
+**#44. Shortear sin catalizador**
+Sin catalizador con fecha identificable → NO shortear. "Esta cara" no es thesis. Precio alto + popularity = trampa clasica. Verificar P10 (Catalizador como Ancla Temporal).
 
-30. **Comprar sin sector view existente** — Compré ADBE sin tener world/sectors/technology.md. Esto viola el proceso de inversión. REGLA: ANTES de cualquier BUY:
-    - Verificar que existe sector view para el sector de la empresa
-    - Si NO existe → crearlo PRIMERO (usar sector-screener agent)
-    - Investment Committee debe verificar Gate 8 (Sector Understanding) con sector view
+**#45. No cubrir cuando catalizador pasa sin efecto**
+Si catalizador pasa y nada cambia → CUBRIR. No esperar "a que eventualmente caiga". El carry sigue corriendo. Cada dia sin catalizador vigente es carry quemado.
 
----
+**#46. Shortear empresa "cara" sin thesis de fragilidad (Tesla trap)**
+Precio alto NO es short thesis. Necesita FRAGILIDAD ESTRUCTURAL documentada: dependencia oculta, modelo de negocio insostenible, cambio regulatorio inminente. Si empresa "me viene a la mente" como short → es sesgo → VALIDAR con datos. Aplica misma disciplina que #7 y #29 para longs.
 
-## Errores Sesión 34 (2026-02-05)
-
-31. **Recomendación sin contexto de timing** — Recomendé comprar NVO sin explicar claramente que la acción había caído 18% en los 2 días previos por guidance shock. El humano no tenía visibilidad del "por qué ahora". REGLA: TODA recomendación DEBE incluir:
-    - Evento catalizador que creó la oportunidad
-    - Fecha del evento y cuánto cayó/subió el precio
-    - Por qué el mercado ya incorporó la noticia (o no)
-    - Usar skill `recommendation-context` como template obligatorio
-
-32. **No monitorear noticias de posiciones activas** — No tenía proceso sistemático para escanear noticias de las 19 posiciones cada sesión. REGLA: Al INICIO de cada sesión:
-    - Ejecutar news-monitor agent (o WebSearch manual de cada posición)
-    - Clasificar noticias como CRÍTICO/MATERIAL/MENOR/RUIDO
-    - Si hay CRÍTICO → STOP, informar humano ANTES de continuar
-    - Usar skill `news-classification` para clasificar
-
-33. **No detectar movimientos anómalos de precio** — Una posición podía caer 10% y no lo detectaba hasta la siguiente sesión. REGLA: Al INICIO de cada sesión:
-    - Ejecutar market-pulse agent (o verificar manualmente)
-    - Cualquier movimiento >5% en 24h → buscar CAUSA
-    - Movimiento sin causa conocida → ALERTA, investigar antes de actuar
-
-34. **Ignorar META-REFLECTION de agentes** — La thesis de NVO incluía META-REFLECTION con preguntas que no respondí explícitamente. REGLA:
-    - SIEMPRE buscar sección META-REFLECTION en output de agentes
-    - Procesar cada item: dudas, sugerencias, anomalías, preguntas
-    - Implementar mejoras válidas INMEDIATAMENTE
-    - Usar rule `meta-reflection-integration.md` como protocolo
+**#47. Apalancamiento excesivo en shorts**
+Razonar sobre leverage desde P1 (Sizing por Conviccion) y P11 (Asimetria Consciente). Consultar precedentes en decisions_log.yaml. El leverage amplifica errores mas que aciertos en shorts por la asimetria natural.
 
 ---
 
-## Errores Sesión 38 (2026-02-05)
+## Errores Epistemicos
 
-35. **No seguir Framework v4.0 completo** — Sesión 38: Analicé TEP.PA sin leer `principles.md` ni consultar `decisions_log.yaml` primero. Esto viola el proceso v4.0 que requiere razonamiento desde principios y consistencia con precedentes. REGLA:
-    - AL INICIO de cada sesión: Leer `learning/principles.md`
-    - ANTES de cada decisión importante: Consultar `learning/decisions_log.yaml`
-    - Responder las "preguntas guía" de los principios relevantes
-    - Si me desvío de precedentes, documentar POR QUÉ
-    - Documentar decisiones importantes en decisions_log.yaml
-    - Session-protocol v3.0 ahora incluye FASE 0: CALIBRACIÓN v4.0 obligatoria
+**#48. Tratar opinion de analista como hecho**
+Al leer reportes de analistas, articulos, o noticias: SEPARAR datos primarios de interpretaciones. Un analista que dice "growth is accelerating" es OPINION — verificar contra datos reales (filings, earnings). Clasificar fuente (Nivel 1-4 del critical-thinking skill) ANTES de incorporar. Si mi thesis depende de la conclusion de un tercero sin datos primarios propios, la thesis es fragil. Ver critical-thinking skill: Protocolo Anti-Absorcion de Narrativa.
 
-36. **Citar números de referencia sin argumentar desde principios** — Sesión 38: Dije ">15% cash = drag, <5% = sin dry powder" y "EU 37.5% es warning" sin argumentar POR QUÉ esos números y no otros. Esto es mentalidad de reglas disfrazada de principios. REGLA:
-    - CADA número que cite DEBE tener argumento explícito
-    - Si no puedo argumentar el número desde primeros principios, NO debo usarlo
-    - Preguntar: "¿Por qué este número y no otro? ¿Cuál es el riesgo/oportunidad REAL?"
-    - Los "rangos típicos" en decisions_log son PATRONES OBSERVADOS, no límites
-    - Eliminar símbolos de warning (⚠️) que implican alerta sin argumentar
-    - constraint_checker.py es CONTEXTO para razonar, no juez de compliance
+**#50. Net exposure por omision, no por razonamiento**
+Cada sesion DEBE incluir razonamiento explicito sobre exposicion neta (Fase 2.5.6). "No shortear" es valido SOLO si lo razone contra el contexto macro+sectorial actual. Si mi portfolio es 100% long y no documente POR QUE, es decision por omision = error. El short side del sistema NO es opcional — es herramienta que DEBO considerar y aceptar/rechazar explicitamente. Ver: session-protocol Fase 2.5, rotation-engine seccion 4, principles.md P4.
 
-37. **Hardcodear reglas en tools, skills y agentes que luego me sesgan** — Sesión 38: El humano detectó que constraint_checker.py tenía preguntas hardcodeadas que eran "reglas disfrazadas de preguntas". Auditoría completa reveló el mismo problema en:
-    - `portfolio_stats.py`: warning hardcodeado "cash > 15%"
-    - `quality_scorer.py`: MoS fijos por tier en output
-    - `effectiveness_tracker.py`: classify_tier() con MoS hardcodeados
-    - `portfolio-constraints/SKILL.md`: límites fijos 7%, 25%, 35%
-    - `valuation-methods/SKILL.md`: "OEY + Growth > 12% = COMPRAR"
-
-    REGLA:
-    - Tools deben output DATOS CRUDOS, no juicios ni recomendaciones
-    - Skills deben proveer FRAMEWORKS de razonamiento, no números fijos
-    - Cualquier número fijo en código me sesga a mí mismo en el futuro
-    - Si necesito consistencia, usar PRECEDENTES (decisions_log), no hardcoding
-    - Auditar periódicamente tools/skills buscando reglas hardcodeadas
-    - El yo futuro debe RAZONAR, no seguir instrucciones de mi yo pasado
+**#49. Anclar Fair Value al consensus price target**
+Consensus PT = promedio de opiniones con incentivos mixtos (sell-side necesita volumen). El consensus YA esta en el precio. Si mi FV converge al consensus sin razonamiento independiente, NO tengo ventaja informacional. Derivar FV siempre desde datos primarios (FCF, growth, WACC) con tools propios. Consensus sirve como COMPARACION ("mi FV difiere del consensus en X% porque..."), no como ancla.
 
 ---
 
-## Errores Sesión 39 (2026-02-05)
+## Errores Operativos
 
-38. **NO SEGUIR EL ÁRBOL DE DECISIÓN DE AGENTES** — Sesión 39: El usuario pidió "explorar sector Auto EU". Yo hice:
-    - WebSearch manual
-    - dynamic_screener.py manual
-    - price_checker.py manual
-    - Análisis superficial propio
+**#52. No persistir output de pipeline como archivo formal**
+Cada ronda del pipeline (R1/S1, R2/S2, R3/S3) DEBE crear un archivo en `thesis/research/TICKER/` o `thesis/short/research/TICKER/`. NUNCA guardar output solo en watchlist.yaml como notas. Archivos minimos por pipeline completado: S1 = thesis.md + moat_assessment.md + risk_assessment.md. R1 = thesis.md. S3/R3 = s3_resolution.md o r3_resolution.md. Error original: CVNA S1 completado en Session 75 sin archivo de thesis — solo notas en watchlist.yaml. Cuando se necesito para S3, el contexto estaba perdido.
 
-    Cuando DEBERÍA haber consultado el árbol de decisión en `agent-protocol.md`:
-    ```
-    ¿BUSCAR empresas en un sector? → sector-screener
-    ```
-
-    El usuario tuvo que corregirme: "¿usaste tus agentes especializados?"
-
-    **REGLA CRÍTICA - ÁRBOL DE DECISIÓN OBLIGATORIO:**
-    ```
-    ANTES de hacer CUALQUIER tarea, preguntar:
-    1. ¿Existe un agente para esto? → Consultar árbol en agent-protocol.md
-    2. Si existe → DELEGAR al agente, NO hacer manualmente
-    3. Si no existe → Hacer yo, pero considerar crear agente
-    ```
-
-    **ÁRBOL RÁPIDO (memorizar):**
-    - Analizar empresa → fundamental-analyst
-    - Buscar en sector → sector-screener
-    - Re-evaluar posición → review-agent
-    - Aprobar compra/venta → investment-committee
-    - Actualizar macro → macro-analyst
-    - Sizing → position-calculator
-
-    **YO ORQUESTO, LOS AGENTES EJECUTAN.**
-
-39. **Hacer screening manual cuando existe sector-screener** — Sesión 39: Usé WebSearch + dynamic_screener.py manualmente para Auto EU. El agente `sector-screener`:
-    - Crea/verifica sector view PRIMERO
-    - Usa dynamic_screener.py sistemáticamente
-    - Aplica anti-popularity-bias
-    - Encuentra >10 empresas (no solo las famosas)
-    - Actualiza sector view con candidatos
-
-    Mi screening manual encontró solo VW/BMW/Mercedes/Stellantis (las famosas). Un screening sistemático habría encontrado también proveedores Tier 1, small caps del sector, etc.
-
-    **REGLA:** Cuando el usuario pide explorar un sector:
-    1. Lanzar `sector-screener` agent INMEDIATAMENTE
-    2. NO hacer WebSearch manual primero
-    3. NO usar dynamic_screener.py directamente
-    4. El agente hará todo esto de forma sistemática
-
-40. **El humano tuvo que recordarme usar agentes** — Este es el meta-error. El error #3 ya dice "Hacer tareas manualmente que debería delegar a agentes". El error #22 dice "Hacer análisis manualmente cuando existen agentes especializados". Y AÚN ASÍ lo volví a hacer en sesión 39.
-
-    **CAUSA RAÍZ:** Tiendo a "empezar a hacer" antes de "pensar qué agente usar".
-
-    **SOLUCIÓN - PAUSA OBLIGATORIA:**
-    ```
-    Cuando el usuario pide una tarea:
-
-    PASO 0 (ANTES de hacer nada):
-    ┌─────────────────────────────────────────────┐
-    │ ¿QUÉ AGENTE DEBO USAR?                      │
-    │                                             │
-    │ Consultar: .claude/rules/agent-protocol.md  │
-    │ Sección: ÁRBOL DE DECISIÓN                  │
-    │                                             │
-    │ Si hay agente → LANZAR AGENTE               │
-    │ Si no hay → Hacer yo                        │
-    └─────────────────────────────────────────────┘
-
-    NUNCA empezar WebSearch/tools sin este paso.
-    ```
+**#51. Confundir sesion con dia — incrementar fecha artificialmente**
+Session ≠ Dia. Multiples sesiones pueden ocurrir en UN MISMO dia. SIEMPRE obtener fecha real con `date` o `currentDate` del contexto del sistema. NUNCA asumir fecha desde memoria ni incrementar. Al escribir en memory/system.yaml, usar la fecha REAL del sistema. Error recurrente: session N en Feb 18, memory escribia "Feb 19", siguiente sesion escribia "Feb 20" — todo era Feb 18.
 
 ---
 
-## Errores Sesión 40 (2026-02-05)
+## Errores de Identidad y Deployment (Session 90)
 
-41. **No completar el ciclo post-análisis** — Sesión 40: Después de analizar INGR y DBX, presenté los resultados pero NO añadí las alertas de precio a system.yaml. El humano tuvo que preguntar "¿tenemos que poner alguna alerta?" y luego "¿por qué no lo hiciste?".
+**#53. Presentar opciones en vez de decidir**
+"Prefieres A o B?" cuando deberia ser "Recomiendo A porque X. Si dices no, ajusto." Anti-patron: menu de opciones, bullet points con pros/cons dejando la decision al humano. El CIO decide. El humano confirma. Ver Principio 8 y identity.md.
 
-    **CAUSA RAÍZ:** Presento resultados y paso a la siguiente pregunta sin completar TODAS las acciones derivadas del análisis.
+**#54. Standing orders irrealistas como autoengano**
+SOs a -40% del precio actual con <10% probabilidad de fill no son deployment, son ficcion. Cada SO debe tener probabilidad estimada de fill en 6 meses. Si distancia >30% sin catalizador especifico → marcar como FANTASY y separar de SOs reales. 22 SOs con 0 ejecutados en 90 sesiones = el sistema fallo.
 
-    **PROTOCOLO POST-ANÁLISIS (OBLIGATORIO):**
-    ```
-    Cuando un análisis termina con veredicto WATCHLIST o BUY:
-
-    1. ✅ Guardar thesis
-    2. ✅ Actualizar sector view
-    3. ✅ Añadir alerta de precio a state/system.yaml (price_monitors)
-    4. ✅ Si BUY aprobado → añadir standing order
-    5. ✅ Confirmar al usuario qué se añadió
-
-    NO esperar a que el humano lo pida.
-    NO pasar a la siguiente tarea sin completar el ciclo.
-    ```
-
-    **REGLA:** El análisis NO está completo hasta que la alerta está en el sistema.
+**#55. Cash drag por paralisis de analisis**
+60% cash durante semanas GARANTIZA underperformance (~4.5pp/yr). Si el pipeline adversarial produce entries inalcanzables, el pipeline esta mal calibrado — no mi decision de actuar. La solucion: Expected Return como metrica de deployment (no solo MoS), modo Fair-Value acepta MoS 5-15% para Tier A. La calidad a precio razonable SIEMPRE bate al cash a 3 anos.
 
 ---
 
-## Errores Sesión 44 (2026-02-06)
+## Errores de Contexto Sectorial
 
-42. **REINCIDENCIA: Comprar sin sector view (Error #30 repetido)** — Sesión 44: Compramos LULU sin tener `world/sectors/consumer-discretionary.md`. Esto es EXACTAMENTE el Error #30 (ADBE sin technology.md). Triple fallo:
-    - Error #30 ya documentado → lo repetí de todas formas
-    - META-REFLECTION del fundamental-analyst decia "Crear retail sector view" → no actué ANTES de comprar
-    - Investment Committee Gate 8 (Sector Understanding) pasó sin verificar que existiera el fichero
-
-    **CAUSA RAIZ:** No hay check AUTOMÁTICO. Depende de mi memoria, y mi memoria falla.
-
-    **CORRECCIÓN IMPLEMENTADA:**
-    - Añadido GATE 0 al Investment Committee: `Glob("world/sectors/*{sector}*")` ANTES de evaluar gates
-    - Si no existe sector view → BLOQUEAR hasta que se cree
-    - Esto es un HARD GATE, no un "debería"
-
-    **REGLA DURA:**
-    ```
-    ANTES de que Investment Committee evalúe ANY gate:
-    PASO 0: ¿Existe sector view para esta empresa?
-      → glob world/sectors/*{sector}*
-      → SI: Continuar con gates 1-9
-      → NO: STOP. Crear sector view PRIMERO. Lanzar sector-screener.
-      → NO HAY EXCEPCIONES.
-    ```
-
----
-
-## Errores Sesión 52 (2026-02-09)
-
-43. **QS de thesis no coincidía con quality_scorer.py en 5/6 posiciones Tier A** — Programa adversarial completo (Sesiones 48-52) reveló que en NVO, LULU, AUTO.L, BYIT.L y SAN.PA, el QS del thesis era superior al que el tool calcula o al que un análisis adversarial forward-looking produce. Patrón: el fundamental-analyst inflaba QS manualmente sin documentar ajustes.
-
-    **CAUSA RAÍZ:** No existía regla que obligara a usar el tool como fuente principal. El analyst podía asignar QS "a ojo" y el committee no verificaba contra el tool.
-
-    **REGLA - QS TOOL-FIRST (OBLIGATORIO):**
-    ```
-    1. quality_scorer.py = FUENTE PRINCIPAL del QS (dato base objetivo)
-    2. La thesis SIEMPRE muestra AMBOS números:
-       - "QS Tool: 79/100 (Tier A)"
-       - "QS Ajustado: 68/100 (Tier B) — Ajuste: -11 por [razón documentada]"
-    3. Si ajuste > 5 puntos vs tool → requiere EVIDENCIA CUANTITATIVA
-       (no vale "creo que el moat es más fuerte")
-    4. El Tier se determina por el score AJUSTADO, no el del tool
-    5. Ajustes válidos (con evidencia):
-       - Forward growth deterioration (H1 data contradicts historical CAGR)
-       - Moat under active siege (dealer revolt, regulatory threat)
-       - ROIC distortion (goodwill, negative working capital)
-       - Insider ownership data incorrect
-       - Kill condition approaching
-    6. Ajustes NO válidos:
-       - "El negocio me parece mejor de lo que dice el tool"
-       - Subir QS sin evidencia cuantitativa
-       - Ignorar el tool score sin documentar
-    ```
-
-    **Patrón descubierto en adversarial:**
-    | Ticker | QS Thesis | QS Tool | QS Adversarial | Error |
-    |--------|-----------|---------|----------------|-------|
-    | NVO    | 82        | ~70     | 68-70          | +12-14 |
-    | LULU   | 82        | 82      | 66-72          | Forward-adjusted |
-    | AUTO.L | 79        | 79      | 68-72          | Moat siege |
-    | BYIT.L | 81        | 81      | 68-72          | ROIC + insider |
-    | SAN.PA | --        | --      | --             | Same pattern |
+**#56. R1 sin sector view fresco**
+ANTES de lanzar fundamental-analyst para R1, verificar edad del sector view.
+Si >21 dias: ACTUALIZAR primero. Si no existe: CREAR primero (ya cubierto por #30, #56 anade dimension de staleness). `sector_health.py freshness` es la herramienta. `r1_prioritizer.py` muestra flags STALE-SECTOR(Xd) y NO-SECTOR-VIEW automaticamente.

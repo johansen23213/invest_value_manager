@@ -185,6 +185,7 @@ La IA generativa es tanto amenaza como oportunidad. Los incumbentes con datos pr
 | Watchlist | DBX | thesis/research/DBX/thesis.md | 2026-02-05 | Entry $18-20 |
 | **Watchlist** | **DSY.PA** | **thesis/research/DSY.PA/thesis.md** | **2026-02-11** | **Entry EUR 15.50** |
 | **Watchlist** | **INTU** | **thesis/research/INTU/thesis.md** | **2026-02-13** | **Entry $285-300 (R3: FV $395, QS 72 Tier B)** |
+| Watchlist | ALFA.L | thesis/research/ALFA.L/thesis.md | 2026-02-19 | R1 COMPLETE. Entry 175-180p. FV 265p. QS 83 Tier A. HARD GATE Mar 12. |
 
 ### Protocolo de Cambio Material
 
@@ -226,6 +227,7 @@ Cuando actualices este sector view con cambio MATERIAL:
 | DBX | Dropbox | $33 | $18-20 | 35-40% | **Value trap risk alto**. QS 73 pero declive estructural, users -1.5%/yr, commoditized FSS, equity negativo. FCF yield 12.8% atractivo pero insostenible. Solo comprar con MoS extremo. | 2026-02-05 |
 | **DSY.PA** | **Dassault Systemes** | **EUR 21.00** | **EUR 15.50-17.00** | **20-25%** | **#1 PLM globally, QS 78 (Tier A borderline), wide moat. -56% from high. Cloud transition pain. NVIDIA partnership.** | **2026-02-11** |
 | **INTU** | **Intuit Inc.** | **$395 (R3)** | **$285-300** | **24-28%** | **R3 COMPLETE: DA 14/19 STRONG COUNTER. QS 72 Tier B (was 75 Tier A). SBC-adjusted FCF reduces OEY from 5.4% to 3.6%. Per-seat pricing KC#8 added. Insider selling $100M Cook, zero buying at -50%. Mailchimp 400bps drag. WAIT Feb 26 Q2 earnings.** | **2026-02-13** |
+| **PAYC** | **Paycom Software** | **$115 (R4)** | **$88** | **23.5%** | **R4 WATCHLIST. QS 75 adj (Tier A borderline). Per-seat pricing KC#8. Patient order (-30% from current). 82% GM, 37% ROIC, founder-led.** | **2026-02-14** |
 
 ---
 
@@ -257,6 +259,7 @@ Cuando actualices este sector view con cambio MATERIAL:
 | 2026-02-11 | BYIT.L updated to HOLD ON PROBATION | Adversarial review: QS 68-72 Tier B, FV 345p (from 455p). Insider 0.4% not 9.6%. |
 | **2026-02-11** | **DSY.PA analizado -> Watchlist** | **Full fundamental analysis post -21% crash. QS 78 (Tier A borderline). FV EUR 21.00, entry EUR 16.50-17.00.** |
 | **2026-02-12** | **INTU analizado -> Watchlist** | **QS 75 (Tier A borderline). FV $465, entry $330-365. -51% from high. Quality compounder with AI net positive thesis. Q2 earnings Feb 26 = wait for clarity before entry. Insider selling 90/0 is concern.** |
+| **2026-02-14** | **PAYC R4 WATCHLIST. Standing order $88.** | **QS 75 adj (Tier A borderline). FV $115. Per-seat pricing risk KC#8. 8 kill conditions. -30% from current required.** |
 
 ---
 

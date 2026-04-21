@@ -506,8 +506,183 @@ Constraint check: ADBE a 4.3% OK. Tech exposure single name.
 
 ---
 
+---
+
+## PRE-EARNINGS FRAMEWORK: Q1 FY2026 (ended Feb 28, 2026) — March 12, 2026
+
+> Added S111 (2026-03-08). Earnings after market close Mar 12.
+
+### Context (Updated S113 Mar 11)
+- Stock at $276.66 (Mar 11). Near 52-week low ($244.28). FV $390. MoS 29.0%.
+- P/E ~17x. Down ~22% YTD. Market pricing AI disruption + FTC overhang.
+- **Mar 10 PT cuts:** TD Cowen $325, Barclays $335, Citi $315, WF $405. Mixed sentiment.
+- WPP partnership announced (agentic AI + Firefly Foundry). Positive signal.
+- FTC trial Oct 19, 2026. Dispositive motions deadline Sep 24.
+- **Earnings after close tomorrow Mar 12.** Pre-market guidance will not be available.
+
+### Key Numbers to Watch
+
+| Metric | Bear | Base | Bull |
+|--------|------|------|------|
+| Revenue | <$5.70B | $5.70-5.85B | >$5.85B |
+| EPS (non-GAAP) | <$5.70 | $5.80-5.95 | >$5.95 |
+| Digital Media ARR net adds | <$500M | $500-550M | >$550M |
+| Firefly AI revenue run-rate | <$500M | $500-600M | >$600M |
+| Operating margin | <35.5% | 36-37% | >37% |
+| FCF | <$2.2B | $2.2-2.5B | >$2.5B |
+| FY2026 guidance revision | Lowered | Maintained | Raised |
+| Creative Cloud subscribers | <41M | 41-43M | >43M |
+
+### Kill Condition Proximity Check (Pre-Earnings)
+
+| KC | Threshold | Current Status | Risk |
+|----|-----------|---------------|------|
+| KC#1: ROIC <WACC (12%) 2Q | ROIC 30% | FAR from trigger | LOW |
+| KC#2: Churn >15% | ~10% est | Monitor ARR net adds | LOW |
+| KC#3: FCF negative | $9.85B TTM | FAR from trigger | NONE |
+| KC#4: Market share loss >5pp | ~15% TAM | No evidence | LOW |
+| KC#5: Insider selling >10% | Low insider | No signal | LOW |
+| KC#6: FTC trial loss + churn >5pp | Trial Oct 2026 | NOT YET | MEDIUM |
+| KC#7: Open-source AI pro quality | Not yet | Monitor Canva/Figma | LOW |
+| KC#8: AI agents automate workflows | Early stage | Monitor | LOW |
+
+### Scenario Responses
+
+**If BEAR (Revenue miss, ARR slows, guidance cut):**
+- Review FV downward 10-15% ($330-350 range)
+- If Firefly revenue stalls (<$400M run-rate) → reassess AI thesis
+- If churn metrics deteriorate → KC#2 approaching, consider SELL
+- DO NOT ADD — wait for further clarity
+
+**If BASE (In-line results, guidance maintained):**
+- HOLD. FV $390 confirmed.
+- At $283 (27% MoS), position is well-placed for FTC resolution catalyst
+- Monitor: Firefly adoption trajectory, enterprise AI mix shift
+- Consider ADD only if stock drops <$250 on market weakness (not ADBE-specific)
+
+**If BULL (Beat + raise + Firefly acceleration):**
+- FV potentially $400-420 (Firefly re-rates AI narrative)
+- HOLD existing position. Consider ADD at $280-290 if bull confirmed
+- Watch for: AI pricing tiers, Firefly enterprise contracts, market share data
+- Potential for stock to re-rate toward $350+ on sustained AI monetization
+
+### What To Watch in Call
+1. **Firefly metrics**: Revenue, enterprise adoption, credits consumption
+2. **AI strategy**: GenStudio, AI agents, Firefly Video/3D timeline
+3. **Competitive dynamics**: Canva Enterprise, Figma post-IPO, open-source AI tools
+4. **FTC commentary**: Any settlement signals or litigation cost guidance
+5. **Buyback pace**: Are they accelerating at these low prices? (Signal)
+6. **Digital Experience segment**: Marketing AI competition (Salesforce, HubSpot)
+
+---
+
+## POST-EARNINGS ASSESSMENT: Q1 FY2026 (S115, 2026-03-14)
+
+### Results vs Framework
+
+| Metric | Bear | Base | Bull | **ACTUAL** | **Verdict** |
+|--------|------|------|------|------------|-------------|
+| Revenue | <$5.70B | $5.70-5.85B | >$5.85B | **$6.40B (+12%)** | **>>BULL** |
+| EPS (non-GAAP) | <$5.70 | $5.80-5.95 | >$5.95 | **$6.06** | **BULL** |
+| FCF | <$2.2B | $2.2-2.5B | >$2.5B | **$2.92B (record Q1)** | **BULL** |
+| NNARR | <$500M | $500-550M | >$550M | **$400M** | **MISS** |
+| Firefly AI | <$500M | $500-600M | >$600M | **$250M+ ARR (tripled YoY)** | **PARTIAL** |
+| Op margin (non-GAAP) | <35.5% | 36-37% | >37% | **47.4%** | **>>BULL** |
+| FY2026 guide | Lowered | Maintained | Raised | **Reaffirmed ($25.9-26.1B)** | **BASE** |
+
+**Overall: BULL operationally.** Revenue, EPS, FCF, and margin all beat. Guide reaffirmed not raised (BASE on guide).
+
+### NEW RISK: CEO Transition
+
+**Shantanu Narayen announced he will step down after 18 years.** Successor TBD. This was NOT in our kill conditions. Assessment:
+
+- **Timing risk**: CEO departure during (a) AI transformation, (b) FTC trial (Oct 2026). Worst possible timing for uncertainty.
+- **Business impact**: The machine is running well (record Q1). Adobe is not a one-man show — deep bench (Belsky, Wadhwani, Arora).
+- **Stock impact**: -8.85% on Mar 13 (largest single-day drop since earnings miss). Now at $249.32, near 52-week low ($244.28).
+- **FV impact**: Bull operational results (+$20-30) vs CEO succession discount (-$20-30). **Net effect: NEUTRAL. FV $390 MAINTAINED.**
+- **Watchpoint**: If successor is internal (Belsky or Arora) → continuity → positive. If external search drags → uncertainty premium widens.
+
+### NNARR Miss Analysis
+
+$400M vs $460M expected (-$60M). Explained by Adobe Stock cannibalization:
+- Customers migrating from high-ARPU Stock subscriptions to lower-ARPU Firefly credit packs
+- ~$70M headwind from this structural shift
+- Excluding cannibalization, ARR growth would be 11.2% vs 10.9% reported
+- **Thesis interpretation**: This is POSITIVE long-term (Firefly is the future) but creates NNARR drag short-term. Will normalize as Firefly credit packs scale.
+
+### Reporting Change (FY2026)
+
+Adobe reorganized segments — no longer Digital Media / Digital Experience. Now reports by customer group:
+- Creative & Marketing Professionals: $4.39B (+12%)
+- Business Professionals & Consumers: $1.78B (+16%)
+- Legacy comparison will be harder. Monitor new segment trends.
+
+### Firefly / AI Update
+
+| Metric | Status |
+|--------|--------|
+| Firefly ARR | $250M+ (first time), tripled YoY |
+| AI-first ARR | More than tripled YoY |
+| Firefly sub + credit pack ARR | +75% QoQ |
+| Generative credit consumption | +45% QoQ |
+| Video generative actions | +8x YoY |
+| Firefly Enterprise new customers | +50% YoY |
+| MAUs (all products) | 850M+ (+17% YoY) |
+| Creative freemium MAU | 80M+ (+50% YoY) |
+
+AI monetization is ACCELERATING. Firefly is working. But it's cannibalizing Stock business.
+
+### Kill Condition Check (Post-Earnings)
+
+| KC | Status | Evidence |
+|----|--------|----------|
+| KC#1: ROIC <WACC 2Q | **PASS** | FCF $2.92B record, ROIC well above WACC |
+| KC#2: Churn >15% | **PASS** | RPO +13% YoY, no churn signal |
+| KC#3: FCF negative | **PASS** | $2.92B — record |
+| KC#4: Share loss >5pp | **PASS** | No evidence |
+| KC#5: Insider selling >10% | **PASS** | No signal |
+| KC#6: FTC + churn >5pp | **NOT YET** | Trial Oct 2026 |
+| KC#7: Open-source AI pro quality | **PASS** | Not yet |
+| KC#8: AI agents automate workflows | **PASS** | Early stage |
+
+**Zero KCs triggered or approaching.**
+
+### Analyst Reaction (Post-Earnings)
+
+Key PT changes: Barclays downgraded OW→EW $275. Goldman SELL $220. Morgan Stanley $365. KeyBanc $235. Bernstein $447. Consensus ~$383 (21/39 HOLD).
+
+### Decision
+
+**HOLD. FV $390 MAINTAINED.** At $249.32, MoS = 36%. E[CAGR] = 23.1%. Operational results BULL. CEO risk is watchpoint, not KC. No ADD — maintain "no ADD until trial resolution or <$240" rule. $249 is close to $240 threshold but CEO uncertainty adds to reasons to wait.
+
+**Updated exit plan:**
+- HOLD through FTC trial (Oct 2026) AND CEO succession
+- TRIM at $350+ pre-trial (take profits before binary)
+- ADD at <$240 IF successor named OR settlement reached
+- EXIT if KC#6 triggered OR successor is weak/external with no AI vision
+- **NEW WATCHPOINT**: CEO succession timeline and quality
+
+### Post-Earnings PT Tracker
+
+| Firm | Rating | PT | Note |
+|------|--------|-----|------|
+| Goldman Sachs | SELL | $220 | Most bearish. CEO risk. |
+| KeyBanc | Underweight | $235 | Very bearish |
+| Barclays | EW (DG) | $275 | NNARR miss, cannibalization |
+| BMO | Market Perform | $285 | Cut |
+| UBS | Neutral | $290 | -- |
+| Deutsche Bank | Hold | $310 | Cut |
+| Mizuho | Outperform | $315 | Constructive |
+| Morgan Stanley | EW | $365 | Significant cut |
+| Consensus | Hold (21/39) | ~$383 | Wide range $220-447 |
+| Bernstein | Outperform | $447 | Most bullish |
+
+---
+
 *Thesis creada: 2026-02-04*
 *v2.0 actualizada: 2026-02-10 (FTC/DOJ risk integration)*
+*Pre-earnings framework added: 2026-03-08 (S111)*
+*Post-earnings assessment: 2026-03-14 (S115) — BULL operationally, CEO departure NEW risk*
 *Quality Score Tool: 76/100 (Tier A) | QS Ajustado: 73/100 (Tier B borderline)*
-*Fair Value: $390 (weighted, FTC-adjusted) | Was $394 pre-adjustment*
-*Status: HOLD | No ADD until trial resolution or price <$240*
+*Fair Value: $390 (weighted, FTC-adjusted) | MAINTAINED post-Q1 FY2026*
+*Status: HOLD | No ADD until trial resolution or price <$240 + successor named*

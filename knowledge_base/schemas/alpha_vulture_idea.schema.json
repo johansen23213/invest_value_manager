@@ -1,0 +1,82 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://valuehunter.local/schemas/alpha_vulture_idea.schema.json",
+  "title": "Alpha Vulture Idea",
+  "description": "A special-situation investment idea from Alpha Vulture blog or Seeking Alpha",
+  "type": "object",
+  "required": ["post_date", "title", "situation_type", "source_url"],
+  "additionalProperties": false,
+  "properties": {
+    "post_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Publication date of the article/post"
+    },
+    "title": {
+      "type": "string",
+      "description": "Article title"
+    },
+    "ticker": {
+      "type": ["string", "null"],
+      "description": "Primary ticker discussed"
+    },
+    "company_name": { "type": ["string", "null"] },
+    "situation_type": {
+      "type": "string",
+      "enum": ["MERGER_ARB", "LIQUIDATION", "SPINOFF", "NET_CASH", "ODD_LOT", "CVR", "TENDER_OFFER", "RIGHTS_OFFERING", "STUB", "OTHER"]
+    },
+    "thesis_summary": {
+      "type": ["string", "null"],
+      "description": "Extracted thesis summary"
+    },
+    "expected_return_pct": {
+      "type": ["number", "null"],
+      "description": "Expected return mentioned in the article"
+    },
+    "annualized_return_pct": {
+      "type": ["number", "null"],
+      "description": "Annualized return if timeline mentioned"
+    },
+    "catalyst_date": {
+      "type": ["string", "null"],
+      "format": "date",
+      "description": "Expected catalyst date (merger close, liquidation distribution, etc.)"
+    },
+    "deal_price": {
+      "type": ["number", "null"],
+      "description": "Deal/offer price for merger arb or tender"
+    },
+    "spread_pct": {
+      "type": ["number", "null"],
+      "description": "Current spread to deal price"
+    },
+    "risk_factors": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "access": {
+      "type": "string",
+      "enum": ["FREE", "PAYWALLED"],
+      "description": "Whether the full article is freely accessible"
+    },
+    "source": {
+      "type": "string",
+      "enum": ["ALPHA_VULTURE_BLOG", "SEEKING_ALPHA"],
+      "description": "Source platform"
+    },
+    "source_url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "scraped_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "our_status": {
+      "type": ["string", "null"],
+      "enum": ["NEW", "UNDER_REVIEW", "IN_PIPELINE", "PASSED", "EXPIRED", null],
+      "description": "Our tracking status for this idea"
+    },
+    "notes": { "type": ["string", "null"] }
+  }
+}

@@ -1,34 +1,7 @@
-# Key Learnings - Resumen Ejecutivo
+# Key Learnings — DEPRECATED
 
-> Última actualización: 2026-01-26
-> Este archivo se regenera en cada compactación
-> Contiene las lecciones más importantes destiladas
+> **Este archivo ha sido reemplazado por `memory/lessons.md`.**
+> Estuvo vacio durante 90 sesiones. El nuevo sistema de lecciones destila sabiduria real de resultados.
+> Redirigir a: `/home/angel/.claude/projects/-home-angel-value-invest2/memory/lessons.md`
 
-## Top Lecciones Activas
-
-*Se poblará conforme el sistema aprenda de inversiones*
-
-1. **[Pendiente]** - Primera lección vendrá con primera posición cerrada
-
-## Patrones que Funcionan
-
-*Se identificarán con experiencia*
-
-## Patrones que NO Funcionan
-
-*Se identificarán con experiencia*
-
-## Reglas Aprendidas Activas
-
-| ID | Regla | Origen | Activa Desde |
-|----|-------|--------|--------------|
-| - | - | - | - |
-
-## Sesgos a Vigilar
-
-*Se identificarán con experiencia*
-
----
-
-*Este resumen se carga en cada sesión (~2KB)*
-*Para lecciones detalladas: ver learning/lessons.yaml*
+*Deprecado: Session 90 (2026-02-20)*

@@ -14,6 +14,15 @@ el humano aprueba, y Claude ejecuta sin interaccion durante horas.
 
 **No es un protocolo nuevo. Es el protocolo actual ejecutado de manera intensiva y autonoma.**
 
+**REGLA CRITICA: Wave = Todo Ejecutable HOY (Session 78)**
+- Cada item en una wave DEBE ser ejecutable en ESTA sesion. NUNCA incluir "esperar a X".
+- Si un item depende de datos futuros (earnings, resultados), NO incluirlo como "wait for X".
+- En su lugar, PREPARAR FRAMEWORKS: construir vectores de ataque, checklists, arboles de decision
+  que permitan ejecucion rapida cuando los datos lleguen.
+- El output de una wave es "hice X", no "hare X cuando Y ocurra".
+- Ejemplo correcto: "MONC.MI R2 PREP: 6 attack vectors + checklist listos" (framework para ejecutar post-earnings)
+- Ejemplo incorrecto: "MONC.MI R2: esperar resultados FY2025 manana"
+
 Cada wave esta fundamentada en:
 - `learning/principles.md` — los 9 principios que guian toda decision
 - `learning/decisions_log.yaml` — precedentes para consistencia
@@ -46,7 +55,11 @@ genera una wave. Las waves se ordenan por prioridad y se presentan al humano.
 ### Fuentes de Estado (lectura obligatoria)
 
 ```
-1. state/system.yaml         -> pipeline_tracker, standing_orders, calendar, work_in_progress
+1. state/pipeline_tracker.yaml -> pipeline status, maintenance
+1b. state/standing_orders.yaml -> active orders
+1c. state/calendar.yaml       -> future events
+1d. state/watchlist.yaml      -> watchlist, price monitors
+1e. state/system.yaml         -> core metadata, last_session_summary
 2. portfolio/current.yaml    -> posiciones, cash, conviction, exit_plans
 3. state/quality_universe.yaml -> actionable, pipeline status, stale
 4. learning/principles.md    -> principios que informan prioridades
@@ -193,11 +206,10 @@ Esta evaluacion se hace AUTOMATICAMENTE entre waves. No requiere input del human
    ALERTAS PARA EL HUMANO: [si hay algo que requiere accion humana]
    PROXIMA SESION: [que sera prioritario]
 
-2. Actualizar state/system.yaml:
-   - pipeline_tracker (todo lo ejecutado)
-   - last_session_summary
-   - calendar (si hay nuevos eventos)
-   - work_in_progress (si algo quedo incompleto)
+2. Actualizar state files:
+   - state/pipeline_tracker.yaml (todo lo ejecutado)
+   - state/system.yaml (last_session_summary)
+   - state/calendar.yaml (si hay nuevos eventos)
 
 3. Actualizar MEMORY.md con estado post-wave
 

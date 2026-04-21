@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://valuehunter.local/schemas/closed_position.schema.json",
+  "title": "Closed Position",
+  "description": "A closed (exited) position in portfolio/history.yaml",
+  "type": "object",
+  "required": ["ticker", "side", "entry_date", "exit_date", "exit_reason"],
+  "additionalProperties": false,
+  "properties": {
+    "ticker": { "type": "string" },
+    "company_name": { "type": ["string", "null"] },
+    "side": { "type": "string", "enum": ["LONG", "SHORT"] },
+    "shares": { "type": "number" },
+    "avg_cost": { "type": "number" },
+    "exit_price": { "type": "number" },
+    "invested_usd": { "type": ["number", "null"] },
+    "realized_pnl_usd": { "type": ["number", "null"] },
+    "realized_pnl_pct": {
+      "type": "number",
+      "description": "Percentage return on the position"
+    },
+    "entry_date": { "type": "string", "format": "date" },
+    "exit_date": { "type": "string", "format": "date" },
+    "duration_days": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "exit_reason": {
+      "type": "string",
+      "description": "Why the position was closed (thesis invalidated, KC triggered, target hit, rotation, etc.)"
+    },
+    "exit_gate": {
+      "type": ["string", "null"],
+      "description": "Which EXIT/COVER protocol gate triggered"
+    },
+    "conviction_at_exit": {
+      "type": ["integer", "null"],
+      "minimum": 1,
+      "maximum": 10
+    },
+    "fair_value_at_exit": { "type": ["number", "null"] },
+    "qs_tier": { "type": ["string", "null"], "enum": ["A", "B", "C", "D", null] },
+    "lessons": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "thesis_path": { "type": ["string", "null"] },
+    "sector": { "type": ["string", "null"] },
+    "geo": { "type": ["string", "null"] },
+    "session_id": { "type": ["integer", "null"] }
+  }
+}

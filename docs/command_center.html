@@ -1,0 +1,1631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Command Center — Value Investor System</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0f0f1e; color: #e0e0e0; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; padding: 16px; }
+
+  .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px solid #2a2a4a; }
+  .header h1 { font-size: 20px; color: #fff; letter-spacing: -0.5px; }
+  .header .meta { font-size: 11px; color: #666; }
+
+  /* Alert Banner */
+  .alert-banner { margin-bottom: 12px; border-radius: 8px; overflow: hidden; }
+  .alert-banner:empty { display: none; }
+  .alert-item { padding: 6px 14px; font-size: 11px; font-weight: 600; display: flex; align-items: center; gap: 8px; }
+  .alert-critical { background: rgba(220,50,50,0.15); color: #ff6060; border-left: 3px solid #ff4040; }
+  .alert-warning { background: rgba(220,140,50,0.12); color: #e0a050; border-left: 3px solid #e0a050; }
+
+  /* KPI Cards */
+  .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(115px, 1fr)); gap: 8px; margin-bottom: 14px; }
+  .kpi { background: linear-gradient(135deg, rgba(25,25,50,0.9), rgba(20,20,40,0.9)); border: 1px solid #2a2a4a; border-radius: 8px; padding: 10px; text-align: center; }
+  .kpi-label { font-size: 8px; color: #666; text-transform: uppercase; letter-spacing: 1px; }
+  .kpi-value { font-size: 22px; font-weight: 700; color: #fff; margin: 1px 0; }
+  .kpi-detail { font-size: 9px; color: #888; }
+
+  /* Grid layout */
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 1200px) { .grid { grid-template-columns: 1fr; } }
+  .full-width { grid-column: 1 / -1; }
+
+  /* Panels */
+  .panel { background: rgba(20,20,40,0.8); border: 1px solid #2a2a4a; border-radius: 8px; padding: 14px; }
+  .panel h2 { font-size: 12px; color: #8898b0; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 10px; font-weight: 600; }
+
+  /* Risk Heatmap Table */
+  table { border-collapse: collapse; width: 100%; font-size: 11px; }
+  th { background: #1a1a30; color: #778; font-size: 9px; font-weight: 600; text-transform: uppercase;
+       padding: 5px 4px; cursor: pointer; white-space: nowrap; border-bottom: 1px solid #2a2a4a; letter-spacing: 0.3px; }
+  th:hover { color: #aab; }
+  td { padding: 4px; text-align: center; border-bottom: 1px solid rgba(40,40,70,0.5); }
+  tr:hover td { background: rgba(80,120,200,0.06); }
+  td.left { text-align: left; }
+
+  .r0 { color: #f06060; } .r1 { color: #e0a050; } .r2 { color: #b0b060; } .r3 { color: #50c060; }
+  .bg0 { background: rgba(220,50,50,0.12); } .bg1 { background: rgba(220,140,50,0.1); }
+  .bg2 { background: rgba(160,160,80,0.08); } .bg3 { background: rgba(50,180,80,0.1); }
+
+  .badge { display: inline-block; padding: 1px 5px; border-radius: 3px; font-size: 9px; font-weight: 600; }
+  .badge-a { background: rgba(50,180,80,0.2); color: #50c060; }
+  .badge-b { background: rgba(160,160,80,0.15); color: #b0b060; }
+  .badge-c { background: rgba(220,50,50,0.2); color: #f06060; }
+  .badge-prob { background: rgba(220,140,50,0.25); color: #e0a050; }
+  .badge-mob { background: rgba(220,50,50,0.3); color: #ff6060; }
+  .badge-ok { background: rgba(50,180,80,0.15); color: #50c060; }
+  .badge-fw { background: rgba(80,180,220,0.2); color: #60b8e0; }
+  .badge-nofw { background: rgba(100,100,120,0.2); color: #888; }
+
+  /* Earnings week */
+  .ew-item { display: flex; align-items: center; gap: 8px; padding: 6px 0; border-bottom: 1px solid rgba(40,40,70,0.3); font-size: 12px; }
+  .ew-date { min-width: 85px; font-weight: 600; font-size: 11px; }
+  .ew-ticker { min-width: 65px; font-weight: 700; }
+  .ew-event { flex: 1; color: #aaa; font-size: 11px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .ew-badge { min-width: 70px; text-align: right; }
+  .ew-position { color: #6ca0dc; }
+  .ew-pipeline { color: #888; }
+
+  /* Forward returns bars */
+  .fr-item { display: flex; align-items: center; gap: 6px; padding: 3px 0; font-size: 11px; }
+  .fr-ticker { min-width: 60px; font-weight: 600; color: #6ca0dc; }
+  .fr-bar-bg { flex: 1; height: 16px; background: rgba(30,30,50,0.8); border-radius: 3px; overflow: hidden; position: relative; }
+  .fr-bar { height: 100%; border-radius: 3px; }
+  .fr-label { position: absolute; right: 6px; top: 1px; font-size: 10px; color: #ddd; font-weight: 600; }
+
+  /* Donut charts */
+  .donut-container { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+  .donut-wrap { text-align: center; }
+  .donut-wrap h3 { font-size: 10px; color: #778; text-transform: uppercase; margin-bottom: 6px; letter-spacing: 0.5px; }
+  .donut-legend { display: flex; flex-wrap: wrap; gap: 4px 12px; justify-content: center; margin-top: 8px; }
+  .donut-legend-item { font-size: 9px; color: #aaa; display: flex; align-items: center; gap: 3px; }
+  .donut-legend-dot { width: 8px; height: 8px; border-radius: 2px; }
+
+  /* Cash drag gauge */
+  .gauge-container { text-align: center; margin-top: 8px; }
+  .gauge-label { font-size: 10px; color: #778; text-transform: uppercase; margin-bottom: 4px; }
+  .gauge-value { font-size: 20px; font-weight: 700; }
+  .gauge-detail { font-size: 10px; color: #888; margin-top: 2px; }
+  .gauge-sub { font-size: 11px; font-weight: 600; margin-top: 6px; }
+  .deploy-info { font-size: 10px; color: #888; margin-top: 4px; }
+
+  /* Calendar */
+  .cal-item { display: flex; align-items: center; gap: 8px; padding: 4px 0; border-bottom: 1px solid rgba(40,40,70,0.3); font-size: 11px; }
+  .cal-date { min-width: 70px; font-weight: 600; font-size: 10px; }
+  .cal-ticker { min-width: 60px; font-weight: 600; color: #6ca0dc; }
+  .cal-event { flex: 1; color: #aaa; font-size: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .cal-days { min-width: 40px; text-align: right; font-size: 10px; font-weight: 600; }
+  .urgency-critical { color: #ff5050; } .urgency-high { color: #e0a050; }
+  .urgency-medium { color: #b0b060; } .urgency-low { color: #668; }
+
+  /* SO bars */
+  .so-item { display: flex; align-items: center; gap: 6px; padding: 3px 0; font-size: 11px; }
+  .so-ticker { min-width: 60px; font-weight: 600; color: #6ca0dc; }
+  .so-bar-bg { flex: 1; height: 14px; background: rgba(30,30,50,0.8); border-radius: 3px; overflow: hidden; position: relative; }
+  .so-bar { height: 100%; border-radius: 3px; }
+  .so-bar-label { position: absolute; right: 4px; top: 1px; font-size: 9px; color: #aaa; }
+  .so-cat { min-width: 50px; font-size: 9px; text-transform: uppercase; }
+  .cat-active { color: #50c060; } .cat-gated { color: #e0a050; }
+  .cat-borderline { color: #668; } .cat-extreme { color: #445; }
+
+  /* Funnel */
+  .funnel { display: flex; flex-direction: column; gap: 3px; }
+  .funnel-row { display: flex; align-items: center; gap: 8px; }
+  .funnel-label { min-width: 90px; font-size: 10px; color: #888; text-align: right; }
+  .funnel-bar { height: 18px; border-radius: 3px; display: flex; align-items: center; padding-left: 8px; font-size: 10px; font-weight: 600; color: #fff; min-width: 28px; }
+
+  /* Quality funds */
+  .qf-item { display: flex; gap: 8px; padding: 3px 0; font-size: 10px; border-bottom: 1px solid rgba(40,40,70,0.3); }
+  .qf-name { min-width: 180px; color: #aaa; }
+  .qf-count { min-width: 18px; font-weight: 600; color: #6ca0dc; }
+  .qf-stocks { color: #668; font-size: 9px; }
+
+  /* Sparkline */
+  .sparkline { vertical-align: middle; }
+
+  .footer { margin-top: 12px; font-size: 9px; color: #444; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Command Center</h1>
+  <div class="meta" id="meta"></div>
+</div>
+
+<div class="alert-banner" id="alert-banner"></div>
+
+<div class="kpis" id="kpis"></div>
+
+<div class="grid">
+  <div class="panel full-width">
+    <h2>Position Risk Matrix</h2>
+    <table id="risk-table">
+      <thead>
+        <tr>
+          <th data-col="ticker">Ticker</th>
+          <th data-col="name">Name</th>
+          <th data-col="weight_pct">Wt%</th>
+          <th data-col="pnl_pct">P&L</th>
+          <th data-col="mos">MoS%</th>
+          <th data-col="ecagr" title="Expected CAGR 3yr">E[CAGR]</th>
+          <th data-col="qs" title="Quality Score">QS</th>
+          <th data-col="insider_net" title="Insider sentiment">Insider</th>
+          <th data-col="days_to_earnings" title="Days to earnings">Earn</th>
+          <th data-col="conviction">Conv</th>
+          <th>Status</th>
+          <th>30d</th>
+        </tr>
+      </thead>
+      <tbody id="risk-tbody"></tbody>
+    </table>
+  </div>
+
+  <div class="panel full-width" id="earnings-week-panel" style="display:none">
+    <h2>Earnings This Week</h2>
+    <div id="earnings-week"></div>
+  </div>
+
+  <div class="panel">
+    <h2>Forward Returns — E[CAGR]</h2>
+    <div id="forward-returns"></div>
+  </div>
+
+  <div class="panel">
+    <h2>Exposure Breakdown</h2>
+    <div class="donut-container" id="donuts"></div>
+    <div class="gauge-container" id="cash-gauge"></div>
+  </div>
+
+  <div class="panel">
+    <h2>Calendar — Next 21 Days</h2>
+    <div id="calendar"></div>
+  </div>
+
+  <div class="panel">
+    <h2>Standing Orders — Proximity</h2>
+    <div id="standing-orders"></div>
+  </div>
+
+  <div class="panel">
+    <h2>Pipeline Funnel</h2>
+    <div id="funnel"></div>
+  </div>
+
+  <div class="panel">
+    <h2>Smart Money — Quality Funds</h2>
+    <div id="quality-funds"></div>
+  </div>
+</div>
+
+<div class="footer">
+  Command Center v2.2 | Data is RAW — interpret with context | Click column headers to sort
+</div>
+
+<script>
+const D = {
+  "kpis": {
+    "nav_eur": 10130.0,
+    "cash_eur": 5558,
+    "cash_pct": 54.9,
+    "long_pct": 45.1,
+    "n_positions": 11,
+    "total_pnl_pct": 0.7,
+    "portfolio_ecagr": 17.0,
+    "cash_drag_pct": 9.3,
+    "cash_drag_ytd": 0.34,
+    "spy_ytd_return": 0.6,
+    "days_since_deploy": 4,
+    "last_deploy_ticker": "MORN",
+    "last_deploy_date": "2026-02-20",
+    "benchmark_spy": -0.8,
+    "benchmark_stoxx": 3.2,
+    "session": 105,
+    "date": "2026-02-24 22:27"
+  },
+  "alerts": [
+    {
+      "level": "warning",
+      "msg": "DTE.DE: Thin MoS (+4.8%)"
+    },
+    {
+      "level": "critical",
+      "msg": "DTE.DE: Earnings TOMORROW"
+    },
+    {
+      "level": "warning",
+      "msg": "GL: BEARISH insider signal (net -4)"
+    },
+    {
+      "level": "warning",
+      "msg": "MONY.L: On PROBATION, low conviction"
+    },
+    {
+      "level": "warning",
+      "msg": "LULU: Thin MoS (+8.4%)"
+    },
+    {
+      "level": "warning",
+      "msg": "LULU: On PROBATION, low conviction"
+    },
+    {
+      "level": "warning",
+      "msg": "LULU: BEARISH insider signal (net -4)"
+    },
+    {
+      "level": "warning",
+      "msg": "LULU: Low E[CAGR] 3.0% \u2014 rotation candidate"
+    },
+    {
+      "level": "critical",
+      "msg": "AUTO.L: MAKE-OR-BREAK upcoming"
+    },
+    {
+      "level": "warning",
+      "msg": "MORN: BEARISH insider signal (net -11)"
+    },
+    {
+      "level": "warning",
+      "msg": "BYIT.L: On PROBATION, low conviction"
+    }
+  ],
+  "positions": [
+    {
+      "ticker": "DTE.DE",
+      "name": "Deutsche Telekom AG",
+      "value_eur": 687.0,
+      "invested_eur": 594.0,
+      "pnl_pct": 15.7,
+      "mos": 4.8,
+      "ecagr": 6.4,
+      "tier": "B",
+      "qs": 69,
+      "conviction": "medium",
+      "insider_signal": "NEUTRAL",
+      "insider_net": 0,
+      "ins_strong_count": 0,
+      "ins_strong_value": 0.0,
+      "ins_cluster": 0,
+      "days_to_earnings": 1,
+      "next_event": "Deutsche Telekom FY2025",
+      "on_probation": false,
+      "make_or_break": false,
+      "weight_pct": 6.8,
+      "sparkline": [
+        26.9,
+        26.99,
+        27.25,
+        27.47,
+        28.17,
+        28.74,
+        28.83,
+        30.38,
+        30.6,
+        30.26,
+        30.51,
+        30.2,
+        30.37,
+        32.22,
+        32.23,
+        32.97,
+        33.36,
+        32.37,
+        32.63,
+        32.72,
+        33.25,
+        33.32
+      ],
+      "sector": "Telecom",
+      "geography": "Germany"
+    },
+    {
+      "ticker": "EDEN.PA",
+      "name": "Edenred SA",
+      "value_eur": 416.0,
+      "invested_eur": 390.0,
+      "pnl_pct": 6.8,
+      "mos": 34.8,
+      "ecagr": 28.6,
+      "tier": "B",
+      "qs": 62,
+      "conviction": "medium",
+      "insider_signal": "NEUTRAL",
+      "insider_net": 0,
+      "ins_strong_count": 0,
+      "ins_strong_value": 0.0,
+      "ins_cluster": 0,
+      "days_to_earnings": null,
+      "next_event": "",
+      "on_probation": false,
+      "make_or_break": false,
+      "weight_pct": 4.1,
+      "sparkline": [
+        17.43,
+        17.09,
+        17.32,
+        17.19,
+        17.67,
+        17.83,
+        17.28,
+        17.77,
+        17.95,
+        17.64,
+        17.58,
+        18.0,
+        17.68,
+        18.28,
+        18.16,
+        17.63,
+        17.98,
+        17.76,
+        17.81,
+        18.09,
+        18.2,
+        18.92
+      ],
+      "sector": "Business Services",
+      "geography": "France"
+    },
+    {
+      "ticker": "DOM.L",
+      "name": "Domino's Pizza Group PLC",
+      "value_eur": 413.0,
+      "invested_eur": 371.0,
+      "pnl_pct": 11.5,
+      "mos": 14.2,
+      "ecagr": 12.1,
+      "tier": "B",
+      "qs": 61,
+      "conviction": "low",
+      "insider_signal": "NEUTRAL",
+      "insider_net": 0,
+      "ins_strong_count": 0,
+      "ins_strong_value": 0,
+      "ins_cluster": 0,
+      "days_to_earnings": 8,
+      "next_event": "Dominos Pizza Group FY25 results",
+      "on_probation": false,
+      "make_or_break": false,
+      "weight_pct": 4.1,
+      "sparkline": [
+        186.9,
+        185.2,
+        187.2,
+        183.3,
+        182.1,
+        183.4,
+        180.6,
+        189.8,
+        186.7,
+        191.0,
+        194.0,
+        197.1,
+        195.8,
+        198.4,
+        202.0,
+        199.9,
+        201.6,
+        200.8,
+        201.4,
+        202.2,
+        205.2,
+        206.0
+      ],
+      "sector": "Consumer Cyclical",
+      "geography": "UK"
+    },
+    {
+      "ticker": "GL",
+      "name": "Globe Life Inc.",
+      "value_eur": 362.0,
+      "invested_eur": 359.0,
+      "pnl_pct": 0.9,
+      "mos": 25.5,
+      "ecagr": 16.1,
+      "tier": "C",
+      "qs": 52,
+      "conviction": "medium",
+      "insider_signal": "BEARISH",
+      "insider_net": -4,
+      "ins_strong_count": 0,
+      "ins_strong_value": 0,
+      "ins_cluster": 0,
+      "days_to_earnings": null,
+      "next_event": "",
+      "on_probation": false,
+      "make_or_break": false,
+      "weight_pct": 3.6,
+      "sparkline": [
+        138.08,
+        137.39,
+        138.55,
+        139.98,
+        140.22,
+        143.44,
+        143.65,
+        144.82,
+        146.95,
+        146.51,
+        141.42,
+        141.95,
+        143.93,
+        144.1,
+        144.25,
+        145.91,
+        143.6,
+        144.01,
+        144.39,
+        142.65,
+        142.29
+      ],
+      "sector": "Insurance",
+      "geography": "US"
+    },
+    {
+      "ticker": "ADBE",
+      "name": "Adobe Inc.",
+      "value_eur": 433.0,
+      "invested_eur": 459.0,
+      "pnl_pct": -5.7,
+      "mos": 34.6,
+      "ecagr": 22.2,
+      "tier": "A",
+      "qs": 76,
+      "conviction": "medium",
+      "insider_signal": "CAUTIOUS",
+      "insider_net": -1,
+      "ins_strong_count": 0,
+      "ins_strong_value": 0,
+      "ins_cluster": 0,
+      "days_to_earnings": null,
+      "next_event": "",
+      "on_probation": false,
+      "make_or_break": false,
+      "weight_pct": 4.3,
+      "sparkline": [
+        304.72,
+        297.42,
+        299.58,
+        291.65,
+        293.25,
+        293.38,
+        271.93,
+        279.71,
+        269.39,
+        268.38,
+        266.9,
+        264.67,
+        257.16,
+        262.5,
+        263.97,
+        260.45,
+        263.17,
+        259.21,
+        258.61,
+        246.68,
+        255.17
+      ],
+      "sector": "Technology",
+      "geography": "US"
+    },
+    {
+      "ticker": "NVO",
+      "name": "Novo Nordisk A/S",
+      "value_eur": 469.0,
+      "invested_eur": 537.0,
+      "pnl_pct": -12.7,
+      "mos": 41.5,
+      "ecagr": 34.3,
+      "tier": "B",
+      "qs": 73,
+      "conviction": "medium",
+      "insider_signal": "NEUTRAL",
+      "insider_net": 0,
+      "ins_strong_count": 0,
+      "ins_strong_value": 0.0,
+      "ins_cluster": 0,
+      "days_to_earnings": null,
+      "next_event": "",
+      "on_probation": false,
+      "make_or_break": false,
+      "weight_pct": 4.6,
+      "sparkline": [
+        63.98,
+        62.89,
+        60.33,
+        59.33,
+        59.43,
+        58.93,
+        50.3,
+        47.19,
+        43.34,
+        47.64,
+        49.37,
+        49.12,
+        48.74,
+        48.93,
+        49.57,
+        49.37,
+        49.23,
+        48.45,
+        47.42,
+        39.63,
+        38.59
+      ],
+      "sector": "Pharma/Healthcare",
+      "geography": "US"
+    },
+    {
+      "ticker": "MONY.L",
+      "name": "Mony Group PLC",
+      "value_eur": 368.0,
+      "invested_eur": 402.0,
+      "pnl_pct": -8.4,
+      "mos": 17.2,
+      "ecagr": 17.0,
+      "tier": "A",
+      "qs": 75,
+      "conviction": "low",
+      "insider_signal": "NEUTRAL",
+      "insider_net": 0,
+      "ins_strong_count": 0,
+      "ins_strong_value": 0,
+      "ins_cluster": 0,
+      "days_to_earnings": null,
+      "next_event": "",
+      "on_probation": true,
+      "make_or_break": false,
+      "weight_pct": 3.6,
+      "sparkline": [
+        187.3,
+        187.1,
+        186.3,
+        184.5,
+        186.6,
+        186.0,
+        179.7,
+        169.2,
+        167.8,
+        166.7,
+        167.2,
+        152.8,
+        146.1,
+        148.4,
+        147.1,
+        144.5,
+        149.5,
+        149.4,
+        150.6,
+        152.9,
+        157.1,
+        157.3
+      ],
+      "sector": "Communication Services",
+      "geography": "UK"
+    },
+    {
+      "ticker": "LULU",
+      "name": "Lululemon Athletica Inc.",
+      "value_eur": 305.0,
+      "invested_eur": 291.0,
+      "pnl_pct": 4.6,
+      "mos": 8.4,
+      "ecagr": 3.0,
+      "tier": "A",
+      "qs": 78,
+      "conviction": "low",
+      "insider_signal": "BEARISH",
+      "insider_net": -4,
+      "ins_strong_count": 0,
+      "ins_strong_value": 0,
+      "ins_cluster": 0,
+      "days_to_earnings": 34,
+      "next_event": "LULU Q4 \u2014 MAKE-OR-BREAK",
+      "on_probation": true,
+      "make_or_break": false,
+      "weight_pct": 3.0,
+      "sparkline": [
+        192.79,
+        186.39,
+        180.35,
+        172.54,
+        174.5,
+        179.08,
+        171.57,
+        178.0,
+        170.09,
+        172.85,
+        175.68,
+        180.62,
+        175.86,
+        169.53,
+        176.42,
+        177.72,
+        182.13,
+        182.88,
+        187.3,
+        178.11,
+        179.49
+      ],
+      "sector": "Consumer Discretionary",
+      "geography": "US"
+    },
+    {
+      "ticker": "AUTO.L",
+      "name": "AutoTrader Group plc",
+      "value_eur": 351.0,
+      "invested_eur": 363.0,
+      "pnl_pct": -3.3,
+      "mos": 18.7,
+      "ecagr": 20.4,
+      "tier": "B",
+      "qs": 71,
+      "conviction": "low",
+      "insider_signal": "BB+",
+      "insider_net": 0,
+      "ins_strong_count": 0,
+      "ins_strong_value": 0,
+      "ins_cluster": 0,
+      "days_to_earnings": null,
+      "next_event": "",
+      "on_probation": false,
+      "make_or_break": true,
+      "weight_pct": 3.5,
+      "sparkline": [
+        549.0,
+        548.8,
+        556.8,
+        535.2,
+        538.0,
+        531.8,
+        506.2,
+        497.9,
+        484.8,
+        485.8,
+        474.4,
+        478.7,
+        470.0,
+        457.1,
+        459.1,
+        457.3,
+        463.1,
+        471.5,
+        473.3,
+        481.0,
+        471.9,
+        471.5
+      ],
+      "sector": "Digital Marketplaces",
+      "geography": "UK"
+    },
+    {
+      "ticker": "MORN",
+      "name": "Morningstar, Inc.",
+      "value_eur": 401.0,
+      "invested_eur": 396.0,
+      "pnl_pct": 1.4,
+      "mos": 16.4,
+      "ecagr": 9.9,
+      "tier": "A",
+      "qs": 78,
+      "conviction": "medium",
+      "insider_signal": "BEARISH",
+      "insider_net": -11,
+      "ins_strong_count": 0,
+      "ins_strong_value": 0,
+      "ins_cluster": 0,
+      "days_to_earnings": null,
+      "next_event": "",
+      "on_probation": false,
+      "make_or_break": false,
+      "weight_pct": 4.0,
+      "sparkline": [
+        211.24,
+        203.22,
+        204.6,
+        201.24,
+        202.09,
+        198.29,
+        180.39,
+        180.52,
+        169.26,
+        165.47,
+        163.7,
+        161.48,
+        155.35,
+        154.01,
+        160.03,
+        158.31,
+        162.75,
+        161.85,
+        159.48,
+        156.9,
+        162.94
+      ],
+      "sector": "Financial Data",
+      "geography": "US"
+    },
+    {
+      "ticker": "BYIT.L",
+      "name": "Bytes Technology Group plc",
+      "value_eur": 366.0,
+      "invested_eur": 377.0,
+      "pnl_pct": -2.8,
+      "mos": 15.8,
+      "ecagr": 17.4,
+      "tier": "B",
+      "qs": 68,
+      "conviction": "low",
+      "insider_signal": "NEUTRAL",
+      "insider_net": 0,
+      "ins_strong_count": 0,
+      "ins_strong_value": 0,
+      "ins_cluster": 0,
+      "days_to_earnings": null,
+      "next_event": "",
+      "on_probation": true,
+      "make_or_break": false,
+      "weight_pct": 3.6,
+      "sparkline": [
+        346.0,
+        340.0,
+        334.4,
+        333.6,
+        336.2,
+        339.4,
+        320.6,
+        309.6,
+        307.8,
+        296.4,
+        298.2,
+        304.8,
+        294.6,
+        291.4,
+        297.6,
+        285.8,
+        290.4,
+        298.6,
+        295.8,
+        296.8,
+        290.2,
+        290.6
+      ],
+      "sector": "Technology",
+      "geography": "UK"
+    }
+  ],
+  "earnings_week": [
+    {
+      "date": "2026-02-25",
+      "days_away": 0,
+      "ticker": "BVI.PA",
+      "event": "BVI.PA FY2025 \u2014 R3 complete",
+      "action": "Pipeline candidate. R3 complete.",
+      "has_framework": true,
+      "is_position": false,
+      "priority": "high"
+    },
+    {
+      "date": "2026-02-26",
+      "days_away": 1,
+      "ticker": "QTCOM.HE",
+      "event": "QTCOM.HE FY2025 Results \u2014 HARD GATE for R2",
+      "action": "R1 complete. QS 76 adj. FV EUR 37. CRITICAL: 2 profit warnings in 2025, Q3 EBITA margin collapsed to",
+      "has_framework": true,
+      "is_position": false,
+      "priority": "high"
+    },
+    {
+      "date": "2026-02-26",
+      "days_away": 1,
+      "ticker": "DTE.DE",
+      "event": "Deutsche Telekom FY2025",
+      "action": "FV EUR 35.00 (v3.1). Watch EBITDA vs EUR 48.5B, FCF vs EUR 20.1B.",
+      "has_framework": true,
+      "is_position": true,
+      "priority": "high"
+    },
+    {
+      "date": "2026-02-26",
+      "days_away": 1,
+      "ticker": "INTU",
+      "event": "INTU Q2 FY2026 earnings (after close)",
+      "action": "Pipeline candidate. QS 75. FV $465, entry $330-365. R1 complete. Framework ready.",
+      "has_framework": true,
+      "is_position": false,
+      "priority": "high"
+    },
+    {
+      "date": "2026-02-26",
+      "days_away": 1,
+      "ticker": "CS.PA",
+      "event": "AXA FY2025 results",
+      "action": "Si precio cae a 34.50-35.50 - BUY.",
+      "has_framework": false,
+      "is_position": false,
+      "priority": "high"
+    },
+    {
+      "date": "2026-02-27",
+      "days_away": 2,
+      "ticker": "MEGP.L",
+      "event": "MEGP.L FY2025 Annual Results \u2014 HARD GATE for R4",
+      "action": "R4 APPROVED CONDITIONAL. Entry 130p (MoS 38.5%). FV 180p. PASS criteria: laundry net installs >=1000",
+      "has_framework": true,
+      "is_position": false,
+      "priority": "high"
+    },
+    {
+      "date": "2026-02-27",
+      "days_away": 2,
+      "ticker": "PROX.BR",
+      "event": "Proximus FY2025 + Strategic Plan",
+      "action": "Si capex decline + plan creible - BUY 3% a 7.50-7.70.",
+      "has_framework": false,
+      "is_position": false,
+      "priority": "high"
+    },
+    {
+      "date": "2026-02-28",
+      "days_away": 3,
+      "ticker": "ENGI.PA",
+      "event": "Engie FY2025",
+      "action": "Watch FCF yield >5%, payout <80%.",
+      "has_framework": false,
+      "is_position": false,
+      "priority": "high"
+    },
+    {
+      "date": "2026-03-01",
+      "days_away": 4,
+      "ticker": "NTGY.MC",
+      "event": "Naturgy FY2025",
+      "action": "",
+      "has_framework": false,
+      "is_position": false,
+      "priority": "high"
+    },
+    {
+      "date": "2026-03-03",
+      "days_away": 6,
+      "ticker": "ASM.AS",
+      "event": "ASM.AS Q4 2025 Full Results \u2014 R1 monitoring",
+      "action": "R1 S104. QS 80adj Tier A. FV EUR 525, current EUR 709 (OVERVALUED -35%). Watch receivables anomaly, ",
+      "has_framework": false,
+      "is_position": false,
+      "priority": "medium"
+    },
+    {
+      "date": "2026-03-03",
+      "days_away": 6,
+      "ticker": "BEI.DE",
+      "event": "Beiersdorf FY2025 Results \u2014 R1 monitoring",
+      "action": "R1 S104. QS 75adj Tier A. FV EUR 99, entry EUR 85-90. Watch organic growth deceleration, La Prairie ",
+      "has_framework": false,
+      "is_position": false,
+      "priority": "medium"
+    },
+    {
+      "date": "2026-03-03",
+      "days_away": 6,
+      "ticker": "KLR.L",
+      "event": "KLR.L FY2025 Full Year Results \u2014 HARD GATE for SO",
+      "action": "R1 complete S93. QS 76/79 Tier A. FV 2,600p, entry 1,750p (15.8% below current). PASS: margins >=6.5",
+      "has_framework": false,
+      "is_position": false,
+      "priority": "high"
+    },
+    {
+      "date": "2026-03-03",
+      "days_away": 6,
+      "ticker": "ITRK.L",
+      "event": "Intertek FY2025 Full Year Results \u2014 HARD GATE for R4/SO",
+      "action": "R3 complete. FV 4700p, entry 3700p. HARD GATE: op margin >=16.3%, FCF recovery. Tesco lawsuit update",
+      "has_framework": false,
+      "is_position": false,
+      "priority": "high"
+    },
+    {
+      "date": "2026-03-04",
+      "days_away": 7,
+      "ticker": "VEEV",
+      "event": "VEEV Q4 FY2026 \u2014 thesis catalyst",
+      "action": "R1 complete. QS 80 Tier A. FV $205. Entry $140-150.",
+      "has_framework": false,
+      "is_position": false,
+      "priority": "high"
+    }
+  ],
+  "phase_transition": false,
+  "phase_portfolio_count": 1,
+  "phase_pipeline_count": 13,
+  "phase_missing_fw": [
+    "CS.PA",
+    "PROX.BR",
+    "ENGI.PA",
+    "NTGY.MC",
+    "ASM.AS",
+    "BEI.DE",
+    "KLR.L",
+    "ITRK.L",
+    "VEEV"
+  ],
+  "calendar": [
+    {
+      "date": "2026-02-25",
+      "days_away": 0,
+      "ticker": "WKL.AS",
+      "event": "WKL.AS FY2025 Results \u2014 review trigger",
+      "type": "watchlist_review",
+      "urgency": "critical",
+      "action": "Committee: entry EUR 50-55 post results. See thesis/research/WKL.AS/committee_de"
+    },
+    {
+      "date": "2026-02-25",
+      "days_away": 0,
+      "ticker": "BVI.PA",
+      "event": "BVI.PA FY2025 \u2014 R3 complete",
+      "type": "earnings",
+      "urgency": "critical",
+      "action": "Pipeline candidate. R3 complete."
+    },
+    {
+      "date": "2026-02-26",
+      "days_away": 1,
+      "ticker": "QTCOM.HE",
+      "event": "QTCOM.HE FY2025 Results \u2014 HARD GATE for R2",
+      "type": "earnings_pipeline",
+      "urgency": "critical",
+      "action": "R1 complete. QS 76 adj. FV EUR 37. CRITICAL: 2 profit warnings in 2025, Q3 EBITA"
+    },
+    {
+      "date": "2026-02-26",
+      "days_away": 1,
+      "ticker": "DTE.DE",
+      "event": "Deutsche Telekom FY2025",
+      "type": "earnings",
+      "urgency": "critical",
+      "action": "FV EUR 35.00 (v3.1). Watch EBITDA vs EUR 48.5B, FCF vs EUR 20.1B."
+    },
+    {
+      "date": "2026-02-26",
+      "days_away": 1,
+      "ticker": "INTU",
+      "event": "INTU Q2 FY2026 earnings (after close)",
+      "type": "earnings_pipeline",
+      "urgency": "critical",
+      "action": "Pipeline candidate. QS 75. FV $465, entry $330-365. R1 complete. Framework ready"
+    },
+    {
+      "date": "2026-02-26",
+      "days_away": 1,
+      "ticker": "CS.PA",
+      "event": "AXA FY2025 results",
+      "type": "earnings",
+      "urgency": "critical",
+      "action": "Si precio cae a 34.50-35.50 - BUY."
+    },
+    {
+      "date": "2026-02-27",
+      "days_away": 2,
+      "ticker": "MEGP.L",
+      "event": "MEGP.L FY2025 Annual Results \u2014 HARD GATE for R4",
+      "type": "earnings_pipeline",
+      "urgency": "high",
+      "action": "R4 APPROVED CONDITIONAL. Entry 130p (MoS 38.5%). FV 180p. PASS criteria: laundry"
+    },
+    {
+      "date": "2026-02-27",
+      "days_away": 2,
+      "ticker": "PROX.BR",
+      "event": "Proximus FY2025 + Strategic Plan",
+      "type": "earnings",
+      "urgency": "high",
+      "action": "Si capex decline + plan creible - BUY 3% a 7.50-7.70."
+    },
+    {
+      "date": "2026-02-28",
+      "days_away": 3,
+      "ticker": "ENGI.PA",
+      "event": "Engie FY2025",
+      "type": "earnings",
+      "urgency": "high",
+      "action": "Watch FCF yield >5%, payout <80%."
+    },
+    {
+      "date": "2026-03-01",
+      "days_away": 4,
+      "ticker": "NTGY.MC",
+      "event": "Naturgy FY2025",
+      "type": "earnings",
+      "urgency": "medium",
+      "action": ""
+    },
+    {
+      "date": "2026-03-02",
+      "days_away": 5,
+      "ticker": "LYV",
+      "event": "DOJ antitrust trial starts \u2014 MONITOR ONLY (short CANCELLED S",
+      "type": "catalyst",
+      "urgency": "medium",
+      "action": "Short thesis CANCELLED S93. KC#3 triggered (organic rev >10% 2Q). Reverse DCF: F"
+    },
+    {
+      "date": "2026-03-03",
+      "days_away": 6,
+      "ticker": "ASM.AS",
+      "event": "ASM.AS Q4 2025 Full Results \u2014 R1 monitoring",
+      "type": "earnings_pipeline",
+      "urgency": "medium",
+      "action": "R1 S104. QS 80adj Tier A. FV EUR 525, current EUR 709 (OVERVALUED -35%). Watch r"
+    },
+    {
+      "date": "2026-03-03",
+      "days_away": 6,
+      "ticker": "BEI.DE",
+      "event": "Beiersdorf FY2025 Results \u2014 R1 monitoring",
+      "type": "earnings_pipeline",
+      "urgency": "medium",
+      "action": "R1 S104. QS 75adj Tier A. FV EUR 99, entry EUR 85-90. Watch organic growth decel"
+    },
+    {
+      "date": "2026-03-03",
+      "days_away": 6,
+      "ticker": "KLR.L",
+      "event": "KLR.L FY2025 Full Year Results \u2014 HARD GATE for SO",
+      "type": "earnings_pipeline",
+      "urgency": "medium",
+      "action": "R1 complete S93. QS 76/79 Tier A. FV 2,600p, entry 1,750p (15.8% below current)."
+    },
+    {
+      "date": "2026-03-03",
+      "days_away": 6,
+      "ticker": "ITRK.L",
+      "event": "Intertek FY2025 Full Year Results \u2014 HARD GATE for R4/SO",
+      "type": "earnings_pipeline",
+      "urgency": "medium",
+      "action": "R3 complete. FV 4700p, entry 3700p. HARD GATE: op margin >=16.3%, FCF recovery. "
+    },
+    {
+      "date": "2026-03-04",
+      "days_away": 7,
+      "ticker": "VEEV",
+      "event": "VEEV Q4 FY2026 \u2014 thesis catalyst",
+      "type": "earnings",
+      "urgency": "medium",
+      "action": "R1 complete. QS 80 Tier A. FV $205. Entry $140-150."
+    },
+    {
+      "date": "2026-03-05",
+      "days_away": 8,
+      "ticker": "DOM.L",
+      "event": "Dominos Pizza Group FY25 results",
+      "type": "earnings",
+      "urgency": "low",
+      "action": "Kill: ND/EBITDA >3x, FCF <60M, share <45%."
+    },
+    {
+      "date": "2026-03-11",
+      "days_away": 14,
+      "ticker": "FOUR.L",
+      "event": "4imprint FY2025 Results \u2014 HARD GATE for entry",
+      "type": "earnings_pipeline",
+      "urgency": "low",
+      "action": "R3 complete. Pipeline candidate. HARD GATE: must review results before standing "
+    },
+    {
+      "date": "2026-03-15",
+      "days_away": 18,
+      "ticker": "NVO",
+      "event": "CagriSema vs Zepbound head-to-head data",
+      "type": "catalyst",
+      "urgency": "critical",
+      "action": "If positive: ADD 2%. If inferior: evaluate kill conditions."
+    }
+  ],
+  "standing_orders": [
+    {
+      "ticker": "DNLM.L",
+      "action": "BUY",
+      "category": "ACTIVE",
+      "trigger": "<=950 GBp",
+      "distance": 3.3,
+      "size_eur": 375,
+      "tier": "A (QS 79)",
+      "gate": "",
+      "fill_prob": 60
+    },
+    {
+      "ticker": "RACE.MI",
+      "action": "BUY",
+      "category": "ACTIVE",
+      "trigger": "<=EUR 295",
+      "distance": 3.8,
+      "size_eur": 350,
+      "tier": "A (QS 82/84)",
+      "gate": "",
+      "fill_prob": 75
+    },
+    {
+      "ticker": "IHP.L",
+      "action": "BUY",
+      "category": "ACTIVE",
+      "trigger": "<=300 GBp",
+      "distance": 5.0,
+      "size_eur": 200,
+      "tier": "A (QS 80)",
+      "gate": "",
+      "fill_prob": 50
+    },
+    {
+      "ticker": "MEGP.L",
+      "action": "BUY",
+      "category": "GATED",
+      "trigger": "<=135 GBp",
+      "distance": 5.5,
+      "size_eur": 400,
+      "tier": "A (QS 80)",
+      "gate": "SUSPENDED \u2014 NOT AVAILABLE ON ETORO + FY2025 results Feb 27 + R4 committee",
+      "fill_prob": 10
+    },
+    {
+      "ticker": "ACGL",
+      "action": "BUY",
+      "category": "ACTIVE",
+      "trigger": "<=$88",
+      "distance": 10.5,
+      "size_eur": 400,
+      "tier": "B (QS 57/68 adj)",
+      "gate": "",
+      "fill_prob": 50
+    },
+    {
+      "ticker": "RACE.MI",
+      "action": "ADD",
+      "category": "ACTIVE",
+      "trigger": "<=EUR 270",
+      "distance": 12.0,
+      "size_eur": 350,
+      "tier": "?",
+      "gate": "",
+      "fill_prob": 25
+    },
+    {
+      "ticker": "GL",
+      "action": "ADD",
+      "category": "ACTIVE",
+      "trigger": "<=$125",
+      "distance": 13.2,
+      "size_eur": 300,
+      "tier": "?",
+      "gate": "",
+      "fill_prob": 25
+    },
+    {
+      "ticker": "MRSH",
+      "action": "BUY",
+      "category": "ACTIVE",
+      "trigger": "<=$155",
+      "distance": 13.3,
+      "size_eur": 200,
+      "tier": "B (QS 64/68 adj)",
+      "gate": "",
+      "fill_prob": 25
+    },
+    {
+      "ticker": "ROP",
+      "action": "BUY",
+      "category": "GATED",
+      "trigger": "<=$285",
+      "distance": 14.2,
+      "size_eur": 400,
+      "tier": "B (QS 48/70 adj)",
+      "gate": "Q1 2026 organic growth must be >=4%",
+      "fill_prob": 25
+    },
+    {
+      "ticker": "FDS",
+      "action": "BUY",
+      "category": "GATED",
+      "trigger": "<=$170",
+      "distance": 14.5,
+      "size_eur": 400,
+      "tier": "B (QS 73)",
+      "gate": "Q2 FY2026 results (Mar 2026)",
+      "fill_prob": 10
+    },
+    {
+      "ticker": "VLTO",
+      "action": "BUY",
+      "category": "GATED",
+      "trigger": "<=$80",
+      "distance": 14.9,
+      "size_eur": 400,
+      "tier": "B (QS 52/66 adj)",
+      "gate": "Price drifting away. Need re-eval if stays >$90.",
+      "fill_prob": 10
+    },
+    {
+      "ticker": "STMN.SW",
+      "action": "BUY",
+      "category": "GATED",
+      "trigger": "<=CHF 80",
+      "distance": 15.0,
+      "size_eur": 400,
+      "tier": "B (QS 60/72 adj)",
+      "gate": "GM >=70% at most recent reporting date (R4 APPROVED S103)",
+      "fill_prob": 25
+    },
+    {
+      "ticker": "KLR.L",
+      "action": "BUY",
+      "category": "GATED",
+      "trigger": "<=1,700p",
+      "distance": 16.1,
+      "size_eur": 400,
+      "tier": "A (QS 76/79 adj)",
+      "gate": "FY2025 results (Mar 3, 2026) \u2014 PASS: OP margin >=6.5% AND order book >=GBP 1.4B",
+      "fill_prob": 20
+    },
+    {
+      "ticker": "DSY.PA",
+      "action": "BUY",
+      "category": "GATED",
+      "trigger": "<=EUR 14.50",
+      "distance": 16.6,
+      "size_eur": 330,
+      "tier": "B (QS 70)",
+      "gate": "Q1 2026 results must confirm organic growth >=3%",
+      "fill_prob": 25
+    },
+    {
+      "ticker": "KNSL",
+      "action": "BUY",
+      "category": "GATED",
+      "trigger": "<=$310",
+      "distance": 17.1,
+      "size_eur": 400,
+      "tier": "A (QS 61/75 adj)",
+      "gate": "Verify Q1 2026 GWP growth trends (ex-property >10%)",
+      "fill_prob": 10
+    }
+  ],
+  "funnel": {
+    "scored": 114,
+    "r1_complete": 18,
+    "r3_complete": 26,
+    "approved": 8,
+    "standing_order": 6,
+    "active": 11
+  },
+  "quality_funds": [
+    {
+      "name": "Morgan Stanley",
+      "count": 5,
+      "stocks": "ADBE, GL, LULU, MORN, NVO"
+    },
+    {
+      "name": "Pacer Advisors, Inc.",
+      "count": 3,
+      "stocks": "AUTO.L, DTE.DE, EDEN.PA"
+    },
+    {
+      "name": "Invesco Ltd.",
+      "count": 3,
+      "stocks": "ADBE, GL, LULU"
+    },
+    {
+      "name": "Dimensional Fund Advisors LP",
+      "count": 2,
+      "stocks": "GL, MORN"
+    },
+    {
+      "name": "Wellington Management Group, LLP",
+      "count": 2,
+      "stocks": "GL, MORN"
+    },
+    {
+      "name": "Arrowstreet Capital, Limited Partne",
+      "count": 2,
+      "stocks": "ADBE, GL"
+    },
+    {
+      "name": "NORGES BANK",
+      "count": 2,
+      "stocks": "ADBE, LULU"
+    },
+    {
+      "name": "FMR, LLC",
+      "count": 2,
+      "stocks": "LULU, NVO"
+    }
+  ],
+  "geo_exposure": {
+    "Cash": 54.9,
+    "US": 19.4,
+    "UK": 14.8,
+    "Germany": 6.8,
+    "France": 4.1
+  },
+  "sector_exposure": {
+    "Cash": 54.9,
+    "Technology": 7.9,
+    "Telecom": 6.8,
+    "Pharma/Healthcare": 4.6,
+    "Business Services": 4.1,
+    "Consumer Cyclical": 4.1,
+    "Financial Data": 4.0,
+    "Communication Services": 3.6,
+    "Insurance": 3.6,
+    "Digital Marketplaces": 3.5,
+    "Consumer Discretionary": 3.0
+  }
+};
+
+// Meta
+document.getElementById('meta').innerHTML =
+  `Session ${D.kpis.session} | ${D.kpis.date} | NAV &euro;${D.kpis.nav_eur.toLocaleString()}`;
+
+// Alert Banner
+const bannerEl = document.getElementById('alert-banner');
+if (D.alerts.length > 0) {
+  bannerEl.innerHTML = D.alerts.map(a =>
+    `<div class="alert-item alert-${a.level}">${a.level === 'critical' ? '!!!' : '<!>'} ${a.msg}</div>`
+  ).join('');
+}
+
+// KPIs
+const benchSpy = D.kpis.benchmark_spy;
+const benchStoxx = D.kpis.benchmark_stoxx;
+const pnl = D.kpis.total_pnl_pct;
+const vsSpy = benchSpy ? (pnl - benchSpy).toFixed(1) : 'N/A';
+const vsStoxx = benchStoxx ? (pnl - benchStoxx).toFixed(1) : 'N/A';
+const deployDays = D.kpis.days_since_deploy;
+const deployColor = deployDays <= 30 ? '#50c060' : deployDays <= 60 ? '#e0a050' : '#f06060';
+
+document.getElementById('kpis').innerHTML = [
+  {label: 'NAV', value: '&euro;' + D.kpis.nav_eur.toLocaleString(), detail: `${D.kpis.n_positions} positions`, color: '#fff'},
+  {label: 'Cash', value: D.kpis.cash_pct.toFixed(1) + '%', detail: '&euro;' + D.kpis.cash_eur.toLocaleString(), color: D.kpis.cash_pct > 50 ? '#e0a050' : '#50c060'},
+  {label: 'Long', value: D.kpis.long_pct.toFixed(1) + '%', detail: 'net exposure', color: '#6ca0dc'},
+  {label: 'P&L', value: (pnl >= 0 ? '+' : '') + pnl + '%', detail: 'total return', color: pnl >= 0 ? '#50c060' : '#f06060'},
+  {label: 'E[CAGR]', value: D.kpis.portfolio_ecagr.toFixed(1) + '%', detail: 'wtd portfolio', color: D.kpis.portfolio_ecagr >= 12 ? '#50c060' : D.kpis.portfolio_ecagr >= 8 ? '#b0b060' : '#e0a050'},
+  {label: 'vs SPY', value: (typeof vsSpy === 'string' ? vsSpy : (vsSpy >= 0 ? '+' : '') + vsSpy + 'pp'), detail: `SPY ${benchSpy ? (benchSpy >= 0 ? '+' : '') + benchSpy + '%' : 'N/A'}`, color: vsSpy === 'N/A' ? '#666' : parseFloat(vsSpy) >= 0 ? '#50c060' : '#f06060'},
+  {label: 'Last Deploy', value: deployDays + 'd', detail: D.kpis.last_deploy_ticker + ' (' + D.kpis.last_deploy_date + ')', color: deployColor},
+  {label: 'Cash Drag', value: D.kpis.cash_drag_pct.toFixed(1) + 'pp', detail: 'yr opportunity cost', color: D.kpis.cash_drag_pct > 3 ? '#f06060' : D.kpis.cash_drag_pct > 1.5 ? '#e0a050' : '#50c060'},
+  {label: 'Earnings', value: D.positions.filter(p => p.days_to_earnings !== null && p.days_to_earnings <= 7).length, detail: 'within 7 days', color: D.positions.filter(p => p.days_to_earnings !== null && p.days_to_earnings <= 7).length > 0 ? '#e0a050' : '#50c060'},
+].map(k => `<div class="kpi"><div class="kpi-label">${k.label}</div><div class="kpi-value" style="color:${k.color}">${k.value}</div><div class="kpi-detail">${k.detail}</div></div>`).join('');
+
+// Sparkline SVG generator
+function sparkSVG(data, w, h) {
+  if (!data || data.length < 2) return '';
+  const min = Math.min(...data), max = Math.max(...data);
+  const range = max - min || 1;
+  const pts = data.map((v, i) => {
+    const x = (i / (data.length - 1)) * w;
+    const y = h - ((v - min) / range) * (h - 2) - 1;
+    return `${x.toFixed(1)},${y.toFixed(1)}`;
+  });
+  const color = data[data.length - 1] >= data[0] ? '#50c060' : '#f06060';
+  return `<svg class="sparkline" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}">
+    <polyline points="${pts.join(' ')}" fill="none" stroke="${color}" stroke-width="1.2" stroke-linejoin="round"/>
+  </svg>`;
+}
+
+// Risk table
+let sortCol = 'ecagr', sortAsc = false;
+function riskColor(val, thresholds) {
+  if (val === null || val === undefined) return {cls: 'r2', bg: 'bg2'};
+  if (val <= thresholds[0]) return {cls: 'r0', bg: 'bg0'};
+  if (val <= thresholds[1]) return {cls: 'r1', bg: 'bg1'};
+  if (val <= thresholds[2]) return {cls: 'r2', bg: 'bg2'};
+  return {cls: 'r3', bg: 'bg3'};
+}
+
+function renderRiskTable() {
+  const sorted = [...D.positions].sort((a, b) => {
+    let va = a[sortCol], vb = b[sortCol];
+    if (va === null || va === undefined) va = sortAsc ? 9999 : -9999;
+    if (vb === null || vb === undefined) vb = sortAsc ? 9999 : -9999;
+    if (typeof va === 'string') return sortAsc ? va.localeCompare(vb) : vb.localeCompare(va);
+    return sortAsc ? va - vb : vb - va;
+  });
+  document.getElementById('risk-tbody').innerHTML = sorted.map(p => {
+    const mosC = riskColor(p.mos, [0, 10, 20]);
+    const pnlC = riskColor(p.pnl_pct, [-10, -5, 0]);
+    const ecagrC = p.ecagr !== null ? riskColor(p.ecagr, [5, 10, 15]) : {cls: 'r2', bg: ''};
+    const insC = p.insider_signal === 'BEARISH' ? 'r0' : p.insider_signal === 'CAUTIOUS' ? 'r1' : p.insider_signal === 'STRONG' ? 'r3' : p.insider_signal === 'BULLISH' ? 'r3' : 'r2';
+    const earnDays = p.days_to_earnings;
+    const earnC = earnDays !== null ? (earnDays <= 2 ? 'r0' : earnDays <= 7 ? 'r1' : earnDays <= 14 ? 'r2' : 'r3') : 'r2';
+    const earnText = earnDays !== null ? earnDays + 'd' : '\u2014';
+    const tierBadge = p.tier === 'A' ? 'badge-a' : p.tier === 'C' ? 'badge-c' : 'badge-b';
+    const statusBadge = p.make_or_break ? 'badge-mob' : p.on_probation ? 'badge-prob' : 'badge-ok';
+    const statusText = p.make_or_break ? 'M-O-B' : p.on_probation ? 'PROB' : 'OK';
+    const convC = p.conviction === 'high' ? 'r3' : p.conviction === 'medium' ? 'r2' : 'r1';
+    const insText = p.insider_signal === 'STRONG'
+      ? `STRONG (${p.ins_strong_count} C-suite, ${p.ins_strong_value >= 1000000 ? (p.ins_strong_value/1000000).toFixed(1)+'M' : p.ins_strong_value >= 1000 ? Math.round(p.ins_strong_value/1000)+'K' : p.ins_strong_value})`
+      : p.insider_signal + (p.insider_net ? ` (${p.insider_net > 0 ? '+' : ''}${p.insider_net})` : '');
+    const ecagrText = p.ecagr !== null ? p.ecagr.toFixed(1) + '%' : 'N/A';
+    const spark = sparkSVG(p.sparkline, 60, 18);
+    return `<tr>
+      <td class="left" style="font-weight:600;color:#fff">${p.ticker}</td>
+      <td class="left" style="color:#888;font-size:10px">${p.name.substring(0,22)}</td>
+      <td>${p.weight_pct}%</td>
+      <td class="${pnlC.cls} ${pnlC.bg}">${p.pnl_pct > 0 ? '+' : ''}${p.pnl_pct}%</td>
+      <td class="${mosC.cls} ${mosC.bg}">${p.mos > 0 ? '+' : ''}${p.mos}%</td>
+      <td class="${ecagrC.cls}" style="font-weight:600">${ecagrText}</td>
+      <td><span class="badge ${tierBadge}">${p.tier} ${p.qs}</span></td>
+      <td class="${insC}" style="font-size:10px">${insText}</td>
+      <td class="${earnC}" title="${p.next_event}">${earnText}</td>
+      <td class="${convC}">${p.conviction}</td>
+      <td><span class="badge ${statusBadge}">${statusText}</span></td>
+      <td>${spark}</td>
+    </tr>`;
+  }).join('');
+}
+renderRiskTable();
+
+document.querySelectorAll('#risk-table th').forEach(th => {
+  th.addEventListener('click', () => {
+    const col = th.dataset.col;
+    if (!col) return;
+    if (col === sortCol) sortAsc = !sortAsc;
+    else { sortCol = col; sortAsc = col === 'ticker' || col === 'name'; }
+    renderRiskTable();
+  });
+});
+
+// Earnings Week + Phase Transition
+if (D.earnings_week.length > 0) {
+  document.getElementById('earnings-week-panel').style.display = '';
+  let ewHTML = '';
+  if (D.phase_transition) {
+    ewHTML += `<div style="background:rgba(220,50,50,0.15);border:1px solid rgba(220,50,50,0.3);border-radius:6px;padding:10px;margin-bottom:10px">
+      <div style="color:#ff6060;font-weight:700;font-size:12px">PHASE TRANSITION WEEK</div>
+      <div style="color:#e0a050;font-size:11px;margin-top:4px">${D.phase_portfolio_count} portfolio + ${D.phase_pipeline_count} pipeline reporting. Psychology (F) amplified.</div>
+      <div style="color:#aaa;font-size:10px;margin-top:4px">Protocol: Pre-commit ALL decisions before market open. Process by position size. Batch assessments.</div>
+      ${D.phase_missing_fw.length > 0 ? '<div style="color:#ff6060;font-size:10px;margin-top:4px">MISSING FRAMEWORKS: ' + D.phase_missing_fw.join(', ') + '</div>' : ''}
+    </div>`;
+  }
+  ewHTML += D.earnings_week.map(e => {
+    const dayText = e.days_away === 0 ? 'TODAY' : e.days_away === 1 ? 'TOMORROW' : e.days_away + 'd';
+    const dayC = e.days_away <= 1 ? 'urgency-critical' : e.days_away <= 3 ? 'urgency-high' : 'urgency-medium';
+    const tickerC = e.is_position ? 'ew-position' : 'ew-pipeline';
+    const fwBadge = e.has_framework ? '<span class="badge badge-fw">FRAMEWORK</span>' : '<span class="badge badge-nofw">NO FW</span>';
+    const typeBadge = e.is_position ? '<span class="badge badge-a">POSITION</span>' : '<span class="badge badge-b">PIPELINE</span>';
+    return `<div class="ew-item">
+      <span class="ew-date ${dayC}">${e.date} (${dayText})</span>
+      <span class="ew-ticker ${tickerC}">${e.ticker}</span>
+      <span class="ew-event" title="${e.action}">${e.event}</span>
+      <span class="ew-badge">${typeBadge} ${fwBadge}</span>
+    </div>`;
+  }).join('');
+  document.getElementById('earnings-week').innerHTML = ewHTML;
+}
+
+// Forward Returns (E[CAGR] horizontal bars)
+const frSorted = [...D.positions].filter(p => p.ecagr !== null).sort((a, b) => b.ecagr - a.ecagr);
+const maxEcagr = Math.max(...frSorted.map(p => Math.abs(p.ecagr)), 1);
+document.getElementById('forward-returns').innerHTML = frSorted.map(p => {
+  const pct = Math.min(100, Math.abs(p.ecagr) / maxEcagr * 100);
+  const color = p.ecagr >= 15 ? '#50c060' : p.ecagr >= 10 ? '#6ca0dc' : p.ecagr >= 5 ? '#b0b060' : '#f06060';
+  return `<div class="fr-item">
+    <span class="fr-ticker">${p.ticker}</span>
+    <div class="fr-bar-bg">
+      <div class="fr-bar" style="width:${pct}%;background:${color}"></div>
+      <span class="fr-label">${p.ecagr.toFixed(1)}%</span>
+    </div>
+  </div>`;
+}).join('');
+
+// Donut Charts (Geographic + Sector)
+function donutSVG(data, size, title) {
+  const colors = ['#6ca0dc', '#50c060', '#e0a050', '#f06060', '#b080d0', '#80d0c0', '#d0a060', '#8080c0', '#c06080', '#60c0b0', '#556'];
+  const total = Object.values(data).reduce((s, v) => s + v, 0) || 1;
+  const entries = Object.entries(data);
+  let html = `<div class="donut-wrap"><h3>${title}</h3><svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}">`;
+  const cx = size / 2, cy = size / 2, r = size * 0.38, inner = size * 0.22;
+  let cumAngle = -Math.PI / 2;
+
+  entries.forEach(([label, val], i) => {
+    const angle = (val / total) * Math.PI * 2;
+    const midAngle = cumAngle + angle / 2;
+    const x1o = cx + r * Math.cos(cumAngle), y1o = cy + r * Math.sin(cumAngle);
+    const x2o = cx + r * Math.cos(cumAngle + angle), y2o = cy + r * Math.sin(cumAngle + angle);
+    const x1i = cx + inner * Math.cos(cumAngle + angle), y1i = cy + inner * Math.sin(cumAngle + angle);
+    const x2i = cx + inner * Math.cos(cumAngle), y2i = cy + inner * Math.sin(cumAngle);
+    const large = angle > Math.PI ? 1 : 0;
+    const color = label === 'Cash' ? '#334' : colors[i % colors.length];
+    html += `<path d="M${x1o},${y1o} A${r},${r} 0 ${large} 1 ${x2o},${y2o} L${x1i},${y1i} A${inner},${inner} 0 ${large} 0 ${x2i},${y2i} Z" fill="${color}" stroke="#0f0f1e" stroke-width="1">
+      <title>${label}: ${val}%</title></path>`;
+    cumAngle += angle;
+  });
+
+  html += `</svg><div class="donut-legend">`;
+  entries.forEach(([label, val], i) => {
+    const color = label === 'Cash' ? '#334' : colors[i % colors.length];
+    html += `<span class="donut-legend-item"><span class="donut-legend-dot" style="background:${color}"></span>${label} ${val}%</span>`;
+  });
+  html += `</div></div>`;
+  return html;
+}
+
+document.getElementById('donuts').innerHTML =
+  donutSVG(D.geo_exposure, 150, 'Geography') +
+  donutSVG(D.sector_exposure, 150, 'Sector');
+
+// Cash Drag Gauge + Deployment Monitor
+const cdPct = D.kpis.cash_drag_pct;
+const cdColor = cdPct > 3 ? '#f06060' : cdPct > 1.5 ? '#e0a050' : '#50c060';
+const cdYtd = D.kpis.cash_drag_ytd;
+const cdYtdColor = cdYtd > 2 ? '#f06060' : cdYtd > 0.5 ? '#e0a050' : '#50c060';
+const dDays = D.kpis.days_since_deploy;
+const dColor = dDays <= 30 ? '#50c060' : dDays <= 60 ? '#e0a050' : '#f06060';
+document.getElementById('cash-gauge').innerHTML = `
+  <div class="gauge-label">Cash Drag</div>
+  <div class="gauge-value" style="color:${cdColor}">${cdPct.toFixed(1)}pp/yr</div>
+  <div class="gauge-detail">${D.kpis.cash_pct.toFixed(0)}% cash x ${D.kpis.portfolio_ecagr.toFixed(1)}% E[CAGR] = ${cdPct.toFixed(1)}pp lost annually</div>
+  <div class="gauge-sub" style="color:${cdYtdColor}">YTD drag: ${cdYtd.toFixed(2)}pp <span style="color:#666">(${D.kpis.cash_pct.toFixed(0)}% cash x SPY ${D.kpis.spy_ytd_return >= 0 ? '+' : ''}${D.kpis.spy_ytd_return.toFixed(1)}% YTD)</span></div>
+  <svg width="200" height="12" style="margin-top:6px">
+    <rect x="0" y="0" width="200" height="12" rx="6" fill="#1a1a30"/>
+    <rect x="0" y="0" width="${Math.min(200, D.kpis.cash_pct / 100 * 200)}" height="12" rx="6" fill="${cdColor}" opacity="0.7"/>
+    <text x="100" y="10" text-anchor="middle" fill="#ccc" font-size="8">${D.kpis.cash_pct.toFixed(0)}% idle</text>
+  </svg>
+  <div class="deploy-info" style="margin-top:8px">Last deployment: <span style="color:${dColor};font-weight:600">${dDays}d ago</span> (${D.kpis.last_deploy_ticker} on ${D.kpis.last_deploy_date})</div>
+`;
+
+// Calendar
+document.getElementById('calendar').innerHTML = D.calendar.map(c => {
+  const urgCls = 'urgency-' + c.urgency;
+  return `<div class="cal-item">
+    <span class="cal-date ${urgCls}">${c.date}</span>
+    <span class="cal-ticker">${c.ticker}</span>
+    <span class="cal-event" title="${c.action}">${c.event}</span>
+    <span class="cal-days ${urgCls}">${c.days_away === 0 ? 'TODAY' : c.days_away === 1 ? 'TMW' : c.days_away + 'd'}</span>
+  </div>`;
+}).join('') || '<div style="color:#555;font-size:12px">No events in next 21 days</div>';
+
+// Standing Orders
+document.getElementById('standing-orders').innerHTML = D.standing_orders.map(so => {
+  const maxDist = 30;
+  const barPct = Math.max(5, Math.min(100, (1 - so.distance / maxDist) * 100));
+  const barColor = so.distance < 5 ? '#50c060' : so.distance < 10 ? '#b0b060' : so.distance < 15 ? '#e0a050' : '#556';
+  const catCls = 'cat-' + so.category.toLowerCase();
+  return `<div class="so-item">
+    <span class="so-ticker">${so.ticker}</span>
+    <span class="so-cat ${catCls}">${so.category}</span>
+    <div class="so-bar-bg">
+      <div class="so-bar" style="width:${barPct}%;background:${barColor}"></div>
+      <span class="so-bar-label">${so.distance.toFixed(1)}% \u2192 ${so.trigger}</span>
+    </div>
+  </div>`;
+}).join('');
+
+// Funnel
+const funnelData = [
+  {label: 'Universe', count: D.funnel.scored + D.funnel.r1_complete + D.funnel.r3_complete + D.funnel.approved + D.funnel.standing_order, color: '#445'},
+  {label: 'R1 Complete', count: D.funnel.r1_complete, color: '#5a6a8a'},
+  {label: 'R3 Complete', count: D.funnel.r3_complete, color: '#6a8aaa'},
+  {label: 'R4 Approved', count: D.funnel.approved, color: '#4a9a6a'},
+  {label: 'Standing Order', count: D.funnel.standing_order, color: '#50c060'},
+  {label: 'Active', count: D.funnel.active, color: '#e8863a'},
+];
+const maxCount = Math.max(...funnelData.map(f => f.count), 1);
+document.getElementById('funnel').innerHTML = '<div class="funnel">' + funnelData.map(f => {
+  const w = Math.max(28, f.count / maxCount * 280);
+  return `<div class="funnel-row">
+    <span class="funnel-label">${f.label}</span>
+    <div class="funnel-bar" style="width:${w}px;background:${f.color}">${f.count}</div>
+  </div>`;
+}).join('') + '</div>';
+
+// Quality Funds
+document.getElementById('quality-funds').innerHTML = D.quality_funds.map(qf =>
+  `<div class="qf-item">
+    <span class="qf-name">${qf.name}</span>
+    <span class="qf-count">${qf.count}</span>
+    <span class="qf-stocks">${qf.stocks}</span>
+  </div>`
+).join('') || '<div style="color:#555;font-size:12px">No quality funds detected</div>';
+</script>
+</body>
+</html>

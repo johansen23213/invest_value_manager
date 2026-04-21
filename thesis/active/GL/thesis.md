@@ -125,7 +125,7 @@ Tendencia: ROE comprimido vs 2024 (22.3%→20.9%) pero aun excelente vs peers (1
 | Disrupcion tecnologica | NO | Captive agents hard to disrupt |
 | Management destruyendo valor | NO | $126 avg buyback = excellent allocation |
 | Balance deteriorandose | NO | Debt/Equity stable |
-| Insider selling masivo | NO | No significant insider selling |
+| Insider selling masivo | **WATCH** | CEO Darden exercised+sold 18K shares ($2.7M) Mar 4. CIO Hensley sold 3K ($372K) Mar 2. Option exercise pattern, not open market. Monitor for repeat. |
 | Dividend cut | NO | 10+ anos aumentando |
 | Perdida market share | NO | Stable in niche |
 | ROIC < WACC | NO | ROE 20.9% >> cost of equity ~7% |
@@ -450,6 +450,7 @@ Expected Value = $29 + $105 + $59 = $193
 | Q1 2026 | Q1 earnings (~May) | Verify premium growth tracking 7-8%, underwriting margins |
 | 2026 ongoing | Class action developments | Monitor depositions, settlement talks. Alert if >$200M |
 | Continuous | P/E re-rating | If P/E approaches 13-14x, evaluate TRIM |
+| 2026-03-20 | **CEO selling $2.7M + whistleblower** | CEO Darden exercised+sold 18K shares at $145 (Mar 4). CIO sold $372K (Mar 2). Halper Sadeh investigating fiduciary duty (Tier 4 ambulance-chaser — NOT DOJ/SEC). Whistleblower lawsuit alleges 200+ fraud emails and $65M kickback. KC#4 NOT triggered (no government investigation). MONITOR for: (a) DOJ/SEC reopening, (b) continued insider sales, (c) whistleblower gaining legal traction. |
 
 ---
 

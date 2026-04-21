@@ -10,20 +10,22 @@ disable-model-invocation: false
 ## Propósito
 No compramos NADA que no entendamos profundamente. Este framework es OBLIGATORIO antes de cualquier valoración.
 
-## FLUJO v3.0
+## FLUJO v4.1 (Unified Long + Short)
 
 ```
-SECCIÓN 0: QUALITY SCORE (NUEVO - PRIMERO)
+SECCIÓN 0: QUALITY SCORE (PRIMERO)
+    ↓
+SECCIÓN 0.5: CONSENSUS ANALYSIS (contrathesis-framework)
     ↓
 SECCIÓN 1: Modelo de Negocio
     ↓
-SECCIÓN 2: Por Qué Está Barata
+SECCIÓN 2: Por Qué Está Barata (longs) / Por Qué No Se Sostiene (shorts)
     ↓
 SECCIÓN 3: Catalizadores y Timeframe
     ↓
 SECCIÓN 4: Conexión Macro
     ↓
-OUTPUT → Thesis con QS + Business Understanding
+OUTPUT → Thesis con QS + Business Understanding + Consensus Analysis
 ```
 
 ---
@@ -84,6 +86,47 @@ Consultar `learning/decisions_log.yaml` para precedentes.
 
 ---
 
+## SECCIÓN 0.5: CONSENSUS ANALYSIS (contrathesis-framework)
+
+> Aplica a TODOS los análisis — long y short.
+> Ver skill completo: `.claude/skills/contrathesis-framework/SKILL.md`
+
+### 0.5.1 Que implica el precio?
+```bash
+python3 tools/dcf_calculator.py --reverse TICKER
+```
+- Gap entre crecimiento implicito e historico
+- Es razon (dato macro) o emocion (miedo/hype)?
+
+### 0.5.2 Quien tiene skin in the game?
+```bash
+python3 tools/insider_tracker.py TICKER
+```
+- Insiders comprando/vendiendo?
+- Institucionales anadiendo/reduciendo?
+- Short interest y days to cover?
+
+### 0.5.3 Datos primarios vs narrativa?
+```bash
+python3 tools/narrative_checker.py TICKER
+```
+- Deferred revenue, margenes, R&D trends
+- Receivables vs revenue growth
+- SBC/revenue trend
+
+### 0.5.4 Conclusion del Consensus Analysis
+```
+Consenso cree: [X]
+Datos sugieren: [Y]
+Si consenso equivocado a la baja → senal LONG
+Si consenso equivocado al alza → senal SHORT
+Si consenso tiene razon → NO OPERAR
+```
+
+**Para SHORT thesis:** Si conclusion es SHORT, continuar con `short-thesis-framework` skill en lugar de Seccion 1.
+
+---
+
 ## SECCIÓN 1: Modelo de Negocio
 
 ### 1.1 Qué problema resuelve
@@ -102,19 +145,21 @@ Consultar `learning/decisions_log.yaml` para precedentes.
 
 **Responder:** ¿Cuál es el modelo dominante? ¿% recurrente vs one-time?
 
-### 1.3 Unit Economics (CRÍTICO)
+### 1.3 Unit Economics (CRITICO)
 ```
-CAC (Customer Acquisition Cost) = €____
-LTV (Lifetime Value) = €____
+CAC (Customer Acquisition Cost) = EUR____
+LTV (Lifetime Value) = EUR____
 LTV/CAC Ratio = ____
-  <1x = DESTRUYE valor (REJECT)
-  1-3x = Negocio mediocre
-  >3x = Buen negocio
-  >5x = Excelente
+
+Interpretar en contexto:
+- LTV/CAC < 1x: la empresa gasta mas en adquirir que lo que obtiene → investigar POR QUE
+  (puede ser inversion en growth temprano, o modelo roto — razonar)
+- Comparar vs peers del sector y vs historico de la empresa
+- Consultar precedentes en decisions_log.yaml para ratios aceptados en contextos similares
 
 Payback Period = ____ meses
-  <12 meses = excelente
-  >24 meses = riesgo
+- Comparar vs duracion tipica del contrato/relacion con cliente
+- Payback mas corto = menor riesgo de capital
 ```
 
 ### 1.4 Estructura de Márgenes

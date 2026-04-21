@@ -1,0 +1,69 @@
+# SESSION CONTINUITY — Inter-session contract
+# OVERWRITTEN each session (not accumulated). r1_cooldowns is rolling 30d.
+# Read by: session-planner, r1_prioritizer.py, session-phases
+# Written by: Fase 6 (last operation of each session)
+# Created: 2026-03-20
+
+session:
+  id: 116
+  date: "2026-03-20"
+  timestamp_cet: "2026-03-20T20:00"
+  note: "S116: LULU SOLD (-8.2%, archived). 4 SOs TRIGGERED all PAUSED (Hormuz Day 21). GL CEO selling watchpoint. BEI.DE R2 MODERATE COUNTER (PARKED). NVO Wegovy HD approved. Cash 56.3%. P&L -3.8%."
+
+completed:
+  vigilance:
+    news_scan_time: "2026-03-20T19:30"
+    critical_count: 1
+    note: "1 CRITICAL ongoing: Hormuz crisis Day 21 ESCALATING. Oil WTI $98/Brent $108 (peaked $119 intraday). Qatar LNG attacked. FOMC held 3.50-3.75%, 1 cut. S&P 6,506 (new 2026 low). VIX 27."
+  so_check:
+    timestamp: "2026-03-20T19:15"
+    nearest: { ticker: "FOUR.L", distance_pct: 0.9, note: "FOUR.L 0.9% above trigger 3,400p" }
+    triggered: ["RACE.MI (PAUSED)", "ALFA.L (PAUSED)", "ITRK.L (PAUSED, FCF gate)", "STMN.SW (PAUSED, GM gate)"]
+    note: "4 triggered, all PAUSED. 7 NEAR: ACGL 5.2%, RACE.MI ADD 1.4%, GL ADD 9.7%, IHP.L 1.2%, FOUR.L 0.9%, KNSL 6.2%, MEGP.L 1.2%."
+  rotation_check: true
+  net_exposure: true
+  lulu_sold:
+    price: "$157.50 (approximate, range $155-160)"
+    pnl: "-8.2%"
+    archived: true
+    lesson: "Governance risk underestimated. Pre-set SELL trigger worked."
+  earnings_assessed:
+    - "LULU Q4 FY2025: Beat on rev/EPS but FY2026 guide bearish (EPS declining -7-9% YoY, $380M tariff headwind). GM 54.9% borderline KC. No CEO 50+ days. SOLD."
+    - "NVO: Wegovy HD 7.2mg FDA approved (positive). India generics launched (expected). Thesis unchanged."
+  pipeline_advancement:
+    - "BEI.DE R2 MODERATE COUNTER completed. FV EUR 95-100 STALE → EUR 80-85. NIVEA share loss 12mo. QS revised 75→73 (Tier B). PARKED at EUR 83.66 (no MoS). Entry revised EUR 70-75."
+    - "GL thesis updated: CEO selling $2.7M watchpoint, whistleblower monitoring. KC#4 NOT triggered."
+    - "4 SOs PAUSED: RACE.MI -7.2%, ALFA.L -8.2%, ITRK.L -2.9%, STMN.SW -5.3%. All below triggers but crisis-blocked."
+  velocity_units: 2  # BEI.DE R2 (2 units). Below 3-unit target — justified by crisis + LULU exit workload.
+  system_improvements:
+    - "Pipeline tracker refreshed (10+ items updated)"
+    - "Net exposure reasoning updated to S116"
+    - "Standing orders updated with PAUSED status notes"
+    - "LULU archived — portfolio 12→11 positions"
+    - "NVO thesis updated with Wegovy HD + India generics note"
+    - "GL thesis updated with CEO selling watchpoint"
+    - "Drift detection clean (monthly, DUE TODAY → done)"
+    - "Macro refresh done via news/market scan"
+    - "Health check running (background)"
+
+skip_if_same_day:
+  vigilance_fresh_until: "2026-03-20T23:59"
+  so_fresh_until: "2026-03-20T23:59"
+  rotation_done_today: true
+
+# Rolling 30-day cooldown window. Max 30 entries.
+r1_cooldowns:
+  # MNST cooldown expires Mar 22 — clean up next session
+  - { ticker: "MNST", verdict: "FANTASY", session: 97, date: "2026-02-20", price_at_analysis: 82, cooldown_until: "2026-03-22" }
+
+next_priorities:
+  - "**MEGP.L Mar 23 — 3rd attempt at FY2025 results.** Clean audit MANDATORY. If another delay or qualified audit → ARCHIVE immediately. If clean → R4 evaluation. Framework valid."
+  - "**HORMUZ daily monitor.** Crisis Day 21+. If ceasefire/reopening → deploy ALFA.L FIRST (151p, -8.2% below trigger, QS 83 Tier A, UK software minimal oil exposure), then RACE.MI (EUR 273, QS 82 Tier A). VIX <22 sustained + oil <$90 = deployment gate cleared."
+  - "**GL CEO selling monitoring.** Watch for: (a) continued Darden sales, (b) DOJ/SEC reopening (KC#4), (c) whistleblower lawsuit developments. If formal government investigation → SELL."
+  - "**ADBE CEO succession.** Monitor for successor announcement. Internal (Belsky/Arora) = positive. External search dragging = negative."
+  - "**BEI.DE PARKED.** R2 MODERATE COUNTER. Wait Q1 2026 results (Apr/May) + price drop to EUR 70-75 for actionability. Revised FV EUR 80-85."
+  - "**DNLM.L near 52w low (811p vs 808p).** Fundamentals intact but -14.9% from entry. ADD at 800p per exit plan. Monitor UK consumer sentiment."
+  - "**8 STALE sectors with portfolio deps.** Priority: digital-marketplaces (42d, AUTO.L), consumer-discretionary (41d, DOM.L/DNLM.L), pharma-healthcare (36d, NVO), technology (36d, ADBE/BYIT.L). Batch refresh when session context allows."
+  - "**Position review overdue (12d).** Monthly batch — focus on positions with new data (GL, NVO, ADBE post-earnings). LULU removed."
+  - "**Universe refresh DUE TODAY but skipped.** Run batch_scorer on major indices next session if context allows."
+  - "**UK concentration risk.** 5 of 11 positions UK-exposed (45.5%). All near 52w lows. If UK enters recession from oil shock, these move together. Flag for position review."

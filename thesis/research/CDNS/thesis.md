@@ -1,9 +1,9 @@
 # CDNS - Cadence Design Systems
 
-> **Fair Value:** $260
-> **Entry:** $230-240 (revised down from $260 — export control compliance risk margin)
-> **Date:** 2026-02-13 (updated Session 69: export control guilty plea integrated)
-> **Status:** WATCHLIST - Q4 2025 earnings Feb 17 is hard gate
+> **Fair Value:** $230 (R3 resolved, was $260 R1. DA MODERATE COUNTER -11.5%: SBC-adjusted FCF at 75x, reverse DCF implies 41% growth vs 2.6% historical, SNPS-Ansys $35B competitive threat, GAAP/non-GAAP inconsistency)
+> **Entry:** $200 (revised from $235. SBC-adjusted valuation. MoS 13% — tight for Tier A)
+> **Date:** 2026-02-18 (R3 resolved. Q4 beat confirmed: EPS $1.99, rev $1.44B, backlog $7.8B)
+> **Status:** WATCHLIST — 29.4% above entry at $283
 
 ## TL;DR
 

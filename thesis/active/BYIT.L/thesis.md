@@ -1,7 +1,7 @@
 # BYIT.L - Bytes Technology Group plc
 
-> **Analysis Date:** 2026-02-11 (adversarial review) | **Original:** 2026-02-07
-> **Fair Value:** 345 GBp (adversarial, updated 2026-02-11)
+> **Analysis Date:** 2026-02-11 (adversarial review) | **Original:** 2026-02-07 | **Review:** 2026-02-20
+> **Fair Value:** 345 GBp (adversarial, updated 2026-02-11). Price 296.8p. MoS 14.0%. E[CAGR] 14.4%. RSI 22.94 oversold.
 
 ## TL;DR
 

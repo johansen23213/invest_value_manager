@@ -1,0 +1,378 @@
+# SHORT CANDIDATES SCREENING - Sector-Wide Fragility Analysis
+# Generated: 2026-02-18
+# Purpose: Populate short universe for bidirectional portfolio (P12)
+# Methodology: Programmatic screening (dynamic_screener.py --pe-min 50) + qualitative fragility research
+# Anti-bias: Avoided Tesla, GameStop, AMC and other "popular" shorts. Focused on STRUCTURAL fragility.
+# Screened: S&P 500 (54 stocks P/E >50x), STOXX 600 (partial, rate limited)
+
+# =============================================================================
+# PRIORITY TIER 1 - HIGH: Strong structural fragility + identifiable catalyst with date
+# =============================================================================
+
+candidates:
+  - ticker: CVNA
+    name: Carvana Co.
+    priority: HIGH
+    current_price: "$362 (from screener)"
+    pe_trailing: 82.4
+    pe_forward: 49.3
+    ev_ebitda_est: "~60x"
+    mcap_eur: "66.2B"
+    pct_off_high: "-25.7%"
+    structural_fragility: |
+      - Gotham City Research (Jan 28, 2026): alleges $1B+ in overstated earnings through undisclosed
+        related-party transactions with DriveTime/Bridgecrest (controlled by founder's father Ernest Garcia II)
+      - Bridgecrest allegedly buys Carvana loans at inflated values, then marks down 15% (~$900M in 2024)
+        effectively shifting losses from public books to private related-party books
+      - DriveTime burned $900M cash from operations 2022-2024, raising debt to fund itself (not a backstop)
+      - Hindenburg Research corroborated fraud allegations in separate report
+      - Class action investigations launched by multiple law firms
+      - SEC/regulatory scrutiny increasing
+      - Business model: negative unit economics masked by financial engineering
+    catalyst: |
+      - Q4 2025 earnings: February 18, 2026 (TODAY after close) - analysts expect $1.10 EPS, $5.25B rev
+      - Ongoing class action investigations + potential SEC investigation
+      - Gotham/Hindenburg reports create sustained selling pressure
+      - Any accounting restatement or SEC probe announcement = major catalyst
+    catalyst_date: "2026-02-18 (earnings TODAY), regulatory timeline uncertain"
+    short_thesis: |
+      Carvana trades at 82x trailing P/E despite $1B+ in alleged accounting irregularities
+      involving related-party transactions with entities controlled by the founder's father.
+      Two independent short sellers (Gotham City + Hindenburg) have published fraud allegations.
+      If even partially true, the "profitability story" is fabricated through Bridgecrest/DriveTime
+      loan shuffling. Stock already -25% from highs but still prices in perpetual growth.
+    risks_to_short: |
+      - Stock already down 25% from highs (some priced in)
+      - Company may refute allegations convincingly in earnings call
+      - Meme stock dynamics / retail squeeze potential
+      - Garcia family has ~40% voting control, making governance change difficult
+    status: NEEDS_S1
+    next_step: "Wait for Q4 earnings reaction (Feb 18 after close), then evaluate S1 pipeline timing"
+
+  - ticker: CSGP
+    name: CoStar Group
+    priority: HIGH
+    current_price: "$48.58 (from screener)"
+    pe_trailing: 809.7
+    pe_forward: 36.3
+    ev_ebitda_est: "~50-60x"
+    mcap_eur: "17.4B"
+    pct_off_high: "-50.1%"
+    structural_fragility: |
+      - $3B invested in Homes.com with $2B in cumulative losses, only $80M annual revenue
+      - Profitability for Homes.com now delayed to 2030 (was earlier)
+      - Capital burn is destroying profitable CRE core business returns
+      - TWO activist investors: D.E. Shaw (Feb 4, 2026 letter) + Third Point (ended standstill, nominating directors)
+      - Activists demand: exit/spin-off/divest Homes.com, add independent directors
+      - CEO Andy Florance has concentrated control, resisting change
+      - Core CRE subscription business is excellent (95% retention, 18% growth) but being dragged down
+    catalyst: |
+      - Q4 2025 earnings: February 24, 2026 (6 days away)
+      - June 2026 Annual Meeting: proxy fight + board nominations (major catalyst)
+      - Ongoing activist pressure creating sustained negative sentiment
+      - Any further guidance cuts or Homes.com spending increases = sell-off
+    catalyst_date: "2026-02-24 (earnings), June 2026 (annual meeting proxy fight)"
+    short_thesis: |
+      CoStar trades at 810x trailing P/E because Homes.com spending is destroying earnings.
+      $3B invested for $80M revenue with profitability pushed to 2030. Two major activists
+      (D.E. Shaw + Third Point) demanding strategic change. Stock already -50% from highs
+      but the proxy fight creates event-driven downside if management doubles down on Homes.com
+      spending at earnings. If activists fail at June meeting, market loses hope for change.
+    risks_to_short: |
+      - Stock already -50% from highs (significant damage done)
+      - Activists could WIN, causing stock to rally on strategic pivot
+      - Core CRE business is genuinely excellent and could be spun off at premium
+      - Management could capitulate and cut Homes.com spending (bullish)
+      - This is more of a LONG thesis if activists succeed
+    status: EVALUATE_FURTHER
+    note: "CAUTION: This is actually a better LONG candidate if activist campaign succeeds. The short thesis is complex - it depends on management continuing to destroy value. If activists win proxy, stock rallies hard. SKIP as short - consider as potential long if Homes.com spending is cut."
+
+  - ticker: PLTR
+    name: Palantir Technologies
+    priority: HIGH
+    current_price: "$135.84 (from screener)"
+    pe_trailing: 215.7
+    pe_forward: 74.3
+    ev_ebitda_est: "~150x"
+    mcap_eur: "273.1B"
+    pct_off_high: "-34.5%"
+    structural_fragility: |
+      - P/E 216x trailing, 74x forward - requires years of flawless execution
+      - 55% of revenue from government contracts, vulnerable to DOGE budget cuts
+      - DoD $50B annual cuts announced (Jan 2026) - "clearing bureaucratic underbrush"
+      - Stock already -25% from $207 ATH on Pentagon budget cut fears
+      - 23 of 25 analysts rate Hold or Sell; RBC has Sell with 70% downside target
+      - The "AI winner" narrative is challenged by: (a) government revenue concentration,
+        (b) commercial revenue needs to accelerate to offset gov slowdown,
+        (c) valuation assumes hypergrowth for years
+      - SBC remains high (dilution concern)
+    catalyst: |
+      - DOGE budget implementation rolling through 2026 (ongoing)
+      - Q4 2025 earnings (already reported? TBC - need to verify)
+      - Government contract renewal cycles throughout 2026
+      - Any headline about specific contract cuts/cancellations
+      - Pentagon FY2027 budget details (mid-2026)
+    catalyst_date: "Rolling through 2026 (DOGE cuts), FY2027 Pentagon budget mid-2026"
+    short_thesis: |
+      Palantir trades at 216x P/E with 55% government revenue exposed to DOGE's $50B
+      annual DoD cuts. The "AI winner" narrative requires commercial growth to accelerate
+      dramatically to justify the valuation, but government revenue is the foundation.
+      Even after -34% drawdown, the stock prices in perfection. Any contract cancellation
+      or budget freeze headlines would trigger further selling. The valuation disconnect
+      between PLTR and its actual revenue base ($2.6B annualized) is extreme.
+    risks_to_short: |
+      - Stock already -34% from ATH (significant correction underway)
+      - PLTR could actually BENEFIT from DOGE (replacing legacy contractors)
+      - Thiel/management political connections with current administration
+      - Commercial AIP revenue accelerating could justify premium
+      - Retail investor base creates squeeze risk (high retail ownership)
+      - Government may increase spending on AI specifically even while cutting overall
+    status: NEEDS_S1
+    next_step: "Verify Q4 earnings date and results. Assess whether DOGE is net positive or negative for PLTR specifically."
+
+# =============================================================================
+# PRIORITY TIER 2 - MEDIUM: Structural issues identified but catalyst less clear or timing uncertain
+# =============================================================================
+
+  - ticker: WDAY
+    name: Workday Inc.
+    priority: MEDIUM
+    current_price: "$143.19 (from screener)"
+    pe_trailing: 60.2
+    pe_forward: 13.3
+    ev_ebitda_est: "~25-30x"
+    mcap_eur: "32.2B"
+    pct_off_high: "-49.0%"
+    structural_fragility: |
+      - SaaSpocalypse poster child: AI agents reducing headcount at clients = fewer seats
+      - Salesforce, Shopify cited AI efficiency for major headcount reductions (late 2025)
+      - "PEPM Death Spiral" - per-employee-per-month pricing model under existential threat
+      - 17% of large enterprises now require managers to prove AI can't do a role before hiring
+      - Revenue growth deceleration despite margin expansion
+      - Competition from Deel, Rippling moving up-market
+      - Broader software de-rating: enterprise software forward P/E collapsed from 39x to 21x in 4 months
+    catalyst: |
+      - SaaSpocalypse accelerating through 2026 as Claude Cowork, Agentforce deployed
+      - Client seat reductions will show up in subscription metrics with 6-12 month lag
+      - Competitors gaining share in mid-market
+      - Next earnings likely to confirm deceleration trend
+    catalyst_date: "Gradual (6-12 month lag on seat compression showing in revenues)"
+    short_thesis: |
+      Workday is the clearest victim of AI-driven seat compression. As enterprises reduce
+      headcount using AI agents, WDAY's per-employee pricing model structurally shrinks
+      its TAM. Stock already -49% from highs but if revenue growth inflects negative,
+      the multiple (still 60x trailing) has much further to fall. The SaaSpocalypse
+      is a structural, not cyclical, headwind.
+    risks_to_short: |
+      - Stock already -49% from ATH (most obvious damage done)
+      - Forward P/E at 13.3x looks actually cheap if earnings hold
+      - AI could be a net positive if WDAY monetizes AI SKUs successfully
+      - Strong 95%+ retention rates buffer near-term
+      - Could become a LONG candidate at these levels if SaaSpocalypse fears overblown
+    status: EVALUATE_FURTHER
+    note: "CAUTION: At -49% and 13.3x forward P/E, WDAY may actually be closer to a value BUY than a short. The SaaSpocalypse may be overpriced in. Need to verify if forward estimates are realistic or still too optimistic."
+
+  - ticker: BA
+    name: Boeing Company
+    priority: MEDIUM
+    current_price: "$239.84 (from screener)"
+    pe_trailing: 96.3
+    pe_forward: 49.8
+    ev_ebitda_est: "~45x"
+    mcap_eur: "158.9B"
+    debt_equity: 10.33
+    pct_off_high: "-5.7%"
+    structural_fragility: |
+      - $54.1B total debt, D/E ratio 10.33x (extreme leverage)
+      - Production-delivery gap: targeting 38/month, delivering 20-25 = $715M/month missing revenue
+      - Commercial margins NEGATIVE (-5.6% Q4 2025) due to "traveled work" inefficiencies
+      - MAX 7 deicing issue unresolved, MAX 10 certification delayed to late 2026
+      - 777X delays pushing deliveries to 2027
+      - FAA quality overhaul required
+      - FY2025 free cash flow BURN of $1.9B
+      - Stock near 52-week high despite fundamental deterioration
+    catalyst: |
+      - Production rate misses (monthly delivery data publicly available)
+      - MAX 7/10 certification delays (rolling through 2026)
+      - Potential White House pressure on pricing/margins for government contracts
+      - Q1 2026 earnings likely to show continued cash burn
+      - Any quality/safety incident would be catastrophic
+    catalyst_date: "Rolling through 2026 (certification timelines, monthly delivery data)"
+    short_thesis: |
+      Boeing trades at 96x trailing P/E near 52-week highs despite $54B debt, negative
+      commercial margins, and $1.9B annual cash burn. The production-delivery gap of
+      $715M/month in missing revenue is structural, not temporary. D/E of 10.33x is
+      among the highest in the S&P 500. Market prices in a recovery that keeps getting
+      delayed. Any quality incident or further certification delay would be devastating.
+    risks_to_short: |
+      - Defense business provides floor (government contracts)
+      - Duopoly with Airbus means long-term demand assured
+      - Management guide to positive FCF in 2026 ($1-3B)
+      - "Too big to fail" / government support narrative
+      - Stock has been a falling knife before - timing is critical
+      - Recovery could actually materialize if production normalizes
+    status: NEEDS_S1
+    next_step: "Monitor monthly delivery data. Evaluate S1 if delivery gap persists into Q1 2026."
+
+  - ticker: AXON
+    name: Axon Enterprise
+    priority: MEDIUM
+    current_price: "$431.75 (from screener)"
+    pe_trailing: 137.1
+    pe_forward: 57.0
+    ev_ebitda_est: "~80x"
+    mcap_eur: "28.9B"
+    pct_off_high: "-51.3%"
+    structural_fragility: |
+      - P/E 137x trailing, P/S 18x (vs industry avg 2.9x)
+      - DoD $50B annual budget cuts + DOGE directly impact law enforcement tech budgets
+      - Government customer concentration creates vulnerability to budget cycles
+      - 2008-2009 recession: police layoffs + equipment purchase deferrals (precedent)
+      - Tariff impacts on connected devices margins acknowledged by management
+      - Privacy/regulatory pushback on AI surveillance tools could slow adoption
+      - Stock already -51% from highs
+    catalyst: |
+      - DOGE budget implementation affecting state/local government budgets (rolling)
+      - Recession risk would directly impact police department budgets
+      - Tariff escalation affecting hardware margins
+      - Any privacy/AI regulation restricting body camera AI features
+    catalyst_date: "Gradual (budget cycle dependent, no single binary date)"
+    short_thesis: |
+      Axon at 137x P/E is pricing in law enforcement as a high-growth industry, but
+      government budget pressures from DOGE + potential recession would directly hit
+      police department procurement. The -51% drawdown from highs shows the multiple
+      compression already underway, but at 57x forward P/E there's still significant
+      premium embedded. Privacy backlash on AI surveillance is an underpriced risk.
+    risks_to_short: |
+      - Stock already -51% from ATH (heavy damage already)
+      - Public safety has relative budget priority vs other government spending
+      - Recurring subscription revenue (body camera storage) provides stability
+      - Competition is weak (near-monopoly in body cameras + Tasers)
+      - CEO is founder with track record of execution
+    status: EVALUATE_FURTHER
+    note: "CAUTION: At -51%, much of the de-rating may be done. Strong competitive position makes this risky as a short. Better candidates exist."
+
+# =============================================================================
+# PRIORITY TIER 3 - LOW: Fragility noted but already heavily discounted or thesis is weak
+# =============================================================================
+
+  - ticker: NOW
+    name: ServiceNow
+    priority: LOW
+    current_price: "$107.23 (from screener, -49% from ATH)"
+    pe_trailing: 64.2
+    pe_forward: 21.4
+    mcap_eur: "95.4B"
+    pct_off_high: "-49.3%"
+    note: "SaaSpocalypse victim but at 21x forward P/E and 19% growth, this looks MORE like a value BUY than a short. The de-rating from 39x to 21x sector average may be mostly done. SKIP as short."
+    status: SKIP
+
+  - ticker: DDOG
+    name: Datadog
+    priority: LOW
+    current_price: "$121.32 (from screener, -40% from ATH)"
+    pe_trailing: 391.4
+    pe_forward: 45.9
+    mcap_eur: "35.9B"
+    pct_off_high: "-39.8%"
+    note: "Revenue growth decelerating from 28% to 20%. Goldman initiated Sell. Competition intensifying from Grafana, Clickhouse, CrowdStrike. However at -40% from ATH and with strong FCF margins, the easy short money may be made. EVALUATE if deceleration worsens."
+    status: MONITOR
+
+  - ticker: WELL
+    name: Welltower Inc.
+    priority: LOW
+    current_price: "$209.85 (from screener)"
+    pe_trailing: 147.8
+    pe_forward: 63.4
+    mcap_eur: "123.5B"
+    pct_off_high: "-3.0%"
+    note: "Near all-time highs at 148x P/E. Senior housing demand is real but $23B acquisition spree is aggressive. CEO warned it's 'harder than it looks.' However, demographic tailwind is strong (aging population). The short thesis is thin - demand is genuine. SKIP."
+    status: SKIP
+
+  - ticker: WBD
+    name: Warner Bros. Discovery
+    priority: LOW
+    current_price: "$28.67 (from screener)"
+    pe_trailing: 150.9
+    debt_equity: 0.90
+    mcap_eur: "60.0B"
+    pct_off_high: "-4.4%"
+    note: "Breakup catalyst mid-2026. Streaming turning profitable. M&A interest (Netflix, Paramount). This is actually a POTENTIAL LONG, not a short. Legacy media decline is real but streaming + breakup could unlock value. SKIP as short."
+    status: SKIP
+
+# =============================================================================
+# SaaSpocalypse WATCH - Macro Theme for Short Candidates
+# =============================================================================
+
+saaspocalypse_watch:
+  description: |
+    The "Great Software De-rating" of 2026 is a macro theme driven by AI agent adoption
+    (Claude Cowork, Salesforce Agentforce) destroying the per-seat SaaS pricing model.
+    Enterprise software forward P/E collapsed from 39x to 21x in 4 months (largest
+    compression since 2002 dot-com bust). $2T in market cap evaporated Jan-Feb 2026.
+
+    KEY QUESTION: Is this overpriced or underpriced?
+    - If SaaSpocalypse is STRUCTURAL: more downside in seat-based SaaS (WDAY, CRM, ADBE)
+    - If SaaSpocalypse is SENTIMENT-driven: these are NOW value opportunities
+
+    OUR PORTFOLIO EXPOSURE: ADBE, BYIT.L, EDEN.PA have SaaSpocalypse exposure.
+    Standing orders: DSY.PA, PAYC, INTU also affected.
+    This is a KEY STRATEGIC QUESTION that affects both long and short decisions.
+
+  most_affected_companies:
+    - "CRM (Salesforce) - task automation core to product"
+    - "WDAY - per-employee pricing directly threatened"
+    - "ADBE - creative AI could reduce seat needs"
+    - "TEAM (Atlassian) - task tracking automatable"
+    - "HUBS (HubSpot) - data entry/CRM automatable"
+    - "PAYC (Paycom) - per-employee pricing"
+
+  least_affected:
+    - "NOW (ServiceNow) - workflow orchestration harder to replace"
+    - "PANW (Palo Alto) - security not automatable"
+    - "CDNS/SNPS (EDA tools) - irreplaceable engineering tools"
+
+# =============================================================================
+# SCREENING SUMMARY
+# =============================================================================
+
+screening_summary:
+  date: "2026-02-18"
+  indices_screened: "S&P 500 (full), STOXX 600 (partial - rate limited)"
+  total_high_pe_found: 54  # S&P 500 stocks with P/E >50x
+  candidates_identified: 10
+  priority_high: 3  # CVNA, CSGP, PLTR
+  priority_medium: 3  # WDAY, BA, AXON
+  priority_low: 4  # NOW, DDOG, WELL, WBD
+  recommended_for_S1: 2  # CVNA and BA
+
+  key_findings: |
+    1. CVNA is the STRONGEST short candidate: accounting fraud allegations from two independent
+       short sellers, class action lawsuits, regulatory risk. Catalyst: earnings TODAY + ongoing legal.
+       NOTE: Already in our universe as a candidate (CVNA needs S1 per MEMORY.md).
+
+    2. CSGP is interesting but DANGEROUS as short - activist success would cause rally.
+       Better as a potential LONG if Homes.com spending is cut. SKIP as short.
+
+    3. PLTR has extreme valuation + government revenue exposure to DOGE cuts, but PLTR could
+       actually BENEFIT from DOGE (replacing legacy contractors). Needs deeper analysis.
+
+    4. WDAY and other SaaSpocalypse victims (NOW, DDOG) are already heavily discounted.
+       At -49% drawdown and 13-21x forward P/E, these may be VALUE opportunities, not shorts.
+       The SaaSpocalypse theme affects our own portfolio (ADBE, BYIT.L, DSY.PA, PAYC).
+
+    5. BA is the most TRADITIONAL short candidate: extreme leverage, negative margins, production
+       problems, near 52-week highs. But "too big to fail" narrative and duopoly provide floor.
+
+    6. EV companies (RIVN, LCID) are obvious fragility but NOT in S&P 500 and likely already
+       well-shorted. Popularity bias to avoid these.
+
+  recommended_next_steps:
+    - "CVNA: PRIORITY. Wait for Q4 earnings reaction (Feb 18 after close). If allegations not
+      addressed convincingly, proceed to S1 short pipeline."
+    - "BA: Secondary. Monitor monthly delivery data. If gap persists, S1 in March."
+    - "PLTR: Tertiary. Deeper research on whether DOGE is net positive or negative for PLTR
+      specifically before committing to short thesis."
+    - "SaaSpocalypse: STRATEGIC DECISION needed on whether this theme is overpriced or structural.
+      This affects both our long positions AND potential shorts."
+    - "SKIP: CSGP (potential long), WDAY/NOW/DDOG (too beaten up), WELL/WBD (wrong thesis direction)"

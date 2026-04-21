@@ -102,6 +102,22 @@ moves:
     to: thesis/archive/TATE.L/
     reason: "Position closed - SELL 66 shares @ 393.60 GBp (~298 EUR). Adversarial review: QS 45 Tier C (thesis claimed Tier B 5/10), ROIC spread -0.5pp, D&A error (100M vs 172M actual overstated EBIT 23%). FV 551→329 GBp (-40%). P&L +3.5%."
     triggered_by: "portfolio-ops: SELL confirmation"
+  - date: 2026-02-14
+    file: thesis/active/ALL/*
+    from: thesis/active/ALL/
+    to: thesis/archive/ALL/
+    reason: "Position closed - SELL 2.03874 shares @ ~$207.51. Tier C ON PROBATION (QS 56), MoS insufficient (11.3% vs 30% required), peak cycle (CR 85.2% best in 15 years), 6/6 SELL precedent consistency. P&L +5.9%."
+    triggered_by: "portfolio-ops: SELL confirmation"
+    note: "Active files replaced with redirect stubs. Delete thesis/active/ALL/ directory manually."
+
+  - date: 2026-03-20
+    file: thesis/active/LULU/*
+    from: thesis/active/LULU/
+    to: thesis/archive/LULU/
+    reason: "Position closed - SELL 2 shares @ ~$157.50. Governance deterioration: no CEO 50+ days, proxy contest, GM declining, Americas negative 8Q. Pre-set trigger ($165) met. P&L -8.2%. 44-day hold."
+    triggered_by: "portfolio-ops: SELL confirmation"
+    note: "Files marked [ARCHIVED] in place. Move thesis/active/LULU/ directory to thesis/archive/LULU/ manually."
+
 # Format:
 #   - date: 2026-01-31
 #     file: thesis/research/SHEL/thesis.md

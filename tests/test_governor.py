@@ -1,0 +1,188 @@
+"""Tests for orchestrator.governor — state machine and flow stubs."""
+import pytest
+
+from orchestrator.governor import Governor, GovernorState
+
+
+@pytest.fixture
+def governor():
+    return Governor()
+
+
+def test_governor_initial_state(governor):
+    assert governor.state == GovernorState.IDLE
+
+
+def test_governor_list_agents(governor):
+    agents = governor.list_agents()
+    assert len(agents) == 10
+
+
+def test_governor_dry_run(governor, capsys):
+    governor.dry_run()
+    captured = capsys.readouterr()
+    assert "Agent Registry" in captured.out
+    assert "10 agents" in captured.out
+
+
+def test_governor_state_transitions(governor):
+    """Verify that _transition changes state correctly."""
+    assert governor.state == GovernorState.IDLE
+
+    governor._transition(GovernorState.SCREENING)
+    assert governor.state == GovernorState.SCREENING
+
+    governor._transition(GovernorState.CANDIDATE_SELECTION)
+    assert governor.state == GovernorState.CANDIDATE_SELECTION
+
+    governor._transition(GovernorState.ANALYSIS_FANOUT)
+    assert governor.state == GovernorState.ANALYSIS_FANOUT
+
+    governor._transition(GovernorState.DECISION)
+    assert governor.state == GovernorState.DECISION
+
+    governor._transition(GovernorState.NOTIFY)
+    assert governor.state == GovernorState.NOTIFY
+
+    governor._transition(GovernorState.IDLE)
+    assert governor.state == GovernorState.IDLE
+
+
+async def test_governor_on_demand_flow(governor):
+    from unittest.mock import patch, AsyncMock
+    from orchestrator.base import AgentResult
+
+    def _mock_agent(agent_id):
+        inst = AsyncMock()
+        inst.agent_id = agent_id
+        inst.run = AsyncMock(return_value=AgentResult(
+            agent_id=agent_id, agent_name="test", success=True,
+            data={"ticker": "AAPL"}, tokens_used=100, duration_seconds=0.5,
+        ))
+        return inst
+
+    with patch("orchestrator.flows.on_demand_analysis.FinancialAnalystAgent") as m1, \
+         patch("orchestrator.flows.on_demand_analysis.BusinessAnalystAgent") as m2, \
+         patch("orchestrator.flows.on_demand_analysis.RiskAnalystAgent") as m3, \
+         patch("orchestrator.flows.on_demand_analysis.WebResearcherAgent") as m4:
+        m1.return_value = _mock_agent("a21")
+        m2.return_value = _mock_agent("a23")
+        m3.return_value = _mock_agent("a24")
+        m4.return_value = _mock_agent("a25")
+        result = await governor.run_on_demand("AAPL")
+    assert result["ticker"] == "AAPL"
+    assert "run_id" in result
+    assert result["all_succeeded"] is True
+    # Should return to IDLE after flow completes
+    assert governor.state == GovernorState.IDLE
+
+
+async def test_governor_weekly_flow(governor):
+    from unittest.mock import patch, AsyncMock
+    from orchestrator.base import AgentResult
+
+    def _mock_screener(agent_id, data_key, data_value):
+        inst = AsyncMock()
+        inst.agent_id = agent_id
+        inst.run = AsyncMock(return_value=AgentResult(
+            agent_id=agent_id, agent_name="test", success=True,
+            data={data_key: data_value}, tokens_used=100, duration_seconds=0.5,
+        ))
+        return inst
+
+    def _mock_analysis(ticker, run_id, audit):
+        return {
+            "ticker": ticker, "all_succeeded": True, "total_tokens": 400,
+            "agents": {
+                "a21": {"success": True, "data": {"ticker": ticker}},
+                "a23": {"success": True, "data": {"ticker": ticker}},
+                "a24": {"success": True, "data": {"ticker": ticker}},
+                "a25": {"success": True, "data": {"ticker": ticker}},
+            }
+        }
+
+    def _mock_dm():
+        inst = AsyncMock()
+        inst.agent_id = "a31"
+        inst.run = AsyncMock(return_value=AgentResult(
+            agent_id="a31", agent_name="test", success=True,
+            data={"ticker": "TST", "decision": "BUY", "conviction": 7},
+            tokens_used=200, duration_seconds=1.0,
+        ))
+        return inst
+
+    with patch("orchestrator.flows.weekly_screening.QuantScreenerAgent") as m_quant, \
+         patch("orchestrator.flows.weekly_screening.SpecialSitsScreenerAgent") as m_spec, \
+         patch("orchestrator.flows.weekly_screening.run_on_demand_analysis") as m_analysis, \
+         patch("orchestrator.flows.weekly_screening.DecisionMakerAgent") as m_dm:
+        m_quant.return_value = _mock_screener("a11", "candidates", [{"ticker": "TST", "score": 85, "signal_reasons": ["value"]}])
+        m_spec.return_value = _mock_screener("a12", "situations", [])
+        m_analysis.side_effect = lambda t, r, a: _mock_analysis(t, r, a)
+        m_dm.return_value = _mock_dm()
+
+        result = await governor.run_weekly()
+
+    assert result["flow"] == "weekly"
+    assert result["screening"]["total_candidates"] == 1
+    assert result["all_succeeded"] is True
+    assert governor.state == GovernorState.IDLE
+
+
+async def test_governor_daily_monitor_flow(governor):
+    from unittest.mock import patch, AsyncMock
+    from orchestrator.base import AgentResult
+
+    mock_data = {
+        "agent": "portfolio_monitor",
+        "portfolio_summary": {"total_positions": 11, "net_pnl_pct": 3.5},
+        "positions": [],
+        "summary": "All positions on track.",
+    }
+    with patch("orchestrator.flows.daily_monitoring.PortfolioMonitorAgent") as m:
+        inst = AsyncMock()
+        inst.agent_id = "a32"
+        inst.run = AsyncMock(return_value=AgentResult(
+            agent_id="a32", agent_name="test", success=True,
+            data=mock_data, tokens_used=200, duration_seconds=1.0,
+        ))
+        m.return_value = inst
+
+        result = await governor.run_daily_monitor()
+
+    assert result["flow"] == "daily-monitor"
+    assert result["success"] is True
+    assert result["data"]["agent"] == "portfolio_monitor"
+    assert governor.state == GovernorState.IDLE
+
+
+async def test_governor_audit_log_written(governor, tmp_path):
+    """Verify audit JSONL files are created during flows."""
+    from unittest.mock import patch, AsyncMock
+    from orchestrator.audit import AuditLogger
+    from orchestrator.base import AgentResult
+
+    def _mock_agent(agent_id):
+        inst = AsyncMock()
+        inst.agent_id = agent_id
+        inst.run = AsyncMock(return_value=AgentResult(
+            agent_id=agent_id, agent_name="test", success=True,
+            data={"ticker": "MSFT"}, tokens_used=100, duration_seconds=0.5,
+        ))
+        return inst
+
+    governor.audit = AuditLogger(log_dir=tmp_path)
+    with patch("orchestrator.flows.on_demand_analysis.FinancialAnalystAgent") as m1, \
+         patch("orchestrator.flows.on_demand_analysis.BusinessAnalystAgent") as m2, \
+         patch("orchestrator.flows.on_demand_analysis.RiskAnalystAgent") as m3, \
+         patch("orchestrator.flows.on_demand_analysis.WebResearcherAgent") as m4:
+        m1.return_value = _mock_agent("a21")
+        m2.return_value = _mock_agent("a23")
+        m3.return_value = _mock_agent("a24")
+        m4.return_value = _mock_agent("a25")
+        result = await governor.run_on_demand("MSFT")
+    run_id = result["run_id"]
+
+    events = governor.audit.read_run(run_id)
+    assert len(events) >= 2  # at least run_start + run_end
+    assert events[0].event_type == "run_start"
+    assert events[-1].event_type == "run_end"

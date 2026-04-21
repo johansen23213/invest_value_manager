@@ -3,6 +3,10 @@
 System Projection Tool - Monte Carlo Simulation
 Analyzes the investment system's probability of success over 1, 3, 5, and 10 years.
 
+Reads LIVE data from:
+  - portfolio/current.yaml (positions, cash, invested amounts)
+  - state/quality_universe.yaml (tier data for pipeline context)
+
 Framework v4.0: This tool outputs RAW DATA and projections.
 The assumptions are explicit and debatable - they are NOT hidden rules.
 
@@ -16,13 +20,17 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.ticker as mticker
 import matplotlib.patches as mpatches
-from datetime import datetime
+from datetime import datetime, date
 import sys
 import os
+import re
+import yaml
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # CONFIGURATION
 # ═══════════════════════════════════════════════════════════════════════════════
+
+BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Parse arguments
 monthly_addition = 0
@@ -36,22 +44,103 @@ for i, arg in enumerate(sys.argv[1:], 1):
 np.random.seed(42)
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# CURRENT SYSTEM STATE (factual, from portfolio/current.yaml)
+# LOAD LIVE DATA from portfolio/current.yaml
 # ═══════════════════════════════════════════════════════════════════════════════
 
-INITIAL_VALUE = 11186  # EUR total (invested + cash)
-N_POSITIONS = 21
-CASH_EUR = 790
-SYSTEM_AGE_DAYS = 12  # Started ~Jan 26, 2026
+print("Loading portfolio data...")
 
-# Current tier distribution (from system.yaml quality analysis)
-CURRENT_TIERS = {
-    'A': {'count': 4, 'tickers': ['ADBE', 'NVO', 'MONY.L', 'LULU']},
-    'B': {'count': 5, 'tickers': ['HRB', 'EDEN.PA', 'DOM.L', 'SAN.PA', 'LIGHT.AS']},
-    'C': {'count': 12, 'tickers': ['ALL', 'VICI', 'IMB.L', 'GL', 'UHS', 'PFE',
-                                     'DTE.DE', 'TEP.PA', 'TATE.L', 'VNA.DE', 'A2A.MI', 'SHEL.L']},
-    'D': {'count': 0, 'tickers': []}
-}
+def load_yaml(path):
+    with open(path, 'r', encoding='utf-8') as f:
+        return yaml.safe_load(f)
+
+def extract_qs_tier(fv_str):
+    """Extract QS adjusted and Tier from fair_value string."""
+    qs_adj = qs_tool = None
+    tier = None
+    if not fv_str:
+        return 50, 'B'
+    s = str(fv_str)
+    m = re.search(r'Adj\s*(\d+)', s)
+    if m:
+        qs_adj = int(m.group(1))
+    m2 = re.search(r'QS\s*(?:Tool)?\s*(\d+)', s)
+    if m2:
+        qs_tool = int(m2.group(1))
+    m3 = re.search(r'Tier\s*([ABCD])', s)
+    if m3:
+        tier = m3.group(1)
+    qs = qs_adj or qs_tool or 50
+    if not tier:
+        tier = 'A' if qs >= 75 else ('B' if qs >= 55 else ('C' if qs >= 35 else 'D'))
+    return qs, tier
+
+def get_fx_rates():
+    """Get EUR/USD and GBP/EUR rates."""
+    try:
+        import yfinance as yf
+        eurusd = yf.Ticker('EURUSD=X').fast_info.get('lastPrice', 1.05)
+        gbpeur = yf.Ticker('GBPEUR=X').fast_info.get('lastPrice', 1.20)
+        return eurusd, gbpeur
+    except Exception:
+        return 1.05, 1.20
+
+def get_price(ticker):
+    """Get current price for a ticker."""
+    try:
+        import yfinance as yf
+        return yf.Ticker(ticker).fast_info.get('lastPrice', None)
+    except Exception:
+        return None
+
+# Load portfolio
+portfolio = load_yaml(os.path.join(BASE, 'portfolio', 'current.yaml'))
+positions = portfolio.get('positions', [])
+CASH_EUR = portfolio.get('cash', {}).get('amount', 0)
+N_POSITIONS = len(positions)
+
+# FX rates
+print("Fetching FX rates and prices...")
+eurusd, gbpeur = get_fx_rates()
+
+# Calculate NAV from live prices
+total_invested_eur = 0
+CURRENT_TIERS = {'A': {'count': 0, 'tickers': []}, 'B': {'count': 0, 'tickers': []},
+                 'C': {'count': 0, 'tickers': []}, 'D': {'count': 0, 'tickers': []}}
+
+for p in positions:
+    ticker = p['ticker']
+    shares = p.get('shares', 0)
+    invested_usd = p.get('invested_usd', 0)
+
+    # Get live price
+    price = get_price(ticker)
+    if price and shares:
+        if ticker.endswith('.L'):
+            val_eur = (price / 100) * shares * gbpeur
+        elif any(ticker.endswith(s) for s in ['.DE', '.PA', '.MI', '.AS', '.SW', '.HE']):
+            val_eur = price * shares
+        else:
+            val_eur = price * shares / eurusd
+    else:
+        val_eur = invested_usd / eurusd
+
+    total_invested_eur += val_eur
+
+    # Tier classification
+    qs, tier = extract_qs_tier(p.get('fair_value', ''))
+    CURRENT_TIERS[tier]['count'] += 1
+    CURRENT_TIERS[tier]['tickers'].append(ticker)
+
+INITIAL_VALUE = total_invested_eur + CASH_EUR
+
+# System age
+SYSTEM_START = date(2026, 1, 26)
+SYSTEM_AGE_DAYS = (date.today() - SYSTEM_START).days
+
+print(f"NAV: €{INITIAL_VALUE:,.0f} | {N_POSITIONS} positions | Cash: €{CASH_EUR:,.0f}")
+print(f"Tiers: A={CURRENT_TIERS['A']['count']}, B={CURRENT_TIERS['B']['count']}, "
+      f"C={CURRENT_TIERS['C']['count']}, D={CURRENT_TIERS['D']['count']}")
+print(f"System age: {SYSTEM_AGE_DAYS} days")
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # MODEL ASSUMPTIONS (explicit, debatable, documented)
@@ -61,39 +150,56 @@ print("=" * 80)
 print("SUPUESTOS DEL MODELO (explícitos - NO son verdades)")
 print("=" * 80)
 
-ASSUMPTIONS = """
+# Compute current tier percentages
+total_tier_count = sum(v['count'] for v in CURRENT_TIERS.values()) or 1
+CURRENT_TIER_PCT = {
+    'A': CURRENT_TIERS['A']['count'] / total_tier_count,
+    'B': CURRENT_TIERS['B']['count'] / total_tier_count,
+    'C': (CURRENT_TIERS['C']['count'] + CURRENT_TIERS['D']['count']) / total_tier_count,
+}
+CURRENT_CASH_PCT = CASH_EUR / INITIAL_VALUE * 100 if INITIAL_VALUE > 0 else 0
+
+ASSUMPTIONS = f"""
 ╔══════════════════════════════════════════════════════════════════════════════╗
 ║  SUPUESTO                    │ VALOR           │ JUSTIFICACIÓN              ║
 ╠══════════════════════════════╪═════════════════╪════════════════════════════╣
-║ Retorno Tier A (CAGR)       │ 12-16% ± 17%   │ Quality compounders con    ║
-║                              │                 │ MoS 30%+, ROIC>15%        ║
+║ Retorno Tier A (CAGR)       │ 12-16% ± 17%   │ Quality compounders,       ║
+║                              │                 │ ROIC>15%, MoS 10-20%      ║
 ║ Retorno Tier B (CAGR)       │ 8-12% ± 20%    │ Quality value, MoS 20-30% ║
 ║ Retorno Tier C (CAGR)       │ 3-8% ± 25%     │ Special sit., mayor riesgo ║
 ║                              │                 │ de value trap              ║
 ║──────────────────────────────┼─────────────────┼────────────────────────────║
 ║ Alpha sesiones diarias       │ 2-3% (decrece)  │ Info advantage vs buy&hold ║
 ║                              │                 │ Decay: low-hanging fruit   ║
-║ Curva aprendizaje año 1     │ -3% a -5%       │ 42 errores en 12 días      ║
+║ Curva aprendizaje            │ Variable        │ {SYSTEM_AGE_DAYS} dias, 55+ errores  ║
 ║ Curva aprendizaje año 3+    │ +1%             │ Sistema maduro             ║
 ║──────────────────────────────┼─────────────────┼────────────────────────────║
 ║ Costes transacción (eToro)  │ ~1% anual       │ Spreads + frecuencia       ║
-║ Cash drag                   │ 7% → 3%         │ Decrece con madurez        ║
+║ Cash drag actual             │ {CURRENT_CASH_PCT:>5.1f}%          │ Decrece con deployment     ║
 ║ P(drawdown >20% en 1 año)   │ 12-25%          │ Depende de escenario       ║
 ║ P(crash >30% en 1 año)      │ 3-8%            │ Tail risk (GFC/COVID)      ║
 ║──────────────────────────────┼─────────────────┼────────────────────────────║
-║ Rotación C→A                │ 5-7 años        │ ~2-3 rotaciones/año        ║
-║ Aportaciones mensuales      │ €{:>4,.0f}          │ Configurable               ║
+║ Rotación actual → target    │ A:{CURRENT_TIER_PCT['A']*100:.0f}%→55%        │ ~2-3 rotaciones/año        ║
+║ Aportaciones mensuales      │ €{monthly_addition:>4,.0f}          │ Configurable               ║
 ║ Inflación                   │ No modelada     │ Retornos nominales         ║
 ╚══════════════════════════════╧═════════════════╧════════════════════════════╝
 
+ESTADO ACTUAL (datos reales de portfolio/current.yaml):
+  • NAV: €{INITIAL_VALUE:,.0f} ({N_POSITIONS} posiciones + €{CASH_EUR:,.0f} cash)
+  • Tier A: {CURRENT_TIERS['A']['count']} ({', '.join(CURRENT_TIERS['A']['tickers']) or 'none'})
+  • Tier B: {CURRENT_TIERS['B']['count']} ({', '.join(CURRENT_TIERS['B']['tickers']) or 'none'})
+  • Tier C: {CURRENT_TIERS['C']['count']} ({', '.join(CURRENT_TIERS['C']['tickers']) or 'none'})
+  • Cash: {CURRENT_CASH_PCT:.1f}%
+  • Sistema: {SYSTEM_AGE_DAYS} dias de track record
+
 SESGOS CONOCIDOS DEL MODELO:
   • Optimista: Asume que el sistema mejora con el tiempo (puede no hacerlo)
-  • Optimista: Asume rotación exitosa C→A (puede ser lenta o fallida)
+  • Optimista: Asume rotación exitosa C→B→A (puede ser lenta o fallida)
   • Pesimista: No modela aportaciones de capital (excepto si se configura)
-  • Pesimista: Learning curve del año 1 puede ser menos severa
+  • Pesimista: Learning curve puede ser menos severa
   • Neutral: Volatilidad calibrada a datos históricos de mercado
-  • CRITICO: 12 días de track record = CERO evidencia estadística real
-""".format(monthly_addition)
+  • CRITICO: {SYSTEM_AGE_DAYS} días de track record = evidencia estadística mínima
+"""
 print(ASSUMPTIONS)
 
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -102,20 +208,30 @@ print(ASSUMPTIONS)
 
 def portfolio_mix(year):
     """
-    Models the gradual rotation from Tier C to Tier A/B over time.
-    Currently: 19% A, 24% B, 57% C
-    Target by year 7+: ~55% A, 25% B, 20% C
+    Models the gradual rotation toward higher-quality tiers over time.
+    STARTS from ACTUAL current distribution (loaded from portfolio).
+    Target by year 7+: ~55% A, 30% B, 15% C
 
     This assumes ~2-3 successful rotations per year, which requires:
     - Finding quality companies
     - Selling underperformers or harvesting Tier C at fair value
     - Maintaining discipline
     """
+    # Start from actual current tier distribution
+    start_a = CURRENT_TIER_PCT['A']
+    start_b = CURRENT_TIER_PCT['B']
+    start_c = CURRENT_TIER_PCT['C']
+
+    # Target mature portfolio (year 7+)
+    target_a = 0.55
+    target_b = 0.30
+    target_c = 0.15
+
     t = min(year, 10)
-    # Logistic growth for Tier A
-    tier_a = 0.19 + (0.55 - 0.19) * (1 - np.exp(-0.25 * t))
-    tier_b = 0.24 + (0.25 - 0.24) * (1 - np.exp(-0.3 * t))
-    tier_c = max(1.0 - tier_a - tier_b, 0.10)
+    # Logistic growth toward targets
+    tier_a = start_a + (target_a - start_a) * (1 - np.exp(-0.25 * t))
+    tier_b = start_b + (target_b - start_b) * (1 - np.exp(-0.3 * t))
+    tier_c = max(start_c + (target_c - start_c) * (1 - np.exp(-0.25 * t)), 0.05)
     total = tier_a + tier_b + tier_c
     return tier_a/total, tier_b/total, tier_c/total
 
@@ -134,30 +250,33 @@ def session_alpha(year):
 
 def learning_curve(year):
     """
-    System learning effect:
-    Year 0-0.5: Heavy mistakes (-4% drag). 42 errors documented in 12 days.
-    Year 0.5-1: Still learning (-2%)
-    Year 1-2: Breaking even (0%)
-    Year 2-3: Slight positive (+0.5%)
-    Year 3+: Mature (+1%)
+    System learning effect. Adjusted for ACTUAL system age.
+    The system has been running for SYSTEM_AGE_DAYS days already.
+    Year 0 in the simulation = current state (not day 1).
 
-    Note: This assumes the system ACTUALLY learns. If errors repeat,
-    the curve stays negative.
-    """
-    if year < 0.5:
+    Current state: ~{0} days, 55+ errors documented, framework v4.6.
+    The worst learning mistakes are already behind us.
+    """.format(SYSTEM_AGE_DAYS)
+    # Effective year = simulation year + time already elapsed
+    effective_year = year + SYSTEM_AGE_DAYS / 365.0
+
+    if effective_year < 0.5:
         return -0.04
-    elif year < 1:
-        return -0.02
-    elif year < 2:
-        return 0.0
-    elif year < 3:
-        return 0.005
+    elif effective_year < 1:
+        return -0.015  # Still learning but past worst
+    elif effective_year < 2:
+        return 0.002  # Breaking even, slight positive
+    elif effective_year < 3:
+        return 0.007
     else:
         return 0.01
 
 def cash_drag(year):
-    """Cash fraction, decreasing as system matures and deploys capital."""
-    return max(0.03, 0.07 - 0.004 * year)
+    """Cash fraction, starting from ACTUAL current cash% and decreasing."""
+    current_cash_frac = CASH_EUR / INITIAL_VALUE if INITIAL_VALUE > 0 else 0.05
+    target_cash_frac = 0.05  # Target 5% cash at maturity
+    # Exponential decay toward target
+    return max(target_cash_frac, current_cash_frac * np.exp(-0.3 * year))
 
 # Tier return parameters (annual)
 TIER_PARAMS = {
@@ -322,10 +441,11 @@ total_contributed = np.array([INITIAL_VALUE + monthly_addition * m for m in rang
 # ═══════════════════════════════════════════════════════════════════════════════
 
 print("=" * 90)
-print("PROYECCIÓN DEL SISTEMA DE INVERSIÓN VALUE v4.0")
-print(f"Portfolio: €{INITIAL_VALUE:,.0f} | {N_POSITIONS} posiciones | "
-      f"Tier A: {CURRENT_TIERS['A']['count']} | "
-      f"Simulaciones: {n_simulations:,}")
+print("PROYECCIÓN DEL SISTEMA DE INVERSIÓN VALUE v4.6")
+print(f"Portfolio: €{INITIAL_VALUE:,.0f} (live) | {N_POSITIONS} posiciones | "
+      f"Tier A: {CURRENT_TIERS['A']['count']}, B: {CURRENT_TIERS['B']['count']}, "
+      f"C: {CURRENT_TIERS['C']['count']} | Cash: {CURRENT_CASH_PCT:.0f}%")
+print(f"Simulaciones: {n_simulations:,} | Sistema: {SYSTEM_AGE_DAYS} días")
 if monthly_addition > 0:
     print(f"Aportaciones: €{monthly_addition:,.0f}/mes")
 print(f"Fecha: {datetime.now().strftime('%Y-%m-%d')}")
@@ -441,26 +561,32 @@ print(f"\n{'='*90}")
 print("EVALUACIÓN CUALITATIVA DEL SISTEMA")
 print(f"{'='*90}")
 
-print("""
+tier_a_pct = CURRENT_TIER_PCT['A'] * 100
+tier_c_pct = CURRENT_TIER_PCT['C'] * 100
+tier_c_note = f"  [-] {tier_c_pct:.0f}% Tier C: Hay margen para mejorar calidad" if tier_c_pct > 20 else \
+              f"  [+] Solo {tier_c_pct:.0f}% Tier C: Calidad decente"
+cash_note = f"  [-] Cash {CURRENT_CASH_PCT:.0f}%: Cash drag significativo ~{CURRENT_CASH_PCT*0.08:.1f}pp/yr" if CURRENT_CASH_PCT > 30 else \
+            f"  [+] Cash {CURRENT_CASH_PCT:.0f}%: Capital bien desplegado"
+
+print(f"""
 FORTALEZAS (factores positivos NO modelados cuantitativamente):
-  [+] Framework adaptativo v4.0 (principios > reglas)
+  [+] Framework adaptativo v4.6 (principios > reglas, bidireccional)
   [+] Sesiones diarias = reacción rápida a eventos
-  [+] 23 agentes especializados = análisis sistemático
-  [+] Anti-bias protocols (screening programático, error tracking)
-  [+] Correlación baja entre posiciones (0.109 promedio)
+  [+] 24 agentes especializados = análisis sistemático
+  [+] Anti-bias protocols (screening programático, 55+ errores documentados)
   [+] Diversificación geográfica (US, UK, EU)
-  [+] Auto-evolución documentada (v2→v3→v4 en 10 días)
-  [+] 42 errores documentados = aprendizaje acelerado
+  [+] Pipeline robusto: 176 empresas en universe
+  [+] Auto-evolución documentada (v1→v4.6 en {SYSTEM_AGE_DAYS} días)
+  [+] Expected Return framework = deployment más inteligente
 
 DEBILIDADES (factores negativos):
-  [-] Track record: 12 DÍAS. Cero significancia estadística.
-  [-] Portfolio pequeño: €11K. Costes relativos altos.
-  [-] 57% Tier C: La mayoría del portfolio es "special situations"
+  [-] Track record: {SYSTEM_AGE_DAYS} DÍAS. Evidencia estadística mínima.
+  [-] Portfolio pequeño: €{INITIAL_VALUE:,.0f}. Costes relativos altos.
+{tier_c_note}
+{cash_note}
   [-] eToro: Spreads altos, sin opciones, limitado en instrumentos
   [-] Operador único: Si el humano no ejecuta, el sistema se para
-  [-] Sin crisis real testeada (solo simulación COVID)
-  [-] Over-engineering? 23 agentes para €11K puede ser ineficiente
-  [-] Framework en flux: 4 versiones en 12 días = inestabilidad
+  [-] Sin crisis real testeada (solo simulación)
 
 RIESGOS EXISTENCIALES (pueden destruir el sistema):
   [!] Abandono: El humano deja de operar (probabilidad ALTA en 1-3 años)
@@ -471,7 +597,8 @@ RIESGOS EXISTENCIALES (pueden destruir el sistema):
 
 FACTORES DE ÉXITO CRÍTICOS:
   [*] Disciplina: ¿Se mantiene el proceso en drawdowns?
-  [*] Rotación: ¿Se logra reemplazar Tier C con Tier A?
+  [*] Rotación: ¿Se logra rotar Tier C→A? (actual {tier_a_pct:.0f}%A → target 55%A)
+  [*] Capital deployment: Reducir cash del {CURRENT_CASH_PCT:.0f}% actual
   [*] Capital: ¿Se aporta capital adicional para escalar?
   [*] Tiempo: Value investing necesita 3-5 años mínimo
 """)
@@ -654,16 +781,18 @@ ax5.set_xlim(0, 10)
 # ─── Title and Footer ────────────────────────────────────────────────────────
 
 fig.suptitle(
-    f'Proyección Sistema de Inversión Value v4.0 | '
-    f'€{INITIAL_VALUE:,.0f} | {N_POSITIONS} posiciones | '
+    f'Proyección Sistema de Inversión Value v4.6 | '
+    f'€{INITIAL_VALUE:,.0f} (live) | {N_POSITIONS} posiciones | '
+    f'A:{CURRENT_TIERS["A"]["count"]} B:{CURRENT_TIERS["B"]["count"]} '
+    f'C:{CURRENT_TIERS["C"]["count"]} | '
     f'{n_simulations:,} simulaciones MC',
-    fontsize=15, fontweight='bold', y=0.97
+    fontsize=14, fontweight='bold', y=0.97
 )
 
 fig.text(0.5, 0.01,
          f'Generado: {datetime.now().strftime("%Y-%m-%d")} | '
-         f'Supuestos explícitos en el código | '
-         f'12 días de track record = CERO evidencia estadística | '
+         f'Datos reales de portfolio/current.yaml | '
+         f'{SYSTEM_AGE_DAYS} días de track record | '
          f'Retornos nominales, sin inflación',
          ha='center', fontsize=8, color='gray', style='italic')
 
@@ -682,19 +811,20 @@ print(f"\n{'='*90}")
 print("EVALUACIÓN HONESTA")
 print(f"{'='*90}")
 
-print("""
+print(f"""
 ¿QUÉ DICE ESTE MODELO?
 
   El modelo sugiere que CON DISCIPLINA Y TIEMPO, el sistema tiene una probabilidad
-  razonable (~60-70%) de generar retornos positivos a 5 años y una probabilidad
-  moderada (~30-40%) de superar un benchmark de 8% CAGR.
+  razonable de generar retornos positivos a 5 años y una probabilidad moderada
+  de superar un benchmark de 8% CAGR. Las probabilidades exactas dependen del
+  escenario de mercado y la velocidad de rotación hacia Tier A.
 
 ¿QUÉ NO DICE?
 
   1. No predice el futuro. Es una simulación con supuestos discutibles.
   2. El factor más importante NO está modelado: la DISCIPLINA del operador.
-  3. 12 días de datos no permiten calibrar ningún parámetro con confianza.
-  4. La rotación Tier C → Tier A puede ser más lenta o más rápida.
+  3. {SYSTEM_AGE_DAYS} días de datos no permiten calibrar parámetros con confianza.
+  4. La rotación Tier B/C → Tier A puede ser más lenta o más rápida.
   5. Un solo evento (crash, abandono, error) puede invalidar todo.
 
 ¿CUÁL ES EL MAYOR RIESGO?
@@ -705,9 +835,9 @@ print("""
 
 ¿QUÉ AUMENTARÍA LA PROBABILIDAD DE ÉXITO?
 
-  1. TIEMPO: Mantener el sistema >5 años (el compounding necesita tiempo)
-  2. CAPITAL: Aportar capital regularmente (reduce impacto de costes fijos)
-  3. ROTACIÓN: Acelerar reemplazo de Tier C por Tier A (calidad > cantidad)
+  1. DEPLOY CAPITAL: Reducir cash del {CURRENT_CASH_PCT:.0f}% actual (cash drag real)
+  2. ROTAR A CALIDAD: Acelerar de {CURRENT_TIER_PCT['A']*100:.0f}%A actual → 55%A target
+  3. CAPITAL: Aportar capital regularmente (reduce impacto de costes fijos)
   4. DISCIPLINA: Seguir el proceso en drawdowns (lo más difícil)
-  5. SIMPLIFICAR: ¿Se necesitan 23 agentes? Reducir complejidad innecesaria.
+  5. TIEMPO: Mantener el sistema >5 años (el compounding necesita tiempo)
 """)

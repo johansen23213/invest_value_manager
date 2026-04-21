@@ -1,9 +1,30 @@
 # VEEV - Veeva Systems Inc.
 
-> **Fair Value:** $205 (R3 reconciled: analyst $220, specialist $195)
-> **Date:** 2026-02-13
-> **Status:** WATCHLIST
-> **Pipeline Stage:** R1 (Fundamental Analysis)
+## POST-EARNINGS UPDATE (2026-03-08)
+Q4 FY2026 BEAT on all metrics. Revenue $836M (+16% YoY, beat +2.5%). Non-GAAP EPS $2.06 (beat +6.7%).
+R&D Solutions subscription grew ~22.5% FY2026 — now 53% of subscription revenue. Operating margin 44.9% (+280bps).
+OCF $1,415M (+30% YoY). 10 of top-20 pharma committed to Vault CRM. 125+ live. CRM fears de-risked.
+FY2027 guidance: $3,585-$3,600M revenue (+12.5%), Non-GAAP EPS ~$8.85 (+9.3%).
+Stock surged +11% post-earnings to $195.49. At 52wL before earnings ($168), now near updated FV.
+- **FV revised: $190 → $207** (operating leverage + cash generation + CRM de-risk)
+- **Entry revised: $145 → $165** (raised due to de-risked thesis)
+- **QS: 72 tool / 80 adj (Tier A).** Unchanged.
+- See: `q4_fy2026_earnings_assessment.md` for full analysis.
+
+## R3 Resolution (2026-02-18)
+DA MODERATE COUNTER (-8%): FV $205→$190. Entry $140-150→$145 (midpoint).
+- **Factual error**: Thesis missed $2B buyback announced Jan 5, 2026 (VEEV's first ever, 6.9% of mkt cap). Positive for thesis — corrects "no capital return" narrative.
+- **CRM share eroding**: 18→14 of top-20 pharma retained. Salesforce signed 40+ life sciences customers. QS adj +8→+6 (CRM share less dominant than claimed).
+- **SBC distorts FCF**: 15.9% of revenue ($437M). SBC-adjusted FCF ~$663M vs headline $1.1B. OEY 3.87%→2.34% adjusted.
+- **Error #49**: FV $205 = Morgan Stanley PT exactly. Edge limited.
+- **New LLM risk**: AI tools may disrupt eTMF, extending risk beyond CRM to R&D.
+- R3 FV: $190. Entry $145 (24% MoS). QS 72 tool, 78 adj. Wait Mar 4 Q4 FY2026 earnings.
+
+> **Fair Value:** $207 (post-earnings revision from $190)
+> **Entry Price:** $165 (post-earnings revision from $145)
+> **Date:** 2026-03-08 (post-earnings update)
+> **Status:** WATCHLIST — Standing order $165 recommended
+> **Pipeline Stage:** R3 COMPLETE (post-earnings updated)
 
 ---
 
@@ -61,19 +82,19 @@ Before Veeva, life sciences companies cobbled together horizontal tools (Salesfo
 
 ### Revenue Model
 
-| Segment | FY2026E Revenue | Growth | % Total | Notes |
+| Segment | FY2026 Revenue | Growth | % Total | Notes |
 |---------|----------------|--------|---------|-------|
-| Subscription - Commercial | ~$1,252M | ~12% | ~40% | Vault CRM, PromoMats, Medical CRM |
-| Subscription - R&D | ~$1,420M | ~18% | ~45% | Vault EDC, RIM, Safety, Quality |
-| Services | ~$497M | ~9% | ~15% | Implementation, consulting, training |
-| **Total** | **~$3,169M** | **~15%** | **100%** | |
+| Subscription - Commercial | $1,257.6M | ~12.3% | ~39% | Vault CRM, PromoMats, Medical CRM |
+| Subscription - R&D | $1,426.6M | ~22.5% | ~45% | Vault EDC, RIM, Safety, Quality |
+| Services | $511.1M | ~11% | ~16% | Implementation, consulting, training |
+| **Total** | **$3,195.3M** | **+16.3%** | **100%** | |
 
 **Key characteristics:**
-- **~85% subscription revenue** (highly recurring, multi-year contracts)
+- **~84% subscription revenue** (highly recurring, multi-year contracts)
 - **R&D Solutions now EXCEED Commercial Solutions** -- this is the growth engine
 - Revenue retention rate: ~120% net dollar retention (existing customers spend 20% more each year)
 - Customer churn: <4% (extremely sticky)
-- ~1,500 customers, heavily concentrated in top-20 pharma
+- ~1,552 customers, heavily concentrated in top-20 pharma
 
 ### Unit Economics
 
@@ -84,20 +105,18 @@ Before Veeva, life sciences companies cobbled together horizontal tools (Salesfo
 
 ### Margin Structure
 
-| Metric | FY2022 | FY2023 | FY2024 | FY2025 | Trend |
-|--------|--------|--------|--------|--------|-------|
-| Gross Margin | 72.8% | 71.7% | 71.3% | 74.5% | Expanding |
-| Operating Margin (non-GAAP) | 27.3% | 21.3% | 18.2% | 25.2% | Recovering strongly |
-| Non-GAAP OpM (Q3 FY26) | -- | -- | -- | 45.0% | Significant expansion |
-| FCF Margin | 41.3% | 36.2% | 38.6% | 39.7% | Consistently high |
-
-The operating margin recovery from 18.2% to 45% (non-GAAP, Q3) reflects the completion of heavy R&D investment in Vault platform and the start of operating leverage as subscription revenue scales.
+| Metric | FY2022 | FY2023 | FY2024 | FY2025 | FY2026 | Trend |
+|--------|--------|--------|--------|--------|--------|-------|
+| Gross Margin | 72.8% | 71.7% | 71.3% | 74.5% | ~75% | Expanding |
+| Non-GAAP Operating Margin | 27.3% | 21.3% | 18.2% | 42.1% | 44.9% | Strong expansion |
+| GAAP Operating Margin | -- | -- | -- | 25.2% | 28.7% | Improving |
+| FCF Margin | 41.3% | 36.2% | 38.6% | 39.7% | ~44% | Expanding |
 
 ### Capital Requirements
 
 - **Asset-light**: Capex ~1-2% of revenue (cloud-based software, minimal physical infrastructure)
 - **Working capital**: Net cash generator (deferred revenue = customers pay upfront)
-- **Net cash position**: $6.5B ($90M debt vs $6.6B cash) -- fortress balance sheet
+- **Net cash position**: $6.5B ($96M debt vs $6.6B cash) -- fortress balance sheet
 
 ### Pricing Model -- CRITICAL for SaaSpocalypse Assessment
 
@@ -109,7 +128,7 @@ HOWEVER, several mitigating factors:
 2. **Pharma sales forces are relatively stable.** Unlike tech companies aggressively cutting headcount, pharma reps are necessary for physician engagement and regulatory-required interactions (adverse event reporting, fair balanced promotion). AI cannot replace the in-person pharma rep relationship in most markets.
 3. **Land-and-expand model offsets seat reduction.** Even if a pharma company has 10% fewer reps, Veeva sells more modules (PromoMats, Medical CRM, Data Cloud, Crossix analytics) to the same customer.
 
-**Net assessment: SaaSpocalypse risk is MODERATE for VEEV, not HIGH.** Per-seat CRM exposure exists (~40% of revenue) but is offset by R&D revenue growth and product expansion. This is materially different from horizontal SaaS companies (PAYC, ADBE) where per-seat is the dominant model.
+**Net assessment: SaaSpocalypse risk is MODERATE for VEEV, not HIGH.** Per-seat CRM exposure exists (~39% of revenue in FY2026) but is offset by R&D revenue growth and product expansion. This is materially different from horizontal SaaS companies (PAYC, ADBE) where per-seat is the dominant model.
 
 ---
 
@@ -119,7 +138,7 @@ HOWEVER, several mitigating factors:
 
 1. **CRM client retention downgrade (Q3 FY2026)**: CEO Gassner said Veeva would retain "14 or so" of top-20 pharma for Vault CRM, down from 18 previously expected. This spooked the market.
 2. **Salesforce Life Sciences Cloud competition**: Salesforce launched a competing product after the exclusive relationship ended Sep 2025. Market fears Salesforce will take meaningful CRM share.
-3. **Growth deceleration**: Revenue growth expected to slow from 16% to ~10-11% over next 12 months.
+3. **Growth deceleration**: Revenue growth expected to slow from 16% to ~12-13% over next 12 months.
 4. **Goldman Sachs downgrade to Sell**: Cited maturity concerns.
 5. **Multiple compression**: SaaS sector broadly re-rated downward as rates stayed higher for longer.
 
@@ -127,11 +146,11 @@ HOWEVER, several mitigating factors:
 
 | Market believes | I believe | Evidence |
 |----------------|-----------|----------|
-| Salesforce will take CRM share | VEEV retains 70%+ CRM share; Salesforce only has 3/20 top pharma, go-lives stretch to 2026-2029 | 9 vs 3 top-20 commitments; 115+ Vault CRM live deployments already |
-| 14/20 = concerning retention | 14/20 = 70% retention rate in a transition period is STRONG, not weak | Historical context: any platform migration sees some client loss |
-| Growth will decelerate materially | R&D Solutions growing 18%+ and now larger than Commercial; total growth runway still has years | TAM $20B+ at only 16% penetration; 2030 goal $6B revenue |
+| Salesforce will take CRM share | VEEV retains 70%+ CRM share; Salesforce only has 2-3/20 top pharma | 10 committed to Vault CRM, expects ~14 |
+| 14/20 = concerning retention | 14/20 = 70% retention rate in a transition period is STRONG | Q4 data: 10 committed, heading toward 14, 125+ live |
+| Growth will decelerate materially | R&D Solutions growing 22.5% and now larger than Commercial; total growth runway still has years | TAM $20B+ at only 16% penetration; 2030 goal $6B revenue |
 | SaaSpocalypse kills per-seat pricing | R&D/clinical revenue is not per-seat; pharma reps are relatively AI-proof | 45% of revenue is R&D (non-per-seat), growing faster |
-| Premium valuation not justified | 40% FCF margin, net cash, 120% NRR, <4% churn -- this IS premium quality | Very few SaaS companies have this combination |
+| Premium valuation not justified | 40% FCF margin, net cash, 120% NRR, <4% churn -- this IS premium quality | Forward P/E 22x is historically cheap for VEEV |
 
 ### Value Trap Checklist
 
@@ -142,373 +161,91 @@ HOWEVER, several mitigating factors:
 | Management destroying value | NO | Gassner founder-CEO, 8.5% ownership, aligned. Removed super-voting 2023. |
 | Balance sheet deteriorating | NO | $6.5B net cash, improving |
 | Insider selling massive | PARTIAL | Gassner has sold some shares (routine 10b5-1 plans). Not alarming given 8.5% stake. |
-| Dividend cut recent/probable | N/A | No dividend (growth reinvestment) |
+| Dividend cut recent/probable | N/A | No dividend (growth reinvestment). $2B buyback initiated Jan 2026. |
 | Losing market share >2pp 3yr | NO | Still ~80% CRM share. Losing 4 of top-20 is small in context of 1,500 customers |
 | ROIC < WACC last 3 years | NO | ROIC 11.1% > WACC 10.4%. Understated due to excess cash. |
-| FCF negative >2 years | NO | FCF consistently positive and growing: $764M -> $780M -> $911M -> $1.1B |
+| FCF negative >2 years | NO | FCF consistently positive and growing: $764M -> $780M -> $911M -> $1.1B -> $1.4B |
 | Goodwill >50% equity | NO | Minimal goodwill (organic growth business) |
 
 **TOTAL: 0-1/10 factors YES. Low value trap risk.**
 
-### My Informational Advantage
-
-- Horizon temporal: Market focused on Q4 FY2026 earnings (March 4) and near-term CRM transition noise. I can look through to 2028-2030 when R&D Solutions dominate revenue mix and Vault CRM migration is complete.
-- The market is conflating CRM transition friction (temporary) with structural market share loss (permanent).
-
 ---
 
-## Moat Assessment
-
-### Source 1: Switching Costs (VERY HIGH -- 9/10)
-
-Once clinical trial data, regulatory submissions, pharmacovigilance records, and quality systems are embedded in Vault, switching is virtually impossible without:
-- Risking regulatory compliance (FDA 21 CFR Part 11)
-- Disrupting active clinical trials (patient safety)
-- Re-validating entire systems (12-18 month process, millions in costs)
-- Retraining thousands of users
-
-**Evidence**: <4% annual churn. 120% net dollar retention. Multi-year contracts.
-
-### Source 2: Network Effects (MODERATE -- 5/10)
-
-- Data network effects: Crossix analytics improves with more data flowing through the platform
-- Ecosystem effects: Veeva CRM + Vault + Data Cloud integration makes the platform more valuable as customers use more modules
-- Industry standard: When most pharma uses Veeva, consultants, CROs, and regulatory agencies align their processes to Veeva's platform
-
-### Source 3: Intangible Assets (HIGH -- 7/10)
-
-- 20+ years of life sciences domain expertise embedded in product design
-- Regulatory compliance features that are extremely difficult to replicate (GxP validation)
-- Brand trust: "No one gets fired for choosing Veeva" in life sciences (similar to IBM/Oracle in enterprise IT)
-
-### Source 4: Scale Advantages (MODERATE -- 5/10)
-
-- R&D investment ($600M+/year) amortized across 1,500+ customers
-- Professional services network and partner ecosystem
-- Data assets (reference data on 15M+ healthcare professionals)
-
-**Total Moat Score: 20/25 (Wide Moat)**
-
----
-
-## Projections
-
-### Revenue Projection
-
-| Component | Assumption | Basis |
-|-----------|-----------|-------|
-| TAM | $20B+ current, growing to $30-50B by 2028 | Company disclosure, industry research |
-| Market share | Stable ~15-16% of TAM (pricing captures more value as TAM grows) | Already #1, share stable |
-| Pricing | +2-3% annual price increases | Regulated industry = low price sensitivity |
-| R&D Solutions growth | 15-18% (near-term), 12-15% (medium-term) | Vault EDC winning 6/20 top pharma, clinical/regulatory TAM expanding |
-| Commercial Solutions growth | 8-12% (Vault CRM migration, new products) | Losing some CRM seats but adding modules |
-| Services growth | 5-8% | Migration-related consulting demand |
-
-**Revenue trajectory (fiscal years ending Jan 31):**
-| Year | Revenue | Growth |
-|------|---------|--------|
-| FY2026 (actual, mostly reported) | $3.17B | 15% |
-| FY2027E | $3.55B | 12% |
-| FY2028E | $3.94B | 11% |
-| FY2029E | $4.33B | 10% |
-| FY2030E | $4.76B | 10% |
-
-This is below management's $6B run-rate target for 2030. I am intentionally conservative.
-
-### Margin Projection
-
-| Metric | FY2026 | FY2028E | FY2030E | Basis |
-|--------|--------|---------|---------|-------|
-| Gross Margin | 74.5% | 75.5% | 76% | Scale + subscription mix shift |
-| Non-GAAP Operating Margin | ~42% | 44% | 45% | Operating leverage (R&D investment peaking) |
-| FCF Margin | ~40% | 41% | 42% | Minimal capex, working capital generator |
-
-### WACC Derivation
-
-| Component | Value | Source |
-|-----------|-------|--------|
-| Risk-free rate | 4.3% | US 10Y Treasury (Feb 2026) |
-| Equity Risk Premium | 5.5% | Damodaran US ERP 2026 |
-| Beta | 1.08 | yfinance |
-| Cost of Equity (Ke) | 10.2% | 4.3% + 1.08 * 5.5% |
-| Cost of Debt (Kd) | N/A | Essentially no debt ($90M vs $6.6B cash) |
-| WACC | 10.2% | ~100% equity-funded |
-
-**Sanity check:** 10.2% WACC is appropriate for a high-quality SaaS company with stable cash flows but some competitive uncertainty. This is higher than a utility but lower than speculative tech.
-
----
-
-## Valuation
-
-### Method 1: Owner Earnings Yield + Growth (Primary -- 55% weight)
-
-**Tier A companies should be valued primarily on OEY per the valuation-methods skill.**
-
-```
-FCF (TTM): ~$1.1B
-Depreciation: ~$50M
-Maintenance Capex: ~$55M (Depreciation x 1.1)
-Owner Earnings = $1.1B - $55M + $50M = ~$1.095B
-
-Market Cap: $28.3B
-Owner Earnings Yield = $1.095B / $28.3B = 3.87%
-
-Expected Growth (revenue): 11-12% (next 5 years average)
-FCF Growth (expected): 13-15% (margin expansion + revenue growth)
-
-OEY + Expected FCF Growth = 3.87% + 14% = 17.87%
-vs WACC = 10.2%
-
-Spread: +7.67pp -> ATTRACTIVE
-```
-
-**For OEY-based fair value:**
-At what price does OEY + Growth = WACC (breakeven)?
-If we require OEY + Growth > 12% (consistent with precedents for Tier A quality):
-- At $172: OEY 3.87% + 14% growth = 17.87% > 12% --> Attractive
-- At $250: OEY 2.66% + 14% = 16.66% > 12% --> Still attractive
-- At $310 (52w high): OEY 2.15% + 14% = 16.15% --> Even here, technically positive
-
-However, OEY method for a growth company gives very high fair values because growth dominates. This is why Reverse DCF is needed as secondary.
-
-### Method 2: Reverse DCF (Secondary -- 25% weight)
-
-Using DCF tool output with WACC 9.5% (slightly below my calculated 10.2% to account for the fortress balance sheet reducing real risk):
-
-| Growth Rate Implied | Fair Value | At $172 |
-|---------------------|-----------|---------|
-| 11% | $186.9 | Market implies ~13% growth |
-| 14% | $205.8 | Base case = 20% MoS |
-| 17% | $226.8 | Bull case = 32% MoS |
-
-**At $172, the market implies approximately 10-11% FCF growth.** Given VEEV's 14% revenue CAGR and expanding margins, this seems overly pessimistic. The market is pricing in material growth deceleration that I think is exaggerated by CRM transition noise.
-
-### Method 3: EV/FCF Multiple (Verification -- 20% weight)
-
-```
-Current EV = Market Cap - Net Cash = $28.3B - $6.5B = $21.8B
-Current FCF = ~$1.1B
-EV/FCF = 19.8x
-
-For a company growing FCF 13-15% with 40% FCF margins and <4% churn:
-- Fair EV/FCF range: 22-28x (comparable to high-quality vertical SaaS)
-- At 25x: EV = $27.5B -> Equity = $34B -> FV = $206/share
-- At 22x: EV = $24.2B -> Equity = $30.7B -> FV = $187/share
-- At 28x: EV = $30.8B -> Equity = $37.3B -> FV = $227/share
-```
-
-### Reconciliation
+## Valoracion (Post-Earnings Updated)
 
 | Method | Fair Value | Weight | Weighted |
 |--------|-----------|--------|----------|
-| OEY + Growth (implied FV where OEY+G = 12%) | ~$260 | 30% | $78.0 |
-| DCF Base (14% growth, 9.5% WACC) | $206 | 35% | $72.1 |
-| EV/FCF 25x | $206 | 20% | $41.2 |
-| DCF Conservative (12% growth, 10% WACC) | $182 | 15% | $27.3 |
-| **Weighted Average** | | **100%** | **$218.6** |
+| DCF Base (12.5% growth, 10% WACC) | $185 | 30% | $55.5 |
+| OEY + Growth (SBC-adjusted) | $225 | 25% | $56.3 |
+| EV/FCF 23x ($1.4B OCF) | $212 | 25% | $53.0 |
+| Reverse DCF (12.1% implied, 14% actual) | $210 | 20% | $42.0 |
+| **Weighted Average** | | **100%** | **$206.8** |
 
-**Rounded Fair Value: $220**
+**Rounded Fair Value: $207**
 
-### DCF Sensitivity Assessment
+## Escenarios (Post-Earnings Updated)
 
-```
-Sensitivity: FV Spread 62%, TV 77.4% of EV --> HIGH SENSITIVITY
-```
+| | Bear | Base | Bull |
+|--|------|------|------|
+| FV | $160 | $207 | $260 |
+| Prob | 20% | 55% | 25% |
 
-The DCF is highly sensitive to growth and WACC assumptions, and terminal value dominates (77.4%). This is typical for growth companies. Therefore, the DCF is UNRELIABLE as a point estimate -- I use the RANGE ($155-$260) as the relevant output. The weighted FV of $220 sits comfortably within this range but should be treated as a midpoint, not a precise target.
+Expected Value: $210.85
 
-**This high sensitivity means the required MoS should be at the higher end for Tier A.**
+## MoS
 
----
-
-## Scenarios
-
-| Scenario | Prob | Revenue Growth | FCF Growth | Fair Value | MoS at $172 |
-|----------|------|---------------|-----------|-----------|-------------|
-| **Bear** | 25% | 8% (Salesforce takes meaningful share, growth stalls) | 9% | $160 | -7% |
-| **Base** | 50% | 12% (R&D drives growth, CRM stabilizes) | 14% | $220 | +28% |
-| **Bull** | 25% | 16% (R&D accelerates, AI upsell, $6B target achieved) | 18% | $290 | +69% |
-
-### Expected Value
-
-```
-EV = ($160 x 25%) + ($220 x 50%) + ($290 x 25%)
-EV = $40 + $110 + $72.5
-EV = $222.5
-
-MoS vs EV: ($222.5 - $172) / $222.5 = +22.7%
-MoS vs Bear: ($160 - $172) / $160 = -7.5% (DOWNSIDE in bear)
-```
-
-### Bear Case Details
-- Salesforce wins 6-8 of top-20 pharma CRM (from current 3)
-- R&D Solutions growth decelerates to 12% then 8%
-- Pricing pressure from competition compresses margins
-- Multiple compresses further to 18-20x EV/FCF
-- **Catalyst**: Major pharma company publicly switches from Vault CRM to Salesforce
-
-### Bull Case Details
-- Vault CRM stabilizes at 14+ of top-20 pharma
-- R&D Solutions accelerate to 20%+ driven by AI-powered clinical tools
-- Veeva AI agents become industry standard for pharmacovigilance/safety
-- Management achieves $6B revenue run rate target by 2030
-- Multiple re-rates to 28-30x EV/FCF as market recognizes quality
-- **Catalyst**: Q4 FY2026 earnings (March 4) show strong bookings, CRM retention stabilizes
-
----
-
-## MoS Analysis
-
-| Metric | Value |
-|--------|-------|
-| MoS vs Base FV ($220) | +22% |
-| MoS vs Bear FV ($160) | -7% |
-| MoS vs Expected Value ($222.5) | +23% |
-| Required MoS (Tier A, high sensitivity DCF) | 15-20% |
-| Meets requirement? | YES at base/EV, NO at bear |
-
-### Precedent comparison (Tier A buys):
-
-| Ticker | Tier | MoS at Entry | Context |
-|--------|------|-------------|---------|
-| ADBE | A | 31% | Fallen angel, AI fears |
-| NVO | A | 38% | Guidance shock, panic |
-| LULU | A | 34% | Fallen angel, CEO vacancy |
-| MONY.L | A | 36% | 52w low |
-| AUTO.L | A | 29% | Dealer revolt |
-| BYIT.L | A (adj B) | 35% | Microsoft restructuring |
-| **VEEV** | **A** | **22%** | **CRM transition noise** |
-
-**VEEV's MoS at $172 (22%) is below the typical Tier A entry range (29-38%) from precedents.** This is the main reason to WATCHLIST rather than BUY immediately.
-
-An entry price of $168 would give ~24% MoS. An entry of $155-160 would give 27-30% MoS, more consistent with precedents.
-
-**However, reasoning from principles:** The lower MoS is partially offset by:
-1. Net cash of $6.5B provides a substantial floor
-2. 40% FCF margins mean the business generates enormous cash even in bear scenarios
-3. <4% churn and 120% NRR mean revenue is highly resilient
-4. No debt = no insolvency risk
-
-I set entry at $155-165 for consistency with Tier A precedents, noting that $168 (current 52w low) would be acceptable if the Q4 earnings provide positive signals.
-
----
+- vs Base: +5.6% ($207 vs $195.49)
+- vs Bear: -18.2% ($160 vs $195.49)
+- vs Expected Value: +7.3%
+- Requerido (Tier A + fortress balance sheet): 15-20%
+- Cumple? **NO at current price. YES at entry $165 (20.3% MoS).**
 
 ## Kill Conditions
 
-1. **KC#1: CRM market share falls below 50% of top-20 pharma.** If Salesforce wins 10+ of top-20, Veeva's CRM moat is breached. Current: 14/20. Threshold: <10/20.
+1. **KC#1**: CRM market share <10/20 top pharma (currently 10, target 14)
+2. **KC#2**: Net dollar retention <105% (currently ~120%)
+3. **KC#3**: R&D Solutions growth <10% for 2+ quarters (currently 22.5%)
+4. **KC#4**: FCF margin <25% for 2+ quarters (currently ~44%)
+5. **KC#5**: CEO Gassner departs or sells >50% stake
+6. **KC#6**: Regulatory change eliminates validated systems requirement
+7. **KC#7**: Per-seat CRM pricing erosion >15% in any FY
 
-2. **KC#2: Net dollar retention falls below 105%.** This would indicate customers are shrinking spend, not expanding. Current: ~120%. Threshold: <105%.
+## Veredicto: WATCHLIST with SO $165
 
-3. **KC#3: R&D Solutions growth decelerates below 10% for 2+ consecutive quarters.** R&D is the growth engine. If it stalls, the thesis breaks. Current: ~18%. Threshold: <10%.
-
-4. **KC#4: FCF margin falls below 25% for 2+ consecutive quarters (excluding one-time events).** This would indicate structural profitability deterioration. Current: ~40%. Threshold: <25%.
-
-5. **KC#5: CEO Peter Gassner departs or sells >50% of his stake.** Gassner is the founder-CEO and holds 8.5%. His departure or major selling would signal fundamental concern. Current: 8.5% ownership, active management.
-
-6. **KC#6: Major regulatory change eliminates need for validated systems in life sciences.** If FDA/EMA stopped requiring 21 CFR Part 11 compliance for clinical systems, switching costs would collapse. Probability: <1%.
-
-7. **KC#7: Per-seat CRM pricing erosion >15% across portfolio in any fiscal year.** Per the SaaSpocalypse risk framework. If AI-driven headcount reduction at pharma companies causes material seat loss, the CRM revenue model is impaired. Monitor via quarterly CRM subscription revenue growth.
-
----
-
-## Catalysts
-
-| Catalyst | Timeframe | Probability | Impact |
-|----------|-----------|-------------|--------|
-| Q4 FY2026 earnings (March 4, 2026) | 3 weeks | 100% | HIGH -- CRM retention clarity, FY2027 guidance |
-| Vault CRM migration reaching critical mass (200+ go-lives) | H1 2026 | 80% | MEDIUM -- validates platform transition |
-| R&D Solutions winning additional top-20 pharma for Vault EDC | 2026 | 60% | HIGH -- proves R&D as growth engine |
-| Veeva AI agent deployment across applications | H2 2026 | 70% | MEDIUM -- AI monetization catalyst |
-| Fed rate cuts | H2 2026 | 40% | MEDIUM -- SaaS multiple re-rating |
-| IQVIA partnership post-legal settlement | 2026-2027 | 50% | MEDIUM -- removes competitive friction in data |
-
----
-
-## Macro Fit
-
-| Factor | Sensitivity | Current Impact |
-|--------|-------------|----------------|
-| Interest rates | Medium-High | Rates staying higher = multiple compression for growth stocks |
-| Recession | Low | Healthcare spending is defensive; pharma R&D is non-discretionary |
-| Inflation | Low | High pricing power in regulated vertical |
-| USD strength | Low-Medium | Most revenue US-denominated, some international exposure |
-| Tariffs | Very Low | Software, zero physical trade exposure |
-
-**World view alignment:** NEUTRAL to SLIGHTLY FAVORABLE. The macro environment (rates higher for longer, potential inflation reacceleration) is a headwind for SaaS multiples but VEEV's defensive end-market (healthcare) and quality metrics (net cash, FCF margins) provide resilience. A Fed rate cut would be a clear positive catalyst for re-rating.
-
----
-
-## Veredicto: WATCHLIST
-
-**Entry Price: $155-165 (MoS 25-30% vs base FV $220)**
-
-| Factor | Assessment |
-|--------|-----------|
-| Quality | Tier A (QS 80 adjusted). Wide moat. Exceptional financials. |
-| Price | Not cheap enough yet. At $172, MoS is ~22% -- below Tier A precedent range (29-38%). |
-| Risk | MODERATE. CRM transition is the main near-term risk. High DCF sensitivity. |
-| Timing | Q4 earnings March 4 will provide critical CRM retention data and FY2027 guidance. |
-| Recommendation | WAIT for either (a) price decline to $155-165 or (b) Q4 earnings that de-risk the CRM transition narrative. |
-
-**Standing order consideration:** A standing order at $160 would give 27% MoS, consistent with Tier A precedents. However, this should wait for R2 (devil's advocate) before committing.
+Quality of business: EXCEPTIONAL (QS 80, Tier A).
+Quality of results: BEAT on ALL metrics. CRM de-risked. R&D accelerating.
+Quality of price: FAIR, not CHEAP. MoS of 5.6% insufficient for Tier A entry.
+Recommendation: Standing order at $165 (MoS 20.3%). Monitor for broader selloff opportunity.
 
 ---
 
 ## Sources
 
-- [Veeva Q3 FY2026 Earnings - Nasdaq](https://www.nasdaq.com/articles/veeva-systems-q3-revenue-16-ai-and-crm-momentum-drive-growth)
-- [Veeva Q3 FY2026 Slides - Investing.com](https://www.investing.com/news/company-news/veeva-systems-q3-2026-slides-revenue-jumps-16-margins-expand-to-45-93CH-4371882)
-- [Veeva Q3 Earnings Call Transcript - Investing.com](https://www.investing.com/news/transcripts/earnings-call-transcript-veeva-systems-q3-2026-beats-expectations-stock-dips-93CH-4371867)
-- [Veeva IR - Quarterly Results](https://ir.veeva.com/financials/quarterly-results/default.aspx)
-- [Veeva FY2025 Results](https://www.veeva.com/resources/veeva-announces-fourth-quarter-and-fiscal-year-2025-results/)
-- [Veeva Q4 FY2026 Date Announcement](https://www.stocktitan.net/news/VEEV/veeva-to-release-fiscal-2026-fourth-quarter-and-full-year-results-on-gbviihj9ona2.html)
-- [Veeva CRM vs Competitors - IntuitionLabs](https://intuitionlabs.ai/articles/veeva-crm-vs-competitors-comprehensive-comparison)
-- [Veeva Competitive Landscape - MatrixBCG](https://matrixbcg.com/blogs/competitors/veeva)
-- [Veeva Vertical SaaS Quality - Compound and Fire](https://compoundandfire.substack.com/p/veeva-systems-vertical-saas-quality)
-- [Veeva Platform Strategy - Intrinsic Investing](https://intrinsicinvesting.com/2024/07/23/veeva-a-winning-platform-strategy-in-life-sciences/)
-- [Veeva Pricing Guide - IntuitionLabs](https://intuitionlabs.ai/articles/veeva-systems-pricing-overview-complete-guide-to-costs-and-licensing)
-- [Veeva CRM Pricing 2026 - IntuitionLabs](https://intuitionlabs.ai/articles/veeva-crm-pricing-license-cost-2026)
-- [Veeva Risks - Sleep Well Investments](https://www.sleepwellinvestments.com/p/veeva-systems-veev-a-leader-in-life)
-- [Veeva 52-Week Low - Investing.com](https://www.investing.com/news/company-news/veeva-systems-stock-hits-52week-low-at-17782-93CH-4500477)
-- [Veeva Stifel Buy Rating - Investing.com](https://www.investing.com/news/analyst-ratings/veeva-systems-stock-falls-despite-stifel-reiterating-buy-rating-93CH-4373113)
-- [Veeva Long-Term Analysis - IntuitionLabs](https://intuitionlabs.ai/articles/veeva-systems-veev-ticker-investment-analysis-2025)
-- [Life Sciences Software Market Forecast - IntuitionLabs](https://intuitionlabs.ai/articles/life-sciences-software-market-forecast-structural-gaps)
-- [Veeva Institutional Ownership - Yahoo Finance](https://finance.yahoo.com/news/81-ownership-veeva-systems-inc-110019712.html)
-- [Peter Gassner Net Worth - GuruFocus](https://www.gurufocus.com/insider/90248/peter-p-gassner)
-- [Veeva Rebound - Seeking Alpha](https://seekingalpha.com/article/4867690-veeva-la-vida-here-comes-the-rebound-for-veeva-systems)
-- [Vault CRM Migration Roadmap - IntuitionLabs](https://intuitionlabs.ai/articles/veeva-vault-crm-migration-roadmap)
-- [Veeva TAM - Lewistown Capital](https://lewistowncapital.substack.com/p/veev-veeva-systems)
+- [Veeva Q4 FY2026 Press Release](https://www.prnewswire.com/news-releases/veeva-announces-fourth-quarter-and-fiscal-year-2026-results-302704492.html)
+- [Veeva Q4 FY2026 Earnings Prepared Remarks](https://s206.q4cdn.com/200001835/files/doc_earnings/2026/q4/supplemental-info/Veeva-Q4-26-Earnings-Prepared-Remarks.pdf)
+- [Veeva IR Quarterly Results](https://ir.veeva.com/financials/quarterly-results/default.aspx)
+- [StockTitan: Veeva FY26 Revenue Details](https://www.stocktitan.net/news/VEEV/veeva-announces-fourth-quarter-and-fiscal-year-2026-kwbdlmtqle3t.html)
+- [Investing.com: VEEV Q4 Earnings Beat](https://www.investing.com/news/transcripts/earnings-call-transcript-veeva-systems-q4-2026-earnings-beat-expectations-93CH-4542604)
+- [Investing.com: VEEV Q4 Slides](https://www.investing.com/news/company-news/veeva-systems-q426-slides-revenue-beats-forecast-margins-strong-93CH-4542627)
+- [FinancialContent: VEEV Q4 Analysis](https://markets.financialcontent.com/stocks/article/marketminute-2026-3-4-veeva-systems-q4-fy2026-results-dominating-the-sensitive-tech-frontier)
+- Full R1/R2/R3 research in this directory
 
 ---
 
-## 🔄 META-REFLECTION
+## META-REFLECTION
 
 ### Incertidumbres/Dudas
-
-1. **ROIC calculation is distorted by excess cash.** The tool shows ROIC-WACC spread of only +0.7pp, which mechanically pushes VEEV toward a Tier B classification. But $6.5B in excess cash on the balance sheet dilutes invested capital, making ROIC look artificially low. If excess cash is excluded, ROIC is ~16-18%. The tool does not handle this. I documented this transparently in the QS adjustment section (NOT adjusting points for it) but it means the tool's 72/100 underrepresents the true economic quality.
-
-2. **CRM retention: 14 vs 18 of top-20 is the key unknown.** I cannot know from public data which specific pharma companies are switching and why. Q4 FY2026 earnings (March 4) will provide critical clarity. If the number drops to 12 or below, the thesis weakens materially.
-
-3. **Per-seat pricing risk quantification.** I assessed SaaSpocalypse risk as MODERATE, but I cannot precisely quantify how much AI-driven headcount reduction will impact pharma sales forces. This is a 3-5 year horizon risk, not immediate.
-
-4. **Valuation complexity.** The OEY method gives a very high implied FV (~$260+) because growth dominates the equation. The DCF has high sensitivity (62% FV spread, 77% TV). This makes the $220 FV a judgment call, not a precise number. The range is probably $180-$260.
+- SBC-adjusted FCF remains a legitimate concern (~15-16% of revenue). The $2B buyback partially offsets but does not eliminate real dilution.
+- Billings growth decelerating to ~10.4% for FY2027 is a leading indicator of revenue deceleration in FY2028+. Monitor closely.
+- The CRM "14 of 20" target is management guidance, not committed. The actual committed number is 10. The gap (10 committed vs 14 expected) represents upside risk if they achieve it, or downside risk if commitments stall.
 
 ### Sugerencias para el Sistema
-
-1. **quality_scorer.py should handle excess cash.** Companies like VEEV, GOOGL, and AAPL with massive net cash positions get penalized in ROIC calculations because cash inflates the invested capital denominator. A flag like `--excess-cash-adjustment` could net out cash above 10% of revenue from invested capital. This would affect all tech companies with fortress balance sheets.
-
-2. **Sector view gap: There is no dedicated "Health IT / Life Sciences Technology" sector view.** VEEV spans both pharma-healthcare and technology but fits neither perfectly. It is a vertical SaaS company serving life sciences. Consider creating a dedicated "Health IT" or "Life Sciences Technology" subsection in one of the existing sector views.
+- quality_universe.yaml needs FV update from $190 to $207 and entry from $145 to $165.
+- Consider a "pharma IT" sector view that covers VEEV specifically -- it spans pharma and technology.
+- The post-earnings assessment workflow (structured like this document) should become a standard template for pipeline candidates.
 
 ### Preguntas para Orchestrator
-
-1. Should we wait for Q4 FY2026 earnings (March 4) before setting a standing order? The earnings will clarify CRM retention and FY2027 guidance, which are the two biggest uncertainties.
-
-2. Given VEEV is 2.4% from its quality universe entry price ($168), should we proceed to R2 (devil's advocate) now to have the full pipeline ready if price drops further?
+None -- this assessment is complete. The CIO decision is to maintain WATCHLIST status with a recommended standing order at $165.
 
 ### Anomalias Detectadas
-
-1. **Quality scorer shows ROIC trajectory: 22.9% -> 15.1% -> 9.5% -> 11.1%.** This declining ROIC trend would normally be a red flag, but it coincides with Veeva's massive cash accumulation ($0 -> $6.5B over 4 years). As the cash pile grew, ROIC denominator inflated, causing the apparent decline even as operating performance improved. The non-GAAP operating margin expanded from 18.2% to 45.0% over the same period, contradicting the "declining returns" narrative.
-
-2. **Tool beta of 1.08 seems slightly low** for a growth SaaS company (sector typical: 1.2-1.5). This may reflect VEEV's defensive end-market (healthcare) dampening volatility. The 1.08 beta is plausible and I use it as-is.
-
----
+- The DCF tool's default scenario significantly undervalues VEEV ($155.75 base vs $207 my estimate). The tool's conservative FCF growth defaults are inappropriate for a company with 16% revenue growth and margin expansion. This is a systematic tool limitation for high-growth companies.

@@ -1,0 +1,145 @@
+# CALENDAR - Active and Future Events
+# Past events archived in state/calendar_archive.yaml
+# Updated: 2026-03-11 (Session 113)
+
+events:
+  # COMPLETED — Archive candidates (keep for reference until next calendar cleanup)
+  # WKL.AS FY2025: COMPLETED Feb 25. Strong (6% organic, ROIC 18%). At EUR 68.51 — above entry EUR 50-55. MONITOR.
+  # BVI.PA FY2025: COMPLETED Feb 25. BASE+ case. Organic +6.5%, margin 16.3%. Not actionable at EUR 27.58 (entry EUR 22).
+  # QTCOM.HE FY2025: COMPLETED Feb 26. CONDITIONAL PASS. FY EBITA 24% (PASS >=18%), Q4 35.6% recovery. BUT FY2026 guide only 15% EBITA — defer R2.
+  # DTE.DE FY2025: COMPLETED Feb 26. EBITDA EUR 45.5B beat. EPS EUR 2.00 in-line. FY2026 guide EUR 2.20 (miss vs EUR 2.50). FV revised EUR 35→33. Conviction MEDIUM→LOW-MEDIUM.
+  # INTU Q2 FY2026: COMPLETED Feb 26. BULL case. Rev +17%, EPS +12.8%. Stock rallied to $419 — far above entry $285-300. Opportunity missed. ADJUST ENTRY.
+  # CS.PA FY2025: Feb 26. Not assessed this session — no position, no pipeline.
+  # PROX.BR FY2025: COMPLETED Feb 27. Crashed -20% to EUR 6.63. Dividend CUT 50%. PASS on buying — thesis invalidated.
+  # ENGI.PA FY2025: Feb 28. Not assessed — no position, no pipeline.
+  # NTGY.MC FY2025: Mar 1. Not assessed — no position, no pipeline.
+  # LYV DOJ trial: Started Mar 2. MONITOR ONLY. No position.
+  # KLR.L FY2025: COMPLETED Mar 3. RECORD results. All 3 hard gates PASS (OP 7.1%, OB GBP 1.5B, ROCE 30.7%). Stock +10.8%. SO activated at 1,700p.
+  # ITRK.L FY2025: COMPLETED Mar 3. MIXED. Margin 18.1% PASS (>=16.3%) but FCF -14% MISS. Stock crashed -12% to ~4,100p. Approaching entry 3,700p. MONITOR closely.
+
+  # MARCH — UPCOMING
+
+  - date: 2026-03-03
+    type: earnings_pipeline
+    ticker: ASM.AS
+    event: "ASM.AS Q4 2025 Full Results — R1 monitoring"
+    priority: medium
+    action: "R1 S104. QS 80adj Tier A. FV EUR 525, entry EUR 475. Results today — assess when available."
+
+  - date: 2026-03-03
+    type: earnings_pipeline
+    ticker: BEI.DE
+    event: "Beiersdorf FY2025 Results — R1 monitoring"
+    priority: medium
+    action: "R1 S104. QS 75adj Tier A. FV EUR 99, entry EUR 85-90. Results today — assess when available."
+
+  # MEGP.L Mar 13: SECOND DELAY. Results NOT published. Forvis Mazars requested more time.
+  # New date: Mar 23. Board says "no material audit issues." Shares still SUSPENDED. FY2026 YTD "in line."
+
+  - date: 2026-03-23
+    type: earnings_pipeline
+    ticker: MEGP.L
+    event: "MEGP.L FY2025 Results — THIRD ATTEMPT (delayed from Feb 27 → Mar 13 → Mar 23)"
+    priority: high
+    action: "SECOND audit delay. Board states no material issues. Shares SUSPENDED since Mar 2. PASS criteria unchanged: laundry installs >=1000, PBT >=GBP 75M, receivables benign, clean audit opinion MANDATORY, FY2026 guide >=3% growth. If qualified audit → ARCHIVE. If clean → evaluate platform availability + R4."
+
+  # VEEV Q4 FY2026: COMPLETED Mar 4. BLOWOUT. Rev $836M (+16%), EPS $2.06 beat. FV revised $190→$207. Entry $145→$165. Stock at $195 = 5.6% MoS. Not actionable. Pipeline updated.
+
+  # DOM.L FY2025: COMPLETED Mar 10. BASE case. EBITDA GBP 133.9M (KC>125M PASS). FCF 80.7M beat. EPS 17.6p. Div +2.7%. FV 240p MAINTAINED. HOLD LOW.
+
+  - date: 2026-03-16
+    type: catalyst
+    ticker: DOM.L
+    event: "New CFO Andy Andrea starts at DOM.L"
+    priority: medium
+    action: "First new management arrival. CEO Dominic Paul starts Apr 6."
+
+  - date: 2026-04-06
+    type: catalyst
+    ticker: DOM.L
+    event: "New CEO Dominic Paul starts at DOM.L"
+    priority: high
+    action: "Ex-Costa Coffee MD. Strategic review expected Q2 2026. Watch for Cap Markets Day announcement."
+
+  # FOUR.L FY2025: COMPLETED Mar 11 (S113). GATE PASSED: OM 10.8%, GM 32.4% (+60bps), FCF $128M (+18%), mktg efficiency stabilized $7.86. New cust -12% (2nd yr, approaching KC#1). Stock -7.8% to 3,515p. GATED SO set at 3,400p (R4 committee required). E[CAGR] 16.6% at current.
+
+  - date: 2026-03-12
+    type: earnings_pipeline
+    ticker: ALFA.L
+    event: "ALFA.L FY2025 Full Year Results — HARD GATE for R4"
+    priority: high
+    action: "R3 complete. QS 83 Tier A. FV 235p, entry 165p. HARD GATE: (1) receivables normalized (54% growth vs 8% rev), (2) SE revenue FY2026 guidance, (3) FCF margin improved from 20.7%, (4) CHP selling activity disclosed, (5) no Solifi client wins. If PASS → R4 committee immediately. 5th UK position risk."
+
+  # ADBE Q1 FY2026: COMPLETED S115 (Mar 14 assessment). BULL ops: Rev $6.40B (+12%), EPS $6.06 (beat), FCF $2.92B record. CEO Narayen stepping down (NEW RISK). NNARR miss $400M (Stock cannibalization). Stock -8.85% to $249. FV $390 MAINTAINED. HOLD. Zero KCs triggered.
+
+  - date: 2026-03-15
+    type: catalyst
+    ticker: NVO
+    event: "NVO pipeline update / additional CagriSema data (TENTATIVE)"
+    priority: medium
+    action: "KC#1 ALREADY TRIGGERED. FV $50 (v5.0). Generic semaglutide <$3/mo study Mar 6 — EM patents expiring. US/EU safe to 2031-32. Oral Wegovy launch strong (70K pharmacies). NO further ADDs."
+
+  - date: 2026-03-19
+    type: earnings
+    ticker: ENEL.MI
+    event: "Enel FY2025 results"
+    priority: medium
+
+  # LULU proxy deadline Mar 13 + Q4 earnings Mar 17: RESOLVED. Position SOLD 2026-03-20 at ~$157.50 (-8.2%). Pre-set trigger ($165) met.
+
+  # REGULATORY WATCH
+  - date: 2026-06-30
+    type: regulatory
+    ticker: MA
+    event: "CCCA (Credit Card Competition Act) — monitor legislative progress"
+    priority: high
+    action: "Trump endorsed Jan 2026, bipartisan. Could reduce US scheme fees 15-25%. Affects MA + V standing orders. Re-evaluate if committee vote scheduled."
+
+  # APRIL
+  - date: 2026-04-25
+    type: position_review
+    ticker: MONY.L
+    event: "MONY.L 60-day probation review"
+    priority: high
+    action: "Probation expires. Evaluate: AI strategy execution, traffic trends, Insurance segment. If no improvement → SELL. If positive → UPGRADE to MEDIUM conviction."
+
+  # Q2+ (major events only)
+  - date: 2026-04-15
+    type: watchlist_review
+    ticker: DSY.PA
+    event: "DSY.PA Q1 2026 — standing order review"
+    priority: high
+    action: "Cancel if Q1 growth <3%. See thesis/research/DSY.PA/committee_decision.md"
+
+  - date: 2026-05-01
+    type: earnings_pipeline
+    ticker: VLTO
+    event: "VLTO Q1 FY2026 — thesis re-eval trigger"
+    priority: high
+    action: "Standing order at $80 valid until this date."
+
+  - date: 2026-05-11
+    type: system_review
+    ticker: PORTFOLIO
+    event: "3-month adversarial FV accuracy check + all-Tier-A feasibility review"
+    priority: medium
+
+  - date: 2026-08-01
+    type: legal
+    ticker: MMC
+    event: "MMC Greensill A$7B trial (Australia)"
+    priority: CRITICAL
+    action: "Half-position constraint until resolved."
+
+  - date: 2026-09-24
+    type: legal
+    ticker: ADBE
+    event: "ADBE FTC: Last day for dispositive motions"
+    priority: high
+
+  - date: 2026-10-19
+    type: legal
+    ticker: ADBE
+    event: "ADBE FTC: JURY TRIAL"
+    priority: CRITICAL
+    action: "Decision point. Binary outcome."

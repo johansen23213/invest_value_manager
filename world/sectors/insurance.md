@@ -13,7 +13,7 @@ El sector asegurador global se encuentra en un punto de inflexion tras dos anos 
 - **Underwriters** (ACGL, ALL, GL): Take balance sheet risk on insurance claims. Revenue = premiums - claims. Exposed to catastrophe losses.
 - **Brokers** (MMC, AON, AJG): Pure intermediaries earning commissions/fees. NO claims risk. Revenue grows with premium rates AND market complexity. Higher margins, more predictable.
 
-La tesis sectorial es **selectiva**: en US, ACGL (specialty/reinsurance, QS 68 adj, P/E 8.6x, P/B 1.53x, ROE 17-21%) emerge como la mejor oportunidad en underwriting. MMC (#1 global broker, QS 68 adj, FV $220, entry $160) es la mejor oportunidad en broking pero needs further price decline. ALL y GL siguen en portfolio como posiciones Tier C.
+La tesis sectorial es **selectiva**: en US, ACGL (specialty/reinsurance, QS 68 adj, P/E 8.6x, P/B 1.53x, ROE 17-21%) emerge como la mejor oportunidad en underwriting. MMC (#1 global broker, QS 68 adj, FV $220, entry $160) es la mejor oportunidad en broking pero needs further price decline. GL sigue en portfolio como posicion Tier C. ALL vendida 2026-02-14 (MoS insuficiente, peak cycle).
 
 El riesgo principal para underwriters es el clima: 2025 fue el sexto ano consecutivo con perdidas aseguradas >$100B. Para brokers, el riesgo principal es organic growth deceleration and multiple compression. El driver clave compartido son los tipos de interes: investment income se beneficia mientras las tasas se mantengan elevadas.
 
@@ -220,6 +220,7 @@ Las europeas (Allianz, AXA) ofrecen yield pero menor calidad de underwriting."
 |--------|---------|-----|-------------|--------------|--------|
 | **ACGL** | **Arch Capital** | **68 adj (B)** | **thesis/research/ACGL** | **$92** | **R1 complete, WATCHLIST** |
 | **MMC** | **Marsh McLennan** | **68 adj (B)** | **thesis/research/MMC** | **$160** | **R1 complete, WATCHLIST** |
+| **AON** | **Aon plc** | **70 adj (B)** | **thesis/research/AON** | **$300** | **R1 complete, WATCHLIST** |
 | KMPR | Kemper Corp | 42 (C) | thesis/research/KMPR | $28 | Wait for turnaround confirmation |
 
 ### Evitar
@@ -264,7 +265,6 @@ Las europeas (Allianz, AXA) ofrecen yield pero menor calidad de underwriting."
 
 | Tipo | Ticker | Thesis Path | Ultima Eval | Status |
 |------|--------|-------------|-------------|--------|
-| Portfolio | ALL | thesis/active/ALL | 2026-02-03 | HOLD |
 | Portfolio | GL | thesis/active/GL | 2026-02-03 | HOLD |
 | Watchlist | **ACGL** | **thesis/research/ACGL** | **2026-02-12** | **Entry $92** |
 | Watchlist | **MMC** | **thesis/research/MMC** | **2026-02-13** | **Entry $160** |
@@ -276,6 +276,7 @@ Las europeas (Allianz, AXA) ofrecen yield pero menor calidad de underwriting."
 
 | Fecha | Cambio | Razon |
 |-------|--------|-------|
+| 2026-02-14 | **ALL SOLD** | Tier C ON PROBATION, MoS 11.3% insufficient, peak cycle (CR 85.2%), 6/6 SELL precedent consistency. P&L +5.9%. Moved to archive. |
 | 2026-02-13 | **Added MMC R1 analysis** | QS 68 adj Tier B, FV $220, entry $160. #1 global insurance broker, WIDE moat, 27% ROE. Asset-light, no underwriting risk. Current price $183 above entry. Added broker vs underwriter distinction to sector view. |
 | 2026-02-12 | **Added ACGL R1 analysis** | QS 68 adj Tier B, FV $120, entry $92. Best-in-class specialty insurer. Updated reinsurance softening data (Jan 2026 renewals -14.7% prop cat). |
 | 2026-02-04 | Added KMPR analysis | QS 42 Tier C, WATCHLIST at $28 entry |

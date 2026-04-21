@@ -1,0 +1,2 @@
+{"run_id": "ddadda2e3ad5", "event_type": "run_start", "timestamp": 1776315598.668316, "agent_id": "", "data": {"flow": "daily-monitor", "params": {}}}
+{"run_id": "ddadda2e3ad5", "event_type": "run_end", "timestamp": 1776315598.668395, "agent_id": "", "data": {"success": true, "summary": {"flow": "daily-monitor"}}}

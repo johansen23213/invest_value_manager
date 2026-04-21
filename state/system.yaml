@@ -1,670 +1,165 @@
 # =============================================================================
-# ESTADO DEL SISTEMA - Value Investor v4.0
-# Compacted 2026-02-17 (Session 72). Archive: journal/log/system_yaml_compaction_2026-02-17.md
+# SYSTEM STATE - Value Investor v4.6 (Slim Core)
+# Split files: calendar.yaml, standing_orders.yaml, watchlist.yaml, pipeline_tracker.yaml
+# Updated: 2026-02-21
 # =============================================================================
 
 system:
-  system_version: "4.0.0"
-  framework_version: "4.0"
-  last_session: 2026-02-17
-  session_number: 72
+  system_version: "4.6.0"
+  framework_version: "4.6"
+  last_session: 2026-03-20
+  session_number: 116
+  status: active
 
-  # FRAMEWORK v4.0 - IMPLEMENTED
-  # =====================================
   framework_v4_status:
     status: IMPLEMENTED
     document: docs/evolution_framework_4.0.md
     implementation_date: 2026-02-05
-    key_changes:
-      - "Principios Adaptativos - razonamiento sobre reglas"
-      - "NO hay parámetros fijos (7%, 25%, 35%)"
-      - "learning/principles.md - 9 principios sin números (Principio 9 añadido Sesión 45)"
-      - "learning/decisions_log.yaml - precedentes para consistencia"
-      - "EXIT Protocol con 6 gates y Opportunity Score"
-      - "consistency_checker.py - valida coherencia con precedentes"
-      - "drift_detector.py - detecta cambios graduales"
-      - "Investment Committee con 10 gates (Gate 10: Counter-Analysis)"
-    files_created:
-      - learning/principles.md
-      - learning/decisions_log.yaml
-      - .claude/skills/exit-protocol/SKILL.md
-      - tools/consistency_checker.py
-      - tools/drift_detector.py
-    files_updated:
-      - CLAUDE.md
-      - .claude/skills/investment-rules/SKILL.md
-      - tools/constraint_checker.py
-    files_removed:
-      - config/rules.yaml
-      - config/memory_management.yaml
 
-  # FRAMEWORK v3.0 - ARCHIVED (replaced by v4.0)
-  framework_v3_status:
-    status: ARCHIVED
-    replaced_by: "v4.0"
-    original_document: docs/framework_v3.0_final_design.md
-
-  # QUALITY SCORE - PORTFOLIO ANALYSIS (Updated 2026-02-13)
   portfolio_quality_analysis:
-    date: 2026-02-13
+    date: 2026-03-20
     summary:
       total_positions: 11
-      tier_a_count: 3  # MONY.L(75 adj, borderline), LULU(78 adj, low-end), ADBE(76 tool, 73 adj borderline)
-      tier_b_count: 5  # NVO(73), AUTO.L(71 adj), BYIT.L(68-72), EDEN.PA(62), DOM.L(61)
-      tier_c_count: 3  # ALL(56), GL(52), DTE.DE(48)
-      tier_d_count: 0  # UHS+VICI SOLD Session 66
+      tier_a_count: 4
+      tier_b_count: 6
+      tier_c_count: 1
+      tier_d_count: 0
+    short_positions: 0
+    exposure:
+      long_value_eur: 0  # Calculated by portfolio_stats.py
+      short_value_eur: 0  # Calculated by portfolio_stats.py
+      net_exposure_eur: 0  # long - short
+      gross_exposure_eur: 0  # long + short
+      net_pct: 0  # net / total portfolio
+      gross_pct: 0  # gross / total portfolio
     positions:
-      # TIER A - Quality Compounders (3 positions)
-      - { ticker: MONY.L, score: 75, tier: A, status: "AI Disruption Re-eval 2026-02-12: QS Tool 83, Adj 75 (borderline Tier A). FV 201→190 GBp. Moat erosion prob 30-35%. ON PROBATION. HOLD LOW through Feb 23 earnings. KC#9 added (AI strategy)." }
-      - { ticker: LULU, score: 78, tier: A, status: "Governance Re-eval 2026-02-12: QS Tool 80, Adj 78 (Tier A low-end, 3pts above B). FV $202→$196 (-3%). ON PROBATION. MoS 10.3% thin. Mar 31 Q4 earnings = MAKE-OR-BREAK. No ADD." }
-      - { ticker: ADBE, score: 76, tier: A, status: "QS Tool 76. Adj 73 (Tier B borderline) per FTC risk. Thesis v2.0 2026-02-10." }
-      # TIER B - Quality Value (5 positions)
-      - { ticker: NVO, score: 73, tier: B, status: "QS Tool 73 (Tier B). Thesis overclaimed 82 Tier A." }
-      - { ticker: AUTO.L, score: 71, tier: B, status: "Re-eval 2026-02-12: QS Tool 63, Adj 71 (Tier B). FV 617→580p. Dealer revolt + 52wL. HOLD LOW. April 2026 pricing = make-or-break." }
-      - { ticker: BYIT.L, score: 68, tier: B, status: "Adversarial 2026-02-11: QS 81→68-72 (Tier A→B). FV 455→345 GBp (-24.2%). HOLD PROBATION LOW." }
-      - { ticker: EDEN.PA, score: 62, tier: B, status: "Adversarial FV EUR 29.0. HOLD MEDIUM through Feb 24 earnings." }
-      - { ticker: DOM.L, score: 61, tier: B, status: "Adversarial FV 240 GBp. HOLD LOW through Mar 5 results." }
-      # TIER C - Special Situations (3 positions)
-      - { ticker: ALL, score: 56, tier: C, status: "ON PROBATION LOW. ROE 37% = peak cycle." }
-      - { ticker: GL, score: 52, tier: C, status: "Adj 55 Tier B borderline. SEC+DOJ cleared. FV $191." }
-      - { ticker: DTE.DE, score: 48, tier: C, status: "FV EUR 35.00 (v3.1 post-TMUS beat). Feb 26 DTE earnings. MoS 14.4%. NOTE: QS Tool now shows 61 (Tier B) — ROIC-WACC improved -0.7pp→+3.9pp. PENDING FY2025 confirmation before reclassifying." }
-    diagnosis: |
-      Session 72: 11 positions active. Cash EUR 5,752 (~57%).
-      SOLD UHS (+16.2%) and VICI (+1.7%) pre-earnings in Session 66.
-      3 ON PROBATION: MONY.L, LULU, ALL.
-      Pipeline: 8 R4-approved, 8 R3-complete, 5 R1-complete.
-      Quality universe: 64 companies (2 new Tier A from small cap screening).
-      Capital deployment = priority.
-
-  # Archived session summaries (sessions 31-52) moved to state/session_summaries_archive.yaml
-  # Purged 2026-02-11 to reduce file size (~730 lines removed)
+      - { ticker: MORN, score: 78, tier: A, status: "FV $195. First E[CAGR] buy S101." }
+      - { ticker: MONY.L, score: 75, tier: A, status: "ON PROBATION. FV 190 GBp. Feb 23 earnings." }
+      - { ticker: ADBE, score: 76, tier: A, status: "FV $390. FTC trial Oct 2026. CEO succession." }
+      - { ticker: NVO, score: 73, tier: B, status: "FV $50 (v5.0 formal review). KC#1 triggered. HOLD LOW. E[CAGR] 18.8%." }
+      - { ticker: AUTO.L, score: 71, tier: B, status: "FV 580p. April pricing make-or-break." }
+      - { ticker: BYIT.L, score: 68, tier: B, status: "FV 345 GBp. HOLD LOW." }
+      - { ticker: EDEN.PA, score: 62, tier: B, status: "FV EUR 29 MAINTAINED. Conviction MEDIUM-HIGH. E[CAGR] 25.8%." }
+      - { ticker: DOM.L, score: 61, tier: B, status: "FV 240 GBp. Mar 5 results." }
+      - { ticker: DTE.DE, score: 69, tier: B, status: "FV EUR 33. FY2025 assessed. Conviction LOW-MEDIUM." }
+      - { ticker: GL, score: 52, tier: C, status: "FV $191. SEC+DOJ cleared." }
+      - { ticker: DNLM.L, score: 79, tier: A, status: "NEW S110. FV 1008 GBp. SO filled at 947p." }
 
   last_session_summary: |
-    Session 71 - WAVE AUTONOMOUS (2026-02-15)
+    Session 109 (2026-03-03). Multi-wave session. Earnings catch-up + pipeline advancement + formal reviews.
+    COMPLETED:
+      1. EARNINGS ASSESSED (7 tickers): DTE.DE (BASE, FV 35→33), QTCOM.HE (COND PASS), INTU (BULL, missed entry), MEGP.L (DELAYED/SUSPENDED), PROX.BR (NEGATIVE, thesis invalidated), WKL.AS (STRONG), KLR.L (RECORD, SO activated), ITRK.L (MIXED, GATED SO at 3,700p).
+      2. REN.AS R4 APPROVED: 10/10 gates PASS. SO EUR 22.50 BORDERLINE. FV EUR 30. E[CAGR] 12.9%.
+      3. NVO FORMAL REVIEW v5.0: FV $55→$50 (prob-weighted). KC#1 triggered. EXIT Protocol 6 gates = HOLD. E[CAGR] 18.8%.
+      4. EDEN.PA FV REVIEW: EUR 29 MAINTAINED. 2026 trough already modeled. Conviction MEDIUM→MEDIUM-HIGH. E[CAGR] 25.8%.
+      5. DTE.DE FV updated: EUR 35→33. Conviction MEDIUM→LOW-MEDIUM.
+      6. LULU correction: Earnings Mar 17 NOT Mar 31. Wilson proxy deadline Mar 13.
+      7. Health check: 7.0/10. 11 overdue pipeline items flagged.
+    Velocity: 3 units (REN.AS R4=1u, KLR.L SO activation=1u, ITRK.L SO creation=1u). Met target.
+    Portfolio: 11 positions. ~54.8% cash (EUR 5,558). P&L +0.2%.
+    Pipeline: REN.AS R4_APPROVED. 23 SOs (8 ACTIVE, 10 GATED, 2 BORDERLINE, 3 EXTREME).
+    Next: DOM.L Mar 5 (ACTIVE position earnings), VEEV Mar 4, FOUR.L Mar 11, ALFA.L Mar 12, MEGP.L Mar 13, LULU Mar 17.
 
-    WAVE 1: VIGILANCE — 0 CRITICAL, 9 MATERIAL. ROP converging ($321, 6.7% from $300).
-    WAVE 2: EARNINGS PREP — All 6 frameworks verified READY (RSG, CDNS, VRSK, MONY.L, EDEN.PA, DTE.DE).
-    WAVE 3: SYSTEM CONSISTENCY — MORN R4 confirmed, quality_universe.py coverage bug fix.
-    WAVE 4: PIPELINE CHECK — 4 actionable: RSG 6.3%, ROP 7.1%, ACGL 11.8%, DSY.PA 15.0%.
+  # NET EXPOSURE REASONING — Principio 13. Re-evaluate EVERY session.
+  # This is NOT a target or range. It's the CONCLUSION of reasoning.
+  # History preserved for consistency checks.
+  net_exposure:
+    current:
+      long_pct: 43.7
+      short_pct: 0.0
+      cash_pct: 56.3
+      net_pct: 43.7
+      gross_pct: 43.7
+    reasoning: |
+      Session 116 (2026-03-20): Net exposure 43.7% long, 0% short, 56.3% cash. 11 positions.
+      HORMUZ CRISIS — DAY 21. STILL ESCALATING:
+        - Oil WTI $98.18, Brent $108 (peaked $119 intraday Mar 19 after Qatar LNG facility struck).
+        - UAE gas field attacked. Western ships still blocked. Selective passage only (Turkey, India, Saudi).
+        - New Supreme Leader wants Hormuz CLOSED. No credible ceasefire path.
+        - S&P 6,506 (NEW 2026 low, 4th consecutive losing week). VIX 27.13 (flat elevated).
+        - Gold $4,549 (pulled back from $5,586 peak). Safe haven bid fading.
+        - FOMC Mar 18: HELD 3.50-3.75%. Dot plot: 1 cut (was 2). Fed PARALYZED by stagflation.
+          Core PCE raised to 2.7%. Powell cited "uncertainty from Middle East."
+      CASH 56.3% — JUSTIFIED, REINFORCED (P14):
+        LULU sold (EXIT protocol, -8.2%). Cash increased from 53% to 56%.
+        Crisis has NOT de-escalated. Every deployment gate FAILS:
+        1. VIX 27.13 (>22 threshold). Sustained elevated for 3+ weeks.
+        2. Oil $98-108 (>$80 threshold). Brent hit $119 intraday.
+        3. No ceasefire, no Hormuz reopening. Bloomberg: "unlikely without ceasefire."
+        4. S&P making new lows. Recession probability rising (oil + Fed paralysis).
+        5. FOMC confirmed: no rate cuts coming soon. Cash earns ~3.5%.
+        Cash drag (~4.5pp/yr) remains IRRELEVANT vs 10-20% drawdown risk.
+      DEPLOYMENT PATH — UPDATED S116:
+        4 SOs TRIGGERED (RACE.MI, ALFA.L, ITRK.L, STMN.SW) — ALL PAUSED.
+        Deployment priority when crisis clears (ordered):
+        1. ALFA.L (151.40p, -8.2% below trigger, QS 83 Tier A, UK software, minimal oil exposure)
+        2. RACE.MI (EUR 273.80, -7.2% below trigger, QS 82 Tier A, ultra-wealthy buyers)
+        3. STMN.SW (CHF 75.80, -5.3% below trigger, QS 72 Tier B, verify GM gate)
+        4. ITRK.L (3,592p, -2.9% below trigger, FCF gate still unmet)
+        Crisis resolution signals: VIX <22 sustained (3d), oil <$90, ceasefire announcement.
+      DTE.DE ROTATION DECISION — UNCHANGED:
+        EUR 31.62 vs FV EUR 33 (E[CAGR] 6.5%). Still below FV. Defensive role validated.
+        With 56% cash, no urgency to free capital. HOLD.
+      MORN at $181 (E[CAGR] 6.1%): Still bottom 3 but CFO buying argues against trim.
+      BOTTOM 3 E[CAGR]: DTE.DE 6.5%, MORN 6.1% (new bottom). No rotation action — crisis.
+      SHORT 0% — RE-EVALUATED (P12):
+        Crisis momentum shorts = chasing fallen knives. Cash 56.3% = de facto hedge (net long 43.7%).
+        Fragility scan overdue (9d) but inappropriate during peak crisis volatility.
+        Resume when VIX <22 sustained.
+    last_updated: 2026-03-20
+    history:
+      - date: 2026-03-12
+        net_pct: 47.3
+        gross_pct: 47.3
+        note: "S114. REGIME CHANGE: Hormuz crisis. Oil $96, VIX 27. Cash 52.7% NOW JUSTIFIED. LULU SELL confirmed. RACE.MI PAUSED. ALFA.L R4 approved, SO 165p. Deployment paused until Hormuz clarity. Short 0% justified by 52.7% cash hedge."
+      - date: 2026-03-10
+        net_pct: 47.6
+        gross_pct: 47.6
+        note: "S112. Cash 52.4%. RACE.MI 1.4% from trigger. E[CAGR] portfolio 4.9% vs 10.4% invested. DTE.DE/LULU/MORN bottom 3. Short 0% explicitly justified. Target 45-48% by Apr 1."
+      - date: 2026-03-04
+        net_pct: 45.5
+        gross_pct: 45.5
+        note: "S110. Cash 54.5% EXCESSIVE. DNLM.L SO triggered. VIX 23.57 elevated. 3 rotation candidates OS>2.0. Short 0% — fragility watch overdue. Target 45-48% by Mar 15."
+      - date: 2026-02-20
+        net_pct: 43.3
+        gross_pct: 43.3
+        note: "S105. No change from S102. Cash 56.7% still above target. Earnings week = deployment opportunity. 0 shorts justified (LYV paused, CVNA no catalyst). Anti-fantasy protocol deployed."
+      - date: 2026-02-20
+        net_pct: 43.3
+        gross_pct: 43.3
+        note: "S102. MORN market buy reduced cash 60.6→56.7%. First E[CAGR]-framework deployment."
+      - date: 2026-02-18
+        net_pct: 39.3
+        gross_pct: 39.3
+        note: "S76. LYV S4 APPROVED CONDITIONAL. Primera documentacion formal. Cash 60.7% excesivo."
 
-    PIPELINE STATUS:
-    R4-approved (8): DSY.PA, DNLM.L, RACE.MI, ROP, VLTO, MMC, ACGL, MORN
-    R3-complete (8): IT(A), PAYC(A), VRSK(A), FDS(B), BVI.PA(B), INTU(B), ZTS(B), GMAB(deprioritized)
-    R1-complete: RSG, CDNS (hard gate Feb 17), VEEV (Mar 4), BAH, FICO
+  # STRATEGIC DIRECTION — Re-evaluate EVERY session start with fresh data.
+  # This is NOT a plan. It's a compass bearing. Replace when context changes.
+  # Ask: "Given what I know TODAY, is this still the right priority?"
+  strategic_direction:
+    current: "Defensive capital preservation + selective deployment on crisis pullbacks. Pipeline advancement continues. Cash is protection, not drag."
+    rationale: "REGIME CHANGE: Hormuz crisis (Feb 28). Oil $96 (+54%), VIX 27. Active US-Israel war on Iran. Tail risk materialized. Cash 52.7% is now CORRECT defensive positioning. Prioridades: 1) Protect capital — no aggressive deployment during peak uncertainty, 2) Maintain pipeline advancement (R1/R2) for when crisis passes, 3) Execute LULU SELL (pre-set trigger met), 4) Monitor Hormuz resolution for deployment resumption, 5) ADBE earnings assessment when available."
+    set_date: 2026-03-12
+    review_protocol: |
+      Every Fase 0, BEFORE executing anything, ask:
+      1. Has something changed that invalidates this direction?
+         (market crash, earnings surprise, new macro risk, position blow-up)
+      2. Is there a MORE IMPORTANT priority I'm ignoring?
+         (position on fire, kill condition triggered, better use of time)
+      3. Is the rationale still true?
+         (still 57% cash? still pipeline bottleneck? still same opportunity set?)
+      If ANY answer is YES → update this direction FIRST, then act.
+      If all NO → continue current direction.
+    anti_bias: "This direction was set Feb 15. Do NOT anchor to it. Fresh eyes each session."
 
-  status: active
-
-# -----------------------------------------------------------------------------
-# CALENDARIO (future events only — old events archived 2026-02-17)
-# -----------------------------------------------------------------------------
-calendar:
-  events:
-    # THIS WEEK
-    - date: 2026-02-17
-      type: earnings_pipeline
-      ticker: RSG
-      event: "RSG Q4 2025 earnings (after market close)"
-      priority: high
-      action: "HARD GATE before R2. R1 FV $255, entry $210. Watch: pricing yield >4%, EBITDA margin >=32%, FY2026 guide >$17.5B."
-
-    - date: 2026-02-17
-      type: earnings_pipeline
-      ticker: CDNS
-      event: "CDNS Q4 2025 earnings (after market close)"
-      priority: high
-      action: "HARD GATE before R2. R1 FV $260, entry $230-240. At $299 = 27% above entry. Watch FY2026 guide, backlog, SD&A growth."
-
-    - date: 2026-02-18
-      type: earnings_pipeline
-      ticker: VRSK
-      event: "VRSK Q4 2025 earnings (after close)"
-      priority: high
-      action: "HARD GATE before R4. R3 FV $185, entry $135-140. At ~$179 = fairly valued. Watch organic growth decel, FY2026 guide."
-
-    - date: 2026-02-19
-      type: earnings
-      ticker: AGN.NV
-      event: "Aegon FY2025"
-      priority: high
-      action: "Watch OCG 1.2B, solvency >180%. Si precio cae 5.90 - BUY."
-
-    # EARNINGS WEEK FEB 23-26
-    - date: 2026-02-23
-      type: earnings
-      ticker: MONY.L
-      event: "MONY.L FY2025 Results"
-      priority: high
-      action: "FRAMEWORK v3.0 READY. FV 190 GBp. QS Adj 75. KC#9: SELL if no AI strategy. Consensus EBITDA £142.7m. SELL if revenue <435M or Insurance -5%+."
-
-    - date: 2026-02-23
-      type: strategy
-      ticker: ENEL.MI
-      event: "Enel Capital Markets Day"
-      priority: high
-      action: "If FV rises to 11-12 - entry 8.50."
-
-    - date: 2026-02-24
-      type: earnings
-      ticker: EDEN.PA
-      event: "EDEN.PA FY2025 Results"
-      priority: high
-      action: "FRAMEWORK READY. Consensus NI €220m. Kill: ROIC<15%, rev decline >5% 2Q, div cut >20%."
-
-    - date: 2026-02-24
-      type: earnings
-      ticker: UTG.L
-      event: "Unite Group FY2025 Preliminary Results"
-      priority: high
-      action: "Watch occupancy FY2027 reservations, Empiric synergies."
-
-    - date: 2026-02-25
-      type: watchlist_review
-      ticker: WKL.AS
-      event: "WKL.AS FY2025 Results - MANDATORY REVIEW"
-      priority: high
-      action: "Committee: WATCHLIST EUR 50-55. Decision tree in thesis/research/WKL.AS/committee_decision.md"
-
-    - date: 2026-02-26
-      type: earnings
-      ticker: DTE.DE
-      event: "Deutsche Telekom FY2025"
-      priority: high
-      action: "FV EUR 35.00 (v3.1). QS 48→61 pending confirmation. Watch EBITDA vs EUR 48.5B, FCF vs EUR 20.1B, EPS guide."
-
-    - date: 2026-02-26
-      type: earnings
-      ticker: CS.PA
-      event: "AXA FY2025 results"
-      priority: high
-      action: "If price falls to 34.50-35.50 post-earnings - consider BUY."
-
-    - date: 2026-02-26
-      type: earnings_pipeline
-      ticker: INTU
-      event: "INTU Q2 FY2026 earnings (after close)"
-      priority: high
-      action: "Pipeline candidate. R1 complete. Watch TurboTax, QBO Advanced, SBC. If disappoints + drops to $330 → accelerate R2-R4."
-
-    - date: 2026-02-27
-      type: earnings
-      ticker: PROX.BR
-      event: "Proximus FY2025 + Strategic Plan"
-      priority: high
-      action: "If capex decline + plan credible - BUY 3% at 7.50-7.70."
-
-    - date: 2026-02-28
-      type: earnings
-      ticker: ENGI.PA
-      event: "Engie FY2025"
-      priority: high
-      action: "Watch FCF yield >5%, payout <80%, Debt/EBITDA <4x."
-
-    # MARCH+
-    - date: 2026-03-01
-      type: earnings
-      ticker: NTGY.MC
-      event: "Naturgy FY2025"
-      priority: high
-
-    - date: 2026-03-05
-      type: earnings
-      ticker: DOM.L
-      event: "Dominos Pizza Group FY25 results"
-      priority: high
-      action: "Kill: EBITDA <£125M, ND/EBITDA >3x, FCF <£40M, market share <48%."
-
-    - date: 2026-03-15
-      type: catalyst
-      ticker: NVO
-      event: "CagriSema vs Zepbound head-to-head data (critical catalyst)"
-      priority: CRITICAL
-      action: "If positive: ADD 2% to NVO. If inferior: evaluate kill conditions."
-
-    - date: 2026-03-19
-      type: earnings
-      ticker: ENEL.MI
-      event: "Enel FY2025 results"
-      priority: medium
-
-    - date: 2026-04-15
-      type: watchlist_review
-      ticker: DSY.PA
-      event: "DSY.PA Q1 2026 Results — MANDATORY STANDING ORDER REVIEW"
-      priority: high
-      action: "Cancel standing order if Q1 growth <3%. Revise entry if >4%. Check 0APT breach."
-
-    - date: 2026-05-01
-      type: earnings_pipeline
-      ticker: VLTO
-      event: "VLTO Q1 FY2026 earnings — thesis re-evaluation"
-      priority: high
-      action: "Standing order at $80 valid until this. Watch organic growth, WQ core, VES discipline."
-
-    - date: 2026-05-11
-      type: system_review
-      ticker: PORTFOLIO
-      event: "3-month adversarial FV accuracy check + all-Tier-A feasibility review"
-      priority: high
-      action: "Compare sold positions vs adversarial FV. Evaluate cash deployment strategy if cash >30%."
-
-    - date: 2026-08-01
-      type: legal
-      ticker: MMC
-      event: "MMC Greensill A$7B class action trial (Australia)"
-      priority: CRITICAL
-      action: "SIZING CONSTRAINT: HALF POSITION (EUR 200) until resolved."
-
-    - date: 2026-09-24
-      type: legal
-      ticker: ADBE
-      event: "ADBE FTC: Last day for dispositive motions"
-      priority: high
-
-    - date: 2026-10-07
-      type: legal
-      ticker: ADBE
-      event: "ADBE FTC: Final Pretrial Conference"
-      priority: high
-
-    - date: 2026-10-19
-      type: legal
-      ticker: ADBE
-      event: "ADBE FTC: JURY TRIAL (San Jose)"
-      priority: CRITICAL
-      action: "If favorable: consider ADD. If adverse (fine >$500M + one-click): evaluate KC#6."
-
-# -----------------------------------------------------------------------------
-# ALERTAS DE PRECIO
-# Watchlist/on_watch/quality_compounders sections REMOVED 2026-02-17.
-# All tracked in state/quality_universe.yaml (64 companies).
-# price_monitors below = lightweight trigger alerts.
-# -----------------------------------------------------------------------------
-alerts:
-  price_monitors:
-    - { ticker: TTE, entry_eur: 45, note: "FV 60. Wait earnings+correction" }
-    - { ticker: LGEN.L, entry_gbp: 215, note: "FV ~265p. Wait FY2025" }
-    - { ticker: MBG.DE, entry_eur: 50, note: "FV 70. Cyclical wait" }
-    - { ticker: ENEL.MI, entry_eur: 7.50, note: "Re-entry. CMD 23-feb" }
-    - { ticker: AGN.NV, entry_eur: 5.90, note: "Borderline. Earnings 19-Feb" }
-    - { ticker: CVS, entry_usd: 70, note: "Q4 11-feb binary" }
-    - { ticker: T, entry_usd: 22.50, note: "FCF $18B+. Best US telecom" }
-    - { ticker: BNP.PA, entry_eur: 78, note: "FV 103. CET1 12.5%" }
-    - { ticker: ENGI.PA, entry_eur: 22, note: "FV 29. Yield 6%" }
-    - { ticker: CS.PA, entry_eur: 35.50, note: "AXA. FV 40.50. Tier A. Earnings 26-feb" }
-    - { ticker: TBCG.L, entry_gbp: 3500, note: "TBC Bank Georgia. FV 5400p. Frontier Tier C." }
-    - { ticker: BGEO.L, entry_gbp: 7000, note: "Lion Finance. Near ATH, wait correction." }
-    - { ticker: GAW.L, entry_gbp: 13000, note: "Games Workshop. QS 80 Tier A. FV 12200 GBp. WIDE moat. R1 complete. WAIT pullback." }
-    - { ticker: DGE.L, entry_gbp: 1300, note: "Diageo v2.0: FV 1400-1520 GBp. Entry 1300." }
-    - { ticker: EVO.ST, entry_sek: 530, note: "Evolution. Q4 MISS. UKGC pending. CONDITIONAL." }
-    - { ticker: GL, entry_usd: 130, note: "Globe Life ADD trigger. MoS=25.3% at $130." }
-    - { ticker: SRE.L, entry_gbp: 75, note: "Sirius RE. FV 100p. Refinancing Jun-2026." }
-    - { ticker: GIS, entry_usd: 38, note: "General Mills. FV $45-50. GLP-1 headwind." }
-    - { ticker: BATS.L, entry_gbp: 4200, note: "BAT. FV 5163p. Earnings 12-feb." }
-    - { ticker: V, entry_usd: 220, note: "Visa. QS 80 Tier A. FV $275-290. Duopoly #1." }
-    - { ticker: INGR, entry_usd: 105, note: "Ingredion. QS 57 Tier B. FV $167. Wait Q1 Apr." }
-    - { ticker: DBX, entry_usd: 20, note: "Dropbox. QS 73 Tier B. 5/10 trap. LOW PRIORITY." }
-    - { ticker: GSK.L, entry_gbp: 1850, note: "GSK. QS 59 Tier B. FV 2424p. Patent cliff 2027-28." }
-    - { ticker: LULU, add_trigger_usd: 155, note: "ACTIVE. ADD conditional on Q4 + CEO clarity." }
-    - { ticker: BYIT.L, add_trigger_gbp: 240, note: "ACTIVE. ADD if H2 OP confirms >GBP 66M." }
-    - { ticker: DNLM.L, entry_gbp: 780, note: "Dunelm. QS 79 Tier A. Standing order 780p." }
-    - { ticker: WKL.AS, entry_eur: 50, note: "REVISED. FV EUR 72. Strong entry. Post FY2025." }
-    - { ticker: DSY.PA, entry_eur: 15.50, note: "Dassault. APPROVED. CONDITIONAL on Q1 growth." }
-    - { ticker: PAYC, entry_usd: 92, note: "Paycom. QS 75. R3 complete. Wait $88-95." }
-    - { ticker: MORN, entry_usd: 135, note: "Morningstar. QS 78 Tier A. R4 approved. ADD $125." }
-
-# -----------------------------------------------------------------------------
-# STANDING ORDERS (pre-approved, execute when price hits trigger)
-# Human executes on eToro. Confirms next session.
-# Cancelled orders archived in journal/log/system_yaml_compaction_2026-02-17.md
-# -----------------------------------------------------------------------------
-standing_orders:
-  - ticker: GL
-    action: ADD
-    trigger: "<=$125"
-    size_eur: 300
-    shares_approx: 2
-    thesis: thesis/active/GL/thesis.md
-    fair_value: "$191"
-    mos_at_trigger: "34.5%"
-    notes: "Globe Life v3.0. SEC+DOJ cleared. QS Adj 55 Tier B borderline."
-    expiry: 2026-08-01
-
-  - ticker: FGP.L
-    action: BUY
-    trigger: "<=165 GBp"
-    size_eur: 400
-    shares_approx: 209
-    thesis: thesis/research/FGP.L/thesis.md
-    fair_value: "220-240 GBp"
-    mos_at_trigger: "25%"
-    notes: "FirstGroup. UK bus/rail. WARNING: No adversarial buy-pipeline completed."
-    expiry: 2026-06-01
-
-  - ticker: CMCSA
-    action: BUY
-    trigger: "<=$26"
-    size_eur: 450
-    shares_approx: 15
-    thesis: thesis/research/CMCSA/thesis.md
-    fair_value: "$33-38"
-    mos_at_trigger: "26-31%"
-    notes: "Comcast. Tier B. WARNING: No adversarial buy-pipeline completed."
-    expiry: 2026-06-01
-
-  - ticker: WPP.L
-    action: BUY
-    trigger: "<=200 GBp"
-    size_eur: 400
-    shares_approx: 173
-    thesis: thesis/research/WPP.L/thesis.md
-    fair_value: "380 GBp"
-    mos_at_trigger: "47%"
-    notes: "WPP turnaround. Tier C. UNDER REVIEW — wait Rose plan Feb 26."
-    expiry: 2026-04-01
-
-  - ticker: NVO
-    action: ADD
-    trigger: "CagriSema vs Zepbound POSITIVE (March 2026) OR price <=$40"
-    size_eur: 300
-    shares_approx: 6
-    thesis: thesis/active/NVO/thesis.md
-    fair_value: "$66 (DKK 491)"
-    mos_at_trigger: "40%+ at $40"
-    notes: "ADD to 8.31 shares. Brings from 4% to 6-7%."
-    expiry: 2026-06-01
-
-  - ticker: MA
-    action: BUY
-    trigger: "<=$315"
-    size_eur: 500
-    shares_approx: 1.6
-    thesis: thesis/research/MA/thesis.md
-    fair_value: "$420"
-    mos_at_trigger: "25%"
-    tier: "A (QS 86)"
-    status: "SUSPENDED_PRE_PIPELINE — No R1-R4. DO NOT execute without full pipeline."
-    expiry: 2026-08-01
-
-  - ticker: V
-    action: BUY
-    trigger: "<=$220"
-    size_eur: 500
-    shares_approx: 2.3
-    thesis: thesis/research/V/thesis.md
-    fair_value: "$275-290"
-    mos_at_trigger: "24%"
-    tier: "A (QS 80)"
-    status: "SUSPENDED_PRE_PIPELINE — No R1-R4. DO NOT execute without full pipeline."
-    expiry: 2026-08-01
-
-  - ticker: V
-    action: ADD
-    trigger: "<=$200"
-    size_eur: 300
-    shares_approx: 1.5
-    thesis: thesis/research/V/thesis.md
-    fair_value: "$275-290"
-    mos_at_trigger: "31%"
-    tier: "A (QS 80)"
-    status: "SUSPENDED_PRE_PIPELINE"
-    expiry: 2026-08-01
-
-  - ticker: DSY.PA
-    action: BUY
-    trigger: "<=EUR 15.50"
-    size_eur: 330
-    shares_approx: 21
-    thesis: thesis/research/DSY.PA/thesis.md
-    fair_value: "EUR 20.00"
-    mos_at_trigger: "22.5%"
-    tier: "B (QS 70)"
-    notes: "CONDITIONAL: cancel if Q1 growth <3% or data breach escalation."
-    expiry: 2026-05-15
-    conditions:
-      - "Wait for Q1 2026 results (April-May)"
-      - "Cancel if Q1 revenue growth <3%"
-      - "Cancel if 0APT data breach escalates"
-
-  - ticker: DNLM.L
-    action: BUY
-    trigger: "<=780 GBp"
-    size_eur: 375
-    shares_approx: 42
-    thesis: thesis/research/DNLM.L/thesis.md
-    fair_value: "1008 GBp (adversarial)"
-    mos_at_trigger: "23%"
-    tier: "A (QS 79)"
-    notes: "UK #1 homewares. 38.5% insider."
-    kill_conditions: "Insider <25%, FCF neg 2yr, GM <45%, closures >10%"
-    expiry: 2026-06-01
-
-  - ticker: RACE.MI
-    action: BUY
-    trigger: "<=EUR 270"
-    size_eur: 350
-    shares_approx: 1
-    thesis: thesis/research/RACE.MI/thesis.md
-    fair_value: "EUR 355 (R3 reconciled)"
-    mos_at_trigger: "24%"
-    tier: "A (QS 82/84)"
-    notes: "Ferrari. WIDE moat. CONDITIONAL on Luce reveal + tariffs."
-    expiry: 2026-08-01
-    conditions:
-      - "Monitor Luce reveal May 25, 2026"
-      - "Monitor US-EU tariff deadline Jun 1, 2026"
-
-  - ticker: RACE.MI
-    action: ADD
-    trigger: "<=EUR 260"
-    size_eur: 350
-    shares_approx: 1
-    thesis: thesis/research/RACE.MI/thesis.md
-    fair_value: "EUR 355"
-    mos_at_trigger: "27%"
-    tier: "A (QS 82/84)"
-    notes: "ADD to 6% if BUY at EUR 270 executed."
-    expiry: 2026-08-01
-
-  - ticker: BYIT.L
-    action: ADD
-    trigger: "<=240 GBp"
-    size_eur: 200
-    shares_approx: 83
-    thesis: thesis/active/BYIT.L/thesis.md
-    fair_value: "345 GBp (adversarial)"
-    mos_at_trigger: "30%"
-    tier: "B (QS 68-72)"
-    notes: "ADD only after H2 FY2026 OP >GBP 66M. If declines, EXIT."
-    expiry: 2026-06-01
-
-  - ticker: ROP
-    action: BUY
-    trigger: "<=$300"
-    size_eur: 400
-    shares_approx: 1.3
-    thesis: thesis/research/ROP/thesis.md
-    fair_value: "$385 (R3 reconciled)"
-    mos_at_trigger: "22%"
-    tier: "B (QS Tool 48, Adj 70)"
-    notes: "Roper Technologies. 29 vertical software monopolies. WIDE moat. HIGH risk."
-    kill_conditions: "KC#1-7: organic<3% 2Q, NRR<100% 2Q, leverage>3.5x, acq>$3B, DOGE+Deltek-15%, goodwill>$3B, per-seat-10%"
-    expiry: 2026-05-15
-
-  - ticker: VLTO
-    action: BUY
-    trigger: "<=$80"
-    size_eur: 400
-    shares_approx: 6
-    thesis: thesis/research/VLTO/thesis.md
-    fair_value: "$100 (R3 resolved)"
-    mos_at_trigger: "20%"
-    tier: "B (QS Tool 52, Adj 66)"
-    notes: "Veralto. Danaher spinoff. Dual #1 (Hach water + Videojet coding)."
-    kill_conditions: "KC#1-6: ROIC<WACC 2Q, recurring<55%, FCF<$700M, VES abandoned, deregulation, CEO exit"
-    expiry: 2026-05-31
-
-  - ticker: MMC
-    action: BUY
-    trigger: "<=$155"
-    size_eur: 200
-    shares_approx: 1.3
-    thesis: thesis/research/MMC/thesis.md
-    fair_value: "$190"
-    mos_at_trigger: "18.4%"
-    tier: "B (QS 68)"
-    notes: "HALF POSITION due to Greensill A$7B trial. Full after resolution."
-    kill_conditions: "KC#1-7: organic neg 2Q, NDebt/EBITDA>3.5x, ROIC<WACC, broker reg, McGriff fail, Greensill>$1B, AI broker>2%"
-    expiry: 2026-05-31
-
-  - ticker: ACGL
-    action: BUY
-    trigger: "<=$88"
-    size_eur: 400
-    shares_approx: 4.5
-    thesis: thesis/research/ACGL/thesis.md
-    fair_value: "$110"
-    mos_at_trigger: "20%"
-    tier: "B (QS Tool 57, Adj 68)"
-    notes: "Arch Capital. WIDE moat. Entering soft market. Chairman sold $20M."
-    kill_conditions: "KC#1-7: CR>100% 2yr, ROE<10% 2yr, discipline abandoned, reserve dev>10%BV, mortgage impairment, buybacks>2.5xP/B, BVPS decline 2yr"
-    expiry: 2026-07-31
-
-  - ticker: MORN
-    action: BUY
-    trigger: "<=$135"
-    size_eur: 400
-    shares_approx: 3
-    thesis: thesis/research/MORN/thesis.md
-    fair_value: "$180 (R4, QS 78 Tier A)"
-    mos_at_trigger: "25%"
-    notes: "Morningstar. WIDE moat 20/25. 45% Mansueto insider. DA 13/19 STRONG COUNTER."
-    kill_conditions: "KC#1-9: rev neg 2Q, OpM<15%, PitchBook<5%, Mansueto sells>10%, AI competitor, DBRS loses NRSRO, QS<70, CRSP investigation, Vanguard CRSP replacement"
-    expiry: 2026-05-31
-
-  - ticker: MORN
-    action: ADD
-    trigger: "<=$125"
-    size_eur: 200
-    shares_approx: 2
-    thesis: thesis/research/MORN/thesis.md
-    fair_value: "$180"
-    mos_at_trigger: "31%"
-    notes: "ADD contingent on BUY at $135 already executed."
-    expiry: 2026-05-31
-
-# -----------------------------------------------------------------------------
-# MACRO (resumen)
-# -----------------------------------------------------------------------------
 macro_snapshot:
-  last_update: 2026-02-02
-  themes: ["Fed/BCE pausa 3.5%/2.0%", "Europa barata", "Tariffs escalando (Corea 25%, Canada amenaza)", "Iran tension up", "China mejora IMF 4.5%", "Alemania sale recesion"]
-  risks: ["US-Iran guerra regional 30-40% (up)", "US-China Taiwan 10-20%", "Tariff war global 40-50%", "Recesion US 25-35%", "Oil shock >$90 si Iran 15-25%"]
+  last_update: 2026-03-04
+  themes: ["HORMUZ CRISIS — US-Israel war on Iran, strait mined, oil $96", "VIX 27.29 HIGH (+35% since Feb)", "Oil WTI $96.38 (+54% since Feb — CRISIS)", "Gold $5,073 (+69% 12m — extreme flight to safety)", "S&P 6,673 (-2.5%, surprisingly resilient)", "DXY 99.74 (USD strengthening safe haven)", "IEA releasing 400M barrels (record)", "Recession risk ELEVATED from oil shock"]
+  risks: ["VIX elevated 23.57 — uncertainty rising", "DOM.L earnings Mar 5 (active position, KC#1 EBITDA <125M)", "LULU Mar 17 MAKE-OR-BREAK (negative E[CAGR] -5.7%)", "MEGP.L shares SUSPENDED (audit delay Mar 13)", "AI disruption wave (MONY.L/BYIT.L/ADBE/VEEV CRM erosion)", "LYV DOJ trial ongoing (monitoring)", "Oil +28% 3m = inflation risk", "Gold surge = institutional hedging intensifying", "10 sector views STALE — portfolio deps degrading"]
 
-# -----------------------------------------------------------------------------
-# MANTENIMIENTO
-# -----------------------------------------------------------------------------
-maintenance:
-  last_health_check: 2026-02-17
-  next_health_check_due: 2026-03-03
-  health_score: 7.5/10
-  health_check_issues:
-    - severity: WARNING
-      issue: "Falta sector view energy.md - SHEL.L era posicion activa sin cobertura"
-      action: "Crear world/sectors/energy.md si se añade posición energy"
-    - severity: WARNING
-      issue: "CLAUDE.md 752 lineas (>150 limite)"
-      action: "Considerar compactacion/extraction a skills"
-    - severity: INFO
-      issue: "LIGHT.NV vs LIGHT.AS ticker inconsistencia en transacciones"
-      action: "Normalizar a LIGHT.AS (ya hecho)"
-  last_compact: 2026-02-17
-  memory_status: ok
-  agents_count: 24
-  skills_count: 29
-  tools_count: 14
-  rules_count: 6
-  evolution_tracking:
-    last_evaluation: 2026-02-17
-    summary: |
-      Key milestones: v4.0 framework (Feb 5), proactive vigilance (Feb 5),
-      adversarial review program (Feb 7-11, 8 positions sold, 3 orders cancelled),
-      quality universe created (Session 61), small cap screening (Session 72).
-      Full evolution logs: journal/log/ directory.
-    applied_session_72:
-      - "system.yaml compacted 1609→~650 lines (redundant sections archived)"
-      - "Small cap indices added to dynamic_screener: sp600, sdax, mdax, cac_mid60, cac_next20, ftse_aim100"
-      - "GAW.L (QS 82 Tier A) + WDFC (QS 75 Tier A) discovered in small cap screening"
-      - "GAW.L R1 fundamental-analyst COMPLETE: FV 12200 GBp, WIDE moat, WATCHLIST (overvalued at 16550)"
-      - "quality_universe.py None-safety bug fix (stale/report/actionable commands)"
-      - "Universe cleanup: 64→59 (removed 5 below QS 65: WPP.L, CMCSA, GMAB, HO.PA, LRCX)"
-      - "WPP.L removed from price_monitors (QS 32 Tier D)"
-      - "tools-reference.md updated with new indices"
-      - "NVO fields fixed in current.yaml"
-      - "Health check: 7.5/10 (system.yaml bloat primary issue)"
-
-# -----------------------------------------------------------------------------
-# PIPELINE TRACKER - Rutinas operativas del fondo
-# Ver .claude/skills/pipelines/SKILL.md para definicion completa
-# -----------------------------------------------------------------------------
-pipeline_tracker:
-  # PRIORIDAD #1 - CAPITAL DEPLOYMENT (mientras cash > 25%)
-  capital_deployment:
-    frequency: daily
-    priority: 1
-    trigger: "cash > 25%"
-    last_run: 2026-02-17
-    next_due: 2026-02-18
-    last_result: "Session 72: DSY.PA 4.4% from trigger. ROP 6.7% from $300. ACGL 11.8%. MORN 14.6%. RSG+CDNS earnings TODAY. GAW.L+WDFC new Tier A from small caps. Cash ~57%."
-    skill: ".claude/skills/capital-deployment/SKILL.md"
-    tool: "tools/quality_universe.py"
-  # DIARIOS
-  vigilance:
-    frequency: daily
-    last_run: 2026-02-17
-    next_due: 2026-02-18
-    last_result: "Session 72: 0 CRITICAL, 7 MATERIAL. ADBE Goldman SELL (PT $290 > current $264). NVO CagriSema positive. LULU KC#3 elevated. RSG+CDNS earnings TODAY."
-  rotation_check:
-    frequency: daily
-    last_run: 2026-02-17
-    next_due: 2026-02-18
-    last_result: "Session 72: Bottom 3: ALL (+12.8%), LULU (+11.1%), DTE.DE (+5.0%). All have catalysts. No rotation. EDEN.PA top (61.8% MoS)."
-  # SEMANALES
-  opportunity_scan:
-    frequency: weekly
-    last_run: 2026-02-17
-    next_due: 2026-02-24
-    last_result: "Session 72: Small cap screening completed. GAW.L (QS 82 Tier A, ROIC 105%) and WDFC (QS 75 Tier A, ROIC 30%) added to universe. 16 companies scored across europe_smallcap + sp600."
-  risk_review:
-    frequency: weekly
-    last_run: 2026-02-13
-    next_due: 2026-02-20
-    last_result: "Session 68: 0 RED, 7 ORANGE, 7 YELLOW. LULU ESCALATED. GL insider selling 39%. 3 ON PROBATION."
-  # QUINCENALES
-  position_review:
-    frequency: biweekly
-    last_run: 2026-02-08
-    next_due: 2026-02-22
-    last_result: "Adversarial Fase 2: 9 Tier C reviewed. 3 SELL, 6 HOLD."
-    current_batch: "middle"
-    batch_rotation: ["bottom", "middle", "top"]
-  system_health:
-    frequency: biweekly
-    last_run: 2026-02-17
-    next_due: 2026-03-03
-    last_result: "Session 72: 7.5/10. system.yaml COMPACTED (1609→~650 lines). NVO+maintenance FIXED."
-  # MENSUALES
-  deep_performance:
-    frequency: monthly
-    last_run: 2026-02-11
-    next_due: 2026-03-11
-    last_result: "13 positions reviewed. P&L +$70.53 (+1.2%). Cash 48.5%. 2 OVERVALUED vs FV sold."
-  macro_refresh:
-    frequency: monthly
-    last_run: 2026-02-02
-    next_due: 2026-03-02
-    last_result: "Tariffs escalando, Iran tension up, China mejora"
-  system_challenge:
-    frequency: monthly
-    last_run: 2026-02-11
-    next_due: 2026-03-11
-    last_result: "5 challenges (1 CRITICAL, 3 HIGH, 1 MODERATE). Mentalidad competitiva removed, standing orders cancelled."
+# Cross-references to split files:
+# Calendar events:     state/calendar.yaml
+# Standing orders:     state/standing_orders.yaml
+# Watchlist:           state/watchlist.yaml
+# Pipeline tracker:    state/pipeline_tracker.yaml
+# Alerts:              state/watchlist.yaml (price_monitors section)

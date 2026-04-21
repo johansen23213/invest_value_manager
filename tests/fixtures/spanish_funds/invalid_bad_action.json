@@ -1,0 +1,11 @@
+{
+  "fund_id": "cobas",
+  "fund_name": "Cobas",
+  "quarter": "2026-Q1",
+  "extracted_at": "2026-04-20T10:00:00Z",
+  "extraction_model": "m",
+  "source_url": "https://x",
+  "positions": [
+    {"company_name": "X", "ticker": "X", "ticker_status": "verified", "action": "bought"}
+  ]
+}

@@ -113,7 +113,8 @@ LULU (consumer-discretionary) tiene elementos de premium pero no es ultra-luxury
 
 | Tipo | Ticker | Thesis Path | Ultima Eval | Status |
 |------|--------|-------------|-------------|--------|
-| Research | RACE.MI | thesis/research/RACE.MI | 2026-02-11 | Pipeline R1 completado |
+| Research | RACE.MI | thesis/research/RACE.MI | 2026-02-11 | R4 approved, SO EUR 270+260 |
+| Research | MONC.MI | thesis/research/MONC.MI | 2026-02-19 | R3 complete. FV EUR 52, entry EUR 42. R4 deferred post-Q1 2026. |
 
 ### Protocolo de Cambio Material
 Cuando actualices este sector view con cambio MATERIAL:
@@ -167,6 +168,7 @@ Cuando actualices este sector view con cambio MATERIAL:
 |-------|--------|-------|
 | 2026-02-11 | Sector view creado. Status: NEUTRAL-SELECTIVO | RACE.MI pipeline activo. Screening V2.5 encontro QS 82 Tier A. |
 | 2026-02-11 | RACE.MI R3 reconciled: FV EUR 377→355, entry EUR 290-305→260-290. Risk MEDIUM→MEDIUM-HIGH. | Devil's advocate STRONG COUNTER. OEY < WACC limitation, MoS below Tier A precedent. |
+| 2026-02-19 | MONC.MI R3 complete. FV EUR 58→52, entry EUR 48→42. R4 deferred to post-Q1 2026. | FY2025 BASE-BULL (Q4 +7%, EBIT 29.2%). DA MODERATE COUNTER: consensus convergence (Error #49), growth 3% vs 6% assumed, CEO double transition risk. Quality-at-discount thesis, not contrarian. |
 
 ---
 

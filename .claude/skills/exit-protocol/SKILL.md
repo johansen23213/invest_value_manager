@@ -1,8 +1,9 @@
 # EXIT PROTOCOL - Framework v4.0
 
-> **Proceso estructurado para decidir cuándo SALIR de una posición.**
+> **Proceso estructurado para decidir cuándo SALIR de una posición LONG.**
 > Más allá de kill conditions. Evalúa oportunidad-coste y mejor uso del capital.
 > **NOTA v4.0:** Este protocolo provee FRAMEWORK de razonamiento, no thresholds fijos.
+> **Para SHORTS:** Ver `.claude/skills/cover-protocol/SKILL.md` — espejo de este protocolo adaptado a shorts.
 
 ---
 

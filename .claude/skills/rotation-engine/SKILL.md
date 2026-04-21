@@ -36,7 +36,7 @@ La respuesta cambia con el tiempo porque:
 
 ## Proceso: Cada Sesión
 
-### 1. Ranking por Forward Expected Return
+### 1. Ranking por Forward Expected Return (NETO, incluyendo shorts)
 
 ```bash
 python3 tools/forward_return.py
@@ -46,6 +46,8 @@ Esto produce DATOS crudos:
 - Forward Expected Return = MoS% + Growth% + Yield%
 - Ajustado por conviction y tailwind
 - Ranking de mejor a peor
+- **Incluye shorts activos** — shorts generan forward return cuando aciertan (precio baja hacia FV)
+- Net forward return = long FER + short FER (cuando shorts hedge longs del mismo sector)
 
 **El ranking es INPUT para razonar, no OUTPUT para ejecutar.**
 
@@ -87,7 +89,7 @@ Si pipeline < 3:
 → Usar dynamic_screener.py --undiscovered para anti-bias
 ```
 
-### 4. Cash como Recurso Estratégico
+### 4. Cash, Shorts y Exposicion Neta — Herramientas de Construccion
 
 ```
 Cash idle + pipeline sano = oportunidad perdida
@@ -96,6 +98,30 @@ Cash idle + standing orders cerca = deployment inminente
 
 No hay "nivel correcto" de cash.
 Hay razonamiento sobre qué hacer con el cash dado el contexto.
+```
+
+**Shorts como alternativa al cash:**
+```
+El cash protege reduciendo exposicion. Un short protege GENERANDO retorno en caidas.
+
+Cuando el contexto macro/sectorial sugiere riesgo elevado:
+- Cash = proteccion pasiva (no pierde, no gana)
+- Short = proteccion activa (gana si el riesgo se materializa)
+
+Preguntas:
+1. "¿Hay empresa fragil identificada cuyo catalizador coincide con el riesgo que me preocupa?"
+2. "¿El carry cost del short es menor que el coste de oportunidad del cash?"
+3. "¿El short REDUCE la correlacion del portfolio o la aumenta?"
+
+Si la respuesta a las 3 es favorable → el short es MEJOR herramienta que el cash.
+Si no hay fragilidad con catalizador → cash es correcto (P10: sin catalizador, no shortear).
+
+NET EXPOSURE = instrumento principal de gestion de riesgo macro:
+- Riesgo bajo + pipeline fuerte → net exposure alto (longs agresivos)
+- Riesgo moderado + oportunidades mixtas → net exposure medio (longs + algo de cash/shorts)
+- Riesgo elevado + fragilidad identificada → net exposure bajo (shorts activos + cash)
+
+Esto NO es timing del mercado. Es coherencia entre vision del riesgo y construccion del portfolio.
 ```
 
 ---
@@ -177,6 +203,8 @@ Portfolio-ops ejecuta y documenta (estado)
 3. **"Tier B = vender"** → Tier B con argumento fuerte puede quedarse
 4. **"Cash siempre debe ser < X%"** → Cash depende del contexto
 5. **Rotar sin alternativa** → Vender para tener cash no es rotación, es liquidación
+6. **"No shortear porque somos long-only"** → El sistema es bidireccional. Ignorar shorts = decision por omision, no por razonamiento.
+7. **"Shortear porque el mercado esta caro"** → Sin fragilidad especifica + catalizador = Error #44 y #46
 
 ---
 
@@ -189,5 +217,5 @@ Portfolio-ops ejecuta y documenta (estado)
 
 ---
 
-**Última actualización:** 2026-02-07
-**Framework version:** 4.0
+**Última actualización:** 2026-02-18
+**Framework version:** 4.1

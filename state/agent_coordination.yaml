@@ -13,15 +13,190 @@ current_workflow:
   steps_completed: []
   next_step: null
 
-cross_agent_data: []
-# Format:
-#   - from: agent-name
-#     to: [agent-1, agent-2]
-#     data: "Key information"
-#     timestamp: YYYY-MM-DDTHH:MM:SSZ
+cross_agent_data:
+  - from: news-monitor
+    to: [orchestrator, review-agent]
+    data: "EDEN.PA pre-earnings intel refresh completed 2026-02-20. See eden_pa_intel_refresh below."
+    timestamp: 2026-02-20T18:00:00Z
 
 pending_validations: []
 # Format:
 #   - ticker: SHEL
 #     analyst: fundamental-analyst
 #     awaiting: investment-committee
+
+# =============================================================================
+# EDEN.PA PRE-EARNINGS INTEL REFRESH (2026-02-20)
+# =============================================================================
+eden_pa_intel_refresh:
+  date: 2026-02-20
+  earnings_date: 2026-02-24
+  days_until_earnings: 4
+  framework_age_days: 15
+  verdict: "CONFIRMED DECISION-READY -- no material changes since Feb 5 framework"
+
+  # -----------------------------------------------------------------------
+  # 1. BRAZIL REGULATION (PRIORITY CHECK)
+  # -----------------------------------------------------------------------
+  brazil_regulation:
+    status: NO_CHANGE_SINCE_FEB_5
+    classification: RUIDO  # no new developments
+    details: |
+      - Injunction for Ticket SA (Edenred subsidiary) remains ACTIVE as of mid-Feb 2026
+      - Government appeal ANTICIPATED but no ruling yet from higher court
+      - No new decrees, court rulings, or regulatory changes since the Nov 12 decree
+      - Interoperability 360-day deadline still running (from Nov 2025 = target ~Nov 2026)
+    new_threat_pix: |
+      Feb 20, 2026 GlobeNewsWire report on Brazil prepaid market highlights Pix integration
+      as structural long-term threat. Central Bank expanding Pix Automatico into recurring
+      payments. Not immediate but monitors as Kill Condition #11 proxy (digital wallet threat).
+      Classification: MENOR -- long-term structural, not earnings-relevant.
+    action: NONE -- already incorporated in thesis v4.0
+
+  # -----------------------------------------------------------------------
+  # 2. ANALYST REVISIONS (SINCE FEB 5)
+  # -----------------------------------------------------------------------
+  analyst_revisions:
+    status: MATERIAL_CHANGE
+    classification: MENOR  # consensus already known, no NEW downgrades
+    details: |
+      CONSENSUS HAS SHIFTED LOWER since our Feb 5 framework:
+      - Our framework had: avg target EUR 29-35, 16 buy, 5 hold, 2 sell
+      - Current (Feb 2026): avg target EUR 26.85-29.34, 9 buy, 4 hold, 1 sell
+      Key individual changes:
+      - Kepler Cheuvreux: EUR 40 -> EUR 28 (BUY maintained) -- SIGNIFICANT CUT
+      - Jefferies: EUR 22.20 -> EUR 17.70 (HOLD) -- now at current price level
+      - Morningstar: FV EUR 35-37, Wide Moat -- UNCHANGED, sees 49% discount
+      - eToro consensus: HOLD at EUR 17.70 target (bearish outlier)
+    impact_on_thesis: |
+      Consensus PT shift from ~EUR 32 to ~EUR 27 aligns closer to our adversarial FV of EUR 29.
+      This REDUCES the "consensus premium vs our FV" gap. Our FV is now IN LINE with consensus
+      rather than below it. This is actually neutral -- we are not contrarian anymore on valuation,
+      which means our edge is smaller but risk of being wrong is also smaller.
+    action: UPDATE earnings framework consensus section
+
+  # -----------------------------------------------------------------------
+  # 3. COMPETITOR MOVES
+  # -----------------------------------------------------------------------
+  competitor_moves:
+    status: NO_MATERIAL_CHANGE
+    classification: RUIDO
+    details: |
+      - Pluxee (ex-Sodexo) faces GREATER Brazil exposure (28% of rev vs Edenred's 19%)
+      - No M&A activity detected in meal voucher space
+      - No new entrants or disruptive products announced
+      - Brazil market remains concentrated: Edenred/Ticket, Pluxee, Alelo, VR
+    action: NONE
+
+  # -----------------------------------------------------------------------
+  # 4. FRANCE REGULATION (KEY RISK)
+  # -----------------------------------------------------------------------
+  france_regulation:
+    status: POSITIVE_DEVELOPMENT
+    classification: MENOR  # positive but already partially known
+    details: |
+      IMPORTANT: French government RULED OUT imposing merchant fee caps (as of June 2025).
+      Instead:
+      - Transparency charter (not caps) to guide issuer-merchant relationships
+      - Full digitalization by Feb 28, 2027 (POSITIVE for Edenred's digital-first strategy)
+      - EUR 25 daily cap RETAINED (no lower cap for supermarkets)
+      - Expanded use: permanent supermarket purchases + Sunday usage
+      - Oversight transferred from National Commission to Banque de France
+      This REDUCES Kill Condition #1 risk (France interchange caps) significantly.
+    impact_on_thesis: |
+      Kill Condition #1 probability DECREASES from 30% to ~15%.
+      France choosing transparency over caps is a clear positive signal.
+      However, this was known since June 2025 so should already be in the price.
+    action: NOTE for post-earnings thesis update -- reduce KC#1 probability
+
+  # -----------------------------------------------------------------------
+  # 5. ITALY REGULATION
+  # -----------------------------------------------------------------------
+  italy_regulation:
+    status: NO_CHANGE
+    classification: RUIDO
+    details: |
+      - Italy cap on merchant fees took effect Q3 2025 as expected
+      - EUR 60M impact in 2025, EUR 120M annually -- UNCHANGED from thesis
+      - Italy 2026 employee benefits tax updates: refined existing incentives, no new threats
+      - Fringe benefit limits confirmed for 2026 (EUR 2,000 for employees with children)
+    action: NONE -- already incorporated in adversarial review
+
+  # -----------------------------------------------------------------------
+  # 6. MANAGEMENT ACTIVITY / INVESTOR PRESENTATIONS
+  # -----------------------------------------------------------------------
+  management_activity:
+    status: MINOR_NEW_INFO
+    classification: MENOR
+    details: |
+      a) Jan 8, 2026: EUR 500M BOND ISSUANCE at 3.75% coupon, 7yr maturity (Jan 2033)
+         - Purpose: refinance EUR 500M bond due March 2026
+         - 3x oversubscribed (EUR 1.6B demand)
+         - Extends avg bond maturity from 3.3yr to 4.1yr
+         - POSITIVE: no refinancing risk, strong market access despite stock decline
+         - NOT in our thesis -- should be noted
+      b) Jan 16, 2026: "Power up your joie de vivre" -- new B&E positioning
+         - Marketing rebrand, not material for financials
+      c) Q3 2025 results (Oct 21, 2025): Revenue +8.2% LFL, shares surged 13%
+         - Already known and incorporated
+    impact_on_thesis: |
+      Bond issuance is POSITIVE for balance sheet risk assessment:
+      - Net Debt/EBITDA headroom improved (no near-term maturity wall)
+      - Kill Condition #2 (ND/EBITDA >3.0x) LESS LIKELY given refinancing
+      - Market confidence in Edenred credit (3x oversubscribed)
+    action: NOTE bond issuance in post-earnings thesis update
+
+  # -----------------------------------------------------------------------
+  # 7. DIVIDEND EXPECTATIONS
+  # -----------------------------------------------------------------------
+  dividend_expectations:
+    status: NO_CHANGE
+    classification: RUIDO
+    details: |
+      - FY2024 dividend: EUR 1.21/share (paid June 2025), +10% YoY
+      - Payout ratio: ~57%
+      - 15 consecutive years of dividends, 5 years without cut
+      - At current price ~EUR 18: yield ~6.7%
+      - No indication of cut -- even with -12% EBITDA, payout remains sustainable
+      - Kill Condition #4 (dividend cut): LOW risk
+    action: NONE
+
+  # -----------------------------------------------------------------------
+  # EARNINGS FRAMEWORK UPDATES NEEDED
+  # -----------------------------------------------------------------------
+  framework_updates:
+    consensus_pt: "Update from EUR 25.35 to EUR 26.85-27.88 (varies by source)"
+    consensus_rating: "Shift from predominantly BUY to mixed BUY/HOLD"
+    france_risk: "Kill Condition #1 probability reduce from 30% to 15%"
+    bond_issuance: "Add EUR 500M refinancing Jan 2026 to balance sheet section"
+    pix_threat: "Add to long-term monitoring (KC#11 proxy)"
+    q3_momentum: "Revenue acceleration to 8.2% LFL in Q3 supports 2025 EBITDA target"
+
+  # -----------------------------------------------------------------------
+  # OVERALL ASSESSMENT
+  # -----------------------------------------------------------------------
+  overall:
+    material_changes_found: 0  # zero MATERIAL or CRITICAL changes
+    minor_changes_found: 3  # analyst consensus shift, France positive, bond issuance
+    noise_items: 4  # Brazil unchanged, Italy unchanged, competitors unchanged, dividend unchanged
+    kill_conditions_status: "ALL OK -- no new threats. KC#1 (France) probability REDUCED."
+    decision_framework_valid: true
+    confidence_in_framework: "HIGH -- earnings framework from Feb 5 remains fully valid"
+    earnings_readiness: "DECISION-READY"
+
+  # -----------------------------------------------------------------------
+  # META-REFLECTION
+  # -----------------------------------------------------------------------
+  meta_reflection:
+    coverage: "7/7 areas searched. Comprehensive coverage achieved."
+    limitations:
+      - "Could not access Morningstar paywall for detailed updated analysis"
+      - "Could not access Edenred PDF press releases directly"
+      - "Yahoo Finance analysis page returned errors"
+    anomalies:
+      - "eToro showing HOLD at EUR 17.70 -- extreme outlier vs rest of consensus. May be stale or based on limited analysts."
+      - "Consensus PT range is wide (EUR 17.70 to EUR 40) indicating high uncertainty"
+    suggestions:
+      - "Monitor Brazil appeal court ruling -- this is the key binary risk before/during earnings"
+      - "Watch for management commentary on Pix integration threat during earnings call"
+      - "Post-earnings: update thesis with bond issuance and France KC#1 reduction"

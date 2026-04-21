@@ -205,3 +205,26 @@ Clasificación: MENOR (si rationale es conocido) o MATERIAL (si revela info nuev
 [ ] ¿Ya está en el precio?
 [ ] ¿Es específico de la empresa o sector-wide?
 ```
+
+---
+
+## Clasificacion para SHORT Positions
+
+Para posiciones SHORT activas, la logica se INVIERTE:
+
+### Noticias POSITIVAS sobre un short = ALERTA
+- Earnings beat → posicion va en contra → evaluar COVER
+- Nuevo producto exitoso → fragilidad se reduce → evaluar COVER
+- Insider buying → smart money contra nuestra thesis → evaluar
+
+### Noticias NEGATIVAS sobre un short = CONFIRMACION
+- Earnings miss → thesis se confirma → mantener
+- Regulacion adversa → catalizador avanza → mantener
+- Insider selling → confirmacion de fragilidad → mantener
+
+### Checklist adicional para shorts
+```
+[ ] ¿La noticia afecta al CATALIZADOR? (mas cerca, mas lejos, o invalidado?)
+[ ] ¿La noticia cambia la FRAGILIDAD? (empresa mejoro o empeoro?)
+[ ] ¿La noticia afecta el CARRY? (mas tiempo esperando?)
+```

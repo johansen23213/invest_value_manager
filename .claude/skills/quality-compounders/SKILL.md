@@ -20,27 +20,31 @@ Un negocio excepcional que:
 
 ---
 
-## Criterios para Quality Compounder (QS >=75)
+## Patrones Observados en Quality Compounders (QS >=75)
 
-### Financial Quality (>=32/40)
-- ROIC > WACC + 15pp (spread >=15pp)
-- FCF Margin >15%
-- Net Debt/EBITDA <2x (preferible net cash)
-- FCF positivo 5/5 anos
+Los mejores compounders tipicamente exhiben estas caracteristicas. Son PATRONES observados, no umbrales fijos. Una empresa que falla en uno puede compensar en otro — razonar caso a caso.
 
-### Growth Quality (>=18/25)
-- Revenue CAGR >10% (sostenible)
-- EPS CAGR >10%
-- Gross Margin estable o expandiendo
+### Financial Quality (tipicamente >=32/40)
+- ROIC significativamente superior al WACC de forma sostenida
+- FCF margins saludables para su sector (comparar vs peers, no vs numero fijo)
+- Balance prudente (net debt razonable para el tipo de negocio)
+- FCF consistentemente positivo
 
-### Moat Evidence (>=20/25)
-- Gross Margin muy superior al sector (>10pp)
-- Posicion de mercado dominante (#1-2)
-- ROIC >WACC por 10+ anos
+### Growth Quality (tipicamente >=18/25)
+- Crecimiento organico sostenible con runway largo
+- EPS growing faster than o al ritmo de revenue (operating leverage)
+- Margenes estables o expandiendo (senal de pricing power)
 
-### Capital Allocation (>=5/10)
-- Track record de dividendos/buybacks
-- Idealmente insider ownership >2%
+### Moat Evidence (tipicamente >=20/25)
+- Gross Margin premium significativo vs sector (senal de moat)
+- Posicion de mercado fuerte y defendible
+- ROIC>WACC persistente — la senal mas potente de moat
+
+### Capital Allocation (tipicamente >=5/10)
+- Track record de retorno a accionistas
+- Insider ownership alineado (skin in the game)
+
+**NOTA**: Los sub-scores minimos son patrones, no filtros. quality_scorer.py calcula el score objetivo. Ajustes manuales requieren evidencia cuantitativa.
 
 ---
 
@@ -173,7 +177,7 @@ NO vender por:
 
 ### Mantener lista actualizada
 
-La lista esta en `state/system.yaml` seccion `watchlist.quality_compounders`.
+La lista esta en `state/watchlist.yaml` seccion `quality_compounders`.
 Actualizar trimestralmente:
 1. Recalcular Quality Score
 2. Verificar si alguno alcanzo entry razonable

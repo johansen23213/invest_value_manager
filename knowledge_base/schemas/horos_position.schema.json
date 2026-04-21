@@ -1,0 +1,73 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://valuehunter.local/schemas/horos_position.schema.json",
+  "title": "Horos Position",
+  "description": "A position extracted from Horos Asset Management quarterly letters",
+  "type": "object",
+  "required": ["letter_quarter", "company", "source_url"],
+  "additionalProperties": false,
+  "properties": {
+    "letter_quarter": {
+      "type": "string",
+      "pattern": "^\\d{4}-Q[1-4]$",
+      "description": "Quarter of the letter (e.g. 2025-Q4)"
+    },
+    "letter_date": {
+      "type": ["string", "null"],
+      "format": "date",
+      "description": "Publication date of the letter"
+    },
+    "fund": {
+      "type": "string",
+      "enum": ["HOROS_VALUE_INTERNACIONAL", "HOROS_VALUE_IBERIA"],
+      "description": "Which Horos fund holds this position"
+    },
+    "company": {
+      "type": "string",
+      "description": "Company name as mentioned in the letter"
+    },
+    "ticker": {
+      "type": ["string", "null"],
+      "description": "Inferred ticker (null if could not be resolved)"
+    },
+    "ticker_confidence": {
+      "type": "string",
+      "enum": ["EXACT", "FUZZY_MATCH", "UNRESOLVED"],
+      "description": "How confident we are in the ticker mapping"
+    },
+    "thesis_summary": {
+      "type": ["string", "null"],
+      "description": "Thesis summary extracted from the letter"
+    },
+    "upside_pct": {
+      "type": ["number", "null"],
+      "description": "Estimated upside mentioned in the letter"
+    },
+    "weight_pct": {
+      "type": ["number", "null"],
+      "description": "Portfolio weight if mentioned",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "action": {
+      "type": ["string", "null"],
+      "enum": ["NEW", "INCREASED", "DECREASED", "MAINTAINED", "EXITED", null],
+      "description": "Change vs prior quarter"
+    },
+    "sector": { "type": ["string", "null"] },
+    "geo": { "type": ["string", "null"] },
+    "market_cap_bucket": {
+      "type": ["string", "null"],
+      "enum": ["MICRO", "SMALL", "MID", "LARGE", null]
+    },
+    "source_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL of the quarterly letter PDF"
+    },
+    "scraped_date": {
+      "type": "string",
+      "format": "date"
+    }
+  }
+}

@@ -1,0 +1,4 @@
+{"run_id": "a310a28dea7d", "event_type": "run_start", "timestamp": 1776319073.587886, "agent_id": "", "data": {"flow": "daily-monitor", "params": {}}}
+{"run_id": "a310a28dea7d", "event_type": "agent_start", "timestamp": 1776319073.588694, "agent_id": "a32", "data": {"inputs": {"flow": "daily-monitor"}}}
+{"run_id": "a310a28dea7d", "event_type": "agent_end", "timestamp": 1776319073.594906, "agent_id": "a32", "data": {"success": true, "tokens": 200, "duration": 1.0, "error": null}}
+{"run_id": "a310a28dea7d", "event_type": "run_end", "timestamp": 1776319073.5972, "agent_id": "", "data": {"success": true, "summary": {"run_id": "a310a28dea7d", "flow": "daily-monitor", "success": true, "data": {"agent": "portfolio_monitor", "portfolio_summary": {"total_positions": 11, "net_pnl_pct": 3.5}, "positions": [], "summary": "All positions on track."}, "tokens_used": 200, "duration_seconds": 1.0}}}

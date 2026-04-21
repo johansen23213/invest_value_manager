@@ -4,7 +4,7 @@ description: Complete registry of all agents, their responsibilities, dependenci
 user-invocable: false
 ---
 
-# Agent Registry & Consistency Protocol (v3.0)
+# Agent Registry & Consistency Protocol (v4.1)
 
 ## Propósito
 Documento de referencia ÚNICO para:
@@ -73,25 +73,27 @@ El orchestrator (yo, Claude) delega a agentes especializados. Lee CLAUDE.md que 
 #### news-monitor
 | Campo | Valor |
 |-------|-------|
-| Responsabilidad | Escanear noticias últimas 48h de todas las posiciones y watchlist |
+| Responsabilidad | Escanear noticias últimas 48h de todas las posiciones (long + short) y watchlist |
 | Single-responsibility | Solo detecta y clasifica noticias, no decide acciones |
 | Skills | news-classification, critical-thinking |
-| Lee | portfolio/current.yaml, state/system.yaml (watchlist) |
+| Lee | portfolio/current.yaml (positions + short_positions), state/watchlist.yaml, state/standing_orders.yaml |
 | Escribe | state/news_digest.yaml |
 | Trigger | INICIO de cada sesión (Fase 0) |
 | Alerta | CRÍTICO = STOP, informar humano inmediatamente |
+| **Nuevo v4.1** | Para SHORT positions: noticias POSITIVAS = ALERTA (lógica invertida). Noticias que debilitan la tesis short son tan críticas como las que debilitan una tesis long. |
 
 #### market-pulse
 | Campo | Valor |
 |-------|-------|
-| Responsabilidad | Detectar movimientos anómalos de precio y buscar su CAUSA |
+| Responsabilidad | Detectar movimientos anómalos de precio y buscar su CAUSA (long + short) |
 | Single-responsibility | Solo detecta anomalías, no decide acciones |
 | Skills | critical-thinking |
-| Lee | portfolio/current.yaml, state/system.yaml |
+| Lee | portfolio/current.yaml (positions + short_positions), state/watchlist.yaml, state/standing_orders.yaml |
 | Escribe | state/market_pulse.yaml |
 | Tools | price_checker.py |
 | Trigger | INICIO de cada sesión (en paralelo con news-monitor) |
 | Alerta | Movimiento >5% sin causa = investigar |
+| **Nuevo v4.1** | Para SHORTs: subida >5% sin causa = alerta (movimiento adverso). Bajada >5% en short = confirmación (positivo para portfolio). |
 
 #### risk-sentinel
 | Campo | Valor |
@@ -111,46 +113,49 @@ El orchestrator (yo, Claude) delega a agentes especializados. Lee CLAUDE.md que 
 #### fundamental-analyst
 | Campo | Valor |
 |-------|-------|
-| Responsabilidad | Análisis profundo de empresas con Framework v4.0 |
+| Responsabilidad | Análisis profundo de empresas con Framework v4.0 (LONG y SHORT) |
 | Single-responsibility | Crea thesis completa con 5 fases obligatorias |
-| Skills | business-analysis-framework, projection-framework, valuation-methods, thesis-template, agent-meta-reflection |
+| Skills | business-analysis-framework, projection-framework, valuation-methods, thesis-template, agent-meta-reflection, **contrathesis-framework**, **short-thesis-framework** |
 | Lee | world/current_view.md, **world/sectors/{sector}.md**, portfolio/current.yaml |
-| Escribe | thesis/research/{TICKER}/thesis.md |
+| Escribe | thesis/research/{TICKER}/thesis.md **o** thesis/short/research/{TICKER}/thesis.md |
 | Dependencias | sector view DEBE existir antes de valorar |
 | **v4.0** | Ya no delega a micro-agentes. El orchestrator lanza moat/risk/valuation en paralelo |
+| **v4.1** | Cuando invocado con --short-thesis: invierte analisis, busca fragilidad. Usa short-thesis-framework |
 
 #### investment-committee
 | Campo | Valor |
 |-------|-------|
-| Responsabilidad | Gate obligatorio de **10 gates** antes de BUY/SELL |
+| Responsabilidad | Gate obligatorio de **10 gates** antes de BUY/SELL. **SHORT_APPROVAL mode** para shorts (10+3 gates) |
 | Single-responsibility | Valida que análisis es completo y decisión sólida. Evalúa thesis vs contra-thesis |
-| Skills | investment-rules, portfolio-constraints, decision-template, committee-decision-template, business-analysis-framework, projection-framework, valuation-methods, sector-deep-dive, agent-meta-reflection |
+| Skills | investment-rules, portfolio-constraints, decision-template, committee-decision-template, business-analysis-framework, projection-framework, valuation-methods, sector-deep-dive, agent-meta-reflection, **short-thesis-framework**, **cover-protocol** |
 | Lee | world/current_view.md, **world/sectors/{sector}.md**, portfolio/current.yaml, thesis del ticker, **counter_analysis.md, moat_assessment.md, risk_assessment.md, valuation_report.md** |
-| Escribe | thesis/research/{TICKER}/committee_decision.md |
+| Escribe | thesis/research/{TICKER}/committee_decision.md **o** thesis/short/research/{TICKER}/committee_decision.md |
 | Dependencias | sector view DEBE existir (Gate 8). Counter-analysis evaluado (Gate 10) |
 | **v4.0** | Gate 10: Counter-Analysis Gate. Desafíos CRITICAL deben resolverse antes de aprobar |
+| **v4.1** | SHORT_APPROVAL mode: 3 gates adicionales — SHORT-1 (catalizador P10), SHORT-2 (asimetria P11), SHORT-3 (mejora portfolio total P12) |
 
 #### review-agent
 | Campo | Valor |
 |-------|-------|
-| Responsabilidad | Re-evaluación de posiciones activas con Framework v4.0 |
-| Single-responsibility | Compara thesis vs realidad, recomienda HOLD/ADD/TRIM/SELL |
-| Skills | re-evaluation-protocol, business-analysis-framework, projection-framework, valuation-methods, investment-rules, agent-meta-reflection |
-| Lee | world/current_view.md, **world/sectors/{sector}.md**, thesis/active/{TICKER}/thesis.md |
+| Responsabilidad | Re-evaluación de posiciones activas (LONG y SHORT) con Framework v4.0 |
+| Single-responsibility | Compara thesis vs realidad, recomienda HOLD/ADD/TRIM/SELL (longs) o HOLD/COVER (shorts) |
+| Skills | re-evaluation-protocol, business-analysis-framework, projection-framework, valuation-methods, investment-rules, agent-meta-reflection, **cover-protocol** |
+| Lee | world/current_view.md, **world/sectors/{sector}.md**, thesis/active/{TICKER}/ **o** thesis/short/active/{TICKER}/ |
 | Escribe | Actualiza thesis con v4.0, journal/reviews/ |
 | Dependencias | sector view DEBE existir antes de re-evaluar |
-| **v4.1** | Output incluye conviction (high/medium/low) y exit_plan actualizado |
+| **v4.1** | Output incluye conviction (high/medium/low) y exit_plan actualizado. --short-review mode: verifica fragilidad intacta, catalizador vigente, carry aceptable |
 
 #### devil's-advocate (NUEVO)
 | Campo | Valor |
 |-------|-------|
-| Responsabilidad | Contra-análisis adversarial independiente de thesis |
+| Responsabilidad | Contra-análisis adversarial independiente de thesis (LONG y SHORT) |
 | Single-responsibility | Solo desafía, no decide. Busca evidencia en contra |
-| Skills | critical-thinking, business-analysis-framework, valuation-methods, agent-meta-reflection |
-| Lee | thesis/research/{TICKER}/thesis.md, moat_assessment.md, risk_assessment.md, valuation_report.md |
-| Escribe | thesis/research/{TICKER}/counter_analysis.md |
-| Trigger | Después de Ronda 1 del buy-pipeline, antes de investment-committee |
+| Skills | critical-thinking, business-analysis-framework, valuation-methods, agent-meta-reflection, **contrathesis-framework** |
+| Lee | thesis/research/{TICKER}/ **o** thesis/short/research/{TICKER}/ |
+| Escribe | counter_analysis.md en el directorio correspondiente |
+| Trigger | Después de Ronda 1 del buy-pipeline o S1 del short-pipeline |
 | Output | Veredicto: WEAK COUNTER / MODERATE COUNTER / STRONG COUNTER |
+| **v4.1** | Para shorts: Devil's advocate BULL — por que podria el precio tener razon? Prompt invertido |
 
 #### valuation-specialist (independiente)
 | Campo | Valor |
@@ -193,7 +198,7 @@ El orchestrator (yo, Claude) delega a agentes especializados. Lee CLAUDE.md que 
 | Responsabilidad | Búsqueda sistemática de oportunidades anti-sesgo |
 | Single-responsibility | Encuentra candidatos de forma sistemática, no los analiza profundamente |
 | Skills | screening-protocol, critical-thinking, agent-meta-reflection |
-| Lee | world/sectors/*.md, state/system.yaml (watchlist, standing_orders) |
+| Lee | world/sectors/*.md, state/watchlist.yaml, state/standing_orders.yaml |
 | Escribe | N/A (output directo al orchestrator) |
 | Dependencias | Usa dynamic_screener.py, verifica sector views existen |
 | Cuándo usar | Cash sin oportunidades claras, búsqueda de ideas, post-venta, proactivamente semanal |
@@ -212,12 +217,12 @@ El orchestrator (yo, Claude) delega a agentes especializados. Lee CLAUDE.md que 
 #### macro-analyst
 | Campo | Valor |
 |-------|-------|
-| Responsabilidad | Análisis macro con implicaciones ACCIONABLES |
+| Responsabilidad | Análisis macro con implicaciones ACCIONABLES (long + short) |
 | Single-responsibility | Actualiza world view, conecta macro con decisiones |
 | Skills | macro-framework, critical-thinking |
-| Lee | world/current_view.md, portfolio/current.yaml |
+| Lee | world/current_view.md, portfolio/current.yaml (positions + short_positions) |
 | Escribe | world/current_view.md, **world/sectors/{sector}.md** (cuando aplica) |
-| **Nuevo v4.1** | Output incluye "Portfolio Implications" - mapeo de macro a posiciones concretas (tailwind/headwind) |
+| **Nuevo v4.1** | Output incluye "Portfolio Implications" - mapeo de macro a posiciones concretas (tailwind/headwind). Para shorts: macro headwinds para la empresa = tailwinds para el short. Incluye "Net Exposure Implications" cuando hay macro shift. |
 
 ---
 
@@ -236,30 +241,32 @@ El orchestrator (yo, Claude) delega a agentes especializados. Lee CLAUDE.md que 
 #### position-calculator
 | Campo | Valor |
 |-------|-------|
-| Responsabilidad | Cálculo de sizing óptimo |
+| Responsabilidad | Cálculo de sizing óptimo (long + short) |
 | Single-responsibility | Solo calcula, no decide |
 | Skills | portfolio-constraints |
-| Lee | portfolio/current.yaml |
+| Lee | portfolio/current.yaml (positions + short_positions), learning/principles.md (P10-P14 para portfolio bidireccional) |
 | Escribe | N/A (output directo) |
+| **Nuevo v4.1** | Para SHORTs: incluir carry cost anual (~7-8% eToro CFD) en cálculo, reasoning sobre duración esperada (P10 catalizador), output incluye "Carry Cost Impact" y "Max Loss Scenario" (squeeze risk P11). |
 
 #### watchlist-manager
 | Campo | Valor |
 |-------|-------|
-| Responsabilidad | Monitoreo de watchlist y triggers |
+| Responsabilidad | Monitoreo de watchlist y triggers (long + short candidates) |
 | Single-responsibility | Verifica triggers, recomienda acciones |
 | Skills | investment-rules, portfolio-constraints |
-| Lee | state/system.yaml (watchlist) |
-| Escribe | state/system.yaml (watchlist updates) |
+| Lee | state/watchlist.yaml (incluyendo short_candidates section) |
+| Escribe | state/watchlist.yaml |
+| **Nuevo v4.1** | Sección short_candidates en watchlist.yaml. Para shorts: trigger = precio >= target (invertido). Monitorea catalizadores de fragilidad (P10). |
 
 #### portfolio-ops
 | Campo | Valor |
 |-------|-------|
-| Responsabilidad | Centraliza TODAS las escrituras de estado |
+| Responsabilidad | Centraliza TODAS las escrituras de estado (long + short) |
 | Single-responsibility | Solo escribe estado, no decide |
 | Skills | portfolio-constraints, file-system-rules |
-| Lee | portfolio/current.yaml, state/system.yaml |
-| Escribe | portfolio/current.yaml, state/system.yaml (tras confirmación humano) |
-| **Nuevo v4.1** | Maneja campos conviction, exit_plan, last_review en portfolio/current.yaml |
+| Lee | portfolio/current.yaml (positions + short_positions), state/*.yaml (as needed) |
+| Escribe | portfolio/current.yaml (positions + short_positions), state/*.yaml (tras confirmación humano) |
+| **Nuevo v4.1** | Soporta 4 operaciones: BUY/SELL (longs → positions), SHORT/COVER (shorts → short_positions). Maneja campos conviction, exit_plan, last_review, y para shorts: carry_cost_annual, catalyst_date, entry_price (= precio al shortear). Mueve thesis entre thesis/short/research/ → thesis/short/active/ → thesis/archive/. |
 
 #### performance-tracker
 | Campo | Valor |
@@ -280,8 +287,8 @@ El orchestrator (yo, Claude) delega a agentes especializados. Lee CLAUDE.md que 
 | Responsabilidad | Gestión de calendario de eventos |
 | Single-responsibility | Verifica fechas, alerta eventos |
 | Skills | system-context |
-| Lee | state/system.yaml (calendar) |
-| Escribe | state/system.yaml (calendar updates) |
+| Lee | state/calendar.yaml |
+| Escribe | state/calendar.yaml |
 
 #### health-check
 | Campo | Valor |
@@ -290,7 +297,7 @@ El orchestrator (yo, Claude) delega a agentes especializados. Lee CLAUDE.md que 
 | Single-responsibility | Verifica consistencia, no corrige |
 | Skills | system-context, file-system-rules |
 | Lee | Todo el sistema |
-| Escribe | state/system.yaml (health_score, issues) |
+| Escribe | state/pipeline_tracker.yaml (health_score, issues) |
 | Verifica | **Sector views existen para posiciones activas** |
 | **Nuevo v4.1** | Verificar: todas las posiciones tienen conviction y exit_plan. forward_return.py ejecutado en sesión |
 

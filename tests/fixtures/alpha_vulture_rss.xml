@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Alpha Vulture</title>
+    <link>https://alphavulture.com</link>
+    <item>
+      <title>Interesting merger arbitrage: ACME Corp acquisition by BigCo</title>
+      <link>https://alphavulture.com/2026/03/15/acme-corp-merger-arb/</link>
+      <pubDate>Fri, 15 Mar 2026 10:00:00 +0000</pubDate>
+      <description>ACME Corp (ACME) is being acquired by BigCo at $45 per share. Current price $42.50, 5.9% spread.</description>
+    </item>
+    <item>
+      <title>Net cash play: BustedBio Inc trading below cash</title>
+      <link>https://alphavulture.com/2026/02/20/bustedbio-net-cash/</link>
+      <pubDate>Thu, 20 Feb 2026 08:00:00 +0000</pubDate>
+      <description>BustedBio (BBIO) has $12/share net cash but trades at $8. Failed Phase 3. Strategic alternatives.</description>
+    </item>
+  </channel>
+</rss>

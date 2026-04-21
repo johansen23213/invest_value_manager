@@ -1,0 +1,3793 @@
+ACGL:
+  fetched: 2026-02-21 17:00
+  holders:
+  - is_indexer: true
+    name: Vanguard Group Inc
+    pct: 0.113900006
+    shares: 41288784
+    value: 4066532247.0
+  - is_indexer: true
+    name: Blackrock Inc.
+    pct: 0.0875
+    shares: 31735316
+    value: 3125611205.0
+  - is_indexer: false
+    name: Artisan Partners Limited Partnership
+    pct: 0.0652
+    shares: 23638106
+    value: 2328117009.0
+  - is_indexer: false
+    name: BAMCO Inc.
+    pct: 0.0517
+    shares: 18759655
+    value: 1847638380.0
+  - is_indexer: true
+    name: State Street Corporation
+    pct: 0.0454
+    shares: 16451086
+    value: 1620267424.0
+  insiders:
+  - date: '2026-02-11'
+    name: RAJEH MAAMOUN
+    shares: 47430
+    text: Sale at price 96.12 per share.
+    type: SELL
+  - date: '2026-02-11'
+    name: RAJEH MAAMOUN
+    shares: 47430
+    text: Conversion of Exercise of derivative security at price 27.09
+    type: OPTION
+  - date: '2025-12-15'
+    name: PASQUESI JOHN MURRAY
+    shares: 212666
+    text: Sale at price 93.81 - 94.17 per share.
+    type: SELL
+  - date: '2025-12-12'
+    name: PASQUESI JOHN MURRAY
+    shares: 53000
+    text: Stock Gift at price 0.00 per share.
+    type: OTHER
+  - date: '2025-12-10'
+    name: PETRILLO LOUIS T
+    shares: 42
+    text: Stock Gift at price 0.00 per share.
+    type: OTHER
+  - date: '2025-11-28'
+    name: MORIN FRANCOIS
+    shares: 8000
+    text: Sale at price 94.62 per share.
+    type: SELL
+  - date: '2025-10-30'
+    name: VOLLARO JOHN D
+    shares: 2192
+    text: Stock Gift at price 0.00 per share.
+    type: OTHER
+  - date: '2025-08-22'
+    name: RAJEH MAAMOUN
+    shares: 10000
+    text: Sale at price 94.15 per share.
+    type: SELL
+  - date: '2025-08-05'
+    name: VOLLARO JOHN D
+    shares: 194999
+    text: Stock Gift at price 0.00 per share.
+    type: OTHER
+  - date: '2025-05-16'
+    name: MORIN FRANCOIS
+    shares: 12630
+    text: Sale at price 94.58 per share.
+    type: SELL
+  - date: '2025-05-16'
+    name: MORIN FRANCOIS
+    shares: 12630
+    text: Conversion of Exercise of derivative security at price 18.90
+    type: OPTION
+  - date: '2025-05-13'
+    name: PASQUESI JOHN MURRAY
+    shares: 99056
+    text: Sale at price 94.01 - 94.72 per share.
+    type: SELL
+  - date: '2025-05-09'
+    name: PETRILLO LOUIS T
+    shares: 10
+    text: Stock Gift at price 0.00 per share.
+    type: OTHER
+  - date: '2025-05-09'
+    name: PETRILLO LOUIS T
+    shares: 16650
+    text: Sale at price 94.53 per share.
+    type: SELL
+  - date: '2025-05-09'
+    name: PETRILLO LOUIS T
+    shares: 16650
+    text: Conversion of Exercise of derivative security at price 18.90
+    type: OPTION
+ADBE:
+  fetched: 2026-02-21 16:49
+  holders:
+  - is_indexer: true
+    name: Vanguard Group Inc
+    pct: 0.100600004
+    shares: 41283446
+    value: 10676311365.0
+  - is_indexer: true
+    name: Blackrock Inc.
+    pct: 0.098500006
+    shares: 40430222
+    value: 10455659119.0
+  - is_indexer: true
+    name: State Street Corporation
+    pct: 0.0499
+    shares: 20473733
+    value: 5294711791.0
+  - is_indexer: true
+    name: Geode Capital Management, LLC
+    pct: 0.028099999
+    shares: 11531678
+    value: 2982207078.0
+  - is_indexer: false
+    name: NORGES BANK
+    pct: 0.015800001
+    shares: 6500657
+    value: 1681134811.0
+  - is_indexer: false
+    name: Arrowstreet Capital, Limited Partnership
+    pct: 0.0152
+    shares: 6228503
+    value: 1610753069.0
+  - is_indexer: false
+    name: Morgan Stanley
+    pct: 0.0150999995
+    shares: 6195038
+    value: 1602098686.0
+  - is_indexer: true
+    name: Bank Of New York Mellon Corporation
+    pct: 0.0136
+    shares: 5586349
+    value: 1444685633.0
+  - is_indexer: false
+    name: UBS AM, a distinct business unit of UBS ASSET MANAGEMENT AMERICAS LLC
+    pct: 0.0124
+    shares: 5083365
+    value: 1314608948.0
+  - is_indexer: true
+    name: Northern Trust Corporation
+    pct: 0.012200001
+    shares: 4999593
+    value: 1292944672.0
+  insiders:
+  - date: '2026-01-27'
+    name: DURN DANIEL J
+    shares: 1646
+    text: Sale at price 294.85 per share.
+    type: SELL
+  - date: '2026-01-23'
+    name: CHAKRAVARTHY ANIL
+    shares: 24213
+    text: ''
+    type: OTHER
+  - date: '2026-01-23'
+    name: NARAYEN SHANTANU
+    shares: 69553
+    text: ''
+    type: OTHER
+  - date: '2026-01-23'
+    name: WADHWANI DAVID
+    shares: 24213
+    text: ''
+    type: OTHER
+  - date: '2026-01-23'
+    name: CHEN GLORIA T
+    shares: 10663
+    text: ''
+    type: OTHER
+  - date: '2026-01-23'
+    name: FORUSZ JILLIAN
+    shares: 559
+    text: ''
+    type: OTHER
+  - date: '2026-01-23'
+    name: DURN DANIEL J
+    shares: 15660
+    text: ''
+    type: OTHER
+  - date: '2026-01-15'
+    name: CHAKRAVARTHY ANIL
+    shares: 1895
+    text: ''
+    type: OTHER
+  - date: '2026-01-15'
+    name: NARAYEN SHANTANU
+    shares: 5443
+    text: ''
+    type: OTHER
+  - date: '2026-01-15'
+    name: WADHWANI DAVID
+    shares: 1895
+    text: ''
+    type: OTHER
+  - date: '2026-01-15'
+    name: CHEN GLORIA T
+    shares: 1938
+    text: ''
+    type: OTHER
+  - date: '2026-01-15'
+    name: BALAZS LARA
+    shares: 4919
+    text: ''
+    type: OTHER
+  - date: '2026-01-15'
+    name: FORUSZ JILLIAN
+    shares: 117
+    text: ''
+    type: OTHER
+  - date: '2026-01-15'
+    name: DURN DANIEL J
+    shares: 2833
+    text: ''
+    type: OTHER
+  - date: '2025-12-24'
+    name: FORUSZ JILLIAN
+    shares: 550
+    text: Stock Gift at price 0.00 per share.
+    type: OTHER
+AJB.L:
+  fetched: 2026-02-21 17:17
+  holders: []
+  insiders:
+  - date: '2026-01-12'
+    name: Tagari (Mohamed)
+    shares: 33
+    text: Bought at price 6.11 per share.
+    type: OTHER
+  - date: '2026-01-12'
+    name: Mackay (William Findlay)
+    shares: 33
+    text: Bought at price 6.11 per share.
+    type: OTHER
+  - date: '2026-01-12'
+    name: Musson (Charlie)
+    shares: 33
+    text: Bought at price 6.11 per share.
+    type: OTHER
+  - date: '2026-01-12'
+    name: Sinclair (Kina)
+    shares: 33
+    text: Bought at price 6.11 per share.
+    type: OTHER
+  - date: '2026-01-12'
+    name: Goodman (Karen)
+    shares: 33
+    text: Bought at price 6.11 per share.
+    type: OTHER
+  - date: '2026-01-12'
+    name: Hughes (Ryan)
+    shares: 33
+    text: Bought at price 6.11 per share.
+    type: OTHER
+  - date: '2026-01-12'
+    name: Carrington (Elizabeth)
+    shares: 33
+    text: Bought at price 6.11 per share.
+    type: OTHER
+  - date: '2026-01-12'
+    name: Carrington (Elizabeth)
+    shares: 33
+    text: Bought at price 6.11 per share.
+    type: OTHER
+  - date: '2025-12-12'
+    name: Carrington (Elizabeth)
+    shares: 32
+    text: Bought at price 6.32 per share.
+    type: OTHER
+  - date: '2025-12-12'
+    name: Carrington (Elizabeth)
+    shares: 32
+    text: Bought at price 6.32 per share.
+    type: OTHER
+  - date: '2025-12-12'
+    name: Goodman (Karen)
+    shares: 32
+    text: Bought at price 6.32 per share.
+    type: OTHER
+  - date: '2025-12-12'
+    name: Hughes (Ryan)
+    shares: 32
+    text: Bought at price 6.32 per share.
+    type: OTHER
+  - date: '2025-12-12'
+    name: Sinclair (Kina)
+    shares: 32
+    text: Bought at price 6.32 per share.
+    type: OTHER
+  - date: '2025-12-12'
+    name: Tagari (Mohamed)
+    shares: 32
+    text: Bought at price 6.32 per share.
+    type: OTHER
+  - date: '2025-12-12'
+    name: Mackay (William Findlay)
+    shares: 32
+    text: Bought at price 6.32 per share.
+    type: OTHER
+ALFA.L:
+  fetched: 2026-02-21 17:17
+  holders: []
+  insiders:
+  - date: '2026-01-30'
+    name: Alfa Financial Software Holdings PLC
+    shares: 18113
+    text: ''
+    type: OTHER
+  - date: '2025-12-31'
+    name: Alfa Financial Software Holdings PLC
+    shares: 13554
+    text: ''
+    type: OTHER
+  - date: '2025-12-11'
+    name: BlackRock, Inc.
+    shares: 1369829
+    text: ''
+    type: OTHER
+  - date: '2025-11-30'
+    name: Alfa Financial Software Holdings PLC
+    shares: 4500
+    text: ''
+    type: OTHER
+  - date: '2025-09-30'
+    name: Alfa Financial Software Holdings PLC
+    shares: 27519
+    text: ''
+    type: OTHER
+  - date: '2025-07-31'
+    name: Alfa Financial Software Holdings PLC
+    shares: 15201
+    text: ''
+    type: OTHER
+  - date: '2025-06-30'
+    name: Alfa Financial Software Holdings PLC
+    shares: 209079
+    text: ''
+    type: OTHER
+  - date: '2025-05-30'
+    name: Alfa Financial Software Holdings PLC
+    shares: 32811
+    text: ''
+    type: OTHER
+  - date: '2025-04-30'
+    name: Alfa Financial Software Holdings PLC
+    shares: 970833
+    text: ''
+    type: OTHER
+  - date: '2025-04-14'
+    name: Magrath (Duncan J)
+    shares: 217631
+    text: ''
+    type: OTHER
+  - date: '2025-04-14'
+    name: Magrath (Duncan J)
+    shares: 102287
+    text: Sold at price 2.69 per share.
+    type: OTHER
+  - date: '2025-04-14'
+    name: White (Matthew Paul)
+    shares: 116070
+    text: ''
+    type: OTHER
+  - date: '2025-04-14'
+    name: White (Matthew Paul)
+    shares: 54738
+    text: Sold at price 2.69 per share.
+    type: OTHER
+  - date: '2025-03-31'
+    name: Alfa Financial Software Holdings PLC
+    shares: 1757
+    text: ''
+    type: OTHER
+  - date: '2025-03-12'
+    name: Breach (Steve)
+    shares: 0
+    text: ''
+    type: OTHER
+ASM.AS:
+  fetched: 2026-02-21 17:17
+  holders:
+  - is_indexer: false
+    name: Stanley-Laman Group, Ltd.
+    pct: 0
+    shares: 208
+    value: 147555.0
+  - is_indexer: false
+    name: Pacer Advisors, Inc.
+    pct: 0
+    shares: 295
+    value: 209273.0
+  insiders: []
+ASML:
+  fetched: 2026-02-21 17:17
+  holders:
+  - is_indexer: false
+    name: Fisher Asset Management, LLC
+    pct: 0.0116
+    shares: 4484949
+    value: 6591036047.0
+  - is_indexer: false
+    name: Capital World Investors
+    pct: 0.01
+    shares: 3881791
+    value: 5704641103.0
+  - is_indexer: false
+    name: Capital International Investors
+    pct: 0.0088
+    shares: 3409421
+    value: 5010450890.0
+  - is_indexer: false
+    name: State Farm Mutual Automobile Insurance Co
+    pct: 0.0070999996
+    shares: 2758173
+    value: 4053383364.0
+  - is_indexer: false
+    name: Van Eck Associates Corporation
+    pct: 0.0052
+    shares: 2017883
+    value: 2965460608.0
+  - is_indexer: false
+    name: WCM Investment Management, LLC
+    pct: 0.0049
+    shares: 1890995
+    value: 2778987277.0
+  - is_indexer: false
+    name: Bank of America Corporation
+    pct: 0.0047999998
+    shares: 1865254
+    value: 2741158562.0
+  - is_indexer: false
+    name: Morgan Stanley
+    pct: 0.0044
+    shares: 1703116
+    value: 2502882184.0
+  - is_indexer: false
+    name: JPMORGAN CHASE & CO
+    pct: 0.0042
+    shares: 1643350
+    value: 2415050670.0
+  - is_indexer: false
+    name: Eagle Capital Management LLC
+    pct: 0.004
+    shares: 1546571
+    value: 2272825223.0
+  insiders: []
+AUTO.L:
+  fetched: 2026-02-21 16:50
+  holders:
+  - is_indexer: false
+    name: Pacer Advisors, Inc.
+    pct: 0
+    shares: 1126
+    value: 541606.0
+  insiders:
+  - date: '2026-02-11'
+    name: Auto Trader Group Plc
+    shares: 850000
+    text: Buy Back at price 6.46 per share.
+    type: BUYBACK
+  - date: '2026-02-11'
+    name: Auto Trader Group Plc
+    shares: 823812
+    text: Buy Back at price 6.31 per share.
+    type: BUYBACK
+  - date: '2026-02-10'
+    name: Auto Trader Group Plc
+    shares: 700000
+    text: Buy Back at price 6.48 per share.
+    type: BUYBACK
+  - date: '2026-02-09'
+    name: Auto Trader Group Plc
+    shares: 800000
+    text: Buy Back at price 6.56 per share.
+    type: BUYBACK
+  - date: '2026-02-06'
+    name: FIL Limited
+    shares: 0
+    text: ''
+    type: OTHER
+  - date: '2026-02-04'
+    name: Auto Trader Group Plc
+    shares: 461692
+    text: Buy Back at price 6.85 per share.
+    type: BUYBACK
+  - date: '2026-02-03'
+    name: Auto Trader Group Plc
+    shares: 460000
+    text: Buy Back at price 7.08 per share.
+    type: BUYBACK
+  - date: '2026-02-02'
+    name: Auto Trader Group Plc
+    shares: 430000
+    text: Buy Back at price 7.32 per share.
+    type: BUYBACK
+  - date: '2026-01-30'
+    name: Auto Trader Group Plc
+    shares: 0
+    text: ''
+    type: OTHER
+  - date: '2026-01-28'
+    name: Auto Trader Group Plc
+    shares: 421532
+    text: Buy Back at price 7.66 per share.
+    type: BUYBACK
+  - date: '2026-01-27'
+    name: Auto Trader Group Plc
+    shares: 420000
+    text: Buy Back at price 7.67 per share.
+    type: BUYBACK
+  - date: '2026-01-26'
+    name: Auto Trader Group Plc
+    shares: 420000
+    text: Buy Back at price 7.59 per share.
+    type: BUYBACK
+  - date: '2026-01-21'
+    name: Auto Trader Group Plc
+    shares: 419318
+    text: Buy Back at price 7.49 per share.
+    type: BUYBACK
+  - date: '2026-01-20'
+    name: Auto Trader Group Plc
+    shares: 420000
+    text: Buy Back at price 7.56 per share.
+    type: BUYBACK
+  - date: '2026-01-19'
+    name: Auto Trader Group Plc
+    shares: 400000
+    text: Buy Back at price 7.70 per share.
+    type: BUYBACK
+BYIT.L:
+  fetched: 2026-02-21 16:50
+  holders: []
+  insiders:
+  - date: '2026-02-04'
+    name: Coronation Asset Management (Pty), Ltd.
+    shares: 983064
+    text: ''
+    type: OTHER
+  - date: '2026-01-26'
+    name: J.P. Morgan Securities PLC
+    shares: 93707
+    text: ''
+    type: OTHER
+  - date: '2026-01-23'
+    name: J.P. Morgan Securities PLC
+    shares: 141352
+    text: ''
+    type: OTHER
+  - date: '2026-01-22'
+    name: Camissa Global Flexible Fund
+    shares: 2861453
+    text: ''
+    type: OTHER
+  - date: '2026-01-22'
+    name: J.P. Morgan Securities PLC
+    shares: 0
+    text: ''
+    type: OTHER
+  - date: '2026-01-20'
+    name: Camissa Global Flexible Fund
+    shares: 11980680
+    text: ''
+    type: OTHER
+  - date: '2026-01-15'
+    name: Coronation Asset Management (Pty), Ltd.
+    shares: 102639
+    text: ''
+    type: OTHER
+  - date: '2026-01-12'
+    name: Coronation Asset Management (Pty), Ltd.
+    shares: 746113
+    text: ''
+    type: OTHER
+  - date: '2026-01-08'
+    name: J.P. Morgan Securities PLC
+    shares: 259528
+    text: ''
+    type: OTHER
+  - date: '2026-01-06'
+    name: Public Investment Corporation SOC, Ltd.
+    shares: 862657
+    text: ''
+    type: OTHER
+  - date: '2026-01-02'
+    name: J.P. Morgan Securities PLC
+    shares: 110299
+    text: ''
+    type: OTHER
+  - date: '2025-12-30'
+    name: J.P. Morgan Securities PLC
+    shares: 0
+    text: ''
+    type: OTHER
+  - date: '2025-12-19'
+    name: Coronation Asset Management (Pty), Ltd.
+    shares: 2361348
+    text: ''
+    type: OTHER
+  - date: '2025-12-05'
+    name: J.P. Morgan Securities PLC
+    shares: 0
+    text: ''
+    type: OTHER
+  - date: '2025-11-28'
+    name: Public Investment Corporation SOC, Ltd.
+    shares: 1282751
+    text: ''
+    type: OTHER
+CDNS:
+  fetched: 2026-02-21 17:17
+  holders:
+  - is_indexer: true
+    name: Vanguard Group Inc
+    pct: 0.1
+    shares: 27231070
+    value: 8068021386.0
+  - is_indexer: true
+    name: Blackrock Inc.
+    pct: 0.096099995
+    shares: 26146775
+    value: 7746766465.0
+  - is_indexer: true
+    name: State Street Corporation
+    pct: 0.0463
+    shares: 12603368
+    value: 3734125855.0
+  - is_indexer: false
+    name: FMR, LLC
+    pct: 0.0346
+    shares: 9425270
+    value: 2792518984.0
+  - is_indexer: false
+    name: Jennison Associates LLC
+    pct: 0.028299998
+    shares: 7715550
+    value: 2285963144.0
+  - is_indexer: true
+    name: Geode Capital Management, LLC
+    pct: 0.027999999
+    shares: 7627272
+    value: 2259808138.0
+  - is_indexer: false
+    name: JPMORGAN CHASE & CO
+    pct: 0.0183
+    shares: 4975671
+    value: 1474191797.0
+  - is_indexer: false
+    name: Massachusetts Financial Services Co.
+    pct: 0.0176
+    shares: 4794286
+    value: 1420451050.0
+  - is_indexer: false
+    name: Alliancebernstein L.P.
+    pct: 0.017
+    shares: 4618332
+    value: 1368319399.0
+  - is_indexer: false
+    name: NORGES BANK
+    pct: 0.0159
+    shares: 4328242
+    value: 1282371534.0
+  insiders:
+  - date: '2026-02-02'
+    name: CUNNINGHAM PAUL ALEXANDER
+    shares: 1000
+    text: Sale at price 295.09 per share.
+    type: SELL
+  - date: '2026-01-08'
+    name: TENG CHIN-CHI
+    shares: 6319
+    text: Sale at price 317.96 per share.
+    type: SELL
+  - date: '2026-01-08'
+    name: TENG CHIN-CHI
+    shares: 3000
+    text: Conversion of Exercise of derivative security at price 78.76
+    type: OPTION
+  - date: '2026-01-02'
+    name: CUNNINGHAM PAUL ALEXANDER
+    shares: 1000
+    text: Sale at price 315.70 per share.
+    type: SELL
+  - date: '2025-12-31'
+    name: VAN DEN HOVE LUC
+    shares: 265
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2025-12-16'
+    name: WALL JOHN M
+    shares: 27805
+    text: Sale at price 317.34 - 320.10 per share.
+    type: SELL
+  - date: '2025-12-16'
+    name: WALL JOHN M
+    shares: 27805
+    text: Conversion of Exercise of derivative security at price 138.0
+    type: OPTION
+  - date: '2025-12-10'
+    name: SCANNELL PAUL
+    shares: 5490
+    text: Sale at price 339.33 - 340.09 per share.
+    type: SELL
+  - date: '2025-12-10'
+    name: BRENNAN ITA M
+    shares: 180
+    text: Sale at price 334.02 - 340.88 per share.
+    type: SELL
+  - date: '2025-12-08'
+    name: TENG CHIN-CHI
+    shares: 5977
+    text: Sale at price 337.99 per share.
+    type: SELL
+  - date: '2025-12-08'
+    name: TENG CHIN-CHI
+    shares: 2677
+    text: Conversion of Exercise of derivative security at price 78.76
+    type: OPTION
+  - date: '2025-12-05'
+    name: DEVGAN ANIRUDH
+    shares: 20000
+    text: Sale at price 340.00 per share.
+    type: SELL
+  - date: '2025-12-05'
+    name: DEVGAN ANIRUDH
+    shares: 20000
+    text: Conversion of Exercise of derivative security at price 78.76
+    type: OPTION
+  - date: '2025-12-01'
+    name: CUNNINGHAM PAUL ALEXANDER
+    shares: 1000
+    text: Sale at price 312.64 per share.
+    type: SELL
+  - date: '2025-11-06'
+    name: TENG CHIN-CHI
+    shares: 5800
+    text: Sale at price 324.94 per share.
+    type: SELL
+CTAS:
+  fetched: 2026-02-21 17:17
+  holders:
+  - is_indexer: true
+    name: Vanguard Group Inc
+    pct: 0.0975
+    shares: 38989266
+    value: 7798633151.0
+  - is_indexer: true
+    name: Blackrock Inc.
+    pct: 0.0723
+    shares: 28928801
+    value: 5786338899.0
+  - is_indexer: true
+    name: State Street Corporation
+    pct: 0.0383
+    shares: 15311491
+    value: 3062604495.0
+  - is_indexer: true
+    name: Geode Capital Management, LLC
+    pct: 0.0232
+    shares: 9293485
+    value: 1858882909.0
+  - is_indexer: false
+    name: FMR, LLC
+    pct: 0.0222
+    shares: 8897255
+    value: 1779628983.0
+  - is_indexer: false
+    name: NORGES BANK
+    pct: 0.0123000005
+    shares: 4911318
+    value: 982361847.0
+  - is_indexer: false
+    name: Invesco Ltd.
+    pct: 0.0121
+    shares: 4856762
+    value: 971449555.0
+  - is_indexer: false
+    name: Morgan Stanley
+    pct: 0.011
+    shares: 4393116
+    value: 878711081.0
+  - is_indexer: false
+    name: Fort Washington Investment Advisors, Inc.
+    pct: 0.0106
+    shares: 4252541
+    value: 850593268.0
+  - is_indexer: true
+    name: Northern Trust Corporation
+    pct: 0.010199999
+    shares: 4060006
+    value: 812082417.0
+  insiders:
+  - date: '2026-01-28'
+    name: COLETTI ROBERT E
+    shares: 5200
+    text: Stock Gift at price 0.00 per share.
+    type: OTHER
+  - date: '2026-01-28'
+    name: FARMER SCOTT D
+    shares: 10400
+    text: Stock Gift at price 0.00 per share.
+    type: OTHER
+  - date: '2025-12-23'
+    name: COLETTI ROBERT E
+    shares: 14000
+    text: Stock Gift at price 0.00 per share.
+    type: OTHER
+  - date: '2025-12-23'
+    name: FARMER SCOTT D
+    shares: 29000
+    text: Stock Gift at price 0.00 per share.
+    type: OTHER
+  - date: '2025-10-29'
+    name: SCAMINACE JOSEPH M
+    shares: 503
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2025-10-29'
+    name: TYSOE RONALD WILLIAM
+    shares: 503
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2025-10-29'
+    name: BARSTAD MELANIE W
+    shares: 503
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2025-10-29'
+    name: MUCCI MARTIN
+    shares: 503
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2025-10-29'
+    name: CARMICHAEL BEVERLY K
+    shares: 503
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2025-10-29'
+    name: COLETTI ROBERT E
+    shares: 503
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2025-10-29'
+    name: CARNAHAN KAREN L
+    shares: 503
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2025-08-11'
+    name: SCHNEIDER TODD M
+    shares: 46350
+    text: Stock Award(Grant) at price 223.88 per share.
+    type: OTHER
+  - date: '2025-08-11'
+    name: DENTON DAVID BROCK
+    shares: 4569
+    text: Stock Award(Grant) at price 223.88 per share.
+    type: OTHER
+  - date: '2025-08-11'
+    name: GARULA SCOTT
+    shares: 4448
+    text: Stock Award(Grant) at price 223.88 per share.
+    type: OTHER
+  - date: '2025-08-11'
+    name: ROZAKIS JAMES
+    shares: 6852
+    text: Stock Award(Grant) at price 223.88 per share.
+    type: OTHER
+DNLM.L:
+  fetched: 2026-02-21 17:00
+  holders: []
+  insiders:
+  - date: '2026-02-02'
+    name: Dunelm Group Plc
+    shares: 956074
+    text: ''
+    type: OTHER
+  - date: '2025-12-31'
+    name: Dunelm Group Plc
+    shares: 95908
+    text: ''
+    type: OTHER
+  - date: '2025-12-08'
+    name: Cooper (Geoffrey Ian)
+    shares: 5773
+    text: ''
+    type: OTHER
+  - date: '2025-12-08'
+    name: Cooper (Geoffrey Ian)
+    shares: 2722
+    text: Sold at price 14.85 per share.
+    type: OTHER
+  - date: '2025-12-01'
+    name: Witts (Karen)
+    shares: 10790
+    text: Bought at price 14.58 per share.
+    type: OTHER
+  - date: '2025-11-28'
+    name: Dunelm Group Plc
+    shares: 101369
+    text: ''
+    type: OTHER
+  - date: '2025-11-24'
+    name: Kavan (Ajay)
+    shares: 3220
+    text: Bought at price 13.99 per share.
+    type: OTHER
+  - date: '2025-11-10'
+    name: Wright (Luisa Ann)
+    shares: 4787
+    text: ''
+    type: OTHER
+  - date: '2025-11-10'
+    name: Wright (Luisa Ann)
+    shares: 2257
+    text: Sold at price 14.77 per share.
+    type: OTHER
+  - date: '2025-11-03'
+    name: Taylor (Daniel Mark)
+    shares: 7000
+    text: Bought at price 15.28 per share.
+    type: OTHER
+  - date: '2025-10-31'
+    name: Dunelm Group Plc
+    shares: 168375
+    text: ''
+    type: OTHER
+  - date: '2025-10-27'
+    name: Witts (Karen)
+    shares: 17983
+    text: ''
+    type: OTHER
+  - date: '2025-10-27'
+    name: Witts (Karen)
+    shares: 8478
+    text: Sold at price 15.26 per share.
+    type: OTHER
+  - date: '2025-10-27'
+    name: Moriarty (Clodagh)
+    shares: 108436
+    text: ''
+    type: OTHER
+  - date: '2025-10-27'
+    name: Moriarty (Clodagh)
+    shares: 51119
+    text: Sold at price 15.31 per share.
+    type: OTHER
+DOM.L:
+  fetched: 2026-02-21 16:49
+  holders: []
+  insiders:
+  - date: '2026-01-22'
+    name: HOLD Alapkezelo Zrt
+    shares: 3643970
+    text: ''
+    type: OTHER
+  - date: '2026-01-06'
+    name: Saray Capital (DIFC) Limited
+    shares: 3448684
+    text: ''
+    type: OTHER
+  - date: '2025-12-30'
+    name: Saray Capital (DIFC) Limited
+    shares: 3906959
+    text: ''
+    type: OTHER
+  - date: '2025-12-19'
+    name: Liontrust Asset Management Plc
+    shares: 2520025
+    text: ''
+    type: OTHER
+  - date: '2025-12-18'
+    name: Liontrust Asset Management Plc
+    shares: 3152592
+    text: ''
+    type: OTHER
+  - date: '2025-12-12'
+    name: Saray Capital (DIFC) Limited
+    shares: 3593041
+    text: ''
+    type: OTHER
+  - date: '2025-12-08'
+    name: Frampton (Nicola)
+    shares: 29382
+    text: Bought at price 2.25 per share.
+    type: OTHER
+  - date: '2025-12-03'
+    name: Liontrust Asset Management Plc
+    shares: 224133
+    text: ''
+    type: OTHER
+  - date: '2025-12-03'
+    name: Bull (Ian)
+    shares: 20000
+    text: Bought at price 2.30 per share.
+    type: OTHER
+  - date: '2025-12-02'
+    name: Capital Research Global Investors
+    shares: 18751264
+    text: ''
+    type: OTHER
+  - date: '2025-12-01'
+    name: Liontrust Asset Management Plc
+    shares: 559348
+    text: ''
+    type: OTHER
+  - date: '2025-11-28'
+    name: Alberta Investment Management Corporation
+    shares: 2240047
+    text: ''
+    type: OTHER
+  - date: '2025-11-27'
+    name: Alberta Investment Management Corporation
+    shares: 4333056
+    text: ''
+    type: OTHER
+  - date: '2025-11-19'
+    name: HOLD Alapkezelo Zrt
+    shares: 0
+    text: ''
+    type: OTHER
+  - date: '2025-11-06'
+    name: Capital Research Global Investors
+    shares: 3404714
+    text: ''
+    type: OTHER
+DSY.PA:
+  fetched: 2026-02-21 17:00
+  holders:
+  - is_indexer: false
+    name: Pacer Advisors, Inc.
+    pct: 0
+    shares: 14431
+    value: 251532.0
+  insiders: []
+DTE.DE:
+  fetched: 2026-02-21 16:49
+  holders:
+  - is_indexer: false
+    name: Pacer Advisors, Inc.
+    pct: 0.0005
+    shares: 2508452
+    value: 82076552.0
+  - is_indexer: false
+    name: Gamma Investing LLC
+    pct: 0
+    shares: 8321
+    value: 272263.0
+  - is_indexer: false
+    name: Paradigm Asset Management Company, LLC
+    pct: 0
+    shares: 83058
+    value: 2717657.0
+  insiders: []
+EDEN.PA:
+  fetched: 2026-02-21 16:49
+  holders:
+  - is_indexer: false
+    name: Pacer Advisors, Inc.
+    pct: 0
+    shares: 1207
+    value: 21840.0
+  insiders: []
+EEFT:
+  fetched: 2026-02-21 17:00
+  holders:
+  - is_indexer: true
+    name: Vanguard Group Inc
+    pct: 0.0896
+    shares: 3767279
+    value: 273127727.0
+  - is_indexer: true
+    name: Blackrock Inc.
+    pct: 0.082100004
+    shares: 3452585
+    value: 250312412.0
+  - is_indexer: false
+    name: Bank of Montreal /CAN/
+    pct: 0.047399998
+    shares: 1993682
+    value: 144541945.0
+  - is_indexer: false
+    name: American Century Companies Inc
+    pct: 0.0422
+    shares: 1773427
+    value: 128573457.0
+  - is_indexer: false
+    name: Voss Capital, LP
+    pct: 0.034
+    shares: 1430000
+    value: 103675000.0
+  insiders:
+  - date: '2025-12-10'
+    name: BROWN MICHAEL J.
+    shares: 61277
+    text: Conversion of Exercise of derivative security at price 74.72
+    type: OPTION
+  - date: '2025-12-10'
+    name: BIANCHI JUAN C
+    shares: 3268
+    text: Conversion of Exercise of derivative security at price 74.72
+    type: OPTION
+  - date: '2025-12-10'
+    name: WELLER RICK L.
+    shares: 25532
+    text: Conversion of Exercise of derivative security at price 74.72
+    type: OPTION
+  - date: '2025-12-10'
+    name: FOUNTAS NIKOLAOS
+    shares: 16341
+    text: Conversion of Exercise of derivative security at price 74.72
+    type: OPTION
+  - date: '2025-12-10'
+    name: BRUCKNER MARTIN L
+    shares: 10213
+    text: Conversion of Exercise of derivative security at price 74.72
+    type: OPTION
+  - date: '2025-05-14'
+    name: MCDONNELL THOMAS A
+    shares: 2633
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2025-05-14'
+    name: OLECHOWSKI ANDRZEJ
+    shares: 1453
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2025-05-14'
+    name: ALTHASEN PAUL S
+    shares: 2497
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2025-05-14'
+    name: FRUMKIN MICHAEL N
+    shares: 2542
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2025-05-14'
+    name: BAACK SARA
+    shares: 2361
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2025-05-14'
+    name: TORRES FENTANES LIGIA
+    shares: 1453
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2025-05-14'
+    name: HERRERO SERGI
+    shares: 2361
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2025-05-14'
+    name: SPRONG BRADLEY NIXON
+    shares: 2588
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2025-03-13'
+    name: BROWN MICHAEL J.
+    shares: 95000
+    text: Sale at price 100.69 per share.
+    type: SELL
+  - date: '2025-02-25'
+    name: BROWN MICHAEL J.
+    shares: 38985
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+FDS:
+  fetched: 2026-02-21 17:00
+  holders:
+  - is_indexer: true
+    name: Vanguard Group Inc
+    pct: 0.1201
+    shares: 4455010
+    value: 868949714.0
+  - is_indexer: true
+    name: Blackrock Inc.
+    pct: 0.0817
+    shares: 3031884
+    value: 591368983.0
+  - is_indexer: true
+    name: State Street Corporation
+    pct: 0.0512
+    shares: 1900894
+    value: 370769380.0
+  - is_indexer: false
+    name: BAMCO Inc.
+    pct: 0.049000002
+    shares: 1819059
+    value: 354807463.0
+  - is_indexer: false
+    name: LOOMIS SAYLES & CO L P
+    pct: 0.0403
+    shares: 1495160
+    value: 291630962.0
+  insiders:
+  - date: '2026-01-15'
+    name: SHAVEL LEE M
+    shares: 571
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2026-01-15'
+    name: EILAM BARAK
+    shares: 439
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2026-01-15'
+    name: FRANK MALCOLM
+    shares: 713
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2026-01-15'
+    name: ABRAMS ROBIN ANN
+    shares: 604
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2026-01-15'
+    name: HYLTON LAURIE G
+    shares: 439
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2026-01-15'
+    name: SIEGEL LAURIE A
+    shares: 626
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2026-01-15'
+    name: CHOY SIEW KAI
+    shares: 439
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2026-01-15'
+    name: TEJADA MARIA TERESA
+    shares: 439
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2026-01-15'
+    name: WIESEL SHLOMO ELISHA
+    shares: 571
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2026-01-12'
+    name: FRANK MALCOLM
+    shares: 2572
+    text: Sale at price 295.02 - 296.17 per share.
+    type: SELL
+  - date: '2026-01-12'
+    name: FRANK MALCOLM
+    shares: 2572
+    text: Conversion of Exercise of derivative security at price 207.8
+    type: OPTION
+  - date: '2026-01-08'
+    name: SIEGEL LAURIE A
+    shares: 2572
+    text: Sale at price 296.12 - 296.67 per share.
+    type: SELL
+  - date: '2026-01-08'
+    name: SIEGEL LAURIE A
+    shares: 2572
+    text: Conversion of Exercise of derivative security at price 207.8
+    type: OPTION
+  - date: '2026-01-07'
+    name: ABRAMS ROBIN ANN
+    shares: 2572
+    text: Conversion of Exercise of derivative security at price 207.8
+    type: OPTION
+  - date: '2025-11-06'
+    name: SKOKO GORAN
+    shares: 500
+    text: Purchase at price 252.93 per share.
+    type: BUY
+GDWN.L:
+  fetched: 2026-02-21 17:17
+  holders: []
+  insiders:
+  - date: '2025-11-14'
+    name: Goodwin (Timothy John William)
+    shares: 22908
+    text: Sold at price 250.19 per share.
+    type: OTHER
+  - date: '2025-11-14'
+    name: Goodwin (Richard Stanley)
+    shares: 3913
+    text: Sold at price 250.19 per share.
+    type: OTHER
+  - date: '2025-11-14'
+    name: Goodwin (Simon Richard)
+    shares: 22908
+    text: Sold at price 250.19 per share.
+    type: OTHER
+  - date: '2025-11-14'
+    name: Goodwin (Betty Ruth E)
+    shares: 22909
+    text: Sold at price 250.19 per share.
+    type: OTHER
+  - date: '2025-11-14'
+    name: Goodwin (John Walker)
+    shares: 3913
+    text: Sold at price 250.19 per share.
+    type: OTHER
+  - date: '2025-11-14'
+    name: Goodwin (Matthew Stanley)
+    shares: 22908
+    text: Sold at price 250.19 per share.
+    type: OTHER
+  - date: '2025-07-25'
+    name: Ridley (John Henry)
+    shares: 0
+    text: ''
+    type: OTHER
+  - date: '2025-04-30'
+    name: Goodwin (Timothy John William)
+    shares: 0
+    text: ''
+    type: OTHER
+  - date: '2025-04-30'
+    name: Goodwin (John Walker)
+    shares: 0
+    text: ''
+    type: OTHER
+  - date: '2025-04-30'
+    name: Goodwin (John Walker)
+    shares: 0
+    text: ''
+    type: OTHER
+  - date: '2025-04-30'
+    name: Goodwin (Matthew Stanley)
+    shares: 0
+    text: ''
+    type: OTHER
+  - date: '2025-04-30'
+    name: Goodwin (Richard Stanley)
+    shares: 0
+    text: ''
+    type: OTHER
+  - date: '2025-04-30'
+    name: Goodwin (Simon Richard)
+    shares: 0
+    text: ''
+    type: OTHER
+  - date: '2025-04-30'
+    name: Brown (N)
+    shares: 0
+    text: ''
+    type: OTHER
+  - date: '2025-04-30'
+    name: Goodwin (Betty Ruth E)
+    shares: 0
+    text: ''
+    type: OTHER
+GL:
+  fetched: 2026-02-21 16:49
+  holders:
+  - is_indexer: true
+    name: Vanguard Group Inc
+    pct: 0.1268
+    shares: 10090885
+    value: 1457022878.0
+  - is_indexer: true
+    name: Blackrock Inc.
+    pct: 0.0715
+    shares: 5689077
+    value: 821445824.0
+  - is_indexer: false
+    name: Invesco Ltd.
+    pct: 0.048299998
+    shares: 3846231
+    value: 555357291.0
+  - is_indexer: true
+    name: State Street Corporation
+    pct: 0.0399
+    shares: 3173509
+    value: 458222962.0
+  - is_indexer: false
+    name: Wellington Management Group, LLP
+    pct: 0.0353
+    shares: 2808347
+    value: 405497221.0
+  - is_indexer: true
+    name: Geode Capital Management, LLC
+    pct: 0.034
+    shares: 2709102
+    value: 391167236.0
+  - is_indexer: false
+    name: Dimensional Fund Advisors LP
+    pct: 0.026800001
+    shares: 2135861
+    value: 308396968.0
+  - is_indexer: false
+    name: Morgan Stanley
+    pct: 0.0234
+    shares: 1860257
+    value: 268602507.0
+  - is_indexer: false
+    name: Arrowstreet Capital, Limited Partnership
+    pct: 0.018
+    shares: 1435247
+    value: 207235313.0
+  - is_indexer: false
+    name: AQR Capital Management, LLC
+    pct: 0.0175
+    shares: 1390483
+    value: 200771839.0
+  insiders:
+  - date: '2026-02-17'
+    name: SVOBODA FRANK M
+    shares: 12500
+    text: Sale at price 143.95 - 145.52 per share.
+    type: SELL
+  - date: '2026-02-17'
+    name: SVOBODA FRANK M
+    shares: 12500
+    text: Conversion of Exercise of derivative security at price 82.56
+    type: OPTION
+  - date: '2026-02-12'
+    name: HAWORTH JENNIFER ALLISON
+    shares: 10000
+    text: Sale at price 142.21 - 143.72 per share.
+    type: SELL
+  - date: '2026-02-12'
+    name: HAWORTH JENNIFER ALLISON
+    shares: 10000
+    text: Conversion of Exercise of derivative security at price 50.64
+    type: OPTION
+  - date: '2026-02-06'
+    name: BLINN MARK A
+    shares: 1750
+    text: Sale at price 147.91 per share.
+    type: SELL
+  - date: '2026-02-06'
+    name: MAJORS MICHAEL CLAY
+    shares: 30000
+    text: Sale at price 146.04 - 148.63 per share.
+    type: SELL
+  - date: '2026-02-06'
+    name: MAJORS MICHAEL CLAY
+    shares: 30000
+    text: Conversion of Exercise of derivative security at price 98.32
+    type: OPTION
+  - date: '2026-01-02'
+    name: ALSTON CHERYL D
+    shares: 1373
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2026-01-02'
+    name: ADDISON LINDA L.
+    shares: 723
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2026-01-02'
+    name: CHO ALICE S
+    shares: 1373
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2026-01-02'
+    name: ADAMS MATTHEW J
+    shares: 1373
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2026-01-02'
+    name: ADAMS MATTHEW J
+    shares: 1373
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2026-01-02'
+    name: JACOBS PHILIP M.
+    shares: 1373
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2026-01-02'
+    name: BRANNEN JAMES PATRICK
+    shares: 1373
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2026-01-02'
+    name: BLINN MARK A
+    shares: 1373
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+HEI:
+  fetched: 2026-02-21 17:17
+  holders:
+  - is_indexer: false
+    name: Capital World Investors
+    pct: 0.0854
+    shares: 4710449
+    value: 1656476512.0
+  - is_indexer: true
+    name: Vanguard Group Inc
+    pct: 0.0717
+    shares: 3951254
+    value: 1389497996.0
+  - is_indexer: true
+    name: Blackrock Inc.
+    pct: 0.0712
+    shares: 3928123
+    value: 1381363748.0
+  - is_indexer: true
+    name: State Street Corporation
+    pct: 0.028199999
+    shares: 1554731
+    value: 546736709.0
+  - is_indexer: false
+    name: Morgan Stanley
+    pct: 0.019199999
+    shares: 1058393
+    value: 372194486.0
+  - is_indexer: false
+    name: UBS Group AG
+    pct: 0.0162
+    shares: 894697
+    value: 314629150.0
+  - is_indexer: false
+    name: Invesco Ltd.
+    pct: 0.0156
+    shares: 862499
+    value: 303306401.0
+  - is_indexer: false
+    name: American Century Companies Inc
+    pct: 0.014099999
+    shares: 779737
+    value: 274202316.0
+  - is_indexer: true
+    name: Geode Capital Management, LLC
+    pct: 0.0139
+    shares: 765407
+    value: 269163028.0
+  - is_indexer: false
+    name: Nuveen, LLC
+    pct: 0.0128999995
+    shares: 713476
+    value: 250900972.0
+  insiders:
+  - date: '2025-10-31'
+    name: MENDELSON ERIC A
+    shares: 80000
+    text: Conversion of Exercise of derivative security at price 44.96
+    type: OPTION
+  - date: '2025-10-31'
+    name: MENDELSON VICTOR H
+    shares: 80000
+    text: Conversion of Exercise of derivative security at price 44.96
+    type: OPTION
+  - date: '2025-07-15'
+    name: MENDELSON LAURANS A
+    shares: 56300
+    text: Sale at price 319.45 per share.
+    type: SELL
+  - date: '2025-06-05'
+    name: MENDELSON LAURANS A
+    shares: 470
+    text: Stock Gift at price 0.00 per share.
+    type: OTHER
+  - date: '2025-06-03'
+    name: SCHRIESHEIM ALAN
+    shares: 35000
+    text: Sale at price 298.36 per share.
+    type: SELL
+  - date: '2025-06-03'
+    name: SCHWITTER FRANK J
+    shares: 356
+    text: Sale at price 299.10 per share.
+    type: SELL
+  - date: '2025-04-24'
+    name: NEITZEL JULIE
+    shares: 700
+    text: Sale at price 246.23 per share.
+    type: SELL
+  - date: '2025-04-22'
+    name: MENDELSON LAURANS A
+    shares: 210
+    text: Stock Gift at price 0.00 per share.
+    type: OTHER
+  - date: '2025-04-22'
+    name: SCHRIESHEIM ALAN
+    shares: 50000
+    text: Sale at price 239.57 per share.
+    type: SELL
+  - date: '2025-04-22'
+    name: SCHWITTER FRANK J
+    shares: 600
+    text: Sale at price 238.02 per share.
+    type: SELL
+  - date: '2025-04-15'
+    name: MENDELSON LAURANS A
+    shares: 72
+    text: Stock Gift at price 0.00 per share.
+    type: OTHER
+  - date: '2025-03-04'
+    name: MENDELSON LAURANS A
+    shares: 755
+    text: Stock Gift at price 0.00 per share.
+    type: OTHER
+  - date: '2025-01-22'
+    name: MENDELSON LAURANS A
+    shares: 922
+    text: Stock Gift at price 0.00 per share.
+    type: OTHER
+  - date: '2025-01-06'
+    name: SCHRIESHEIM ALAN
+    shares: 32500
+    text: 'Conversion of Exercise of derivative security at price 0.57 '
+    type: OPTION
+  - date: '2024-12-23'
+    name: NEITZEL JULIE
+    shares: 55
+    text: Stock Gift at price 0.00 per share.
+    type: OTHER
+IHP.L:
+  fetched: 2026-02-21 17:00
+  holders:
+  - is_indexer: true
+    name: VANGUARD STAR FUNDS-Vanguard Total International Stock Index Fund
+    pct: 0.0108
+    shares: 3593928
+    value: 1142869104.0
+  - is_indexer: true
+    name: VANGUARD TAX-MANAGED FUNDS-Vanguard Developed Markets Index Fund
+    pct: 0.0069999998
+    shares: 2322502
+    value: 738555636.0
+  - is_indexer: true
+    name: iShares Trust-iShares Core MSCI EAFE ETF
+    pct: 0.0055
+    shares: 1815174
+    value: 577225332.0
+  - is_indexer: true
+    name: iShares Trust-iShares MSCI EAFE Small-Cap ETF
+    pct: 0.0033000002
+    shares: 1080283
+    value: 343529994.0
+  - is_indexer: true
+    name: VANGUARD Intl Eqy. INDEX Fd.S-Vanguard FTSE All-World ex-US Small-Cap
+    pct: 0.0027
+    shares: 898637
+    value: 285766566.0
+  insiders:
+  - date: '2026-02-12'
+    name: Marshall (Euan William)
+    shares: 4000
+    text: Bought at price 4.62 per share.
+    type: OTHER
+  - date: '2026-01-30'
+    name: Scott (Alexander)
+    shares: 413
+    text: Bought at price 4.87 per share.
+    type: OTHER
+  - date: '2026-01-21'
+    name: Scott (Alexander)
+    shares: 43
+    text: Bought at price 4.68 per share.
+    type: OTHER
+  - date: '2026-01-21'
+    name: Scott (Alexander)
+    shares: 86
+    text: ''
+    type: OTHER
+  - date: '2026-01-21'
+    name: Marshall (Euan William)
+    shares: 43
+    text: Bought at price 4.68 per share.
+    type: OTHER
+  - date: '2026-01-21'
+    name: Marshall (Euan William)
+    shares: 86
+    text: ''
+    type: OTHER
+  - date: '2026-01-21'
+    name: Dunbar (Thomas)
+    shares: 43
+    text: Bought at price 4.68 per share.
+    type: OTHER
+  - date: '2026-01-21'
+    name: Dunbar (Thomas)
+    shares: 86
+    text: ''
+    type: OTHER
+  - date: '2026-01-13'
+    name: Marshall (Euan William)
+    shares: 4500
+    text: Bought at price 4.70 per share.
+    type: OTHER
+  - date: '2026-01-13'
+    name: Marshall (Euan William)
+    shares: 4500
+    text: Bought at price 4.70 per share.
+    type: OTHER
+  - date: '2026-01-09'
+    name: Marshall (Euan William)
+    shares: 1019
+    text: Bought at price 4.73 per share.
+    type: OTHER
+  - date: '2026-01-09'
+    name: Scott (Alexander)
+    shares: 1019
+    text: Bought at price 4.73 per share.
+    type: OTHER
+  - date: '2026-01-09'
+    name: Dunbar (Thomas)
+    shares: 1019
+    text: Bought at price 4.73 per share.
+    type: OTHER
+  - date: '2025-12-22'
+    name: Dunbar (Thomas)
+    shares: 43
+    text: Bought at price 4.78 per share.
+    type: OTHER
+  - date: '2025-12-22'
+    name: Dunbar (Thomas)
+    shares: 86
+    text: ''
+    type: OTHER
+ITX.MC:
+  fetched: 2026-02-21 17:17
+  holders:
+  - is_indexer: false
+    name: Generali Investments Cee, Investicni Spolecnost, A.s.
+    pct: 0
+    shares: 100956
+    value: 5821122.0
+  - is_indexer: false
+    name: Paradigm Asset Management Company, LLC
+    pct: 0
+    shares: 21900
+    value: 1262753.0
+  - is_indexer: false
+    name: Pacer Advisors, Inc.
+    pct: 0
+    shares: 14693
+    value: 847198.0
+  insiders: []
+KLR.L:
+  fetched: 2026-02-21 17:00
+  holders:
+  - is_indexer: false
+    name: DFA INVESTMENT DIMENSIONS GROUP INC-DFA Intl Small Cap Value PORT.
+    pct: 0.020299999
+    shares: 1423361
+    value: 2875189220.0
+  - is_indexer: true
+    name: American Century ETF Trust-Avantis International Small Cap Value ETF
+    pct: 0.0186
+    shares: 1302874
+    value: 2631805480.0
+  - is_indexer: true
+    name: VANGUARD STAR FUNDS-Vanguard Total International Stock Index Fund
+    pct: 0.014099999
+    shares: 986226
+    value: 1992176520.0
+  - is_indexer: true
+    name: VANGUARD TAX-MANAGED FUNDS-Vanguard Developed Markets Index Fund
+    pct: 0.009
+    shares: 634150
+    value: 1280983000.0
+  - is_indexer: false
+    name: DFA INVESTMENT DIMENSIONS GROUP INC-Intl Core Eqy. 2 PORT.
+    pct: 0.0078
+    shares: 550033
+    value: 1111066660.0
+  insiders:
+  - date: '2026-01-30'
+    name: Keller Group Plc
+    shares: 0
+    text: ''
+    type: OTHER
+  - date: '2026-01-21'
+    name: Keller Group Plc
+    shares: 23922
+    text: Buy Back at price 22.82 per share.
+    type: BUYBACK
+  - date: '2026-01-20'
+    name: Keller Group Plc
+    shares: 24361
+    text: Buy Back at price 22.69 per share.
+    type: BUYBACK
+  - date: '2026-01-15'
+    name: Keller Group Plc
+    shares: 19782
+    text: Buy Back at price 22.73 per share.
+    type: BUYBACK
+  - date: '2026-01-14'
+    name: Keller Group Plc
+    shares: 13004
+    text: Buy Back at price 22.37 per share.
+    type: BUYBACK
+  - date: '2026-01-13'
+    name: Keller Group Plc
+    shares: 25818
+    text: Buy Back at price 22.45 per share.
+    type: BUYBACK
+  - date: '2026-01-12'
+    name: Keller Group Plc
+    shares: 25599
+    text: Buy Back at price 22.83 per share.
+    type: BUYBACK
+  - date: '2026-01-12'
+    name: Leonard (Paul)
+    shares: 10133
+    text: ''
+    type: OTHER
+  - date: '2026-01-12'
+    name: Leonard (Paul)
+    shares: 3321
+    text: Sold at price 22.95 per share.
+    type: OTHER
+  - date: '2026-01-09'
+    name: Keller Group Plc
+    shares: 26664
+    text: Buy Back at price 22.78 per share.
+    type: BUYBACK
+  - date: '2026-01-07'
+    name: Keller Group Plc
+    shares: 28892
+    text: Buy Back at price 22.78 per share.
+    type: BUYBACK
+  - date: '2026-01-06'
+    name: Keller Group Plc
+    shares: 9738
+    text: Buy Back at price 22.60 per share.
+    type: BUYBACK
+  - date: '2026-01-05'
+    name: Keller Group Plc
+    shares: 29305
+    text: Buy Back at price 22.25 per share.
+    type: BUYBACK
+  - date: '2026-01-02'
+    name: Keller Group Plc
+    shares: 29305
+    text: Buy Back at price 22.03 per share.
+    type: BUYBACK
+  - date: '2025-12-31'
+    name: Keller Group Plc
+    shares: 5000
+    text: Buy Back at price 22.45 per share.
+    type: BUYBACK
+KNSL:
+  fetched: 2026-02-21 17:00
+  holders:
+  - is_indexer: true
+    name: Blackrock Inc.
+    pct: 0.091800004
+    shares: 2135282
+    value: 797335659.0
+  - is_indexer: true
+    name: Vanguard Group Inc
+    pct: 0.08930001
+    shares: 2076556
+    value: 775406783.0
+  - is_indexer: false
+    name: BAMCO Inc.
+    pct: 0.0769
+    shares: 1788590
+    value: 667877398.0
+  - is_indexer: false
+    name: Capital World Investors
+    pct: 0.0425
+    shares: 987844
+    value: 368870831.0
+  - is_indexer: true
+    name: State Street Corporation
+    pct: 0.0295
+    shares: 685936
+    value: 256135364.0
+  insiders:
+  - date: '2025-12-31'
+    name: BENSINGER STEVEN J
+    shares: 460
+    text: Stock Award(Grant) at price 391.12 per share.
+    type: OTHER
+  - date: '2025-12-31'
+    name: FORTIN MARY JANE
+    shares: 460
+    text: Stock Award(Grant) at price 391.12 per share.
+    type: OTHER
+  - date: '2025-12-31'
+    name: LIPPINCOTT ROBERT III
+    shares: 460
+    text: Stock Award(Grant) at price 391.12 per share.
+    type: OTHER
+  - date: '2025-12-31'
+    name: SHARE GREGORY M
+    shares: 460
+    text: Stock Award(Grant) at price 391.12 per share.
+    type: OTHER
+  - date: '2025-12-31'
+    name: HANEY BRIAN D
+    shares: 460
+    text: Stock Award(Grant) at price 391.12 per share.
+    type: OTHER
+  - date: '2025-12-31'
+    name: RUSSELL FREDERICK LEROY JR.
+    shares: 460
+    text: Stock Award(Grant) at price 391.12 per share.
+    type: OTHER
+  - date: '2025-12-31'
+    name: KRONENBERG ANNE C
+    shares: 460
+    text: Stock Award(Grant) at price 391.12 per share.
+    type: OTHER
+  - date: '2025-12-31'
+    name: HATCHER ROBERT V. III
+    shares: 460
+    text: Stock Award(Grant) at price 391.12 per share.
+    type: OTHER
+  - date: '2025-12-31'
+    name: CHIA TERESA P.
+    shares: 460
+    text: Stock Award(Grant) at price 391.12 per share.
+    type: OTHER
+  - date: '2025-12-19'
+    name: KEHOE MICHAEL P
+    shares: 250
+    text: Stock Gift at price 0.00 per share.
+    type: OTHER
+  - date: '2025-12-15'
+    name: SHARE GREGORY M
+    shares: 2675
+    text: Purchase at price 390.17 - 395.93 per share.
+    type: BUY
+  - date: '2025-11-19'
+    name: KRONENBERG ANNE C
+    shares: 100
+    text: Stock Gift at price 0.00 per share.
+    type: OTHER
+  - date: '2025-08-25'
+    name: KEHOE MICHAEL P
+    shares: 5000
+    text: Sale at price 450.19 - 454.78 per share.
+    type: SELL
+  - date: '2025-08-25'
+    name: KEHOE MICHAEL P
+    shares: 5000
+    text: Conversion of Exercise of derivative security at price 16.00
+    type: OPTION
+  - date: '2025-06-06'
+    name: SCHNUPP DIANE D
+    shares: 66
+    text: Stock Gift at price 0.00 per share.
+    type: OTHER
+LULU:
+  fetched: 2026-02-21 16:49
+  holders:
+  - is_indexer: true
+    name: Vanguard Group Inc
+    pct: 0.118999995
+    shares: 13354442
+    value: 2501287027.0
+  - is_indexer: true
+    name: Blackrock Inc.
+    pct: 0.0885
+    shares: 9923959
+    value: 1858757550.0
+  - is_indexer: true
+    name: State Street Corporation
+    pct: 0.040799998
+    shares: 4578897
+    value: 857627422.0
+  - is_indexer: false
+    name: FMR, LLC
+    pct: 0.036199998
+    shares: 4066059
+    value: 761572863.0
+  - is_indexer: true
+    name: Geode Capital Management, LLC
+    pct: 0.0272
+    shares: 3049911
+    value: 571248339.0
+  - is_indexer: false
+    name: Susquehanna International Group, LLP
+    pct: 0.0214
+    shares: 2404361
+    value: 450336822.0
+  - is_indexer: false
+    name: Marshall Wace LLP
+    pct: 0.0211
+    shares: 2370336
+    value: 443963940.0
+  - is_indexer: false
+    name: Invesco Ltd.
+    pct: 0.0196
+    shares: 2200552
+    value: 412163396.0
+  - is_indexer: false
+    name: Morgan Stanley
+    pct: 0.0196
+    shares: 2197158
+    value: 411527700.0
+  - is_indexer: false
+    name: Flossbach von Storch SE
+    pct: 0.016900001
+    shares: 1892537
+    value: 354472185.0
+  insiders:
+  - date: '2025-12-30'
+    name: FRANK MEGHAN
+    shares: 2658
+    text: Sale at price 211.37 per share.
+    type: SELL
+  - date: '2025-12-30'
+    name: FRANK MEGHAN
+    shares: 2763
+    text: Conversion of Exercise of derivative security at price 167.5
+    type: OPTION
+  - date: '2025-12-19'
+    name: MORFITT MARTHA A M
+    shares: 6500
+    text: Stock Gift at price 0.00 per share.
+    type: OTHER
+  - date: '2025-12-17'
+    name: MORFITT MARTHA A M
+    shares: 3608
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2025-12-16'
+    name: BURGOYNE CELESTE
+    shares: 13511
+    text: Sale at price 203.48 - 204.08 per share.
+    type: SELL
+  - date: '2025-12-15'
+    name: NEUBURGER NICOLE
+    shares: 6059
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2025-12-15'
+    name: FRANK MEGHAN
+    shares: 10907
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2025-12-15'
+    name: MAESTRINI ANDRE
+    shares: 10907
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2025-09-30'
+    name: NEUBURGER NICOLE
+    shares: 615
+    text: Sale at price 178.00 per share.
+    type: SELL
+  - date: '2025-09-09'
+    name: DAS RANJU
+    shares: 6176
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2025-06-27'
+    name: MCDONALD CALVIN
+    shares: 27049
+    text: Sale at price 235.54 - 236.33 per share.
+    type: SELL
+  - date: '2025-06-27'
+    name: MCDONALD CALVIN
+    shares: 35355
+    text: Conversion of Exercise of derivative security at price 136.6
+    type: OPTION
+  - date: '2025-06-11'
+    name: MAHE ISABEL
+    shares: 634
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2025-06-11'
+    name: LOEHNIS ALISON
+    shares: 634
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2025-06-11'
+    name: GRANT SHANE
+    shares: 634
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+MA:
+  fetched: 2026-02-21 17:17
+  holders:
+  - is_indexer: true
+    name: Vanguard Group Inc
+    pct: 0.090299994
+    shares: 79897854
+    value: 42059027178.0
+  - is_indexer: false
+    name: Mastercard Foundation Asset Management Corp
+    pct: 0.0792
+    shares: 70121630
+    value: 36912725365.0
+  - is_indexer: true
+    name: Blackrock Inc.
+    pct: 0.077199996
+    shares: 68304200
+    value: 35956012087.0
+  - is_indexer: true
+    name: State Street Corporation
+    pct: 0.0414
+    shares: 36611476
+    value: 19272646097.0
+  - is_indexer: false
+    name: JPMORGAN CHASE & CO
+    pct: 0.0353
+    shares: 31214224
+    value: 16431478817.0
+  - is_indexer: false
+    name: FMR, LLC
+    pct: 0.0304
+    shares: 26867920
+    value: 14143541045.0
+  - is_indexer: true
+    name: Geode Capital Management, LLC
+    pct: 0.0234
+    shares: 20686605
+    value: 10889635182.0
+  - is_indexer: false
+    name: Price (T.Rowe) Associates Inc
+    pct: 0.0225
+    shares: 19883919
+    value: 10467093266.0
+  - is_indexer: false
+    name: Capital International Investors
+    pct: 0.020299999
+    shares: 17964658
+    value: 9456775135.0
+  - is_indexer: false
+    name: Morgan Stanley
+    pct: 0.018099999
+    shares: 16046550
+    value: 8447063954.0
+  insiders:
+  - date: '2026-02-05'
+    name: QURESHI RIMA
+    shares: 12083
+    text: Stock Gift at price 0.00 per share.
+    type: OTHER
+  - date: '2025-12-01'
+    name: KRAMER JILL
+    shares: 9276
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2025-11-12'
+    name: MCLAUGHLIN EDWARD GRUNDE
+    shares: 3630
+    text: Stock Gift at price 0.00 per share.
+    type: OTHER
+  - date: '2025-10-31'
+    name: GENACHOWSKI JULIUS
+    shares: 45
+    text: Stock Gift at price 0.00 per share.
+    type: OTHER
+  - date: '2025-09-02'
+    name: SACHIN J. MEHRA
+    shares: 17263
+    text: Sale at price 586.74 - 594.90 per share.
+    type: SELL
+  - date: '2025-09-02'
+    name: SACHIN J. MEHRA
+    shares: 17263
+    text: Conversion of Exercise of derivative security at price 290.2
+    type: OPTION
+  - date: '2025-08-22'
+    name: LING HAI
+    shares: 4485
+    text: Sale at price 600.00 per share.
+    type: SELL
+  - date: '2025-08-22'
+    name: LING HAI
+    shares: 4485
+    text: Conversion of Exercise of derivative security at price 90.10
+    type: OPTION
+  - date: '2025-08-19'
+    name: SACHIN J. MEHRA
+    shares: 17816
+    text: Sale at price 584.93 - 590.53 per share.
+    type: SELL
+  - date: '2025-08-19'
+    name: SACHIN J. MEHRA
+    shares: 17816
+    text: Conversion of Exercise of derivative security at price 239.0
+    type: OPTION
+  - date: '2025-08-05'
+    name: SACHIN J. MEHRA
+    shares: 6758
+    text: Sale at price 563.57 - 569.92 per share.
+    type: SELL
+  - date: '2025-07-07'
+    name: GENACHOWSKI JULIUS
+    shares: 312
+    text: Sale at price 570.67 per share.
+    type: SELL
+  - date: '2025-06-30'
+    name: KIRKPATRICK LINDA PISTECCHIA
+    shares: 958
+    text: Sale at price 560.00 per share.
+    type: SELL
+  - date: '2025-06-27'
+    name: SESHADRI RAJEEV
+    shares: 1100
+    text: Sale at price 546.77 per share.
+    type: SELL
+  - date: '2025-06-24'
+    name: JANOW MERIT E
+    shares: 615
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+MEGP.L:
+  fetched: 2026-02-21 17:00
+  holders: []
+  insiders:
+  - date: '2026-01-30'
+    name: Schroder Investment Management, Ltd.
+    shares: 629122
+    text: ''
+    type: OTHER
+  - date: '2026-01-14'
+    name: Montefiore Investment
+    shares: 12729494
+    text: ''
+    type: OTHER
+  - date: '2025-12-05'
+    name: Norges Bank
+    shares: 284937
+    text: Sold at price 2.12 per share.
+    type: OTHER
+  - date: '2025-12-04'
+    name: Norges Bank
+    shares: 11791
+    text: Sold at price 2.17 per share.
+    type: OTHER
+  - date: '2025-12-03'
+    name: Norges Bank
+    shares: 520422
+    text: Sold at price 2.18 per share.
+    type: OTHER
+  - date: '2025-12-03'
+    name: FMR LLC
+    shares: 432471
+    text: Bought at price 2.18 per share.
+    type: OTHER
+  - date: '2025-12-03'
+    name: BlackRock Inc.
+    shares: 3782
+    text: Bought at price 2.16 per share.
+    type: OTHER
+  - date: '2025-12-03'
+    name: Schroder Investment Management, Ltd.
+    shares: 75630
+    text: Sold at price 2.16 per share.
+    type: OTHER
+  - date: '2025-12-03'
+    name: Legal & General Group plc
+    shares: 12275
+    text: Bought at price 2.16 per share.
+    type: OTHER
+  - date: '2025-12-02'
+    name: FMR LLC
+    shares: 28700
+    text: Bought at price 2.14 per share.
+    type: OTHER
+  - date: '2025-12-02'
+    name: Standard Life Investments Ltd
+    shares: 28244
+    text: Bought at price 2.14 per share.
+    type: OTHER
+  - date: '2025-12-01'
+    name: FMR LLC
+    shares: 26031
+    text: Bought at price 2.14 per share.
+    type: OTHER
+  - date: '2025-12-01'
+    name: BlackRock Inc.
+    shares: 72093
+    text: Sold at price 2.14 per share.
+    type: OTHER
+  - date: '2025-11-28'
+    name: Legal & General Group plc
+    shares: 78800
+    text: Bought at price 2.16 per share.
+    type: OTHER
+  - date: '2025-11-28'
+    name: FMR LLC
+    shares: 10461
+    text: Bought at price 2.16 per share.
+    type: OTHER
+MNST:
+  fetched: 2026-02-21 17:17
+  holders:
+  - is_indexer: true
+    name: Vanguard Group Inc
+    pct: 0.0696
+    shares: 67980692
+    value: 5694062907.0
+  - is_indexer: true
+    name: Blackrock Inc.
+    pct: 0.063
+    shares: 61516171
+    value: 5152594614.0
+  - is_indexer: true
+    name: State Street Corporation
+    pct: 0.038900003
+    shares: 38021648
+    value: 3184693317.0
+  - is_indexer: false
+    name: Alliancebernstein L.P.
+    pct: 0.0308
+    shares: 30106288
+    value: 2521702747.0
+  - is_indexer: false
+    name: LOOMIS SAYLES & CO L P
+    pct: 0.0269
+    shares: 26268567
+    value: 2200255228.0
+  - is_indexer: true
+    name: Geode Capital Management, LLC
+    pct: 0.0201
+    shares: 19625097
+    value: 1643798166.0
+  - is_indexer: false
+    name: Janus Henderson Group PLC
+    pct: 0.0176
+    shares: 17188098
+    value: 1439675125.0
+  - is_indexer: false
+    name: Bank of America Corporation
+    pct: 0.013300001
+    shares: 12969569
+    value: 1086331127.0
+  - is_indexer: false
+    name: Morgan Stanley
+    pct: 0.0124
+    shares: 12145411
+    value: 1017299651.0
+  - is_indexer: false
+    name: Invesco Ltd.
+    pct: 0.012
+    shares: 11675603
+    value: 977948532.0
+  insiders:
+  - date: '2025-12-12'
+    name: TIRRE EMELIE
+    shares: 30000
+    text: Sale at price 73.31 per share.
+    type: SELL
+  - date: '2025-12-12'
+    name: SACKS RODNEY CYRIL
+    shares: 13519
+    text: Stock Gift at price 0.00 per share.
+    type: OTHER
+  - date: '2025-12-12'
+    name: SACKS RODNEY CYRIL
+    shares: 206543
+    text: Sale at price 73.58 per share.
+    type: SELL
+  - date: '2025-11-28'
+    name: SCHLOSBERG HILTON HILLER
+    shares: 8909
+    text: Stock Gift at price 0.00 per share.
+    type: OTHER
+  - date: '2025-11-26'
+    name: SACKS RODNEY CYRIL
+    shares: 611000
+    text: Conversion of Exercise of derivative security at price 23.14
+    type: OPTION
+  - date: '2025-11-13'
+    name: CARLING GUY
+    shares: 38438
+    text: Sale at price 71.33 per share.
+    type: SELL
+  - date: '2025-11-13'
+    name: CARLING GUY
+    shares: 38438
+    text: Conversion of Exercise of derivative security at price 25.75
+    type: OPTION
+  - date: '2025-11-11'
+    name: SCHLOSBERG HILTON HILLER
+    shares: 630000
+    text: Conversion of Exercise of derivative security at price 21.99
+    type: OPTION
+  - date: '2025-09-11'
+    name: SACKS RODNEY CYRIL
+    shares: 630000
+    text: Conversion of Exercise of derivative security at price 21.99
+    type: OPTION
+  - date: '2025-09-11'
+    name: SCHLOSBERG HILTON HILLER
+    shares: 1100
+    text: Stock Gift at price 0.00 per share.
+    type: OTHER
+  - date: '2025-09-03'
+    name: GEHRING ROB L.
+    shares: 10000
+    text: ''
+    type: OTHER
+  - date: '2025-08-13'
+    name: VIDERGAUZ MARK S
+    shares: 10000
+    text: Sale at price 63.73 per share.
+    type: SELL
+  - date: '2025-06-11'
+    name: PIZULA STEVEN G
+    shares: 3592
+    text: Conversion of Exercise of derivative security at price 62.59
+    type: OPTION
+  - date: '2025-06-11'
+    name: HALL TIFFANY M
+    shares: 3592
+    text: Conversion of Exercise of derivative security at price 62.59
+    type: OPTION
+  - date: '2025-06-11'
+    name: DEMEL ANA
+    shares: 3592
+    text: Conversion of Exercise of derivative security at price 62.59
+    type: OPTION
+MONC.MI:
+  fetched: 2026-02-21 17:17
+  holders:
+  - is_indexer: false
+    name: Pacer Advisors, Inc.
+    pct: 0
+    shares: 1326
+    value: 75582.0
+  insiders: []
+MONY.L:
+  fetched: 2026-02-21 16:49
+  holders: []
+  insiders:
+  - date: '2026-02-05'
+    name: Whittle (Matthew)
+    shares: 59
+    text: Bought at price 2.31 per share.
+    type: OTHER
+  - date: '2026-02-05'
+    name: Duffy (Peter)
+    shares: 88
+    text: Bought at price 2.31 per share.
+    type: OTHER
+  - date: '2026-02-05'
+    name: BlackRock Investment Management (UK) Ltd.
+    shares: 175
+    text: ''
+    type: OTHER
+  - date: '2026-02-05'
+    name: Cresswell (Matthew)
+    shares: 88
+    text: Bought at price 2.31 per share.
+    type: OTHER
+  - date: '2026-02-04'
+    name: BlackRock Investment Management (UK) Ltd.
+    shares: 309073
+    text: ''
+    type: OTHER
+  - date: '2026-01-29'
+    name: BlackRock Investment Management (UK) Ltd.
+    shares: 8714
+    text: ''
+    type: OTHER
+  - date: '2026-01-28'
+    name: BlackRock Investment Management (UK) Ltd.
+    shares: 10511
+    text: ''
+    type: OTHER
+  - date: '2026-01-23'
+    name: BlackRock Investment Management (UK) Ltd.
+    shares: 1808447
+    text: ''
+    type: OTHER
+  - date: '2026-01-07'
+    name: Cresswell (Matthew)
+    shares: 81
+    text: Bought at price 2.50 per share.
+    type: OTHER
+  - date: '2026-01-07'
+    name: Whittle (Matthew)
+    shares: 54
+    text: Bought at price 2.50 per share.
+    type: OTHER
+  - date: '2026-01-07'
+    name: Duffy (Peter)
+    shares: 81
+    text: Bought at price 2.50 per share.
+    type: OTHER
+  - date: '2026-01-07'
+    name: Gruppo MutuiOnline SpA
+    shares: 5000000
+    text: ''
+    type: OTHER
+  - date: '2025-12-04'
+    name: Duffy (Peter)
+    shares: 78
+    text: Bought at price 2.56 per share.
+    type: OTHER
+  - date: '2025-12-04'
+    name: Cresswell (Matthew)
+    shares: 78
+    text: Bought at price 2.56 per share.
+    type: OTHER
+  - date: '2025-12-04'
+    name: Whittle (Matthew)
+    shares: 52
+    text: Bought at price 2.56 per share.
+    type: OTHER
+MORN:
+  fetched: 2026-02-21 16:50
+  holders:
+  - is_indexer: true
+    name: Vanguard Group Inc
+    pct: 0.0577
+    shares: 2374364
+    value: 378663560.0
+  - is_indexer: true
+    name: Blackrock Inc.
+    pct: 0.0575
+    shares: 2363201
+    value: 376883285.0
+  - is_indexer: false
+    name: Select Equity Group LP
+    pct: 0.0511
+    shares: 2103702
+    value: 335498385.0
+  - is_indexer: false
+    name: Morgan Stanley
+    pct: 0.048800003
+    shares: 2006325
+    value: 319968702.0
+  - is_indexer: false
+    name: BAMCO Inc.
+    pct: 0.0344
+    shares: 1414305
+    value: 225553355.0
+  - is_indexer: true
+    name: State Street Corporation
+    pct: 0.0182
+    shares: 746907
+    value: 119116725.0
+  - is_indexer: false
+    name: Wellington Management Group, LLP
+    pct: 0.0149
+    shares: 612826
+    value: 97733487.0
+  - is_indexer: false
+    name: AQR Capital Management, LLC
+    pct: 0.0148
+    shares: 608244
+    value: 97002750.0
+  - is_indexer: true
+    name: Geode Capital Management, LLC
+    pct: 0.0145000005
+    shares: 596982
+    value: 95206686.0
+  - is_indexer: false
+    name: Dimensional Fund Advisors LP
+    pct: 0.0115
+    shares: 471971
+    value: 75269933.0
+  insiders:
+  - date: '2026-02-18'
+    name: MANSUETO JOSEPH D
+    shares: 14041
+    text: Sale at price 157.97 - 162.69 per share.
+    type: SELL
+  - date: '2026-02-13'
+    name: MANSUETO JOSEPH D
+    shares: 14189
+    text: Sale at price 154.61 - 159.75 per share.
+    type: SELL
+  - date: '2026-02-10'
+    name: MANSUETO JOSEPH D
+    shares: 4867
+    text: Sale at price 162.84 - 165.88 per share.
+    type: SELL
+  - date: '2026-02-06'
+    name: MANSUETO JOSEPH D
+    shares: 20066
+    text: Sale at price 168.53 - 188.12 per share.
+    type: SELL
+  - date: '2026-02-02'
+    name: MANSUETO JOSEPH D
+    shares: 857
+    text: Sale at price 201.47 - 203.34 per share.
+    type: SELL
+  - date: '2025-12-29'
+    name: TSAY CAROLINE J
+    shares: 600
+    text: Sale at price 218.48 per share.
+    type: SELL
+  - date: '2025-12-12'
+    name: MANSUETO JOSEPH D
+    shares: 27775
+    text: Stock Gift at price 0.00 per share.
+    type: OTHER
+  - date: '2025-11-25'
+    name: MANSUETO JOSEPH D
+    shares: 1602
+    text: Sale at price 211.31 - 214.51 per share.
+    type: SELL
+  - date: '2025-11-21'
+    name: MANSUETO JOSEPH D
+    shares: 14500
+    text: Sale at price 209.82 - 214.84 per share.
+    type: SELL
+  - date: '2025-11-19'
+    name: MANSUETO JOSEPH D
+    shares: 14500
+    text: Sale at price 207.27 - 211.27 per share.
+    type: SELL
+  - date: '2025-11-17'
+    name: MANSUETO JOSEPH D
+    shares: 8039
+    text: Sale at price 211.12 - 213.32 per share.
+    type: SELL
+  - date: '2025-11-14'
+    name: WIERSEMA CONAN
+    shares: 471
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2025-11-14'
+    name: WIERSEMA CONAN
+    shares: 12
+    text: ''
+    type: OTHER
+  - date: '2025-11-14'
+    name: HOLT MICHAEL CFA
+    shares: 163
+    text: ''
+    type: OTHER
+  - date: '2025-11-14'
+    name: KAPOOR KUNAL
+    shares: 1861
+    text: ''
+    type: OTHER
+MRSH:
+  fetched: 2026-02-21 17:00
+  holders:
+  - is_indexer: true
+    name: Vanguard Group Inc
+    pct: 0.0962
+    shares: 46589633
+    value: 8354453330.0
+  - is_indexer: true
+    name: Blackrock Inc.
+    pct: 0.083500005
+    shares: 40444949
+    value: 7252588550.0
+  - is_indexer: true
+    name: State Street Corporation
+    pct: 0.0452
+    shares: 21871937
+    value: 3922075903.0
+  - is_indexer: false
+    name: Capital International Investors
+    pct: 0.0388
+    shares: 18766815
+    value: 3365265403.0
+  - is_indexer: false
+    name: Capital World Investors
+    pct: 0.035
+    shares: 16925131
+    value: 3035014614.0
+  insiders:
+  - date: '2026-02-13'
+    name: MILLS STEVEN A
+    shares: 244
+    text: Stock Award(Grant) at price 173.51 per share.
+    type: OTHER
+  - date: '2025-12-01'
+    name: DOYLE JOHN Q
+    shares: 21079
+    text: Sale at price 182.22 per share.
+    type: SELL
+  - date: '2025-12-01'
+    name: DOYLE JOHN Q
+    shares: 21079
+    text: Conversion of Exercise of derivative security at price 63.09
+    type: OPTION
+  - date: '2025-11-14'
+    name: MILLS STEVEN A
+    shares: 231
+    text: Stock Award(Grant) at price 183.28 per share.
+    type: OTHER
+  - date: '2025-09-02'
+    name: DOYLE JOHN Q
+    shares: 21079
+    text: Sale at price 205.65 per share.
+    type: SELL
+  - date: '2025-09-02'
+    name: DOYLE JOHN Q
+    shares: 21079
+    text: Conversion of Exercise of derivative security at price 63.09
+    type: OPTION
+  - date: '2025-08-15'
+    name: MILLS STEVEN A
+    shares: 204
+    text: Stock Award(Grant) at price 208.06 per share.
+    type: OTHER
+  - date: '2025-07-30'
+    name: ANDERSON ANTHONY K
+    shares: 1000
+    text: Purchase at price 201.02 - 202.20 per share.
+    type: BUY
+  - date: '2025-06-02'
+    name: DOYLE JOHN Q
+    shares: 21080
+    text: Sale at price 232.05 per share.
+    type: SELL
+  - date: '2025-06-02'
+    name: DOYLE JOHN Q
+    shares: 21080
+    text: Conversion of Exercise of derivative security at price 63.09
+    type: OPTION
+  - date: '2025-05-30'
+    name: HANWAY H EDWARD
+    shares: 929
+    text: Stock Award(Grant) at price 231.27 per share.
+    type: OTHER
+  - date: '2025-05-30'
+    name: HARTMANN JUDITH
+    shares: 929
+    text: Stock Award(Grant) at price 231.27 per share.
+    type: OTHER
+  - date: '2025-05-30'
+    name: MILLS STEVEN A
+    shares: 929
+    text: Stock Award(Grant) at price 231.27 per share.
+    type: OTHER
+  - date: '2025-05-20'
+    name: MILLS STACY
+    shares: 218
+    text: Stock Gift at price 0.00 per share.
+    type: OTHER
+  - date: '2025-05-15'
+    name: MILLS STEVEN A
+    shares: 185
+    text: Stock Award(Grant) at price 222.22 per share.
+    type: OTHER
+NVO:
+  fetched: 2026-02-21 16:49
+  holders:
+  - is_indexer: false
+    name: LOOMIS SAYLES & CO L P
+    pct: 0.0050999997
+    shares: 17135384
+    value: 812559877.0
+  - is_indexer: false
+    name: Franklin Resources, Inc.
+    pct: 0.0043
+    shares: 14702508
+    value: 697192902.0
+  - is_indexer: false
+    name: FMR, LLC
+    pct: 0.0042
+    shares: 14075391
+    value: 667455015.0
+  - is_indexer: false
+    name: Bank of America Corporation
+    pct: 0.004
+    shares: 13403378
+    value: 635588160.0
+  - is_indexer: false
+    name: Morgan Stanley
+    pct: 0.0038
+    shares: 12842089
+    value: 608971836.0
+  - is_indexer: false
+    name: Capital International Investors
+    pct: 0.0033000002
+    shares: 11211106
+    value: 531630625.0
+  - is_indexer: false
+    name: Goldman Sachs Group Inc
+    pct: 0.0032
+    shares: 10986778
+    value: 520992992.0
+  - is_indexer: false
+    name: Folketrygdfondet
+    pct: 0.003
+    shares: 10164137
+    value: 481983357.0
+  - is_indexer: false
+    name: Fisher Asset Management, LLC
+    pct: 0.0029
+    shares: 9784222
+    value: 463967789.0
+  - is_indexer: false
+    name: Everett Harris & Co/CA/
+    pct: 0.0019
+    shares: 6407366
+    value: 303837283.0
+  insiders: []
+RAA.DE:
+  fetched: 2026-02-21 17:17
+  holders:
+  - is_indexer: false
+    name: Gardner Russo & Quinn, LLC
+    pct: 0.0001
+    shares: 975
+    value: 722475.0
+  - is_indexer: false
+    name: Pacer Advisors, Inc.
+    pct: 0
+    shares: 26
+    value: 19266.0
+  insiders: []
+RACE.MI:
+  fetched: 2026-02-21 17:00
+  holders:
+  - is_indexer: false
+    name: Groupama Asset Managment
+    pct: 0.0949
+    shares: 16990621
+    value: 5253500220.0
+  - is_indexer: true
+    name: Vanguard Group Inc
+    pct: 0.0291
+    shares: 5213450
+    value: 1611998803.0
+  - is_indexer: false
+    name: BAILLIE GIFFORD & CO
+    pct: 0.0217
+    shares: 3890014
+    value: 1202792376.0
+  - is_indexer: false
+    name: Bank of America Corporation
+    pct: 0.018
+    shares: 3218538
+    value: 995171988.0
+  - is_indexer: false
+    name: Amundi
+    pct: 0.0166
+    shares: 2972368
+    value: 919056221.0
+  insiders: []
+RMS.PA:
+  fetched: 2026-02-21 17:17
+  holders:
+  - is_indexer: false
+    name: Gamma Investing LLC
+    pct: 0
+    shares: 33
+    value: 69696.0
+  - is_indexer: false
+    name: Generali Investments Cee, Investicni Spolecnost, A.s.
+    pct: 0
+    shares: 1799
+    value: 3799488.0
+  - is_indexer: false
+    name: Pacer Advisors, Inc.
+    pct: 0
+    shares: 455
+    value: 960960.0
+  insiders: []
+RO.SW:
+  fetched: 2026-02-21 17:17
+  holders:
+  - is_indexer: false
+    name: Bard Financial Services, Inc.
+    pct: 0
+    shares: 1000
+    value: 375799.0
+  insiders: []
+ROL:
+  fetched: 2026-02-21 17:17
+  holders:
+  - is_indexer: true
+    name: Vanguard Group Inc
+    pct: 0.0796
+    shares: 38282523
+    value: 2348632727.0
+  - is_indexer: true
+    name: Blackrock Inc.
+    pct: 0.0591
+    shares: 28449956
+    value: 1745404757.0
+  - is_indexer: true
+    name: State Street Corporation
+    pct: 0.026700001
+    shares: 12850361
+    value: 788369627.0
+  - is_indexer: true
+    name: Geode Capital Management, LLC
+    pct: 0.0211
+    shares: 10163847
+    value: 623551997.0
+  - is_indexer: false
+    name: Kayne Anderson Rudnick Investment Management LLC
+    pct: 0.0187
+    shares: 8999552
+    value: 552122501.0
+  - is_indexer: false
+    name: Invesco Ltd.
+    pct: 0.0117
+    shares: 5627320
+    value: 345236073.0
+  - is_indexer: false
+    name: Apg Asset Management N.V.
+    pct: 0.0109
+    shares: 5261697
+    value: 322805102.0
+  - is_indexer: false
+    name: NORGES BANK
+    pct: 0.0085
+    shares: 4076457
+    value: 250090630.0
+  - is_indexer: false
+    name: Morgan Stanley
+    pct: 0.0076
+    shares: 3647361
+    value: 223765591.0
+  - is_indexer: false
+    name: AMF Tjanstepension AB
+    pct: 0.0074
+    shares: 3582095
+    value: 219761522.0
+  insiders:
+  - date: '2026-02-10'
+    name: ROLLINS GARY W
+    shares: 34162
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2026-02-10'
+    name: CHANDLER ELIZABETH B
+    shares: 6319
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2026-02-10'
+    name: WILSON JOHN F
+    shares: 6262
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2026-02-10'
+    name: KRAUSE KENNETH D
+    shares: 22090
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2026-02-10'
+    name: GAHLHOFF JERRY JR
+    shares: 55060
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2026-01-28'
+    name: ROLLINS GARY W
+    shares: 10355
+    text: Sale at price 62.83 per share.
+    type: SELL
+  - date: '2026-01-28'
+    name: CHANDLER ELIZABETH B
+    shares: 1329
+    text: Sale at price 62.83 per share.
+    type: SELL
+  - date: '2026-01-28'
+    name: WILSON JOHN F
+    shares: 5344
+    text: Sale at price 62.83 per share.
+    type: SELL
+  - date: '2026-01-28'
+    name: GAHLHOFF JERRY JR
+    shares: 1307
+    text: Sale at price 62.83 per share.
+    type: SELL
+  - date: '2026-01-28'
+    name: TESH THOMAS D
+    shares: 323
+    text: Sale at price 62.83 per share.
+    type: SELL
+  - date: '2026-01-26'
+    name: ROLLINS GARY W
+    shares: 19094
+    text: Sale at price 63.26 per share.
+    type: SELL
+  - date: '2026-01-26'
+    name: CHANDLER ELIZABETH B
+    shares: 2151
+    text: Sale at price 63.26 per share.
+    type: SELL
+  - date: '2026-01-26'
+    name: WILSON JOHN F
+    shares: 7538
+    text: Sale at price 63.26 per share.
+    type: SELL
+  - date: '2026-01-26'
+    name: GAHLHOFF JERRY JR
+    shares: 4510
+    text: Sale at price 63.26 per share.
+    type: SELL
+  - date: '2026-01-26'
+    name: TESH THOMAS D
+    shares: 887
+    text: Sale at price 63.26 per share.
+    type: SELL
+ROP:
+  fetched: 2026-02-21 17:00
+  holders:
+  - is_indexer: true
+    name: Vanguard Group Inc
+    pct: 0.1171
+    shares: 12477100
+    value: 4189685515.0
+  - is_indexer: true
+    name: Blackrock Inc.
+    pct: 0.0863
+    shares: 9201647
+    value: 3089821124.0
+  - is_indexer: true
+    name: State Street Corporation
+    pct: 0.0478
+    shares: 5092005
+    value: 1709844402.0
+  - is_indexer: false
+    name: Morgan Stanley
+    pct: 0.0317
+    shares: 3376267
+    value: 1133716724.0
+  - is_indexer: false
+    name: Price (T.Rowe) Associates Inc
+    pct: 0.028800001
+    shares: 3070763
+    value: 1031131534.0
+  insiders:
+  - date: '2026-02-06'
+    name: JOYCE THOMAS PATRICK JR
+    shares: 1400
+    text: Purchase at price 358.46 per share.
+    type: BUY
+  - date: '2025-12-08'
+    name: WALLMAN RICHARD F.
+    shares: 4000
+    text: Stock Gift at price 0.00 per share.
+    type: OTHER
+  - date: '2025-12-01'
+    name: CONLEY JASON
+    shares: 6000
+    text: Sale at price 445.56 per share.
+    type: SELL
+  - date: '2025-12-01'
+    name: CONLEY JASON
+    shares: 6000
+    text: Conversion of Exercise of derivative security at price 170.6
+    type: OPTION
+  - date: '2025-11-12'
+    name: HUNN LAURENCE NEIL
+    shares: 10000
+    text: Purchase at price 451.58 - 452.40 per share.
+    type: BUY
+  - date: '2025-11-12'
+    name: BRINKLEY AMY WOODS
+    shares: 1200
+    text: Purchase at price 450.71 per share.
+    type: BUY
+  - date: '2025-11-11'
+    name: HUNN LAURENCE NEIL
+    shares: 30000
+    text: Sale at price 441.97 - 448.40 per share.
+    type: SELL
+  - date: '2025-11-11'
+    name: HUNN LAURENCE NEIL
+    shares: 30000
+    text: Conversion of Exercise of derivative security at price 186.7
+    type: OPTION
+  - date: '2025-09-15'
+    name: WALLMAN RICHARD F.
+    shares: 64
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2025-09-15'
+    name: ARCHAMBEAU SHELLYE L
+    shares: 64
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2025-09-15'
+    name: ESTEVES IRENE M
+    shares: 59
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2025-09-15'
+    name: JOYCE THOMAS PATRICK JR
+    shares: 59
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2025-08-15'
+    name: JOHNSON ROBERT D.
+    shares: 400
+    text: Sale at price 521.64 - 529.15 per share.
+    type: SELL
+  - date: '2025-07-24'
+    name: STIPANCICH JOHN K
+    shares: 100
+    text: Stock Gift at price 0.00 per share.
+    type: OTHER
+  - date: '2025-07-23'
+    name: STIPANCICH JOHN K
+    shares: 1500
+    text: Sale at price 564.17 per share.
+    type: SELL
+ROR.L:
+  fetched: 2026-02-21 17:17
+  holders:
+  - is_indexer: false
+    name: Canoe Financial LP
+    pct: 0.0025
+    shares: 2184325
+    value: 842275733.0
+  insiders:
+  - date: '2026-02-10'
+    name: Gerceker (Metin)
+    shares: 41
+    text: Bought at price 5.06 per share.
+    type: OTHER
+  - date: '2026-02-10'
+    name: Huynh (Kiet)
+    shares: 40
+    text: Bought at price 5.06 per share.
+    type: OTHER
+  - date: '2026-02-10'
+    name: Pascoe (Ross)
+    shares: 27
+    text: Bought at price 5.06 per share.
+    type: OTHER
+  - date: '2026-02-09'
+    name: Norges Bank Investment Management
+    shares: 619400
+    text: ''
+    type: OTHER
+  - date: '2026-01-12'
+    name: Pascoe (Ross)
+    shares: 29
+    text: Bought at price 4.58 per share.
+    type: OTHER
+  - date: '2026-01-12'
+    name: Gerceker (Metin)
+    shares: 44
+    text: Bought at price 4.58 per share.
+    type: OTHER
+  - date: '2026-01-12'
+    name: Huynh (Kiet)
+    shares: 45
+    text: Bought at price 4.58 per share.
+    type: OTHER
+  - date: '2025-12-12'
+    name: Huynh (Kiet)
+    shares: 9201
+    text: Exercise of Option at price 2.62 per share.
+    type: OPTION
+  - date: '2025-12-12'
+    name: Norges Bank Investment Management
+    shares: 22607363
+    text: ''
+    type: OTHER
+  - date: '2025-12-10'
+    name: Pascoe (Ross)
+    shares: 31
+    text: Bought at price 4.38 per share.
+    type: OTHER
+  - date: '2025-12-10'
+    name: Gerceker (Metin)
+    shares: 46
+    text: Bought at price 4.38 per share.
+    type: OTHER
+  - date: '2025-12-10'
+    name: Huynh (Kiet)
+    shares: 45
+    text: Bought at price 4.38 per share.
+    type: OTHER
+  - date: '2025-12-01'
+    name: Norris (Lyndsey)
+    shares: 5520
+    text: Exercise of Option at price 2.59 per share.
+    type: OPTION
+  - date: '2025-12-01'
+    name: Norris (Lyndsey)
+    shares: 5520
+    text: Sold at price 4.40 per share.
+    type: OTHER
+  - date: '2025-11-27'
+    name: BlackRock Investment Management (UK) Ltd.
+    shares: 127114
+    text: ''
+    type: OTHER
+SOON.SW:
+  fetched: 2026-02-21 17:00
+  holders:
+  - is_indexer: false
+    name: Pacer Advisors, Inc.
+    pct: 0
+    shares: 51
+    value: 9996.0
+  insiders: []
+STMN.SW:
+  fetched: 2026-02-21 17:00
+  holders:
+  - is_indexer: false
+    name: Albert D Mason Inc
+    pct: 0.0001
+    shares: 12390
+    value: 1166642.0
+  insiders: []
+V:
+  fetched: 2026-02-21 17:00
+  holders:
+  - is_indexer: true
+    name: Vanguard Group Inc
+    pct: 0.0958
+    shares: 160975832
+    value: 51665195245.0
+  - is_indexer: true
+    name: Blackrock Inc.
+    pct: 0.0834
+    shares: 140150489
+    value: 44981301155.0
+  - is_indexer: true
+    name: State Street Corporation
+    pct: 0.0493
+    shares: 82798151
+    value: 26574067574.0
+  - is_indexer: false
+    name: FMR, LLC
+    pct: 0.029000001
+    shares: 48693197
+    value: 15628082171.0
+  - is_indexer: false
+    name: Morgan Stanley
+    pct: 0.0279
+    shares: 46863081
+    value: 15040706419.0
+  insiders:
+  - date: '2026-02-13'
+    name: MCINERNEY RYAN
+    shares: 11754
+    text: ''
+    type: OTHER
+  - date: '2026-02-13'
+    name: MAHON TULLIER KELLY
+    shares: 35537
+    text: ''
+    type: OTHER
+  - date: '2026-02-13'
+    name: FABARA PAUL D
+    shares: 21322
+    text: ''
+    type: OTHER
+  - date: '2026-02-13'
+    name: TANEJA RAJAT
+    shares: 35537
+    text: ''
+    type: OTHER
+  - date: '2026-01-27'
+    name: READY WILLIAM J
+    shares: 861
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2026-01-27'
+    name: MURPHY PAM
+    shares: 861
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2026-01-27'
+    name: LUNDGREN JOHN F
+    shares: 861
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2026-01-27'
+    name: CARNEY LLOYD A
+    shares: 861
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2026-01-27'
+    name: LIST-STOLL TERI L.
+    shares: 861
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2026-01-27'
+    name: MORRISON DENISE M
+    shares: 861
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2026-01-27'
+    name: FERNANDEZ CARBAJAL FRANCISCO JAVIER
+    shares: 861
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2026-01-02'
+    name: MCINERNEY RYAN
+    shares: 10485
+    text: Sale at price 349.18 per share.
+    type: SELL
+  - date: '2026-01-02'
+    name: MCINERNEY RYAN
+    shares: 10485
+    text: Conversion of Exercise of derivative security at price 109.8
+    type: OPTION
+  - date: '2025-12-11'
+    name: MCINERNEY RYAN
+    shares: 10485
+    text: Sale at price 340.07 per share.
+    type: SELL
+  - date: '2025-12-11'
+    name: MCINERNEY RYAN
+    shares: 10485
+    text: Conversion of Exercise of derivative security at price 109.8
+    type: OPTION
+VEEV:
+  fetched: 2026-02-21 17:17
+  holders:
+  - is_indexer: true
+    name: Vanguard Group Inc
+    pct: 0.0935
+    shares: 15368868
+    value: 2771160551.0
+  - is_indexer: true
+    name: Blackrock Inc.
+    pct: 0.0696
+    shares: 11445585
+    value: 2063753403.0
+  - is_indexer: false
+    name: FMR, LLC
+    pct: 0.0401
+    shares: 6595332
+    value: 1189204296.0
+  - is_indexer: false
+    name: Alliancebernstein L.P.
+    pct: 0.0361
+    shares: 5941631
+    value: 1071335471.0
+  - is_indexer: false
+    name: T. Rowe Price Investment Management, Inc.
+    pct: 0.0238
+    shares: 3904655
+    value: 704048333.0
+  - is_indexer: false
+    name: Principal Financial Group, Inc.
+    pct: 0.0235
+    shares: 3870293
+    value: 697852521.0
+  - is_indexer: true
+    name: State Street Corporation
+    pct: 0.0218
+    shares: 3589425
+    value: 647209212.0
+  - is_indexer: true
+    name: Geode Capital Management, LLC
+    pct: 0.019299999
+    shares: 3172716
+    value: 572072414.0
+  - is_indexer: false
+    name: Linonia Partnership LP
+    pct: 0.018099999
+    shares: 2970254
+    value: 535566491.0
+  - is_indexer: false
+    name: JPMORGAN CHASE & CO
+    pct: 0.0153
+    shares: 2521946
+    value: 454732077.0
+  insiders:
+  - date: '2026-01-13'
+    name: SCHWENGER THOMAS D
+    shares: 1000
+    text: Sale at price 231.43 per share.
+    type: SELL
+  - date: '2025-12-31'
+    name: FADDIS JONATHAN W
+    shares: 1225
+    text: ''
+    type: OTHER
+  - date: '2025-12-31'
+    name: VAN WAGENER BRIAN
+    shares: 871
+    text: ''
+    type: OTHER
+  - date: '2025-12-31'
+    name: KONDATH VIPIN
+    shares: 103
+    text: ''
+    type: OTHER
+  - date: '2025-12-31'
+    name: ZUPPAS ELENI NITSA A
+    shares: 1498
+    text: ''
+    type: OTHER
+  - date: '2025-12-31'
+    name: SCHWENGER THOMAS D
+    shares: 2042
+    text: ''
+    type: OTHER
+  - date: '2025-12-02'
+    name: SEKHRI PAUL JAI
+    shares: 2491
+    text: Stock Gift at price 0.00 per share.
+    type: OTHER
+  - date: '2025-12-01'
+    name: CABRAL TIMOTHY S
+    shares: 263
+    text: ''
+    type: OTHER
+  - date: '2025-12-01'
+    name: SEKHRI PAUL JAI
+    shares: 254
+    text: ''
+    type: OTHER
+  - date: '2025-12-01'
+    name: HEDLEY MARY LYNNE
+    shares: 263
+    text: ''
+    type: OTHER
+  - date: '2025-12-01'
+    name: HUNG PRISCILLA C
+    shares: 263
+    text: ''
+    type: OTHER
+  - date: '2025-12-01'
+    name: CARGES MARK T
+    shares: 271
+    text: ''
+    type: OTHER
+  - date: '2025-12-01'
+    name: MOHR MARSHALL L
+    shares: 289
+    text: ''
+    type: OTHER
+  - date: '2025-12-01'
+    name: RITTER GORDON
+    shares: 298
+    text: ''
+    type: OTHER
+  - date: '2025-12-01'
+    name: WALLACH MATTHEW J
+    shares: 254
+    text: ''
+    type: OTHER
+VLTO:
+  fetched: 2026-02-21 17:00
+  holders:
+  - is_indexer: true
+    name: Vanguard Group Inc
+    pct: 0.12060001
+    shares: 29956267
+    value: 2788329387.0
+  - is_indexer: true
+    name: Blackrock Inc.
+    pct: 0.097799994
+    shares: 24291522
+    value: 2261054912.0
+  - is_indexer: true
+    name: State Street Corporation
+    pct: 0.0432
+    shares: 10720184
+    value: 997834746.0
+  - is_indexer: true
+    name: Geode Capital Management, LLC
+    pct: 0.0292
+    shares: 7249875
+    value: 674818378.0
+  - is_indexer: false
+    name: T. Rowe Price Investment Management, Inc.
+    pct: 0.0278
+    shares: 6898249
+    value: 642089029.0
+  insiders:
+  - date: '2025-12-01'
+    name: BYSTROM MATTIAS
+    shares: 1000
+    text: Sale at price 101.73 per share.
+    type: SELL
+  - date: '2025-11-14'
+    name: BENETEAU LESLEY
+    shares: 1622
+    text: Conversion of Exercise of derivative security at price 23.64
+    type: OPTION
+  - date: '2025-08-29'
+    name: HONEYCUTT JENNIFER L
+    shares: 10646
+    text: Sale at price 106.26 per share.
+    type: SELL
+  - date: '2025-08-29'
+    name: HONEYCUTT JENNIFER L
+    shares: 10646
+    text: Conversion of Exercise of derivative security at price 28.76
+    type: OPTION
+  - date: '2025-07-15'
+    name: LOHR WALTER G JR
+    shares: 818
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2025-07-15'
+    name: COMAS DANIEL L
+    shares: 818
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2025-07-15'
+    name: SCHWIETERS JOHN T
+    shares: 818
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2025-07-15'
+    name: WILLIAMS THOMAS L II
+    shares: 818
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2025-07-15'
+    name: MITTS HEATH A
+    shares: 818
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2025-07-15'
+    name: KING WILLIAM H
+    shares: 818
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2025-07-15'
+    name: KAMBEYANDA SHYAM
+    shares: 818
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2025-07-15'
+    name: COLPRON FRANCOISE
+    shares: 818
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2025-07-15'
+    name: WALLIS-LAGE CINDY L
+    shares: 818
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2025-07-15'
+    name: FILLER LINDA
+    shares: 1561
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2025-07-15'
+    name: SANKARAN VIJAY P
+    shares: 818
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+VRSK:
+  fetched: 2026-02-21 17:17
+  holders:
+  - is_indexer: true
+    name: Vanguard Group Inc
+    pct: 0.1232
+    shares: 17169363
+    value: 3133408747.0
+  - is_indexer: true
+    name: Blackrock Inc.
+    pct: 0.089700006
+    shares: 12494817
+    value: 2280304102.0
+  - is_indexer: true
+    name: State Street Corporation
+    pct: 0.0436
+    shares: 6076730
+    value: 1109003225.0
+  - is_indexer: false
+    name: Alliancebernstein L.P.
+    pct: 0.038399998
+    shares: 5354082
+    value: 977119965.0
+  - is_indexer: false
+    name: FMR, LLC
+    pct: 0.0311
+    shares: 4331000
+    value: 790407500.0
+  - is_indexer: true
+    name: Geode Capital Management, LLC
+    pct: 0.0296
+    shares: 4121219
+    value: 752122467.0
+  - is_indexer: false
+    name: Morgan Stanley
+    pct: 0.028099999
+    shares: 3914224
+    value: 714345880.0
+  - is_indexer: false
+    name: Capital International Investors
+    pct: 0.0234
+    shares: 3264323
+    value: 595738947.0
+  - is_indexer: false
+    name: Shaw D.E. & Co., Inc.
+    pct: 0.0138
+    shares: 1921796
+    value: 350727770.0
+  - is_indexer: false
+    name: Massachusetts Financial Services Co.
+    pct: 0.0137
+    shares: 1903422
+    value: 347374515.0
+  insiders:
+  - date: '2026-01-15'
+    name: SHAVEL LEE M
+    shares: 40152
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2026-01-15'
+    name: BHATIA-HOLZER SUNITA
+    shares: 6061
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2026-01-15'
+    name: GROVER DAVID J.
+    shares: 1243
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2026-01-15'
+    name: DAFFAN NICHOLAS
+    shares: 8739
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2026-01-15'
+    name: BECKLES KATHY CARD
+    shares: 7432
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2026-01-15'
+    name: MANN ELIZABETH
+    shares: 10960
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2025-12-31'
+    name: LISS SAMUEL G.
+    shares: 134
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2025-12-31'
+    name: PERRY CHRISTOPHER JOHN
+    shares: 117
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2025-12-31'
+    name: PURTILL SABRA R
+    shares: 117
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2025-12-31'
+    name: HENDRICK GREGORY S.
+    shares: 70
+    text: Stock Award(Grant) at price 0.00 per share.
+    type: OTHER
+  - date: '2025-12-16'
+    name: MANN ELIZABETH
+    shares: 300
+    text: Sale at price 219.54 per share.
+    type: SELL
+  - date: '2025-11-18'
+    name: SHAVEL LEE M
+    shares: 2200
+    text: Sale at price 216.99 - 220.07 per share.
+    type: SELL
+  - date: '2025-11-17'
+    name: MANN ELIZABETH
+    shares: 300
+    text: Sale at price 216.99 per share.
+    type: SELL
+  - date: '2025-10-31'
+    name: DAILEY JEFFREY J
+    shares: 500
+    text: Purchase at price 217.03 per share.
+    type: BUY
+  - date: '2025-10-31'
+    name: PURTILL SABRA R
+    shares: 450
+    text: Purchase at price 217.95 per share.
+    type: BUY
+ZTS:
+  fetched: 2026-02-21 17:17
+  holders:
+  - is_indexer: true
+    name: Vanguard Group Inc
+    pct: 0.113199994
+    shares: 47780974
+    value: 6153233773.0
+  - is_indexer: true
+    name: Blackrock Inc.
+    pct: 0.0885
+    shares: 37350823
+    value: 4810038940.0
+  - is_indexer: true
+    name: State Street Corporation
+    pct: 0.0469
+    shares: 19796891
+    value: 2549443598.0
+  - is_indexer: false
+    name: State Farm Mutual Automobile Insurance Co
+    pct: 0.0376
+    shares: 15892903
+    value: 2046688028.0
+  - is_indexer: false
+    name: Morgan Stanley
+    pct: 0.0366
+    shares: 15465506
+    value: 1991647843.0
+  - is_indexer: true
+    name: Geode Capital Management, LLC
+    pct: 0.026800001
+    shares: 11327679
+    value: 1458778487.0
+  - is_indexer: false
+    name: Wellington Management Group, LLP
+    pct: 0.0202
+    shares: 8541423
+    value: 1099964443.0
+  - is_indexer: true
+    name: Northern Trust Corporation
+    pct: 0.014199999
+    shares: 6002937
+    value: 773058219.0
+  - is_indexer: false
+    name: Bank of America Corporation
+    pct: 0.014199999
+    shares: 5980054
+    value: 770111346.0
+  - is_indexer: false
+    name: NORGES BANK
+    pct: 0.0138
+    shares: 5837110
+    value: 751703018.0
+  insiders:
+  - date: '2026-02-17'
+    name: PECK KRISTIN C
+    shares: 20000
+    text: Sale at price 126.46 - 127.55 per share.
+    type: SELL
+  - date: '2026-02-17'
+    name: PECK KRISTIN C
+    shares: 20000
+    text: Conversion of Exercise of derivative security at price 41.83
+    type: OPTION
+  - date: '2026-02-06'
+    name: LAGANO ROXANNE
+    shares: 1149
+    text: ''
+    type: OTHER
+  - date: '2026-02-06'
+    name: FERRAN ASTORGA JEANNETTE
+    shares: 424
+    text: ''
+    type: OTHER
+  - date: '2026-02-06'
+    name: ASHTON NICHOLAS
+    shares: 779
+    text: ''
+    type: OTHER
+  - date: '2026-02-06'
+    name: DRISCOLL RIMMA
+    shares: 414
+    text: ''
+    type: OTHER
+  - date: '2026-02-06'
+    name: BRANNAN JAMIE
+    shares: 909
+    text: ''
+    type: OTHER
+  - date: '2026-02-06'
+    name: SARBAUGH KEITH
+    shares: 119
+    text: ''
+    type: OTHER
+  - date: '2026-02-06'
+    name: ESCH KEVIN PH.D.
+    shares: 93
+    text: ''
+    type: OTHER
+  - date: '2026-02-06'
+    name: JOSEPH WETTENY
+    shares: 2797
+    text: ''
+    type: OTHER
+  - date: '2026-02-06'
+    name: PECK KRISTIN C
+    shares: 11779
+    text: ''
+    type: OTHER
+  - date: '2025-09-30'
+    name: FULLER JULIE
+    shares: 784
+    text: ''
+    type: OTHER
+  - date: '2025-09-15'
+    name: LAGANO ROXANNE
+    shares: 700
+    text: Stock Gift at price 0.00 per share.
+    type: OTHER
+  - date: '2025-07-25'
+    name: BROADHURST VANESSA
+    shares: 1412
+    text: ''
+    type: OTHER
+  - date: '2025-06-03'
+    name: LAGANO ROXANNE
+    shares: 652
+    text: Sale at price 170.00 per share.
+    type: SELL

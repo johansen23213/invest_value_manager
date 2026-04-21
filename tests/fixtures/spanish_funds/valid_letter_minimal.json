@@ -1,0 +1,9 @@
+{
+  "fund_id": "cobas",
+  "fund_name": "Cobas Selección",
+  "quarter": "2026-Q1",
+  "extracted_at": "2026-04-20T10:00:00Z",
+  "extraction_model": "claude-sonnet-4-6",
+  "source_url": "https://www.cobasam.com/cartas/2026-Q1.pdf",
+  "positions": []
+}

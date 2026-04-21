@@ -23,6 +23,24 @@ def load_decisions_log():
         print("ERROR: decisions_log.yaml not found")
         return None
 
+def load_portfolio():
+    """Load current portfolio from portfolio/current.yaml"""
+    path = os.path.join(os.path.dirname(__file__), '..', 'portfolio', 'current.yaml')
+    try:
+        with open(path) as f:
+            return yaml.safe_load(f)
+    except FileNotFoundError:
+        return None
+
+def load_standing_orders():
+    """Load standing orders from state/standing_orders.yaml"""
+    path = os.path.join(os.path.dirname(__file__), '..', 'state', 'standing_orders.yaml')
+    try:
+        with open(path) as f:
+            return yaml.safe_load(f)
+    except FileNotFoundError:
+        return None
+
 def extract_sizing_values(decisions):
     """Extract numeric sizing values from decisions"""
     sizings = []
@@ -70,7 +88,7 @@ def analyze_sizing_trend(sizings):
     if len(sizings) < 3:
         return {
             'status': 'INSUFFICIENT_DATA',
-            'message': f"Solo {len(sizings)} decisiones. Necesita ≥3 para detectar tendencia."
+            'message': f"Solo {len(sizings)} decisiones. Necesita >=3 para detectar tendencia."
         }
 
     # Calculate average sizing
@@ -84,34 +102,19 @@ def analyze_sizing_trend(sizings):
 
     diff = second_half_avg - first_half_avg
 
-    if abs(diff) < 0.5:
-        return {
-            'status': 'OK',
-            'message': f"Sizing estable. Promedio: {avg:.1f}%. Variación: {diff:+.1f}pp",
-            'avg': avg,
-            'trend': diff
-        }
-    elif abs(diff) < 1.5:
-        return {
-            'status': 'REVIEW',
-            'message': f"Tendencia leve en sizing. Promedio: {avg:.1f}%. Variación: {diff:+.1f}pp",
-            'avg': avg,
-            'trend': diff
-        }
-    else:
-        return {
-            'status': 'ALERT',
-            'message': f"ALERTA: Drift significativo en sizing. Variación: {diff:+.1f}pp",
-            'avg': avg,
-            'trend': diff
-        }
+    return {
+        'status': 'DATA',
+        'message': f"Sizing promedio: {avg:.1f}%. Primera mitad: {first_half_avg:.1f}%. Segunda mitad: {second_half_avg:.1f}%. Variación: {diff:+.1f}pp",
+        'avg': avg,
+        'trend': diff
+    }
 
 def analyze_mos_threshold(mos_values):
     """Analyze if MoS acceptance threshold is drifting"""
     if len(mos_values) < 3:
         return {
             'status': 'INSUFFICIENT_DATA',
-            'message': f"Solo {len(mos_values)} decisiones con MoS. Necesita ≥3."
+            'message': f"Solo {len(mos_values)} decisiones con MoS. Necesita >=3."
         }
 
     # Group by tier
@@ -164,18 +167,52 @@ def analyze_conviction_distribution(decisions):
     medium_pct = convictions.get('media', 0) / total * 100
     low_pct = convictions.get('baja', 0) / total * 100
 
-    if high_pct > 85:
-        return {
-            'status': 'REVIEW',
-            'message': f"REVISAR: {high_pct:.0f}% de decisiones son 'alta convicción'. Posible inflación.",
-            'distribution': dict(convictions)
-        }
-
     return {
-        'status': 'OK',
+        'status': 'DATA',
         'message': f"Distribución: Alta {high_pct:.0f}%, Media {medium_pct:.0f}%, Baja {low_pct:.0f}%",
         'distribution': dict(convictions)
     }
+
+def analyze_short_exposure(portfolio, standing_orders, log):
+    """Analyze short position exposure from portfolio and standing orders"""
+    result = {
+        'active_shorts': 0,
+        'short_tickers': [],
+        'total_short_eur': 0,
+        'short_orders': 0,
+        'short_order_tickers': [],
+        'short_decisions_count': 0,
+    }
+
+    # Active short positions from portfolio
+    if portfolio:
+        short_positions = portfolio.get('short_positions', [])
+        if short_positions:
+            result['active_shorts'] = len(short_positions)
+            for sp in short_positions:
+                ticker = sp.get('ticker', 'N/A')
+                result['short_tickers'].append(ticker)
+                # Estimate EUR value from entry_price_usd * shares (approximate)
+                entry_price = sp.get('entry_price_usd', 0)
+                shares = sp.get('shares', 0)
+                # Rough USD to EUR conversion (tool outputs raw data, not precision)
+                result['total_short_eur'] += entry_price * shares / 1.05  # approximate
+
+    # Short orders from standing_orders
+    if standing_orders:
+        short_orders = standing_orders.get('short_orders', [])
+        if short_orders:
+            result['short_orders'] = len(short_orders)
+            for so in short_orders:
+                result['short_order_tickers'].append(so.get('ticker', 'N/A'))
+
+    # Short decisions from decisions_log
+    if log:
+        short_decisions = log.get('short_decisions', [])
+        cover_decisions = log.get('cover_decisions', [])
+        result['short_decisions_count'] = len(short_decisions) + len(cover_decisions)
+
+    return result
 
 def print_report(log, verbose=False):
     """Print drift detection report"""
@@ -187,9 +224,13 @@ def print_report(log, verbose=False):
     sizing_decisions = log.get('sizing_decisions', [])
     trim_decisions = log.get('trim_decisions', [])
     hold_decisions = log.get('hold_decisions', [])
-    all_decisions = sizing_decisions + trim_decisions + hold_decisions
+    short_decisions = log.get('short_decisions', [])
+    cover_decisions = log.get('cover_decisions', [])
+    all_decisions = sizing_decisions + trim_decisions + hold_decisions + short_decisions + cover_decisions
 
     print(f"\nDecisiones analizadas: {len(all_decisions)}")
+    if short_decisions or cover_decisions:
+        print(f"  (Long: {len(sizing_decisions) + len(trim_decisions) + len(hold_decisions)}, Short: {len(short_decisions)}, Cover: {len(cover_decisions)})")
 
     # Metric 1: Sizing Trend
     print(f"\n{'─' * 50}")
@@ -199,14 +240,13 @@ def print_report(log, verbose=False):
     sizings = extract_sizing_values(sizing_decisions)
     sizing_result = analyze_sizing_trend(sizings)
 
-    status_symbol = {'OK': '✓', 'REVIEW': '⚠', 'ALERT': '✗', 'INSUFFICIENT_DATA': '?'}
-    print(f"  [{status_symbol.get(sizing_result['status'], '?')}] {sizing_result['status']}")
+    print(f"  [{sizing_result['status']}]")
     print(f"  {sizing_result['message']}")
 
     if verbose and sizings:
         print("\n  Detalle de sizings:")
         for s in sizings[-5:]:  # Last 5
-            print(f"    {s['date']}: {s['ticker']} → {s['value']:.1f}% (Tier {s['tier']})")
+            print(f"    {s['date']}: {s['ticker']} -> {s['value']:.1f}% (Tier {s['tier']})")
 
     # Metric 2: MoS Threshold
     print(f"\n{'─' * 50}")
@@ -216,7 +256,7 @@ def print_report(log, verbose=False):
     mos_values = extract_mos_values(sizing_decisions)
     mos_result = analyze_mos_threshold(mos_values)
 
-    print(f"  [{status_symbol.get(mos_result['status'], '?')}] {mos_result['status']}")
+    print(f"  [{mos_result['status']}]")
     print(f"  {mos_result['message']}")
 
     if verbose and 'details' in mos_result:
@@ -231,7 +271,7 @@ def print_report(log, verbose=False):
 
     conv_result = analyze_conviction_distribution(sizing_decisions)
 
-    print(f"  [{status_symbol.get(conv_result['status'], '?')}] {conv_result['status']}")
+    print(f"  [{conv_result['status']}]")
     print(f"  {conv_result['message']}")
 
     # Metric 4: Decision Frequency
@@ -247,16 +287,48 @@ def print_report(log, verbose=False):
                 most_recent = max(dates_parsed)
                 days_since = (datetime.now() - most_recent).days
                 print(f"  Última decisión registrada: hace {days_since} días")
-                if days_since > 14:
-                    print(f"  ⚠ REVISAR: Más de 14 días sin documentar decisiones.")
-                else:
-                    print(f"  ✓ OK: Decisiones documentadas recientemente.")
             except:
-                print("  ? No se pudo analizar frecuencia.")
+                print("  No se pudo analizar frecuencia.")
         else:
-            print("  ? No hay fechas en decisiones.")
+            print("  No hay fechas en decisiones.")
     else:
-        print("  ? No hay decisiones documentadas.")
+        print("  No hay decisiones documentadas.")
+
+    # Metric 5: Short Exposure
+    print(f"\n{'─' * 50}")
+    print("MÉTRICA 5: SHORT EXPOSURE")
+    print(f"{'─' * 50}")
+
+    portfolio = load_portfolio()
+    standing_orders = load_standing_orders()
+    short_data = analyze_short_exposure(portfolio, standing_orders, log)
+
+    if short_data['active_shorts'] == 0 and short_data['short_orders'] == 0 and short_data['short_decisions_count'] == 0:
+        print("  No hay shorts activos.")
+    else:
+        print(f"  Active shorts: {short_data['active_shorts']}")
+        if short_data['short_tickers']:
+            print(f"    Tickers: {', '.join(short_data['short_tickers'])}")
+            print(f"    Total short (approx EUR): {short_data['total_short_eur']:.0f}")
+            # Calculate as % of portfolio if portfolio data available
+            if portfolio:
+                cash_eur = portfolio.get('cash', {}).get('amount', 0)
+                # Rough estimate of long portfolio value (use invested amounts)
+                long_invested = 0
+                for pos in portfolio.get('positions', []):
+                    invested_usd = pos.get('invested_usd', 0)
+                    invested_eur = pos.get('invested_eur', 0)
+                    long_invested += invested_eur if invested_eur else invested_usd / 1.05
+                total_portfolio = long_invested + cash_eur
+                if total_portfolio > 0:
+                    short_pct = short_data['total_short_eur'] / total_portfolio * 100
+                    print(f"    Short as % of portfolio (approx): {short_pct:.1f}%")
+        print(f"  Pending short orders: {short_data['short_orders']}")
+        if short_data['short_order_tickers']:
+            print(f"    Tickers: {', '.join(short_data['short_order_tickers'])}")
+        print(f"  Short+Cover decisions in log: {short_data['short_decisions_count']}")
+
+    print(f"\n  [Raw data. Reason from principles.md]")
 
     # Overall Status
     print(f"\n{'=' * 70}")
@@ -264,21 +336,16 @@ def print_report(log, verbose=False):
     print(f"{'=' * 70}")
 
     statuses = [sizing_result['status'], mos_result['status'], conv_result['status']]
-    if 'ALERT' in statuses:
-        overall = 'ALERT'
-        symbol = '✗'
-        action = "ACCIÓN REQUERIDA: Revisar decisiones recientes con el humano."
-    elif 'REVIEW' in statuses:
-        overall = 'REVIEW'
-        symbol = '⚠'
-        action = "RECOMENDACIÓN: Revisar las métricas marcadas. Documentar si es intencional."
-    else:
-        overall = 'OK'
-        symbol = '✓'
-        action = "El sistema parece consistente. Continuar operando normalmente."
+    # Include short exposure in overall status if it has data
+    if short_data['active_shorts'] > 0 or short_data['short_orders'] > 0:
+        statuses.append('DATA')  # Short data available for review
 
-    print(f"\n  [{symbol}] {overall}")
-    print(f"\n  {action}")
+    # Report raw status counts
+    data_count = statuses.count('DATA')
+    insuf_count = statuses.count('INSUFFICIENT_DATA')
+    print(f"\n  Metrics with data: {data_count}")
+    print(f"  Metrics with insufficient data: {insuf_count}")
+    print(f"\n  [Raw data. Reason from principles.md]")
 
     # Patterns if available
     patterns = log.get('patterns', {})

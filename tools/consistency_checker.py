@@ -7,6 +7,8 @@ Usage:
   python3 tools/consistency_checker.py "BUY NVO 4%"
   python3 tools/consistency_checker.py "TRIM SHEL.L 50%"
   python3 tools/consistency_checker.py "HOLD ADBE"
+  python3 tools/consistency_checker.py "SHORT XYZ 3%"
+  python3 tools/consistency_checker.py "COVER XYZ"
 """
 import sys
 import os
@@ -25,7 +27,7 @@ def load_decisions_log():
         return None
 
 def parse_decision(decision_str):
-    """Parse a decision string like 'BUY NVO 4%' or 'TRIM SHEL.L 50%'"""
+    """Parse a decision string like 'BUY NVO 4%', 'SHORT XYZ 3%', or 'COVER XYZ'"""
     parts = decision_str.upper().split()
     if len(parts) < 2:
         return None
@@ -55,6 +57,10 @@ def find_similar_precedents(decision, log):
         section = log.get('trim_decisions', [])
     elif action == 'HOLD':
         section = log.get('hold_decisions', [])
+    elif action == 'SHORT':
+        section = log.get('short_decisions', [])
+    elif action == 'COVER':
+        section = log.get('cover_decisions', [])
     else:
         section = []
 
@@ -140,7 +146,7 @@ def analyze_coherence(decision, precedents):
                 else:
                     return {
                         'coherent': False,
-                        'message': f"ALERTA: Sizing difiere {diff:.1f}pp del precedente. Requiere justificación explícita.",
+                        'message': f"Sizing difiere {diff:.1f}pp del precedente. Requiere justificación explícita.",
                         'precedent': top_precedent
                     }
         except:
@@ -188,11 +194,11 @@ def print_analysis(decision_str, decision, precedents, coherence):
     print(f"{'─' * 50}")
 
     if coherence['coherent'] is True:
-        print(f"\n  ✓ COHERENTE")
+        print(f"\n  COHERENTE")
     elif coherence['coherent'] is False:
-        print(f"\n  ✗ INCONSISTENCIA DETECTADA")
+        print(f"\n  INCONSISTENCIA DETECTADA")
     else:
-        print(f"\n  ? SIN PRECEDENTES COMPARABLES")
+        print(f"\n  SIN PRECEDENTES COMPARABLES")
 
     print(f"  {coherence['message']}")
 
@@ -204,20 +210,8 @@ def print_analysis(decision_str, decision, precedents, coherence):
         print(f"\n  Precedente más relevante: {p.get('ticker')} ({p.get('date')})")
 
     print(f"\n{'─' * 50}")
-    print("RECOMENDACIÓN:")
+    print("[Raw data. Reason from principles.md]")
     print(f"{'─' * 50}")
-
-    if coherence['coherent'] is True:
-        print("  → Proceder con la decisión.")
-        print("  → Documentar en decisions_log.yaml después de ejecutar.")
-    elif coherence['coherent'] is False:
-        print("  → PARAR y revisar antes de proceder.")
-        print("  → Si el contexto justifica la diferencia, documentar explícitamente.")
-        print("  → Si no hay justificación clara, reconsiderar la decisión.")
-    else:
-        print("  → Esta será un nuevo precedente.")
-        print("  → Documentar con detalle el razonamiento.")
-        print("  → Las futuras decisiones similares usarán esta como referencia.")
 
     print()
 
@@ -232,7 +226,7 @@ def main():
     if not decision:
         print(f"ERROR: No se pudo parsear la decisión: {decision_str}")
         print("Formato esperado: ACTION TICKER [SIZING]")
-        print("Ejemplos: 'BUY NVO 4%', 'TRIM SHEL.L 50%', 'HOLD ADBE'")
+        print("Ejemplos: 'BUY NVO 4%', 'TRIM SHEL.L 50%', 'HOLD ADBE', 'SHORT XYZ 3%', 'COVER XYZ'")
         sys.exit(1)
 
     log = load_decisions_log()

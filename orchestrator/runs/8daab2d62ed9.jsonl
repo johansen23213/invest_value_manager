@@ -1,0 +1,2 @@
+{"run_id": "8daab2d62ed9", "event_type": "run_start", "timestamp": 1776318128.147166, "agent_id": "", "data": {"flow": "weekly", "params": {}}}
+{"run_id": "8daab2d62ed9", "event_type": "run_end", "timestamp": 1776318128.14727, "agent_id": "", "data": {"success": true, "summary": {"flow": "weekly"}}}
