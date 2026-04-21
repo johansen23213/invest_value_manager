@@ -1,0 +1,21 @@
+{
+  "fund_id": "azvalor",
+  "fund_name": "AzValor Internacional",
+  "quarter": "2026-Q1",
+  "extracted_at": "2026-04-20T10:00:00Z",
+  "extraction_model": "claude-sonnet-4-6",
+  "source_url": "https://azvalor.com/q1-2026.pdf",
+  "fund_return_pct": 5.1,
+  "aum_eur": 1500000000,
+  "positions": [
+    {
+      "company_name": "Atalaya Mining",
+      "ticker": "ATYM.L",
+      "ticker_status": "verified",
+      "weight_pct": 5.1,
+      "action": "increased",
+      "upside_pct": 50,
+      "thesis_text": "Permisos avanzando."
+    }
+  ]
+}

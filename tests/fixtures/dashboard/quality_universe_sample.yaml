@@ -1,0 +1,34 @@
+quality_universe:
+  companies:
+    - ticker: INTU
+      name: Intuit Inc.
+      tier: B
+      qs_tool: 77
+      qs_adj: 72
+      sector: Financial Technology
+      direction: long
+      currency: USD
+      current_price: 433.35
+      entry_price: 290.0
+      fair_value: 395.0
+      distance_to_entry: 49.4
+      distance_delta: 17.8
+      pipeline_status: R3_COMPLETE
+      notes: "DA STRONG COUNTER."
+      thesis_path: thesis/research/INTU/thesis.md
+    - ticker: ATYM.L
+      name: Atalaya Mining
+      tier: A
+      qs_tool: 83
+      qs_adj: 83
+      sector: Mining
+      direction: long
+      currency: GBP
+      current_price: 159.40
+      entry_price: 165.0
+      fair_value: 240.0
+      distance_to_entry: -3.4
+      distance_delta: 0
+      pipeline_status: R4_READY
+      notes: "Hormuz cleared."
+      thesis_path: thesis/research/ALFA.L/thesis.md
